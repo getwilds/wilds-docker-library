@@ -1,0 +1,17 @@
+
+FROM ubuntu:noble-20240114
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.description="Container image for the use of Picard in FH DaSL's WILDS"
+LABEL org.opencontainers.image.licenses=MIT
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk && \
+    apt-get install -y ant && \
+    apt-get install -y wget && \
+    apt-get clean;
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
+RUN export JAVA_HOME
+RUN wget https://github.com/broadinstitute/picard/releases/download/3.1.1/picard.jar
