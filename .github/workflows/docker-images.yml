@@ -44,6 +44,9 @@ jobs:
           docker build --platform linux/amd64 -t ghcr.io/getwilds/picard:latest -f Dockerfile_picard .
           docker run ghcr.io/getwilds/picard:latest
           docker push ghcr.io/getwilds/picard:latest
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/biobambam2:latest -f Dockerfile_biobambam2 .
+          docker run ghcr.io/getwilds/biobambam2:latest
+          docker push ghcr.io/getwilds/biobambam2:latest
 
 
 
