@@ -1,0 +1,14 @@
+
+FROM ubuntu:noble-20240114
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.description="Container image for the use of bwa in FH DaSL's WILDS"
+LABEL org.opencontainers.image.licenses=MIT
+RUN apt-get update \
+  && apt-get install -y build-essential wget zlib1g-dev autoconf automake libncurses5-dev libbz2-dev liblzma-dev libssl-dev libcurl4-gnutls-dev \
+  && rm -rf /var/lib/apt/lists/*
+RUN wget https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2
+RUN tar -jxf bwa-0.7.17.tar.bz2
+WORKDIR /bwa-0.7.17
+RUN make CC='gcc -fcommon'
+WORKDIR /
+RUN rm -rf bwa-0.7.17 bwa-0.7.17.tar.bz2
