@@ -38,6 +38,9 @@ jobs:
           docker build --platform linux/amd64 -t ghcr.io/getwilds/gatk:latest -f Dockerfile_gatk .
           docker run ghcr.io/getwilds/gatk:latest
           docker push ghcr.io/getwilds/gatk:latest
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/bwa:latest -f Dockerfile_bwa .
+          docker run ghcr.io/getwilds/bwa:latest
+          docker push ghcr.io/getwilds/bwa:latest
 
 
 
