@@ -32,12 +32,12 @@ jobs:
       -
         name: Build and Push
         run: |
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/samtools:1.11 -f Dockerfile_samtools .
-          docker run ghcr.io/getwilds/samtools:1.11
-          docker push ghcr.io/getwilds/samtools:1.11
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/gatk:4.3.0.0 -f Dockerfile_gatk .
-          docker run ghcr.io/getwilds/gatk:4.3.0.0
-          docker push ghcr.io/getwilds/gatk:4.3.0.0
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/samtools:latest -f Dockerfile_samtools .
+          docker run ghcr.io/getwilds/samtools:latest
+          docker push ghcr.io/getwilds/samtools:latest
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/gatk:latest -f Dockerfile_gatk .
+          docker run ghcr.io/getwilds/gatk:latest
+          docker push ghcr.io/getwilds/gatk:latest
 
 
 
