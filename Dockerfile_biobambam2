@@ -1,0 +1,8 @@
+
+FROM ubuntu:noble-20240114
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.description="Container image for the use of biobambam2 in FH DaSL's WILDS"
+LABEL org.opencontainers.image.licenses=MIT
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends biobambam2 \
+  && rm -rf /var/lib/apt/lists/*
