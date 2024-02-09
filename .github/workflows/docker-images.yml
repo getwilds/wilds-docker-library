@@ -41,6 +41,9 @@ jobs:
           docker build --platform linux/amd64 -t ghcr.io/getwilds/bwa:latest -f Dockerfile_bwa .
           docker run ghcr.io/getwilds/bwa:latest
           docker push ghcr.io/getwilds/bwa:latest
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/picard:latest -f Dockerfile_picard .
+          docker run ghcr.io/getwilds/picard:latest
+          docker push ghcr.io/getwilds/picard:latest
 
 
 
