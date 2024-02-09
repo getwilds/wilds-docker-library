@@ -1,6 +1,5 @@
 
 FROM ubuntu:noble-20240114
-LABEL org.opencontainers.image.source=https://github.com/getwilds/fastq-to-cram
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.description="Container image for the use of samtools in FH DaSL's WILDS"
 LABEL org.opencontainers.image.licenses=MIT
