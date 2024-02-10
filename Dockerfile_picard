@@ -14,5 +14,5 @@ RUN apt-get update && \
     update-ca-certificates -f;
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
 RUN export JAVA_HOME
-RUN wget https://github.com/broadinstitute/picard/releases/download/3.1.1/picard.jar
-RUN chmod a+x picard.jar
+RUN mkdir /usr/picard
+RUN wget -P /usr/picard/ https://github.com/broadinstitute/picard/releases/download/3.1.1/picard.jar
