@@ -7,6 +7,7 @@ RUN apt-get update && \
     apt-get install -y openjdk-17-jdk && \
     apt-get install -y ant && \
     apt-get install -y wget && \
+    apt-get install -y r-base && \
     apt-get clean;
 RUN apt-get update && \
     apt-get install ca-certificates-java && \
