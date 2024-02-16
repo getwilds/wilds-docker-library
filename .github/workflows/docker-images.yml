@@ -32,21 +32,11 @@ jobs:
       -
         name: Build and Push
         run: |
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/samtools:latest -f Dockerfile_samtools .
-          docker run ghcr.io/getwilds/samtools:latest
-          docker push ghcr.io/getwilds/samtools:latest
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/gatk:latest -f Dockerfile_gatk .
-          docker run ghcr.io/getwilds/gatk:latest
-          docker push ghcr.io/getwilds/gatk:latest
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/bwa:latest -f Dockerfile_bwa .
-          docker run ghcr.io/getwilds/bwa:latest
-          docker push ghcr.io/getwilds/bwa:latest
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/picard:latest -f Dockerfile_picard .
-          docker run ghcr.io/getwilds/picard:latest
-          docker push ghcr.io/getwilds/picard:latest
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/biobambam2:latest -f Dockerfile_biobambam2 .
-          docker run ghcr.io/getwilds/biobambam2:latest
-          docker push ghcr.io/getwilds/biobambam2:latest
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/samtools:latest -f Dockerfile_samtools --push .
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/gatk:latest -f Dockerfile_gatk --push .
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/bwa:latest -f Dockerfile_bwa --push .
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/picard:latest -f Dockerfile_picard --push .
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/biobambam2:latest -f Dockerfile_biobambam2 --push .
 
 
 
