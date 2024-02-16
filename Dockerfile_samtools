@@ -3,8 +3,13 @@
 FROM ubuntu:noble-20240114
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.title="samtools"
 LABEL org.opencontainers.image.description="Container image for the use of Samtools in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="1.11"
+LABEL org.opencontainers.image.authors="tfirman@fredhutch.org"
+LABEL org.opencontainers.image.url=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.documentation=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
 # Installing prerequisites

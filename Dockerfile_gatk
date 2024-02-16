@@ -3,8 +3,13 @@
 FROM continuumio/miniconda3
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.title="gatk"
 LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="4.3.0.0"
+LABEL org.opencontainers.image.authors="tfirman@fredhutch.org"
+LABEL org.opencontainers.image.url=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.documentation=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
 # Installing GATK via conda
