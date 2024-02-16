@@ -1,7 +1,11 @@
 
+# Using the Miniconda base image
 FROM continuumio/miniconda3
+
+# Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
 LABEL org.opencontainers.image.licenses=MIT
-RUN conda install -c bioconda gatk4=4.3.0.0
 
+# Installing GATK via conda
+RUN conda install -c bioconda gatk4=4.3.0.0

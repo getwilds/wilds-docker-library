@@ -1,8 +1,13 @@
 
+# Using the Ubuntu base image
 FROM ubuntu:noble-20240114
+
+# Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.description="Container image for the use of biobambam2 in FH DaSL's WILDS"
 LABEL org.opencontainers.image.licenses=MIT
+
+# Installing biobambam2 via apt-get
 RUN apt-get update \
   && apt-get install -y --no-install-recommends biobambam2 \
   && rm -rf /var/lib/apt/lists/*
