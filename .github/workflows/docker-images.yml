@@ -37,6 +37,7 @@ jobs:
           docker build --platform linux/amd64 -t ghcr.io/getwilds/bwa:latest -f Dockerfile_bwa --push .
           docker build --platform linux/amd64 -t ghcr.io/getwilds/picard:latest -f Dockerfile_picard --push .
           docker build --platform linux/amd64 -t ghcr.io/getwilds/biobambam2:latest -f Dockerfile_biobambam2 --push .
+          docker build --platform linux/amd64 -t ghcr.io/getwilds/annovar:latest -f Dockerfile_annovar --push .
 
 
 

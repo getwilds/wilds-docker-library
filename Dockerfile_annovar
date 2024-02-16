@@ -1,0 +1,30 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:noble-20240114
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.description="Container image for the use of Annovar using GRCh38 in FH DaSL's WILDS"
+LABEL org.opencontainers.image.licenses=MIT
+
+# Installing prerequisites
+RUN apt-get update \
+  && apt-get install -y build-essential wget perl \
+  && rm -rf /var/lib/apt/lists/*
+
+# Pulling and extracting Annovar source code
+RUN wget http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz
+RUN tar -xvf annovar.latest.tar.gz
+ENV PATH="${PATH}:/annovar"
+
+# Downloading GRCh38 resources
+RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refGene /annovar/humandb/
+RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar knownGene /annovar/humandb/
+RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar cosmic70 /annovar/humandb/
+RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar esp6500siv2_all /annovar/humandb/
+RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar clinvar_20180603 /annovar/humandb/
+RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad211_exome /annovar/humandb/
+
+# Cleanup
+RUN rm /annovar/humandb/hg19_*
+RUN rm -rf annovar.latest.tar.gz
