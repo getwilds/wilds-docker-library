@@ -14,3 +14,20 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing GATK via conda
 RUN conda install -c bioconda gatk4=4.3.0.0
+
+# Installing Samtools prerequisites
+RUN apt-get update \
+  && apt-get install -y build-essential wget zlib1g-dev autoconf automake libncurses5-dev libbz2-dev liblzma-dev libssl-dev libcurl4-gnutls-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+# Pulling and extracting Samtools source code
+RUN wget https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2
+RUN tar -jxf samtools-1.11.tar.bz2
+
+# Installing Samtools
+WORKDIR /samtools-1.11
+RUN ./configure && make && make install
+WORKDIR /
+
+# Cleanup
+RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
