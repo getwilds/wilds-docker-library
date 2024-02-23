@@ -1,21 +1,18 @@
 
-# Using the Miniconda base image
-FROM continuumio/miniconda3
+# Using the Ubuntu base image
+FROM ubuntu:noble-20240114
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="gatk"
-LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="4.3.0.0"
-LABEL org.opencontainers.image.authors="tfirman@fredhutch.org"
-LABEL org.opencontainers.image.url=https://github.com/getwilds/wilds-docker-library
-LABEL org.opencontainers.image.documentation=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.title="samtools"
+LABEL org.opencontainers.image.description="Container image for the use of Samtools in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Installing GATK via conda
-RUN conda install -c bioconda gatk4=4.3.0.0
-
-# Installing Samtools prerequisites
+# Installing prerequisites
 RUN apt-get update \
   && apt-get install -y build-essential wget zlib1g-dev autoconf automake libncurses5-dev libbz2-dev liblzma-dev libssl-dev libcurl4-gnutls-dev \
   && rm -rf /var/lib/apt/lists/*

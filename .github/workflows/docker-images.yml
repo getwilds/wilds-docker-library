@@ -32,12 +32,18 @@ jobs:
       -
         name: Build and Push
         run: |
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/samtools:latest -f Dockerfile_samtools --push .
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/gatk:latest -f Dockerfile_gatk --push .
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/bwa:latest -f Dockerfile_bwa --push .
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/picard:latest -f Dockerfile_picard --push .
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/biobambam2:latest -f Dockerfile_biobambam2 --push .
-          docker build --platform linux/amd64 -t ghcr.io/getwilds/annovar:latest -f Dockerfile_annovar --push .
+          for TOOL in *
+          do
+              if [ -d $TOOL ]; then
+                  for TAG in $TOOL/*
+                  do 
+                      if [[ $TAG =~ Dockerfile_* ]]; then
+                          IFS="_" read -ra newarr <<< "$TAG"
+                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[1]} -f $TOOL/$TAG --push .
+                      fi
+                  done
+              fi
+          done
 
 
 

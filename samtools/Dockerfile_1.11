@@ -1,0 +1,30 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:noble-20240114
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="samtools"
+LABEL org.opencontainers.image.description="Container image for the use of Samtools in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="1.11"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Installing prerequisites
+RUN apt-get update \
+  && apt-get install -y build-essential wget zlib1g-dev autoconf automake libncurses5-dev libbz2-dev liblzma-dev libssl-dev libcurl4-gnutls-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+# Pulling and extracting Samtools source code
+RUN wget https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2
+RUN tar -jxf samtools-1.11.tar.bz2
+
+# Installing Samtools
+WORKDIR /samtools-1.11
+RUN ./configure && make && make install
+WORKDIR /
+
+# Cleanup
+RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
