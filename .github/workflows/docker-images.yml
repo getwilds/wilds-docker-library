@@ -38,8 +38,8 @@ jobs:
                   for TAG in $TOOL/*
                   do 
                       if [[ $TAG =~ Dockerfile_* ]]; then
-                          IFS="_" read -ra newarr <<< "$TAG"
-                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[1]} -f $TOOL/$TAG --push .
+                          IFS="Dockerfile_" read -ra newarr <<< "$TAG"
+                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[1]} -f $TAG --push .
                       fi
                   done
               fi
