@@ -6,9 +6,9 @@ FROM ubuntu:noble-20240114
 LABEL org.opencontainers.image.title="biobambam2"
 LABEL org.opencontainers.image.description="Container image for the use of biobambam2 in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="2.0.185"
-LABEL org.opencontainers.image.authors="tfirman@fredhutch.org"
-LABEL org.opencontainers.image.url=https://github.com/getwilds/wilds-docker-library
-LABEL org.opencontainers.image.documentation=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
