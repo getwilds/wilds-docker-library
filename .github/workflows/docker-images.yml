@@ -39,7 +39,9 @@ jobs:
                   do 
                       if [[ $TAG =~ Dockerfile_* ]]; then
                           IFS="_" read -ra newarr <<< "$TAG"
-                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[-1]} -f $TAG --push .
+                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[-1]} -f $TAG .
+                          docker run ghcr.io/getwilds/$TOOL:${newarr[-1]}
+                          docker push ghcr.io/getwilds/$TOOL:${newarr[-1]}
                       fi
                   done
               fi
