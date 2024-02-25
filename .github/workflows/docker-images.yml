@@ -23,6 +23,13 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
         name: Build and Push
         run: |
           for TOOL in *
@@ -32,10 +39,8 @@ jobs:
                   do 
                       if [[ $TAG =~ Dockerfile_* ]]; then
                           IFS="_" read -ra newarr <<< "$TAG"
-                          docker login ghcr.io -u ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
-                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[-1]} -f $TAG .
-                          docker run ghcr.io/getwilds/$TOOL:${newarr[-1]}
-                          docker push ghcr.io/getwilds/$TOOL:${newarr[-1]}
+                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[-1]} -f $TAG --push .
+                          sleep 5
                       fi
                   done
               fi
