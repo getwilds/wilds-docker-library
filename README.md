@@ -18,10 +18,8 @@ For questions, bugs, and/or feature requests, reach out to the Fred Hutch Data S
 ## Contributing Guidelines
 
 - Because these Docker images will be used for individual steps within WDL workflows, they should be as minimal as possible in terms of the number of tools installed in each image (1 or 2 max).
-- As a general (but flexible) rule, try to start from as basic of a parent image as possible, e.g. `scratch`, `ubuntu`, `python`, `r-base`, etc.
-    - Outside parent images are fine, as long as they are from a VERY trusted source, i.e. Ubuntu, Python, Conda, Rocker, etc.
-- To speed up build and deployment of containers, try to keep image sizes relatively small (a few hundred MB on average, 2GB max).
-    - For that reason, reference data should not be stored in an image unless absolutely necessary.
+- As a general (but flexible) rule, try to start from as basic of a parent image as possible, e.g. `scratch`, `ubuntu`, `python`, `r-base`, etc. Outside parent images are fine, as long as they are from a VERY trusted source, e.g. Ubuntu, Python, Conda, Rocker, etc.
+- To speed up build and deployment of containers, try to keep image sizes relatively small (a few hundred MB on average, 2GB max). For that reason, reference data should not be stored in an image unless absolutely necessary.
 - Every Dockerfile must contain the following labels at a minimum:
 ```
 LABEL org.opencontainers.image.title="awesomeimage" # Name of the image in question
@@ -35,9 +33,9 @@ LABEL org.opencontainers.image.licenses=MIT # License type for the image in ques
 ```
 - When creating a different version of an existing image, use one of the other Dockerfiles as a starting template and modify it as needed. This will help to ensure that the only thing that has changed between image versions is the version of tool in question, not any strange formatting/configuration issues.
 - Try to be as specific as possible in terms of tool versions within the Dockerfile, especially the parent image.
-    - If you just specify "latest", which is obviously flexible over time, your image could be completely different the next time you build it, even though it uses the exact same Dockerfile.
-    - On the other hand, specifying "v1.2.3" will always pull the same instance of the tool every time, providing greater reproducibility.
-- In terms of the repo organization, each image should have its own directory named after the tool being used in the image. Each version of the image should have its own Dockerfile in that directory following the naming convention of `Dockerfile_[VERSIONTAG]`.
+    - If you just specify "latest", a tag that get updated frequently over time, your image could be completely different the next time you build it, even though it uses the exact same Dockerfile.
+    - On the other hand, specifying "v1.2.3" will always pull the same instance of the tool every time, providing greater reproducibility over time.
+- In terms of the repo organization, each image should have its own directory named after the tool being used in the image. Each version of the image should have its own Dockerfile in that directory following the naming convention of `[IMAGENAME]/Dockerfile_[VERSIONTAG]`.
     - If formatted correctly, a GitHub Action will automatically build and upload the image to the [WILDS GitHub container registry](https://github.com/orgs/getwilds/packages) upon merging into the `main` branch.
 - Before pushing the image to the WILDS package registry, try uploading it to your user-specific package registry using the command below and make sure it works for the WDL task in question.
 ```
