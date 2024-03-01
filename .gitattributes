@@ -1,1 +1,1 @@
-annovar/Dockerfile_* linguist-language=Dockerfile
+*/Dockerfile_* linguist-language=Dockerfile
