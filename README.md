@@ -20,7 +20,7 @@ For questions, bugs, and/or feature requests, reach out to the Fred Hutch Data S
 - Because these Docker images will be used for individual steps within WDL workflows, they should be as minimal as possible in terms of the number of tools installed in each image (1 or 2 max).
 - As a general (but flexible) rule, try to start from as basic of a parent image as possible, e.g. `scratch`, `ubuntu`, `python`, `r-base`, etc. Outside parent images are fine, as long as they are from a VERY trusted source, e.g. Ubuntu, Python, Conda, Rocker, etc.
 - To speed up build and deployment of containers, try to keep image sizes relatively small (a few hundred MB on average, 2GB max). For that reason, reference data should not be stored in an image unless absolutely necessary.
-- Every Dockerfile must contain the following labels at a minimum:
+- Every Dockerfile must contain the labels below at a minimum. This provides users with increased visibility in terms of where the image came from and open access to the necessary resources in case they have any questions or concerns.
 ```
 LABEL org.opencontainers.image.title="awesomeimage" # Name of the image in question
 LABEL org.opencontainers.image.description="Short description of awesomeimage and its purpose"
