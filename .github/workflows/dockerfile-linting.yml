@@ -4,74 +4,73 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
 
-jobs:
-  hadolint:
-    runs-on: ubuntu-latest
-    permissions: write-all
-    steps:
-      -
-        name: Checkout code
-        uses: actions/checkout@v3
-      -
-        name: Install Hadolint
-        run: |
-          docker pull hadolint/hadolint:latest
-          container_id=$(docker create hadolint/hadolint)
-          docker cp $container_id:/bin/hadolint .
-      -
-        name: Check Hadolint Version
-        run: ./hadolint --version
-
-      -
-        name: Run Hadolint
-        run: ./hadolint samtools/Dockerfile_*
-        with:
-          failure-threshold: "error"
-
-      # - name: Update Pull Request
-      #   uses: actions/github-script@v6
-      #   if: github.event_name == 'pull_request'
-      #   with:
-      #     script: |
-      #       const output = `
-      #       #### Hadolint: \`${{ steps.hadolint.outcome }}\`
-      #       \`\`\`
-      #       ${process.env.HADOLINT_RESULTS}
-      #       \`\`\`
-      #       `;
-
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: output
-      #       })
-
 # jobs:
 #   hadolint:
 #     runs-on: ubuntu-latest
 #     permissions: write-all
 #     steps:
-#       - uses: actions/checkout@v3
-#       - uses: hadolint/hadolint-action@v3.1.0
-#         with:
-#           dockerfile: samtools/Dockerfile_*
-#           failure-threshold: "error"
-#       - name: Update Pull Request
-#         uses: actions/github-script@v6
-#         if: github.event_name == 'pull_request'
-#         with:
-#           script: |
-#             const output = `
-#             #### Hadolint: \`${{ steps.hadolint.outcome }}\`
-#             \`\`\`
-#             ${process.env.HADOLINT_RESULTS}
-#             \`\`\`
-#             `;
+#       -
+#         name: Checkout code
+#         uses: actions/checkout@v3
+#       -
+#         name: Install Hadolint
+#         run: |
+#           docker pull hadolint/hadolint:latest
+#           container_id=$(docker create hadolint/hadolint)
+#           docker cp $container_id:/bin/hadolint .
+#       -
+#         name: Check Hadolint Version
+#         run: ./hadolint --version
 
-#             github.rest.issues.createComment({
-#               issue_number: context.issue.number,
-#               owner: context.repo.owner,
-#               repo: context.repo.repo,
-#               body: output
-#             })
+#       -
+#         name: Run Hadolint
+#         run: ./hadolint samtools/Dockerfile_*
+
+#       # - name: Update Pull Request
+#       #   uses: actions/github-script@v6
+#       #   if: github.event_name == 'pull_request'
+#       #   with:
+#       #     script: |
+#       #       const output = `
+#       #       #### Hadolint: \`${{ steps.hadolint.outcome }}\`
+#       #       \`\`\`
+#       #       ${process.env.HADOLINT_RESULTS}
+#       #       \`\`\`
+#       #       `;
+
+#       #       github.rest.issues.createComment({
+#       #         issue_number: context.issue.number,
+#       #         owner: context.repo.owner,
+#       #         repo: context.repo.repo,
+#       #         body: output
+#       #       })
+
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v3.1.0
+        with:
+          recursive: true
+          dockerfile: samtools/Dockerfile_*
+          failure-threshold: "error"
+      - name: Update Pull Request
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            const output = `
+            #### Hadolint: \`${{ steps.hadolint.outcome }}\`
+            \`\`\`
+            ${process.env.HADOLINT_RESULTS}
+            \`\`\`
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
