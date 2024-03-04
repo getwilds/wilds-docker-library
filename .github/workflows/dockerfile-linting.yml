@@ -58,7 +58,6 @@ jobs:
           failure-threshold: "error"
       - name: Update Pull Request
         uses: actions/github-script@v6
-        if: process.env.HADOLINT_RESULTS != ''
         with:
           script: |
             const output = `
@@ -67,10 +66,12 @@ jobs:
             ${process.env.HADOLINT_RESULTS}
             \`\`\`
             `;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            });
-            exit 1
+            if ["${process.env.HADOLINT_RESULTS}" == ""]; then
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: output
+                });
+                exit 1
+            fi
