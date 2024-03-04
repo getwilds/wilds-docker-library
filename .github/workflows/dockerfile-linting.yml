@@ -58,7 +58,6 @@ jobs:
           failure-threshold: "error"
       - name: Update Pull Request
         uses: actions/github-script@v6
-        # if: github.event_name == 'pull_request'
         if: process.env.HADOLINT_RESULTS != ''
         with:
           script: |
