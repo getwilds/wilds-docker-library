@@ -18,8 +18,8 @@ jobs:
           container_id=$(docker create hadolint/hadolint)
           docker cp $container_id:/bin/hadolint .
 
-      # - name: Check Hadolint Version
-      # - run: ./hadolint --version
+      - name: Check Hadolint Version
+      - run: ./hadolint --version
 
       # - name: Run Hadolint
       # - run: ./hadolint samtools/Dockerfile_*
