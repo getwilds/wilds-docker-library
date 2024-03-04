@@ -12,7 +12,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: samtools/Dockerfile_latest
+          dockerfile: samtools/Dockerfile_*
+          failure-threshold: "error"
       - name: Update Pull Request
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
