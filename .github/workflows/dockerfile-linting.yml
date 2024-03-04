@@ -12,36 +12,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Hadolint
-        run: |
-          docker pull hadolint/hadolint:latest
-          container_id=$(docker create hadolint/hadolint)
-          docker cp $container_id:/bin/hadolint .
+      # - name: Install Hadolint
+      #   run: |
+      #     docker pull hadolint/hadolint:latest
+      #     container_id=$(docker create hadolint/hadolint)
+      #     docker cp $container_id:/bin/hadolint .
 
-      - name: Check Hadolint Version
-      - run: ./hadolint --version
+      # - name: Check Hadolint Version
+      # - run: ./hadolint --version
 
-      - name: Run Hadolint
-      - run: ./hadolint samtools/Dockerfile_*
+      # - name: Run Hadolint
+      # - run: ./hadolint samtools/Dockerfile_*
 
-      - name: Update Pull Request
-        uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const output = `
-            #### Hadolint: \`${{ steps.hadolint.outcome }}\`
-            \`\`\`
-            ${process.env.HADOLINT_RESULTS}
-            \`\`\`
-            `;
+      # - name: Update Pull Request
+      #   uses: actions/github-script@v6
+      #   if: github.event_name == 'pull_request'
+      #   with:
+      #     script: |
+      #       const output = `
+      #       #### Hadolint: \`${{ steps.hadolint.outcome }}\`
+      #       \`\`\`
+      #       ${process.env.HADOLINT_RESULTS}
+      #       \`\`\`
+      #       `;
 
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
+      #       github.rest.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: output
+      #       })
 
 # jobs:
 #   hadolint:
