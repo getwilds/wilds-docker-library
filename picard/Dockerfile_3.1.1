@@ -25,6 +25,5 @@ ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
 RUN export JAVA_HOME
 
 # Pulling Picard jar to a location that will persist in Apptainer
-RUN mkdir /usr/picard
 RUN mkdir /usr/picard && wget -q --no-check-certificate -P /usr/picard/ \
 https://github.com/broadinstitute/picard/releases/download/3.1.1/picard.jar
