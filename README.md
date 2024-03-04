@@ -15,11 +15,14 @@ apptainer pull docker://ghcr.io/getwilds/IMAGENAME:VERSIONTAG
 
 For questions, bugs, and/or feature requests, reach out to the Fred Hutch Data Science Lab (DaSL) at wilds@fredhutch.org, or open an issue on our [issue tracker](https://github.com/getwilds/wilds-docker-library/issues).
 
-## Contributing Guidelines
+## Contribution Guidelines
 
 - Because these Docker images will be used for individual steps within WDL workflows, they should be as minimal as possible in terms of the number of tools installed in each image (1 or 2 max).
+
 - As a general (but flexible) rule, try to start from as basic of a parent image as possible, e.g. `scratch`, `ubuntu`, `python`, `r-base`, etc. Outside parent images are fine, as long as they are from a VERY trusted source, e.g. Ubuntu, Python, Conda, Rocker, etc.
-- To speed up build and deployment of containers, try to keep image sizes relatively small (a few hundred MB on average, 2GB max). For that reason, reference data should not be stored in an image unless absolutely necessary.
+
+- To speed up build and deployment of containers, try to keep image sizes relatively small (a few hundred MB on average, 2GB max). For this reason, reference data should not be stored in an image unless absolutely necessary.
+
 - Every Dockerfile must contain the labels below at a minimum. This provides users with increased visibility in terms of where the image came from and open access to the necessary resources in case they have any questions or concerns.
 ```
 LABEL org.opencontainers.image.title="awesomeimage" # Name of the image in question
@@ -31,16 +34,25 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/ # Documentati
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library # GitHub repo to link with
 LABEL org.opencontainers.image.licenses=MIT # License type for the image in question
 ```
+
 - When creating a different version of an existing image, use one of the other Dockerfiles as a starting template and modify it as needed. This will help to ensure that the only thing that has changed between image versions is the version of tool in question, not any strange formatting/configuration issues.
+
 - Try to be as specific as possible in terms of tool versions within the Dockerfile, especially the parent image.
     - If you just specify "latest", a tag that get updated frequently over time, your image could be completely different the next time you build it, even though it uses the exact same Dockerfile.
     - On the other hand, specifying "v1.2.3" will always pull the same instance of the tool every time, providing greater reproducibility over time.
+
 - In terms of the repo organization, each image should have its own directory named after the tool being used in the image. Each version of the image should have its own Dockerfile in that directory following the naming convention of `[IMAGENAME]/Dockerfile_[VERSIONTAG]`.
     - If formatted correctly, a GitHub Action will automatically build and upload the image to the [WILDS GitHub container registry](https://github.com/orgs/getwilds/packages) upon merging into the `main` branch.
-- Before pushing the image to the WILDS package registry, try uploading it to your user-specific package registry using the command below and make sure it works for the WDL task in question.
+
+- Before merging your changes to `main` (and therefore uploading a new image to the WILDS package registry), try uploading it to your user-specific package registry using the command below and make sure it works for the WDL task in question.
 ```
 docker build --platform linux/amd64 -t ghcr.io/GITHUBUSERNAME/IMAGENAME:VERSIONTAG -f IMAGENAME/Dockerfile_VERSIONTAG --push .
 ```
+
+- Upon creation or modification of a pull request in this repo, a GitHub Action will run a check using linting tool specific to Dockerfiles called [Hadolint](https://github.com/hadolint/hadolint).
+    - If any major warnings pop up, the check will fail and the user will be unable to merge the branch into `main` until the warning is resolved.
+    - Smaller stylistic issues will still be reported, but they will not restrict you from merging your branch into `main`.
+    - Details about the location and root cause of each warning can be found in the details of the check.
 
 ## License
 
