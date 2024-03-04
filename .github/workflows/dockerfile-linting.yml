@@ -13,5 +13,5 @@ jobs:
       - uses: hadolint/hadolint-action@v3.1.0
         with:
           recursive: true
-          dockerfile: samtools/Dockerfile_*
+          dockerfile: */Dockerfile_*
           failure-threshold: "warning"
