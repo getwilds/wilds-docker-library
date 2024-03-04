@@ -14,7 +14,8 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing prerequisites
 RUN apt-get update \
-  && apt-get install -y build-essential wget zlib1g-dev autoconf automake libncurses5-dev libbz2-dev liblzma-dev libssl-dev libcurl4-gnutls-dev \
+  && apt-get install -y --no-install-recommends build-essential wget zlib1g-dev \
+  autoconf automake libncurses5-dev libbz2-dev liblzma-dev libssl-dev libcurl4-gnutls-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting Samtools source code
