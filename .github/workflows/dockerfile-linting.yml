@@ -12,11 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # - name: Install Hadolint
-      #   run: |
-      #     docker pull hadolint/hadolint:latest
-      #     container_id=$(docker create hadolint/hadolint)
-      #     docker cp $container_id:/bin/hadolint .
+      - name: Install Hadolint
+        run: |
+          docker pull hadolint/hadolint:latest
+          container_id=$(docker create hadolint/hadolint)
+          docker cp $container_id:/bin/hadolint .
 
       # - name: Check Hadolint Version
       # - run: ./hadolint --version
