@@ -25,6 +25,8 @@ jobs:
       -
         name: Run Hadolint
         run: ./hadolint samtools/Dockerfile_*
+        with:
+          failure-threshold: "error"
 
       # - name: Update Pull Request
       #   uses: actions/github-script@v6
