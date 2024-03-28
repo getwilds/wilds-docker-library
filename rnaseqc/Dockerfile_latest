@@ -1,0 +1,32 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:jammy-20240212
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="rnaseqc"
+LABEL org.opencontainers.image.description="Container image for the use of RNA-SeQC in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Setting environment variables
+ENV DEBIAN_FRONTEND noninteractive
+
+# Installing Java
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openjdk-17-jdk=17.0.10+7-1~22.04.1 \
+    ant=1.10.12-1 wget=1.21.2-2ubuntu1 r-base=4.1.2-1ubuntu2 ca-certificates-java=20190909ubuntu1.2 \
+    && rm -rf /var/lib/apt/lists/* \
+    && update-ca-certificates -f;
+ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
+RUN export JAVA_HOME
+
+# Pulling RNA-SeQC jar to a location that will persist in Apptainer
+RUN mkdir /usr/rnaseqc && wget -q --no-check-certificate -P /usr/rnaseqc/ \
+    https://github.com/francois-a/rnaseqc/releases/download/v1.1.9/RNA-SeQC_1.1.9.zip
+WORKDIR /usr/rnaseqc
+RUN unzip RNA-SeQC_1.1.9.zip && rm RNA-SeQC_1.1.9.zip
+WORKDIR /
