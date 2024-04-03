@@ -17,12 +17,12 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 wget=1.21.4-1ubuntu1 \
   zlib1g-dev=1:1.3.dfsg-3ubuntu1 autoconf=2.71-3 automake=1:1.16.5-1.3ubuntu1 \
   libncurses-dev=6.4+20240113-1ubuntu1 libbz2-dev=1.0.8-5ubuntu1 liblzma-dev=5.4.5-0.3 \
-  libssl-dev=3.0.10-1ubuntu4 libcurl4-gnutls-dev=8.5.0-2ubuntu2 xxd=2:9.1.0016-1ubuntu2 \
+  libssl-dev=3.0.10-1ubuntu4 libcurl4-gnutls-dev=8.5.0-2ubuntu2 \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting bwa source code
 RUN wget -q --no-check-certificate -O cellranger-6.0.2.tar.gz \
-  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-6.0.2.tar.gz?Expires=1711790546&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=PgpG3PzsUIpN0LGmziGjGVbemCxQ-f2nci66248PbQBzeIGclUZUNF6kNIVt~Q3WdboBh1-Q85l07LQMxwhKMG-m87FN5NYGROmAsBejpYehKzQMUT6rf6h8uJ~rqKf~OtnAaT7Ev3DBtwu9iqFsLZieiK1YAdR37VPoSz1zaAEfYUJ3O353POyBBCygeiCgxPgVssgzsJblilsg~JBoacuamt97vHmaaA9uX~Z9itqxZ4XKf60RaA9k42m245pQ31H6c4P2wpUXgk-3eSzm5ClEf98uF1B~Fho3oNDRx1FRQRy33qGfYinxnvLJgEnouFoia41UBqMm-mv0XUfsxA__" && tar -zxvf cellranger-6.0.2.tar.gz
+  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-6.0.2.tar.gz?Expires=1712197233&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=Sxa8s8vTFJqJ0rsWV7GlM7tzeN3za6JjXwF6FDhyZjhL5im-rj9fkxE~3r2TeUMcJm5ZnsyVI~5HelwT49fMrPA3FSZhVj1XRZ-gKAQwEq4vgn4~89cR1pod-xpHFDqUxAgEQDNb~JO835U6Y7Y~HCzJoxQZek2vqVToq-gLpO8~Ec6ktZn2IHqxA1~PE6Jkdjk9X6J1xZsXvZb1wnMu3bVCIS-3e-ifS8fxt4P~ciTwCs7TvKRDQykxCgCbbeFYw31aguJnCFL2GKBzt0SVyl6jU4ds8B067Pg2pO6yCz7bwRT6cByTyjzKvwloU4Fi4mDoEnk2ekGfIMjM4NkUsA__" && tar -zxvf cellranger-6.0.2.tar.gz
 
 # Installing bwa
 ENV PATH="${PATH}:/cellranger-6.0.2"
