@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing prerequisites
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 wget=1.21.4-1ubuntu1 perl=5.38.2-3 \
+  && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 wget=1.21.4-1ubuntu1 perl=5.38.2-3.2build1 \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting Annovar source code
