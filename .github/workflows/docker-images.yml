@@ -34,7 +34,7 @@ jobs:
         run: |
           for TOOL in *
           do
-              if [ -d $TOOL ]; then
+              if [ -d $TOOL ] && [ "$TOOL" != "cellranger" ]; then
                   for TAG in $TOOL/*
                   do 
                       if [[ $TAG =~ Dockerfile_* ]]; then
