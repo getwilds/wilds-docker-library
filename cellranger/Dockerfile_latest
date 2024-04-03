@@ -20,11 +20,14 @@ RUN apt-get update \
   libssl-dev=3.0.10-1ubuntu4 libcurl4-gnutls-dev=8.5.0-2ubuntu2 \
   && rm -rf /var/lib/apt/lists/*
 
-# Pulling and extracting bwa source code
+# Pulling and extracting Cell Ranger source code
 RUN wget -q --no-check-certificate -O cellranger-6.0.2.tar.gz \
   "https://cf.10xgenomics.com/releases/cell-exp/cellranger-6.0.2.tar.gz?Expires=1712197233&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=Sxa8s8vTFJqJ0rsWV7GlM7tzeN3za6JjXwF6FDhyZjhL5im-rj9fkxE~3r2TeUMcJm5ZnsyVI~5HelwT49fMrPA3FSZhVj1XRZ-gKAQwEq4vgn4~89cR1pod-xpHFDqUxAgEQDNb~JO835U6Y7Y~HCzJoxQZek2vqVToq-gLpO8~Ec6ktZn2IHqxA1~PE6Jkdjk9X6J1xZsXvZb1wnMu3bVCIS-3e-ifS8fxt4P~ciTwCs7TvKRDQykxCgCbbeFYw31aguJnCFL2GKBzt0SVyl6jU4ds8B067Pg2pO6yCz7bwRT6cByTyjzKvwloU4Fi4mDoEnk2ekGfIMjM4NkUsA__" && tar -zxvf cellranger-6.0.2.tar.gz
+# Note: Because the key for this link expires, these containers are 
+# excluded from the automated build-and-push GitHub Action. 
+# To make changes, provide an updated link and reupload manually.
 
-# Installing bwa
+# Installing Cell Ranger
 ENV PATH="${PATH}:/cellranger-6.0.2"
 
 # Cleanup
