@@ -5,7 +5,7 @@ FROM ubuntu:jammy-20240212
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="rnaseqc"
 LABEL org.opencontainers.image.description="Container image for the use of RNA-SeQC in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="1.1.9"
+LABEL org.opencontainers.image.version="2.4.2"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -26,7 +26,8 @@ RUN export JAVA_HOME
 
 # Pulling RNA-SeQC jar to a location that will persist in Apptainer
 RUN mkdir /usr/rnaseqc && wget -q --no-check-certificate -P /usr/rnaseqc/ \
-    https://github.com/francois-a/rnaseqc/releases/download/v1.1.9/RNA-SeQC_1.1.9.zip
+    https://github.com/getzlab/rnaseqc/releases/download/v2.4.2/rnaseqc.v2.4.2.linux.gz
 WORKDIR /usr/rnaseqc
-RUN unzip RNA-SeQC_1.1.9.zip && rm RNA-SeQC_1.1.9.zip
+RUN gunzip rnaseqc.v2.4.2.linux.gz && chmod a+x rnaseqc.v2.4.2.linux && mv rnaseqc.v2.4.2.linux rnaseqc
 WORKDIR /
+ENV PATH="${PATH}:/usr/rnaseqc"
