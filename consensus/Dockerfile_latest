@@ -1,0 +1,20 @@
+
+
+# Using the Ubuntu base image
+FROM rocker/tidyverse:3.6.0
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="consensus"
+LABEL org.opencontainers.image.description="Container image for the use of the ConsensusVariants R script in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Pulling and extracting Consensus Variants source code
+ENV GIT_SSL_NO_VERIFY=1
+RUN git clone --branch v0.1.1 https://github.com/FredHutch/tg-wdl-consensusVariants.git \
+  && mv tg-wdl-consensusVariants/unpaired/consensus-trio.R consensus-trio-unpaired.R \
+  && rm -rf tg-wdl-consensusVariants
