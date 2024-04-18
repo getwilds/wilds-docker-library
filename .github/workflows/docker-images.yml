@@ -30,19 +30,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       -
+        id: files
+        uses: jitterbit/get-changed-files@v1
+      -
         name: Build and Push
         run: |
-          for TOOL in *
-          do
-              if [ -d $TOOL ] && [ "$TOOL" != "cellranger" ]; then
-                  for TAG in $TOOL/*
-                  do 
-                      if [[ $TAG =~ Dockerfile_* ]]; then
-                          IFS="_" read -ra newarr <<< "$TAG"
-                          docker build --platform linux/amd64 -t ghcr.io/getwilds/$TOOL:${newarr[-1]} -f $TAG --push .
-                          sleep 5
-                      fi
-                  done
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+              if [[ $changed_file == *"Dockerfile_"* ]]; then
+                  IFS="/" read -ra toolarr <<< "$changed_file"
+                  IFS="_" read -ra tagarr <<< "$changed_file"
+                  docker build --platform linux/amd64 -t ghcr.io/getwilds/${toolarr[0]}:${tagarr[-1]} -f ${changed_file} --push .
+                  sleep 5
               fi
           done
 
