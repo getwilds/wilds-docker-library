@@ -1,0 +1,17 @@
+name: Modified Test
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+            echo "Do something with this ${changed_file}."
+          done
