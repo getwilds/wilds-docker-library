@@ -15,7 +15,4 @@ LABEL org.opencontainers.image.licenses=MIT
 RUN conda config --set always_copy true
 
 # Installing necessary libraries via conda
-RUN conda install anaconda::pandas=2.0.3
-RUN conda install conda-forge::matplotlib=3.8.4
-RUN conda install conda-forge::scanpy=1.10.1
-RUN conda install conda-forge::leidenalg=0.10.2
+RUN conda install -c anaconda pandas=2.0.3 -c conda-forge matplotlib=3.8.4 scanpy=1.10.1 leidenalg=0.10.2
