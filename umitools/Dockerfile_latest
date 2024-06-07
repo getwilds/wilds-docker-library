@@ -1,6 +1,6 @@
 
 # Using the Ubuntu base image
-FROM python:3.9.19-bookworm
+FROM ubuntu:18.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="umitools"
@@ -12,13 +12,14 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Pulling and extracting STAR source code
-RUN wget -q --no-check-certificate https://github.com/CGATOxford/UMI-tools/archive/refs/tags/1.0.1.tar.gz && tar -xzf 1.0.1.tar.gz
+ARG PACKAGE_VERSION=1.0.1
+ARG DEBIAN_FRONTEND=noninteractive
 
-# Installing STAR
-WORKDIR /UMI-tools-1.0.1
-RUN python setup.py install
-WORKDIR /
+RUN apt-get update && \
+    apt-get install --yes python3-pip && \
+    pip3 install --upgrade pip && \
+    pip3 install umi_tools==$PACKAGE_VERSION && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Cleanup
-RUN rm -rf UMI-tools-1.0.1 1.0.1.tar.gz
+RUN ln -s /usr/bin/python3 /usr/local/bin/python
