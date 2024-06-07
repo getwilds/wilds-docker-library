@@ -27,3 +27,4 @@ RUN make
 WORKDIR /
 ENV PATH="${PATH}:/bcftools-1.19"
 RUN rm -rf bcftools-1.19.tar.bz2
+
