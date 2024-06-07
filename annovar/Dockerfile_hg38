@@ -31,3 +31,4 @@ RUN annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refGene /annov
 
 # Cleanup
 RUN rm -rf annovar.latest.tar.gz /annovar/humandb/hg19_*
+
