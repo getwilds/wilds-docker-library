@@ -5,7 +5,7 @@ FROM ubuntu:noble-20240114
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="bcftools"
 LABEL org.opencontainers.image.description="Docker image for the use of bcftools in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="1.19"
+LABEL org.opencontainers.image.version="1.11"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -21,9 +21,9 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting bcftools source code
-RUN wget -q --no-check-certificate https://github.com/samtools/bcftools/releases/download/1.19/bcftools-1.19.tar.bz2 && tar -xvf bcftools-1.19.tar.bz2
-WORKDIR /bcftools-1.19
+RUN wget -q --no-check-certificate https://github.com/samtools/bcftools/releases/download/1.11/bcftools-1.11.tar.bz2 && tar -xvf bcftools-1.11.tar.bz2
+WORKDIR /bcftools-1.11
 RUN make
 WORKDIR /
-ENV PATH="${PATH}:/bcftools-1.19"
-RUN rm -rf bcftools-1.19.tar.bz2
+ENV PATH="${PATH}:/bcftools-1.11"
+RUN rm -rf bcftools-1.11.tar.bz2
