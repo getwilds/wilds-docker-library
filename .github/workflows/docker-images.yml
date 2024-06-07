@@ -43,6 +43,21 @@ jobs:
                   sleep 5
               fi
           done
-
-
+      -
+        name: Login to DockerHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+      -
+        name: Build and Push
+        run: |
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+              if [[ $changed_file == *"Dockerfile_"* ]]; then
+                  IFS="/" read -ra toolarr <<< "$changed_file"
+                  IFS="_" read -ra tagarr <<< "$changed_file"
+                  docker build --platform linux/amd64 -t getwilds/${toolarr[0]}:${tagarr[-1]} -f ${changed_file} --push .
+                  sleep 5
+              fi
+          done
 

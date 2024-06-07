@@ -4,7 +4,7 @@ FROM ubuntu:noble-20240114
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="bwa"
-LABEL org.opencontainers.image.description="Container image for the use of bwa in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for the use of bwa in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/

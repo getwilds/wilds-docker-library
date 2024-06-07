@@ -4,7 +4,7 @@ FROM ubuntu:noble-20240114
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="annovar"
-LABEL org.opencontainers.image.description="Container image for the use of Annovar using hg19 in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for the use of Annovar using hg19 in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="hg19"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
