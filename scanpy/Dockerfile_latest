@@ -12,4 +12,4 @@ LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-l
 LABEL org.opencontainers.image.licenses=MIT
 
 # Installing packages via pip
-RUN pip install scanpy==1.10.1 leiden-clustering==0.1.0
+RUN pip install scanpy==1.10.2 leiden-clustering==0.1.0
