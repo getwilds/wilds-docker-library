@@ -12,8 +12,6 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Switching from hard-links to copies
-RUN conda config --set always_copy true
-
-# Installing GATK via conda
-RUN conda install -y -c bioconda parallel-fastq-dump=0.6.7 'sra-tools>=2.10.0'
+# Switching from hard-links to copies and installing pfastqdump
+RUN conda config --set always_copy true \
+  && conda install -y -c bioconda parallel-fastq-dump=0.6.7 'sra-tools>=2.10.0'
