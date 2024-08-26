@@ -13,5 +13,6 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing packages via pip
 # For GPU enabled abilities (from https://pytorch.org/get-started/locally/) - torch, torchvision, torchaudio
-RUN pip install --no-cache-dir scvi-tools==1.1.6 scanpy==1.10.2 leiden-clustering==0.1.0 scikit-misc==0.5.1 torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118
+RUN pip install --no-cache-dir scvi-tools==1.1.6 scanpy==1.10.2 leiden-clustering==0.1.0 scikit-misc==0.5.1 \
+  && pip install --no-cache-dir torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118
 
