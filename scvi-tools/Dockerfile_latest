@@ -1,0 +1,18 @@
+# Using Python base image
+FROM python:3.10-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="scvi-tools"
+LABEL org.opencontainers.image.description="Container image for the use of scvi-tools library for Single-Cell analysis in Python"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Installing packages via pip
+# For GPU enabled abilities (from https://pytorch.org/get-started/locally/) - torch, torchvision, torchaudio
+RUN pip install --no-cache-dir scvi-tools==1.1.6 scanpy==1.10.2 leiden-clustering==0.1.0 scikit-misc==0.5.1 \
+  && pip install --no-cache-dir torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu118
+
