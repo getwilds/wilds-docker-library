@@ -1,0 +1,22 @@
+
+
+# Using the Ubuntu base image
+# FROM rocker/tidyverse:3.6.0
+FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="rtorch"
+LABEL org.opencontainers.image.description="Container image for the use of the Torch R package in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Installing Torch
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends build-essential=12.9ubuntu3 r-base=4.1.2-1ubuntu2 \
+  && rm -rf /var/lib/apt/lists/*
+RUN R -e "install.packages('torch'); torch::install_torch()"
