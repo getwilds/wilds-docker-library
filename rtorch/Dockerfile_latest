@@ -16,5 +16,7 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing Torch
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential==12.9ubuntu3 r-base==4.1.2-1ubuntu2 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends build-essential=12.9ubuntu3 r-base=4.1.2-1ubuntu2 \
+  && rm -rf /var/lib/apt/lists/*
 RUN R -e "install.packages('torch'); torch::install_torch()"
