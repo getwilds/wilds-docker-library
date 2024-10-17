@@ -7,7 +7,7 @@ FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="rtorch"
 LABEL org.opencontainers.image.description="Container image for the use of the Torch R package in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="0.13.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
