@@ -4,7 +4,7 @@ FROM condaforge/miniforge3:24.7.1-2
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="gatk"
 LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="4.3.0.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -28,6 +28,7 @@ RUN apt-get update \
   libncurses5-dev=6.2-0ubuntu2.1 libbz2-dev=1.0.8-2 liblzma-dev=5.2.4-1ubuntu1.1 \
   libssl-dev=1.1.1f-1ubuntu2.23 libcurl4-gnutls-dev=7.68.0-1ubuntu2.24 \
   && rm -rf /var/lib/apt/lists/*
+
 
 # Pulling and extracting Samtools source code
 RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2 && tar -jxf samtools-1.11.tar.bz2
