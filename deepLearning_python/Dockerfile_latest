@@ -1,0 +1,18 @@
+FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="DL_python"
+LABEL org.opencontainers.image.description="Docker image for the use of Deep Learning Python packages in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends python3=3.10.6-1~22.04.1 python3-pip=22.0.2+dfsg-1ubuntu0.4
+
+RUN pip install --no-cache-dir numpy==1.26.4 seaborn==0.9.0 matplotlib==3.9.2 pandas==2.2.3 scikit-learn==1.5.2 \
+    scipy==1.14.1 optuna==4.0.0 joblib==0.13.2
+RUN pip install --no-cache-dir keras==3.6.0 tensorflow=2.17.0 torch=2.5.0
