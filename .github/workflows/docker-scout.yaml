@@ -17,12 +17,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PW }}
+      # - Build image here? How do you cycle through modified images?
       - name: Docker Scout
         id: docker-scout
         uses: docker/scout-action@v1
         with:
           image: getwilds/bwa:latest
-          command: cves,recommendations,compare
+          command: cves #,recommendations,compare
           to-latest: true
           ignore-base: true
           ignore-unchanged: true
