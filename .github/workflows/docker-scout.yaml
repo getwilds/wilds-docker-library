@@ -1,4 +1,4 @@
-name: Docker Scout Security Check
+name: Docker Scout
 
 on:
   pull_request:
