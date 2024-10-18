@@ -22,12 +22,7 @@ jobs:
         with:
           command: cves,recommendations
           image: getwilds/bwa:latest
-          sarif-file: sarif.output.json
           platform: linux/amd64
           summary: true
-      - name: Upload SARIF result
-        id: upload-sarif
-        if: ${{ github.event_name != 'pull_request_target' }}
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: sarif.output.json
+          write-comment: true
+          keep-previous-comments: true
