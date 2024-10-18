@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PW }}
       - name: Build
         run: |
-          ls
+          echo $(ls)
           docker build --platform linux/amd64 -t getwilds/bwa:latest -f /bwa/Dockerfile_latest .
       - name: Docker Scout
         id: docker-scout
