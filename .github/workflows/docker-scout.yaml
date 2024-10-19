@@ -37,10 +37,17 @@ jobs:
           sh install-scout.sh
       - name: Docker Scout
         run: |
-          if [[ $(docker scout cves getwilds/bwa:latest --only-fixed --format sarif --output test.json \
-          && jq '.runs[0].tool.driver.rules | length' test.json) -ge 1 ]]; then
-            docker scout cves getwilds/bwa:latest --only-fixed --format markdown \
-            | gh issue create --repo getwilds/wilds-docker-library --title "GATK CVE Analysis" --body-file -
+          docker scout cves getwilds/bwa:latest --only-fixed --format sarif --output cves.json
+          NUM_VUL = $(jq '.runs[0].tool.driver.rules | length' cves.json)
+          if [[ $NUM_VUL -ge 1 ]]; then
+            docker scout cves getwilds/bwa:latest --only-fixed --format markdown --output cves.html
+            if [[ $(wc -c cves.html) -le 65536 ]]; then
+              gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file cves.html
+            else
+              echo "Significant issues present in bwa, see quickview below and run CVE analysis locally." > quickview.txt
+              docker scout quickview getwilds/bwa:latest >> quickview.txt
+              gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file quickview.html
+            fi
           fi
         # id: docker-scout
         # uses: docker/scout-action@v1
