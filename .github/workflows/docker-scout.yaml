@@ -13,18 +13,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub Container Registry
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PW }}
-      - name: Build
-        run: docker build --platform linux/amd64 -t bwa-scout -f bwa/Dockerfile_latest .
+      # - name: Build
+      #   run: docker build --platform linux/amd64 -t bwa-scout -f bwa/Dockerfile_latest .
+        # docker scout cves bwa-test --only-fixed --format markdown | gh issue create --repo getwilds/wilds-docker-library --title "bwa CVE Analysis" --body-file -
+        # docker scout cves getwilds/gatk:latest --only-fixed --format sarif --output test.json \
+        #   && jq '.runs[0].tool.driver.rules | length' test.json
       - name: Docker Scout
-        id: docker-scout
-        uses: docker/scout-action@v1
-        with:
-          command: cves,recommendations
-          only-fixed: true
+        run: |
+          if [[ $(docker scout cves getwilds/gatk:latest --only-fixed --format sarif --output test.json \
+          && jq '.runs[0].tool.driver.rules | length' test.json) -ge 1 ]]; then
+            docker scout cves getwilds/gatk:latest --only-fixed --format markdown \
+            | gh issue create --repo getwilds/wilds-docker-library --title "GATK CVE Analysis" --body-file -
+          fi
+        # id: docker-scout
+        # uses: docker/scout-action@v1
+        # with:
+        #   command: cves,recommendations
+        #   only-fixed: true
