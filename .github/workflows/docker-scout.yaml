@@ -10,13 +10,13 @@ permissions:
 jobs:
   scout:
     runs-on: ubuntu-latest
-    container:
-      image: docker/scout-cli
+    # container:
+    #   image: docker/scout-cli
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -27,6 +27,10 @@ jobs:
         # docker scout cves bwa-test --only-fixed --format markdown | gh issue create --repo getwilds/wilds-docker-library --title "bwa CVE Analysis" --body-file -
         # docker scout cves getwilds/gatk:latest --only-fixed --format sarif --output test.json \
         #   && jq '.runs[0].tool.driver.rules | length' test.json
+      - name: Install Docker Scout
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
+          sh install-scout.sh
       - name: Docker Scout
         run: |
           if [[ $(docker scout cves getwilds/gatk:latest --only-fixed --format sarif --output test.json \
