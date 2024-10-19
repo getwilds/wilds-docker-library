@@ -37,16 +37,18 @@ jobs:
           sh install-scout.sh
       - name: Docker Scout
         run: |
-          docker scout cves getwilds/bwa:latest --only-fixed --format sarif --output cve_check.json
+          CONTAINER="getwilds/bwa:latest"
+          docker scout cves $CONTAINER --only-fixed --format sarif --output cve_check.json
           NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json)
           if [[ $NUM_VUL -ge 1 ]]; then
-            docker scout cves getwilds/bwa:latest --only-fixed --format markdown --output cve_check.html
+            docker scout cves $CONTAINER --only-fixed --format markdown --output cve_check.html
             if [[ $(wc -c cve_check.html) -le 65536 ]]; then
               gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file cve_check.html
             else
-              echo "Significant issues present in bwa, see quickview below and run CVE analysis locally.\n" > qv.txt
+              echo "Significant issues present in bwa, see quickview and recommendations below, but run CVE analysis locally.\n" > qv.txt
               echo "\`\`\`" >> qv.txt
-              docker scout quickview getwilds/bwa:latest >> qv.txt
+              docker scout quickview $CONTAINER >> qv.txt
+              docker scout recommendations $CONTAINER >> qv.txt
               echo "\`\`\`" >> qv.txt
               gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file qv.txt
             fi
