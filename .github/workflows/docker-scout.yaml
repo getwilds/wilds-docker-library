@@ -44,9 +44,9 @@ jobs:
             if [[ $(wc -c cves.html) -le 65536 ]]; then
               gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file cves.html
             else
-              echo "Significant issues present in bwa, see quickview below and run CVE analysis locally." > quickview.txt
-              docker scout quickview getwilds/bwa:latest >> quickview.txt
-              gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file quickview.html
+              echo "Significant issues present in bwa, see quickview below and run CVE analysis locally." > qv.txt
+              docker scout quickview getwilds/bwa:latest >> qv.txt
+              gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file qv.txt
             fi
           fi
         # id: docker-scout
