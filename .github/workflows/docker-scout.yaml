@@ -37,9 +37,9 @@ jobs:
           sh install-scout.sh
       - name: Docker Scout
         run: |
-          if [[ $(docker scout cves getwilds/gatk:latest --only-fixed --format sarif --output test.json \
+          if [[ $(docker scout cves getwilds/bwa:latest --only-fixed --format sarif --output test.json \
           && jq '.runs[0].tool.driver.rules | length' test.json) -ge 1 ]]; then
-            docker scout cves getwilds/gatk:latest --only-fixed --format markdown \
+            docker scout cves getwilds/bwa:latest --only-fixed --format markdown \
             | gh issue create --repo getwilds/wilds-docker-library --title "GATK CVE Analysis" --body-file -
           fi
         # id: docker-scout
