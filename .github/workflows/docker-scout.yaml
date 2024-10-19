@@ -45,14 +45,14 @@ jobs:
               if [[ $NUM_VUL -ge 1 ]]; then
                 docker scout cves $CONTAINER --only-fixed --format markdown --output cve_check.html
                 if [[ $(wc -c cve_check.html) -le 65536 ]]; then
-                  gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file cve_check.html
+                  gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file cve_check.html
                 else
                   echo "Significant issues present in bwa, see quickview and recommendations below, but run CVE analysis locally." > qv.txt
                   echo "\`\`\`" >> qv.txt
                   docker scout quickview $CONTAINER >> qv.txt
                   docker scout recommendations $CONTAINER >> qv.txt
                   echo "\`\`\`" >> qv.txt
-                  gh issue create --repo getwilds/wilds-docker-library --title "bwa Vulnerability Analysis" --body-file qv.txt
+                  gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file qv.txt
                 fi
               fi
             fi
