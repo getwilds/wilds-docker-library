@@ -38,7 +38,7 @@ jobs:
       - name: Docker Scout
         run: |
           docker scout cves getwilds/bwa:latest --only-fixed --format sarif --output cves.json
-          NUM_VUL = $(jq '.runs[0].tool.driver.rules | length' cves.json)
+          NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cves.json)
           if [[ $NUM_VUL -ge 1 ]]; then
             docker scout cves getwilds/bwa:latest --only-fixed --format markdown --output cves.html
             if [[ $(wc -c cves.html) -le 65536 ]]; then
