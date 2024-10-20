@@ -55,6 +55,7 @@ jobs:
                   gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file qv.txt
                 fi
               fi
+              docker system prune -af
             fi
           done
         # id: docker-scout
