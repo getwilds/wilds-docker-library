@@ -2,7 +2,7 @@ name: Docker Scout
 
 on:
   schedule:
-    - cron: "0 0 20 * *"
+    - cron: "0 * * * *"
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -25,8 +25,9 @@ jobs:
           sh install-scout.sh
       - name: Docker Scout
         run: |
+          GH_ISSUES=$(gh issue list)
           for image in *; do
-            if [ -d "$image" ] && [ "$image" != ".github" ]; then
+            if [ -d "$image" ] && [ "$image" != ".github" ] && [ $GH_ISSUES != *"$image Vulnerability Analysis"* ]; then
               CONTAINER="getwilds/$image:latest"
               docker scout cves $CONTAINER --only-fixed --format sarif --output cve_check.json
               NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json)
