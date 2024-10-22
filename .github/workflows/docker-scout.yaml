@@ -3,7 +3,7 @@ name: Docker Scout
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 0 1 * *"
 
 env:
   GH_TOKEN: ${{ github.token }}
