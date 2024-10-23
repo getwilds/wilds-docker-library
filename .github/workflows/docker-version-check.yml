@@ -2,6 +2,9 @@ name: Dockerfile Version Check
 
 
 on:
+  push:
+    branches:
+      - automate_version_check
   workflow_dispatch:
   schedule:
     - cron: '*/2 * * * *' # Running every 2 minutes
