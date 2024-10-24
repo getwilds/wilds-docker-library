@@ -1,6 +1,5 @@
-
 # Using the Miniconda base image
-FROM continuumio/miniconda3:24.1.2-0
+FROM condaforge/miniforge3:24.7.1-2
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="gatk"
@@ -12,16 +11,24 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Switching from hard-links to copies and installing GATK
-RUN conda config --set always_copy true && conda install -y -c bioconda gatk4=4.3.0.0
+# Switching from hard-links to copies and Disable SSL Verification Temporarily
+RUN conda config --set always_copy true && conda config --set ssl_verify false
+
+# Add conda-forge and bioconda channels
+RUN conda config --add channels conda-forge
+RUN conda config --add channels bioconda
+
+# Installing GATK via conda
+RUN conda install -y --channel bioconda gatk4=4.3.0.0
 
 # Installing Samtools prerequisites
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.9 wget=1.21-1+deb11u1 \
-  zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 autoconf=2.69-14 automake=1:1.16.3-2 \
-  libncurses5-dev=6.2+20201114-2+deb11u2 libbz2-dev=1.0.8-4 liblzma-dev=5.2.5-2.1~deb11u1 \
-  libssl-dev=1.1.1w-0+deb11u1 libcurl4-gnutls-dev=7.74.0-1.3+deb11u11 \
+  && apt-get install -y --no-install-recommends build-essential=12.8ubuntu1.1 wget=1.20.3-1ubuntu2.1 \
+  zlib1g-dev=1:1.2.11.dfsg-2ubuntu1.5 autoconf=2.69-11.1 automake=1:1.16.1-4ubuntu6 \
+  libncurses5-dev=6.2-0ubuntu2.1 libbz2-dev=1.0.8-2 liblzma-dev=5.2.4-1ubuntu1.1 \
+  libssl-dev=1.1.1f-1ubuntu2.23 libcurl4-gnutls-dev=7.68.0-1ubuntu2.24 \
   && rm -rf /var/lib/apt/lists/*
+
 
 # Pulling and extracting Samtools source code
 RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2 && tar -jxf samtools-1.11.tar.bz2
