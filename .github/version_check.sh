@@ -49,6 +49,6 @@ echo "gatk:${CURRENT_VERSION}:${LATEST_VERSION}" >> version_list.txt
 # CURRENT_VERSION=$(get_current_version "$TOOL")
 # echo "${TOOL}:${CURRENT_VERSION}:${LATEST_VERSION}" >> version_list.txt
 
-{ echo Tool:Current_version: Latest_version; cat version_list.txt; } | csvlook
+{ echo Tool:Current_version: Latest_version; cat version_list.txt; } | csvlook  > version_table.txt
 
 rm version_list.txt

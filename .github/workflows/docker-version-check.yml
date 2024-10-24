@@ -5,9 +5,13 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - main
       - automate_version_check
   schedule:
-      - cron: '*/2 * * * *' # Running every 2 minutes
+    - cron: "0 0 1 * *"     # Run every 1 month
+
+env:
+  GH_TOKEN: ${{ github.token }}
 
 
 jobs:
@@ -19,7 +23,7 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
-      - name: Install jq and curl
+      - name: Install jq, curl, csvkit
         run: |
           sudo apt-get update
           sudo apt-get install -y jq curl csvkit
@@ -28,3 +32,4 @@ jobs:
       - name: Run the scripts
         run: |
           ./version_check.sh
+          gh issue create --repo getwilds/wilds-docker-library --title "$(date +%B): Docker version check" --body-file version_table.txt
