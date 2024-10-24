@@ -11,15 +11,9 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Switching from hard-links to copies and Disable SSL Verification Temporarily
-RUN conda config --set always_copy true && conda config --set ssl_verify false
-
-# Add conda-forge and bioconda channels
-RUN conda config --add channels conda-forge
-RUN conda config --add channels bioconda
-
-# Installing GATK via conda
-RUN conda install -y --channel bioconda gatk4=4.3.0.0
+# Switching from hard-links to copies and installing GATK
+RUN conda config --set always_copy true \
+  && conda install -y --channel bioconda gatk4=4.3.0.0
 
 # Installing Samtools prerequisites
 RUN apt-get update \
