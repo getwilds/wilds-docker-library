@@ -1,0 +1,50 @@
+name: Docker Scout
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 * *"
+
+env:
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login to DockerHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+      - name: Install Docker Scout
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
+          sh install-scout.sh
+      - name: Docker Scout
+        run: |
+          GH_ISSUES=$(gh issue list)
+          for image in *; do
+            if [[ -d "$image" ]] && [[ "$image" != ".github" ]] && [[ $GH_ISSUES != *"$image Vulnerability Analysis"* ]]; then
+              CONTAINER="getwilds/$image:latest"
+              docker scout cves $CONTAINER --only-fixed --format sarif --output cve_check.json
+              NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json)
+              if [[ $NUM_VUL -ge 1 ]]; then
+                docker scout cves $CONTAINER --only-fixed --format markdown --output cve_check.html
+                if [[ $(wc -c cve_check.html) -le 65536 ]]; then
+                  gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file cve_check.html
+                else
+                  echo "Significant issues present in bwa, see quickview and recommendations below, but run CVE analysis locally." > qv.txt
+                  echo "\`\`\`" >> qv.txt
+                  docker scout quickview $CONTAINER >> qv.txt
+                  docker scout recommendations $CONTAINER >> qv.txt
+                  echo "\`\`\`" >> qv.txt
+                  gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file qv.txt
+                fi
+              fi
+              docker system prune -af
+            fi
+          done
