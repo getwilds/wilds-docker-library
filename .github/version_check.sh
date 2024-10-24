@@ -1,50 +1,54 @@
 #!/bin/bash
 
-# Script to check API calls to GitHub and Pip packages
+# Script to check API calls to GitHub and Pip packages and return list with existing version of Dockerimages
 
-SAMTOOLS_REPO="samtools/samtools"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${SAMTOOLS_REPO}/releases/latest" | jq -r .tag_name)
-echo "Latest version of Samtools is ${LATEST_VERSION}"
+get_current_version() {
+    local DOCKER=$1
 
-bedtools_repo="arq5x/bedtools2"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${bedtools_repo}/releases/latest" | jq -r .tag_name)
-echo "Latest version of BEDtools is ${LATEST_VERSION}"
-
-bcftools_repo="samtools/bcftools"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${bcftools_repo}/releases/latest" | jq -r .tag_name)
-echo "Latest version of bcftools is ${LATEST_VERSION}"
-
-bwa_repo="lh3/bwa"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${bwa_repo}/releases/latest" | jq -r .tag_name)
-echo "Latest version of BWA is ${LATEST_VERSION}"
-
-PICARD_REPO="broadinstitute/picard"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${PICARD_REPO}/releases/latest" | jq -r .tag_name)
-echo "Latest version of Picard is ${LATEST_VERSION}"
-
-star_repo="alexdobin/STAR"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${star_repo}/releases/latest" | jq -r .tag_name)
-echo "Latest version of STAR is ${LATEST_VERSION}"
-
-umiTools_repo="CGATOxford/UMI-tools"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${umiTools_repo}/releases/latest" | jq -r .tag_name)
-echo "Latest version of UMI-Tools is ${LATEST_VERSION}"
-
-SRATOOLS_REPO="ncbi/sra-tools"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${SRATOOLS_REPO}/tags" | jq -r '.[0].name')
-echo "Latest version of sra-tools is ${LATEST_VERSION}"
-
-rTorch_REPO="mlverse/torch"
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${rTorch_REPO}/releases/latest" | jq -r .tag_name)
-echo "Latest version of R-Torch is ${LATEST_VERSION}"
-
-scanpy_version=$(curl --silent "https://pypi.org/pypi/scanpy/json" | jq -r '.info.version')
-echo "Latest version of Scanpy is ${scanpy_version}"
-
-scvitools_version=$(curl --silent "https://pypi.org/pypi/scvi-tools/json" | jq -r '.info.version')
-echo "Latest version of scvi-tools is ${scvitools_version}"
-
-gatk4_version=$(curl --silent "https://api.anaconda.org/package/bioconda/gatk4" | jq -r '.latest_version')
-echo "Latest version of GATK4 is ${gatk4_version}"
+    VERSIONED_FILES=$(find "../${DOCKER}" -maxdepth 1 -type f -name 'Dockerfile_*' | grep -v 'Dockerfile_latest')
+    CURRENT_VERSION_FILE=$(echo "$VERSIONED_FILES" | grep -Eo 'Dockerfile_[0-9]+\.[0-9]+' | sort -V | tail -n 1)
+    
+    if [ -z "$CURRENT_VERSION_FILE" ]; then
+        echo "No versioned Dockerfile found for ${DOCKER}."
+        return 1
+    fi
+    
+    CURRENT_VERSION=$(echo "$CURRENT_VERSION_FILE" | grep -Eo '[0-9]+\.[0-9]+')
+    echo "$CURRENT_VERSION"
+}
 
 
+## Tools with Github API calls
+declare -A github_dict=(["samtools"]="samtools/samtools" ["bedtools"]="arq5x/bedtools2" ["bcftools"]="samtools/bcftools" ["bwa"]="lh3/bwa" ["picard"]="broadinstitute/picard" \
+                        ["star"]="alexdobin/STAR" ["umitools"]="CGATOxford/UMI-tools" ["rtorch"]="mlverse/torch")
+
+for DOCKER in "${!github_dict[@]}"
+do
+    LATEST_VERSION=$(curl --silent "https://api.github.com/repos/${github_dict[$DOCKER]}/releases/latest" | jq -r .tag_name)
+    CURRENT_VERSION=$(get_current_version "$DOCKER")
+    echo "${DOCKER}:${CURRENT_VERSION}:${LATEST_VERSION}" >> version_list.txt
+done
+
+## Tools with PyPi API calls
+declare -A pypi_dict=(["scanpy"]="scanpy" ["scvi-tools"]="scvi-tools")
+for DOCKER in "${!pypi_dict[@]}"
+do
+    LATEST_VERSION=$(curl --silent "https://pypi.org/pypi/${pypi_dict[$DOCKER]}/json" | jq -r '.info.version')
+    CURRENT_VERSION=$(get_current_version "$DOCKER")
+    echo "${DOCKER}:${CURRENT_VERSION}:${LATEST_VERSION}" >> version_list.txt
+done
+
+## GATK
+LATEST_VERSION=$(curl --silent "https://api.anaconda.org/package/bioconda/gatk4" | jq -r '.latest_version')
+CURRENT_VERSION=$(get_current_version "gatk")
+echo "gatk:${CURRENT_VERSION}:${LATEST_VERSION}" >> version_list.txt
+
+# ## sra-tools
+# TOOL="sra-tools"
+# LATEST_VERSION=$(curl --silent "https://api.github.com/repos/ncbi/${TOOL}/tags" | jq -r '.[0].name')
+# CURRENT_VERSION=$(get_current_version "$TOOL")
+# echo "${TOOL}:${CURRENT_VERSION}:${LATEST_VERSION}" >> version_list.txt
+
+{ echo Tool:Current_version: Latest_version; cat version_list.txt; } | csvlook
+
+rm version_list.txt

@@ -2,12 +2,12 @@ name: Dockerfile Version Check
 
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - automate_version_check
-  workflow_dispatch:
   schedule:
-    - cron: '*/2 * * * *' # Running every 2 minutes
+      - cron: '*/2 * * * *' # Running every 2 minutes
 
 
 jobs:
@@ -22,8 +22,7 @@ jobs:
       - name: Install jq and curl
         run: |
           sudo apt-get update
-          sudo apt-get install -y jq curl
-
+          sudo apt-get install -y jq curl csvkit
       - name: Make the script files executable
         run: chmod +x version_check.sh
       - name: Run the scripts
