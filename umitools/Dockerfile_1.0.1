@@ -1,11 +1,11 @@
 
 # Using the Ubuntu base image
-FROM python:3.9.19-bookworm
+FROM python:3.12-bookworm
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="umitools"
 LABEL org.opencontainers.image.description="Container image for the use of umi_tools in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="1.0.1"
+LABEL org.opencontainers.image.version="1.1.6"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -13,4 +13,4 @@ LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-l
 LABEL org.opencontainers.image.licenses=MIT
 
 # Installing umi_tools via pip
-RUN pip install --no-cache-dir umi_tools==1.0.1
+RUN pip install --no-cache-dir umi_tools==1.1.6
