@@ -1,6 +1,6 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:jammy-20240212
+FROM ubuntu:oracular-20241009
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="rnaseqc"
@@ -17,8 +17,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Installing Java
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-17-jdk=17.0.11+9-1~22.04.1 \
-    ant=1.10.12-1 wget=1.21.2-2ubuntu1 r-base=4.1.2-1ubuntu2 ca-certificates-java=20190909ubuntu1.2 \
+    && apt-get install -y --no-install-recommends openjdk-17-jdk=17.0.12+7-2 \
+    ant=1.10.14-1 wget=1.24.5-1ubuntu2 r-base=4.4.1-1 ca-certificates-java=20240118 \
     && rm -rf /var/lib/apt/lists/* \
     && update-ca-certificates -f;
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/

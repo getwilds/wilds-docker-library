@@ -1,6 +1,6 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:noble-20240114
+FROM ubuntu:noble-20241011
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="annovar"
