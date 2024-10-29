@@ -40,6 +40,7 @@ jobs:
                   IFS="/" read -ra toolarr <<< "$changed_file"
                   IFS="_" read -ra tagarr <<< "$changed_file"
                   docker build --platform linux/amd64 -t ghcr.io/getwilds/${toolarr[0]}:${tagarr[-1]} -f ${changed_file} --push .
+                  docker system prune -af
                   sleep 5
               fi
           done
@@ -57,6 +58,7 @@ jobs:
                   IFS="/" read -ra toolarr <<< "$changed_file"
                   IFS="_" read -ra tagarr <<< "$changed_file"
                   docker build --platform linux/amd64 -t getwilds/${toolarr[0]}:${tagarr[-1]} -f ${changed_file} --push .
+                  docker system prune -af
                   sleep 5
               fi
           done

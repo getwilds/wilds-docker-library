@@ -28,3 +28,4 @@ WORKDIR /
 ENV PATH="${PATH}:/bcftools-1.11"
 RUN rm -rf bcftools-1.11.tar.bz2
 
+
