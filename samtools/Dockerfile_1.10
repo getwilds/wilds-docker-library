@@ -30,3 +30,4 @@ WORKDIR /
 
 # Cleanup
 RUN rm -rf samtools-1.10 samtools-1.10.tar.bz2
+

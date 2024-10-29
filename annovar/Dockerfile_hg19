@@ -32,3 +32,4 @@ RUN annotate_variation.pl -buildver hg19 -downdb -webfrom annovar refGene /annov
 # Cleanup
 RUN rm -rf annovar.latest.tar.gz
 
+
