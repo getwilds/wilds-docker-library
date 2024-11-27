@@ -19,8 +19,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Pulling down collapse_annotation.py script from GitHub
+WORKDIR /usr/gtf-smash
 RUN wget https://raw.githubusercontent.com/broadinstitute/gtex-pipeline/refs/tags/gtex_v8/gene_model/collapse_annotation.py && \
     chmod +x collapse_annotation.py
+WORKDIR /
+ENV PATH="${PATH}:/usr/gtf-smash"
 
 # Installing packages via pip
 RUN pip install --no-cache-dir pandas==2.2.3 bx-python==0.13.0
