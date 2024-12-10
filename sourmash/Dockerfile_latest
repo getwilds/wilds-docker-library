@@ -1,0 +1,29 @@
+# Using the miniforge base image
+FROM condaforge/miniforge3:24.7.1-2
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="sourmash" \
+      org.opencontainers.image.description="Container image for the use of Sourmash in FH DaSL's WILDS" \
+      org.opencontainers.image.version="latest" \
+      org.opencontainers.image.authors="wilds@fredhutch.org" \
+      org.opencontainers.image.url="https://hutchdatascience.org/" \
+      org.opencontainers.image.documentation="https://getwilds.org/" \
+      org.opencontainers.image.source="https://github.com/getwilds/wilds-docker-library" \
+      org.opencontainers.image.licenses="MIT"
+
+# Configure conda to run in non-interactive mode
+ENV CONDA_ALWAYS_YES=true
+
+# Create the conda environment and install sourmash with specific version
+SHELL ["/bin/bash", "-c"]
+RUN /opt/conda/bin/conda create -n sourmash_env -c conda-forge sourmash-minimal=4.8.2 && \
+    echo "source /opt/conda/bin/activate sourmash_env" >> ~/.bashrc
+
+# Set default command to activate conda environment
+SHELL ["/bin/bash", "-c"]
+
+# Verify installation and version
+RUN /opt/conda/bin/conda run -n sourmash_env sourmash --version
+
+# Set the default command to run bash with the conda environment activated
+ENTRYPOINT ["/bin/bash", "-c", "source /opt/conda/bin/activate sourmash_env && exec /bin/bash"]
