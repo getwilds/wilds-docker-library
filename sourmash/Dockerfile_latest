@@ -16,14 +16,16 @@ ENV CONDA_ALWAYS_YES=true
 
 # Create the conda environment and install sourmash with specific version
 SHELL ["/bin/bash", "-c"]
-RUN /opt/conda/bin/conda create -n sourmash_env -c conda-forge sourmash-minimal=4.8.2 && \
-    echo "source /opt/conda/bin/activate sourmash_env" >> ~/.bashrc
 
-# Set default command to activate conda environment
-SHELL ["/bin/bash", "-c"]
+# Install Python 3.10 and sourmash with specific versions
+RUN /opt/conda/bin/conda install -c conda-forge python=3.10 sourmash-minimal=4.8.2 && \
+    /opt/conda/bin/conda clean -afy
+
+# Add conda binary directory to PATH
+ENV PATH=/opt/conda/bin:$PATH
 
 # Verify installation and version
-RUN /opt/conda/bin/conda run -n sourmash_env sourmash --version
+RUN sourmash --version
 
-# Set the default command to run bash with the conda environment activated
-ENTRYPOINT ["/bin/bash", "-c", "source /opt/conda/bin/activate sourmash_env && exec /bin/bash"]
+# Set the default command
+ENTRYPOINT ["/bin/bash"]
