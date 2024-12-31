@@ -23,11 +23,9 @@ RUN conda config --set always_copy true \
     && conda install -y --channel bioconda gatk4="${GATK_VERSION}" \
     && conda clean -afy
 
-# Create build directory
+# Create build directory and get package versions
 WORKDIR /build
 
-# Installing Samtools and its prerequisites
-# First, update and get current stable versions
 RUN apt-get update \
     && BUILD_ESSENTIAL_VERSION="$(apt-cache policy build-essential | grep Candidate | awk '{print $2}')" \
     && WGET_VERSION="$(apt-cache policy wget | grep Candidate | awk '{print $2}')" \
@@ -53,17 +51,16 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && wget -q --no-check-certificate "https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2" \
-    && tar -jxf "samtools-${SAMTOOLS_VERSION}.tar.bz2" \
-    && cd "samtools-${SAMTOOLS_VERSION}" \
-    && ./configure \
+    && tar -jxf "samtools-${SAMTOOLS_VERSION}.tar.bz2"
+
+# Configure and install Samtools
+WORKDIR /build/samtools-${SAMTOOLS_VERSION}
+RUN ./configure \
     && make \
     && make install \
-    && cd .. \
-    && rm -rf "samtools-${SAMTOOLS_VERSION}" "samtools-${SAMTOOLS_VERSION}.tar.bz2"
+    && rm -rf /build \
+    && useradd -m -s /bin/bash gatk
 
-# Create and switch to non-root user
-RUN useradd -m -s /bin/bash gatk
+# Switch to non-root user and set final working directory
 USER gatk
-
-# Set final working directory
 WORKDIR /data
