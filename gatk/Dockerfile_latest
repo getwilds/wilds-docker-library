@@ -5,7 +5,7 @@ FROM condaforge/miniforge3:24.7.1-2@sha256:666f4ae3d2596c25e9cd4e4d6eaa551aa6324
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Set version numbers for easy updating
-ENV GATK_VERSION=4.3.0.0 \
+ENV GATK_VERSION=4.5.0.0 \
     SAMTOOLS_VERSION=1.11
 
 # Adding labels for the GitHub Container Registry
