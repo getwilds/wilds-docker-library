@@ -1,35 +1,63 @@
-# Using the Miniconda base image
-FROM condaforge/miniforge3:24.7.1-2
+# Using the Miniconda base image with SHA for reproducibility
+FROM condaforge/miniforge3:24.7.1-2@sha256:666f4ae3d2596c25e9cd4e4d6eaa551aa63245a02dae450a9e2ee2e944ce0dc2
+
+# Set version numbers for easy updating
+ENV GATK_VERSION=4.3.0.0 \
+    SAMTOOLS_VERSION=1.11
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="gatk"
-LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
-LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
-LABEL org.opencontainers.image.documentation=https://getwilds.org/
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
-LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.title="gatk" \
+      org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS" \
+      org.opencontainers.image.version="latest" \
+      org.opencontainers.image.authors="wilds@fredhutch.org" \
+      org.opencontainers.image.url=https://hutchdatascience.org/ \
+      org.opencontainers.image.documentation=https://getwilds.org/ \
+      org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library \
+      org.opencontainers.image.licenses=MIT
 
-# Switching from hard-links to copies and installing GATK
+# Installing GATK with conda
 RUN conda config --set always_copy true \
-  && conda install -y --channel bioconda gatk4=4.3.0.0
+    && conda install -y --channel bioconda gatk4=${GATK_VERSION} \
+    && conda clean -afy
 
-# Installing Samtools prerequisites
+# Installing Samtools and its prerequisites
+# First, update and get current stable versions
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.8ubuntu1.1 wget=1.20.3-1ubuntu2.1 \
-  zlib1g-dev=1:1.2.11.dfsg-2ubuntu1.5 autoconf=2.69-11.1 automake=1:1.16.1-4ubuntu6 \
-  libncurses5-dev=6.2-0ubuntu2.1 libbz2-dev=1.0.8-2 liblzma-dev=5.2.4-1ubuntu1.1 \
-  libssl-dev=1.1.1f-1ubuntu2.23 libcurl4-gnutls-dev=7.68.0-1ubuntu2.24 \
-  && rm -rf /var/lib/apt/lists/*
+    && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+    && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+    && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+    && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+    && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+    && LIBNCURSES_VERSION=$(apt-cache policy libncurses5-dev | grep Candidate | awk '{print $2}') \
+    && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+    && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+    && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+    && LIBCURL_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+    && apt-get install -y --no-install-recommends \
+        build-essential=${BUILD_ESSENTIAL_VERSION} \
+        wget=${WGET_VERSION} \
+        zlib1g-dev=${ZLIB_VERSION} \
+        autoconf=${AUTOCONF_VERSION} \
+        automake=${AUTOMAKE_VERSION} \
+        libncurses5-dev=${LIBNCURSES_VERSION} \
+        libbz2-dev=${LIBBZ2_VERSION} \
+        liblzma-dev=${LIBLZMA_VERSION} \
+        libssl-dev=${LIBSSL_VERSION} \
+        libcurl4-gnutls-dev=${LIBCURL_VERSION} \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2 \
+    && tar -jxf samtools-${SAMTOOLS_VERSION}.tar.bz2 \
+    && cd samtools-${SAMTOOLS_VERSION} \
+    && ./configure \
+    && make \
+    && make install \
+    && cd .. \
+    && rm -rf samtools-${SAMTOOLS_VERSION} samtools-${SAMTOOLS_VERSION}.tar.bz2
 
-# Pulling and extracting Samtools source code
-RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2 && tar -jxf samtools-1.11.tar.bz2
+# Create and switch to non-root user
+RUN useradd -m -s /bin/bash gatk
+USER gatk
 
-# Installing Samtools
-WORKDIR /samtools-1.11
-RUN ./configure && make && make install
-WORKDIR /
-
-# Cleanup
-RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
+# Set working directory
+WORKDIR /data
