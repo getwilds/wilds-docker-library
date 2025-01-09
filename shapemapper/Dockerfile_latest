@@ -2,23 +2,38 @@
 FROM ubuntu:22.04
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="shapemapper"
-LABEL org.opencontainers.image.description="Container image for the use of ShapeMapper in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
-LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
-LABEL org.opencontainers.image.documentation=https://getwilds.org/
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
-LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.title="shapemapper" \
+      org.opencontainers.image.description="Container image for the use of ShapeMapper in FH DaSL's WILDS" \
+      org.opencontainers.image.version="latest" \
+      org.opencontainers.image.authors="wilds@fredhutch.org" \
+      org.opencontainers.image.url=https://hutchdatascience.org/ \
+      org.opencontainers.image.documentation=https://getwilds.org/ \
+      org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library \
+      org.opencontainers.image.licenses=MIT
 
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install minimal system dependencies with pinned versions and no recommends
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    wget=1.21.2-2ubuntu1 \
-    tar=1.34+dfsg-1ubuntu0.1.22.04.1 \
-    python3=3.10.6-1~22.04 \
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Update system and install dependencies with dynamic version fetching
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    # Store current versions in variables
+    WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') && \
+    TAR_VERSION=$(apt-cache policy tar | grep Candidate | awk '{print $2}') && \
+    PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') && \
+    GNUTLS_VERSION=$(apt-cache policy gnutls-bin | grep Candidate | awk '{print $2}') && \
+    CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') && \
+    # Install packages with specific versions
+    apt-get install -y --no-install-recommends \
+    wget="${WGET_VERSION}" \
+    tar="${TAR_VERSION}" \
+    python3="${PYTHON3_VERSION}" \
+    gnutls-bin="${GNUTLS_VERSION}" \
+    ca-certificates="${CA_CERTS_VERSION}" \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install ShapeMapper from release tarball
