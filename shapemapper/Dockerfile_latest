@@ -1,0 +1,37 @@
+# Use Ubuntu as the base image
+FROM ubuntu:22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="shapemapper"
+LABEL org.opencontainers.image.description="Container image for the use of ShapeMapper in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install minimal system dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    tar \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install ShapeMapper from release tarball
+RUN wget https://github.com/Weeks-UNC/shapemapper2/releases/download/v2.3/shapemapper2-2.3.tar.gz \
+    && tar -xzf shapemapper2-2.3.tar.gz \
+    && rm shapemapper2-2.3.tar.gz \
+    && mv shapemapper2-2.3 /opt/shapemapper
+
+# Add ShapeMapper to PATH
+ENV PATH="/opt/shapemapper:${PATH}"
+
+# Create working directory
+WORKDIR /data
+
+# Default command (can be overridden)
+CMD ["shapemapper", "--help"]
