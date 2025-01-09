@@ -14,15 +14,15 @@ LABEL org.opencontainers.image.licenses=MIT
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install minimal system dependencies
-RUN apt-get update && apt-get install -y \
-    wget \
-    tar \
-    python3 \
+# Install minimal system dependencies with pinned versions and no recommends
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget=1.21.2-2ubuntu1 \
+    tar=1.34+dfsg-1ubuntu0.1.22.04.1 \
+    python3=3.10.6-1~22.04 \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install ShapeMapper from release tarball
-RUN wget https://github.com/Weeks-UNC/shapemapper2/releases/download/v2.3/shapemapper2-2.3.tar.gz \
+RUN wget -q https://github.com/Weeks-UNC/shapemapper2/releases/download/v2.3/shapemapper2-2.3.tar.gz \
     && tar -xzf shapemapper2-2.3.tar.gz \
     && rm shapemapper2-2.3.tar.gz \
     && mv shapemapper2-2.3 /opt/shapemapper
