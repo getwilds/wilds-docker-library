@@ -1,0 +1,52 @@
+# Use Ubuntu as the base image
+FROM ubuntu:22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="shapemapper" \
+      org.opencontainers.image.description="Container image for the use of ShapeMapper in FH DaSL's WILDS" \
+      org.opencontainers.image.version="latest" \
+      org.opencontainers.image.authors="wilds@fredhutch.org" \
+      org.opencontainers.image.url=https://hutchdatascience.org/ \
+      org.opencontainers.image.documentation=https://getwilds.org/ \
+      org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library \
+      org.opencontainers.image.licenses=MIT
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Update system and install dependencies with dynamic version fetching
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    # Store current versions in variables
+    WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') && \
+    TAR_VERSION=$(apt-cache policy tar | grep Candidate | awk '{print $2}') && \
+    PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') && \
+    GNUTLS_VERSION=$(apt-cache policy gnutls-bin | grep Candidate | awk '{print $2}') && \
+    CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') && \
+    # Install packages with specific versions
+    apt-get install -y --no-install-recommends \
+    wget="${WGET_VERSION}" \
+    tar="${TAR_VERSION}" \
+    python3="${PYTHON3_VERSION}" \
+    gnutls-bin="${GNUTLS_VERSION}" \
+    ca-certificates="${CA_CERTS_VERSION}" \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install ShapeMapper from release tarball
+RUN wget -q https://github.com/Weeks-UNC/shapemapper2/releases/download/v2.3/shapemapper2-2.3.tar.gz \
+    && tar -xzf shapemapper2-2.3.tar.gz \
+    && rm shapemapper2-2.3.tar.gz \
+    && mv shapemapper2-2.3 /opt/shapemapper
+
+# Add ShapeMapper to PATH
+ENV PATH="/opt/shapemapper:${PATH}"
+
+# Create working directory
+WORKDIR /data
+
+# Default command (can be overridden)
+CMD ["shapemapper", "--help"]
