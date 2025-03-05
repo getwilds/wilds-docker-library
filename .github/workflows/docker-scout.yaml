@@ -30,21 +30,25 @@ jobs:
           for image in *; do
             if [[ -d "$image" ]] && [[ "$image" != ".github" ]] && [[ $GH_ISSUES != *"$image Vulnerability Analysis"* ]]; then
               CONTAINER="getwilds/$image:latest"
-              # First, check for high and critical vulnerabilities
-              docker scout cves $CONTAINER --only-fixed --severity high,critical --format sarif --output cve_check.json
-              NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json)
-              if [[ $NUM_VUL -ge 1 ]]; then
-                # If high/critical vulnerabilities found, generate markdown report with all vulnerabilities
+              
+              # First scan for all vulnerabilities but save to JSON for filtering
+              docker scout cves $CONTAINER --only-fixed --format json > all_cves.json
+              
+              # Use jq to filter for high and critical vulnerabilities
+              HIGH_CRITICAL_COUNT=$(jq '[.vulnerabilities[] | select(.severity == "high" or .severity == "critical")] | length' all_cves.json)
+              
+              if [[ $HIGH_CRITICAL_COUNT -ge 1 ]]; then
+                # Generate readable report for GitHub issue
                 docker scout cves $CONTAINER --only-fixed --format markdown --output cve_check.html
                 if [[ $(wc -c cve_check.html) -le 65536 ]]; then
-                  gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file cve_check.html
+                  gh issue create --repo getwilds/wilds-docker-library --title "$image Critical/High Vulnerability" --body-file cve_check.html
                 else
-                  echo "Significant issues present in bwa, see quickview and recommendations below, but run CVE analysis locally." > qv.txt
+                  echo "Significant issues present in $image, see quickview and recommendations below, but run CVE analysis locally." > qv.txt
                   echo "\`\`\`" >> qv.txt
                   docker scout quickview $CONTAINER >> qv.txt
                   docker scout recommendations $CONTAINER >> qv.txt
                   echo "\`\`\`" >> qv.txt
-                  gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file qv.txt
+                  gh issue create --repo getwilds/wilds-docker-library --title "$image Critical/High Vulnerability" --body-file qv.txt
                 fi
               fi
               docker system prune -af
