@@ -1,4 +1,4 @@
-# Use specific SHA for better reproducibility
+# Using more recent Ubuntu version
 FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.title="bwa" \
       org.opencontainers.image.description="Docker image for the use of bwa in FH DaSL's WILDS" \
       org.opencontainers.image.version="0.7.17" \
       org.opencontainers.image.authors="wilds@fredhutch.org" \
-      org.opencontainers.image.url=https://hutchdatascience.org/ \
+      org.opencontainers.image.url=https://ocdo.fredhutch.org/ \
       org.opencontainers.image.documentation=https://getwilds.org/ \
       org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library \
       org.opencontainers.image.licenses=MIT
