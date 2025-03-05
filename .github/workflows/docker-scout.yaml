@@ -30,9 +30,11 @@ jobs:
           for image in *; do
             if [[ -d "$image" ]] && [[ "$image" != ".github" ]] && [[ $GH_ISSUES != *"$image Vulnerability Analysis"* ]]; then
               CONTAINER="getwilds/$image:latest"
-              docker scout cves $CONTAINER --only-fixed --format sarif --output cve_check.json
+              # First, check for high and critical vulnerabilities
+              docker scout cves $CONTAINER --only-fixed --severity high,critical --format sarif --output cve_check.json
               NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json)
               if [[ $NUM_VUL -ge 1 ]]; then
+                # If high/critical vulnerabilities found, generate markdown report with all vulnerabilities
                 docker scout cves $CONTAINER --only-fixed --format markdown --output cve_check.html
                 if [[ $(wc -c cve_check.html) -le 65536 ]]; then
                   gh issue create --repo getwilds/wilds-docker-library --title "$image Vulnerability Analysis" --body-file cve_check.html
