@@ -20,7 +20,7 @@ RUN apt-get update && \
 
 # Pulling down collapse_annotation.py script from GitHub
 WORKDIR /usr/gtf-smash
-RUN wget https://raw.githubusercontent.com/broadinstitute/gtex-pipeline/refs/heads/master/gene_model/collapse_annotation.py && \
+RUN wget -q https://raw.githubusercontent.com/broadinstitute/gtex-pipeline/refs/heads/master/gene_model/collapse_annotation.py && \
     chmod +x collapse_annotation.py
 WORKDIR /
 ENV PATH="${PATH}:/usr/gtf-smash"
