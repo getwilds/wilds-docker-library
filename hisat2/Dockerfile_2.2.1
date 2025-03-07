@@ -1,0 +1,46 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="hisat2"
+LABEL org.opencontainers.image.description="Docker image for HISAT2 alignment tool in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="2.2.1"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Define HISAT2 version
+ENV HISAT2_VERSION=2.2.1
+
+# Installing prerequisites
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PY3_DEV_VERSION=$(apt-cache policy python3-dev | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  git="${GIT_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  python3-dev="${PY3_DEV_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && ln -s /usr/bin/python3 /usr/bin/python
+
+# Clone HISAT2 repository and build from source
+WORKDIR /opt
+RUN git clone https://github.com/DaehwanKimLab/hisat2.git
+WORKDIR /opt/hisat2
+RUN git checkout v${HISAT2_VERSION} && make
+
+# Add HISAT2 to PATH
+ENV PATH="${PATH}:/opt/hisat2"
