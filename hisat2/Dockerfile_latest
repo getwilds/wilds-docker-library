@@ -38,10 +38,9 @@ RUN apt-get update \
 
 # Clone HISAT2 repository and build from source
 WORKDIR /opt
-RUN git clone https://github.com/DaehwanKimLab/hisat2.git \
-  && cd hisat2 \
-  && git checkout v${HISAT2_VERSION} \
-  && make
+RUN git clone https://github.com/DaehwanKimLab/hisat2.git
+WORKDIR /opt/hisat2
+RUN git checkout v${HISAT2_VERSION} && make
 
 # Add HISAT2 to PATH
 ENV PATH="${PATH}:/opt/hisat2"
