@@ -1,6 +1,6 @@
 
 # Using a CUDA base image
-FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
+FROM nvidia/cuda:12.8.0-cudnn-devel-ubuntu22.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="python-dl"
@@ -12,9 +12,16 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Installing Python
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends python3=3.10.6-1~22.04.1 python3-pip=22.0.2+dfsg-1ubuntu0.4 \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3PIP_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Installing necessary Python modules
