@@ -44,7 +44,22 @@ apptainer pull docker://ghcr.io/getwilds/rnaseqc:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/rnaseqc:latest rnaseqc \
+  /data/genes.gtf \
+  /data/aligned.bam \
+  /data/output_directory \
+  --sample=sample_name
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/rnaseqc:latest rnaseqc \
+  /data/genes.gtf \
+  /data/aligned.bam \
+  /data/output_directory \
+  --sample=sample_name
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data rnaseqc_latest.sif rnaseqc \
   /data/genes.gtf \
   /data/aligned.bam \
   /data/output_directory \

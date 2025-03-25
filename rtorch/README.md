@@ -45,8 +45,14 @@ apptainer pull docker://ghcr.io/getwilds/rtorch:latest
 ### Example Command
 
 ```bash
-# Run an R script with GPU support
+# Docker (using a hypothetical script called "train_model.R")
 docker run --gpus all --rm -v /path/to/project:/project getwilds/rtorch:latest Rscript /project/train_model.R
+
+# Apptainer
+apptainer run --nv --bind /path/to/project:/project docker://getwilds/rtorch:latest Rscript /project/train_model.R
+
+# Apptainer (local SIF file)
+apptainer run --nv --bind /path/to/project:/project rtorch_latest.sif Rscript /project/train_model.R
 ```
 
 ## GPU Support

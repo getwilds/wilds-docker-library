@@ -49,7 +49,7 @@ apptainer pull docker://ghcr.io/getwilds/python-dl:latest
 ### Example Command
 
 ```bash
-# Docker (using a hypothetical script call "train_model.py")
+# Docker (using a hypothetical script called "train_model.py")
 docker run --gpus all --rm -v /path/to/project:/project getwilds/python-dl:latest python /project/train_model.py
 
 # Apptainer
