@@ -43,7 +43,14 @@ apptainer pull docker://ghcr.io/getwilds/bwa:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/bwa:latest bwa mem -t 4 reference.fa reads_1.fq reads_2.fq > aligned_reads.sam
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/bwa:latest bwa mem -t 4 reference.fa reads_1.fq reads_2.fq > aligned_reads.sam
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data bwa_latest.sif bwa mem -t 4 reference.fa reads_1.fq reads_2.fq > aligned_reads.sam
 ```
 
 ## Security Features

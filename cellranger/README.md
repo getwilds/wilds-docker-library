@@ -46,8 +46,22 @@ apptainer pull docker://ghcr.io/getwilds/cellranger:latest
 ### Example Commands
 
 ```bash
-# Run Cell Ranger count
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/cellranger:latest cellranger count \
+  --id=sample_run \
+  --fastqs=/data/fastqs \
+  --transcriptome=/data/reference \
+  --sample=sample1
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/cellranger:latest cellranger count \
+  --id=sample_run \
+  --fastqs=/data/fastqs \
+  --transcriptome=/data/reference \
+  --sample=sample1
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data cellranger_latest.sif cellranger count \
   --id=sample_run \
   --fastqs=/data/fastqs \
   --transcriptome=/data/reference \
