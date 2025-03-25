@@ -57,7 +57,7 @@ jobs:
             -H "Authorization: JWT ${{ steps.login.outputs.token }}" \
             -X PATCH \
             --data @payload.json \
-            https://hub.docker.com/v2/repositories/${{ secrets.DOCKERHUB_USER }}/bwa/)
+            https://hub.docker.com/v2/repositories/getwilds/bwa/)
           
           echo "Response from DockerHub API: $RESPONSE"
           echo "DockerHub repository description updated successfully!"
