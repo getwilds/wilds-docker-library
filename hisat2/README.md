@@ -49,6 +49,12 @@ docker run --rm -v /path/to/data:/data getwilds/hisat2:latest hisat2-build -p 4 
 
 # Aligning reads to a genome
 docker run --rm -v /path/to/data:/data getwilds/hisat2:latest hisat2 -x /data/reference_index -1 /data/reads_1.fq -2 /data/reads_2.fq -S /data/output.sam
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/hisat2:latest hisat2-build -p 4 /data/reference.fa /data/reference_index
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data hisat2_latest.sif hisat2 -x /data/reference_index -1 /data/reads_1.fq -2 /data/reads_2.fq -S /data/output.sam
 ```
 
 ## Security Features

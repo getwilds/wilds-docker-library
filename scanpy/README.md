@@ -72,11 +72,17 @@ adata.write('/data/results.h5ad')
 sc.pl.umap(adata, color='leiden', save='/data/umap.pdf')
 ```
 
-Run the script with Docker:
+Run the script with:
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data -v /path/to/script:/script getwilds/scanpy:latest python /script/example.py
-```
+
+# Apptainer
+apptainer run --bind /path/to/data:/data,/path/to/script:/script docker://getwilds/scanpy:latest python /script/example.py
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data,/path/to/script:/script scanpy_latest.sif python /script/example.py
 
 ## Dockerfile Structure
 

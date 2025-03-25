@@ -43,7 +43,22 @@ apptainer pull docker://ghcr.io/getwilds/shapemapper:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/shapemapper:latest shapemapper \
+  --target /data/target.fa \
+  --out /data/output_directory \
+  --modified --folder /data/modified_reads \
+  --untreated --folder /data/untreated_reads
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/shapemapper:latest shapemapper \
+  --target /data/target.fa \
+  --out /data/output_directory \
+  --modified --folder /data/modified_reads \
+  --untreated --folder /data/untreated_reads
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data shapemapper_latest.sif shapemapper \
   --target /data/target.fa \
   --out /data/output_directory \
   --modified --folder /data/modified_reads \

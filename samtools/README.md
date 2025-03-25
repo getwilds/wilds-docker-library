@@ -56,6 +56,12 @@ docker run --rm -v /path/to/data:/data getwilds/samtools:latest samtools sort /d
 
 # Index BAM file
 docker run --rm -v /path/to/data:/data getwilds/samtools:latest samtools index /data/sorted.bam
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/samtools:latest samtools view -bS /data/input.sam > /data/output.bam
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data samtools_latest.sif samtools sort /data/input.bam -o /data/sorted.bam
 ```
 
 ## Dockerfile Structure

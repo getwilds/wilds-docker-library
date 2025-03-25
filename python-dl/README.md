@@ -49,8 +49,14 @@ apptainer pull docker://ghcr.io/getwilds/python-dl:latest
 ### Example Command
 
 ```bash
-# Run a Python script with GPU support
+# Docker (using a hypothetical script called "train_model.py")
 docker run --gpus all --rm -v /path/to/project:/project getwilds/python-dl:latest python /project/train_model.py
+
+# Apptainer
+apptainer run --nv --bind /path/to/project:/project docker://getwilds/python-dl:latest python /project/train_model.py
+
+# Apptainer (local SIF file)
+apptainer run --nv --bind /path/to/project:/project python-dl_latest.sif python /project/train_model.py
 ```
 
 ## GPU Support

@@ -46,8 +46,14 @@ apptainer pull docker://ghcr.io/getwilds/scvi-tools:latest
 ### Example Command
 
 ```bash
-# Run a Python script with GPU support
+# Docker (using a hypothetical script called "analyze_scRNA.py" with GPU support)
 docker run --gpus all --rm -v /path/to/project:/project getwilds/scvi-tools:latest python /project/analyze_scRNA.py
+
+# Apptainer
+apptainer run --nv --bind /path/to/project:/project docker://getwilds/scvi-tools:latest python /project/analyze_scRNA.py
+
+# Apptainer (local SIF file)
+apptainer run --nv --bind /path/to/project:/project scvi-tools_latest.sif python /project/analyze_scRNA.py
 ```
 
 ## GPU Support
