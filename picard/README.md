@@ -55,6 +55,18 @@ docker run --rm -v /path/to/data:/data getwilds/picard:latest java -jar /usr/pic
   R=/data/reference.fasta \
   I=/data/input.bam \
   O=/data/alignment_metrics.txt
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/picard:latest java -jar /usr/picard/picard.jar MarkDuplicates \
+  I=/data/input.bam \
+  O=/data/marked_duplicates.bam \
+  M=/data/marked_dup_metrics.txt
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data picard_latest.sif java -jar /usr/picard/picard.jar CollectAlignmentSummaryMetrics \
+  R=/data/reference.fasta \
+  I=/data/input.bam \
+  O=/data/alignment_metrics.txt
 ```
 
 ## Dockerfile Structure
