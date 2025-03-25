@@ -19,32 +19,45 @@ jobs:
       - name: Read description from file
         id: read_description
         run: |
-          DESCRIPTION=$(cat bwa/DESCRIPTION.md)
-          # Convert multiline description to JSON-safe format
-          DESCRIPTION_JSON=$(echo "$DESCRIPTION" | jq -Rs .)
-          echo "description=$DESCRIPTION_JSON" >> $GITHUB_OUTPUT
+          # Read the content of DESCRIPTION.md and escape it properly for JSON
+          DESCRIPTION=$(cat DESCRIPTION.md)
+          # Store the description in a file for proper handling
+          echo "$DESCRIPTION" > description_content.txt
+          echo "Description file created successfully"
       
       - name: Login to DockerHub
         id: login
         run: |
-          TOKEN=$(curl -s -H "Content-Type: application/json" -X POST \
-            -d '{"username": "${{ secrets.DOCKERHUB_USER }}", "password": "${{ secrets.DOCKERHUB_PW }}"}' \
-            https://hub.docker.com/v2/users/login/ | jq -r .token)
+          RESPONSE=$(curl -s -H "Content-Type: application/json" -X POST \
+            -d "{\"username\": \"${{ secrets.DOCKERHUB_USER }}\", \"password\": \"${{ secrets.DOCKERHUB_PW }}\"}" \
+            https://hub.docker.com/v2/users/login/)
+          
+          TOKEN=$(echo $RESPONSE | jq -r '.token')
           
           if [ -z "$TOKEN" ] || [ "$TOKEN" == "null" ]; then
             echo "Failed to get DockerHub token. Check your credentials."
+            echo "Response was: $RESPONSE"
             exit 1
           fi
           
           echo "token=$TOKEN" >> $GITHUB_OUTPUT
+          echo "Successfully logged in to DockerHub"
       
       - name: Update DockerHub Repository Description
         run: |
-          # Use full_description for the detailed Markdown content
-          curl -s -H "Content-Type: application/json" \
+          # Create JSON payload file to avoid shell escaping issues
+          jq -n --rawfile desc description_content.txt '{full_description: $desc}' > payload.json
+          
+          # Check the content of the payload
+          echo "Payload content (first 100 chars):"
+          head -c 100 payload.json
+          
+          # Use the payload file with curl
+          RESPONSE=$(curl -s -H "Content-Type: application/json" \
             -H "Authorization: JWT ${{ steps.login.outputs.token }}" \
             -X PATCH \
-            -d "{\"full_description\": ${{ steps.read_description.outputs.description }}}" \
-            https://hub.docker.com/v2/repositories/${{ secrets.DOCKERHUB_USER }}/bwa/
+            --data @payload.json \
+            https://hub.docker.com/v2/repositories/${{ secrets.DOCKERHUB_USER }}/bwa/)
           
+          echo "Response from DockerHub API: $RESPONSE"
           echo "DockerHub repository description updated successfully!"
