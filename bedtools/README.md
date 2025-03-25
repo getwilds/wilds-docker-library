@@ -42,7 +42,14 @@ apptainer pull docker://ghcr.io/getwilds/bedtools:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/bedtools:latest bedtools intersect -a file1.bed -b file2.bed > intersections.bed
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/bedtools:latest bedtools intersect -a file1.bed -b file2.bed > intersections.bed
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data bedtools_latest.sif bedtools intersect -a file1.bed -b file2.bed > intersections.bed
 ```
 
 ## Security Features

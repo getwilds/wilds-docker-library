@@ -47,6 +47,12 @@ docker run --rm -v /path/to/data:/data getwilds/biobambam2:latest bammarkduplica
 
 # Convert BAM to FastQ
 docker run --rm -v /path/to/data:/data getwilds/biobambam2:latest bamtofastq I=/data/input.bam F=/data/output_1.fq F2=/data/output_2.fq
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/biobambam2:latest bammarkduplicates I=/data/input.bam O=/data/marked.bam M=/data/metrics.txt
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data biobambam2_latest.sif bamtofastq I=/data/input.bam F=/data/output_1.fq F2=/data/output_2.fq
 ```
 
 ## Security Features

@@ -59,8 +59,8 @@ docker run --rm -v /path/to/data:/data getwilds/bcftools:latest bcftools filter 
 # Alternatively using Apptainer
 apptainer run --bind /path/to/data:/data docker://getwilds/bcftools:latest bcftools mpileup -f /data/reference.fa /data/aligned.bam | bcftools call -mv -Ob -o /data/calls.bcf
 
-# ... or local SIF file via Apptainer
-apptainer run --bind /path/to/data:/data bcftools.sif bcftools mpileup -f /data/reference.fa /data/aligned.bam | bcftools call -mv -Ob -o /data/calls.bcf
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data bcftools_latest.sif bcftools mpileup -f /data/reference.fa /data/aligned.bam | bcftools call -mv -Ob -o /data/calls.bcf
 ```
 
 ## Dockerfile Structure
