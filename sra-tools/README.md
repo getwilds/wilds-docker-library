@@ -51,6 +51,12 @@ docker run --rm -v /path/to/data:/data getwilds/sra-tools:latest parallel-fastq-
 
 # Prefetch SRA data
 docker run --rm -v /path/to/data:/data getwilds/sra-tools:latest prefetch SRR12345678 -O /data
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/sra-tools:latest prefetch SRR12345678 -O /data
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data sra-tools_latest.sif parallel-fastq-dump --sra-id SRR12345678 --threads 8 --outdir /data --split-files
 ```
 
 ## Security Features

@@ -51,6 +51,12 @@ docker run --rm -v /path/to/data:/data getwilds/sourmash:latest sourmash compare
 
 # Generate a plot from comparison
 docker run --rm -v /path/to/data:/data getwilds/sourmash:latest sourmash plot /data/comparison.matrix -o /data/comparison.plot
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/sourmash:latest sourmash compute /data/genome.fa -o /data/genome.sig
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data sourmash_latest.sif sourmash compare /data/*.sig -o /data/comparison.matrix
 ```
 
 ## Security Features

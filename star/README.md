@@ -48,7 +48,14 @@ apptainer pull docker://ghcr.io/getwilds/star:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/star:latest STAR --runThreadN 4 --genomeDir /data/genome --readFilesIn /data/reads_1.fq /data/reads_2.fq --outFileNamePrefix /data/output/
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/star:latest STAR --runThreadN 4 --genomeDir /data/genome --readFilesIn /data/reads_1.fq /data/reads_2.fq --outFileNamePrefix /data/output/
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data star_latest.sif STAR --runThreadN 4 --genomeDir /data/genome --readFilesIn /data/reads_1.fq /data/reads_2.fq --outFileNamePrefix /data/output/
 ```
 
 ## Dockerfile Structure

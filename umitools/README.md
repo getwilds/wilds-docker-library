@@ -59,6 +59,17 @@ docker run --rm -v /path/to/data:/data getwilds/umitools:latest umi_tools group 
   --stdout=/data/grouped.tsv \
   --output-bam \
   --paired
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/umitools:latest umi_tools extract \
+  --bc-pattern=NNNNNN \
+  --stdin=/data/reads.fastq.gz \
+  --stdout=/data/reads.extracted.fastq.gz
+
+# ... or a local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data umitools_latest.sif umi_tools dedup \
+  --stdin=/data/mapped.bam \
+  --stdout=/data/deduplicated.bam
 ```
 
 ## Security Features
