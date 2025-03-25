@@ -19,8 +19,8 @@ jobs:
       - name: Read description from file
         id: read_description
         run: |
-          # Read the content of DESCRIPTION.md and escape it properly for JSON
-          DESCRIPTION=$(cat DESCRIPTION.md)
+          # Read the content of bwa/DESCRIPTION.md and escape it properly for JSON
+          DESCRIPTION=$(cat bwa/DESCRIPTION.md)
           # Store the description in a file for proper handling
           echo "$DESCRIPTION" > description_content.txt
           echo "Description file created successfully"
