@@ -44,7 +44,14 @@ apptainer pull docker://ghcr.io/getwilds/gtf-smash:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/gtf-smash:latest collapse_annotation.py --gtf /data/input.gtf --out /data/collapsed.gtf
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/gtf-smash:latest collapse_annotation.py --gtf /data/input.gtf --out /data/collapsed.gtf
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data gtf-smash_latest.sif collapse_annotation.py --gtf /data/input.gtf --out /data/collapsed.gtf
 ```
 
 ## Security Features

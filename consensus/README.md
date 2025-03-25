@@ -44,7 +44,14 @@ apptainer pull docker://ghcr.io/getwilds/consensus:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/consensus:latest Rscript /consensus-trio-unpaired.R --caller1_vcf /data/caller1.vcf --caller2_vcf /data/caller2.vcf --caller3_vcf /data/caller3.vcf --output_vcf /data/consensus.vcf
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/consensus:latest Rscript /consensus-trio-unpaired.R --caller1_vcf /data/caller1.vcf --caller2_vcf /data/caller2.vcf --caller3_vcf /data/caller3.vcf --output_vcf /data/consensus.vcf
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data consensus_latest.sif Rscript /consensus-trio-unpaired.R --caller1_vcf /data/caller1.vcf --caller2_vcf /data/caller2.vcf --caller3_vcf /data/caller3.vcf --output_vcf /data/consensus.vcf
 ```
 
 ## Security Features

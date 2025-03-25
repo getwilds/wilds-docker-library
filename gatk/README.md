@@ -43,7 +43,14 @@ apptainer pull docker://ghcr.io/getwilds/gatk:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/gatk:latest gatk HaplotypeCaller -R reference.fa -I input.bam -O output.vcf
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/gatk:latest gatk HaplotypeCaller -R reference.fa -I input.bam -O output.vcf
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data gatk_latest.sif gatk HaplotypeCaller -R reference.fa -I input.bam -O output.vcf
 ```
 
 ## Security Features
