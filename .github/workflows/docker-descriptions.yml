@@ -1,0 +1,48 @@
+name: Update DockerHub Repository Description
+
+on:
+#   push:
+#     branches: [ main, master ]
+#     paths:
+#       - 'DESCRIPTION.md'  # Only run when this file changes
+  workflow_dispatch:      # Allow manual triggering
+
+jobs:
+  update-description:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Read description from file
+        id: read_description
+        run: |
+          DESCRIPTION=$(cat bwa/DESCRIPTION.md)
+          # Convert multiline description to JSON-safe format
+          DESCRIPTION_JSON=$(echo "$DESCRIPTION" | jq -Rs .)
+          echo "description=$DESCRIPTION_JSON" >> $GITHUB_OUTPUT
+      
+      - name: Login to DockerHub
+        id: login
+        run: |
+          TOKEN=$(curl -s -H "Content-Type: application/json" -X POST \
+            -d '{"username": "${{ secrets.DOCKERHUB_USER }}", "password": "${{ secrets.DOCKERHUB_PW }}"}' \
+            https://hub.docker.com/v2/users/login/ | jq -r .token)
+          
+          if [ -z "$TOKEN" ] || [ "$TOKEN" == "null" ]; then
+            echo "Failed to get DockerHub token. Check your credentials."
+            exit 1
+          fi
+          
+          echo "token=$TOKEN" >> $GITHUB_OUTPUT
+      
+      - name: Update DockerHub Repository Description
+        run: |
+          # Use full_description for the detailed Markdown content
+          curl -s -H "Content-Type: application/json" \
+            -H "Authorization: JWT ${{ steps.login.outputs.token }}" \
+            -X PATCH \
+            -d "{\"full_description\": ${{ steps.read_description.outputs.description }}}" \
+            https://hub.docker.com/v2/repositories/${{ secrets.DOCKERHUB_USER }}/bwa/
+          
+          echo "DockerHub repository description updated successfully!"
