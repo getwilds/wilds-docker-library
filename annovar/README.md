@@ -54,7 +54,14 @@ apptainer pull docker://ghcr.io/getwilds/annovar:latest
 ### Example Command
 
 ```bash
+# Docker
 docker run --rm -v /path/to/data:/data getwilds/annovar:hg19 table_annovar.pl input.vcf /annovar/humandb/ -buildver hg19 -out annotated -remove -protocol refGene,cosmic70,clinvar_20180603 -operation g,f,f -nastring . -vcfinput
+
+# Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/annovar:hg19 table_annovar.pl input.vcf /annovar/humandb/ -buildver hg19 -out annotated -remove -protocol refGene,cosmic70,clinvar_20180603 -operation g,f,f -nastring . -vcfinput
+
+# Apptainer (local SIF file)
+apptainer run --bind /path/to/data:/data annovar_hg19.sif table_annovar.pl input.vcf /annovar/humandb/ -buildver hg19 -out annotated -remove -protocol refGene,cosmic70,clinvar_20180603 -operation g,f,f -nastring . -vcfinput
 ```
 
 ## Security Features

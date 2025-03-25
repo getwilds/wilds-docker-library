@@ -55,6 +55,12 @@ docker run --rm -v /path/to/data:/data getwilds/bcftools:latest bcftools view /d
 
 # Filter variants
 docker run --rm -v /path/to/data:/data getwilds/bcftools:latest bcftools filter -i 'QUAL>20' /data/calls.vcf > /data/filtered.vcf
+
+# Alternatively using Apptainer
+apptainer run --bind /path/to/data:/data docker://getwilds/bcftools:latest bcftools mpileup -f /data/reference.fa /data/aligned.bam | bcftools call -mv -Ob -o /data/calls.bcf
+
+# ... or local SIF file via Apptainer
+apptainer run --bind /path/to/data:/data bcftools.sif bcftools mpileup -f /data/reference.fa /data/aligned.bam | bcftools call -mv -Ob -o /data/calls.bcf
 ```
 
 ## Dockerfile Structure
