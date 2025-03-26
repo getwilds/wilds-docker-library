@@ -5,6 +5,10 @@ on:
     branches: [ main ]
     paths:
       - '*/README.md'  # This triggers when any README.md in a subdirectory changes
+  pull_request:
+    types: [opened, synchronize] 
+    paths:
+      - '.github/workflows/docker-descriptions.yml'  # Also run when the workflow itself changes
   workflow_dispatch:   # Keep manual triggering option
 
 jobs:
@@ -26,22 +30,27 @@ jobs:
               "https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}")
             
             # Extract README.md files from the changed files
-            README_FILES=$(echo "$FILES_RESP" | jq -r '.files[] | select(.filename | test("README\\.md$") and startswith(".github") | not) | .filename')
+            README_FILES=$(echo "$FILES_RESP" | jq -r '.files[] | select(.filename | test("README\\.md$")) | .filename')
           else
-            # For workflow_dispatch, consider all README.md files
-            README_FILES=$(find . -path "./*/README.md" -not -path "./.github/*" | sed 's|^./||')
+            # For workflow_dispatch, consider all README.md files in Docker image directories
+            README_FILES=$(find . -maxdepth 2 -path "./*/README.md" | sed 's|^./||')
           fi
           
           if [ -z "$README_FILES" ]; then
             echo "No README files were changed."
-            echo "changed_readmes=[]" >> $GITHUB_OUTPUT
+            echo "readmes=" >> $GITHUB_OUTPUT
             exit 0
           fi
           
-          # Extract directories from the file paths and convert to JSON array
-          CHANGED_DIRS=$(echo "$README_FILES" | xargs -I{} dirname {} | sort | uniq | jq -R . | jq -s .)
-          echo "changed_readmes=$CHANGED_DIRS" >> $GITHUB_OUTPUT
-          echo "Found changed READMEs in directories: $CHANGED_DIRS"
+          # Extract directories from the file paths
+          DIRS=$(echo "$README_FILES" | xargs -I{} dirname {} | sort | uniq)
+          
+          # Create a comma-separated list for GitHub Actions output
+          DIRS_CSV=$(echo "$DIRS" | tr '\n' ',' | sed 's/,$//')
+          
+          # Set the output in the correct format for GitHub Actions
+          echo "readmes=$DIRS_CSV" >> $GITHUB_OUTPUT
+          echo "Found changed READMEs in directories: $DIRS_CSV"
       
       - name: Login to DockerHub
         id: login
@@ -64,17 +73,27 @@ jobs:
       - name: Update DockerHub Repository Descriptions
         run: |
           # Process each changed README directory
-          READMES='${{ steps.changed-files.outputs.changed_readmes }}'
-          echo "Processing changed README files in directories: $READMES"
+          READMES="${{ steps.changed-files.outputs.readmes }}"
+          echo "Processing READMEs in directories: $READMES"
           
-          for DIR in $(echo $READMES | jq -r '.[]'); do
+          # Only proceed if we have directories to process
+          if [ -z "$READMES" ]; then
+            echo "No README directories to process"
+            exit 0
+          fi
+          
+          # Split the comma-separated list
+          IFS=',' read -ra DIRS <<< "$READMES"
+          
+          # Process each directory
+          for DIR in "${DIRS[@]}"; do
             # Skip if it's not a directory with a valid Docker image
             if [ ! -d "$DIR" ] || [ ! -f "$DIR/README.md" ]; then
               echo "Skipping $DIR: not a valid directory or README missing"
               continue
             fi
             
-            REPO_NAME=$(basename $DIR)
+            REPO_NAME=$(basename "$DIR")
             echo "Updating description for repository: getwilds/$REPO_NAME"
             
             # Create JSON payload file to avoid shell escaping issues
