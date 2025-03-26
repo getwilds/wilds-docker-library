@@ -1,0 +1,197 @@
+name: Docker Build, Upload, and Update Descriptions
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Fetch enough history to determine changed files
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Login to DockerHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+      
+      - name: Find Changed Files
+        id: changed-files
+        run: |
+          # Get list of changed files
+          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          
+          # Filter for Dockerfiles
+          DOCKER_FILES=$(echo "$CHANGED_FILES" | grep -E "Dockerfile_" || true)
+          if [ -z "$DOCKER_FILES" ]; then
+            echo "No Dockerfile changes detected."
+          else
+            echo "Changed Dockerfiles:"
+            echo "$DOCKER_FILES"
+          fi
+          
+          # Filter for README files
+          README_FILES=$(echo "$CHANGED_FILES" | grep -E "README\.md$" || true)
+          if [ -z "$README_FILES" ]; then
+            echo "No README changes detected."
+          else
+            echo "Changed READMEs:"
+            echo "$README_FILES"
+          fi
+          
+          # Create a list of affected directories
+          AFFECTED_DIRS=$(echo -e "$DOCKER_FILES\n$README_FILES" | xargs -I{} dirname {} | sort | uniq)
+          if [ -z "$AFFECTED_DIRS" ]; then
+            echo "No affected directories."
+          else
+            echo "Affected directories:"
+            echo "$AFFECTED_DIRS"
+            echo "affected_dirs<<EOF" >> $GITHUB_OUTPUT
+            echo "$AFFECTED_DIRS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+          
+          # Output the Docker files for the build step
+          echo "docker_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$DOCKER_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Build and Push Docker Images
+        if: ${{ steps.changed-files.outputs.docker_files != '' }}
+        run: |
+          # Process each Dockerfile
+          echo "${{ steps.changed-files.outputs.docker_files }}" | while read -r changed_file; do
+            if [[ -n "$changed_file" && -f "$changed_file" ]]; then
+              # Extract tool name and tag from path
+              IFS="/" read -ra toolarr <<< "$changed_file"
+              IFS="_" read -ra tagarr <<< "$changed_file"
+              
+              tool_name="${toolarr[0]}"
+              tag="${tagarr[-1]}"
+              
+              echo "Building image for $tool_name:$tag"
+              
+              # Build and push to GitHub Container Registry
+              docker build --platform linux/amd64 -t "ghcr.io/getwilds/${tool_name}:${tag}" -f "${changed_file}" --push .
+              
+              # Build and push to DockerHub
+              docker build --platform linux/amd64 -t "getwilds/${tool_name}:${tag}" -f "${changed_file}" --push .
+              
+              # Clean up to save space
+              docker system prune -af
+            fi
+          done
+      
+      - name: Update DockerHub Repository Descriptions
+        if: ${{ steps.changed-files.outputs.affected_dirs != '' }}
+        run: |
+          # Get DockerHub token
+          RESPONSE=$(curl -s -H "Content-Type: application/json" -X POST \
+            -d "{\"username\": \"${{ secrets.DOCKERHUB_USER }}\", \"password\": \"${{ secrets.DOCKERHUB_PW }}\"}" \
+            https://hub.docker.com/v2/users/login/)
+          
+          TOKEN=$(echo $RESPONSE | jq -r '.token')
+          
+          if [ -z "$TOKEN" ] || [ "$TOKEN" == "null" ]; then
+            echo "Failed to get DockerHub token. Check your credentials."
+            echo "Response was: $RESPONSE"
+            exit 1
+          fi
+          
+          echo "Successfully logged in to DockerHub"
+          
+          # Process each affected directory
+          echo "${{ steps.changed-files.outputs.affected_dirs }}" | while read -r dir; do
+            # Skip if it's not a directory with a valid Docker image
+            if [ ! -d "$dir" ]; then
+              echo "Skipping $dir: not a valid directory"
+              continue
+            fi
+            
+            REPO_NAME=$(basename "$dir")
+            echo "Processing repository: getwilds/$REPO_NAME"
+            
+            # Check for README.md
+            if [ ! -f "$dir/README.md" ]; then
+              echo "Warning: $dir/README.md not found, skipping full description update"
+              FULL_DESC=""
+            else
+              FULL_DESC=$(cat "$dir/README.md")
+            fi
+            
+            # Check for Dockerfile_latest to extract short description
+            if [ ! -f "$dir/Dockerfile_latest" ]; then
+              echo "Warning: $dir/Dockerfile_latest not found, skipping short description update"
+              SHORT_DESC=""
+            else
+              # Extract the short description from the Dockerfile_latest
+              SHORT_DESC=$(grep -E 'org.opencontainers.image.description=' "$dir/Dockerfile_latest" | cut -d'"' -f2)
+              if [ -z "$SHORT_DESC" ]; then
+                # Try single quotes if double quotes didn't work
+                SHORT_DESC=$(grep -E 'org.opencontainers.image.description=' "$dir/Dockerfile_latest" | cut -d"'" -f2)
+              fi
+            fi
+            
+            echo "Updating description for repository: getwilds/$REPO_NAME"
+            
+            # Create JSON payload based on available content
+            if [ -n "$FULL_DESC" ] && [ -n "$SHORT_DESC" ]; then
+              # Both full and short descriptions are available
+              jq -n --arg full "$FULL_DESC" --arg short "$SHORT_DESC" '{
+                full_description: $full,
+                description: $short
+              }' > payload.json
+            elif [ -n "$FULL_DESC" ]; then
+              # Only full description is available
+              jq -n --arg full "$FULL_DESC" '{
+                full_description: $full
+              }' > payload.json
+            elif [ -n "$SHORT_DESC" ]; then
+              # Only short description is available
+              jq -n --arg short "$SHORT_DESC" '{
+                description: $short
+              }' > payload.json
+            else
+              # No descriptions available
+              echo "No descriptions found for $REPO_NAME, skipping"
+              continue
+            fi
+            
+            # Update the DockerHub repository description
+            RESPONSE=$(curl -s -H "Content-Type: application/json" \
+              -H "Authorization: JWT $TOKEN" \
+              -X PATCH \
+              --data @payload.json \
+              "https://hub.docker.com/v2/repositories/getwilds/$REPO_NAME/")
+            
+            if echo "$RESPONSE" | grep -q "error"; then
+              echo "Error updating $REPO_NAME: $RESPONSE"
+            else
+              echo "Successfully updated description for getwilds/$REPO_NAME"
+            fi
+          done
