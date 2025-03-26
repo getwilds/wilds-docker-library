@@ -121,20 +121,17 @@ jobs:
               # Both full and short descriptions are available
               jq -n --arg full "$FULL_DESC" --arg short "$SHORT_DESC" '{
                 full_description: $full,
-                description: $short,
-                categories: ["Data Science"]
+                description: $short
               }' > payload.json
             elif [ -n "$FULL_DESC" ]; then
               # Only full description is available
               jq -n --arg full "$FULL_DESC" '{
-                full_description: $full,
-                categories: ["Data Science"]
+                full_description: $full
               }' > payload.json
             elif [ -n "$SHORT_DESC" ]; then
               # Only short description is available
               jq -n --arg short "$SHORT_DESC" '{
-                description: $short,
-                categories: ["Data Science"]
+                description: $short
               }' > payload.json
             else
               # No descriptions available
