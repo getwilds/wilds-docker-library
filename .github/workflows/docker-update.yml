@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - 'main'
-  workflow_dispatch:  # Allow manual triggering
+  workflow_dispatch:  # Allow manual triggering with parameters
+    inputs:
+      image_directory:
+        description: 'Directory name containing the Dockerfile to build/push (e.g., "samtools")'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -38,47 +43,81 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PW }}
       
-      - name: Find Changed Files
+      - name: Find Files for Processing
         id: changed-files
         run: |
-          # Get list of changed files
-          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
-          
-          # Filter for Dockerfiles
-          DOCKER_FILES=$(echo "$CHANGED_FILES" | grep -E "Dockerfile_" || true)
-          if [ -z "$DOCKER_FILES" ]; then
-            echo "No Dockerfile changes detected."
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            # Manual trigger - use the specified directory
+            SPECIFIED_DIR="${{ github.event.inputs.image_directory }}"
+            echo "Processing specified directory: $SPECIFIED_DIR"
+            
+            # Verify the directory exists
+            if [ ! -d "$SPECIFIED_DIR" ]; then
+              echo "Error: Directory '$SPECIFIED_DIR' does not exist."
+              exit 1
+            fi
+            
+            # Find all Dockerfiles in the specified directory
+            DOCKER_FILES=$(find "$SPECIFIED_DIR" -maxdepth 1 -name "Dockerfile_*" | sort)
+            if [ -z "$DOCKER_FILES" ]; then
+              echo "No Dockerfiles found in '$SPECIFIED_DIR'."
+            else
+              echo "Dockerfiles to process:"
+              echo "$DOCKER_FILES"
+            fi
+            
+            # Find README.md in the specified directory
+            README_FILES=""
+            if [ -f "$SPECIFIED_DIR/README.md" ]; then
+              README_FILES="$SPECIFIED_DIR/README.md"
+              echo "README.md found in '$SPECIFIED_DIR'."
+            fi
+            
+            # Only one directory is affected in manual mode
+            AFFECTED_DIRS="$SPECIFIED_DIR"
+            echo "Affected directory: $AFFECTED_DIRS"
+            
           else
-            echo "Changed Dockerfiles:"
-            echo "$DOCKER_FILES"
-          fi
-          
-          # Filter for README files
-          README_FILES=$(echo "$CHANGED_FILES" | grep -E "README\.md$" || true)
-          if [ -z "$README_FILES" ]; then
-            echo "No README changes detected."
-          else
-            echo "Changed READMEs:"
-            echo "$README_FILES"
-          fi
-          
-          # Create a list of affected directories
-          AFFECTED_DIRS=$(echo -e "$DOCKER_FILES\n$README_FILES" | xargs -I{} dirname {} | sort | uniq)
-          if [ -z "$AFFECTED_DIRS" ]; then
-            echo "No affected directories."
-          else
+            # Push event - find changed files
+            echo "Processing push event - detecting changed files"
+            CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
+            echo "Changed files:"
+            echo "$CHANGED_FILES"
+            
+            # Filter for Dockerfiles
+            DOCKER_FILES=$(echo "$CHANGED_FILES" | grep -E "Dockerfile_" || true)
+            if [ -z "$DOCKER_FILES" ]; then
+              echo "No Dockerfile changes detected."
+            else
+              echo "Changed Dockerfiles:"
+              echo "$DOCKER_FILES"
+            fi
+            
+            # Filter for README files
+            README_FILES=$(echo "$CHANGED_FILES" | grep -E "README\.md$" || true)
+            if [ -z "$README_FILES" ]; then
+              echo "No README changes detected."
+            else
+              echo "Changed READMEs:"
+              echo "$README_FILES"
+            fi
+            
+            # Create a list of affected directories
+            AFFECTED_DIRS=$(echo -e "$DOCKER_FILES\n$README_FILES" | xargs -I{} dirname {} | sort | uniq)
+            if [ -z "$AFFECTED_DIRS" ]; then
+              echo "No affected directories."
+            fi
             echo "Affected directories:"
             echo "$AFFECTED_DIRS"
-            echo "affected_dirs<<EOF" >> $GITHUB_OUTPUT
-            echo "$AFFECTED_DIRS" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
           fi
           
-          # Output the Docker files for the build step
+          # Output the Docker files and affected directories
           echo "docker_files<<EOF" >> $GITHUB_OUTPUT
           echo "$DOCKER_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "affected_dirs<<EOF" >> $GITHUB_OUTPUT
+          echo "$AFFECTED_DIRS" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
       
       - name: Build and Push Docker Images
