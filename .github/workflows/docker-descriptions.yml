@@ -1,13 +1,11 @@
-name: Update DockerHub Repository Description
+name: Update DockerHub Repository Descriptions
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-#   push:
-#     branches: [ main, master ]
-#     paths:
-#       - 'DESCRIPTION.md'  # Only run when this file changes
-  workflow_dispatch:      # Allow manual triggering
+  push:
+    branches: [ main ]
+    paths:
+      - '*/README.md'  # This triggers when any README.md in a subdirectory changes
+  workflow_dispatch:   # Keep manual triggering option
 
 jobs:
   update-description:
@@ -16,14 +14,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Read description from file
-        id: read_description
+      - name: Find changed README files
+        id: changed-files
         run: |
-          # Read the content of bwa/DESCRIPTION.md and escape it properly for JSON
-          DESCRIPTION=$(cat bwa/DESCRIPTION.md)
-          # Store the description in a file for proper handling
-          echo "$DESCRIPTION" > description_content.txt
-          echo "Description file created successfully"
+          # Get the list of changed README.md files
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'README.md' || echo "")
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No README files were changed."
+            echo "changed_readmes=[]" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Extract directories from the file paths and convert to JSON array
+          CHANGED_DIRS=$(echo "$CHANGED_FILES" | xargs dirname | sort | uniq | jq -R . | jq -s .)
+          echo "changed_readmes=$CHANGED_DIRS" >> $GITHUB_OUTPUT
       
       - name: Login to DockerHub
         id: login
@@ -43,21 +48,35 @@ jobs:
           echo "token=$TOKEN" >> $GITHUB_OUTPUT
           echo "Successfully logged in to DockerHub"
       
-      - name: Update DockerHub Repository Description
+      - name: Update DockerHub Repository Descriptions
         run: |
-          # Create JSON payload file to avoid shell escaping issues
-          jq -n --rawfile desc description_content.txt '{full_description: $desc}' > payload.json
+          # Process each changed README directory
+          READMES='${{ steps.changed-files.outputs.changed_readmes }}'
+          echo "Processing changed README files: $READMES"
           
-          # Check the content of the payload
-          echo "Payload content (first 100 chars):"
-          head -c 100 payload.json
-          
-          # Use the payload file with curl
-          RESPONSE=$(curl -s -H "Content-Type: application/json" \
-            -H "Authorization: JWT ${{ steps.login.outputs.token }}" \
-            -X PATCH \
-            --data @payload.json \
-            https://hub.docker.com/v2/repositories/getwilds/bwa/)
-          
-          echo "Response from DockerHub API: $RESPONSE"
-          echo "DockerHub repository description updated successfully!"
+          for DIR in $(echo $READMES | jq -r '.[]'); do
+            # Skip if it's not a directory with a valid Docker image
+            if [ ! -d "$DIR" ] || [ ! -f "$DIR/README.md" ]; then
+              echo "Skipping $DIR: not a valid directory or README missing"
+              continue
+            fi
+            
+            REPO_NAME=$(basename $DIR)
+            echo "Updating description for repository: getwilds/$REPO_NAME"
+            
+            # Create JSON payload file to avoid shell escaping issues
+            jq -n --rawfile desc "$DIR/README.md" '{full_description: $desc}' > payload.json
+            
+            # Update the DockerHub repository description
+            RESPONSE=$(curl -s -H "Content-Type: application/json" \
+              -H "Authorization: JWT ${{ steps.login.outputs.token }}" \
+              -X PATCH \
+              --data @payload.json \
+              "https://hub.docker.com/v2/repositories/getwilds/$REPO_NAME/")
+            
+            if echo "$RESPONSE" | grep -q "error"; then
+              echo "Error updating $REPO_NAME: $RESPONSE"
+            else
+              echo "Successfully updated description for getwilds/$REPO_NAME"
+            fi
+          done
