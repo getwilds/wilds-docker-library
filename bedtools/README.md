@@ -39,7 +39,7 @@ apptainer pull docker://getwilds/bedtools:2.31.1
 apptainer pull docker://ghcr.io/getwilds/bedtools:latest
 ```
 
-### Example Command
+### Example Commands
 
 ```bash
 # Docker
