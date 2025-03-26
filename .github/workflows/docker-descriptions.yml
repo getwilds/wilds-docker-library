@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - '*/README.md'  # This triggers when any README.md in a subdirectory changes
+      - '*/Dockerfile_latest'  # Also trigger when a latest Dockerfile changes
   workflow_dispatch:   # Keep manual triggering option
 
 jobs:
@@ -26,14 +27,14 @@ jobs:
               "https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}")
             
             # Extract README.md files from the changed files
-            README_FILES=$(echo "$FILES_RESP" | jq -r '.files[] | select(.filename | test("README\\.md$")) | .filename')
+            README_FILES=$(echo "$FILES_RESP" | jq -r '.files[] | select(.filename | test("README\\.md$") or test("Dockerfile_latest$")) | .filename')
           else
             # For workflow_dispatch, consider all README.md files in Docker image directories
-            README_FILES=$(find . -maxdepth 2 -path "./*/README.md" | sed 's|^./||')
+            README_FILES=$(find . -maxdepth 2 -path "./*/README.md" -o -path "./*/Dockerfile_latest" | sed 's|^./||')
           fi
           
           if [ -z "$README_FILES" ]; then
-            echo "No README files were changed."
+            echo "No README or Dockerfile_latest files were changed."
             echo "readmes=" >> $GITHUB_OUTPUT
             exit 0
           fi
@@ -46,7 +47,7 @@ jobs:
           
           # Set the output in the correct format for GitHub Actions
           echo "readmes=$DIRS_CSV" >> $GITHUB_OUTPUT
-          echo "Found changed READMEs in directories: $DIRS_CSV"
+          echo "Found changed files in directories: $DIRS_CSV"
       
       - name: Login to DockerHub
         id: login
@@ -68,13 +69,13 @@ jobs:
       
       - name: Update DockerHub Repository Descriptions
         run: |
-          # Process each changed README directory
+          # Process each changed directory
           READMES="${{ steps.changed-files.outputs.readmes }}"
-          echo "Processing READMEs in directories: $READMES"
+          echo "Processing directories: $READMES"
           
           # Only proceed if we have directories to process
           if [ -z "$READMES" ]; then
-            echo "No README directories to process"
+            echo "No directories to process"
             exit 0
           fi
           
@@ -84,16 +85,59 @@ jobs:
           # Process each directory
           for DIR in "${DIRS[@]}"; do
             # Skip if it's not a directory with a valid Docker image
-            if [ ! -d "$DIR" ] || [ ! -f "$DIR/README.md" ]; then
-              echo "Skipping $DIR: not a valid directory or README missing"
+            if [ ! -d "$DIR" ]; then
+              echo "Skipping $DIR: not a valid directory"
               continue
             fi
             
             REPO_NAME=$(basename "$DIR")
+            echo "Processing repository: getwilds/$REPO_NAME"
+            
+            # Check for README.md
+            if [ ! -f "$DIR/README.md" ]; then
+              echo "Warning: $DIR/README.md not found, skipping full description update"
+              FULL_DESC=""
+            else
+              FULL_DESC=$(cat "$DIR/README.md")
+            fi
+            
+            # Check for Dockerfile_latest to extract short description
+            if [ ! -f "$DIR/Dockerfile_latest" ]; then
+              echo "Warning: $DIR/Dockerfile_latest not found, skipping short description update"
+              SHORT_DESC=""
+            else
+              # Extract the short description from the Dockerfile_latest
+              SHORT_DESC=$(grep -E 'org.opencontainers.image.description=' "$DIR/Dockerfile_latest" | cut -d'"' -f2)
+              if [ -z "$SHORT_DESC" ]; then
+                # Try single quotes if double quotes didn't work
+                SHORT_DESC=$(grep -E 'org.opencontainers.image.description=' "$DIR/Dockerfile_latest" | cut -d"'" -f2)
+              fi
+            fi
+            
             echo "Updating description for repository: getwilds/$REPO_NAME"
             
-            # Create JSON payload file to avoid shell escaping issues
-            jq -n --rawfile desc "$DIR/README.md" '{full_description: $desc}' > payload.json
+            # Create JSON payload based on available content
+            if [ -n "$FULL_DESC" ] && [ -n "$SHORT_DESC" ]; then
+              # Both full and short descriptions are available
+              jq -n --arg full "$FULL_DESC" --arg short "$SHORT_DESC" '{
+                full_description: $full,
+                description: $short
+              }' > payload.json
+            elif [ -n "$FULL_DESC" ]; then
+              # Only full description is available
+              jq -n --arg full "$FULL_DESC" '{
+                full_description: $full
+              }' > payload.json
+            elif [ -n "$SHORT_DESC" ]; then
+              # Only short description is available
+              jq -n --arg short "$SHORT_DESC" '{
+                description: $short
+              }' > payload.json
+            else
+              # No descriptions available
+              echo "No descriptions found for $REPO_NAME, skipping"
+              continue
+            fi
             
             # Update the DockerHub repository description
             RESPONSE=$(curl -s -H "Content-Type: application/json" \
