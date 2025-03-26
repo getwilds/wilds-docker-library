@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # Fetch enough history to determine changed files
+          fetch-depth: 0  # Fetch all history to determine changed files
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -80,7 +80,16 @@ jobs:
           else
             # Push event - find changed files
             echo "Processing push event - detecting changed files"
-            CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
+            
+            # For merge commits, compare with the first parent (the target branch)
+            if [[ $(git cat-file -p HEAD | grep -c "^parent ") -gt 1 ]]; then
+                echo "Detected merge commit, comparing with first parent"
+                CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD^1..HEAD)
+            else
+                # For normal commits, compare with the previous commit
+                CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD^..HEAD)
+            fi
+            
             echo "Changed files:"
             echo "$CHANGED_FILES"
             
