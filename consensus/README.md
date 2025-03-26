@@ -41,7 +41,7 @@ apptainer pull docker://getwilds/consensus:0.1.1
 apptainer pull docker://ghcr.io/getwilds/consensus:latest
 ```
 
-### Example Command
+### Example Commands
 
 ```bash
 # Docker
