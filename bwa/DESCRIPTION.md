@@ -1,1 +1,0 @@
-Testing123 Docker image for the use of bwa in FH DaSL's WILDS
