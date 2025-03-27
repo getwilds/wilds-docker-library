@@ -5,7 +5,7 @@ FROM rocker/tidyverse:3.6.0
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="consensus"
-LABEL org.opencontainers.image.description="Container image for the use of the ConsensusVariants R script in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for the use of the ConsensusVariants R script in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/

@@ -40,7 +40,7 @@ apptainer pull docker://getwilds/bwa:0.7.17
 apptainer pull docker://ghcr.io/getwilds/bwa:latest
 ```
 
-### Example Command
+### Example Commands
 
 ```bash
 # Docker
