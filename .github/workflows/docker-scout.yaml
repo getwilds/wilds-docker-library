@@ -16,22 +16,17 @@ env:
   GH_TOKEN: ${{ github.token }}
 
 jobs:
-  scout:
+  # First job: discover all the tools/tags that need to be processed
+  discover:
     runs-on: ubuntu-latest
-    permissions: write-all
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Login to DockerHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PW }}
-      - name: Install Docker Scout
-        run: |
-          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
-          sh install-scout.sh
-      - name: Docker Scout Scan and Update CVE Files
+      
+      - name: Discover Tools and Tags
+        id: set-matrix
         run: |
           # Determine which directories to process
           if [[ -n "${{ github.event.inputs.tool }}" ]]; then
@@ -49,78 +44,183 @@ jobs:
             DIRS=($(find . -maxdepth 1 -type d -not -path "./.git" -not -path "./.github" -not -path "." | sed 's|^\./||'))
           fi
           
+          # Build the matrix
+          echo "Building matrix of tools and tags..."
+          matrix="{\"include\":["
+          separator=""
+          
           for image_dir in "${DIRS[@]}"; do
-            echo "Processing $image_dir..."
+            echo "Finding tags for $image_dir..."
             
             # Find all Dockerfile_* files to determine tags
-            for dockerfile in $image_dir/Dockerfile_*; do
-              # Check if file exists (in case there are no Dockerfile_* files)
-              if [[ ! -f "$dockerfile" ]]; then
-                echo "No Dockerfile_* files found in $image_dir"
-                continue
-              fi
-              
+            shopt -s nullglob
+            dockerfiles=($image_dir/Dockerfile_*)
+            shopt -u nullglob
+            
+            if [ ${#dockerfiles[@]} -eq 0 ]; then
+              echo "No Dockerfile_* files found in $image_dir"
+              continue
+            fi
+            
+            for dockerfile in "${dockerfiles[@]}"; do
               # Extract tag from filename (everything after the underscore)
               tag=$(basename $dockerfile | cut -d'_' -f2-)
               
-              # Set the full container name
-              CONTAINER="getwilds/$image_dir:$tag"
-              echo "Scanning $CONTAINER..."
-              
-              # Create CVE markdown file
-              CVE_FILE="$image_dir/CVEs_$tag.md"
-              
-              # Generate header for the file
-              echo "# Vulnerability Report for $CONTAINER" > $CVE_FILE
-              echo "" >> $CVE_FILE
-              echo "Report generated on $(date)" >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              
-              # Generate the main report
-              echo "## Vulnerability Summary" >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              echo '```' >> $CVE_FILE
-              docker scout quickview $CONTAINER >> $CVE_FILE
-              echo '```' >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              
-              # Add detailed vulnerability information
-              echo "## Detailed Vulnerability Information" >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              echo "### Fixed Vulnerabilities (Critical/High)" >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              
-              # Create a temporary file for the SARIF output
-              docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format sarif --output cve_check.json
-              NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json 2>/dev/null || echo "0")
-              
-              if [[ $NUM_VUL -ge 1 ]]; then
-                echo "Found $NUM_VUL critical/high fixed vulnerabilities." >> $CVE_FILE
-                echo "" >> $CVE_FILE
-                docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format markdown >> $CVE_FILE
-              else
-                echo "No critical/high fixed vulnerabilities found." >> $CVE_FILE
-              fi
-              
-              echo "" >> $CVE_FILE
-              echo "### All Vulnerabilities" >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              docker scout cves $CONTAINER --format markdown >> $CVE_FILE
-              
-              echo "" >> $CVE_FILE
-              echo "## Recommendations" >> $CVE_FILE
-              echo "" >> $CVE_FILE
-              echo '```' >> $CVE_FILE
-              docker scout recommendations $CONTAINER >> $CVE_FILE
-              echo '```' >> $CVE_FILE
-              
-              echo "Created vulnerability report at $CVE_FILE"
-              
-              # Clean up
-              docker system prune -af
+              # Add to matrix
+              matrix="${matrix}${separator}{\"tool\":\"${image_dir}\",\"tag\":\"${tag}\"}"
+              separator=","
             done
           done
           
+          matrix="${matrix}]}"
+          
+          # Output the matrix
+          echo "Generated matrix: $matrix"
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+
+  # Second job: process each tool/tag combination in parallel
+  scan:
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
+      # Allow some jobs to fail without failing the whole workflow
+      fail-fast: false
+      # Limit concurrent jobs to avoid rate limiting
+      max-parallel: 5
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Login to DockerHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+      
+      - name: Install Docker Scout
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
+          sh install-scout.sh
+      
+      - name: Docker Scout Scan for ${{ matrix.tool }}:${{ matrix.tag }}
+        run: |
+          # Set the full container name
+          CONTAINER="getwilds/${{ matrix.tool }}:${{ matrix.tag }}"
+          echo "Scanning $CONTAINER..."
+          
+          # Create CVE markdown file
+          CVE_FILE="${{ matrix.tool }}/CVEs_${{ matrix.tag }}.md"
+          
+          # Generate header for the file
+          echo "# Vulnerability Report for $CONTAINER" > $CVE_FILE
+          echo "" >> $CVE_FILE
+          echo "Report generated on $(date)" >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          
+          # Generate the main report
+          echo "## Vulnerability Summary" >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          echo '```' >> $CVE_FILE
+          
+          if ! docker scout quickview $CONTAINER >> $CVE_FILE 2>&1; then
+            echo "Error generating quickview report. Please try again later." >> $CVE_FILE
+            echo '```' >> $CVE_FILE
+            exit 0  # Don't fail the job
+          fi
+          
+          echo '```' >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          
+          # Add detailed vulnerability information
+          echo "## Detailed Vulnerability Information" >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          echo "### Fixed Vulnerabilities (Critical/High)" >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          
+          # Create a temporary file for the SARIF output
+          if ! docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format sarif --output cve_check.json; then
+            echo "Error generating detailed vulnerability report. Please try again later." >> $CVE_FILE
+            exit 0  # Don't fail the job
+          fi
+          
+          NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json 2>/dev/null || echo "0")
+          
+          if [[ $NUM_VUL -ge 1 ]]; then
+            echo "Found $NUM_VUL critical/high fixed vulnerabilities." >> $CVE_FILE
+            echo "" >> $CVE_FILE
+            
+            if ! docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format markdown >> $CVE_FILE 2>&1; then
+              echo "Error generating detailed vulnerability markdown. Please try again later." >> $CVE_FILE
+            fi
+          else
+            echo "No critical/high fixed vulnerabilities found." >> $CVE_FILE
+          fi
+          
+          echo "" >> $CVE_FILE
+          echo "### All Vulnerabilities" >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          
+          if ! docker scout cves $CONTAINER --format markdown >> $CVE_FILE 2>&1; then
+            echo "Error generating all vulnerabilities report. Please try again later." >> $CVE_FILE
+          fi
+          
+          echo "" >> $CVE_FILE
+          echo "## Recommendations" >> $CVE_FILE
+          echo "" >> $CVE_FILE
+          echo '```' >> $CVE_FILE
+          
+          if ! docker scout recommendations $CONTAINER >> $CVE_FILE 2>&1; then
+            echo "Error generating recommendations. Please try again later." >> $CVE_FILE
+          fi
+          
+          echo '```' >> $CVE_FILE
+          
+          echo "Created vulnerability report at $CVE_FILE"
+          
+          # Clean up
+          docker system prune -af
+      
+      - name: Upload CVE File
+        uses: actions/upload-artifact@v3
+        with:
+          name: cve-report-${{ matrix.tool }}-${{ matrix.tag }}
+          path: ${{ matrix.tool }}/CVEs_${{ matrix.tag }}.md
+          retention-days: 1
+
+  # Third job: commit all the generated CVE files
+  commit:
+    needs: scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+      
+      - name: List downloaded artifacts
+        run: find . -type f -name "CVEs_*.md" | sort
+      
+      - name: Move CVE Files to Correct Locations
+        run: |
+          # For each CVE file in the artifacts, move it to the correct location
+          for cve_dir in cve-report-*; do
+            if [ -d "$cve_dir" ]; then
+              # Extract tool name from directory name
+              tool=$(echo $cve_dir | cut -d'-' -f3)
+              
+              # Create tool directory if it doesn't exist
+              mkdir -p "$tool"
+              
+              # Move all CVE files to the tool directory
+              find "$cve_dir" -name "CVEs_*.md" -exec mv {} "$tool/" \;
+            fi
+          done
+      
       - name: Commit and Push Changes
         run: |
           git config --global user.name "GitHub Actions Bot"
