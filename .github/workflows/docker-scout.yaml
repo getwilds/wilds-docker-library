@@ -197,7 +197,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.ref_name }}
       
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -230,7 +230,7 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add */CVEs_*.md
             git commit -m "Update vulnerability reports [skip ci]"
-            git push
+            git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes to commit"
           fi
