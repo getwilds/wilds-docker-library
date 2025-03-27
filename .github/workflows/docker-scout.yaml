@@ -197,7 +197,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          fetch-depth: 0  # Get full history
+      
+      - name: Setup Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Determine branch name - handle PR vs branch case
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            # For pull requests - check out the head of the PR
+            echo "Working with PR #${{ github.event.pull_request.number }}"
+            git checkout ${{ github.event.pull_request.head.ref }}
+          else
+            # For direct branch pushes or workflow_dispatch
+            echo "Working with branch ${{ github.ref_name }}"
+            git checkout ${{ github.ref_name }}
+          fi
       
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -223,14 +239,19 @@ jobs:
       
       - name: Commit and Push Changes
         run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "actions@github.com"
-          
           # Check if there are changes to commit
           if [[ -n "$(git status --porcelain)" ]]; then
             git add */CVEs_*.md
             git commit -m "Update vulnerability reports [skip ci]"
-            git push origin HEAD:${{ github.ref_name }}
+            
+            # Push changes
+            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+              # Push to the PR branch
+              git push origin ${{ github.event.pull_request.head.ref }}
+            else
+              # Push to the current branch
+              git push origin ${{ github.ref_name }}
+            fi
           else
             echo "No changes to commit"
           fi
