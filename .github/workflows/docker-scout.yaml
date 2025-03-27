@@ -24,28 +24,93 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
           sh install-scout.sh
-      - name: Docker Scout
+      - name: Docker Scout Scan and Update CVE Files
         run: |
-          GH_ISSUES=$(gh issue list)
-          for image in *; do
-            if [[ -d "$image" ]] && [[ "$image" != ".github" ]] && [[ $GH_ISSUES != *"$image Critical/High Vulnerability"* ]]; then
-              CONTAINER="getwilds/$image:latest"
-              docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format sarif --output cve_check.json
-              NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json)
-              if [[ $NUM_VUL -ge 1 ]]; then
-                # If high/critical vulnerabilities found, generate markdown report with all vulnerabilities
-                docker scout cves $CONTAINER --only-fixed --format markdown --output cve_check.html
-                if [[ $(wc -c cve_check.html) -le 65536 ]]; then
-                  gh issue create --repo getwilds/wilds-docker-library --title "$image Critical/High Vulnerability" --body-file cve_check.html
-                else
-                  echo "Significant issues present in $image, see quickview and recommendations below, but run CVE analysis locally." > qv.txt
-                  echo "\`\`\`" >> qv.txt
-                  docker scout quickview $CONTAINER >> qv.txt
-                  docker scout recommendations $CONTAINER >> qv.txt
-                  echo "\`\`\`" >> qv.txt
-                  gh issue create --repo getwilds/wilds-docker-library --title "$image Critical/High Vulnerability" --body-file qv.txt
+          for image_dir in */; do
+            if [[ -d "$image_dir" ]] && [[ "$image_dir" != ".github/" ]]; then
+              # Remove trailing slash
+              image=${image_dir%/}
+              echo "Processing $image..."
+              
+              # Find all Dockerfile_* files to determine tags
+              for dockerfile in $image_dir/Dockerfile_*; do
+                # Extract tag from filename (everything after the underscore)
+                tag=$(basename $dockerfile | cut -d'_' -f2-)
+                
+                # If tag is empty, it means the file wasn't found or doesn't follow our naming pattern
+                if [[ -z "$tag" ]]; then
+                  continue
                 fi
-              fi
-              docker system prune -af
+                
+                # Set the full container name
+                CONTAINER="getwilds/$image:$tag"
+                echo "Scanning $CONTAINER..."
+                
+                # Create CVE markdown file
+                CVE_FILE="$image_dir/CVEs_$tag.md"
+                
+                # Generate header for the file
+                echo "# Vulnerability Report for $CONTAINER" > $CVE_FILE
+                echo "" >> $CVE_FILE
+                echo "Report generated on $(date)" >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                
+                # Generate the main report
+                echo "## Vulnerability Summary" >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                echo '```' >> $CVE_FILE
+                docker scout quickview $CONTAINER >> $CVE_FILE
+                echo '```' >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                
+                # Add detailed vulnerability information
+                echo "## Detailed Vulnerability Information" >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                echo "### Fixed Vulnerabilities (Critical/High)" >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                
+                # Create a temporary file for the SARIF output
+                docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format sarif --output cve_check.json
+                NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json 2>/dev/null || echo "0")
+                
+                if [[ $NUM_VUL -ge 1 ]]; then
+                  echo "Found $NUM_VUL critical/high fixed vulnerabilities." >> $CVE_FILE
+                  echo "" >> $CVE_FILE
+                  docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format markdown >> $CVE_FILE
+                else
+                  echo "No critical/high fixed vulnerabilities found." >> $CVE_FILE
+                fi
+                
+                echo "" >> $CVE_FILE
+                echo "### All Vulnerabilities" >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                docker scout cves $CONTAINER --format markdown >> $CVE_FILE
+                
+                echo "" >> $CVE_FILE
+                echo "## Recommendations" >> $CVE_FILE
+                echo "" >> $CVE_FILE
+                echo '```' >> $CVE_FILE
+                docker scout recommendations $CONTAINER >> $CVE_FILE
+                echo '```' >> $CVE_FILE
+                
+                echo "Created vulnerability report at $CVE_FILE"
+                
+                # Clean up
+                docker system prune -af
+              done
             fi
           done
+          
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Check if there are changes to commit
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add */CVEs_*.md
+            git commit -m "Update vulnerability reports [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
