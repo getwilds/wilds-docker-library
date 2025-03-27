@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library/biobambam2
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
 # Installing biobambam2 via apt-get

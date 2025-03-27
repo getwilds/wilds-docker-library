@@ -144,17 +144,11 @@ jobs:
               
               echo "Building image for $tool_name:$tag"
               
-              # Change directory to the tool directory for proper context
-              cd "${tool_name}"
-              
               # Build and push to GitHub Container Registry
-              docker build --platform linux/amd64 -t "ghcr.io/getwilds/${tool_name}:${tag}" -f "Dockerfile_${tag}" --push .
+              docker build --platform linux/amd64 -t "ghcr.io/getwilds/${tool_name}:${tag}" -f "${changed_file}" --push .
               
               # Build and push to DockerHub
-              docker build --platform linux/amd64 -t "getwilds/${tool_name}:${tag}" -f "Dockerfile_${tag}" --push .
-              
-              # Go back to the root directory
-              cd ..
+              docker build --platform linux/amd64 -t "getwilds/${tool_name}:${tag}" -f "${changed_file}" --push .
               
               # Clean up to save space
               docker system prune -af
