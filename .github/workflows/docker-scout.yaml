@@ -183,7 +183,7 @@ jobs:
           docker system prune -af
       
       - name: Upload CVE File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cve-report-${{ matrix.tool }}-${{ matrix.tag }}
           path: ${{ matrix.tool }}/CVEs_${{ matrix.tag }}.md
@@ -200,7 +200,7 @@ jobs:
           ref: ${{ github.ref }}
       
       - name: Download all artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
       
       - name: List downloaded artifacts
         run: find . -type f -name "CVEs_*.md" | sort
