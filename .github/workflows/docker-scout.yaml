@@ -9,6 +9,8 @@ on:
         type: string
   schedule:
     - cron: "0 0 1 * *"
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 env:
   GH_TOKEN: ${{ github.token }}
