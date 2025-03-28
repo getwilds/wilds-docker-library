@@ -1,4 +1,4 @@
-name: Docker Scout
+name: Docker Scout Update
 
 on:
   workflow_dispatch:
