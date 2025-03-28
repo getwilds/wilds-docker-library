@@ -9,8 +9,6 @@ on:
         type: string
   schedule:
     - cron: "0 0 1 * *"
-  pull_request:
-    types: [opened, reopened, synchronize]
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -87,7 +85,7 @@ jobs:
       # Allow some jobs to fail without failing the whole workflow
       fail-fast: false
       # Limit concurrent jobs to avoid rate limiting
-      max-parallel: 5
+      max-parallel: 2
     
     steps:
       - name: Checkout
