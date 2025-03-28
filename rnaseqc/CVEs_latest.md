@@ -1,8 +1,25 @@
 # Vulnerability Report for getwilds/rnaseqc:latest
 
-Report generated on Fri Mar 28 01:51:47 UTC 2025
+Report generated on Fri Mar 28 14:48:21 UTC 2025
 
     ...Pulling
-    ✗ Pull failed
-[31mERROR  [0m Status: failed to get image getwilds/rnaseqc:latest: failed to pull image getwilds/rnaseqc:latest: GET https://index.docker.io/v2/getwilds/rnaseqc/manifests/latest: TOOMANYREQUESTS: You have reached your pull rate limit as 'tfirmanfh': dckr_jti_PWGTBxUxe_qZ8slgg-6DBRGN02w=. You may increase the limit by upgrading. https://www.docker.com/increase-rate-limit, Code: 1 
-Error generating all vulnerabilities report. Please try again later.
+    ✓ Pulled
+    ...Storing image for indexing
+    ✓ Image stored for indexing
+    ...Indexing
+    ✓ Indexed 432 packages
+    ✓ No vulnerable package detected
+<h2>:mag: Vulnerabilities of <code>getwilds/rnaseqc:latest</code></h2>
+
+<details open="true"><summary>:package: Image Reference</strong> <code>getwilds/rnaseqc:latest</code></summary>
+<table>
+<tr><td>digest</td><td><code>sha256:267e7e0d263233319c3a4f97363197a0f21e8fa792574254ca7ac7990d94308b</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/medium-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>platform</td><td>linux/amd64</td></tr>
+<tr><td>size</td><td>338 MB</td></tr>
+<tr><td>packages</td><td>432</td></tr>
+</table>
+</details></table>
+</details>
+
+<table></table>
+
