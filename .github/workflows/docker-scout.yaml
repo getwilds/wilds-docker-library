@@ -119,63 +119,9 @@ jobs:
           echo "Report generated on $(date)" >> $CVE_FILE
           echo "" >> $CVE_FILE
           
-          # Generate the main report
-          echo "## Vulnerability Summary" >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          echo '```' >> $CVE_FILE
-          
-          if ! docker scout quickview $CONTAINER >> $CVE_FILE 2>&1; then
-            echo "Error generating quickview report. Please try again later." >> $CVE_FILE
-            echo '```' >> $CVE_FILE
-            exit 0  # Don't fail the job
-          fi
-          
-          echo '```' >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          
-          # Add detailed vulnerability information
-          echo "## Detailed Vulnerability Information" >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          echo "### Fixed Vulnerabilities (Critical/High)" >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          
-          # Create a temporary file for the SARIF output
-          if ! docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format sarif --output cve_check.json; then
-            echo "Error generating detailed vulnerability report. Please try again later." >> $CVE_FILE
-            exit 0  # Don't fail the job
-          fi
-          
-          NUM_VUL=$(jq '.runs[0].tool.driver.rules | length' cve_check.json 2>/dev/null || echo "0")
-          
-          if [[ $NUM_VUL -ge 1 ]]; then
-            echo "Found $NUM_VUL critical/high fixed vulnerabilities." >> $CVE_FILE
-            echo "" >> $CVE_FILE
-            
-            if ! docker scout cves $CONTAINER --only-fixed --only-severity high,critical --format markdown >> $CVE_FILE 2>&1; then
-              echo "Error generating detailed vulnerability markdown. Please try again later." >> $CVE_FILE
-            fi
-          else
-            echo "No critical/high fixed vulnerabilities found." >> $CVE_FILE
-          fi
-          
-          echo "" >> $CVE_FILE
-          echo "### All Vulnerabilities" >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          
           if ! docker scout cves $CONTAINER --format markdown >> $CVE_FILE 2>&1; then
             echo "Error generating all vulnerabilities report. Please try again later." >> $CVE_FILE
           fi
-          
-          echo "" >> $CVE_FILE
-          echo "## Recommendations" >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          echo '```' >> $CVE_FILE
-          
-          if ! docker scout recommendations $CONTAINER >> $CVE_FILE 2>&1; then
-            echo "Error generating recommendations. Please try again later." >> $CVE_FILE
-          fi
-          
-          echo '```' >> $CVE_FILE
           
           echo "Created vulnerability report at $CVE_FILE"
           
