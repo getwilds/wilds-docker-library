@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/rnaseqc:2.4.2
 
-Report generated on Fri Mar 28 14:48:08 UTC 2025
+Report generated on Tue Apr  1 06:02:31 UTC 2025
 
     ...Pulling
     ✓ Pulled
