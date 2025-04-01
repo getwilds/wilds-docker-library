@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:2.7.6a
 
-Report generated on Fri Mar 28 14:48:54 UTC 2025
+Report generated on Tue Apr  1 06:04:13 UTC 2025
 
     ...Pulling
     ✓ Pulled

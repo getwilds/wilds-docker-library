@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:2.2.1
 
-Report generated on Fri Mar 28 14:45:19 UTC 2025
+Report generated on Tue Apr  1 05:55:35 UTC 2025
 
     ...Pulling
     ✓ Pulled
@@ -8,12 +8,12 @@ Report generated on Fri Mar 28 14:45:19 UTC 2025
     ✓ Image stored for indexing
     ...Indexing
     ✓ Indexed 250 packages
-    ✗ Detected 15 vulnerable packages with a total of 624 vulnerabilities
+    ✗ Detected 16 vulnerable packages with a total of 624 vulnerabilities
 <h2>:mag: Vulnerabilities of <code>getwilds/hisat2:2.2.1</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/hisat2:2.2.1</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:7a7308988721f2319631ba6bdcc969e3ec078b05f77b549c0bf1da21df7a9a18</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 589" src="https://img.shields.io/badge/medium-589-fbb552"/> <img alt="low: 35" src="https://img.shields.io/badge/low-35-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:7a7308988721f2319631ba6bdcc969e3ec078b05f77b549c0bf1da21df7a9a18</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 590" src="https://img.shields.io/badge/medium-590-fbb552"/> <img alt="low: 34" src="https://img.shields.io/badge/low-34-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
 <tr><td>size</td><td>244 MB</td></tr>
 <tr><td>packages</td><td>250</td></tr>
@@ -147,7 +147,7 @@ In the Linux kernel, the following vulnerability has been resolved:  vrf: use RC
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
@@ -261,8 +261,8 @@ In the Linux kernel, the following vulnerability has been resolved:  pktgen: Avo
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -280,8 +280,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ipvlan: Fix
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -299,7 +299,7 @@ In the Linux kernel, the following vulnerability has been resolved:  net: hns3: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
@@ -432,7 +432,7 @@ In the Linux kernel, the following vulnerability has been resolved:  hrtimers: H
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
@@ -737,7 +737,7 @@ In the Linux kernel, the following vulnerability has been resolved:  block: fix 
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -756,7 +756,7 @@ In the Linux kernel, the following vulnerability has been resolved:  sh: intc: F
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -775,7 +775,7 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: ath9k
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -850,8 +850,8 @@ In the Linux kernel, the following vulnerability has been resolved:  fbdev: sisf
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -869,8 +869,8 @@ In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -888,7 +888,7 @@ In the Linux kernel, the following vulnerability has been resolved:  parport: Pr
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.013%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -907,8 +907,8 @@ In the Linux kernel, the following vulnerability has been resolved:  tty: n_gsm:
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -945,8 +945,8 @@ In the Linux kernel, the following vulnerability has been resolved:  driver core
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -964,8 +964,8 @@ In the Linux kernel, the following vulnerability has been resolved:  smb: client
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -984,7 +984,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/xe/ct: 
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1002,8 +1002,8 @@ In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1021,8 +1021,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/xe/vm: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1060,7 +1060,7 @@ In the Linux kernel, the following vulnerability has been resolved:  net: hns3: 
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1079,7 +1079,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amdgpu/
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1230,8 +1230,8 @@ A double-free flaw was found in the Linux kernel’s NTFS3 subsystem in how a us
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.482%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>79th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.813%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>72nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1249,8 +1249,8 @@ A flaw null pointer dereference in the Linux kernel cgroupv2 subsystem in versio
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.219%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.136%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>30th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1287,8 +1287,8 @@ Bluetooth® Low Energy Pairing in Bluetooth Core Specification v4.0 through v5.3
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1325,7 +1325,7 @@ In the Linux kernel, the following vulnerability has been resolved:  LoongArch: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
@@ -1439,8 +1439,8 @@ In the Linux kernel, the following vulnerability has been resolved:  xfrm: state
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1458,8 +1458,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1477,8 +1477,8 @@ In the Linux kernel, the following vulnerability has been resolved:  iio: pressu
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1496,8 +1496,8 @@ In the Linux kernel, the following vulnerability has been resolved:  iio: dummy:
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1515,8 +1515,8 @@ In the Linux kernel, the following vulnerability has been resolved:  iio: light:
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1534,8 +1534,8 @@ In the Linux kernel, the following vulnerability has been resolved:  iio: imu: k
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1553,8 +1553,8 @@ In the Linux kernel, the following vulnerability has been resolved:  iio: adc: r
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1591,7 +1591,7 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: nl802
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.014%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -1629,8 +1629,8 @@ In the Linux kernel, the following vulnerability has been resolved:  x86/entry_3
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1648,8 +1648,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ice: Fix in
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1667,8 +1667,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ppp: fix pp
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.044%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1762,8 +1762,8 @@ In the Linux kernel, the following vulnerability has been resolved:  nfsd: fix r
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1781,8 +1781,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1800,8 +1800,8 @@ In the Linux kernel, the following vulnerability has been resolved:  mm/mremap: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1819,8 +1819,8 @@ In the Linux kernel, the following vulnerability has been resolved:  i3c: master
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1839,7 +1839,7 @@ In the Linux kernel, the following vulnerability has been resolved:  ntb: ntb_hw
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1857,7 +1857,7 @@ In the Linux kernel, the following vulnerability has been resolved:  net: do not
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.014%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -1895,8 +1895,8 @@ An issue found in linux-kernel that leads to a race condition in rose_connect().
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.788%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>71st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.401%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>58th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1933,8 +1933,8 @@ Overlayfs in the Linux kernel and shiftfs, a non-upstream patch to the Linux ker
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.143%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.088%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1952,8 +1952,8 @@ In the Linux kernel, the following vulnerability has been resolved:  vt: prevent
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.174%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.140%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2009,8 +2009,8 @@ Xen allows guest OS users to obtain sensitive information from uninitialized loc
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.037%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2826,8 +2826,8 @@ In the Linux kernel, the following vulnerability has been resolved:  gpio: xilin
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2997,8 +2997,8 @@ In the Linux kernel, the following vulnerability has been resolved:  vsock/bpf: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3035,8 +3035,8 @@ In the Linux kernel, the following vulnerability has been resolved:  iomap: avoi
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3073,8 +3073,8 @@ In the Linux kernel, the following vulnerability has been resolved:  filemap: av
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3092,8 +3092,8 @@ In the Linux kernel, the following vulnerability has been resolved:  btrfs: avoi
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3111,8 +3111,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net: hns3: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3130,8 +3130,8 @@ In the Linux kernel, the following vulnerability has been resolved:  mptcp: sysc
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3149,8 +3149,8 @@ In the Linux kernel, the following vulnerability has been resolved:  sctp: sysct
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3168,8 +3168,8 @@ In the Linux kernel, the following vulnerability has been resolved:  sctp: sysct
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3187,8 +3187,8 @@ In the Linux kernel, the following vulnerability has been resolved:  sctp: sysct
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3206,8 +3206,8 @@ In the Linux kernel, the following vulnerability has been resolved:  sctp: sysct
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3225,8 +3225,8 @@ In the Linux kernel, the following vulnerability has been resolved:  sctp: sysct
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3473,7 +3473,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amdgpu:
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3776,8 +3776,8 @@ In the Linux kernel, the following vulnerability has been resolved:  virtio-blk:
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3795,8 +3795,8 @@ In the Linux kernel, the following vulnerability has been resolved:  exfat: fix 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3814,7 +3814,7 @@ In the Linux kernel, the following vulnerability has been resolved:  riscv: Fix 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
@@ -3833,8 +3833,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net/sctp: P
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3852,8 +3852,8 @@ In the Linux kernel, the following vulnerability has been resolved:  gve: guard 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3871,8 +3871,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4157,7 +4157,7 @@ In the Linux kernel, the following vulnerability has been resolved:  tracing: Pr
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4233,7 +4233,7 @@ In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: 
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4366,7 +4366,7 @@ In the Linux kernel, the following vulnerability has been resolved:  bpf: Mark r
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4442,7 +4442,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/i915: F
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4461,7 +4461,7 @@ In the Linux kernel, the following vulnerability has been resolved:  bpf,perf: F
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4783,8 +4783,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/msm/gem
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4802,8 +4802,8 @@ In the Linux kernel, the following vulnerability has been resolved:  staging: ii
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.053%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5354,7 +5354,7 @@ In the Linux kernel, the following vulnerability has been resolved:  dm vdo: don
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5391,8 +5391,8 @@ Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5410,8 +5410,8 @@ In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5429,8 +5429,8 @@ In the Linux kernel, the following vulnerability has been resolved:  mptcp: pm: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5448,8 +5448,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net: microc
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5467,8 +5467,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ublk: don't
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5486,8 +5486,8 @@ In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5505,8 +5505,8 @@ In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5524,8 +5524,8 @@ In the Linux kernel, the following vulnerability has been resolved:  xhci: tegra
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.035%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5543,8 +5543,8 @@ In the Linux kernel, the following vulnerability has been resolved:  x86/bugs: U
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5562,8 +5562,8 @@ In the Linux kernel, the following vulnerability has been resolved:  pinctrl: st
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5581,8 +5581,8 @@ In the Linux kernel, the following vulnerability has been resolved:  pinctrl: ap
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5600,8 +5600,8 @@ In the Linux kernel, the following vulnerability has been resolved:  mm/damon/te
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5619,8 +5619,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ntfs3: Chan
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5638,8 +5638,8 @@ In the Linux kernel, the following vulnerability has been resolved:  zram: free 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5676,8 +5676,8 @@ In the Linux kernel, the following vulnerability has been resolved:  io_uring: c
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5695,8 +5695,8 @@ In the Linux kernel, the following vulnerability has been resolved:  serial: pro
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5714,8 +5714,8 @@ In the Linux kernel, the following vulnerability has been resolved:  usb: gadget
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5733,8 +5733,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5752,8 +5752,8 @@ In the Linux kernel, the following vulnerability has been resolved:  fbcon: Fix 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5771,8 +5771,8 @@ In the Linux kernel, the following vulnerability has been resolved:  NFSv4: Prev
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5790,8 +5790,8 @@ In the Linux kernel, the following vulnerability has been resolved:  netfilter: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.044%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5809,8 +5809,8 @@ In the Linux kernel, the following vulnerability has been resolved:  i40e: Fix m
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5828,8 +5828,8 @@ In the Linux kernel, the following vulnerability has been resolved:  igb: Do not
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5847,8 +5847,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net/sched: 
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5885,8 +5885,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net/smc: fi
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5904,8 +5904,8 @@ In the Linux kernel, the following vulnerability has been resolved:  rcu/nocb: F
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5923,8 +5923,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/v3d: St
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5942,8 +5942,8 @@ In the Linux kernel, the following vulnerability has been resolved:  thermal: co
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5961,8 +5961,8 @@ In the Linux kernel, the following vulnerability has been resolved:  thermal: co
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5980,8 +5980,8 @@ In the Linux kernel, the following vulnerability has been resolved:  scsi: wd33c
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -5999,8 +5999,8 @@ In the Linux kernel, the following vulnerability has been resolved:  scsi: fnic:
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6018,8 +6018,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net: Fix an
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6037,8 +6037,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net: phy: R
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6056,8 +6056,8 @@ In the Linux kernel, the following vulnerability has been resolved:  device-dax:
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6075,8 +6075,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ice: Fix im
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6094,8 +6094,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ice: Fix im
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6113,8 +6113,8 @@ In the Linux kernel, the following vulnerability has been resolved:  kthread: un
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6152,7 +6152,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6208,8 +6208,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/xe/hdcp
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6228,7 +6228,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6266,7 +6266,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6285,7 +6285,7 @@ In the Linux kernel, the following vulnerability has been resolved:  l2tp: preve
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6303,8 +6303,8 @@ In the Linux kernel, the following vulnerability has been resolved:  btrfs: don'
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6322,8 +6322,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6342,7 +6342,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6360,8 +6360,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6380,7 +6380,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6399,7 +6399,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6436,8 +6436,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amdgpu:
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6551,7 +6551,7 @@ Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6627,7 +6627,7 @@ In the Linux kernel, the following vulnerability has been resolved: net/mlx5e: F
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6741,7 +6741,7 @@ In the Linux kernel, the following vulnerability has been resolved: tracing: Hav
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.010%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6760,7 +6760,7 @@ A deadlock flaw was found in the Linux kernel’s BPF subsystem. This flaw allow
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6797,8 +6797,8 @@ In the Linux kernel, the following vulnerability has been resolved:  block: rele
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.163%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.123%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>28th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6892,8 +6892,8 @@ The Linux kernel, as used in Red Hat Enterprise Linux 7, kernel-rt, and Enterpri
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6911,8 +6911,8 @@ In the Linux kernel, the following vulnerability has been resolved:  usb: gadget
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6931,7 +6931,7 @@ In the Linux kernel, the following vulnerability has been resolved:  net: fix da
 <tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6987,8 +6987,8 @@ In the Linux kernel, the following vulnerability has been resolved:  scsi: lpfc:
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7007,7 +7007,7 @@ In the Linux kernel, the following vulnerability has been resolved:  blk-rq-qos:
 <tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7044,8 +7044,8 @@ The Linux kernel 4.14.67 mishandles certain interaction among XFRM Netlink messa
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7063,8 +7063,8 @@ In the Linux kernel, the following vulnerability has been resolved:  usb: typec:
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.020%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8423,8 +8423,8 @@ In the Linux kernel, the following vulnerability has been resolved:  cachestat: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.066%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>17th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8457,8 +8457,8 @@ In the Linux kernel, the following vulnerability has been resolved:  pmdomain: i
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8474,7 +8474,7 @@ In the Linux kernel, the following vulnerability has been resolved:  dm thin: ma
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
@@ -8491,8 +8491,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net: stmmac
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.037%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8508,8 +8508,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net/mlx5: F
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.037%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8525,7 +8525,7 @@ In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
@@ -8542,7 +8542,7 @@ In the Linux kernel, the following vulnerability has been resolved:  netdev: pre
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
@@ -8559,8 +8559,8 @@ In the Linux kernel, the following vulnerability has been resolved:  hwmon: (dri
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.044%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8576,8 +8576,8 @@ In the Linux kernel, the following vulnerability has been resolved:  io_uring/ev
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8593,8 +8593,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ovl: suppor
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8610,7 +8610,7 @@ In the Linux kernel, the following vulnerability has been resolved:  net_sched: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -8627,8 +8627,8 @@ In the Linux kernel, the following vulnerability has been resolved:  net: hns3: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8644,8 +8644,8 @@ In the Linux kernel, the following vulnerability has been resolved:  netfilter: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.066%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>17th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8661,8 +8661,8 @@ In the Linux kernel, the following vulnerability has been resolved:  sched: sch_
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8678,8 +8678,8 @@ In the Linux kernel, the following vulnerability has been resolved:  afs: Fix th
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8695,7 +8695,7 @@ In the Linux kernel, the following vulnerability has been resolved:  platform/x8
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -8712,8 +8712,8 @@ In the Linux kernel, the following vulnerability has been resolved:  netfs: Fix 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8763,8 +8763,8 @@ In the Linux kernel, the following vulnerability has been resolved:  tomoyo: don
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9324,7 +9324,7 @@ In the Linux kernel, the following vulnerability has been resolved:  mac802154: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
@@ -9341,8 +9341,8 @@ In the Linux kernel, the following vulnerability has been resolved:  riscv: mm: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9358,8 +9358,8 @@ In the Linux kernel, the following vulnerability has been resolved:  gve: guard 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9375,8 +9375,8 @@ In the Linux kernel, the following vulnerability has been resolved:  selinux: ig
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9392,8 +9392,8 @@ In the Linux kernel, the following vulnerability has been resolved:  dm array: f
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9409,8 +9409,8 @@ In the Linux kernel, the following vulnerability has been resolved:  fs: relax a
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.044%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9426,8 +9426,8 @@ In the Linux kernel, the following vulnerability has been resolved:  topology: K
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10123,8 +10123,8 @@ In the Linux kernel, the following vulnerability has been resolved:  riscv: Fix 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10379,7 +10379,7 @@ In the Linux kernel, the following vulnerability has been resolved:  cachefiles:
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.105%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10430,7 +10430,7 @@ Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.105%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10530,7 +10530,7 @@ In the Linux kernel, the following vulnerability has been resolved: drm/nouveau/
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.272%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>47th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>48th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10547,7 +10547,7 @@ In the Linux kernel, the following vulnerability has been resolved: ACPI: CPPC: 
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.070%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10723,7 +10723,7 @@ An issue was discovered in the Linux kernel 4.18 through 5.10.16, as used by Xen
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.980%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>74th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>75th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10742,7 +10742,7 @@ In the Linux kernel 5.0.21, mounting a crafted f2fs filesystem image can cause _
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.507%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>63rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10817,7 +10817,7 @@ An elevation of privilege vulnerability in the kernel file system. Product: Andr
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.4</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:A/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.197%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.192%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
@@ -10836,7 +10836,7 @@ A vulnerability was discovered in Linux, FreeBSD, OpenBSD, MacOS, iOS, and Andro
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -10855,7 +10855,7 @@ An issue was discovered in the Linux kernel through 6.0.9. drivers/media/dvb-cor
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -10931,7 +10931,7 @@ An issue was discovered in the Linux kernel through 6.0.6. drivers/char/pcmcia/s
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.120%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.080%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>82nd percentile</code></td></tr>
 </table>
 
@@ -10950,8 +10950,8 @@ procps-ng, procps is vulnerable to a process hiding through race condition. Sinc
 <tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -11178,41 +11178,24 @@ A vulnerability was found in PAM. The secret information is stored in memory, wh
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>git</strong> <code>1:2.43.0-1ubuntu7.2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.8.3-1.1ubuntu3.2</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/git@1%3A2.43.0-1ubuntu7.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-52005?s=ubuntu&n=git&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2024--52005" src="https://img.shields.io/badge/CVE--2024--52005-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/gnutls28@3.8.3-1.1ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.8.3-1.1ubuntu3.3"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><3.8.3-1.1ubuntu3.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.8.3-1.1ubuntu3.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.158%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Git is a source code management tool. When cloning from a server (or fetching, or pushing), informational or error messages are transported from the remote Git process to the client via the so-called "sideband channel". These messages will be prefixed with "remote:" and printed directly to the standard error output. Typically, this standard error output is connected to a terminal that understands ANSI escape sequences, which Git did not protect against. Most modern terminals support control sequences that can be used by a malicious actor to hide and misrepresent information, or to mislead the user into executing untrusted scripts. As requested on the git-security mailing list, the patches are under discussion on the public mailing list. Users are advised to update as soon as possible. Users unable to upgrade should avoid recursive clones unless they are from trusted sources.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2018-1000021?s=ubuntu&n=git&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 5.0: CVE--2018--1000021" src="https://img.shields.io/badge/CVE--2018--1000021-lightgrey?label=low%205.0&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.384%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-GIT version 2.15.1 and earlier contains a Input Validation Error vulnerability in Client that can result in problems including messing up terminal configuration to RCE. This attack appear to be exploitable via The user must interact with a malicious git server, (or have their traffic modified in a MITM attack).
+A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
 
 </blockquote>
 </details>
@@ -11276,13 +11259,35 @@ The PAM module pam_cap.so of libcap configuration supports group names starting 
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.693%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 A stack overflow vulnerability exists in the libexpat library due to the way it handles recursive entity expansion in XML documents. When parsing an XML document with deeply nested entity references, libexpat can be forced to recurse indefinitely, exhausting the stack space and causing a crash. This issue could lead to denial of service (DoS) or, in some cases, exploitable memory corruption, depending on the environment and library usage.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>git</strong> <code>1:2.43.0-1ubuntu7.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/git@1%3A2.43.0-1ubuntu7.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-52005?s=ubuntu&n=git&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2024--52005" src="https://img.shields.io/badge/CVE--2024--52005-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Git is a source code management tool. When cloning from a server (or fetching, or pushing), informational or error messages are transported from the remote Git process to the client via the so-called "sideband channel". These messages will be prefixed with "remote:" and printed directly to the standard error output. Typically, this standard error output is connected to a terminal that understands ANSI escape sequences, which Git did not protect against. Most modern terminals support control sequences that can be used by a malicious actor to hide and misrepresent information, or to mislead the user into executing untrusted scripts. As requested on the git-security mailing list, the patches are under discussion on the public mailing list. Users are advised to update as soon as possible. Users unable to upgrade should avoid recursive clones unless they are from trusted sources.
 
 </blockquote>
 </details>
@@ -11332,6 +11337,144 @@ An Invalid Pointer vulnerability exists in GNU patch 2.7 via the another_hunk fu
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>curl</strong> <code>8.5.0-2ubuntu10.6</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/curl@8.5.0-2ubuntu10.6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-0167?s=ubuntu&n=curl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2025--0167" src="https://img.shields.io/badge/CVE--2025--0167-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+When asked to use a `.netrc` file for credentials **and** to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has a `default` entry that omits both login and password. A rare circumstance.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.13+dfsg1-4ubuntu3.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/shadow@1%3A4.13%2Bdfsg1-4ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-56433?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2024--56433" src="https://img.shields.io/badge/CVE--2024--56433-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>3.171%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>glibc</strong> <code>2.39-0ubuntu8.4</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/glibc@2.39-0ubuntu8.4?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2016-20013?s=ubuntu&n=glibc&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 7.5: CVE--2016--20013" src="https://img.shields.io/badge/CVE--2016--20013-lightgrey?label=low%207.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.201%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+sha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm's runtime is proportional to the square of the length of the password.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.4-3ubuntu6</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/coreutils@9.4-3ubuntu6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2016-2781?s=ubuntu&n=coreutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 6.5: CVE--2016--2781" src="https://img.shields.io/badge/CVE--2016--2781-lightgrey?label=low%206.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.072%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>3.0.13-0ubuntu3.5</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/openssl@3.0.13-0ubuntu3.5?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-41996?s=ubuntu&n=openssl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2024--41996" src="https://img.shields.io/badge/CVE--2024--41996-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.391%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.4.4-2ubuntu17</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnupg2@2.4.4-2ubuntu17?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-3219?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 3.3: CVE--2022--3219" src="https://img.shields.io/badge/CVE--2022--3219-lightgrey?label=low%203.3&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>binutils</strong> <code>2.42-4ubuntu2.4</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/binutils@2.42-4ubuntu2.4?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
@@ -11365,151 +11508,13 @@ The C++ symbol demangler routine in cplus-dem.c in libiberty, as distributed in 
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.538%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 A timing-based side-channel flaw was found in libgcrypt's RSA implementation. This issue may allow a remote attacker to initiate a Bleichenbacher-style attack, which can lead to the decryption of RSA ciphertexts.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.13+dfsg1-4ubuntu3.2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/shadow@1%3A4.13%2Bdfsg1-4ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-56433?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2024--56433" src="https://img.shields.io/badge/CVE--2024--56433-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>6.453%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.4.4-2ubuntu17</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnupg2@2.4.4-2ubuntu17?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-3219?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 3.3: CVE--2022--3219" src="https://img.shields.io/badge/CVE--2022--3219-lightgrey?label=low%203.3&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>3.0.13-0ubuntu3.5</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/openssl@3.0.13-0ubuntu3.5?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-41996?s=ubuntu&n=openssl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2024--41996" src="https://img.shields.io/badge/CVE--2024--41996-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.391%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>curl</strong> <code>8.5.0-2ubuntu10.6</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/curl@8.5.0-2ubuntu10.6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-0167?s=ubuntu&n=curl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2025--0167" src="https://img.shields.io/badge/CVE--2025--0167-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-When asked to use a `.netrc` file for credentials **and** to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has a `default` entry that omits both login and password. A rare circumstance.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.4-3ubuntu6</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/coreutils@9.4-3ubuntu6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2016-2781?s=ubuntu&n=coreutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 6.5: CVE--2016--2781" src="https://img.shields.io/badge/CVE--2016--2781-lightgrey?label=low%206.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.072%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>glibc</strong> <code>2.39-0ubuntu8.4</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/glibc@2.39-0ubuntu8.4?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2016-20013?s=ubuntu&n=glibc&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 7.5: CVE--2016--20013" src="https://img.shields.io/badge/CVE--2016--20013-lightgrey?label=low%207.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.201%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-sha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm's runtime is proportional to the square of the length of the password.
 
 </blockquote>
 </details>

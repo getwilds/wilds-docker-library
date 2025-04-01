@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sourmash:4.8.2
 
-Report generated on Fri Mar 28 14:49:53 UTC 2025
+Report generated on Tue Apr  1 06:07:51 UTC 2025
 
     ...Pulling
     ✓ Pulled
@@ -8,12 +8,12 @@ Report generated on Fri Mar 28 14:49:53 UTC 2025
     ✓ Image stored for indexing
     ...Indexing
     ✓ Indexed 260 packages
-    ✗ Detected 17 vulnerable packages with a total of 29 vulnerabilities
+    ✗ Detected 18 vulnerable packages with a total of 30 vulnerabilities
 <h2>:mag: Vulnerabilities of <code>getwilds/sourmash:4.8.2</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/sourmash:4.8.2</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:53422e7094c587e705f24dbd58bfba52e4d9dd5c70acbfb03376c8926de6f7a4</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 11" src="https://img.shields.io/badge/medium-11-fbb552"/> <img alt="low: 18" src="https://img.shields.io/badge/low-18-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:53422e7094c587e705f24dbd58bfba52e4d9dd5c70acbfb03376c8926de6f7a4</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 12" src="https://img.shields.io/badge/medium-12-fbb552"/> <img alt="low: 18" src="https://img.shields.io/badge/low-18-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
 <tr><td>size</td><td>302 MB</td></tr>
 <tr><td>packages</td><td>260</td></tr>
@@ -23,7 +23,7 @@ Report generated on Fri Mar 28 14:49:53 UTC 2025
 
 <table>
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 3" src="https://img.shields.io/badge/M-3-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>git</strong> <code>1:2.25.1-1ubuntu3.13</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 3" src="https://img.shields.io/badge/M-3-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>git</strong> <code>1:2.25.1-1ubuntu3.13</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/git@1%3A2.25.1-1ubuntu3.13?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
 <a href="https://scout.docker.com/v/CVE-2024-52006?s=ubuntu&n=git&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C1%3A2.25.1-1ubuntu3.14"><img alt="medium : CVE--2024--52006" src="https://img.shields.io/badge/CVE--2024--52006-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
@@ -76,25 +76,6 @@ Git is a fast, scalable, distributed revision control system with an unusually r
 
 </blockquote>
 </details>
-
-<a href="https://scout.docker.com/v/CVE-2018-1000021?s=ubuntu&n=git&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 5.0: CVE--2018--1000021" src="https://img.shields.io/badge/CVE--2018--1000021-lightgrey?label=low%205.0&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.384%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-GIT version 2.15.1 and earlier contains a Input Validation Error vulnerability in Client that can result in problems including messing up terminal configuration to RCE. This attack appear to be exploitable via The user must interact with a malicious git server, (or have their traffic modified in a MITM attack).
-
-</blockquote>
-</details>
 </details></td></tr>
 
 <tr><td valign="top">
@@ -108,8 +89,8 @@ GIT version 2.15.1 and earlier contains a Input Validation Error vulnerability i
 <tr><td>Fixed version</td><td><code>1.17-6ubuntu4.8</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>6.716%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.596%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -158,7 +139,7 @@ Kerberos 5 (aka krb5) 1.21.2 contains a memory leak vulnerability in /krb5/src/l
 <tr><td>Affected range</td><td><code><1.17-6ubuntu4.9</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.17-6ubuntu4.9</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.060%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -182,7 +163,7 @@ Kerberos 5 (aka krb5) 1.21.2 contains a memory leak in /krb5/src/lib/rpc/pmap_rm
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.693%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -198,8 +179,8 @@ A stack overflow vulnerability exists in the libexpat library due to the way it 
 <table>
 <tr><td>Affected range</td><td><code><2.2.9-1ubuntu0.8</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.2.9-1ubuntu0.8</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.414%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>58th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.077%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -220,8 +201,8 @@ An issue was discovered in libexpat before 2.6.4. There is a crash within the XM
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.17</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.17</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.286%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>49th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.202%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -247,30 +228,6 @@ When the assert() function in the GNU C Library versions 2.13 to 2.40 fails, it 
 <blockquote>
 
 sha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm's runtime is proportional to the square of the length of the password.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.3.1-5ubuntu4.7</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/pam@1.3.1-5ubuntu4.7?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-10041?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="medium 4.7: CVE--2024--10041" src="https://img.shields.io/badge/CVE--2024--10041-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.
 
 </blockquote>
 </details>
@@ -325,6 +282,54 @@ GNU Wget through 1.21.1 does not omit the Authorization header upon a redirect t
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.6.13-2ubuntu1.11</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnutls28@3.6.13-2ubuntu1.11?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C3.6.13-2ubuntu1.12"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.6.13-2ubuntu1.12</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.6.13-2ubuntu1.12</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.158%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.3.1-5ubuntu4.7</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/pam@1.3.1-5ubuntu4.7?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-10041?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="medium 4.7: CVE--2024--10041" src="https://img.shields.io/badge/CVE--2024--10041-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 3" src="https://img.shields.io/badge/L-3-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.8.1-1ubuntu5.20.04.5</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/shadow@1%3A4.8.1-1ubuntu5.20.04.5?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
@@ -371,8 +376,8 @@ In Shadow 4.13, it is possible to inject control characters into fields provided
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>6.453%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>3.171%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -396,7 +401,7 @@ shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid b
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>3.589%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -415,13 +420,52 @@ systemd before 247 does not adequately block local privilege escalation for some
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.671%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>68th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 A vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>1.1.1f-1ubuntu2.23</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/openssl@1.1.1f-1ubuntu2.23?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-9143?s=ubuntu&n=openssl&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C1.1.1f-1ubuntu2.24"><img alt="low : CVE--2024--9143" src="https://img.shields.io/badge/CVE--2024--9143-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.1.1f-1ubuntu2.24</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.1.1f-1ubuntu2.24</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.469%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>62nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Issue summary: Use of the low-level GF(2^m) elliptic curve APIs with untrusted explicit values for the field polynomial can lead to out-of-bounds memory reads or writes.  Impact summary: Out of bound memory writes can lead to an application crash or even a possibility of a remote code execution, however, in all the protocols involving Elliptic Curve Cryptography that we're aware of, either only "named curves" are supported, or, if explicit curve parameters are supported, they specify an X9.62 encoding of binary (GF(2^m)) curves that can't represent problematic input values. Thus the likelihood of existence of a vulnerable application is low.  In particular, the X9.62 encoding is used for ECC keys in X.509 certificates, so problematic inputs cannot occur in the context of processing X.509 certificates.  Any problematic use-cases would have to be using an "exotic" curve encoding.  The affected APIs include: EC_GROUP_new_curve_GF2m(), EC_GROUP_new_from_params(), and various supporting BN_GF2m_*() functions.  Applications working with "exotic" explicit binary (GF(2^m)) curve parameters, that make it possible to represent invalid field polynomials with a zero constant term, via the above or similar APIs, may terminate abruptly as a result of reading or writing outside of array bounds.  Remote code execution cannot easily be ruled out.  The FIPS modules in 3.3, 3.2, 3.1 and 3.0 are not affected by this issue.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-13176?s=ubuntu&n=openssl&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C1.1.1f-1ubuntu2.24"><img alt="low : CVE--2024--13176" src="https://img.shields.io/badge/CVE--2024--13176-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.1.1f-1ubuntu2.24</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.1.1f-1ubuntu2.24</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.075%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Issue summary: A timing side-channel which could potentially allow recovering the private key exists in the ECDSA signature computation.  Impact summary: A timing side-channel in ECDSA signature computations could allow recovering the private key by an attacker. However, measuring the timing would require either local access to the signing application or a very fast network connection with low latency.  There is a timing signal of around 300 nanoseconds when the top word of the inverted ECDSA nonce value is zero. This can happen with significant probability only for some of the supported elliptic curves. In particular the NIST P-521 curve is affected. To be able to measure this leak, the attacker process must either be located in the same physical computer or must have a very fast network connection with low latency. For that reason the severity of this vulnerability is Low.  The FIPS modules in 3.4, 3.3, 3.2, 3.1 and 3.0 are affected by this issue.
 
 </blockquote>
 </details>
@@ -469,70 +513,24 @@ ncurses 6.4-20230610 has a NULL pointer dereference in tgetstr in tinfo/lib_term
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>1.1.1f-1ubuntu2.23</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>pcre3</strong> <code>2:8.39-12ubuntu0.1</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/openssl@1.1.1f-1ubuntu2.23?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-13176?s=ubuntu&n=openssl&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C1.1.1f-1ubuntu2.24"><img alt="low : CVE--2024--13176" src="https://img.shields.io/badge/CVE--2024--13176-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1.1.1f-1ubuntu2.24</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.1.1f-1ubuntu2.24</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.064%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>17th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Issue summary: A timing side-channel which could potentially allow recovering the private key exists in the ECDSA signature computation.  Impact summary: A timing side-channel in ECDSA signature computations could allow recovering the private key by an attacker. However, measuring the timing would require either local access to the signing application or a very fast network connection with low latency.  There is a timing signal of around 300 nanoseconds when the top word of the inverted ECDSA nonce value is zero. This can happen with significant probability only for some of the supported elliptic curves. In particular the NIST P-521 curve is affected. To be able to measure this leak, the attacker process must either be located in the same physical computer or must have a very fast network connection with low latency. For that reason the severity of this vulnerability is Low.  The FIPS modules in 3.4, 3.3, 3.2, 3.1 and 3.0 are affected by this issue.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>8.30-3ubuntu2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/coreutils@8.30-3ubuntu2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2016-2781?s=ubuntu&n=coreutils&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 6.5: CVE--2016--2781" src="https://img.shields.io/badge/CVE--2016--2781-lightgrey?label=low%206.5&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/ubuntu/pcre3@2%3A8.39-12ubuntu0.1?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2017-11164?s=ubuntu&n=pcre3&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 7.5: CVE--2017--11164" src="https://img.shields.io/badge/CVE--2017--11164-lightgrey?label=low%207.5&labelColor=fce1a9"/></a> 
 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.072%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.184%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.19-3ubuntu2.2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnupg2@2.2.19-3ubuntu2.2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-3219?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 3.3: CVE--2022--3219" src="https://img.shields.io/badge/CVE--2022--3219-lightgrey?label=low%203.3&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.
+In PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression.
 
 </blockquote>
 </details>
@@ -563,30 +561,6 @@ Integer overflow vulnerability in pcre2test before 10.41 allows attackers to cau
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>pcre3</strong> <code>2:8.39-12ubuntu0.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/pcre3@2%3A8.39-12ubuntu0.1?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2017-11164?s=ubuntu&n=pcre3&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 7.5: CVE--2017--11164" src="https://img.shields.io/badge/CVE--2017--11164-lightgrey?label=low%207.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.184%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libgcrypt20</strong> <code>1.8.5-5ubuntu1.1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/libgcrypt20@1.8.5-5ubuntu1.1?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
@@ -596,7 +570,7 @@ In PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.538%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -617,14 +591,62 @@ A timing-based side-channel flaw was found in libgcrypt's RSA implementation. Th
 <table>
 <tr><td>Affected range</td><td><code><7.68.0-1ubuntu2.25</code></td></tr>
 <tr><td>Fixed version</td><td><code>7.68.0-1ubuntu2.25</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.926%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>73rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 When asked to both use a `.netrc` file for credentials and to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has an entry that matches the redirect target hostname but the entry either omits just the password or omits both login and password.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.19-3ubuntu2.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnupg2@2.2.19-3ubuntu2.2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-3219?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 3.3: CVE--2022--3219" src="https://img.shields.io/badge/CVE--2022--3219-lightgrey?label=low%203.3&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>8.30-3ubuntu2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/coreutils@8.30-3ubuntu2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2016-2781?s=ubuntu&n=coreutils&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3E%3D0"><img alt="low 6.5: CVE--2016--2781" src="https://img.shields.io/badge/CVE--2016--2781-lightgrey?label=low%206.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.072%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.
 
 </blockquote>
 </details>

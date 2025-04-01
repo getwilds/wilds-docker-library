@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/umitools:1.1.6
 
-Report generated on Fri Mar 28 14:49:01 UTC 2025
+Report generated on Tue Apr  1 06:04:52 UTC 2025
 
     ...Pulling
     ✓ Pulled
@@ -31,8 +31,8 @@ Report generated on Fri Mar 28 14:49:01 UTC 2025
 <table>
 <tr><td>Affected range</td><td><code><1.21.3-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.21.3-1+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.627%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.197%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -108,8 +108,8 @@ Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/858ca26c0689161a6b903a
 <table>
 <tr><td>Affected range</td><td><code>>=2.9.14+dfsg-1.3~deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.007%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -231,7 +231,7 @@ https://project-zero.issues.chromium.org/issues/382015274
 <tr><td>Affected range</td><td><code>>=1.1.35-1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.978%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>74th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>75th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -246,6 +246,39 @@ https://bugzilla.suse.com/show_bug.cgi?id=934119
 There's no indication that math.random() in intended to ensure cryptographic
 randomness requirements. Proper seeding needs to happen in the application
 using libxslt.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>glibc</strong> <code>2.36-9+deb12u9</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/glibc@2.36-9%2Bdeb12u9?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-0395?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.36-9%2Bdeb12u10"><img alt="high : CVE--2025--0395" src="https://img.shields.io/badge/CVE--2025--0395-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.36-9+deb12u10</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.36-9+deb12u10</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.202%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+When the assert() function in the GNU C Library versions 2.13 to 2.40 fails, it does not allocate enough space for the assertion failure message string and size information, which may lead to a buffer overflow if the message string size aligns to page size.
+
+---
+- glibc 2.40-6
+[bookworm] - glibc 2.36-9+deb12u10
+[bullseye] - glibc <postponed> (Minor issue; can be fixed in next update)
+https://sourceware.org/bugzilla/show_bug.cgi?id=32582
+https://www.openwall.com/lists/oss-security/2025/01/22/4
+Fixed by: https://sourceware.org/git/gitweb.cgi?p=glibc.git;h=7d4b6bcae91f29d7b4daf15bab06b66cf1d2217c (2.40-branch)
+Fixed by: https://sourceware.org/git/gitweb.cgi?p=glibc.git;h=7971add7ee4171fdd8dfd17e7c04c4ed77a18845 (2.36-branch)
+https://sourceware.org/git/?p=glibc.git;a=blob;f=advisories/GLIBC-SA-2025-0001
+https://sourceware.org/pipermail/libc-announce/2025/000044.html
 
 </blockquote>
 </details>
@@ -298,8 +331,8 @@ https://www.postgresql.org/about/news/postgresql-174-168-1512-1417-and-1320-rele
 <table>
 <tr><td>Affected range</td><td><code><2.12.1+dfsg-5+deb12u4</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.12.1+dfsg-5+deb12u4</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.534%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>4.114%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -314,39 +347,6 @@ https://gitlab.freedesktop.org/freetype/freetype/-/issues/1322
 Requisite (macro fixup for FT_Q(RE)NEW_ARRAY): https://gitlab.freedesktop.org/freetype/freetype/-/commit/c71eb22dde1a3101891a865fdac20a6de814267d (VER-2-11-1)
 Fixed by: https://gitlab.freedesktop.org/freetype/freetype/-/commit/ef636696524b081f1b8819eb0c6a0b932d35757d (VER-2-13-1)
 Followup: https://gitlab.freedesktop.org/freetype/freetype/-/commit/73720c7c9958e87b3d134a7574d1720ad2d24442 (VER-2-13-3)
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>glibc</strong> <code>2.36-9+deb12u9</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/glibc@2.36-9%2Bdeb12u9?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-0395?s=debian&n=glibc&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.36-9%2Bdeb12u10"><img alt="high : CVE--2025--0395" src="https://img.shields.io/badge/CVE--2025--0395-lightgrey?label=high%20&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.36-9+deb12u10</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.36-9+deb12u10</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.286%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>49th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-When the assert() function in the GNU C Library versions 2.13 to 2.40 fails, it does not allocate enough space for the assertion failure message string and size information, which may lead to a buffer overflow if the message string size aligns to page size.
-
----
-- glibc 2.40-6
-[bookworm] - glibc 2.36-9+deb12u10
-[bullseye] - glibc <postponed> (Minor issue; can be fixed in next update)
-https://sourceware.org/bugzilla/show_bug.cgi?id=32582
-https://www.openwall.com/lists/oss-security/2025/01/22/4
-Fixed by: https://sourceware.org/git/gitweb.cgi?p=glibc.git;h=7d4b6bcae91f29d7b4daf15bab06b66cf1d2217c (2.40-branch)
-Fixed by: https://sourceware.org/git/gitweb.cgi?p=glibc.git;h=7971add7ee4171fdd8dfd17e7c04c4ed77a18845 (2.36-branch)
-https://sourceware.org/git/?p=glibc.git;a=blob;f=advisories/GLIBC-SA-2025-0001
-https://sourceware.org/pipermail/libc-announce/2025/000044.html
 
 </blockquote>
 </details>
@@ -388,7 +388,7 @@ http://svn.php.net/viewvc?view=revision&revision=289557
 <tr><td>Affected range</td><td><code>>=0.2.12-5.1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>6.959%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>91st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -437,7 +437,7 @@ CPU consumption DoS
 <tr><td>Affected range</td><td><code>>=0.2.12-5.1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>5.183%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>89th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -465,8 +465,8 @@ can write a 0 to a 4k window in heap, very unlikely to be controllable.
 <table>
 <tr><td>Affected range</td><td><code><1:10.11.11-0+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1:10.11.11-0+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -489,8 +489,8 @@ Fixed in MariaDB 11.7.2, 11.4.5, 10.11.11, 10.6.21, 10.5.28
 <table>
 <tr><td>Affected range</td><td><code><1:10.11.11-0+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1:10.11.11-0+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.142%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.105%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -532,8 +532,8 @@ MariaDB partial regression fix [3/3]: https://github.com/MariaDB/server/commit/d
 <table>
 <tr><td>Affected range</td><td><code>>=2.5.0-2+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.144%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.162%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -579,7 +579,7 @@ Debian binary packages built with BUILD_MJ2:BOOL=OFF
 <tr><td>Affected range</td><td><code>>=2.5.0-2+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>3.078%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -601,7 +601,7 @@ We build with -DBUILD_MJ2:BOOL=OFF
 <tr><td>Affected range</td><td><code>>=2.5.0-2+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.235%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>43rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>44th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -829,8 +829,8 @@ https://github.com/uclouvain/openjpeg/issues/792
 <table>
 <tr><td>Affected range</td><td><code><7.88.1-10+deb12u9</code></td></tr>
 <tr><td>Fixed version</td><td><code>7.88.1-10+deb12u9</code></td></tr>
-<tr><td>EPSS Score</td><td><code>4.221%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.441%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>60th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -854,8 +854,8 @@ Fixed by: https://github.com/curl/curl/commit/a94973805df96269bf3f3bf0a20ccb9887
 <table>
 <tr><td>Affected range</td><td><code><7.88.1-10+deb12u10</code></td></tr>
 <tr><td>Fixed version</td><td><code>7.88.1-10+deb12u10</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.926%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>73rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -879,8 +879,8 @@ Fixed by: https://github.com/curl/curl/commit/e9b9bbac22c26cf67316fa8e6c6b9e831a
 <table>
 <tr><td>Affected range</td><td><code><7.88.1-10+deb12u11</code></td></tr>
 <tr><td>Fixed version</td><td><code>7.88.1-10+deb12u11</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -909,8 +909,8 @@ Fixed by: https://github.com/curl/curl/commit/0e120c5b925e8ca75d5319e319e5ce4b80
 <table>
 <tr><td>Affected range</td><td><code><6.3.2-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>6.3.2-1+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1005,7 +1005,7 @@ binutils not covered by security support
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.092%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1074,7 +1074,7 @@ binutils not covered by security support
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.105%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1185,7 +1185,7 @@ binutils not covered by security support
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.106%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1251,8 +1251,8 @@ binutils not covered by security support
 <table>
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1275,7 +1275,7 @@ binutils not covered by security support
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1343,7 +1343,7 @@ binutils not covered by security support
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.385%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1365,7 +1365,7 @@ binutils not covered by security support
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>1.070%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>75th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>76th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1387,8 +1387,8 @@ binutils not covered by security support
 <table>
 <tr><td>Affected range</td><td><code>>=2.40-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.192%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.100%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1459,7 +1459,7 @@ REJECTED
 <tr><td>Affected range</td><td><code>>=4.5.0-6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.066%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>17th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1482,7 +1482,7 @@ Crash in CLI tool, no security impact
 <tr><td>Affected range</td><td><code>>=4.5.0-6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.050%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1526,8 +1526,8 @@ Crash in CLI tool, no security impact
 <table>
 <tr><td>Affected range</td><td><code>>=4.5.0-6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.111%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1617,8 +1617,8 @@ bmp2tiff utility removed in 4.0.6-3 and 4.0.3-12.3+deb8u2
 <table>
 <tr><td>Affected range</td><td><code>>=4.5.0-6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.731%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.614%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1645,7 +1645,7 @@ upstream report go and consider this as non-issue.
 <tr><td>Affected range</td><td><code>>=4.5.0-6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>2.211%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>82nd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1711,7 +1711,7 @@ REJECTED
 <tr><td>Affected range</td><td><code>>=5.66-1+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.489%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>62nd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>63rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1754,8 +1754,8 @@ Crash in hcidump CLI tool, no security impact
 <table>
 <tr><td>Affected range</td><td><code>>=5.66-1+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>2.777%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.826%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>72nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1777,7 +1777,7 @@ Crash in hcidump CLI tool, no security impact
 <tr><td>Affected range</td><td><code>>=5.66-1+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.146%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1842,8 +1842,8 @@ Crash in CLI tools, no security impact
 <table>
 <tr><td>Affected range</td><td><code>>=5.66-1+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>1.627%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>80th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.510%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1887,7 +1887,7 @@ Crash in btmon CLI tool, no security impact
 <tr><td>Affected range</td><td><code>>=5.66-1+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.567%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>66th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1935,8 +1935,8 @@ Crash in hcidump CLI tool, no security impact
 <table>
 <tr><td>Affected range</td><td><code>>=8:6.9.11.60+dfsg-1.6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>73.455%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>48.987%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2006,7 +2006,7 @@ be tuned to the deployment's memory buildout
 <tr><td>Affected range</td><td><code>>=8:6.9.11.60+dfsg-1.6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.187%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2034,7 +2034,7 @@ we might re-evaluate this entry.
 <tr><td>Affected range</td><td><code>>=8:6.9.11.60+dfsg-1.6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.281%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>48th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>49th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2056,7 +2056,7 @@ Possibly fixed by same commit as issue #631 upstream
 <tr><td>Affected range</td><td><code>>=8:6.9.11.60+dfsg-1.6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.281%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>48th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>49th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2078,7 +2078,7 @@ ossibly fixed by same commit as issue #631 upstream
 <tr><td>Affected range</td><td><code>>=8:6.9.11.60+dfsg-1.6+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.212%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2150,8 +2150,8 @@ A design flaw in image processing software that modifies JPEG images might not m
 <table>
 <tr><td>Affected range</td><td><code>>=1:9.2p1-2+deb12u5</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.249%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>45th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.071%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2200,7 +2200,7 @@ of breaking existing workflows.
 <tr><td>Affected range</td><td><code>>=1:9.2p1-2+deb12u5</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>1.254%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>77th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>78th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2248,7 +2248,7 @@ https://lists.mindrot.org/pipermail/openssh-unix-dev/2019-January/037475.html
 <tr><td>Affected range</td><td><code>>=1:9.2p1-2+deb12u5</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>1.691%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>80th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>81st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2269,8 +2269,8 @@ Not treated as a security issue by upstream
 <table>
 <tr><td>Affected range</td><td><code>>=1:9.2p1-2+deb12u5</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>57.152%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>16.885%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2292,7 +2292,7 @@ Negligible impact, not treated as a security issue by upstream
 <tr><td>Affected range</td><td><code>>=1:9.2p1-2+deb12u5</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>2.477%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2501,8 +2501,8 @@ Crash in CLI tool, considered only to be a normal bug by upstream
 <table>
 <tr><td>Affected range</td><td><code>>=0.188-2.1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.014%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2515,103 +2515,6 @@ elfutils v0.189 was discovered to contain a NULL pointer dereference via the han
 https://sourceware.org/bugzilla/show_bug.cgi?id=31058
 https://sourceware.org/git/?p=elfutils.git;a=commit;h=373f5212677235fc3ca6068b887111554790f944
 Crash in CLI tool, considered only to be a normal bug by upstream
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 4" src="https://img.shields.io/badge/L-4-fce1a9"/> <!-- unspecified: 0 --><strong>openldap</strong> <code>2.5.13+dfsg-5</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/openldap@2.5.13%2Bdfsg-5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2020-15719?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2020--15719" src="https://img.shields.io/badge/CVE--2020--15719-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.414%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>58th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-libldap in certain third-party OpenLDAP packages has a certificate-validation flaw when the third-party package is asserting RFC6125 support. It considers CN even when there is a non-matching subjectAltName (SAN). This is fixed in, for example, openldap-2.4.46-10.el8 in Red Hat Enterprise Linux.
-
----
-- openldap <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=965184)
-https://bugs.openldap.org/show_bug.cgi?id=9266
-https://bugzilla.redhat.com/show_bug.cgi?id=1740070
-RedHat/CentOS applied patch: https://git.centos.org/rpms/openldap/raw/67459960064be9d226d57c5f82aaba0929876813/f/SOURCES/openldap-tlso-dont-check-cn-when-bad-san.patch
-OpenLDAP upstream did dispute the issue as beeing valid, as the current libldap
-behaviour does conform with RFC4513. RFC6125 does not superseed the rules for
-verifying service identity provided in specifications for existing application
-protocols published prior to RFC6125, like RFC4513 for LDAP.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2017-17740?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2017--17740" src="https://img.shields.io/badge/CVE--2017--17740-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>5.765%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>89th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-contrib/slapd-modules/nops/nops.c in OpenLDAP through 2.4.45, when both the nops module and the memberof overlay are enabled, attempts to free a buffer that was allocated on the stack, which allows remote attackers to cause a denial of service (slapd crash) via a member MODDN operation.
-
----
-- openldap <unfixed> (unimportant)
-http://www.openldap.org/its/index.cgi/Incoming?id=8759
-nops slapd-module not built
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2017-14159?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2017--14159" src="https://img.shields.io/badge/CVE--2017--14159-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.084%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-slapd in OpenLDAP 2.4.45 and earlier creates a PID file after dropping privileges to a non-root account, which might allow local users to kill arbitrary processes by leveraging access to this non-root account for PID file modification before a root script executes a "kill `cat /pathname`" command, as demonstrated by openldap-initscript.
-
----
-- openldap <unfixed> (unimportant)
-http://www.openldap.org/its/index.cgi?findid=8703
-Negligible security impact, but filed #877512
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2015-3276?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2015--3276" src="https://img.shields.io/badge/CVE--2015--3276-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>1.592%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>79th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The nss_parse_ciphers function in libraries/libldap/tls_m.c in OpenLDAP does not properly parse OpenSSL-style multi-keyword mode cipher strings, which might cause a weaker than intended cipher to be used and allow remote attackers to have unspecified impact via unknown vectors.
-
----
-- openldap <unfixed> (unimportant)
-Debian builds with GNUTLS, not NSS
 
 </blockquote>
 </details>
@@ -2697,7 +2600,7 @@ Crash in CLI tool, no security impact
 <tr><td>Affected range</td><td><code>>=2.7.6-7</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.912%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>73rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>74th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2710,6 +2613,175 @@ Directory traversal vulnerability in util.c in GNU patch 2.6.1 and earlier allow
 Applying a patch blindly opens more severe security issues than only directory traversal...
 openwall ships a fix
 See https://bugzilla.redhat.com/show_bug.cgi?id=667529 for details
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 4" src="https://img.shields.io/badge/L-4-fce1a9"/> <!-- unspecified: 0 --><strong>openldap</strong> <code>2.5.13+dfsg-5</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/openldap@2.5.13%2Bdfsg-5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2020-15719?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2020--15719" src="https://img.shields.io/badge/CVE--2020--15719-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.414%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>59th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+libldap in certain third-party OpenLDAP packages has a certificate-validation flaw when the third-party package is asserting RFC6125 support. It considers CN even when there is a non-matching subjectAltName (SAN). This is fixed in, for example, openldap-2.4.46-10.el8 in Red Hat Enterprise Linux.
+
+---
+- openldap <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=965184)
+https://bugs.openldap.org/show_bug.cgi?id=9266
+https://bugzilla.redhat.com/show_bug.cgi?id=1740070
+RedHat/CentOS applied patch: https://git.centos.org/rpms/openldap/raw/67459960064be9d226d57c5f82aaba0929876813/f/SOURCES/openldap-tlso-dont-check-cn-when-bad-san.patch
+OpenLDAP upstream did dispute the issue as beeing valid, as the current libldap
+behaviour does conform with RFC4513. RFC6125 does not superseed the rules for
+verifying service identity provided in specifications for existing application
+protocols published prior to RFC6125, like RFC4513 for LDAP.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2017-17740?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2017--17740" src="https://img.shields.io/badge/CVE--2017--17740-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>5.765%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+contrib/slapd-modules/nops/nops.c in OpenLDAP through 2.4.45, when both the nops module and the memberof overlay are enabled, attempts to free a buffer that was allocated on the stack, which allows remote attackers to cause a denial of service (slapd crash) via a member MODDN operation.
+
+---
+- openldap <unfixed> (unimportant)
+http://www.openldap.org/its/index.cgi/Incoming?id=8759
+nops slapd-module not built
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2017-14159?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2017--14159" src="https://img.shields.io/badge/CVE--2017--14159-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.084%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+slapd in OpenLDAP 2.4.45 and earlier creates a PID file after dropping privileges to a non-root account, which might allow local users to kill arbitrary processes by leveraging access to this non-root account for PID file modification before a root script executes a "kill `cat /pathname`" command, as demonstrated by openldap-initscript.
+
+---
+- openldap <unfixed> (unimportant)
+http://www.openldap.org/its/index.cgi?findid=8703
+Negligible security impact, but filed #877512
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2015-3276?s=debian&n=openldap&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.13%2Bdfsg-5"><img alt="low : CVE--2015--3276" src="https://img.shields.io/badge/CVE--2015--3276-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.5.13+dfsg-5</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>1.592%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>80th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The nss_parse_ciphers function in libraries/libldap/tls_m.c in OpenLDAP does not properly parse OpenSSL-style multi-keyword mode cipher strings, which might cause a weaker than intended cipher to be used and allow remote attackers to have unspecified impact via unknown vectors.
+
+---
+- openldap <unfixed> (unimportant)
+Debian builds with GNUTLS, not NSS
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 3" src="https://img.shields.io/badge/L-3-fce1a9"/> <!-- unspecified: 0 --><strong>git</strong> <code>1:2.39.5-0+deb12u2</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/git@1%3A2.39.5-0%2Bdeb12u2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-52005?s=debian&n=git&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A2.39.5-0%2Bdeb12u2"><img alt="low : CVE--2024--52005" src="https://img.shields.io/badge/CVE--2024--52005-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=1:2.39.5-0+deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Git is a source code management tool. When cloning from a server (or fetching, or pushing), informational or error messages are transported from the remote Git process to the client via the so-called "sideband channel". These messages will be prefixed with "remote:" and printed directly to the standard error output. Typically, this standard error output is connected to a terminal that understands ANSI escape sequences, which Git did not protect against. Most modern terminals support control sequences that can be used by a malicious actor to hide and misrepresent information, or to mislead the user into executing untrusted scripts. As requested on the git-security mailing list, the patches are under discussion on the public mailing list. Users are advised to update as soon as possible. Users unable to upgrade should avoid recursive clones unless they are from trusted sources.
+
+---
+- git <unfixed> (unimportant)
+https://github.com/git/git/security/advisories/GHSA-7jjc-gg6m-3329
+Terminal emulators need to perform proper escaping
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2022-24975?s=debian&n=git&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A2.39.5-0%2Bdeb12u2"><img alt="low : CVE--2022--24975" src="https://img.shields.io/badge/CVE--2022--24975-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=1:2.39.5-0+deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.812%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>72nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The --mirror documentation for Git through 2.35.1 does not mention the availability of deleted content, aka the "GitBleed" issue. This could present a security risk if information-disclosure auditing processes rely on a clone operation without the --mirror option. Note: This has been disputed by multiple 3rd parties who believe this is an intended feature of the git binary and does not pose a security risk.
+
+---
+- git <unfixed> (unimportant)
+https://wwws.nightwatchcybersecurity.com/2022/02/11/gitbleed/
+CVE is specifically about --mirror documentation not mentioning the availability
+of deleted content.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2018-1000021?s=debian&n=git&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A2.39.5-0%2Bdeb12u2"><img alt="low : CVE--2018--1000021" src="https://img.shields.io/badge/CVE--2018--1000021-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=1:2.39.5-0+deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.384%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+GIT version 2.15.1 and earlier contains a Input Validation Error vulnerability in Client that can result in problems including messing up terminal configuration to RCE. This attack appear to be exploitable via The user must interact with a malicious git server, (or have their traffic modified in a MITM attack).
+
+---
+- git <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=889680)
+http://www.batterystapl.es/2018/01/security-implications-of-ansi-escape.html
+Terminal emulators need to perform proper escaping
 
 </blockquote>
 </details>
@@ -2749,7 +2821,7 @@ https://mailman.mit.edu/pipermail/kerberos/2024-March/023095.html
 <tr><td>Affected range</td><td><code>>=1.20.1-2+deb12u2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.060%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2792,72 +2864,56 @@ overflow is non-issue
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 3" src="https://img.shields.io/badge/L-3-fce1a9"/> <!-- unspecified: 0 --><strong>git</strong> <code>1:2.39.5-0+deb12u2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>expat</strong> <code>2.5.0-1+deb12u1</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/git@1%3A2.39.5-0%2Bdeb12u2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-52005?s=debian&n=git&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A2.39.5-0%2Bdeb12u2"><img alt="low : CVE--2024--52005" src="https://img.shields.io/badge/CVE--2024--52005-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/expat@2.5.0-1%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-28757?s=debian&n=expat&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.0-1%2Bdeb12u1"><img alt="low : CVE--2024--28757" src="https://img.shields.io/badge/CVE--2024--28757-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=1:2.39.5-0+deb12u2</code></td></tr>
+<tr><td>Affected range</td><td><code>>=2.5.0-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.430%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>79th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Git is a source code management tool. When cloning from a server (or fetching, or pushing), informational or error messages are transported from the remote Git process to the client via the so-called "sideband channel". These messages will be prefixed with "remote:" and printed directly to the standard error output. Typically, this standard error output is connected to a terminal that understands ANSI escape sequences, which Git did not protect against. Most modern terminals support control sequences that can be used by a malicious actor to hide and misrepresent information, or to mislead the user into executing untrusted scripts. As requested on the git-security mailing list, the patches are under discussion on the public mailing list. Users are advised to update as soon as possible. Users unable to upgrade should avoid recursive clones unless they are from trusted sources.
+libexpat through 2.6.1 allows an XML Entity Expansion attack when there is isolated use of external parsers (created via XML_ExternalEntityParserCreate).
 
 ---
-- git <unfixed> (unimportant)
-https://github.com/git/git/security/advisories/GHSA-7jjc-gg6m-3329
-Terminal emulators need to perform proper escaping
+- expat 2.6.1-2 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1065868; unimportant)
+https://github.com/libexpat/libexpat/pull/842
+https://github.com/libexpat/libexpat/issues/839
+Fixed by: https://github.com/libexpat/libexpat/commit/1d50b80cf31de87750103656f6eb693746854aa8
+Tests: https://github.com/libexpat/libexpat/commit/072eca0b72373da103ce15f8f62d1d7b52695454
+Expat provides API to mitigate expansion attacks, ultimately under control of the app using Expat
+Cf. Billion laughs attack assessment for src:expat in CVE-2013-0340.
 
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2022-24975?s=debian&n=git&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A2.39.5-0%2Bdeb12u2"><img alt="low : CVE--2022--24975" src="https://img.shields.io/badge/CVE--2022--24975-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<a href="https://scout.docker.com/v/CVE-2023-52426?s=debian&n=expat&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.0-1%2Bdeb12u1"><img alt="low : CVE--2023--52426" src="https://img.shields.io/badge/CVE--2023--52426-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=1:2.39.5-0+deb12u2</code></td></tr>
+<tr><td>Affected range</td><td><code>>=2.5.0-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>11.532%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-The --mirror documentation for Git through 2.35.1 does not mention the availability of deleted content, aka the "GitBleed" issue. This could present a security risk if information-disclosure auditing processes rely on a clone operation without the --mirror option. Note: This has been disputed by multiple 3rd parties who believe this is an intended feature of the git binary and does not pose a security risk.
+libexpat through 2.5.0 allows recursive XML Entity Expansion if XML_DTD is undefined at compile time.
 
 ---
-- git <unfixed> (unimportant)
-https://wwws.nightwatchcybersecurity.com/2022/02/11/gitbleed/
-CVE is specifically about --mirror documentation not mentioning the availability
-of deleted content.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2018-1000021?s=debian&n=git&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A2.39.5-0%2Bdeb12u2"><img alt="low : CVE--2018--1000021" src="https://img.shields.io/badge/CVE--2018--1000021-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=1:2.39.5-0+deb12u2</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.384%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-GIT version 2.15.1 and earlier contains a Input Validation Error vulnerability in Client that can result in problems including messing up terminal configuration to RCE. This attack appear to be exploitable via The user must interact with a malicious git server, (or have their traffic modified in a MITM attack).
-
----
-- git <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=889680)
-http://www.batterystapl.es/2018/01/security-implications-of-ansi-escape.html
-Terminal emulators need to perform proper escaping
+- expat 2.6.0-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1063240; unimportant)
+https://github.com/libexpat/libexpat/pull/777
+https://github.com/libexpat/libexpat/commit/0f075ec8ecb5e43f8fdca5182f8cca4703da0404
+https://github.com/libexpat/libexpat/pull/777#issuecomment-1965172301
+CVE is for fixing billion laughs attacks for users compiling *without* XML_DTD defined,
+which is not the case for Debian.
 
 </blockquote>
 </details>
@@ -2927,7 +2983,7 @@ https://github.com/Perl-Toolchain-Gang/File-Temp/issues/14
 <tr><td>Affected range</td><td><code>>=1.4.19-3</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>2.196%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>82nd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2949,7 +3005,7 @@ elevated privileges.
 <tr><td>Affected range</td><td><code>>=1.4.19-3</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>2.727%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2967,62 +3023,6 @@ need to match the name of an existing macro
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>expat</strong> <code>2.5.0-1+deb12u1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/expat@2.5.0-1%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-28757?s=debian&n=expat&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.0-1%2Bdeb12u1"><img alt="low : CVE--2024--28757" src="https://img.shields.io/badge/CVE--2024--28757-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.5.0-1+deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>11.495%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-libexpat through 2.6.1 allows an XML Entity Expansion attack when there is isolated use of external parsers (created via XML_ExternalEntityParserCreate).
-
----
-- expat 2.6.1-2 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1065868; unimportant)
-https://github.com/libexpat/libexpat/pull/842
-https://github.com/libexpat/libexpat/issues/839
-Fixed by: https://github.com/libexpat/libexpat/commit/1d50b80cf31de87750103656f6eb693746854aa8
-Tests: https://github.com/libexpat/libexpat/commit/072eca0b72373da103ce15f8f62d1d7b52695454
-Expat provides API to mitigate expansion attacks, ultimately under control of the app using Expat
-Cf. Billion laughs attack assessment for src:expat in CVE-2013-0340.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2023-52426?s=debian&n=expat&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.5.0-1%2Bdeb12u1"><img alt="low : CVE--2023--52426" src="https://img.shields.io/badge/CVE--2023--52426-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.5.0-1+deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-libexpat through 2.5.0 allows recursive XML Entity Expansion if XML_DTD is undefined at compile time.
-
----
-- expat 2.6.0-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1063240; unimportant)
-https://github.com/libexpat/libexpat/pull/777
-https://github.com/libexpat/libexpat/commit/0f075ec8ecb5e43f8fdca5182f8cca4703da0404
-https://github.com/libexpat/libexpat/pull/777#issuecomment-1965172301
-CVE is for fixing billion laughs attacks for users compiling *without* XML_DTD defined,
-which is not the case for Debian.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>libheif</strong> <code>1.15.1-1+deb12u1</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/libheif@1.15.1-1%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -3032,7 +3032,7 @@ which is not the case for Debian.
 <tr><td>Affected range</td><td><code>>=1.15.1-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.210%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3084,8 +3084,8 @@ Crash in CLI tool, no security impact (only affects example tool shipped in libh
 <table>
 <tr><td>Affected range</td><td><code>>=12.2.0-14</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.536%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.206%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3132,6 +3132,64 @@ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105039
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>tar</strong> <code>1.34+dfsg-1.2+deb12u1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/tar@1.34%2Bdfsg-1.2%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2005-2541?s=debian&n=tar&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1.34%2Bdfsg-1.2%2Bdeb12u1"><img alt="low : CVE--2005--2541" src="https://img.shields.io/badge/CVE--2005--2541-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=1.34+dfsg-1.2+deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>2.537%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Tar 1.15.1 does not properly warn the user when extracting setuid or setgid files, which may allow local users or remote attackers to gain privileges.
+
+---
+This is intended behaviour, after all tar is an archiving tool and you
+need to give -p as a command line flag
+- tar <unfixed> (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=328228; unimportant)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.1-1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/coreutils@9.1-1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2017-18018?s=debian&n=coreutils&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D9.1-1"><img alt="low : CVE--2017--18018" src="https://img.shields.io/badge/CVE--2017--18018-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=9.1-1</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In GNU Coreutils through 8.29, chown-core.c in chown and chgrp does not prevent replacement of a plain file with a symlink during use of the POSIX "-R -L" options, which allows local users to modify the ownership of arbitrary files by leveraging a race condition.
+
+---
+- coreutils <unfixed> (unimportant)
+http://lists.gnu.org/archive/html/coreutils/2017-12/msg00045.html
+https://www.openwall.com/lists/oss-security/2018/01/04/3
+Documentation patches proposed:
+https://lists.gnu.org/archive/html/coreutils/2017-12/msg00072.html
+https://lists.gnu.org/archive/html/coreutils/2017-12/msg00073.html
+Neutralised by kernel hardening
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>3.0.15-1~deb12u1</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/openssl@3.0.15-1~deb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -3160,109 +3218,81 @@ to the security policy: https://www.openssl.org/policies/general/security-policy
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>glib2.0</strong> <code>2.74.6-2+deb12u5</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>openexr</strong> <code>3.1.5-5</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/glib2.0@2.74.6-2%2Bdeb12u5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2012-0039?s=debian&n=glib2.0&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.74.6-2%2Bdeb12u5"><img alt="low : CVE--2012--0039" src="https://img.shields.io/badge/CVE--2012--0039-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/openexr@3.1.5-5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2017-14988?s=debian&n=openexr&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D3.1.5-5"><img alt="low : CVE--2017--14988" src="https://img.shields.io/badge/CVE--2017--14988-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=2.74.6-2+deb12u5</code></td></tr>
+<tr><td>Affected range</td><td><code>>=3.1.5-5</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.489%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>62nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.209%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-GLib 2.31.8 and earlier, when the g_str_hash function is used, computes hash values without restricting the ability to trigger hash collisions predictably, which allows context-dependent attackers to cause a denial of service (CPU consumption) via crafted input to an application that maintains a hash table. NOTE: this issue may be disputed by the vendor; the existence of the g_str_hash function is not a vulnerability in the library, because callers of g_hash_table_new and g_hash_table_new_full can specify an arbitrary hash function that is appropriate for the application.
+Header::readfrom in IlmImf/ImfHeader.cpp in OpenEXR 2.2.0 allows remote attackers to cause a denial of service (excessive memory allocation) via a crafted file that is accessed with the ImfOpenInputFile function in IlmImf/ImfCRgbaFile.cpp. NOTE: The maintainer and multiple third parties believe that this vulnerability isn't valid
 
 ---
-- glib2.0 <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=655044)
+- openexr <unfixed> (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878551; unimportant)
+https://github.com/openexr/openexr/issues/248
+Issue in the use of openexr via ImageMagick, no real security impact
 
 </blockquote>
 </details>
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>apt</strong> <code>2.6.1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libpng1.6</strong> <code>1.6.39-2</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/apt@2.6.1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2011-3374?s=debian&n=apt&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.6.1"><img alt="low : CVE--2011--3374" src="https://img.shields.io/badge/CVE--2011--3374-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/libpng1.6@1.6.39-2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2021-4214?s=debian&n=libpng1.6&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1.6.39-2"><img alt="low : CVE--2021--4214" src="https://img.shields.io/badge/CVE--2021--4214-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=2.6.1</code></td></tr>
+<tr><td>Affected range</td><td><code>>=1.6.39-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>1.082%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>75th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-It was found that apt-key in apt, all versions, do not correctly validate gpg keys with the master keyring, leading to a potential man-in-the-middle attack.
+A heap overflow flaw was found in libpngs' pngimage.c program. This flaw allows an attacker with local network access to pass a specially crafted PNG file to the pngimage utility, causing an application to crash, leading to a denial of service.
 
 ---
-- apt <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480)
-Not exploitable in Debian, since no keyring URI is defined
+- libpng1.6 <unfixed> (unimportant)
+https://github.com/glennrp/libpng/issues/302
+Crash in CLI package, not shipped in binary packages
 
 </blockquote>
 </details>
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>tcl8.6</strong> <code>8.6.13+dfsg-2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.13+dfsg1-1</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/tcl8.6@8.6.13%2Bdfsg-2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2021-35331?s=debian&n=tcl8.6&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D8.6.13%2Bdfsg-2"><img alt="low : CVE--2021--35331" src="https://img.shields.io/badge/CVE--2021--35331-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/shadow@1%3A4.13%2Bdfsg1-1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2007-5686?s=debian&n=shadow&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A4.13%2Bdfsg1-1"><img alt="low : CVE--2007--5686" src="https://img.shields.io/badge/CVE--2007--5686-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=8.6.13+dfsg-2</code></td></tr>
+<tr><td>Affected range</td><td><code>>=1:4.13+dfsg1-1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.551%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.241%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>45th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-In Tcl 8.6.11, a format string vulnerability in nmakehlp.c might allow code execution via a crafted file. NOTE: multiple third parties dispute the significance of this finding
+initscripts in rPath Linux 1 sets insecure permissions for the /var/log/btmp file, which allows local users to obtain sensitive information regarding authentication attempts.  NOTE: because sshd detects the insecure permissions and does not log certain events, this also prevents sshd from logging failed authentication attempts by remote attackers.
 
 ---
-- tcl8.6 <unfixed> (unimportant)
-https://core.tcl-lang.org/tcl/info/28ef6c0c741408a2
-https://core.tcl-lang.org/tcl/info/bad6cc213dfe8280
-https://github.com/tcltk/tcl/commit/4705dbdde2f32ff90420765cd93e7ac71d81a222
-https://sqlite.org/forum/info/7dcd751996c93ec9
-Various other sources would embedd a copy as well, but the security impact of
-the issue tself for tcl is disputed in its significance.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>tar</strong> <code>1.34+dfsg-1.2+deb12u1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/tar@1.34%2Bdfsg-1.2%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2005-2541?s=debian&n=tar&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1.34%2Bdfsg-1.2%2Bdeb12u1"><img alt="low : CVE--2005--2541" src="https://img.shields.io/badge/CVE--2005--2541-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=1.34+dfsg-1.2+deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>2.537%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Tar 1.15.1 does not properly warn the user when extracting setuid or setgid files, which may allow local users or remote attackers to gain privileges.
-
----
-This is intended behaviour, after all tar is an archiving tool and you
-need to give -p as a command line flag
-- tar <unfixed> (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=328228; unimportant)
+- shadow <unfixed> (unimportant)
+See #290803, on Debian LOG_UNKFAIL_ENAB in login.defs is set to no so
+unknown usernames are not recorded on login failures
 
 </blockquote>
 </details>
@@ -3277,8 +3307,8 @@ need to give -p as a command line flag
 <table>
 <tr><td>Affected range</td><td><code>>=3.7.9-2+deb12u4</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>15.602%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>4.618%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3347,30 +3377,80 @@ all versions vulnerable, backport required for wheezy
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>sqlite3</strong> <code>3.40.1-2+deb12u1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>jansson</strong> <code>2.14-2</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/sqlite3@3.40.1-2%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2021-45346?s=debian&n=sqlite3&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D3.40.1-2%2Bdeb12u1"><img alt="low : CVE--2021--45346" src="https://img.shields.io/badge/CVE--2021--45346-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/jansson@2.14-2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2020-36325?s=debian&n=jansson&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.14-2"><img alt="low : CVE--2020--36325" src="https://img.shields.io/badge/CVE--2020--36325-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=3.40.1-2+deb12u1</code></td></tr>
+<tr><td>Affected range</td><td><code>>=2.14-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.173%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.412%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>59th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-A Memory Leak vulnerability exists in SQLite Project SQLite3 3.35.1 and 3.37.0 via maliciously crafted SQL Queries (made via editing the Database File), it is possible to query a record, and leak subsequent bytes of memory that extend beyond the record, which could let a malicious user obtain sensitive information. NOTE: The developer disputes this as a vulnerability stating that If you give SQLite a corrupted database file and submit a query against the database, it might read parts of the database that you did not intend or expect.
+An issue was discovered in Jansson through 2.13.1. Due to a parsing error in json_loads, there's an out-of-bounds read-access bug. NOTE: the vendor reports that this only occurs when a programmer fails to follow the API specification
 
 ---
-- sqlite3 <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1005974)
-- sqlite <removed> (unimportant)
-https://github.com/guyinatuxedo/sqlite3_record_leaking
-https://bugzilla.redhat.com/show_bug.cgi?id=2054793
-https://sqlite.org/forum/forumpost/056d557c2f8c452ed5bb9c215414c802b215ce437be82be047726e521342161e
-Negligible security impact
+- jansson <unfixed> (unimportant)
+https://github.com/akheron/jansson/issues/548
+Disputed security impact (only if programmer fails to follow API specifications)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>glib2.0</strong> <code>2.74.6-2+deb12u5</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/glib2.0@2.74.6-2%2Bdeb12u5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2012-0039?s=debian&n=glib2.0&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.74.6-2%2Bdeb12u5"><img alt="low : CVE--2012--0039" src="https://img.shields.io/badge/CVE--2012--0039-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.74.6-2+deb12u5</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.489%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>63rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+GLib 2.31.8 and earlier, when the g_str_hash function is used, computes hash values without restricting the ability to trigger hash collisions predictably, which allows context-dependent attackers to cause a denial of service (CPU consumption) via crafted input to an application that maintains a hash table. NOTE: this issue may be disputed by the vendor; the existence of the g_str_hash function is not a vulnerability in the library, because callers of g_hash_table_new and g_hash_table_new_full can specify an arbitrary hash function that is appropriate for the application.
+
+---
+- glib2.0 <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=655044)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>subversion</strong> <code>1.14.2-4</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/subversion@1.14.2-4?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-46901?s=debian&n=subversion&ns=debian&t=deb&osn=debian&osv=12&vr=%3C1.14.2-4%2Bdeb12u1"><img alt="low : CVE--2024--46901" src="https://img.shields.io/badge/CVE--2024--46901-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.14.2-4+deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.14.2-4+deb12u1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>3.612%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Insufficient validation of filenames against control characters in Apache Subversion repositories served via mod_dav_svn allows authenticated users with commit access to commit a corrupted revision, leading to disruption for users of the repository.  All versions of Subversion up to and including Subversion 1.14.4 are affected if serving repositories via mod_dav_svn. Users are recommended to upgrade to version 1.14.5, which fixes this issue.  Repositories served via other access methods are not affected.
+
+---
+- subversion 1.14.5-1
+[bookworm] - subversion 1.14.2-4+deb12u1
+[bullseye] - subversion <postponed> (Minor issue; can be fixed in next update)
+https://subversion.apache.org/security/CVE-2024-46901-advisory.txt
 
 </blockquote>
 </details>
@@ -3386,7 +3466,7 @@ Negligible security impact
 <tr><td>Affected range</td><td><code>>=0.42.2-1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.212%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3398,128 +3478,6 @@ stress-test master commit e4c878 was discovered to contain a FPE vulnerability v
 - pixman <unfixed> (unimportant)
 https://gitlab.freedesktop.org/pixman/pixman/-/issues/76
 Crash in test tool, no security impact
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>jbigkit</strong> <code>2.1-6.1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/jbigkit@2.1-6.1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2017-9937?s=debian&n=jbigkit&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.1-6.1"><img alt="low : CVE--2017--9937" src="https://img.shields.io/badge/CVE--2017--9937-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.1-6.1</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.328%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In LibTIFF 4.0.8, there is a memory malloc failure in tif_jbig.c. A crafted TIFF document can lead to an abort resulting in a remote denial of service attack.
-
----
-- jbigkit <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869708)
-http://bugzilla.maptools.org/show_bug.cgi?id=2707
-The CVE was assigned for src:tiff by MITRE, but the issue actually lies
-in jbigkit itself.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>unzip</strong> <code>6.0-28</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/unzip@6.0-28?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2021-4217?s=debian&n=unzip&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D6.0-28"><img alt="low : CVE--2021--4217" src="https://img.shields.io/badge/CVE--2021--4217-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=6.0-28</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.129%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in unzip. The vulnerability occurs due to improper handling of Unicode strings, which can lead to a null pointer dereference. This flaw allows an attacker to input a specially crafted zip file, leading to a crash or code execution.
-
----
-- unzip <unfixed> (unimportant)
-https://bugzilla.redhat.com/show_bug.cgi?id=2044583
-https://bugs.launchpad.net/ubuntu/+source/unzip/+bug/1957077
-Crash in CLI tool, no security impact
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libgcrypt20</strong> <code>1.10.1-3</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/libgcrypt20@1.10.1-3?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2018-6829?s=debian&n=libgcrypt20&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1.10.1-3"><img alt="low : CVE--2018--6829" src="https://img.shields.io/badge/CVE--2018--6829-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=1.10.1-3</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.841%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>72nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-cipher/elgamal.c in Libgcrypt through 1.8.2, when used to encrypt messages directly, improperly encodes plaintexts, which allows attackers to obtain sensitive information by reading ciphertext data (i.e., it does not have semantic security in face of a ciphertext-only attack). The Decisional Diffie-Hellman (DDH) assumption does not hold for Libgcrypt's ElGamal implementation.
-
----
-- libgcrypt20 <unfixed> (unimportant)
-- libgcrypt11 <removed> (unimportant)
-- gnupg1 <unfixed> (unimportant)
-- gnupg <removed> (unimportant)
-https://github.com/weikengchen/attack-on-libgcrypt-elgamal
-https://github.com/weikengchen/attack-on-libgcrypt-elgamal/wiki
-https://lists.gnupg.org/pipermail/gcrypt-devel/2018-February/004394.html
-GnuPG uses ElGamal in hybrid mode only.
-This is not a vulnerability in libgcrypt, but in an application using
-it in an insecure manner, see also
-https://lists.gnupg.org/pipermail/gcrypt-devel/2018-February/004401.html
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.1-1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/coreutils@9.1-1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2017-18018?s=debian&n=coreutils&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D9.1-1"><img alt="low : CVE--2017--18018" src="https://img.shields.io/badge/CVE--2017--18018-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=9.1-1</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In GNU Coreutils through 8.29, chown-core.c in chown and chgrp does not prevent replacement of a plain file with a symlink during use of the POSIX "-R -L" options, which allows local users to modify the ownership of arbitrary files by leveraging a race condition.
-
----
-- coreutils <unfixed> (unimportant)
-http://lists.gnu.org/archive/html/coreutils/2017-12/msg00045.html
-https://www.openwall.com/lists/oss-security/2018/01/04/3
-Documentation patches proposed:
-https://lists.gnu.org/archive/html/coreutils/2017-12/msg00072.html
-https://lists.gnu.org/archive/html/coreutils/2017-12/msg00073.html
-Neutralised by kernel hardening
 
 </blockquote>
 </details>
@@ -3556,55 +3514,56 @@ GnuPG upstream is not implementing this change.
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>subversion</strong> <code>1.14.2-4</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>sqlite3</strong> <code>3.40.1-2+deb12u1</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/subversion@1.14.2-4?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-46901?s=debian&n=subversion&ns=debian&t=deb&osn=debian&osv=12&vr=%3C1.14.2-4%2Bdeb12u1"><img alt="low : CVE--2024--46901" src="https://img.shields.io/badge/CVE--2024--46901-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/sqlite3@3.40.1-2%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2021-45346?s=debian&n=sqlite3&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D3.40.1-2%2Bdeb12u1"><img alt="low : CVE--2021--45346" src="https://img.shields.io/badge/CVE--2021--45346-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><1.14.2-4+deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.14.2-4+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>36.792%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code>>=3.40.1-2+deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.173%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Insufficient validation of filenames against control characters in Apache Subversion repositories served via mod_dav_svn allows authenticated users with commit access to commit a corrupted revision, leading to disruption for users of the repository.  All versions of Subversion up to and including Subversion 1.14.4 are affected if serving repositories via mod_dav_svn. Users are recommended to upgrade to version 1.14.5, which fixes this issue.  Repositories served via other access methods are not affected.
+A Memory Leak vulnerability exists in SQLite Project SQLite3 3.35.1 and 3.37.0 via maliciously crafted SQL Queries (made via editing the Database File), it is possible to query a record, and leak subsequent bytes of memory that extend beyond the record, which could let a malicious user obtain sensitive information. NOTE: The developer disputes this as a vulnerability stating that If you give SQLite a corrupted database file and submit a query against the database, it might read parts of the database that you did not intend or expect.
 
 ---
-- subversion 1.14.5-1
-[bookworm] - subversion 1.14.2-4+deb12u1
-[bullseye] - subversion <postponed> (Minor issue; can be fixed in next update)
-https://subversion.apache.org/security/CVE-2024-46901-advisory.txt
+- sqlite3 <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1005974)
+- sqlite <removed> (unimportant)
+https://github.com/guyinatuxedo/sqlite3_record_leaking
+https://bugzilla.redhat.com/show_bug.cgi?id=2054793
+https://sqlite.org/forum/forumpost/056d557c2f8c452ed5bb9c215414c802b215ce437be82be047726e521342161e
+Negligible security impact
 
 </blockquote>
 </details>
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libpng1.6</strong> <code>1.6.39-2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>apt</strong> <code>2.6.1</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/libpng1.6@1.6.39-2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2021-4214?s=debian&n=libpng1.6&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1.6.39-2"><img alt="low : CVE--2021--4214" src="https://img.shields.io/badge/CVE--2021--4214-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/apt@2.6.1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2011-3374?s=debian&n=apt&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.6.1"><img alt="low : CVE--2011--3374" src="https://img.shields.io/badge/CVE--2011--3374-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=1.6.39-2</code></td></tr>
+<tr><td>Affected range</td><td><code>>=2.6.1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.082%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>76th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-A heap overflow flaw was found in libpngs' pngimage.c program. This flaw allows an attacker with local network access to pass a specially crafted PNG file to the pngimage utility, causing an application to crash, leading to a denial of service.
+It was found that apt-key in apt, all versions, do not correctly validate gpg keys with the master keyring, leading to a potential man-in-the-middle attack.
 
 ---
-- libpng1.6 <unfixed> (unimportant)
-https://github.com/glennrp/libpng/issues/302
-Crash in CLI package, not shipped in binary packages
+- apt <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480)
+Not exploitable in Debian, since no keyring URI is defined
 
 </blockquote>
 </details>
@@ -3641,81 +3600,122 @@ by src:shadow and util-linux is configured with --disable-chfn-chsh
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>openexr</strong> <code>3.1.5-5</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>unzip</strong> <code>6.0-28</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/openexr@3.1.5-5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2017-14988?s=debian&n=openexr&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D3.1.5-5"><img alt="low : CVE--2017--14988" src="https://img.shields.io/badge/CVE--2017--14988-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/unzip@6.0-28?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2021-4217?s=debian&n=unzip&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D6.0-28"><img alt="low : CVE--2021--4217" src="https://img.shields.io/badge/CVE--2021--4217-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=3.1.5-5</code></td></tr>
+<tr><td>Affected range</td><td><code>>=6.0-28</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.209%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.129%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Header::readfrom in IlmImf/ImfHeader.cpp in OpenEXR 2.2.0 allows remote attackers to cause a denial of service (excessive memory allocation) via a crafted file that is accessed with the ImfOpenInputFile function in IlmImf/ImfCRgbaFile.cpp. NOTE: The maintainer and multiple third parties believe that this vulnerability isn't valid
+A flaw was found in unzip. The vulnerability occurs due to improper handling of Unicode strings, which can lead to a null pointer dereference. This flaw allows an attacker to input a specially crafted zip file, leading to a crash or code execution.
 
 ---
-- openexr <unfixed> (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878551; unimportant)
-https://github.com/openexr/openexr/issues/248
-Issue in the use of openexr via ImageMagick, no real security impact
+- unzip <unfixed> (unimportant)
+https://bugzilla.redhat.com/show_bug.cgi?id=2044583
+https://bugs.launchpad.net/ubuntu/+source/unzip/+bug/1957077
+Crash in CLI tool, no security impact
 
 </blockquote>
 </details>
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.13+dfsg1-1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>tcl8.6</strong> <code>8.6.13+dfsg-2</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/shadow@1%3A4.13%2Bdfsg1-1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2007-5686?s=debian&n=shadow&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1%3A4.13%2Bdfsg1-1"><img alt="low : CVE--2007--5686" src="https://img.shields.io/badge/CVE--2007--5686-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/tcl8.6@8.6.13%2Bdfsg-2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2021-35331?s=debian&n=tcl8.6&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D8.6.13%2Bdfsg-2"><img alt="low : CVE--2021--35331" src="https://img.shields.io/badge/CVE--2021--35331-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=1:4.13+dfsg1-1</code></td></tr>
+<tr><td>Affected range</td><td><code>>=8.6.13+dfsg-2</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.241%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>44th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.551%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-initscripts in rPath Linux 1 sets insecure permissions for the /var/log/btmp file, which allows local users to obtain sensitive information regarding authentication attempts.  NOTE: because sshd detects the insecure permissions and does not log certain events, this also prevents sshd from logging failed authentication attempts by remote attackers.
+In Tcl 8.6.11, a format string vulnerability in nmakehlp.c might allow code execution via a crafted file. NOTE: multiple third parties dispute the significance of this finding
 
 ---
-- shadow <unfixed> (unimportant)
-See #290803, on Debian LOG_UNKFAIL_ENAB in login.defs is set to no so
-unknown usernames are not recorded on login failures
+- tcl8.6 <unfixed> (unimportant)
+https://core.tcl-lang.org/tcl/info/28ef6c0c741408a2
+https://core.tcl-lang.org/tcl/info/bad6cc213dfe8280
+https://github.com/tcltk/tcl/commit/4705dbdde2f32ff90420765cd93e7ac71d81a222
+https://sqlite.org/forum/info/7dcd751996c93ec9
+Various other sources would embedd a copy as well, but the security impact of
+the issue tself for tcl is disputed in its significance.
 
 </blockquote>
 </details>
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>jansson</strong> <code>2.14-2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>jbigkit</strong> <code>2.1-6.1</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/jansson@2.14-2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2020-36325?s=debian&n=jansson&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.14-2"><img alt="low : CVE--2020--36325" src="https://img.shields.io/badge/CVE--2020--36325-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+<small><code>pkg:deb/debian/jbigkit@2.1-6.1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2017-9937?s=debian&n=jbigkit&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D2.1-6.1"><img alt="low : CVE--2017--9937" src="https://img.shields.io/badge/CVE--2017--9937-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=2.14-2</code></td></tr>
+<tr><td>Affected range</td><td><code>>=2.1-6.1</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.412%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>58th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.328%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>53rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-An issue was discovered in Jansson through 2.13.1. Due to a parsing error in json_loads, there's an out-of-bounds read-access bug. NOTE: the vendor reports that this only occurs when a programmer fails to follow the API specification
+In LibTIFF 4.0.8, there is a memory malloc failure in tif_jbig.c. A crafted TIFF document can lead to an abort resulting in a remote denial of service attack.
 
 ---
-- jansson <unfixed> (unimportant)
-https://github.com/akheron/jansson/issues/548
-Disputed security impact (only if programmer fails to follow API specifications)
+- jbigkit <unfixed> (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869708)
+http://bugzilla.maptools.org/show_bug.cgi?id=2707
+The CVE was assigned for src:tiff by MITRE, but the issue actually lies
+in jbigkit itself.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libgcrypt20</strong> <code>1.10.1-3</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/libgcrypt20@1.10.1-3?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2018-6829?s=debian&n=libgcrypt20&ns=debian&t=deb&osn=debian&osv=12&vr=%3E%3D1.10.1-3"><img alt="low : CVE--2018--6829" src="https://img.shields.io/badge/CVE--2018--6829-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=1.10.1-3</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.841%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>73rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+cipher/elgamal.c in Libgcrypt through 1.8.2, when used to encrypt messages directly, improperly encodes plaintexts, which allows attackers to obtain sensitive information by reading ciphertext data (i.e., it does not have semantic security in face of a ciphertext-only attack). The Decisional Diffie-Hellman (DDH) assumption does not hold for Libgcrypt's ElGamal implementation.
+
+---
+- libgcrypt20 <unfixed> (unimportant)
+- libgcrypt11 <removed> (unimportant)
+- gnupg1 <unfixed> (unimportant)
+- gnupg <removed> (unimportant)
+https://github.com/weikengchen/attack-on-libgcrypt-elgamal
+https://github.com/weikengchen/attack-on-libgcrypt-elgamal/wiki
+https://lists.gnupg.org/pipermail/gcrypt-devel/2018-February/004394.html
+GnuPG uses ElGamal in hybrid mode only.
+This is not a vulnerability in libgcrypt, but in an application using
+it in an insecure manner, see also
+https://lists.gnupg.org/pipermail/gcrypt-devel/2018-February/004401.html
 
 </blockquote>
 </details>
@@ -3730,8 +3730,8 @@ Disputed security impact (only if programmer fails to follow API specifications)
 <table>
 <tr><td>Affected range</td><td><code><1.14.2-4+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.14.2-4+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>36.792%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>3.612%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
