@@ -87,7 +87,7 @@ jobs:
       # Allow some jobs to fail without failing the whole workflow
       fail-fast: false
       # Limit concurrent jobs to avoid rate limiting
-      max-parallel: 2
+      max-parallel: 1
     
     steps:
       - name: Checkout
@@ -127,6 +127,9 @@ jobs:
           
           # Clean up
           docker system prune -af
+
+          # Sleeping to avoid Docker API rate limiting
+          sleep 120
       
       - name: Upload CVE File
         uses: actions/upload-artifact@v4
