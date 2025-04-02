@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/star:latest
-
-Report generated on Tue Apr  1 17:04:43 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 252 packages
-    ✓ No vulnerable package detected
 <h2>:mag: Vulnerabilities of <code>getwilds/star:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/star:latest</code></summary>

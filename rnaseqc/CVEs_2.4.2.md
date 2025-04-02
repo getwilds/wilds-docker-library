@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/rnaseqc:2.4.2
-
-Report generated on Tue Apr  1 16:46:17 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 432 packages
-    ✓ No vulnerable package detected
 <h2>:mag: Vulnerabilities of <code>getwilds/rnaseqc:2.4.2</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/rnaseqc:2.4.2</code></summary>

@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/cellranger:6.0.2
-
-Report generated on Tue Apr  1 18:11:05 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 261 packages
-    ✗ Detected 29 vulnerable packages with a total of 2155 vulnerabilities
 <h2>:mag: Vulnerabilities of <code>getwilds/cellranger:6.0.2</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/cellranger:6.0.2</code></summary>
@@ -682,30 +671,6 @@ A refcounting issue which leads to potential memory leak was discovered in scipy
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>joblib</strong> <code>1.0.0</code> (pypi)</summary>
-
-<small><code>pkg:pypi/joblib@1.0.0</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-21797?s=github&n=joblib&t=pypi&vr=%3C1.2.0"><img alt="critical 9.3: CVE--2022--21797" src="https://img.shields.io/badge/CVE--2022--21797-lightgrey?label=critical%209.3&labelColor=8b1924"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
-
-<table>
-<tr><td>Affected range</td><td><code><1.2.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.2.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>9.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.113%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>27th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The package joblib from 0 and before 1.2.0 is vulnerable to Arbitrary Code Execution via the `pre_dispatch` flag in `Parallel()` class due to the `eval()` statement.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>numexpr</strong> <code>2.7.1</code> (pypi)</summary>
 
 <small><code>pkg:pypi/numexpr@2.7.1</code></small><br/>
@@ -748,6 +713,30 @@ Patches: Released in v.0.0.308. numexpr dependency is optional for langchain.
 <blockquote>
 
 ** DISPUTED ** pandas through 1.0.3 can unserialize and execute commands from an untrusted file that is passed to the read_pickle() function, if __reduce__ makes an os.system call. NOTE: third parties dispute this issue because the read_pickle() function is documented as unsafe and it is the user's responsibility to use the function in a secure manner.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>joblib</strong> <code>1.0.0</code> (pypi)</summary>
+
+<small><code>pkg:pypi/joblib@1.0.0</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-21797?s=github&n=joblib&t=pypi&vr=%3C1.2.0"><img alt="critical 9.3: CVE--2022--21797" src="https://img.shields.io/badge/CVE--2022--21797-lightgrey?label=critical%209.3&labelColor=8b1924"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
+
+<table>
+<tr><td>Affected range</td><td><code><1.2.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.2.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.113%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>27th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The package joblib from 0 and before 1.2.0 is vulnerable to Arbitrary Code Execution via the `pre_dispatch` flag in `Parallel()` class due to the `eval()` statement.
 
 </blockquote>
 </details>
@@ -38649,50 +38638,6 @@ A vulnerability in the `package_index` module of pypa/setuptools versions up to 
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>scikit-learn</strong> <code>0.23.2</code> (pypi)</summary>
-
-<small><code>pkg:pypi/scikit-learn@0.23.2</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2020-28975?s=github&n=scikit-learn&t=pypi&vr=%3E%3D0.23.2%2C%3C1.0.1"><img alt="high 7.5: CVE--2020--28975" src="https://img.shields.io/badge/CVE--2020--28975-lightgrey?label=high%207.5&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0.23.2<br/><1.0.1</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.0.1</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.168%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-svm_predict_values in svm.cpp in Libsvm v324, as used in scikit-learn 0.23.2 and other products, allows attackers to cause a denial of service (segmentation fault) via a crafted model SVM (introduced via pickle, json, or any other model permanence standard) with a large value in the _n_support array.
-NOTE: the scikit-learn vendor's position is that the behavior can only occur if the library's API is violated by an application that changes a private attribute.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-5206?s=github&n=scikit-learn&t=pypi&vr=%3C1.5.0"><img alt="medium 5.3: CVE--2024--5206" src="https://img.shields.io/badge/CVE--2024--5206-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>Storage of Sensitive Data in a Mechanism without Access Control</i>
-
-<table>
-<tr><td>Affected range</td><td><code><1.5.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.5.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A sensitive data leakage vulnerability was identified in scikit-learn's TfidfVectorizer, specifically in versions up to and including 1.4.1.post1, which was fixed in version 1.5.0. The vulnerability arises from the unexpected storage of all tokens present in the training data within the `stop_words_` attribute, rather than only storing the subset of tokens required for the TF-IDF technique to function. This behavior leads to the potential leakage of sensitive information, as the `stop_words_` attribute could contain tokens that were meant to be discarded and not stored, such as passwords or keys. The impact of this vulnerability varies based on the nature of the data being processed by the vectorizer.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>certifi</strong> <code>2020.12.5</code> (pypi)</summary>
 
 <small><code>pkg:pypi/certifi@2020.12.5</code></small><br/>
@@ -38734,6 +38679,50 @@ Certifi 2023.07.22 removes root certificates from "e-Tugra" from the root store.
 Certifi 2022.12.07 removes root certificates from "TrustCor" from the root store. These are in the process of being removed from Mozilla's trust store.
 
 TrustCor's root certificates are being removed pursuant to an investigation prompted by media reporting that TrustCor's ownership also operated a business that produced spyware. Conclusions of Mozilla's investigation can be found [here](https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/oxX69KFvsm4/m/yLohoVqtCgAJ).
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>scikit-learn</strong> <code>0.23.2</code> (pypi)</summary>
+
+<small><code>pkg:pypi/scikit-learn@0.23.2</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2020-28975?s=github&n=scikit-learn&t=pypi&vr=%3E%3D0.23.2%2C%3C1.0.1"><img alt="high 7.5: CVE--2020--28975" src="https://img.shields.io/badge/CVE--2020--28975-lightgrey?label=high%207.5&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0.23.2<br/><1.0.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.0.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.168%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+svm_predict_values in svm.cpp in Libsvm v324, as used in scikit-learn 0.23.2 and other products, allows attackers to cause a denial of service (segmentation fault) via a crafted model SVM (introduced via pickle, json, or any other model permanence standard) with a large value in the _n_support array.
+NOTE: the scikit-learn vendor's position is that the behavior can only occur if the library's API is violated by an application that changes a private attribute.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-5206?s=github&n=scikit-learn&t=pypi&vr=%3C1.5.0"><img alt="medium 5.3: CVE--2024--5206" src="https://img.shields.io/badge/CVE--2024--5206-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>Storage of Sensitive Data in a Mechanism without Access Control</i>
+
+<table>
+<tr><td>Affected range</td><td><code><1.5.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.5.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A sensitive data leakage vulnerability was identified in scikit-learn's TfidfVectorizer, specifically in versions up to and including 1.4.1.post1, which was fixed in version 1.5.0. The vulnerability arises from the unexpected storage of all tokens present in the training data within the `stop_words_` attribute, rather than only storing the subset of tokens required for the TF-IDF technique to function. This behavior leads to the potential leakage of sensitive information, as the `stop_words_` attribute could contain tokens that were meant to be discarded and not stored, such as passwords or keys. The impact of this vulnerability varies based on the nature of the data being processed by the vectorizer.
 
 </blockquote>
 </details>
@@ -39144,49 +39133,6 @@ The C++ symbol demangler routine in cplus-dem.c in libiberty, as distributed in 
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.5.2-9.1ubuntu1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/pam@1.5.2-9.1ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-10963?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 7.4: CVE--2024--10963" src="https://img.shields.io/badge/CVE--2024--10963-lightgrey?label=medium%207.4&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>7.4</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.163%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in pam_access, where certain rules in its configuration file are mistakenly treated as hostnames. This vulnerability allows attackers to trick the system by pretending to be a trusted hostname, gaining unauthorized access. This issue poses a risk for systems that rely on this feature to control who can access certain services or terminals.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-10041?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 4.7: CVE--2024--10041" src="https://img.shields.io/badge/CVE--2024--10041-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>numpy</strong> <code>1.19.2</code> (pypi)</summary>
 
 <small><code>pkg:pypi/numpy@1.19.2</code></small><br/>
@@ -39226,6 +39172,49 @@ NOTE: The vendor does not agree this is a vulnerability; In (very limited) circu
 <blockquote>
 
 Incomplete string comparison in the numpy.core component in NumPy1.9.x, which allows attackers to fail the APIs via constructing specific string objects.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.5.2-9.1ubuntu1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/pam@1.5.2-9.1ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-10963?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 7.4: CVE--2024--10963" src="https://img.shields.io/badge/CVE--2024--10963-lightgrey?label=medium%207.4&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>7.4</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.163%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in pam_access, where certain rules in its configuration file are mistakenly treated as hostnames. This vulnerability allows attackers to trick the system by pretending to be a trusted hostname, gaining unauthorized access. This issue poses a risk for systems that rely on this feature to control who can access certain services or terminals.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-10041?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 4.7: CVE--2024--10041" src="https://img.shields.io/badge/CVE--2024--10041-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.
 
 </blockquote>
 </details>
@@ -39457,22 +39446,46 @@ sha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of ser
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.66-4ubuntu1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.8.3-1.1ubuntu3.1</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/libcap2@1%3A2.66-4ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C1%3A2.66-5ubuntu2.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/gnutls28@3.8.3-1.1ubuntu3.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.8.3-1.1ubuntu3.3"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><1:2.66-5ubuntu2.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1:2.66-5ubuntu2.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><3.8.3-1.1ubuntu3.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.8.3-1.1ubuntu3.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.158%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
+A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>util-linux</strong> <code>2.39.2-6ubuntu1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/util-linux@2.39.2-6ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-28085?s=ubuntu&n=util-linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.39.3-9ubuntu6"><img alt="medium : CVE--2024--28085" src="https://img.shields.io/badge/CVE--2024--28085-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.39.3-9ubuntu6</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.39.3-9ubuntu6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>11.809%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+wall in util-linux through 2.40, often installed with setgid tty permissions, allows escape sequences to be sent to other users' terminals through argv. (Specifically, escape sequences received from stdin are blocked, but escape sequences received from argv are not blocked.) There may be plausible scenarios where this leads to account takeover.
 
 </blockquote>
 </details>
@@ -39503,46 +39516,22 @@ A flaw in libtasn1 causes inefficient handling of specific certificate data. Whe
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>util-linux</strong> <code>2.39.2-6ubuntu1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.66-4ubuntu1</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/util-linux@2.39.2-6ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-28085?s=ubuntu&n=util-linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.39.3-9ubuntu6"><img alt="medium : CVE--2024--28085" src="https://img.shields.io/badge/CVE--2024--28085-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/libcap2@1%3A2.66-4ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C1%3A2.66-5ubuntu2.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><2.39.3-9ubuntu6</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.39.3-9ubuntu6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>11.809%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><1:2.66-5ubuntu2.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>1:2.66-5ubuntu2.2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-wall in util-linux through 2.40, often installed with setgid tty permissions, allows escape sequences to be sent to other users' terminals through argv. (Specifically, escape sequences received from stdin are blocked, but escape sequences received from argv are not blocked.) There may be plausible scenarios where this leads to account takeover.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.8.3-1.1ubuntu3.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnutls28@3.8.3-1.1ubuntu3.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.8.3-1.1ubuntu3.3"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.8.3-1.1ubuntu3.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.8.3-1.1ubuntu3.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.158%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
+The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
 
 </blockquote>
 </details>
@@ -39586,30 +39575,6 @@ A double free exists in the another_hunk function in pch.c in GNU patch through 
 <blockquote>
 
 An Invalid Pointer vulnerability exists in GNU patch 2.7 via the another_hunk function, which causes a Denial of Service.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.4-2ubuntu2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/coreutils@9.4-2ubuntu2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2016-2781?s=ubuntu&n=coreutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 6.5: CVE--2016--2781" src="https://img.shields.io/badge/CVE--2016--2781-lightgrey?label=low%206.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.072%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.
 
 </blockquote>
 </details>
@@ -39662,6 +39627,30 @@ shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid b
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.4-2ubuntu2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/coreutils@9.4-2ubuntu2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2016-2781?s=ubuntu&n=coreutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 6.5: CVE--2016--2781" src="https://img.shields.io/badge/CVE--2016--2781-lightgrey?label=low%206.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.072%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libgcrypt20</strong> <code>1.10.2-3ubuntu1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/libgcrypt20@1.10.2-3ubuntu1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
@@ -39707,8 +39696,4 @@ A vulnerability was found in systemd-resolved. This issue may allow systemd-reso
 </details>
 </details></td></tr>
 </table>
-
-
-What's next:
-    View base image update recommendations → docker scout recommendations getwilds/cellranger:6.0.2
 

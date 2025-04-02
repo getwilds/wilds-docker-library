@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/biobambam2:latest
-
-Report generated on Tue Apr  1 16:43:56 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 159 packages
-    ✗ Detected 10 vulnerable packages with a total of 14 vulnerabilities
 <h2>:mag: Vulnerabilities of <code>getwilds/biobambam2:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/biobambam2:latest</code></summary>
@@ -324,8 +313,4 @@ A timing-based side-channel flaw was found in libgcrypt's RSA implementation. Th
 </details>
 </details></td></tr>
 </table>
-
-
-What's next:
-    View base image update recommendations → docker scout recommendations getwilds/biobambam2:latest
 
