@@ -12,7 +12,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 jobs:
@@ -42,6 +42,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PW }}
+      
+      - name: Install Docker Scout
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
+          sh install-scout.sh
+      
+      - name: Setup Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
       
       - name: Find Files for Processing
         id: changed-files
@@ -129,9 +139,12 @@ jobs:
           echo "$AFFECTED_DIRS" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
       
-      - name: Build and Push Docker Images
+      - name: Build, Push Docker Images, and Generate Vulnerability Reports
         if: ${{ steps.changed-files.outputs.docker_files != '' }}
         run: |
+          # Track if any CVE files were generated
+          GENERATED_CVE_FILES=false
+          
           # Process each Dockerfile
           echo "${{ steps.changed-files.outputs.docker_files }}" | while read -r changed_file; do
             if [[ -n "$changed_file" && -f "$changed_file" ]]; then
@@ -150,10 +163,39 @@ jobs:
               # Build and push to DockerHub
               docker build --platform linux/amd64 -t "getwilds/${tool_name}:${tag}" -f "${changed_file}" --push .
               
+              # Update Docker Scout CVE markdown file
+              CVE_FILE="${tool_name}/CVEs_${tag}.md"
+              echo "# Vulnerability Report for getwilds/${tool_name}:${tag}" > $CVE_FILE
+              echo "" >> $CVE_FILE
+              echo "Report generated on $(TZ='America/Los_Angeles' date)" >> $CVE_FILE
+              echo "" >> $CVE_FILE
+              
+              if docker scout cves getwilds/${tool_name}:${tag} --format markdown >> $CVE_FILE; then
+                echo "Successfully generated vulnerability report for getwilds/${tool_name}:${tag}"
+                GENERATED_CVE_FILES=true
+              else
+                echo "Error generating vulnerabilities report for getwilds/${tool_name}:${tag}"
+                echo "Error generating vulnerabilities report. Please try again later." >> $CVE_FILE
+                GENERATED_CVE_FILES=true
+              fi
+              
+              # Add CVE file to git staging
+              git add $CVE_FILE
+              
               # Clean up to save space
               docker system prune -af
             fi
           done
+          
+          # Check if there are any staged changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            # Commit and push CVE reports
+            git commit -m "Update vulnerability reports [skip ci]"
+            git push origin ${{ github.ref_name }}
+            echo "Committed and pushed vulnerability reports"
+          fi
       
       - name: Update DockerHub Repository Descriptions
         if: ${{ steps.changed-files.outputs.affected_dirs != '' }}
