@@ -8,7 +8,7 @@ on:
         required: false
         type: string
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "0 8 1 * *"
   pull_request:
     types: [opened, reopened, synchronize]
 
@@ -116,10 +116,10 @@ jobs:
           # Generate header for the file
           echo "# Vulnerability Report for $CONTAINER" > $CVE_FILE
           echo "" >> $CVE_FILE
-          echo "Report generated on $(date)" >> $CVE_FILE
+          echo "Report generated on $(TZ='America/Los_Angeles' date)" >> $CVE_FILE
           echo "" >> $CVE_FILE
           
-          if ! docker scout cves $CONTAINER --format markdown >> $CVE_FILE 2>&1; then
+          if ! docker scout cves $CONTAINER --format markdown > $CVE_FILE; then
             echo "Error generating all vulnerabilities report. Please try again later." >> $CVE_FILE
           fi
           
@@ -129,7 +129,7 @@ jobs:
           docker system prune -af
 
           # Sleeping to avoid Docker API rate limiting
-          sleep 120
+          sleep 180
       
       - name: Upload CVE File
         uses: actions/upload-artifact@v4
