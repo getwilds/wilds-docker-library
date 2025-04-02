@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/star:2.7.4a
-
-Report generated on Tue Apr  1 16:59:21 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 252 packages
-    ✓ No vulnerable package detected
 <h2>:mag: Vulnerabilities of <code>getwilds/star:2.7.4a</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/star:2.7.4a</code></summary>

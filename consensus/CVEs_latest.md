@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/consensus:latest
-
-Report generated on Tue Apr  1 16:06:18 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 638 packages
-    ✗ Detected 1 vulnerable package with 2 vulnerabilities
 <h2>:mag: Vulnerabilities of <code>getwilds/consensus:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/consensus:latest</code></summary>
@@ -65,8 +54,4 @@ A vulnerability in the `package_index` module of pypa/setuptools versions up to 
 </details>
 </details></td></tr>
 </table>
-
-
-What's next:
-    View base image update recommendations → docker scout recommendations getwilds/consensus:latest
 

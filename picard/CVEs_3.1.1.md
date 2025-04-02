@@ -1,14 +1,3 @@
-# Vulnerability Report for getwilds/picard:3.1.1
-
-Report generated on Tue Apr  1 16:14:46 UTC 2025
-
-    ...Pulling
-    ✓ Pulled
-    ...Storing image for indexing
-    ✓ Image stored for indexing
-    ...Indexing
-    ✓ Indexed 483 packages
-    ✗ Detected 3 vulnerable packages with a total of 4 vulnerabilities
 <h2>:mag: Vulnerabilities of <code>getwilds/picard:3.1.1</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/picard:3.1.1</code></summary>
@@ -161,8 +150,4 @@ Users are recommended to upgrade to version 1.26.0 which fixes the issue.
 </details>
 </details></td></tr>
 </table>
-
-
-What's next:
-    View base image update recommendations → docker scout recommendations getwilds/picard:3.1.1
 
