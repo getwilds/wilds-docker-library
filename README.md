@@ -3,7 +3,7 @@
   <td><img src="wdlib_logo_hex.png" width="400" alt="wilds docker library logo"></td>
   <td>
     <h1>WILDS Docker Library</h1>
-    <p>Curated collection of Docker images for reproducible bioinformatics workflows in the WILDS platform.</p>
+    <p>Curated collection of Docker images for reproducible bioinformatics workflows in the WILDS.</p>
   </td>
 </tr>
 </table>
@@ -85,7 +85,7 @@ Each tool directory contains vulnerability reports (`CVEs_*.md`) detailing:
 - Affected components and versions
 - Available fixes or mitigations
 
-Critical or high-severity vulnerabilities automatically generate GitHub issues for prompt attention.
+If a specific tool's vulnerabilities are of particular concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which portion of the vulnerability report you would like to be addressed.
 
 ## Automated Workflows
 
@@ -104,7 +104,6 @@ Defined in `.github/workflows/docker-update.yml`, this workflow:
 Defined in `.github/workflows/docker-scout.yaml`, this workflow:
 - Scans all Docker images for security vulnerabilities using Docker Scout
 - Generates comprehensive vulnerability reports
-- Creates GitHub issues for critical or high-severity vulnerabilities
 
 ## Contributing
 
