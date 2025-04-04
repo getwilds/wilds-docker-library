@@ -1,58 +1,178 @@
-# wilds-docker-library
+<table>
+<tr>
+  <td><img src="wdlib_logo_hex.png" width="400" alt="wilds docker library logo"></td>
+  <td>
+    <h1>WILDS Docker Library</h1>
+    <p>Curated collection of Docker images for reproducible bioinformatics workflows in the WILDS platform.</p>
+  </td>
+</tr>
+</table>
 
 [![Project Status: Prototype – Useable, some support, open to feedback, unstable API.](https://getwilds.github.io/badges/badges/prototype.svg)](https://getwilds.org/badges/#prototype)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository is intended to be a central storage for all Docker images associated with WILDS. Normally, repositories are relatively self-contained and only need one image that can just be directly linked to that repository. However, WDL pipelines often require a different image for each step, creating the need for a laundry list of Docker images for each repository. In addition, our bioinformatics workflows will have a large amount of image overlap in that the same tools get used, just in a different fashion depending on the workflow. To avoid unnecessary image duplication, this repository will contain all Dockerfiles and images relevant to WILDS and all future workflows refer back to these images.
+## Overview
+
+The WILDS Docker Library is a centralized repository of Docker images maintained by the Fred Hutch Data Science Lab (DaSL) for use in bioinformatics and computational workflows. This repository hosts Dockerfiles for a wide range of bioinformatics tools, ensuring consistent, reproducible, and secure environments for research workflows.
+
+Each tool has its own directory with:
+- Dockerfiles for specific versions
+- Comprehensive documentation
+- Security vulnerability reports
+- Usage examples
+
+## Available Tools
+
+The repository includes Docker images for popular bioinformatics tools including (but not limited to):
+
+| Tool | Description | Available Versions |
+|------|-------------|-------------------|
+| STAR | RNA-seq aligner | 2.7.6a, 2.7.4a, latest |
+| BWA | Burrows-Wheeler Aligner | 0.7.17, latest |
+| Samtools | SAM/BAM manipulation | 1.11, 1.10, latest |
+| BCFtools | VCF/BCF manipulation | 1.19, 1.11, latest |
+| Picard | Sequence data manipulation | 3.1.1, latest |
+| HISAT2 | Graph-based alignment | 2.2.1, latest |
+| Scanpy | Single-cell analysis | 1.10.2, latest |
+| scvi-tools | Deep learning for single-cell | 1.1.6, latest |
+| Cell Ranger | 10x Genomics analysis | 6.0.2, latest |
+| GATK | Genome analysis toolkit | 4.3.0.0, latest |
+
+For a full list of available tools and versions, browse the repository directories.
 
 ## Usage
 
+### Docker
+
+```bash
+# Pull from Docker Hub
+docker pull getwilds/TOOLNAME:VERSION
+
+# Pull from GitHub Container Registry
+docker pull ghcr.io/getwilds/TOOLNAME:VERSION
+
+# Example: Run a STAR alignment
+docker run --rm -v /path/to/data:/data getwilds/star:latest STAR --runThreadN 4 --genomeDir /data/genome --readFilesIn /data/reads_1.fq /data/reads_2.fq --outFileNamePrefix /data/output/
 ```
-docker pull ghcr.io/getwilds/IMAGENAME:VERSIONTAG
-apptainer pull docker://ghcr.io/getwilds/IMAGENAME:VERSIONTAG
+
+### Singularity/Apptainer
+
+```bash
+# Pull from Docker Hub
+apptainer pull docker://getwilds/TOOLNAME:VERSION
+
+# Pull from GitHub Container Registry
+apptainer pull docker://ghcr.io/getwilds/TOOLNAME:VERSION
+
+# Example: Run a STAR alignment
+apptainer run --bind /path/to/data:/data docker://getwilds/star:latest STAR --runThreadN 4 --genomeDir /data/genome --readFilesIn /data/reads_1.fq /data/reads_2.fq --outFileNamePrefix /data/output/
 ```
+
+## Security and Vulnerability Monitoring
+
+### Automated Security Scanning
+
+All Docker images in this repository undergo regular security scanning:
+
+1. **Build-time scanning**: Each image is automatically scanned for vulnerabilities when built
+2. **Monthly scanning**: A scheduled workflow scans all images on the first day of each month
+3. **On-demand scanning**: Repository maintainers can trigger scans for specific images at any time
+
+### Vulnerability Reports
+
+Each tool directory contains vulnerability reports (`CVEs_*.md`) detailing:
+- Detected vulnerabilities with severity ratings
+- Affected components and versions
+- Available fixes or mitigations
+
+Critical or high-severity vulnerabilities automatically generate GitHub issues for prompt attention.
+
+## Automated Workflows
+
+The repository uses GitHub Actions to automate several processes:
+
+### Docker Build and Publishing Workflow
+
+Defined in `.github/workflows/docker-update.yml`, this workflow:
+- Builds and publishes Docker images when Dockerfiles are modified
+- Pushes images to both GitHub Container Registry and DockerHub
+- Updates repository descriptions based on README content
+- Generates vulnerability reports for each newly built image
+
+### Security Monitoring Workflow
+
+Defined in `.github/workflows/docker-scout.yaml`, this workflow:
+- Scans all Docker images for security vulnerabilities using Docker Scout
+- Generates comprehensive vulnerability reports
+- Creates GitHub issues for critical or high-severity vulnerabilities
+
+## Contributing
+
+We welcome contributions to improve and expand the WILDS Docker Library. Please review the following guidelines:
+
+### Directory Structure
+
+Each tool should have its own directory with:
+- Dockerfile(s) following the naming convention `Dockerfile_VERSION`
+- A comprehensive `README.md` describing the tool, versions, and usage examples
+- Vulnerability reports generated by our workflows
+
+### Dockerfile Guidelines
+
+- Start from minimal base images (e.g., `ubuntu`, `python`, `r-base`)
+- Pin all software versions for reproducibility
+- Include all required labels (see template below)
+- Keep images small (few hundred MB, 2GB max)
+- Focus on a single tool per image (1-2 tools max)
+- Document all installed components
+
+### Required Labels
+
+Each Dockerfile must include these labels:
+
+```dockerfile
+LABEL org.opencontainers.image.title="toolname"
+LABEL org.opencontainers.image.description="Short description of the tool and its purpose"
+LABEL org.opencontainers.image.version="1.0"
+LABEL org.opencontainers.image.authors="youremail@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+```
+
+### Testing Your Changes
+
+Before submitting a PR:
+
+1. Test your Dockerfile locally:
+   ```bash
+   docker build -t test-image -f TOOLNAME/Dockerfile_VERSION .
+   ```
+
+2. Verify functionality:
+   ```bash
+   docker run --rm test-image [command-to-test-functionality]
+   ```
+
+3. Run a local security scan (if Docker Scout is available):
+   ```bash
+   docker scout cves test-image
+   ```
+
+### Pull Request Process
+
+1. Fork the repository and create a feature branch
+2. Make changes following our guidelines
+3. Submit a pull request against the main branch
+4. Our CI/CD pipeline will automatically build test images and generate security reports
+5. Reviewers will provide feedback and approve changes
 
 ## Support
 
-For questions, bugs, and/or feature requests, reach out to the Fred Hutch Data Science Lab (DaSL) at wilds@fredhutch.org, or open an issue on our [issue tracker](https://github.com/getwilds/wilds-docker-library/issues).
-
-## Contribution Guidelines
-
-- Because these Docker images will be used for individual steps within WDL workflows, they should be as minimal as possible in terms of the number of tools installed in each image (1 or 2 max).
-
-- As a general (but flexible) rule, try to start from as basic of a parent image as possible, e.g. `scratch`, `ubuntu`, `python`, `r-base`, etc. Outside parent images are fine, as long as they are from a VERY trusted source, e.g. Ubuntu, Python, Conda, Rocker, etc.
-
-- To speed up build and deployment of containers, try to keep image sizes relatively small (a few hundred MB on average, 2GB max). For this reason, reference data should not be stored in an image unless absolutely necessary.
-
-- Every Dockerfile must contain the labels below at a minimum. This provides users with increased visibility in terms of where the image came from and open access to the necessary resources in case they have any questions or concerns.
-```
-LABEL org.opencontainers.image.title="awesomeimage" # Name of the image in question
-LABEL org.opencontainers.image.description="Short description of awesomeimage and its purpose"
-LABEL org.opencontainers.image.version="1.0" # Version tag of the image
-LABEL org.opencontainers.image.authors="johndoe@fredhutch.org" # Author email address
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/ # Home page
-LABEL org.opencontainers.image.documentation=https://getwilds.org/ # Documentation page
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library # GitHub repo to link with
-LABEL org.opencontainers.image.licenses=MIT # License type for the image in question
-```
-
-- When creating a different version of an existing image, use one of the other Dockerfiles as a starting template and modify it as needed. This will help to ensure that the only thing that has changed between image versions is the version of tool in question, not any strange formatting/configuration issues.
-
-- Try to be as specific as possible in terms of tool versions within the Dockerfile, especially the parent image.
-    - If you just specify "latest", a tag that get updated frequently over time, your image could be completely different the next time you build it, even though it uses the exact same Dockerfile.
-    - On the other hand, specifying "v1.2.3" will always pull the same instance of the tool every time, providing greater reproducibility over time.
-
-- In terms of the repo organization, each image should have its own directory named after the tool being used in the image. Each version of the image should have its own Dockerfile in that directory following the naming convention of `[IMAGENAME]/Dockerfile_[VERSIONTAG]`.
-    - If formatted correctly, a GitHub Action will automatically build and upload the image to the [WILDS GitHub container registry](https://github.com/orgs/getwilds/packages) upon merging into the `main` branch.
-
-- Before merging your changes to `main` (and therefore uploading a new image to the WILDS package registry), try uploading it to your user-specific package registry using the command below and make sure it works for the WDL task in question.
-```
-docker build --platform linux/amd64 -t ghcr.io/GITHUBUSERNAME/IMAGENAME:VERSIONTAG -f IMAGENAME/Dockerfile_VERSIONTAG --push .
-```
-
-- Upon creation or modification of a pull request in this repo, a GitHub Action will run a check using linting tool specific to Dockerfiles called [Hadolint](https://github.com/hadolint/hadolint).
-    - If any major warnings pop up, the check will fail and the user will be unable to merge the branch into `main` until the warning is resolved.
-    - Smaller stylistic issues will still be reported, but they will not restrict you from merging your branch into `main`.
-    - Details about the location and root cause of each warning can be found in the details of the check.
+For questions, bug reports, or feature requests:
+- Open an [issue](https://github.com/getwilds/wilds-docker-library/issues)
+- Email the Fred Hutch Data Science Lab at wilds@fredhutch.org
 
 ## License
 
