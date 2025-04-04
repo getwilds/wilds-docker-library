@@ -178,7 +178,7 @@ jobs:
           for cve_dir in cve-report-*; do
             if [ -d "$cve_dir" ]; then
               # Extract tool name from directory name
-              tool=$(echo $cve_dir | cut -d'-' -f3)
+              tool=$(echo $cve_dir | sed 's/^cve-report-//')
               
               # Create tool directory if it doesn't exist
               mkdir -p "$tool"
