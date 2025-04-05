@@ -119,7 +119,7 @@ jobs:
           echo "Report generated on $(TZ='America/Los_Angeles' date)" >> $CVE_FILE
           echo "" >> $CVE_FILE
           
-          if ! docker scout cves $CONTAINER --format markdown > $CVE_FILE; then
+          if ! docker scout cves $CONTAINER --format markdown >> $CVE_FILE; then
             echo "Error generating all vulnerabilities report. Please try again later." >> $CVE_FILE
           fi
           
@@ -129,7 +129,7 @@ jobs:
           docker system prune -af
 
           # Sleeping to avoid Docker API rate limiting
-          sleep 180
+          sleep 210
       
       - name: Upload CVE File
         uses: actions/upload-artifact@v4
