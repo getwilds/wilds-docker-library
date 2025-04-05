@@ -1,0 +1,2 @@
+[31mERROR  [0m Status: failed to get image getwilds/rtorch:latest: failed to pull image getwilds/rtorch:latest: GET https://index.docker.io/v2/getwilds/rtorch/manifests/latest: TOOMANYREQUESTS: You have reached your pull rate limit as 'tfirmanfh': dckr_jti_mWjLHzis5TywDaleUXg1khUUSAU=. You may increase the limit by upgrading. https://www.docker.com/increase-rate-limit, Code: 1 
+Error generating all vulnerabilities report. Please try again later.
