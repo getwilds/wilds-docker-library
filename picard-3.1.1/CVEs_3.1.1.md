@@ -1,3 +1,7 @@
+# Vulnerability Report for getwilds/picard:3.1.1
+
+Report generated on Sat Apr  5 08:11:27 PDT 2025
+
 <h2>:mag: Vulnerabilities of <code>getwilds/picard:3.1.1</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/picard:3.1.1</code></summary>
@@ -83,8 +87,8 @@ The issue is fixed by [this PR](https://github.com/stleary/JSON-java/pull/759).
 <tr><td>Fixed version</td><td><code>2.14.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.153%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.130%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>

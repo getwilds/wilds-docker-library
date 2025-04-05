@@ -1,3 +1,7 @@
+# Vulnerability Report for getwilds/consensus:latest
+
+Report generated on Sat Apr  5 07:58:32 PDT 2025
+
 <h2>:mag: Vulnerabilities of <code>getwilds/consensus:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/consensus:latest</code></summary>
