@@ -1,3 +1,7 @@
+# Vulnerability Report for getwilds/consensus:0.1.1
+
+Report generated on Mon Apr  7 11:24:28 PDT 2025
+
 <h2>:mag: Vulnerabilities of <code>getwilds/consensus:0.1.1</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/consensus:0.1.1</code></summary>
@@ -22,8 +26,8 @@
 <tr><td>Fixed version</td><td><code>65.5.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:L/SI:L/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.326%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>53rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.318%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
