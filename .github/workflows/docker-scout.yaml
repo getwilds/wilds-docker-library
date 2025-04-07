@@ -9,8 +9,8 @@ on:
         type: string
   schedule:
     - cron: "0 8 1 * *"
-  pull_request: # Testing Purposes
-    types: [opened, reopened, synchronize]
+  # pull_request: # Testing Purposes
+  #   types: [opened, reopened, synchronize]
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -177,11 +177,10 @@ jobs:
           # For each CVE file in the artifacts, move it to the correct location
           for cve_dir in cve-report-*; do
             if [ -d "$cve_dir" ]; then
-              # Extract tool name from directory name
-              tool=$(echo $cve_dir | sed 's/^cve-report-//')
-              
-              # Create tool directory if it doesn't exist
-              mkdir -p "$tool"
+              # Extract tool name from filename
+              artifact_name=${cve_dir#cve-report-}
+              tag=${artifact_name##*-}
+              tool=${artifact_name%-$tag}
               
               # Move all CVE files to the tool directory
               find "$cve_dir" -name "CVEs_*.md" -exec mv {} "$tool/" \;
