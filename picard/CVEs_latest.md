@@ -1,14 +1,14 @@
-# Vulnerability Report for getwilds/picard:latest
+# Vulnerability Report for ghcr.io/getwilds/picard:latest
 
-Report generated on Mon Apr  7 11:46:19 PDT 2025
+Report generated on Mon Apr  7 17:11:31 PDT 2025
 
-<h2>:mag: Vulnerabilities of <code>getwilds/picard:latest</code></h2>
+<h2>:mag: Vulnerabilities of <code>ghcr.io/getwilds/picard:latest</code></h2>
 
-<details open="true"><summary>:package: Image Reference</strong> <code>getwilds/picard:latest</code></summary>
+<details open="true"><summary>:package: Image Reference</strong> <code>ghcr.io/getwilds/picard:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:d63a5ebd45c200534167004997ce8051b4d802103299f653e94440d1e063bae5</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/high-2-e25d68"/> <img alt="medium: 2" src="https://img.shields.io/badge/medium-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:d6ae4541f9f8a283b85d729be672f594d6d440a483e9d79944a4fd67567e3d96</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/high-2-e25d68"/> <img alt="medium: 2" src="https://img.shields.io/badge/medium-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>390 MB</td></tr>
+<tr><td>size</td><td>391 MB</td></tr>
 <tr><td>packages</td><td>483</td></tr>
 </table>
 </details></table>

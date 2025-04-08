@@ -1,10 +1,10 @@
-# Vulnerability Report for getwilds/consensus:latest
+# Vulnerability Report for ghcr.io/getwilds/consensus:latest
 
-Report generated on Mon Apr  7 11:29:09 PDT 2025
+Report generated on Mon Apr  7 17:08:32 PDT 2025
 
-<h2>:mag: Vulnerabilities of <code>getwilds/consensus:latest</code></h2>
+<h2>:mag: Vulnerabilities of <code>ghcr.io/getwilds/consensus:latest</code></h2>
 
-<details open="true"><summary>:package: Image Reference</strong> <code>getwilds/consensus:latest</code></summary>
+<details open="true"><summary>:package: Image Reference</strong> <code>ghcr.io/getwilds/consensus:latest</code></summary>
 <table>
 <tr><td>digest</td><td><code>sha256:0c55b578c246fbd82708c7f21eb8066f56f7fbbc4e8142c1dd9a8c97f4606fb7</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/high-2-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/medium-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
