@@ -106,8 +106,8 @@ jobs:
       
       - name: Docker Scout Scan for ${{ matrix.tool }}:${{ matrix.tag }}
         run: |
-          # Set the full container name
-          CONTAINER="getwilds/${{ matrix.tool }}:${{ matrix.tag }}"
+          # Pulling image from GitHub Container Registry to avoid rate limits
+          CONTAINER="ghcr.io/getwilds/${{ matrix.tool }}:${{ matrix.tag }}"
           echo "Scanning $CONTAINER..."
           
           # Create CVE markdown file
@@ -128,9 +128,6 @@ jobs:
           # Clean up
           docker system prune -af
 
-          # Sleeping to avoid Docker API rate limiting
-          sleep 210
-      
       - name: Upload CVE File
         uses: actions/upload-artifact@v4
         with:
