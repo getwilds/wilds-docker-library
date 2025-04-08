@@ -1,10 +1,10 @@
-# Vulnerability Report for ghcr.io/getwilds/consensus:0.1.1
+# Vulnerability Report for getwilds/consensus:0.1.1
 
-Report generated on Mon Apr  7 17:07:21 PDT 2025
+Report generated on Tue Apr  8 09:56:54 PDT 2025
 
-<h2>:mag: Vulnerabilities of <code>ghcr.io/getwilds/consensus:0.1.1</code></h2>
+<h2>:mag: Vulnerabilities of <code>getwilds/consensus:0.1.1</code></h2>
 
-<details open="true"><summary>:package: Image Reference</strong> <code>ghcr.io/getwilds/consensus:0.1.1</code></summary>
+<details open="true"><summary>:package: Image Reference</strong> <code>getwilds/consensus:0.1.1</code></summary>
 <table>
 <tr><td>digest</td><td><code>sha256:f1de8d623928518ffb65044ffbf52d1a3ede63461133f082008b7b6570240e3d</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/high-2-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/medium-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
