@@ -167,13 +167,16 @@ jobs:
               echo "Report generated on $(TZ='America/Los_Angeles' date)" >> $CVE_FILE
               echo "" >> $CVE_FILE
               
-              if docker scout cves getwilds/${tool_name}:${tag} --format markdown >> $CVE_FILE; then
+              if docker scout cves ghcr.io/getwilds/${tool_name}:${tag} --format markdown >> $CVE_FILE; then
                 echo "Successfully generated vulnerability report for getwilds/${tool_name}:${tag}"
               else
                 echo "Error generating vulnerabilities report for getwilds/${tool_name}:${tag}"
                 echo "Error generating vulnerabilities report. Please try again later." >> $CVE_FILE
               fi
               
+              # Replace ghcr.io/getwilds with getwilds in the report
+              sed -i 's|ghcr.io/getwilds/|getwilds/|g' $CVE_FILE
+
               # Add CVE file to git staging
               git add $CVE_FILE
               
