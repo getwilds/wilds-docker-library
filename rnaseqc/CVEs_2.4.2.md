@@ -1,3 +1,7 @@
+# Vulnerability Report for getwilds/rnaseqc:2.4.2
+
+Report generated on Mon Apr  7 12:31:00 PDT 2025
+
 <h2>:mag: Vulnerabilities of <code>getwilds/rnaseqc:2.4.2</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/rnaseqc:2.4.2</code></summary>

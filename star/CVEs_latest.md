@@ -1,3 +1,7 @@
+# Vulnerability Report for getwilds/star:latest
+
+Report generated on Mon Apr  7 13:00:25 PDT 2025
+
 <h2>:mag: Vulnerabilities of <code>getwilds/star:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/star:latest</code></summary>
