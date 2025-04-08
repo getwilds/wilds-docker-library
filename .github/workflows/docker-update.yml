@@ -142,9 +142,6 @@ jobs:
       - name: Build, Push Docker Images, and Generate Vulnerability Reports
         if: ${{ steps.changed-files.outputs.docker_files != '' }}
         run: |
-          # Track if any CVE files were generated
-          GENERATED_CVE_FILES=false
-          
           # Process each Dockerfile
           echo "${{ steps.changed-files.outputs.docker_files }}" | while read -r changed_file; do
             if [[ -n "$changed_file" && -f "$changed_file" ]]; then
@@ -172,11 +169,9 @@ jobs:
               
               if docker scout cves getwilds/${tool_name}:${tag} --format markdown >> $CVE_FILE; then
                 echo "Successfully generated vulnerability report for getwilds/${tool_name}:${tag}"
-                GENERATED_CVE_FILES=true
               else
                 echo "Error generating vulnerabilities report for getwilds/${tool_name}:${tag}"
                 echo "Error generating vulnerabilities report. Please try again later." >> $CVE_FILE
-                GENERATED_CVE_FILES=true
               fi
               
               # Add CVE file to git staging
