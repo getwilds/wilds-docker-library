@@ -1,14 +1,14 @@
-# Vulnerability Report for ghcr.io/getwilds/bedtools:2.31.1
+# Vulnerability Report for getwilds/bedtools:2.31.1
 
-Report generated on Mon Apr  7 18:12:53 PDT 2025
+Report generated on Tue Apr  8 09:51:29 PDT 2025
 
-<h2>:mag: Vulnerabilities of <code>ghcr.io/getwilds/bedtools:2.31.1</code></h2>
+<h2>:mag: Vulnerabilities of <code>getwilds/bedtools:2.31.1</code></h2>
 
-<details open="true"><summary>:package: Image Reference</strong> <code>ghcr.io/getwilds/bedtools:2.31.1</code></summary>
+<details open="true"><summary>:package: Image Reference</strong> <code>getwilds/bedtools:2.31.1</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:f0ccdd4361b571a88aaaa282de1d3268d854ea7620da682350f7b11a5eb0cc34</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 533" src="https://img.shields.io/badge/medium-533-fbb552"/> <img alt="low: 35" src="https://img.shields.io/badge/low-35-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:a5c1855f0ea2b2c5c2949f9f292dbf5610551d482725f7b9e1b6daa59b25a0d3</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 449" src="https://img.shields.io/badge/medium-449-fbb552"/> <img alt="low: 34" src="https://img.shields.io/badge/low-34-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>142 MB</td></tr>
+<tr><td>size</td><td>160 MB</td></tr>
 <tr><td>packages</td><td>192</td></tr>
 </table>
 </details></table>
@@ -16,9 +16,9 @@ Report generated on Mon Apr  7 18:12:53 PDT 2025
 
 <table>
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 528" src="https://img.shields.io/badge/M-528-fbb552"/> <img alt="low: 24" src="https://img.shields.io/badge/L-24-fce1a9"/> <!-- unspecified: 0 --><strong>linux</strong> <code>6.8.0-55.57</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 443" src="https://img.shields.io/badge/M-443-fbb552"/> <img alt="low: 23" src="https://img.shields.io/badge/L-23-fce1a9"/> <!-- unspecified: 0 --><strong>linux</strong> <code>6.8.0-57.59</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/linux@6.8.0-55.57?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<small><code>pkg:deb/ubuntu/linux@6.8.0-57.59?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
 <a href="https://scout.docker.com/v/CVE-2025-21863?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 7.8: CVE--2025--21863" src="https://img.shields.io/badge/CVE--2025--21863-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
 
 <table>
@@ -292,8 +292,8 @@ In the Linux kernel, the following vulnerability has been resolved:  block, bfq:
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -311,8 +311,8 @@ In the Linux kernel, the following vulnerability has been resolved:  rtc: pcf850
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -532,44 +532,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-56614?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--56614" src="https://img.shields.io/badge/CVE--2024--56614-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  xsk: fix OOB map writes when deleting elements  Jordy says:  " In the xsk_map_delete_elem function an unsigned integer (map->max_entries) is compared with a user-controlled signed integer (k). Due to implicit type conversion, a large unsigned value for map->max_entries can bypass the intended bounds check:  if (k >= map->max_entries) return -EINVAL;  This allows k to hold a negative value (between -2147483648 and -2), which is then used as an array index in m->xsk_map[k], which results in an out-of-bounds access.  spin_lock_bh(&m->lock); map_entry = &m->xsk_map[k]; // Out-of-bounds map_entry old_xs = unrcu_pointer(xchg(map_entry, NULL));  // Oob write if (old_xs) xsk_map_sock_delete(old_xs, map_entry); spin_unlock_bh(&m->lock);  The xchg operation can then be used to cause an out-of-bounds write. Moreover, the invalid map_entry passed to xsk_map_sock_delete can lead to further memory corruption. "  It indeed results in following splat:  [76612.897343] BUG: unable to handle page fault for address: ffffc8fc2e461108 [76612.904330] #PF: supervisor write access in kernel mode [76612.909639] #PF: error_code(0x0002) - not-present page [76612.914855] PGD 0 P4D 0 [76612.917431] Oops: Oops: 0002 [#1] PREEMPT SMP [76612.921859] CPU: 11 UID: 0 PID: 10318 Comm: a.out Not tainted 6.12.0-rc1+ #470 [76612.929189] Hardware name: Intel Corporation S2600WFT/S2600WFT, BIOS SE5C620.86B.02.01.0008.031920191559 03/19/2019 [76612.939781] RIP: 0010:xsk_map_delete_elem+0x2d/0x60 [76612.944738] Code: 00 00 41 54 55 53 48 63 2e 3b 6f 24 73 38 4c 8d a7 f8 00 00 00 48 89 fb 4c 89 e7 e8 2d bf 05 00 48 8d b4 eb 00 01 00 00 31 ff <48> 87 3e 48 85 ff 74 05 e8 16 ff ff ff 4c 89 e7 e8 3e bc 05 00 31 [76612.963774] RSP: 0018:ffffc9002e407df8 EFLAGS: 00010246 [76612.969079] RAX: 0000000000000000 RBX: ffffc9002e461000 RCX: 0000000000000000 [76612.976323] RDX: 0000000000000001 RSI: ffffc8fc2e461108 RDI: 0000000000000000 [76612.983569] RBP: ffffffff80000001 R08: 0000000000000000 R09: 0000000000000007 [76612.990812] R10: ffffc9002e407e18 R11: ffff888108a38858 R12: ffffc9002e4610f8 [76612.998060] R13: ffff888108a38858 R14: 00007ffd1ae0ac78 R15: ffffc9002e4610c0 [76613.005303] FS:  00007f80b6f59740(0000) GS:ffff8897e0ec0000(0000) knlGS:0000000000000000 [76613.013517] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 [76613.019349] CR2: ffffc8fc2e461108 CR3: 000000011e3ef001 CR4: 00000000007726f0 [76613.026595] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 [76613.033841] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 [76613.041086] PKRU: 55555554 [76613.043842] Call Trace: [76613.046331]  <TASK> [76613.048468]  ? __die+0x20/0x60 [76613.051581]  ? page_fault_oops+0x15a/0x450 [76613.055747]  ? search_extable+0x22/0x30 [76613.059649]  ? search_bpf_extables+0x5f/0x80 [76613.063988]  ? exc_page_fault+0xa9/0x140 [76613.067975]  ? asm_exc_page_fault+0x22/0x30 [76613.072229]  ? xsk_map_delete_elem+0x2d/0x60 [76613.076573]  ? xsk_map_delete_elem+0x23/0x60 [76613.080914]  __sys_bpf+0x19b7/0x23c0 [76613.084555]  __x64_sys_bpf+0x1a/0x20 [76613.088194]  do_syscall_64+0x37/0xb0 [76613.091832]  entry_SYSCALL_64_after_hwframe+0x4b/0x53 [76613.096962] RIP: 0033:0x7f80b6d1e88d [76613.100592] Code: 5b 41 5c c3 66 0f 1f 84 00 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 73 b5 0f 00 f7 d8 64 89 01 48 [76613.119631] RSP: 002b:00007ffd1ae0ac68 EFLAGS: 00000206 ORIG_RAX: 0000000000000141 [76613.131330] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f80b6d1e88d [76613.142632] RDX: 0000000000000098 RSI: 00007ffd1ae0ad20 RDI: 0000000000000003 [76613.153967] RBP: 00007ffd1ae0adc0 R08: 0000000000000000 R09: 0000000000000000 [76613.166030] R10: 00007f80b6f77040 R11: 0000000000000206 R12: 00007ffd1ae0aed8 [76613.177130] R13: 000055ddf42ce1e9 R14: 000055ddf42d0d98 R15: 00 ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-56582?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--56582" src="https://img.shields.io/badge/CVE--2024--56582-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix use-after-free in btrfs_encoded_read_endio()  Shinichiro reported the following use-after free that sometimes is happening in our CI system when running fstests' btrfs/284 on a TCMU runner device:  BUG: KASAN: slab-use-after-free in lock_release+0x708/0x780 Read of size 8 at addr ffff888106a83f18 by task kworker/u80:6/219  CPU: 8 UID: 0 PID: 219 Comm: kworker/u80:6 Not tainted 6.12.0-rc6-kts+ #15 Hardware name: Supermicro Super Server/X11SPi-TF, BIOS 3.3 02/21/2020 Workqueue: btrfs-endio btrfs_end_bio_work [btrfs] Call Trace: <TASK> dump_stack_lvl+0x6e/0xa0 ? lock_release+0x708/0x780 print_report+0x174/0x505 ? lock_release+0x708/0x780 ? __virt_addr_valid+0x224/0x410 ? lock_release+0x708/0x780 kasan_report+0xda/0x1b0 ? lock_release+0x708/0x780 ? __wake_up+0x44/0x60 lock_release+0x708/0x780 ? __pfx_lock_release+0x10/0x10 ? __pfx_do_raw_spin_lock+0x10/0x10 ? lock_is_held_type+0x9a/0x110 _raw_spin_unlock_irqrestore+0x1f/0x60 __wake_up+0x44/0x60 btrfs_encoded_read_endio+0x14b/0x190 [btrfs] btrfs_check_read_bio+0x8d9/0x1360 [btrfs] ? lock_release+0x1b0/0x780 ? trace_lock_acquire+0x12f/0x1a0 ? __pfx_btrfs_check_read_bio+0x10/0x10 [btrfs] ? process_one_work+0x7e3/0x1460 ? lock_acquire+0x31/0xc0 ? process_one_work+0x7e3/0x1460 process_one_work+0x85c/0x1460 ? __pfx_process_one_work+0x10/0x10 ? assign_work+0x16c/0x240 worker_thread+0x5e6/0xfc0 ? __pfx_worker_thread+0x10/0x10 kthread+0x2c3/0x3a0 ? __pfx_kthread+0x10/0x10 ret_from_fork+0x31/0x70 ? __pfx_kthread+0x10/0x10 ret_from_fork_asm+0x1a/0x30 </TASK>  Allocated by task 3661: kasan_save_stack+0x30/0x50 kasan_save_track+0x14/0x30 __kasan_kmalloc+0xaa/0xb0 btrfs_encoded_read_regular_fill_pages+0x16c/0x6d0 [btrfs] send_extent_data+0xf0f/0x24a0 [btrfs] process_extent+0x48a/0x1830 [btrfs] changed_cb+0x178b/0x2ea0 [btrfs] btrfs_ioctl_send+0x3bf9/0x5c20 [btrfs] _btrfs_ioctl_send+0x117/0x330 [btrfs] btrfs_ioctl+0x184a/0x60a0 [btrfs] __x64_sys_ioctl+0x12e/0x1a0 do_syscall_64+0x95/0x180 entry_SYSCALL_64_after_hwframe+0x76/0x7e  Freed by task 3661: kasan_save_stack+0x30/0x50 kasan_save_track+0x14/0x30 kasan_save_free_info+0x3b/0x70 __kasan_slab_free+0x4f/0x70 kfree+0x143/0x490 btrfs_encoded_read_regular_fill_pages+0x531/0x6d0 [btrfs] send_extent_data+0xf0f/0x24a0 [btrfs] process_extent+0x48a/0x1830 [btrfs] changed_cb+0x178b/0x2ea0 [btrfs] btrfs_ioctl_send+0x3bf9/0x5c20 [btrfs] _btrfs_ioctl_send+0x117/0x330 [btrfs] btrfs_ioctl+0x184a/0x60a0 [btrfs] __x64_sys_ioctl+0x12e/0x1a0 do_syscall_64+0x95/0x180 entry_SYSCALL_64_after_hwframe+0x76/0x7e  The buggy address belongs to the object at ffff888106a83f00 which belongs to the cache kmalloc-rnd-07-96 of size 96 The buggy address is located 24 bytes inside of freed 96-byte region [ffff888106a83f00, ffff888106a83f60)  The buggy address belongs to the physical page: page: refcount:1 mapcount:0 mapping:0000000000000000 index:0xffff888106a83800 pfn:0x106a83 flags: 0x17ffffc0000000(node=0|zone=2|lastcpupid=0x1fffff) page_type: f5(slab) raw: 0017ffffc0000000 ffff888100053680 ffffea0004917200 0000000000000004 raw: ffff888106a83800 0000000080200019 00000001f5000000 0000000000000000 page dumped because: kasan: bad access detected  Memory state around the buggy address: ffff888106a83e00: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc ffff888106a83e80: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc >ffff888106a83f00: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc ^ ffff888106a83f80: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc ffff888106a84000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ==================================================================  Further analyzing the trace and ---truncated---
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-53179?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 7.8: CVE--2024--53179" src="https://img.shields.io/badge/CVE--2024--53179-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
 
 <table>
@@ -585,63 +547,6 @@ In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix 
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  smb: client: fix use-after-free of signing key  Customers have reported use-after-free in @ses->auth_key.response with SMB2.1 + sign mounts which occurs due to following race:  task A                         task B cifs_mount() dfs_mount_share() get_session() cifs_mount_get_session()    cifs_send_recv() cifs_get_smb_ses()          compound_send_recv() cifs_setup_session()        smb2_setup_request() kfree_sensitive()           smb2_calc_signature() crypto_shash_setkey() *UAF*  Fix this by ensuring that we have a valid @ses->auth_key.response by checking whether @ses->ses_status is SES_GOOD or SES_EXITING with @ses->ses_lock held.  After commit 24a9799aa8ef ("smb: client: fix UAF in smb2_reconnect_server()"), we made sure to call ->logoff() only when @ses was known to be good (e.g. valid ->auth_key.response), so it's safe to access signing key when @ses->ses_status == SES_EXITING.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-53170?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--53170" src="https://img.shields.io/badge/CVE--2024--53170-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  block: fix uaf for flush rq while iterating tags  blk_mq_clear_flush_rq_mapping() is not called during scsi probe, by checking blk_queue_init_done(). However, QUEUE_FLAG_INIT_DONE is cleared in del_gendisk by commit aec89dc5d421 ("block: keep q_usage_counter in atomic mode after del_gendisk"), hence for disk like scsi, following blk_mq_destroy_queue() will not clear flush rq from tags->rqs[] as well, cause following uaf that is found by our syzkaller for v6.6:  ================================================================== BUG: KASAN: slab-use-after-free in blk_mq_find_and_get_req+0x16e/0x1a0 block/blk-mq-tag.c:261 Read of size 4 at addr ffff88811c969c20 by task kworker/1:2H/224909  CPU: 1 PID: 224909 Comm: kworker/1:2H Not tainted 6.6.0-ga836a5060850 #32 Workqueue: kblockd blk_mq_timeout_work Call Trace:  __dump_stack lib/dump_stack.c:88 [inline] dump_stack_lvl+0x91/0xf0 lib/dump_stack.c:106 print_address_description.constprop.0+0x66/0x300 mm/kasan/report.c:364 print_report+0x3e/0x70 mm/kasan/report.c:475 kasan_report+0xb8/0xf0 mm/kasan/report.c:588 blk_mq_find_and_get_req+0x16e/0x1a0 block/blk-mq-tag.c:261 bt_iter block/blk-mq-tag.c:288 [inline] __sbitmap_for_each_set include/linux/sbitmap.h:295 [inline] sbitmap_for_each_set include/linux/sbitmap.h:316 [inline] bt_for_each+0x455/0x790 block/blk-mq-tag.c:325 blk_mq_queue_tag_busy_iter+0x320/0x740 block/blk-mq-tag.c:534 blk_mq_timeout_work+0x1a3/0x7b0 block/blk-mq.c:1673 process_one_work+0x7c4/0x1450 kernel/workqueue.c:2631 process_scheduled_works kernel/workqueue.c:2704 [inline] worker_thread+0x804/0xe40 kernel/workqueue.c:2785 kthread+0x346/0x450 kernel/kthread.c:388 ret_from_fork+0x4d/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1b/0x30 arch/x86/entry/entry_64.S:293  Allocated by task 942: kasan_save_stack+0x22/0x50 mm/kasan/common.c:45 kasan_set_track+0x25/0x30 mm/kasan/common.c:52 ____kasan_kmalloc mm/kasan/common.c:374 [inline] __kasan_kmalloc mm/kasan/common.c:383 [inline] __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:380 kasan_kmalloc include/linux/kasan.h:198 [inline] __do_kmalloc_node mm/slab_common.c:1007 [inline] __kmalloc_node+0x69/0x170 mm/slab_common.c:1014 kmalloc_node include/linux/slab.h:620 [inline] kzalloc_node include/linux/slab.h:732 [inline] blk_alloc_flush_queue+0x144/0x2f0 block/blk-flush.c:499 blk_mq_alloc_hctx+0x601/0x940 block/blk-mq.c:3788 blk_mq_alloc_and_init_hctx+0x27f/0x330 block/blk-mq.c:4261 blk_mq_realloc_hw_ctxs+0x488/0x5e0 block/blk-mq.c:4294 blk_mq_init_allocated_queue+0x188/0x860 block/blk-mq.c:4350 blk_mq_init_queue_data block/blk-mq.c:4166 [inline] blk_mq_init_queue+0x8d/0x100 block/blk-mq.c:4176 scsi_alloc_sdev+0x843/0xd50 drivers/scsi/scsi_scan.c:335 scsi_probe_and_add_lun+0x77c/0xde0 drivers/scsi/scsi_scan.c:1189 __scsi_scan_target+0x1fc/0x5a0 drivers/scsi/scsi_scan.c:1727 scsi_scan_channel drivers/scsi/scsi_scan.c:1815 [inline] scsi_scan_channel+0x14b/0x1e0 drivers/scsi/scsi_scan.c:1791 scsi_scan_host_selected+0x2fe/0x400 drivers/scsi/scsi_scan.c:1844 scsi_scan+0x3a0/0x3f0 drivers/scsi/scsi_sysfs.c:151 store_scan+0x2a/0x60 drivers/scsi/scsi_sysfs.c:191 dev_attr_store+0x5c/0x90 drivers/base/core.c:2388 sysfs_kf_write+0x11c/0x170 fs/sysfs/file.c:136 kernfs_fop_write_iter+0x3fc/0x610 fs/kernfs/file.c:338 call_write_iter include/linux/fs.h:2083 [inline] new_sync_write+0x1b4/0x2d0 fs/read_write.c:493 vfs_write+0x76c/0xb00 fs/read_write.c:586 ksys_write+0x127/0x250 fs/read_write.c:639 do_syscall_x64 arch/x86/entry/common.c:51 [inline] do_syscall_64+0x70/0x120 arch/x86/entry/common.c:81 entry_SYSCALL_64_after_hwframe+0x78/0xe2  Freed by task 244687: kasan_save_stack+0x22/0x50 mm/kasan/common.c:45 kasan_set_track+0x25/0x30 mm/kasan/common.c:52 kasan_save_free_info+0x2b/0x50 mm/kasan/generic.c:522 ____kasan_slab_free mm/kasan/common.c:236 [inline] __kasan_slab_free+0x12a/0x1b0 mm/kasan/common.c:244 kasan_slab_free include/linux/kasan.h:164 [in ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-53165?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--53165" src="https://img.shields.io/badge/CVE--2024--53165-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  sh: intc: Fix use-after-free bug in register_intc_controller()  In the error handling for this function, d is freed without ever removing it from intc_list which would lead to a use after free. To fix this, let's only add it to the list after everything has succeeded.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-53156?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--53156" src="https://img.shields.io/badge/CVE--2024--53156-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  wifi: ath9k: add range check for conn_rsp_epid in htc_connect_service()  I found the following bug in my fuzzer:  UBSAN: array-index-out-of-bounds in drivers/net/wireless/ath/ath9k/htc_hst.c:26:51 index 255 is out of range for type 'htc_endpoint [22]' CPU: 0 UID: 0 PID: 8 Comm: kworker/0:0 Not tainted 6.11.0-rc6-dirty #14 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014 Workqueue: events request_firmware_work_func Call Trace: <TASK> dump_stack_lvl+0x180/0x1b0 __ubsan_handle_out_of_bounds+0xd4/0x130 htc_issue_send.constprop.0+0x20c/0x230 ? _raw_spin_unlock_irqrestore+0x3c/0x70 ath9k_wmi_cmd+0x41d/0x610 ? mark_held_locks+0x9f/0xe0 ...  Since this bug has been confirmed to be caused by insufficient verification of conn_rsp_epid, I think it would be appropriate to add a range check for conn_rsp_epid to htc_connect_service() to prevent the bug from occurring.
 
 </blockquote>
 </details>
@@ -680,234 +585,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/xe/ufen
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix use-after-free of block device file in __btrfs_free_extra_devids()  Mounting btrfs from two images (which have the same one fsid and two different dev_uuids) in certain executing order may trigger an UAF for variable 'device->bdev_file' in __btrfs_free_extra_devids(). And following are the details:  1. Attach image_1 to loop0, attach image_2 to loop1, and scan btrfs devices by ioctl(BTRFS_IOC_SCAN_DEV):  /  btrfs_device_1 ? loop0 fs_device \  btrfs_device_2 ? loop1 2. mount /dev/loop0 /mnt btrfs_open_devices btrfs_device_1->bdev_file = btrfs_get_bdev_and_sb(loop0) btrfs_device_2->bdev_file = btrfs_get_bdev_and_sb(loop1) btrfs_fill_super open_ctree fail: btrfs_close_devices // -ENOMEM btrfs_close_bdev(btrfs_device_1) fput(btrfs_device_1->bdev_file) // btrfs_device_1->bdev_file is freed btrfs_close_bdev(btrfs_device_2) fput(btrfs_device_2->bdev_file)  3. mount /dev/loop1 /mnt btrfs_open_devices btrfs_get_bdev_and_sb(&bdev_file) // EIO, btrfs_device_1->bdev_file is not assigned, // which points to a freed memory area btrfs_device_2->bdev_file = btrfs_get_bdev_and_sb(loop1) btrfs_fill_super open_ctree btrfs_free_extra_devids if (btrfs_device_1->bdev_file) fput(btrfs_device_1->bdev_file) // UAF !  Fix it by setting 'device->bdev_file' as 'NULL' after closing the btrfs_device in btrfs_close_one_device().
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50186?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50186" src="https://img.shields.io/badge/CVE--2024--50186-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: explicitly clear the sk pointer, when pf->create fails  We have recently noticed the exact same KASAN splat as in commit 6cd4a78d962b ("net: do not leave a dangling sk pointer, when socket creation fails"). The problem is that commit did not fully address the problem, as some pf->create implementations do not use sk_common_release in their error paths.  For example, we can use the same reproducer as in the above commit, but changing ping to arping. arping uses AF_PACKET socket and if packet_create fails, it will just sk_free the allocated sk object.  While we could chase all the pf->create implementations and make sure they NULL the freed sk object on error from the socket, we can't guarantee future protocols will not make the same mistake.  So it is easier to just explicitly NULL the sk pointer upon return from pf->create in __sock_create. We do know that pf->create always releases the allocated sk object on error, so if the pointer is not NULL, it is definitely dangling.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50180?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50180" src="https://img.shields.io/badge/CVE--2024--50180-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  fbdev: sisfb: Fix strbuf array overflow  The values of the variables xres and yres are placed in strbuf. These variables are obtained from strbuf1. The strbuf1 array contains digit characters and a space if the array contains non-digit characters. Then, when executing sprintf(strbuf, "%ux%ux8", xres, yres); more than 16 bytes will be written to strbuf. It is suggested to increase the size of the strbuf array to 24.  Found by Linux Verification Center (linuxtesting.org) with SVACE.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50088?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50088" src="https://img.shields.io/badge/CVE--2024--50088-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix uninitialized pointer free in add_inode_ref()  The add_inode_ref() function does not initialize the "name" struct when it is declared.  If any of the following calls to "read_one_inode() returns NULL,  dir = read_one_inode(root, parent_objectid); if (!dir) { ret = -ENOENT; goto out; }  inode = read_one_inode(root, inode_objectid); if (!inode) { ret = -EIO; goto out; }  then "name.name" would be freed on "out" before being initialized.  out: ... kfree(name.name);  This issue was reported by Coverity with CID 1526744.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50074?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50074" src="https://img.shields.io/badge/CVE--2024--50074-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  parport: Proper fix for array out-of-bounds access  The recent fix for array out-of-bounds accesses replaced sprintf() calls blindly with snprintf().  However, since snprintf() returns the would-be-printed size, not the actually output size, the length calculation can still go over the given limit.  Use scnprintf() instead of snprintf(), which returns the actually output letters, for addressing the potential out-of-bounds access properly.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50073?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50073" src="https://img.shields.io/badge/CVE--2024--50073-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.013%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  tty: n_gsm: Fix use-after-free in gsm_cleanup_mux  BUG: KASAN: slab-use-after-free in gsm_cleanup_mux+0x77b/0x7b0 drivers/tty/n_gsm.c:3160 [n_gsm] Read of size 8 at addr ffff88815fe99c00 by task poc/3379 CPU: 0 UID: 0 PID: 3379 Comm: poc Not tainted 6.11.0+ #56 Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 11/12/2020 Call Trace: <TASK> gsm_cleanup_mux+0x77b/0x7b0 drivers/tty/n_gsm.c:3160 [n_gsm] __pfx_gsm_cleanup_mux+0x10/0x10 drivers/tty/n_gsm.c:3124 [n_gsm] __pfx_sched_clock_cpu+0x10/0x10 kernel/sched/clock.c:389 update_load_avg+0x1c1/0x27b0 kernel/sched/fair.c:4500 __pfx_min_vruntime_cb_rotate+0x10/0x10 kernel/sched/fair.c:846 __rb_insert_augmented+0x492/0xbf0 lib/rbtree.c:161 gsmld_ioctl+0x395/0x1450 drivers/tty/n_gsm.c:3408 [n_gsm] _raw_spin_lock_irqsave+0x92/0xf0 arch/x86/include/asm/atomic.h:107 __pfx_gsmld_ioctl+0x10/0x10 drivers/tty/n_gsm.c:3822 [n_gsm] ktime_get+0x5e/0x140 kernel/time/timekeeping.c:195 ldsem_down_read+0x94/0x4e0 arch/x86/include/asm/atomic64_64.h:79 __pfx_ldsem_down_read+0x10/0x10 drivers/tty/tty_ldsem.c:338 __pfx_do_vfs_ioctl+0x10/0x10 fs/ioctl.c:805 tty_ioctl+0x643/0x1100 drivers/tty/tty_io.c:2818  Allocated by task 65: gsm_data_alloc.constprop.0+0x27/0x190 drivers/tty/n_gsm.c:926 [n_gsm] gsm_send+0x2c/0x580 drivers/tty/n_gsm.c:819 [n_gsm] gsm1_receive+0x547/0xad0 drivers/tty/n_gsm.c:3038 [n_gsm] gsmld_receive_buf+0x176/0x280 drivers/tty/n_gsm.c:3609 [n_gsm] tty_ldisc_receive_buf+0x101/0x1e0 drivers/tty/tty_buffer.c:391 tty_port_default_receive_buf+0x61/0xa0 drivers/tty/tty_port.c:39 flush_to_ldisc+0x1b0/0x750 drivers/tty/tty_buffer.c:445 process_scheduled_works+0x2b0/0x10d0 kernel/workqueue.c:3229 worker_thread+0x3dc/0x950 kernel/workqueue.c:3391 kthread+0x2a3/0x370 kernel/kthread.c:389 ret_from_fork+0x2d/0x70 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:257  Freed by task 3367: kfree+0x126/0x420 mm/slub.c:4580 gsm_cleanup_mux+0x36c/0x7b0 drivers/tty/n_gsm.c:3160 [n_gsm] gsmld_ioctl+0x395/0x1450 drivers/tty/n_gsm.c:3408 [n_gsm] tty_ioctl+0x643/0x1100 drivers/tty/tty_io.c:2818  [Analysis] gsm_msg on the tx_ctrl_list or tx_data_list of gsm_mux can be freed by multi threads through ioctl,which leads to the occurrence of uaf. Protect it by gsm tx lock.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50063?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50063" src="https://img.shields.io/badge/CVE--2024--50063-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  bpf: Prevent tail call between progs attached to different hooks  bpf progs can be attached to kernel functions, and the attached functions can take different parameters or return different return values. If prog attached to one kernel function tail calls prog attached to another kernel function, the ctx access or return value verification could be bypassed.  For example, if prog1 is attached to func1 which takes only 1 parameter and prog2 is attached to func2 which takes two parameters. Since verifier assumes the bpf ctx passed to prog2 is constructed based on func2's prototype, verifier allows prog2 to access the second parameter from the bpf ctx passed to it. The problem is that verifier does not prevent prog1 from passing its bpf ctx to prog2 via tail call. In this case, the bpf ctx passed to prog2 is constructed from func1 instead of func2, that is, the assumption for ctx access verification is bypassed.  Another example, if BPF LSM prog1 is attached to hook file_alloc_security, and BPF LSM prog2 is attached to hook bpf_lsm_audit_rule_known. Verifier knows the return value rules for these two hooks, e.g. it is legal for bpf_lsm_audit_rule_known to return positive number 1, and it is illegal for file_alloc_security to return positive number. So verifier allows prog2 to return positive number 1, but does not allow prog1 to return positive number. The problem is that verifier does not prevent prog1 from calling prog2 via tail call. In this case, prog2's return value 1 will be used as the return value for prog1's hook file_alloc_security. That is, the return value rule is bypassed.  This patch adds restriction for tail call to prevent such bypasses.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50055?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50055" src="https://img.shields.io/badge/CVE--2024--50055-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  driver core: bus: Fix double free in driver API bus_register()  For bus_register(), any error which happens after kset_register() will cause that @priv are freed twice, fixed by setting @priv with NULL after the first free.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50047?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50047" src="https://img.shields.io/badge/CVE--2024--50047-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  smb: client: fix UAF in async decryption  Doing an async decryption (large read) crashes with a slab-use-after-free way down in the crypto API.  Reproducer: # mount.cifs -o ...,seal,esize=1 //srv/share /mnt # dd if=/mnt/largefile of=/dev/null ... [  194.196391] ================================================================== [  194.196844] BUG: KASAN: slab-use-after-free in gf128mul_4k_lle+0xc1/0x110 [  194.197269] Read of size 8 at addr ffff888112bd0448 by task kworker/u77:2/899 [  194.197707] [  194.197818] CPU: 12 UID: 0 PID: 899 Comm: kworker/u77:2 Not tainted 6.11.0-lku-00028-gfca3ca14a17a-dirty #43 [  194.198400] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS rel-1.16.2-3-gd478f380-prebuilt.qemu.org 04/01/2014 [  194.199046] Workqueue: smb3decryptd smb2_decrypt_offload [cifs] [  194.200032] Call Trace: [  194.200191]  <TASK> [  194.200327]  dump_stack_lvl+0x4e/0x70 [  194.200558]  ? gf128mul_4k_lle+0xc1/0x110 [  194.200809]  print_report+0x174/0x505 [  194.201040]  ? __pfx__raw_spin_lock_irqsave+0x10/0x10 [  194.201352]  ? srso_return_thunk+0x5/0x5f [  194.201604]  ? __virt_addr_valid+0xdf/0x1c0 [  194.201868]  ? gf128mul_4k_lle+0xc1/0x110 [  194.202128]  kasan_report+0xc8/0x150 [  194.202361]  ? gf128mul_4k_lle+0xc1/0x110 [  194.202616]  gf128mul_4k_lle+0xc1/0x110 [  194.202863]  ghash_update+0x184/0x210 [  194.203103]  shash_ahash_update+0x184/0x2a0 [  194.203377]  ? __pfx_shash_ahash_update+0x10/0x10 [  194.203651]  ? srso_return_thunk+0x5/0x5f [  194.203877]  ? crypto_gcm_init_common+0x1ba/0x340 [  194.204142]  gcm_hash_assoc_remain_continue+0x10a/0x140 [  194.204434]  crypt_message+0xec1/0x10a0 [cifs] [  194.206489]  ? __pfx_crypt_message+0x10/0x10 [cifs] [  194.208507]  ? srso_return_thunk+0x5/0x5f [  194.209205]  ? srso_return_thunk+0x5/0x5f [  194.209925]  ? srso_return_thunk+0x5/0x5f [  194.210443]  ? srso_return_thunk+0x5/0x5f [  194.211037]  decrypt_raw_data+0x15f/0x250 [cifs] [  194.212906]  ? __pfx_decrypt_raw_data+0x10/0x10 [cifs] [  194.214670]  ? srso_return_thunk+0x5/0x5f [  194.215193]  smb2_decrypt_offload+0x12a/0x6c0 [cifs]  This is because TFM is being used in parallel.  Fix this by allocating a new AEAD TFM for async decryption, but keep the existing one for synchronous READ cases (similar to what is done in smb3_calc_signature()).  Also remove the calls to aead_request_set_callback() and crypto_wait_req() since it's always going to be a synchronous operation.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50030?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50030" src="https://img.shields.io/badge/CVE--2024--50030-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/xe/ct: prevent UAF in send_recv()  Ensure we serialize with completion side to prevent UAF with fence going out of scope on the stack, since we have no clue if it will fire after the timeout before we can erase from the xa. Also we have some dependent loads and stores for which we need the correct ordering, and we lack the needed barriers. Fix this by grabbing the ct->lock after the wait, which is also held by the completion side.  v2 (Badal): - Also print done after acquiring the lock and seeing timeout.  (cherry picked from commit 52789ce35c55ccd30c4b67b9cc5b2af55e0122ea)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50029?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--50029" src="https://img.shields.io/badge/CVE--2024--50029-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: hci_conn: Fix UAF in hci_enhanced_setup_sync  This checks if the ACL connection remains valid as it could be destroyed while hci_enhanced_setup_sync is pending on cmd_sync leading to the following trace:  BUG: KASAN: slab-use-after-free in hci_enhanced_setup_sync+0x91b/0xa60 Read of size 1 at addr ffff888002328ffd by task kworker/u5:2/37  CPU: 0 UID: 0 PID: 37 Comm: kworker/u5:2 Not tainted 6.11.0-rc6-01300-g810be445d8d6 #7099 Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-2.fc40 04/01/2014 Workqueue: hci0 hci_cmd_sync_work Call Trace: <TASK> dump_stack_lvl+0x5d/0x80 ? hci_enhanced_setup_sync+0x91b/0xa60 print_report+0x152/0x4c0 ? hci_enhanced_setup_sync+0x91b/0xa60 ? __virt_addr_valid+0x1fa/0x420 ? hci_enhanced_setup_sync+0x91b/0xa60 kasan_report+0xda/0x1b0 ? hci_enhanced_setup_sync+0x91b/0xa60 hci_enhanced_setup_sync+0x91b/0xa60 ? __pfx_hci_enhanced_setup_sync+0x10/0x10 ? __pfx___mutex_lock+0x10/0x10 hci_cmd_sync_work+0x1c2/0x330 process_one_work+0x7d9/0x1360 ? __pfx_lock_acquire+0x10/0x10 ? __pfx_process_one_work+0x10/0x10 ? assign_work+0x167/0x240 worker_thread+0x5b7/0xf60 ? __kthread_parkme+0xac/0x1c0 ? __pfx_worker_thread+0x10/0x10 ? __pfx_worker_thread+0x10/0x10 kthread+0x293/0x360 ? __pfx_kthread+0x10/0x10 ret_from_fork+0x2f/0x70 ? __pfx_kthread+0x10/0x10 ret_from_fork_asm+0x1a/0x30 </TASK>  Allocated by task 34: kasan_save_stack+0x30/0x50 kasan_save_track+0x14/0x30 __kasan_kmalloc+0x8f/0xa0 __hci_conn_add+0x187/0x17d0 hci_connect_sco+0x2e1/0xb90 sco_sock_connect+0x2a2/0xb80 __sys_connect+0x227/0x2a0 __x64_sys_connect+0x6d/0xb0 do_syscall_64+0x71/0x140 entry_SYSCALL_64_after_hwframe+0x76/0x7e  Freed by task 37: kasan_save_stack+0x30/0x50 kasan_save_track+0x14/0x30 kasan_save_free_info+0x3b/0x60 __kasan_slab_free+0x101/0x160 kfree+0xd0/0x250 device_release+0x9a/0x210 kobject_put+0x151/0x280 hci_conn_del+0x448/0xbf0 hci_abort_conn_sync+0x46f/0x980 hci_cmd_sync_work+0x1c2/0x330 process_one_work+0x7d9/0x1360 worker_thread+0x5b7/0xf60 kthread+0x293/0x360 ret_from_fork+0x2f/0x70 ret_from_fork_asm+0x1a/0x30
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-49865?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--49865" src="https://img.shields.io/badge/CVE--2024--49865-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.035%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/xe/vm: move xa_alloc to prevent UAF  Evil user can guess the next id of the vm before the ioctl completes and then call vm destroy ioctl to trigger UAF since create ioctl is still referencing the same vm. Move the xa_alloc all the way to the end to prevent this.  v2: - Rebase  (cherry picked from commit dcfd3971327f3ee92765154baebbaece833d3ca9)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-47711?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.8: CVE--2024--47711" src="https://img.shields.io/badge/CVE--2024--47711-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  af_unix: Don't return OOB skb in manage_oob().  syzbot reported use-after-free in unix_stream_recv_urg(). [0]  The scenario is  1. send(MSG_OOB) 2. recv(MSG_OOB) -> The consumed OOB remains in recv queue 3. send(MSG_OOB) 4. recv() -> manage_oob() returns the next skb of the consumed OOB -> This is also OOB, but unix_sk(sk)->oob_skb is not cleared 5. recv(MSG_OOB) -> unix_sk(sk)->oob_skb is used but already freed  The recent commit 8594d9b85c07 ("af_unix: Don't call skb_get() for OOB skb.") uncovered the issue.  If the OOB skb is consumed and the next skb is peeked in manage_oob(), we still need to check if the skb is OOB.  Let's do so by falling back to the following checks in manage_oob() and add the test case in selftest.  Note that we need to add a similar check for SIOCATMARK.  [0]: BUG: KASAN: slab-use-after-free in unix_stream_read_actor+0xa6/0xb0 net/unix/af_unix.c:2959 Read of size 4 at addr ffff8880326abcc4 by task syz-executor178/5235  CPU: 0 UID: 0 PID: 5235 Comm: syz-executor178 Not tainted 6.11.0-rc5-syzkaller-00742-gfbdaffe41adc #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/06/2024 Call Trace: <TASK> __dump_stack lib/dump_stack.c:93 [inline] dump_stack_lvl+0x241/0x360 lib/dump_stack.c:119 print_address_description mm/kasan/report.c:377 [inline] print_report+0x169/0x550 mm/kasan/report.c:488 kasan_report+0x143/0x180 mm/kasan/report.c:601 unix_stream_read_actor+0xa6/0xb0 net/unix/af_unix.c:2959 unix_stream_recv_urg+0x1df/0x320 net/unix/af_unix.c:2640 unix_stream_read_generic+0x2456/0x2520 net/unix/af_unix.c:2778 unix_stream_recvmsg+0x22b/0x2c0 net/unix/af_unix.c:2996 sock_recvmsg_nosec net/socket.c:1046 [inline] sock_recvmsg+0x22f/0x280 net/socket.c:1068 ____sys_recvmsg+0x1db/0x470 net/socket.c:2816 ___sys_recvmsg net/socket.c:2858 [inline] __sys_recvmsg+0x2f0/0x3e0 net/socket.c:2888 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f RIP: 0033:0x7f5360d6b4e9 Code: 48 83 c4 28 c3 e8 37 17 00 00 0f 1f 80 00 00 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48 RSP: 002b:00007fff29b3a458 EFLAGS: 00000246 ORIG_RAX: 000000000000002f RAX: ffffffffffffffda RBX: 00007fff29b3a638 RCX: 00007f5360d6b4e9 RDX: 0000000000002001 RSI: 0000000020000640 RDI: 0000000000000003 RBP: 00007f5360dde610 R08: 0000000000000000 R09: 0000000000000000 R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000001 R13: 00007fff29b3a628 R14: 0000000000000001 R15: 0000000000000001 </TASK>  Allocated by task 5235: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x3f/0x80 mm/kasan/common.c:68 unpoison_slab_object mm/kasan/common.c:312 [inline] __kasan_slab_alloc+0x66/0x80 mm/kasan/common.c:338 kasan_slab_alloc include/linux/kasan.h:201 [inline] slab_post_alloc_hook mm/slub.c:3988 [inline] slab_alloc_node mm/slub.c:4037 [inline] kmem_cache_alloc_node_noprof+0x16b/0x320 mm/slub.c:4080 __alloc_skb+0x1c3/0x440 net/core/skbuff.c:667 alloc_skb include/linux/skbuff.h:1320 [inline] alloc_skb_with_frags+0xc3/0x770 net/core/skbuff.c:6528 sock_alloc_send_pskb+0x91a/0xa60 net/core/sock.c:2815 sock_alloc_send_skb include/net/sock.h:1778 [inline] queue_oob+0x108/0x680 net/unix/af_unix.c:2198 unix_stream_sendmsg+0xd24/0xf80 net/unix/af_unix.c:2351 sock_sendmsg_nosec net/socket.c:730 [inline] __sock_sendmsg+0x221/0x270 net/socket.c:745 ____sys_sendmsg+0x525/0x7d0 net/socket.c:2597 ___sys_sendmsg net/socket.c:2651 [inline] __sys_sendmsg+0x2b0/0x3a0 net/socket.c:2680 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f  Freed by task 5235: kasan_save_stack mm/kasan/common.c:47 ---truncated---
 
 </blockquote>
 </details>
@@ -1117,25 +794,6 @@ A double-free flaw was found in the Linux kernel’s NTFS3 subsystem in how a us
 <blockquote>
 
 A flaw null pointer dereference in the Linux kernel cgroupv2 subsystem in versions before 5.7.10 was found in the way when reboot the system. A local user could use this flaw to crash the system or escalate their privileges on the system.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50083?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.5: CVE--2024--50083" src="https://img.shields.io/badge/CVE--2024--50083-lightgrey?label=medium%207.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.130%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  tcp: fix mptcp DSS corruption due to large pmtu xmit  Syzkaller was able to trigger a DSS corruption:  TCP: request_sock_subflow_v4: Possible SYN flooding on port [::]:20002. Sending cookies. ------------[ cut here ]------------ WARNING: CPU: 0 PID: 5227 at net/mptcp/protocol.c:695 __mptcp_move_skbs_from_subflow+0x20a9/0x21f0 net/mptcp/protocol.c:695 Modules linked in: CPU: 0 UID: 0 PID: 5227 Comm: syz-executor350 Not tainted 6.11.0-syzkaller-08829-gaf9c191ac2a0 #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/06/2024 RIP: 0010:__mptcp_move_skbs_from_subflow+0x20a9/0x21f0 net/mptcp/protocol.c:695 Code: 0f b6 dc 31 ff 89 de e8 b5 dd ea f5 89 d8 48 81 c4 50 01 00 00 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc e8 98 da ea f5 90 <0f> 0b 90 e9 47 ff ff ff e8 8a da ea f5 90 0f 0b 90 e9 99 e0 ff ff RSP: 0018:ffffc90000006db8 EFLAGS: 00010246 RAX: ffffffff8ba9df18 RBX: 00000000000055f0 RCX: ffff888030023c00 RDX: 0000000000000100 RSI: 00000000000081e5 RDI: 00000000000055f0 RBP: 1ffff110062bf1ae R08: ffffffff8ba9cf12 R09: 1ffff110062bf1b8 R10: dffffc0000000000 R11: ffffed10062bf1b9 R12: 0000000000000000 R13: dffffc0000000000 R14: 00000000700cec61 R15: 00000000000081e5 FS:  000055556679c380(0000) GS:ffff8880b8600000(0000) knlGS:0000000000000000 CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 0000000020287000 CR3: 0000000077892000 CR4: 00000000003506f0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <IRQ> move_skbs_to_msk net/mptcp/protocol.c:811 [inline] mptcp_data_ready+0x29c/0xa90 net/mptcp/protocol.c:854 subflow_data_ready+0x34a/0x920 net/mptcp/subflow.c:1490 tcp_data_queue+0x20fd/0x76c0 net/ipv4/tcp_input.c:5283 tcp_rcv_established+0xfba/0x2020 net/ipv4/tcp_input.c:6237 tcp_v4_do_rcv+0x96d/0xc70 net/ipv4/tcp_ipv4.c:1915 tcp_v4_rcv+0x2dc0/0x37f0 net/ipv4/tcp_ipv4.c:2350 ip_protocol_deliver_rcu+0x22e/0x440 net/ipv4/ip_input.c:205 ip_local_deliver_finish+0x341/0x5f0 net/ipv4/ip_input.c:233 NF_HOOK+0x3a4/0x450 include/linux/netfilter.h:314 NF_HOOK+0x3a4/0x450 include/linux/netfilter.h:314 __netif_receive_skb_one_core net/core/dev.c:5662 [inline] __netif_receive_skb+0x2bf/0x650 net/core/dev.c:5775 process_backlog+0x662/0x15b0 net/core/dev.c:6107 __napi_poll+0xcb/0x490 net/core/dev.c:6771 napi_poll net/core/dev.c:6840 [inline] net_rx_action+0x89b/0x1240 net/core/dev.c:6962 handle_softirqs+0x2c5/0x980 kernel/softirq.c:554 do_softirq+0x11b/0x1e0 kernel/softirq.c:455 </IRQ> <TASK> __local_bh_enable_ip+0x1bb/0x200 kernel/softirq.c:382 local_bh_enable include/linux/bottom_half.h:33 [inline] rcu_read_unlock_bh include/linux/rcupdate.h:919 [inline] __dev_queue_xmit+0x1764/0x3e80 net/core/dev.c:4451 dev_queue_xmit include/linux/netdevice.h:3094 [inline] neigh_hh_output include/net/neighbour.h:526 [inline] neigh_output include/net/neighbour.h:540 [inline] ip_finish_output2+0xd41/0x1390 net/ipv4/ip_output.c:236 ip_local_out net/ipv4/ip_output.c:130 [inline] __ip_queue_xmit+0x118c/0x1b80 net/ipv4/ip_output.c:536 __tcp_transmit_skb+0x2544/0x3b30 net/ipv4/tcp_output.c:1466 tcp_transmit_skb net/ipv4/tcp_output.c:1484 [inline] tcp_mtu_probe net/ipv4/tcp_output.c:2547 [inline] tcp_write_xmit+0x641d/0x6bf0 net/ipv4/tcp_output.c:2752 __tcp_push_pending_frames+0x9b/0x360 net/ipv4/tcp_output.c:3015 tcp_push_pending_frames include/net/tcp.h:2107 [inline] tcp_data_snd_check net/ipv4/tcp_input.c:5714 [inline] tcp_rcv_established+0x1026/0x2020 net/ipv4/tcp_input.c:6239 tcp_v4_do_rcv+0x96d/0xc70 net/ipv4/tcp_ipv4.c:1915 sk_backlog_rcv include/net/sock.h:1113 [inline] __release_sock+0x214/0x350 net/core/sock.c:3072 release_sock+0x61/0x1f0 net/core/sock.c:3626 mptcp_push_ ---truncated---
 
 </blockquote>
 </details>
@@ -1444,101 +1102,6 @@ In the Linux kernel, the following vulnerability has been resolved:  iio: adc: t
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-56663?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.1: CVE--2024--56663" src="https://img.shields.io/badge/CVE--2024--56663-lightgrey?label=medium%207.1&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  wifi: nl80211: fix NL80211_ATTR_MLO_LINK_ID off-by-one  Since the netlink attribute range validation provides inclusive checking, the *max* of attribute NL80211_ATTR_MLO_LINK_ID should be IEEE80211_MLD_MAX_NUM_LINKS - 1 otherwise causing an off-by-one.  One crash stack for demonstration: ================================================================== BUG: KASAN: wild-memory-access in ieee80211_tx_control_port+0x3b6/0xca0 net/mac80211/tx.c:5939 Read of size 6 at addr 001102080000000c by task fuzzer.386/9508  CPU: 1 PID: 9508 Comm: syz.1.386 Not tainted 6.1.70 #2 Call Trace: <TASK> __dump_stack lib/dump_stack.c:88 [inline] dump_stack_lvl+0x177/0x231 lib/dump_stack.c:106 print_report+0xe0/0x750 mm/kasan/report.c:398 kasan_report+0x139/0x170 mm/kasan/report.c:495 kasan_check_range+0x287/0x290 mm/kasan/generic.c:189 memcpy+0x25/0x60 mm/kasan/shadow.c:65 ieee80211_tx_control_port+0x3b6/0xca0 net/mac80211/tx.c:5939 rdev_tx_control_port net/wireless/rdev-ops.h:761 [inline] nl80211_tx_control_port+0x7b3/0xc40 net/wireless/nl80211.c:15453 genl_family_rcv_msg_doit+0x22e/0x320 net/netlink/genetlink.c:756 genl_family_rcv_msg net/netlink/genetlink.c:833 [inline] genl_rcv_msg+0x539/0x740 net/netlink/genetlink.c:850 netlink_rcv_skb+0x1de/0x420 net/netlink/af_netlink.c:2508 genl_rcv+0x24/0x40 net/netlink/genetlink.c:861 netlink_unicast_kernel net/netlink/af_netlink.c:1326 [inline] netlink_unicast+0x74b/0x8c0 net/netlink/af_netlink.c:1352 netlink_sendmsg+0x882/0xb90 net/netlink/af_netlink.c:1874 sock_sendmsg_nosec net/socket.c:716 [inline] __sock_sendmsg net/socket.c:728 [inline] ____sys_sendmsg+0x5cc/0x8f0 net/socket.c:2499 ___sys_sendmsg+0x21c/0x290 net/socket.c:2553 __sys_sendmsg net/socket.c:2582 [inline] __do_sys_sendmsg net/socket.c:2591 [inline] __se_sys_sendmsg+0x19e/0x270 net/socket.c:2589 do_syscall_x64 arch/x86/entry/common.c:51 [inline] do_syscall_64+0x45/0x90 arch/x86/entry/common.c:81 entry_SYSCALL_64_after_hwframe+0x63/0xcd  Update the policy to ensure correct validation.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50193?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.1: CVE--2024--50193" src="https://img.shields.io/badge/CVE--2024--50193-lightgrey?label=medium%207.1&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  x86/entry_32: Clear CPU buffers after register restore in NMI return  CPU buffers are currently cleared after call to exc_nmi, but before register state is restored. This may be okay for MDS mitigation but not for RDFS. Because RDFS mitigation requires CPU buffers to be cleared when registers don't have any sensitive data.  Move CLEAR_CPU_BUFFERS after RESTORE_ALL_NMI.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50042?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.1: CVE--2024--50042" src="https://img.shields.io/badge/CVE--2024--50042-lightgrey?label=medium%207.1&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ice: Fix increasing MSI-X on VF  Increasing MSI-X value on a VF leads to invalid memory operations. This is caused by not reallocating some arrays.  Reproducer: modprobe ice echo 0 > /sys/bus/pci/devices/$PF_PCI/sriov_drivers_autoprobe echo 1 > /sys/bus/pci/devices/$PF_PCI/sriov_numvfs echo 17 > /sys/bus/pci/devices/$VF0_PCI/sriov_vf_msix_count  Default MSI-X is 16, so 17 and above triggers this issue.  KASAN reports:  BUG: KASAN: slab-out-of-bounds in ice_vsi_alloc_ring_stats+0x38d/0x4b0 [ice] Read of size 8 at addr ffff8888b937d180 by task bash/28433 (...)  Call Trace: (...) ? ice_vsi_alloc_ring_stats+0x38d/0x4b0 [ice] kasan_report+0xed/0x120 ? ice_vsi_alloc_ring_stats+0x38d/0x4b0 [ice] ice_vsi_alloc_ring_stats+0x38d/0x4b0 [ice] ice_vsi_cfg_def+0x3360/0x4770 [ice] ? mutex_unlock+0x83/0xd0 ? __pfx_ice_vsi_cfg_def+0x10/0x10 [ice] ? __pfx_ice_remove_vsi_lkup_fltr+0x10/0x10 [ice] ice_vsi_cfg+0x7f/0x3b0 [ice] ice_vf_reconfig_vsi+0x114/0x210 [ice] ice_sriov_set_msix_vec_count+0x3d0/0x960 [ice] sriov_vf_msix_count_store+0x21c/0x300 (...)  Allocated by task 28201: (...) ice_vsi_cfg_def+0x1c8e/0x4770 [ice] ice_vsi_cfg+0x7f/0x3b0 [ice] ice_vsi_setup+0x179/0xa30 [ice] ice_sriov_configure+0xcaa/0x1520 [ice] sriov_numvfs_store+0x212/0x390 (...)  To fix it, use ice_vsi_rebuild() instead of ice_vf_reconfig_vsi(). This causes the required arrays to be reallocated taking the new queue count into account (ice_vsi_realloc_stat_arrays()). Set req_txq and req_rxq before ice_vsi_rebuild(), so that realloc uses the newly set queue count.  Additionally, ice_vsi_rebuild() does not remove VSI filters (ice_fltr_remove_all()), so ice_vf_init_host_cfg() is no longer necessary.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50035?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.1: CVE--2024--50035" src="https://img.shields.io/badge/CVE--2024--50035-lightgrey?label=medium%207.1&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ppp: fix ppp_async_encode() illegal access  syzbot reported an issue in ppp_async_encode() [1]  In this case, pppoe_sendmsg() is called with a zero size. Then ppp_async_encode() is called with an empty skb.  BUG: KMSAN: uninit-value in ppp_async_encode drivers/net/ppp/ppp_async.c:545 [inline] BUG: KMSAN: uninit-value in ppp_async_push+0xb4f/0x2660 drivers/net/ppp/ppp_async.c:675 ppp_async_encode drivers/net/ppp/ppp_async.c:545 [inline] ppp_async_push+0xb4f/0x2660 drivers/net/ppp/ppp_async.c:675 ppp_async_send+0x130/0x1b0 drivers/net/ppp/ppp_async.c:634 ppp_channel_bridge_input drivers/net/ppp/ppp_generic.c:2280 [inline] ppp_input+0x1f1/0xe60 drivers/net/ppp/ppp_generic.c:2304 pppoe_rcv_core+0x1d3/0x720 drivers/net/ppp/pppoe.c:379 sk_backlog_rcv+0x13b/0x420 include/net/sock.h:1113 __release_sock+0x1da/0x330 net/core/sock.c:3072 release_sock+0x6b/0x250 net/core/sock.c:3626 pppoe_sendmsg+0x2b8/0xb90 drivers/net/ppp/pppoe.c:903 sock_sendmsg_nosec net/socket.c:729 [inline] __sock_sendmsg+0x30f/0x380 net/socket.c:744 ____sys_sendmsg+0x903/0xb60 net/socket.c:2602 ___sys_sendmsg+0x28d/0x3c0 net/socket.c:2656 __sys_sendmmsg+0x3c1/0x960 net/socket.c:2742 __do_sys_sendmmsg net/socket.c:2771 [inline] __se_sys_sendmmsg net/socket.c:2768 [inline] __x64_sys_sendmmsg+0xbc/0x120 net/socket.c:2768 x64_sys_call+0xb6e/0x3ba0 arch/x86/include/generated/asm/syscalls_64.h:308 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xcd/0x1e0 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f  Uninit was created at: slab_post_alloc_hook mm/slub.c:4092 [inline] slab_alloc_node mm/slub.c:4135 [inline] kmem_cache_alloc_node_noprof+0x6bf/0xb80 mm/slub.c:4187 kmalloc_reserve+0x13d/0x4a0 net/core/skbuff.c:587 __alloc_skb+0x363/0x7b0 net/core/skbuff.c:678 alloc_skb include/linux/skbuff.h:1322 [inline] sock_wmalloc+0xfe/0x1a0 net/core/sock.c:2732 pppoe_sendmsg+0x3a7/0xb90 drivers/net/ppp/pppoe.c:867 sock_sendmsg_nosec net/socket.c:729 [inline] __sock_sendmsg+0x30f/0x380 net/socket.c:744 ____sys_sendmsg+0x903/0xb60 net/socket.c:2602 ___sys_sendmsg+0x28d/0x3c0 net/socket.c:2656 __sys_sendmmsg+0x3c1/0x960 net/socket.c:2742 __do_sys_sendmmsg net/socket.c:2771 [inline] __se_sys_sendmmsg net/socket.c:2768 [inline] __x64_sys_sendmmsg+0xbc/0x120 net/socket.c:2768 x64_sys_call+0xb6e/0x3ba0 arch/x86/include/generated/asm/syscalls_64.h:308 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xcd/0x1e0 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f  CPU: 1 UID: 0 PID: 5411 Comm: syz.1.14 Not tainted 6.12.0-rc1-syzkaller-00165-g360c1f1f24c6 #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50033?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.1: CVE--2024--50033" src="https://img.shields.io/badge/CVE--2024--50033-lightgrey?label=medium%207.1&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  slip: make slhc_remember() more robust against malicious packets  syzbot found that slhc_remember() was missing checks against malicious packets [1].  slhc_remember() only checked the size of the packet was at least 20, which is not good enough.  We need to make sure the packet includes the IPv4 and TCP header that are supposed to be carried.  Add iph and th pointers to make the code more readable.  [1]  BUG: KMSAN: uninit-value in slhc_remember+0x2e8/0x7b0 drivers/net/slip/slhc.c:666 slhc_remember+0x2e8/0x7b0 drivers/net/slip/slhc.c:666 ppp_receive_nonmp_frame+0xe45/0x35e0 drivers/net/ppp/ppp_generic.c:2455 ppp_receive_frame drivers/net/ppp/ppp_generic.c:2372 [inline] ppp_do_recv+0x65f/0x40d0 drivers/net/ppp/ppp_generic.c:2212 ppp_input+0x7dc/0xe60 drivers/net/ppp/ppp_generic.c:2327 pppoe_rcv_core+0x1d3/0x720 drivers/net/ppp/pppoe.c:379 sk_backlog_rcv+0x13b/0x420 include/net/sock.h:1113 __release_sock+0x1da/0x330 net/core/sock.c:3072 release_sock+0x6b/0x250 net/core/sock.c:3626 pppoe_sendmsg+0x2b8/0xb90 drivers/net/ppp/pppoe.c:903 sock_sendmsg_nosec net/socket.c:729 [inline] __sock_sendmsg+0x30f/0x380 net/socket.c:744 ____sys_sendmsg+0x903/0xb60 net/socket.c:2602 ___sys_sendmsg+0x28d/0x3c0 net/socket.c:2656 __sys_sendmmsg+0x3c1/0x960 net/socket.c:2742 __do_sys_sendmmsg net/socket.c:2771 [inline] __se_sys_sendmmsg net/socket.c:2768 [inline] __x64_sys_sendmmsg+0xbc/0x120 net/socket.c:2768 x64_sys_call+0xb6e/0x3ba0 arch/x86/include/generated/asm/syscalls_64.h:308 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xcd/0x1e0 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f  Uninit was created at: slab_post_alloc_hook mm/slub.c:4091 [inline] slab_alloc_node mm/slub.c:4134 [inline] kmem_cache_alloc_node_noprof+0x6bf/0xb80 mm/slub.c:4186 kmalloc_reserve+0x13d/0x4a0 net/core/skbuff.c:587 __alloc_skb+0x363/0x7b0 net/core/skbuff.c:678 alloc_skb include/linux/skbuff.h:1322 [inline] sock_wmalloc+0xfe/0x1a0 net/core/sock.c:2732 pppoe_sendmsg+0x3a7/0xb90 drivers/net/ppp/pppoe.c:867 sock_sendmsg_nosec net/socket.c:729 [inline] __sock_sendmsg+0x30f/0x380 net/socket.c:744 ____sys_sendmsg+0x903/0xb60 net/socket.c:2602 ___sys_sendmsg+0x28d/0x3c0 net/socket.c:2656 __sys_sendmmsg+0x3c1/0x960 net/socket.c:2742 __do_sys_sendmmsg net/socket.c:2771 [inline] __se_sys_sendmmsg net/socket.c:2768 [inline] __x64_sys_sendmmsg+0xbc/0x120 net/socket.c:2768 x64_sys_call+0xb6e/0x3ba0 arch/x86/include/generated/asm/syscalls_64.h:308 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xcd/0x1e0 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f  CPU: 0 UID: 0 PID: 5460 Comm: syz.2.33 Not tainted 6.12.0-rc2-syzkaller-00006-g87d6aab2389e #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2025-21718?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 7.0: CVE--2025--21718" src="https://img.shields.io/badge/CVE--2025--21718-lightgrey?label=medium%207.0&labelColor=fbb552"/></a> 
 
 <table>
@@ -1592,101 +1155,6 @@ Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  nfsd: fix race between laundromat and free_stateid  There is a race between laundromat handling of revoked delegations and a client sending free_stateid operation. Laundromat thread finds that delegation has expired and needs to be revoked so it marks the delegation stid revoked and it puts it on a reaper list but then it unlock the state lock and the actual delegation revocation happens without the lock. Once the stid is marked revoked a racing free_stateid processing thread does the following (1) it calls list_del_init() which removes it from the reaper list and (2) frees the delegation stid structure. The laundromat thread ends up not calling the revoke_delegation() function for this particular delegation but that means it will no release the lock lease that exists on the file.  Now, a new open for this file comes in and ends up finding that lease list isn't empty and calls nfsd_breaker_owns_lease() which ends up trying to derefence a freed delegation stateid. Leading to the followint use-after-free KASAN warning:  kernel: ================================================================== kernel: BUG: KASAN: slab-use-after-free in nfsd_breaker_owns_lease+0x140/0x160 [nfsd] kernel: Read of size 8 at addr ffff0000e73cd0c8 by task nfsd/6205 kernel: kernel: CPU: 2 UID: 0 PID: 6205 Comm: nfsd Kdump: loaded Not tainted 6.11.0-rc7+ #9 kernel: Hardware name: Apple Inc. Apple Virtualization Generic Platform, BIOS 2069.0.0.0.0 08/03/2024 kernel: Call trace: kernel: dump_backtrace+0x98/0x120 kernel: show_stack+0x1c/0x30 kernel: dump_stack_lvl+0x80/0xe8 kernel: print_address_description.constprop.0+0x84/0x390 kernel: print_report+0xa4/0x268 kernel: kasan_report+0xb4/0xf8 kernel: __asan_report_load8_noabort+0x1c/0x28 kernel: nfsd_breaker_owns_lease+0x140/0x160 [nfsd] kernel: nfsd_file_do_acquire+0xb3c/0x11d0 [nfsd] kernel: nfsd_file_acquire_opened+0x84/0x110 [nfsd] kernel: nfs4_get_vfs_file+0x634/0x958 [nfsd] kernel: nfsd4_process_open2+0xa40/0x1a40 [nfsd] kernel: nfsd4_open+0xa08/0xe80 [nfsd] kernel: nfsd4_proc_compound+0xb8c/0x2130 [nfsd] kernel: nfsd_dispatch+0x22c/0x718 [nfsd] kernel: svc_process_common+0x8e8/0x1960 [sunrpc] kernel: svc_process+0x3d4/0x7e0 [sunrpc] kernel: svc_handle_xprt+0x828/0xe10 [sunrpc] kernel: svc_recv+0x2cc/0x6a8 [sunrpc] kernel: nfsd+0x270/0x400 [nfsd] kernel: kthread+0x288/0x310 kernel: ret_from_fork+0x10/0x20  This patch proposes a fixed that's based on adding 2 new additional stid's sc_status values that help coordinate between the laundromat and other operations (nfsd4_free_stateid() and nfsd4_delegreturn()).  First to make sure, that once the stid is marked revoked, it is not removed by the nfsd4_free_stateid(), the laundromat take a reference on the stateid. Then, coordinating whether the stid has been put on the cl_revoked list or we are processing FREE_STATEID and need to make sure to remove it from the list, each check that state and act accordingly. If laundromat has added to the cl_revoke list before the arrival of FREE_STATEID, then nfsd4_free_stateid() knows to remove it from the list. If nfsd4_free_stateid() finds that operations arrived before laundromat has placed it on cl_revoke list, it marks the state freed and then laundromat will no longer add it to the list.  Also, for nfsd4_delegreturn() when looking for the specified stid, we need to access stid that are marked removed or freeable, it means the laundromat has started processing it but hasn't finished and this delegreturn needs to return nfserr_deleg_revoked and not nfserr_bad_stateid. The latter will not trigger a FREE_STATEID and the lack of it will leave this stid on the cl_revoked list indefinitely.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50086?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.0: CVE--2024--50086" src="https://img.shields.io/badge/CVE--2024--50086-lightgrey?label=medium%207.0&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix user-after-free from session log off  There is racy issue between smb2 session log off and smb2 session setup. It will cause user-after-free from session log off. This add session_lock when setting SMB2_SESSION_EXPIRED and referece count to session struct not to free session while it is being used.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50066?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.0: CVE--2024--50066" src="https://img.shields.io/badge/CVE--2024--50066-lightgrey?label=medium%207.0&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  mm/mremap: fix move_normal_pmd/retract_page_tables race  In mremap(), move_page_tables() looks at the type of the PMD entry and the specified address range to figure out by which method the next chunk of page table entries should be moved.  At that point, the mmap_lock is held in write mode, but no rmap locks are held yet.  For PMD entries that point to page tables and are fully covered by the source address range, move_pgt_entry(NORMAL_PMD, ...) is called, which first takes rmap locks, then does move_normal_pmd(). move_normal_pmd() takes the necessary page table locks at source and destination, then moves an entire page table from the source to the destination.  The problem is: The rmap locks, which protect against concurrent page table removal by retract_page_tables() in the THP code, are only taken after the PMD entry has been read and it has been decided how to move it. So we can race as follows (with two processes that have mappings of the same tmpfs file that is stored on a tmpfs mount with huge=advise); note that process A accesses page tables through the MM while process B does it through the file rmap:  process A                      process B =========                      ========= mremap mremap_to move_vma move_page_tables get_old_pmd alloc_new_pmd *** PREEMPT *** madvise(MADV_COLLAPSE) do_madvise madvise_walk_vmas madvise_vma_behavior madvise_collapse hpage_collapse_scan_file collapse_file retract_page_tables i_mmap_lock_read(mapping) pmdp_collapse_flush i_mmap_unlock_read(mapping) move_pgt_entry(NORMAL_PMD, ...) take_rmap_locks move_normal_pmd drop_rmap_locks  When this happens, move_normal_pmd() can end up creating bogus PMD entries in the line `pmd_populate(mm, new_pmd, pmd_pgtable(pmd))`.  The effect depends on arch-specific and machine-specific details; on x86, you can end up with physical page 0 mapped as a page table, which is likely exploitable for user->kernel privilege escalation.  Fix the race by letting process B recheck that the PMD still points to a page table after the rmap locks have been taken.  Otherwise, we bail and let the caller fall back to the PTE-level copying path, which will then bail immediately at the pmd_none() check.  Bug reachability: Reaching this bug requires that you can create shmem/file THP mappings - anonymous THP uses different code that doesn't zap stuff under rmap locks.  File THP is gated on an experimental config flag (CONFIG_READ_ONLY_THP_FOR_FS), so on normal distro kernels you need shmem THP to hit this bug.  As far as I know, getting shmem THP normally requires that you can mount your own tmpfs with the right mount flags, which would require creating your own user+mount namespace; though I don't know if some distros maybe enable shmem THP by default or something like that.  Bug impact: This issue can likely be used for user->kernel privilege escalation when it is reachable.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50061?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.0: CVE--2024--50061" src="https://img.shields.io/badge/CVE--2024--50061-lightgrey?label=medium%207.0&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  i3c: master: cdns: Fix use after free vulnerability in cdns_i3c_master Driver Due to Race Condition  In the cdns_i3c_master_probe function, &master->hj_work is bound with cdns_i3c_master_hj. And cdns_i3c_master_interrupt can call cnds_i3c_master_demux_ibis function to start the work.  If we remove the module which will call cdns_i3c_master_remove to make cleanup, it will free master->base through i3c_master_unregister while the work mentioned above will be used. The sequence of operations that may lead to a UAF bug is as follows:  CPU0                                      CPU1  | cdns_i3c_master_hj cdns_i3c_master_remove               | i3c_master_unregister(&master->base) | device_unregister(&master->dev)      | device_release                       | //free master->base                  | | i3c_master_do_daa(&master->base) | //use master->base  Fix it by ensuring that the work is canceled before proceeding with the cleanup in cdns_i3c_master_remove.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50059?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.0: CVE--2024--50059" src="https://img.shields.io/badge/CVE--2024--50059-lightgrey?label=medium%207.0&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ntb: ntb_hw_switchtec: Fix use after free vulnerability in switchtec_ntb_remove due to race condition  In the switchtec_ntb_add function, it can call switchtec_ntb_init_sndev function, then &sndev->check_link_status_work is bound with check_link_status_work. switchtec_ntb_link_notification may be called to start the work.  If we remove the module which will call switchtec_ntb_remove to make cleanup, it will free sndev through kfree(sndev), while the work mentioned above will be used. The sequence of operations that may lead to a UAF bug is as follows:  CPU0                                 CPU1  | check_link_status_work switchtec_ntb_remove    | kfree(sndev);           | | if (sndev->link_force_down) | // use sndev  Fix it by ensuring that the work is canceled before proceeding with the cleanup in switchtec_ntb_remove.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50036?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 7.0: CVE--2024--50036" src="https://img.shields.io/badge/CVE--2024--50036-lightgrey?label=medium%207.0&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: do not delay dst_entries_add() in dst_release()  dst_entries_add() uses per-cpu data that might be freed at netns dismantle from ip6_route_net_exit() calling dst_entries_destroy()  Before ip6_route_net_exit() can be called, we release all the dsts associated with this netns, via calls to dst_release(), which waits an rcu grace period before calling dst_destroy()  dst_entries_add() use in dst_destroy() is racy, because dst_entries_destroy() could have been called already.  Decrementing the number of dsts must happen sooner.  Notes:  1) in CONFIG_XFRM case, dst_destroy() can call dst_release_immediate(child), this might also cause UAF if the child does not have DST_NOCOUNT set. IPSEC maintainers might take a look and see how to address this.  2) There is also discussion about removing this count of dst, which might happen in future kernels.
 
 </blockquote>
 </details>
@@ -1763,44 +1231,6 @@ A flaw was found in the way the dumpable flag setting was handled when certain S
 <blockquote>
 
 Overlayfs in the Linux kernel and shiftfs, a non-upstream patch to the Linux kernel included in the Ubuntu 5.0 and 5.3 kernel series, both replace vma->vm_file in their mmap handlers. On error the original value is not restored, and the reference is put for the file to which vm_file points. On upstream kernels this is not an issue, as no callers dereference vm_file following after call_mmap() returns an error. However, the aufs patchs change mmap_region() to replace the fput() using a local variable with vma_fput(), which will fput() vm_file, leading to a refcount underflow.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50076?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 6.5: CVE--2024--50076" src="https://img.shields.io/badge/CVE--2024--50076-lightgrey?label=medium%206.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.085%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  vt: prevent kernel-infoleak in con_font_get()  font.data may not initialize all memory spaces depending on the implementation of vc->vc_sw->con_font_get. This may cause info-leak, so to prevent this, it is safest to modify it to initialize the allocated memory space to 0, and it generally does not affect the overall performance of the system.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-47726?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 6.5: CVE--2024--47726" src="https://img.shields.io/badge/CVE--2024--47726-lightgrey?label=medium%206.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.240%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>45th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  f2fs: fix to wait dio completion  It should wait all existing dio write IOs before block removal, otherwise, previous direct write IO may overwrite data in the block which may be reused by other inode.
 
 </blockquote>
 </details>
@@ -2097,8 +1527,8 @@ In the Linux kernel, the following vulnerability has been resolved:  smb: client
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2212,7 +1642,7 @@ In the Linux kernel, the following vulnerability has been resolved:  spi: sn-f-o
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2231,7 +1661,7 @@ In the Linux kernel, the following vulnerability has been resolved:  ax25: Fix r
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2478,7 +1908,7 @@ In the Linux kernel, the following vulnerability has been resolved:  scsi: mpi3m
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3142,7 +2572,7 @@ In the Linux kernel, the following vulnerability has been resolved:  bpf: Fix de
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
@@ -3161,7 +2591,7 @@ In the Linux kernel, the following vulnerability has been resolved:  clk: mmp2: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
@@ -3180,8 +2610,8 @@ In the Linux kernel, the following vulnerability has been resolved:  clk: qcom: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3199,8 +2629,8 @@ In the Linux kernel, the following vulnerability has been resolved:  clk: qcom: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.014%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3218,8 +2648,8 @@ In the Linux kernel, the following vulnerability has been resolved:  team: preve
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.014%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3237,7 +2667,7 @@ In the Linux kernel, the following vulnerability has been resolved:  bpf: bpf_lo
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
@@ -3256,8 +2686,8 @@ In the Linux kernel, the following vulnerability has been resolved:  OPP: fix de
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3275,8 +2705,8 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: rtlwi
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3294,8 +2724,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ubifs: skip
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3333,7 +2763,7 @@ In the Linux kernel, the following vulnerability has been resolved:  HID: multit
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3390,7 +2820,7 @@ In the Linux kernel, the following vulnerability has been resolved:  platform/x8
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3447,7 +2877,7 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: wcn36
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4123,310 +3553,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/msm/gem
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50233?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50233" src="https://img.shields.io/badge/CVE--2024--50233-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.056%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  staging: iio: frequency: ad9832: fix division by zero in ad9832_calc_freqreg()  In the ad9832_write_frequency() function, clk_get_rate() might return 0. This can lead to a division by zero when calling ad9832_calc_freqreg(). The check if (fout > (clk_get_rate(st->mclk) / 2)) does not protect against the case when fout is 0. The ad9832_write_frequency() function is called from ad9832_write(), and fout is derived from a text buffer, which can contain any value.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50229?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50229" src="https://img.shields.io/badge/CVE--2024--50229-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.053%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  nilfs2: fix potential deadlock with newly created symlinks  Syzbot reported that page_symlink(), called by nilfs_symlink(), triggers memory reclamation involving the filesystem layer, which can result in circular lock dependencies among the reader/writer semaphore nilfs->ns_segctor_sem, s_writers percpu_rwsem (intwrite) and the fs_reclaim pseudo lock.  This is because after commit 21fc61c73c39 ("don't put symlink bodies in pagecache into highmem"), the gfp flags of the page cache for symbolic links are overwritten to GFP_KERNEL via inode_nohighmem().  This is not a problem for symlinks read from the backing device, because the __GFP_FS flag is dropped after inode_nohighmem() is called.  However, when a new symlink is created with nilfs_symlink(), the gfp flags remain overwritten to GFP_KERNEL.  Then, memory allocation called from page_symlink() etc.  triggers memory reclamation including the FS layer, which may call nilfs_evict_inode() or nilfs_dirty_inode().  And these can cause a deadlock if they are called while nilfs->ns_segctor_sem is held:  Fix this issue by dropping the __GFP_FS flag from the page cache GFP flags of newly created symlinks in the same way that nilfs_new_inode() and __nilfs_read_inode() do, as a workaround until we adopt nofs allocation scope consistently or improve the locking constraints.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50202?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50202" src="https://img.shields.io/badge/CVE--2024--50202-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  nilfs2: propagate directory read errors from nilfs_find_entry()  Syzbot reported that a task hang occurs in vcs_open() during a fuzzing test for nilfs2.  The root cause of this problem is that in nilfs_find_entry(), which searches for directory entries, ignores errors when loading a directory page/folio via nilfs_get_folio() fails.  If the filesystem images is corrupted, and the i_size of the directory inode is large, and the directory page/folio is successfully read but fails the sanity check, for example when it is zero-filled, nilfs_check_folio() may continue to spit out error messages in bursts.  Fix this issue by propagating the error to the callers when loading a page/folio fails in nilfs_find_entry().  The current interface of nilfs_find_entry() and its callers is outdated and cannot propagate error codes such as -EIO and -ENOMEM returned via nilfs_find_entry(), so fix it together.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50201?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50201" src="https://img.shields.io/badge/CVE--2024--50201-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/radeon: Fix encoder->possible_clones  Include the encoder itself in its possible_clones bitmask. In the past nothing validated that drivers were populating possible_clones correctly, but that changed in commit 74d2aacbe840 ("drm: Validate encoder->possible_clones"). Looks like radeon never got the memo and is still not following the rules 100% correctly.  This results in some warnings during driver initialization: Bogus possible_clones: [ENCODER:46:TV-46] possible_clones=0x4 (full encoder mask=0x7) WARNING: CPU: 0 PID: 170 at drivers/gpu/drm/drm_mode_config.c:615 drm_mode_config_validate+0x113/0x39c ...  (cherry picked from commit 3b6e7d40649c0d75572039aff9d0911864c689db)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50198?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50198" src="https://img.shields.io/badge/CVE--2024--50198-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  iio: light: veml6030: fix IIO device retrieval from embedded device  The dev pointer that is received as an argument in the in_illuminance_period_available_show function references the device embedded in the IIO device, not in the i2c client.  dev_to_iio_dev() must be used to accessthe right data. The current implementation leads to a segmentation fault on every attempt to read the attribute because indio_dev gets a NULL assignment.  This bug has been present since the first appearance of the driver, apparently since the last version (V6) before getting applied. A constant attribute was used until then, and the last modifications might have not been tested again.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50197?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50197" src="https://img.shields.io/badge/CVE--2024--50197-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  pinctrl: intel: platform: fix error path in device_for_each_child_node()  The device_for_each_child_node() loop requires calls to fwnode_handle_put() upon early returns to decrement the refcount of the child node and avoid leaking memory if that error path is triggered.  There is one early returns within that loop in intel_platform_pinctrl_prepare_community(), but fwnode_handle_put() is missing.  Instead of adding the missing call, the scoped version of the loop can be used to simplify the code and avoid mistakes in the future if new early returns are added, as the child node is only used for parsing, and it is never assigned.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50196?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50196" src="https://img.shields.io/badge/CVE--2024--50196-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  pinctrl: ocelot: fix system hang on level based interrupts  The current implementation only calls chained_irq_enter() and chained_irq_exit() if it detects pending interrupts.  ``` for (i = 0; i < info->stride; i++) { uregmap_read(info->map, id_reg + 4 * i, &reg); if (!reg) continue;  chained_irq_enter(parent_chip, desc); ```  However, in case of GPIO pin configured in level mode and the parent controller configured in edge mode, GPIO interrupt might be lowered by the hardware. In the result, if the interrupt is short enough, the parent interrupt is still pending while the GPIO interrupt is cleared; chained_irq_enter() never gets called and the system hangs trying to service the parent interrupt.  Moving chained_irq_enter() and chained_irq_exit() outside the for loop ensures that they are called even when GPIO interrupt is lowered by the hardware.  The similar code with chained_irq_enter() / chained_irq_exit() functions wrapping interrupt checking loop may be found in many other drivers: ``` grep -r -A 10 chained_irq_enter drivers/pinctrl ```
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50195?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50195" src="https://img.shields.io/badge/CVE--2024--50195-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  posix-clock: Fix missing timespec64 check in pc_clock_settime()  As Andrew pointed out, it will make sense that the PTP core checked timespec64 struct's tv_sec and tv_nsec range before calling ptp->info->settime64().  As the man manual of clock_settime() said, if tp.tv_sec is negative or tp.tv_nsec is outside the range [0..999,999,999], it should return EINVAL, which include dynamic clocks which handles PTP clock, and the condition is consistent with timespec64_valid(). As Thomas suggested, timespec64_valid() only check the timespec is valid, but not ensure that the time is in a valid range, so check it ahead using timespec64_valid_strict() in pc_clock_settime() and return -EINVAL if not valid.  There are some drivers that use tp->tv_sec and tp->tv_nsec directly to write registers without validity checks and assume that the higher layer has checked it, which is dangerous and will benefit from this, such as hclge_ptp_settime(), igb_ptp_settime_i210(), _rcar_gen4_ptp_settime(), and some drivers can remove the checks of itself.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50194?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50194" src="https://img.shields.io/badge/CVE--2024--50194-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  arm64: probes: Fix uprobes for big-endian kernels  The arm64 uprobes code is broken for big-endian kernels as it doesn't convert the in-memory instruction encoding (which is always little-endian) into the kernel's native endianness before analyzing and simulating instructions. This may result in a few distinct problems:  * The kernel may may erroneously reject probing an instruction which can safely be probed.  * The kernel may erroneously erroneously permit stepping an instruction out-of-line when that instruction cannot be stepped out-of-line safely.  * The kernel may erroneously simulate instruction incorrectly dur to interpretting the byte-swapped encoding.  The endianness mismatch isn't caught by the compiler or sparse because:  * The arch_uprobe::{insn,ixol} fields are encoded as arrays of u8, so the compiler and sparse have no idea these contain a little-endian 32-bit value. The core uprobes code populates these with a memcpy() which similarly does not handle endianness.  * While the uprobe_opcode_t type is an alias for __le32, both arch_uprobe_analyze_insn() and arch_uprobe_skip_sstep() cast from u8[] to the similarly-named probe_opcode_t, which is an alias for u32. Hence there is no endianness conversion warning.  Fix this by changing the arch_uprobe::{insn,ixol} fields to __le32 and adding the appropriate __le32_to_cpu() conversions prior to consuming the instruction encoding. The core uprobes copies these fields as opaque ranges of bytes, and so is unaffected by this change.  At the same time, remove MAX_UINSN_BYTES and consistently use AARCH64_INSN_SIZE for clarity.  Tested with the following:  | #include <stdio.h> | #include <stdbool.h> | | #define noinline __attribute__((noinline)) | | static noinline void *adrp_self(void) | { |         void *addr; | |         asm volatile( |         "       adrp    %x0, adrp_self\n" |         "       add     %x0, %x0, :lo12:adrp_self\n" |         : "=r" (addr)); | } | | | int main(int argc, char *argv) | { |         void *ptr = adrp_self(); |         bool equal = (ptr == adrp_self); | |         printf("adrp_self   => %p\n" |                "adrp_self() => %p\n" |                "%s\n", |                adrp_self, ptr, equal ? "EQUAL" : "NOT EQUAL"); | |         return 0; | }  .... where the adrp_self() function was compiled to:  | 00000000004007e0 <adrp_self>: |   4007e0:       90000000        adrp    x0, 400000 <__ehdr_start> |   4007e4:       911f8000        add     x0, x0, #0x7e0 |   4007e8:       d65f03c0        ret  Before this patch, the ADRP is not recognized, and is assumed to be steppable, resulting in corruption of the result:  | # ./adrp-self | adrp_self   => 0x4007e0 | adrp_self() => 0x4007e0 | EQUAL | # echo 'p /root/adrp-self:0x007e0' > /sys/kernel/tracing/uprobe_events | # echo 1 > /sys/kernel/tracing/events/uprobes/enable | # ./adrp-self | adrp_self   => 0x4007e0 | adrp_self() => 0xffffffffff7e0 | NOT EQUAL  After this patch, the ADRP is correctly recognized and simulated:  | # ./adrp-self | adrp_self   => 0x4007e0 | adrp_self() => 0x4007e0 | EQUAL | # | # echo 'p /root/adrp-self:0x007e0' > /sys/kernel/tracing/uprobe_events | # echo 1 > /sys/kernel/tracing/events/uprobes/enable | # ./adrp-self | adrp_self   => 0x4007e0 | adrp_self() => 0x4007e0 | EQUAL
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50191?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50191" src="https://img.shields.io/badge/CVE--2024--50191-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ext4: don't set SB_RDONLY after filesystem errors  When the filesystem is mounted with errors=remount-ro, we were setting SB_RDONLY flag to stop all filesystem modifications. We knew this misses proper locking (sb->s_umount) and does not go through proper filesystem remount procedure but it has been the way this worked since early ext2 days and it was good enough for catastrophic situation damage mitigation. Recently, syzbot has found a way (see link) to trigger warnings in filesystem freezing because the code got confused by SB_RDONLY changing under its hands. Since these days we set EXT4_FLAGS_SHUTDOWN on the superblock which is enough to stop all filesystem modifications, modifying SB_RDONLY shouldn't be needed. So stop doing that.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50189?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50189" src="https://img.shields.io/badge/CVE--2024--50189-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  HID: amd_sfh: Switch to device-managed dmam_alloc_coherent()  Using the device-managed version allows to simplify clean-up in probe() error path.  Additionally, this device-managed ensures proper cleanup, which helps to resolve memory errors, page faults, btrfs going read-only, and btrfs disk corruption.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50188?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50188" src="https://img.shields.io/badge/CVE--2024--50188-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: phy: dp83869: fix memory corruption when enabling fiber  When configuring the fiber port, the DP83869 PHY driver incorrectly calls linkmode_set_bit() with a bit mask (1 << 10) rather than a bit number (10). This corrupts some other memory location -- in case of arm64 the priv pointer in the same structure.  Since the advertising flags are updated from supported at the end of the function the incorrect line isn't needed at all and can be removed.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50187?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50187" src="https://img.shields.io/badge/CVE--2024--50187-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/vc4: Stop the active perfmon before being destroyed  Upon closing the file descriptor, the active performance monitor is not stopped. Although all perfmons are destroyed in `vc4_perfmon_close_file()`, the active performance monitor's pointer (`vc4->active_perfmon`) is still retained.  If we open a new file descriptor and submit a few jobs with performance monitors, the driver will attempt to stop the active performance monitor using the stale pointer in `vc4->active_perfmon`. However, this pointer is no longer valid because the previous process has already terminated, and all performance monitors associated with it have been destroyed and freed.  To fix this, when the active performance monitor belongs to a given process, explicitly stop it before destroying and freeing it.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50185?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50185" src="https://img.shields.io/badge/CVE--2024--50185-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  mptcp: handle consistently DSS corruption  Bugged peer implementation can send corrupted DSS options, consistently hitting a few warning in the data path. Use DEBUG_NET assertions, to avoid the splat on some builds and handle consistently the error, dumping related MIBs and performing fallback and/or reset according to the subflow type.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50184?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50184" src="https://img.shields.io/badge/CVE--2024--50184-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  virtio_pmem: Check device status before requesting flush  If a pmem device is in a bad status, the driver side could wait for host ack forever in virtio_pmem_flush(), causing the system to hang.  So add a status check in the beginning of virtio_pmem_flush() to return early if the device is not activated.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50182?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50182" src="https://img.shields.io/badge/CVE--2024--50182-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  secretmem: disable memfd_secret() if arch cannot set direct map  Return -ENOSYS from memfd_secret() syscall if !can_set_direct_map().  This is the case for example on some arm64 configurations, where marking 4k PTEs in the direct map not present can only be done if the direct map is set up at 4k granularity in the first place (as ARM's break-before-make semantics do not easily allow breaking apart large/gigantic pages).  More precisely, on arm64 systems with !can_set_direct_map(), set_direct_map_invalid_noflush() is a no-op, however it returns success (0) instead of an error.  This means that memfd_secret will seemingly "work" (e.g.  syscall succeeds, you can mmap the fd and fault in pages), but it does not actually achieve its goal of removing its memory from the direct map.  Note that with this patch, memfd_secret() will start erroring on systems where can_set_direct_map() returns false (arm64 with CONFIG_RODATA_FULL_DEFAULT_ENABLED=n, CONFIG_DEBUG_PAGEALLOC=n and CONFIG_KFENCE=n), but that still seems better than the current silent failure.  Since CONFIG_RODATA_FULL_DEFAULT_ENABLED defaults to 'y', most arm64 systems actually have a working memfd_secret() and aren't be affected.  From going through the iterations of the original memfd_secret patch series, it seems that disabling the syscall in these scenarios was the intended behavior [1] (preferred over having set_direct_map_invalid_noflush return an error as that would result in SIGBUSes at page-fault time), however the check for it got dropped between v16 [2] and v17 [3], when secretmem moved away from CMA allocations.  [1]: https://lore.kernel.org/lkml/20201124164930.GK8537@kernel.org/ [2]: https://lore.kernel.org/lkml/20210121122723.3446-11-rppt@kernel.org/#t [3]: https://lore.kernel.org/lkml/20201125092208.12544-10-rppt@kernel.org/
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-50178?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.5: CVE--2024--50178" src="https://img.shields.io/badge/CVE--2024--50178-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
 
 <table>
@@ -4434,7 +3560,7 @@ In the Linux kernel, the following vulnerability has been resolved:  secretmem: 
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -4442,25 +3568,6 @@ In the Linux kernel, the following vulnerability has been resolved:  secretmem: 
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  cpufreq: loongson3: Use raw_smp_processor_id() in do_service_request()  Use raw_smp_processor_id() instead of plain smp_processor_id() in do_service_request(), otherwise we may get some errors with the driver enabled:  BUG: using smp_processor_id() in preemptible [00000000] code: (udev-worker)/208 caller is loongson3_cpufreq_probe+0x5c/0x250 [loongson3_cpufreq]
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50171?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50171" src="https://img.shields.io/badge/CVE--2024--50171-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: systemport: fix potential memory leak in bcm_sysport_xmit()  The bcm_sysport_xmit() returns NETDEV_TX_OK without freeing skb in case of dma_map_single() fails, add dev_kfree_skb() to fix it.
 
 </blockquote>
 </details>
@@ -4484,63 +3591,6 @@ In the Linux kernel, the following vulnerability has been resolved:  RDMA/bnxt_r
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50148?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50148" src="https://img.shields.io/badge/CVE--2024--50148-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: bnep: fix wild-memory-access in proto_unregister  There's issue as follows: KASAN: maybe wild-memory-access in range [0xdead...108-0xdead...10f] CPU: 3 UID: 0 PID: 2805 Comm: rmmod Tainted: G        W RIP: 0010:proto_unregister+0xee/0x400 Call Trace: <TASK> __do_sys_delete_module+0x318/0x580 do_syscall_64+0xc1/0x1d0 entry_SYSCALL_64_after_hwframe+0x77/0x7f  As bnep_init() ignore bnep_sock_init()'s return value, and bnep_sock_init() will cleanup all resource. Then when remove bnep module will call bnep_sock_cleanup() to cleanup sock's resource. To solve above issue just return bnep_sock_init()'s return value in bnep_exit().
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50134?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50134" src="https://img.shields.io/badge/CVE--2024--50134-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/vboxvideo: Replace fake VLA at end of vbva_mouse_pointer_shape with real VLA  Replace the fake VLA at end of the vbva_mouse_pointer_shape shape with a real VLA to fix a "memcpy: detected field-spanning write error" warning:  [   13.319813] memcpy: detected field-spanning write (size 16896) of single field "p->data" at drivers/gpu/drm/vboxvideo/hgsmi_base.c:154 (size 4) [   13.319841] WARNING: CPU: 0 PID: 1105 at drivers/gpu/drm/vboxvideo/hgsmi_base.c:154 hgsmi_update_pointer_shape+0x192/0x1c0 [vboxvideo] [   13.320038] Call Trace: [   13.320173]  hgsmi_update_pointer_shape [vboxvideo] [   13.320184]  vbox_cursor_atomic_update [vboxvideo]  Note as mentioned in the added comment it seems the original length calculation for the allocated and send hgsmi buffer is 4 bytes too large. Changing this is not the goal of this patch, so this behavior is kept.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50117?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50117" src="https://img.shields.io/badge/CVE--2024--50117-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd: Guard against bad data for ATIF ACPI method  If a BIOS provides bad data in response to an ATIF method call this causes a NULL pointer dereference in the caller.  ``` ? show_regs (arch/x86/kernel/dumpstack.c:478 (discriminator 1)) ? __die (arch/x86/kernel/dumpstack.c:423 arch/x86/kernel/dumpstack.c:434) ? page_fault_oops (arch/x86/mm/fault.c:544 (discriminator 2) arch/x86/mm/fault.c:705 (discriminator 2)) ? do_user_addr_fault (arch/x86/mm/fault.c:440 (discriminator 1) arch/x86/mm/fault.c:1232 (discriminator 1)) ? acpi_ut_update_object_reference (drivers/acpi/acpica/utdelete.c:642) ? exc_page_fault (arch/x86/mm/fault.c:1542) ? asm_exc_page_fault (./arch/x86/include/asm/idtentry.h:623) ? amdgpu_atif_query_backlight_caps.constprop.0 (drivers/gpu/drm/amd/amdgpu/amdgpu_acpi.c:387 (discriminator 2)) amdgpu ? amdgpu_atif_query_backlight_caps.constprop.0 (drivers/gpu/drm/amd/amdgpu/amdgpu_acpi.c:386 (discriminator 1)) amdgpu ```  It has been encountered on at least one system, so guard for it.  (cherry picked from commit c9b7c809b89f24e9372a4e7f02d64c950b07fdee)
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-50102?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.5: CVE--2024--50102" src="https://img.shields.io/badge/CVE--2024--50102-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
 
 <table>
@@ -4556,120 +3606,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd: Gu
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  x86: fix user address masking non-canonical speculation issue  It turns out that AMD has a "Meltdown Lite(tm)" issue with non-canonical accesses in kernel space.  And so using just the high bit to decide whether an access is in user space or kernel space ends up with the good old "leak speculative data" if you have the right gadget using the result:  CVE-2020-12965 “Transient Execution of Non-Canonical Accesses“  Now, the kernel surrounds the access with a STAC/CLAC pair, and those instructions end up serializing execution on older Zen architectures, which closes the speculation window.  But that was true only up until Zen 5, which renames the AC bit [1]. That improves performance of STAC/CLAC a lot, but also means that the speculation window is now open.  Note that this affects not just the new address masking, but also the regular valid_user_address() check used by access_ok(), and the asm version of the sign bit check in the get_user() helpers.  It does not affect put_user() or clear_user() variants, since there's no speculative result to be used in a gadget for those operations.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50101?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50101" src="https://img.shields.io/badge/CVE--2024--50101-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  iommu/vt-d: Fix incorrect pci_for_each_dma_alias() for non-PCI devices  Previously, the domain_context_clear() function incorrectly called pci_for_each_dma_alias() to set up context entries for non-PCI devices. This could lead to kernel hangs or other unexpected behavior.  Add a check to only call pci_for_each_dma_alias() for PCI devices. For non-PCI devices, domain_context_clear_one() is called directly.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50099?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50099" src="https://img.shields.io/badge/CVE--2024--50099-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  arm64: probes: Remove broken LDR (literal) uprobe support  The simulate_ldr_literal() and simulate_ldrsw_literal() functions are unsafe to use for uprobes. Both functions were originally written for use with kprobes, and access memory with plain C accesses. When uprobes was added, these were reused unmodified even though they cannot safely access user memory.  There are three key problems:  1) The plain C accesses do not have corresponding extable entries, and thus if they encounter a fault the kernel will treat these as unintentional accesses to user memory, resulting in a BUG() which will kill the kernel thread, and likely lead to further issues (e.g. lockup or panic()).  2) The plain C accesses are subject to HW PAN and SW PAN, and so when either is in use, any attempt to simulate an access to user memory will fault. Thus neither simulate_ldr_literal() nor simulate_ldrsw_literal() can do anything useful when simulating a user instruction on any system with HW PAN or SW PAN.  3) The plain C accesses are privileged, as they run in kernel context, and in practice can access a small range of kernel virtual addresses. The instructions they simulate have a range of +/-1MiB, and since the simulated instructions must itself be a user instructions in the TTBR0 address range, these can address the final 1MiB of the TTBR1 acddress range by wrapping downwards from an address in the first 1MiB of the TTBR0 address range.  In contemporary kernels the last 8MiB of TTBR1 address range is reserved, and accesses to this will always fault, meaning this is no worse than (1).  Historically, it was theoretically possible for the linear map or vmemmap to spill into the final 8MiB of the TTBR1 address range, but in practice this is extremely unlikely to occur as this would require either:  * Having enough physical memory to fill the entire linear map all the way to the final 1MiB of the TTBR1 address range.  * Getting unlucky with KASLR randomization of the linear map such that the populated region happens to overlap with the last 1MiB of the TTBR address range.  ... and in either case if we were to spill into the final page there would be larger problems as the final page would alias with error pointers.  Practically speaking, (1) and (2) are the big issues. Given there have been no reports of problems since the broken code was introduced, it appears that no-one is relying on probing these instructions with uprobes.  Avoid these issues by not allowing uprobes on LDR (literal) and LDRSW (literal), limiting the use of simulate_ldr_literal() and simulate_ldrsw_literal() to kprobes. Attempts to place uprobes on LDR (literal) and LDRSW (literal) will be rejected as arm_probe_decode_insn() will return INSN_REJECTED. In future we can consider introducing working uprobes support for these instructions, but this will require more significant work.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50098?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50098" src="https://img.shields.io/badge/CVE--2024--50098-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  scsi: ufs: core: Set SDEV_OFFLINE when UFS is shut down  There is a history of deadlock if reboot is performed at the beginning of booting. SDEV_QUIESCE was set for all LU's scsi_devices by UFS shutdown, and at that time the audio driver was waiting on blk_mq_submit_bio() holding a mutex_lock while reading the fw binary. After that, a deadlock issue occurred while audio driver shutdown was waiting for mutex_unlock of blk_mq_submit_bio(). To solve this, set SDEV_OFFLINE for all LUs except WLUN, so that any I/O that comes down after a UFS shutdown will return an error.  [   31.907781]I[0:      swapper/0:    0]        1        130705007 1651079834      11289729804                0 D(   2) 3 ffffff882e208000 * init [device_shutdown] [   31.907793]I[0:      swapper/0:    0] Mutex: 0xffffff8849a2b8b0: owner[0xffffff882e28cb00 kworker/6:0 :49] [   31.907806]I[0:      swapper/0:    0] Call trace: [   31.907810]I[0:      swapper/0:    0]  __switch_to+0x174/0x338 [   31.907819]I[0:      swapper/0:    0]  __schedule+0x5ec/0x9cc [   31.907826]I[0:      swapper/0:    0]  schedule+0x7c/0xe8 [   31.907834]I[0:      swapper/0:    0] schedule_preempt_disabled+0x24/0x40 [   31.907842]I[0:      swapper/0:    0]  __mutex_lock+0x408/0xdac [   31.907849]I[0:      swapper/0:    0]  __mutex_lock_slowpath+0x14/0x24 [   31.907858]I[0:      swapper/0:    0]  mutex_lock+0x40/0xec [   31.907866]I[0:      swapper/0:    0]  device_shutdown+0x108/0x280 [   31.907875]I[0:      swapper/0:    0]  kernel_restart+0x4c/0x11c [   31.907883]I[0:      swapper/0:    0]  __arm64_sys_reboot+0x15c/0x280 [   31.907890]I[0:      swapper/0:    0]  invoke_syscall+0x70/0x158 [   31.907899]I[0:      swapper/0:    0]  el0_svc_common+0xb4/0xf4 [   31.907909]I[0:      swapper/0:    0]  do_el0_svc+0x2c/0xb0 [   31.907918]I[0:      swapper/0:    0]  el0_svc+0x34/0xe0 [   31.907928]I[0:      swapper/0:    0]  el0t_64_sync_handler+0x68/0xb4 [   31.907937]I[0:      swapper/0:    0]  el0t_64_sync+0x1a0/0x1a4  [   31.908774]I[0:      swapper/0:    0]       49                0 11960702      11236868007                0 D(   2) 6 ffffff882e28cb00 * kworker/6:0 [__bio_queue_enter] [   31.908783]I[0:      swapper/0:    0] Call trace: [   31.908788]I[0:      swapper/0:    0]  __switch_to+0x174/0x338 [   31.908796]I[0:      swapper/0:    0]  __schedule+0x5ec/0x9cc [   31.908803]I[0:      swapper/0:    0]  schedule+0x7c/0xe8 [   31.908811]I[0:      swapper/0:    0]  __bio_queue_enter+0xb8/0x178 [   31.908818]I[0:      swapper/0:    0]  blk_mq_submit_bio+0x194/0x67c [   31.908827]I[0:      swapper/0:    0]  __submit_bio+0xb8/0x19c
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50096?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50096" src="https://img.shields.io/badge/CVE--2024--50096-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  nouveau/dmem: Fix vulnerability in migrate_to_ram upon copy error  The `nouveau_dmem_copy_one` function ensures that the copy push command is sent to the device firmware but does not track whether it was executed successfully.  In the case of a copy error (e.g., firmware or hardware failure), the copy push command will be sent via the firmware channel, and `nouveau_dmem_copy_one` will likely report success, leading to the `migrate_to_ram` function returning a dirty HIGH_USER page to the user.  This can result in a security vulnerability, as a HIGH_USER page that may contain sensitive or corrupted data could be returned to the user.  To prevent this vulnerability, we allocate a zero page. Thus, in case of an error, a non-dirty (zero) page will be returned to the user.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50095?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50095" src="https://img.shields.io/badge/CVE--2024--50095-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  RDMA/mad: Improve handling of timed out WRs of mad agent  Current timeout handler of mad agent acquires/releases mad_agent_priv lock for every timed out WRs. This causes heavy locking contention when higher no. of WRs are to be handled inside timeout handler.  This leads to softlockup with below trace in some use cases where rdma-cm path is used to establish connection between peer nodes  Trace: ----- BUG: soft lockup - CPU#4 stuck for 26s! [kworker/u128:3:19767] CPU: 4 PID: 19767 Comm: kworker/u128:3 Kdump: loaded Tainted: G OE -------  ---  5.14.0-427.13.1.el9_4.x86_64 #1 Hardware name: Dell Inc. PowerEdge R740/01YM03, BIOS 2.4.8 11/26/2019 Workqueue: ib_mad1 timeout_sends [ib_core] RIP: 0010:__do_softirq+0x78/0x2ac RSP: 0018:ffffb253449e4f98 EFLAGS: 00000246 RAX: 00000000ffffffff RBX: 0000000000000000 RCX: 000000000000001f RDX: 000000000000001d RSI: 000000003d1879ab RDI: fff363b66fd3a86b RBP: ffffb253604cbcd8 R08: 0000009065635f3b R09: 0000000000000000 R10: 0000000000000040 R11: ffffb253449e4ff8 R12: 0000000000000000 R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000040 FS:  0000000000000000(0000) GS:ffff8caa1fc80000(0000) knlGS:0000000000000000 CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 00007fd9ec9db900 CR3: 0000000891934006 CR4: 00000000007706e0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 PKRU: 55555554 Call Trace: <IRQ> ? show_trace_log_lvl+0x1c4/0x2df ? show_trace_log_lvl+0x1c4/0x2df ? __irq_exit_rcu+0xa1/0xc0 ? watchdog_timer_fn+0x1b2/0x210 ? __pfx_watchdog_timer_fn+0x10/0x10 ? __hrtimer_run_queues+0x127/0x2c0 ? hrtimer_interrupt+0xfc/0x210 ? __sysvec_apic_timer_interrupt+0x5c/0x110 ? sysvec_apic_timer_interrupt+0x37/0x90 ? asm_sysvec_apic_timer_interrupt+0x16/0x20 ? __do_softirq+0x78/0x2ac ? __do_softirq+0x60/0x2ac __irq_exit_rcu+0xa1/0xc0 sysvec_call_function_single+0x72/0x90 </IRQ> <TASK> asm_sysvec_call_function_single+0x16/0x20 RIP: 0010:_raw_spin_unlock_irq+0x14/0x30 RSP: 0018:ffffb253604cbd88 EFLAGS: 00000247 RAX: 000000000001960d RBX: 0000000000000002 RCX: ffff8cad2a064800 RDX: 000000008020001b RSI: 0000000000000001 RDI: ffff8cad5d39f66c RBP: ffff8cad5d39f600 R08: 0000000000000001 R09: 0000000000000000 R10: ffff8caa443e0c00 R11: ffffb253604cbcd8 R12: ffff8cacb8682538 R13: 0000000000000005 R14: ffffb253604cbd90 R15: ffff8cad5d39f66c cm_process_send_error+0x122/0x1d0 [ib_cm] timeout_sends+0x1dd/0x270 [ib_core] process_one_work+0x1e2/0x3b0 ? __pfx_worker_thread+0x10/0x10 worker_thread+0x50/0x3a0 ? __pfx_worker_thread+0x10/0x10 kthread+0xdd/0x100 ? __pfx_kthread+0x10/0x10 ret_from_fork+0x29/0x50 </TASK>  Simplified timeout handler by creating local list of timed out WRs and invoke send handler post creating the list. The new method acquires/ releases lock once to fetch the list and hence helps to reduce locking contetiong when processing higher no. of WRs
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50093?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50093" src="https://img.shields.io/badge/CVE--2024--50093-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  thermal: intel: int340x: processor: Fix warning during module unload  The processor_thermal driver uses pcim_device_enable() to enable a PCI device, which means the device will be automatically disabled on driver detach.  Thus there is no need to call pci_disable_device() again on it.  With recent PCI device resource management improvements, e.g. commit f748a07a0b64 ("PCI: Remove legacy pcim_release()"), this problem is exposed and triggers the warining below.  [  224.010735] proc_thermal_pci 0000:00:04.0: disabling already-disabled device [  224.010747] WARNING: CPU: 8 PID: 4442 at drivers/pci/pci.c:2250 pci_disable_device+0xe5/0x100 ... [  224.010844] Call Trace: [  224.010845]  <TASK> [  224.010847]  ? show_regs+0x6d/0x80 [  224.010851]  ? __warn+0x8c/0x140 [  224.010854]  ? pci_disable_device+0xe5/0x100 [  224.010856]  ? report_bug+0x1c9/0x1e0 [  224.010859]  ? handle_bug+0x46/0x80 [  224.010862]  ? exc_invalid_op+0x1d/0x80 [  224.010863]  ? asm_exc_invalid_op+0x1f/0x30 [  224.010867]  ? pci_disable_device+0xe5/0x100 [  224.010869]  ? pci_disable_device+0xe5/0x100 [  224.010871]  ? kfree+0x21a/0x2b0 [  224.010873]  pcim_disable_device+0x20/0x30 [  224.010875]  devm_action_release+0x16/0x20 [  224.010878]  release_nodes+0x47/0xc0 [  224.010880]  devres_release_all+0x9f/0xe0 [  224.010883]  device_unbind_cleanup+0x12/0x80 [  224.010885]  device_release_driver_internal+0x1ca/0x210 [  224.010887]  driver_detach+0x4e/0xa0 [  224.010889]  bus_remove_driver+0x6f/0xf0 [  224.010890]  driver_unregister+0x35/0x60 [  224.010892]  pci_unregister_driver+0x44/0x90 [  224.010894]  proc_thermal_pci_driver_exit+0x14/0x5f0 [processor_thermal_device_pci] ... [  224.010921] ---[ end trace 0000000000000000 ]---  Remove the excess pci_disable_device() calls.  [ rjw: Subject and changelog edits ]
 
 </blockquote>
 </details>
@@ -4693,25 +3629,6 @@ In the Linux kernel, the following vulnerability has been resolved:  dm vdo: don
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50090?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50090" src="https://img.shields.io/badge/CVE--2024--50090-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/xe/oa: Fix overflow in oa batch buffer  By default xe_bb_create_job() appends a MI_BATCH_BUFFER_END to batch buffer, this is not a problem if batch buffer is only used once but oa reuses the batch buffer for the same metric and at each call it appends a MI_BATCH_BUFFER_END, printing the warning below and then overflowing.  [  381.072016] ------------[ cut here ]------------ [  381.072019] xe 0000:00:02.0: [drm] Assertion `bb->len * 4 + bb_prefetch(q->gt) <= size` failed! platform: LUNARLAKE subplatform: 1 graphics: Xe2_LPG / Xe2_HPG 20.04 step B0 media: Xe2_LPM / Xe2_HPM 20.00 step B0 tile: 0 VRAM 0 B GT: 0 type 1  So here checking if batch buffer already have MI_BATCH_BUFFER_END if not append it.  v2: - simply fix, suggestion from Ashutosh  (cherry picked from commit 9ba0e0f30ca42a98af3689460063edfb6315718a)
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-50089?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.5: CVE--2024--50089" src="https://img.shields.io/badge/CVE--2024--50089-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
 
 <table>
@@ -4731,481 +3648,6 @@ Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50087?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50087" src="https://img.shields.io/badge/CVE--2024--50087-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix uninitialized pointer free on read_alloc_one_name() error  The function read_alloc_one_name() does not initialize the name field of the passed fscrypt_str struct if kmalloc fails to allocate the corresponding buffer.  Thus, it is not guaranteed that fscrypt_str.name is initialized when freeing it.  This is a follow-up to the linked patch that fixes the remaining instances of the bug introduced by commit e43eec81c516 ("btrfs: use struct qstr instead of name and namelen pairs").
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50085?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50085" src="https://img.shields.io/badge/CVE--2024--50085-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  mptcp: pm: fix UaF read in mptcp_pm_nl_rm_addr_or_subflow  Syzkaller reported this splat:  ================================================================== BUG: KASAN: slab-use-after-free in mptcp_pm_nl_rm_addr_or_subflow+0xb44/0xcc0 net/mptcp/pm_netlink.c:881 Read of size 4 at addr ffff8880569ac858 by task syz.1.2799/14662  CPU: 0 UID: 0 PID: 14662 Comm: syz.1.2799 Not tainted 6.12.0-rc2-syzkaller-00307-g36c254515dc6 #0 Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2~bpo12+1 04/01/2014 Call Trace: <TASK> __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0x116/0x1f0 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:377 [inline] print_report+0xc3/0x620 mm/kasan/report.c:488 kasan_report+0xd9/0x110 mm/kasan/report.c:601 mptcp_pm_nl_rm_addr_or_subflow+0xb44/0xcc0 net/mptcp/pm_netlink.c:881 mptcp_pm_nl_rm_subflow_received net/mptcp/pm_netlink.c:914 [inline] mptcp_nl_remove_id_zero_address+0x305/0x4a0 net/mptcp/pm_netlink.c:1572 mptcp_pm_nl_del_addr_doit+0x5c9/0x770 net/mptcp/pm_netlink.c:1603 genl_family_rcv_msg_doit+0x202/0x2f0 net/netlink/genetlink.c:1115 genl_family_rcv_msg net/netlink/genetlink.c:1195 [inline] genl_rcv_msg+0x565/0x800 net/netlink/genetlink.c:1210 netlink_rcv_skb+0x165/0x410 net/netlink/af_netlink.c:2551 genl_rcv+0x28/0x40 net/netlink/genetlink.c:1219 netlink_unicast_kernel net/netlink/af_netlink.c:1331 [inline] netlink_unicast+0x53c/0x7f0 net/netlink/af_netlink.c:1357 netlink_sendmsg+0x8b8/0xd70 net/netlink/af_netlink.c:1901 sock_sendmsg_nosec net/socket.c:729 [inline] __sock_sendmsg net/socket.c:744 [inline] ____sys_sendmsg+0x9ae/0xb40 net/socket.c:2607 ___sys_sendmsg+0x135/0x1e0 net/socket.c:2661 __sys_sendmsg+0x117/0x1f0 net/socket.c:2690 do_syscall_32_irqs_on arch/x86/entry/common.c:165 [inline] __do_fast_syscall_32+0x73/0x120 arch/x86/entry/common.c:386 do_fast_syscall_32+0x32/0x80 arch/x86/entry/common.c:411 entry_SYSENTER_compat_after_hwframe+0x84/0x8e RIP: 0023:0xf7fe4579 Code: b8 01 10 06 03 74 b4 01 10 07 03 74 b0 01 10 08 03 74 d8 01 00 00 00 00 00 00 00 00 00 00 00 00 00 51 52 55 89 e5 0f 34 cd 80 <5d> 5a 59 c3 90 90 90 90 8d b4 26 00 00 00 00 8d b4 26 00 00 00 00 RSP: 002b:00000000f574556c EFLAGS: 00000296 ORIG_RAX: 0000000000000172 RAX: ffffffffffffffda RBX: 000000000000000b RCX: 0000000020000140 RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000 RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000 R10: 0000000000000000 R11: 0000000000000296 R12: 0000000000000000 R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000 </TASK>  Allocated by task 5387: kasan_save_stack+0x33/0x60 mm/kasan/common.c:47 kasan_save_track+0x14/0x30 mm/kasan/common.c:68 poison_kmalloc_redzone mm/kasan/common.c:377 [inline] __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:394 kmalloc_noprof include/linux/slab.h:878 [inline] kzalloc_noprof include/linux/slab.h:1014 [inline] subflow_create_ctx+0x87/0x2a0 net/mptcp/subflow.c:1803 subflow_ulp_init+0xc3/0x4d0 net/mptcp/subflow.c:1956 __tcp_set_ulp net/ipv4/tcp_ulp.c:146 [inline] tcp_set_ulp+0x326/0x7f0 net/ipv4/tcp_ulp.c:167 mptcp_subflow_create_socket+0x4ae/0x10a0 net/mptcp/subflow.c:1764 __mptcp_subflow_connect+0x3cc/0x1490 net/mptcp/subflow.c:1592 mptcp_pm_create_subflow_or_signal_addr+0xbda/0x23a0 net/mptcp/pm_netlink.c:642 mptcp_pm_nl_fully_established net/mptcp/pm_netlink.c:650 [inline] mptcp_pm_nl_work+0x3a1/0x4f0 net/mptcp/pm_netlink.c:943 mptcp_worker+0x15a/0x1240 net/mptcp/protocol.c:2777 process_one_work+0x958/0x1b30 kernel/workqueue.c:3229 process_scheduled_works kernel/workqueue.c:3310 [inline] worker_thread+0x6c8/0xf00 kernel/workqueue.c:3391 kthread+0x2c1/0x3a0 kernel/kthread.c:389 ret_from_fork+0x45/0x80 arch/x86/ke ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50084?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50084" src="https://img.shields.io/badge/CVE--2024--50084-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: microchip: vcap api: Fix memory leaks in vcap_api_encode_rule_test()  Commit a3c1e45156ad ("net: microchip: vcap: Fix use-after-free error in kunit test") fixed the use-after-free error, but introduced below memory leaks by removing necessary vcap_free_rule(), add it to fix it.  unreferenced object 0xffffff80ca58b700 (size 192): comm "kunit_try_catch", pid 1215, jiffies 4294898264 hex dump (first 32 bytes): 00 12 7a 00 05 00 00 00 0a 00 00 00 64 00 00 00  ..z.........d... 00 00 00 00 00 00 00 00 00 04 0b cc 80 ff ff ff  ................ backtrace (crc 9c09c3fe): [<0000000052a0be73>] kmemleak_alloc+0x34/0x40 [<0000000043605459>] __kmalloc_cache_noprof+0x26c/0x2f4 [<0000000040a01b8d>] vcap_alloc_rule+0x3cc/0x9c4 [<000000003fe86110>] vcap_api_encode_rule_test+0x1ac/0x16b0 [<00000000b3595fc4>] kunit_try_run_case+0x13c/0x3ac [<0000000010f5d2bf>] kunit_generic_run_threadfn_adapter+0x80/0xec [<00000000c5d82c9a>] kthread+0x2e8/0x374 [<00000000f4287308>] ret_from_fork+0x10/0x20 unreferenced object 0xffffff80cc0b0400 (size 64): comm "kunit_try_catch", pid 1215, jiffies 4294898265 hex dump (first 32 bytes): 80 04 0b cc 80 ff ff ff 18 b7 58 ca 80 ff ff ff  ..........X..... 39 00 00 00 02 00 00 00 06 05 04 03 02 01 ff ff  9............... backtrace (crc daf014e9): [<0000000052a0be73>] kmemleak_alloc+0x34/0x40 [<0000000043605459>] __kmalloc_cache_noprof+0x26c/0x2f4 [<000000000ff63fd4>] vcap_rule_add_key+0x2cc/0x528 [<00000000dfdb1e81>] vcap_api_encode_rule_test+0x224/0x16b0 [<00000000b3595fc4>] kunit_try_run_case+0x13c/0x3ac [<0000000010f5d2bf>] kunit_generic_run_threadfn_adapter+0x80/0xec [<00000000c5d82c9a>] kthread+0x2e8/0x374 [<00000000f4287308>] ret_from_fork+0x10/0x20 unreferenced object 0xffffff80cc0b0700 (size 64): comm "kunit_try_catch", pid 1215, jiffies 4294898265 hex dump (first 32 bytes): 80 07 0b cc 80 ff ff ff 28 b7 58 ca 80 ff ff ff  ........(.X..... 3c 00 00 00 00 00 00 00 01 2f 03 b3 ec ff ff ff  <......../...... backtrace (crc 8d877792): [<0000000052a0be73>] kmemleak_alloc+0x34/0x40 [<0000000043605459>] __kmalloc_cache_noprof+0x26c/0x2f4 [<000000006eadfab7>] vcap_rule_add_action+0x2d0/0x52c [<00000000323475d1>] vcap_api_encode_rule_test+0x4d4/0x16b0 [<00000000b3595fc4>] kunit_try_run_case+0x13c/0x3ac [<0000000010f5d2bf>] kunit_generic_run_threadfn_adapter+0x80/0xec [<00000000c5d82c9a>] kthread+0x2e8/0x374 [<00000000f4287308>] ret_from_fork+0x10/0x20 unreferenced object 0xffffff80cc0b0900 (size 64): comm "kunit_try_catch", pid 1215, jiffies 4294898266 hex dump (first 32 bytes): 80 09 0b cc 80 ff ff ff 80 06 0b cc 80 ff ff ff  ................ 7d 00 00 00 01 00 00 00 00 00 00 00 ff 00 00 00  }............... backtrace (crc 34181e56): [<0000000052a0be73>] kmemleak_alloc+0x34/0x40 [<0000000043605459>] __kmalloc_cache_noprof+0x26c/0x2f4 [<000000000ff63fd4>] vcap_rule_add_key+0x2cc/0x528 [<00000000991e3564>] vcap_val_rule+0xcf0/0x13e8 [<00000000fc9868e5>] vcap_api_encode_rule_test+0x678/0x16b0 [<00000000b3595fc4>] kunit_try_run_case+0x13c/0x3ac [<0000000010f5d2bf>] kunit_generic_run_threadfn_adapter+0x80/0xec [<00000000c5d82c9a>] kthread+0x2e8/0x374 [<00000000f4287308>] ret_from_fork+0x10/0x20 unreferenced object 0xffffff80cc0b0980 (size 64): comm "kunit_try_catch", pid 1215, jiffies 4294898266 hex dump (first 32 bytes): 18 b7 58 ca 80 ff ff ff 00 09 0b cc 80 ff ff ff  ..X............. 67 00 00 00 00 00 00 00 01 01 74 88 c0 ff ff ff  g.........t..... backtrace (crc 275fd9be): [<0000000052a0be73>] kmemleak_alloc+0x34/0x40 [<0000000043605459>] __kmalloc_cache_noprof+0x26c/0x2f4 [<000000000ff63fd4>] vcap_rule_add_key+0x2cc/0x528 [<000000001396a1a2>] test_add_de ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50080?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50080" src="https://img.shields.io/badge/CVE--2024--50080-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ublk: don't allow user copy for unprivileged device  UBLK_F_USER_COPY requires userspace to call write() on ublk char device for filling request buffer, and unprivileged device can't be trusted.  So don't allow user copy for unprivileged device.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50078?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50078" src="https://img.shields.io/badge/CVE--2024--50078-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: Call iso_exit() on module unload  If iso_init() has been called, iso_exit() must be called on module unload. Without that, the struct proto that iso_init() registered with proto_register() becomes invalid, which could cause unpredictable problems later. In my case, with CONFIG_LIST_HARDENED and CONFIG_BUG_ON_DATA_CORRUPTION enabled, loading the module again usually triggers this BUG():  list_add corruption. next->prev should be prev (ffffffffb5355fd0), but was 0000000000000068. (next=ffffffffc0a010d0). ------------[ cut here ]------------ kernel BUG at lib/list_debug.c:29! Oops: invalid opcode: 0000 [#1] PREEMPT SMP PTI CPU: 1 PID: 4159 Comm: modprobe Not tainted 6.10.11-4+bt2-ao-desktop #1 RIP: 0010:__list_add_valid_or_report+0x61/0xa0 ... __list_add_valid_or_report+0x61/0xa0 proto_register+0x299/0x320 hci_sock_init+0x16/0xc0 [bluetooth] bt_init+0x68/0xd0 [bluetooth] __pfx_bt_init+0x10/0x10 [bluetooth] do_one_initcall+0x80/0x2f0 do_init_module+0x8b/0x230 __do_sys_init_module+0x15f/0x190 do_syscall_64+0x68/0x110 ...
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50077?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50077" src="https://img.shields.io/badge/CVE--2024--50077-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: ISO: Fix multiple init when debugfs is disabled  If bt_debugfs is not created successfully, which happens if either CONFIG_DEBUG_FS or CONFIG_DEBUG_FS_ALLOW_ALL is unset, then iso_init() returns early and does not set iso_inited to true. This means that a subsequent call to iso_init() will result in duplicate calls to proto_register(), bt_sock_register(), etc.  With CONFIG_LIST_HARDENED and CONFIG_BUG_ON_DATA_CORRUPTION enabled, the duplicate call to proto_register() triggers this BUG():  list_add double add: new=ffffffffc0b280d0, prev=ffffffffbab56250, next=ffffffffc0b280d0. ------------[ cut here ]------------ kernel BUG at lib/list_debug.c:35! Oops: invalid opcode: 0000 [#1] PREEMPT SMP PTI CPU: 2 PID: 887 Comm: bluetoothd Not tainted 6.10.11-1-ao-desktop #1 RIP: 0010:__list_add_valid_or_report+0x9a/0xa0 ... __list_add_valid_or_report+0x9a/0xa0 proto_register+0x2b5/0x340 iso_init+0x23/0x150 [bluetooth] set_iso_socket_func+0x68/0x1b0 [bluetooth] kmem_cache_free+0x308/0x330 hci_sock_sendmsg+0x990/0x9e0 [bluetooth] __sock_sendmsg+0x7b/0x80 sock_write_iter+0x9a/0x110 do_iter_readv_writev+0x11d/0x220 vfs_writev+0x180/0x3e0 do_writev+0xca/0x100 ...  This change removes the early return. The check for iso_debugfs being NULL was unnecessary, it is always NULL when iso_inited is false.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50075?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50075" src="https://img.shields.io/badge/CVE--2024--50075-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.020%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  xhci: tegra: fix checked USB2 port number  If USB virtualizatoin is enabled, USB2 ports are shared between all Virtual Functions. The USB2 port number owned by an USB2 root hub in a Virtual Function may be less than total USB2 phy number supported by the Tegra XUSB controller.  Using total USB2 phy number as port number to check all PORTSC values would cause invalid memory access.  [  116.923438] Unable to handle kernel paging request at virtual address 006c622f7665642f ... [  117.213640] Call trace: [  117.216783]  tegra_xusb_enter_elpg+0x23c/0x658 [  117.222021]  tegra_xusb_runtime_suspend+0x40/0x68 [  117.227260]  pm_generic_runtime_suspend+0x30/0x50 [  117.232847]  __rpm_callback+0x84/0x3c0 [  117.237038]  rpm_suspend+0x2dc/0x740 [  117.241229] pm_runtime_work+0xa0/0xb8 [  117.245769]  process_scheduled_works+0x24c/0x478 [  117.251007]  worker_thread+0x23c/0x328 [  117.255547]  kthread+0x104/0x1b0 [  117.259389]  ret_from_fork+0x10/0x20 [  117.263582] Code: 54000222 f9461ae8 f8747908 b4ffff48 (f9400100)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50072?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50072" src="https://img.shields.io/badge/CVE--2024--50072-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  x86/bugs: Use code segment selector for VERW operand  Robert Gill reported below #GP in 32-bit mode when dosemu software was executing vm86() system call:  general protection fault: 0000 [#1] PREEMPT SMP CPU: 4 PID: 4610 Comm: dosemu.bin Not tainted 6.6.21-gentoo-x86 #1 Hardware name: Dell Inc. PowerEdge 1950/0H723K, BIOS 2.7.0 10/30/2010 EIP: restore_all_switch_stack+0xbe/0xcf EAX: 00000000 EBX: 00000000 ECX: 00000000 EDX: 00000000 ESI: 00000000 EDI: 00000000 EBP: 00000000 ESP: ff8affdc DS: 0000 ES: 0000 FS: 0000 GS: 0033 SS: 0068 EFLAGS: 00010046 CR0: 80050033 CR2: 00c2101c CR3: 04b6d000 CR4: 000406d0 Call Trace: show_regs+0x70/0x78 die_addr+0x29/0x70 exc_general_protection+0x13c/0x348 exc_bounds+0x98/0x98 handle_exception+0x14d/0x14d exc_bounds+0x98/0x98 restore_all_switch_stack+0xbe/0xcf exc_bounds+0x98/0x98 restore_all_switch_stack+0xbe/0xcf  This only happens in 32-bit mode when VERW based mitigations like MDS/RFDS are enabled. This is because segment registers with an arbitrary user value can result in #GP when executing VERW. Intel SDM vol. 2C documents the following behavior for VERW instruction:  #GP(0) - If a memory operand effective address is outside the CS, DS, ES, FS, or GS segment limit.  CLEAR_CPU_BUFFERS macro executes VERW instruction before returning to user space. Use %cs selector to reference VERW operand. This ensures VERW will not #GP for an arbitrary user %ds.  [ mingo: Fixed the SOB chain. ]
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50070?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50070" src="https://img.shields.io/badge/CVE--2024--50070-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  pinctrl: stm32: check devm_kasprintf() returned value  devm_kasprintf() can return a NULL pointer on failure but this returned value is not checked. Fix this lack and check the returned value.  Found by code review.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50069?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50069" src="https://img.shields.io/badge/CVE--2024--50069-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  pinctrl: apple: check devm_kasprintf() returned value  devm_kasprintf() can return a NULL pointer on failure but this returned value is not checked. Fix this lack and check the returned value.  Found by code review.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50068?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50068" src="https://img.shields.io/badge/CVE--2024--50068-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  mm/damon/tests/sysfs-kunit.h: fix memory leak in damon_sysfs_test_add_targets()  The sysfs_target->regions allocated in damon_sysfs_regions_alloc() is not freed in damon_sysfs_test_add_targets(), which cause the following memory leak, free it to fix it.  unreferenced object 0xffffff80c2a8db80 (size 96): comm "kunit_try_catch", pid 187, jiffies 4294894363 hex dump (first 32 bytes): 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................ backtrace (crc 0): [<0000000001e3714d>] kmemleak_alloc+0x34/0x40 [<000000008e6835c1>] __kmalloc_cache_noprof+0x26c/0x2f4 [<000000001286d9f8>] damon_sysfs_test_add_targets+0x1cc/0x738 [<0000000032ef8f77>] kunit_try_run_case+0x13c/0x3ac [<00000000f3edea23>] kunit_generic_run_threadfn_adapter+0x80/0xec [<00000000adf936cf>] kthread+0x2e8/0x374 [<0000000041bb1628>] ret_from_fork+0x10/0x20
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50065?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50065" src="https://img.shields.io/badge/CVE--2024--50065-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ntfs3: Change to non-blocking allocation in ntfs_d_hash  d_hash is done while under "rcu-walk" and should not sleep. __get_name() allocates using GFP_KERNEL, having the possibility to sleep when under memory pressure. Change the allocation to GFP_NOWAIT.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50064?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50064" src="https://img.shields.io/badge/CVE--2024--50064-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  zram: free secondary algorithms names  We need to kfree() secondary algorithms names when reset zram device that had multi-streams, otherwise we leak memory.  [senozhatsky@chromium.org: kfree(NULL) is legal] Link: https://lkml.kernel.org/r/20240917013021.868769-1-senozhatsky@chromium.org
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50062?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50062" src="https://img.shields.io/badge/CVE--2024--50062-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.031%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  RDMA/rtrs-srv: Avoid null pointer deref during path establishment  For RTRS path establishment, RTRS client initiates and completes con_num of connections. After establishing all its connections, the information is exchanged between the client and server through the info_req message. During this exchange, it is essential that all connections have been established, and the state of the RTRS srv path is CONNECTED.  So add these sanity checks, to make sure we detect and abort process in error scenarios to avoid null pointer deref.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50060?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50060" src="https://img.shields.io/badge/CVE--2024--50060-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  io_uring: check if we need to reschedule during overflow flush  In terms of normal application usage, this list will always be empty. And if an application does overflow a bit, it'll have a few entries. However, nothing obviously prevents syzbot from running a test case that generates a ton of overflow entries, and then flushing them can take quite a while.  Check for needing to reschedule while flushing, and drop our locks and do so if necessary. There's no state to maintain here as overflows always prune from head-of-list, hence it's fine to drop and reacquire the locks at the end of the loop.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50058?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50058" src="https://img.shields.io/badge/CVE--2024--50058-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  serial: protect uart_port_dtr_rts() in uart_shutdown() too  Commit af224ca2df29 (serial: core: Prevent unsafe uart port access, part 3) added few uport == NULL checks. It added one to uart_shutdown(), so the commit assumes, uport can be NULL in there. But right after that protection, there is an unprotected "uart_port_dtr_rts(uport, false);" call. That is invoked only if HUPCL is set, so I assume that is the reason why we do not see lots of these reports.  Or it cannot be NULL at this point at all for some reason :P.  Until the above is investigated, stay on the safe side and move this dereference to the if too.  I got this inconsistency from Coverity under CID 1585130. Thanks.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50056?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50056" src="https://img.shields.io/badge/CVE--2024--50056-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  usb: gadget: uvc: Fix ERR_PTR dereference in uvc_v4l2.c  Fix potential dereferencing of ERR_PTR() in find_format_by_pix() and uvc_v4l2_enum_format().  Fix the following smatch errors:  drivers/usb/gadget/function/uvc_v4l2.c:124 find_format_by_pix() error: 'fmtdesc' dereferencing possible ERR_PTR()  drivers/usb/gadget/function/uvc_v4l2.c:392 uvc_v4l2_enum_format() error: 'fmtdesc' dereferencing possible ERR_PTR()  Also, fix similar issue in uvc_v4l2_try_format() for potential dereferencing of ERR_PTR().
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50049?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50049" src="https://img.shields.io/badge/CVE--2024--50049-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.030%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Check null pointer before dereferencing se  [WHAT & HOW] se is null checked previously in the same function, indicating it might be null; therefore, it must be checked when used again.  This fixes 1 FORWARD_NULL issue reported by Coverity.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50048?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50048" src="https://img.shields.io/badge/CVE--2024--50048-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  fbcon: Fix a NULL pointer dereference issue in fbcon_putcs  syzbot has found a NULL pointer dereference bug in fbcon. Here is the simplified C reproducer:  struct param { uint8_t type; struct tiocl_selection ts; };  int main() { struct fb_con2fbmap con2fb; struct param param;  int fd = open("/dev/fb1", 0, 0);  con2fb.console = 0x19; con2fb.framebuffer = 0; ioctl(fd, FBIOPUT_CON2FBMAP, &con2fb);  param.type = 2; param.ts.xs = 0; param.ts.ys = 0; param.ts.xe = 0; param.ts.ye = 0; param.ts.sel_mode = 0;  int fd1 = open("/dev/tty1", O_RDWR, 0); ioctl(fd1, TIOCLINUX, &param);  con2fb.console = 1; con2fb.framebuffer = 0; ioctl(fd, FBIOPUT_CON2FBMAP, &con2fb);  return 0; }  After calling ioctl(fd1, TIOCLINUX, &param), the subsequent ioctl(fd, FBIOPUT_CON2FBMAP, &con2fb) causes the kernel to follow a different execution path:  set_con2fb_map -> con2fb_init_display -> fbcon_set_disp -> redraw_screen -> hide_cursor -> clear_selection -> highlight -> invert_screen -> do_update_region -> fbcon_putcs -> ops->putcs  Since ops->putcs is a NULL pointer, this leads to a kernel panic. To prevent this, we need to call set_blitting_type() within set_con2fb_map() to properly initialize ops->putcs.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50046?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50046" src="https://img.shields.io/badge/CVE--2024--50046-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  NFSv4: Prevent NULL-pointer dereference in nfs42_complete_copies()  On the node of an NFS client, some files saved in the mountpoint of the NFS server were copied to another location of the same NFS server. Accidentally, the nfs42_complete_copies() got a NULL-pointer dereference crash with the following syslog:  [232064.838881] NFSv4: state recovery failed for open file nfs/pvc-12b5200d-cd0f-46a3-b9f0-af8f4fe0ef64.qcow2, error = -116 [232064.839360] NFSv4: state recovery failed for open file nfs/pvc-12b5200d-cd0f-46a3-b9f0-af8f4fe0ef64.qcow2, error = -116 [232066.588183] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000058 [232066.588586] Mem abort info: [232066.588701]   ESR = 0x0000000096000007 [232066.588862]   EC = 0x25: DABT (current EL), IL = 32 bits [232066.589084]   SET = 0, FnV = 0 [232066.589216]   EA = 0, S1PTW = 0 [232066.589340]   FSC = 0x07: level 3 translation fault [232066.589559] Data abort info: [232066.589683]   ISV = 0, ISS = 0x00000007 [232066.589842]   CM = 0, WnR = 0 [232066.589967] user pgtable: 64k pages, 48-bit VAs, pgdp=00002000956ff400 [232066.590231] [0000000000000058] pgd=08001100ae100003, p4d=08001100ae100003, pud=08001100ae100003, pmd=08001100b3c00003, pte=0000000000000000 [232066.590757] Internal error: Oops: 96000007 [#1] SMP [232066.590958] Modules linked in: rpcsec_gss_krb5 auth_rpcgss nfsv4 dns_resolver nfs lockd grace fscache netfs ocfs2_dlmfs ocfs2_stack_o2cb ocfs2_dlm vhost_net vhost vhost_iotlb tap tun ipt_rpfilter xt_multiport ip_set_hash_ip ip_set_hash_net xfrm_interface xfrm6_tunnel tunnel4 tunnel6 esp4 ah4 wireguard libcurve25519_generic veth xt_addrtype xt_set nf_conntrack_netlink ip_set_hash_ipportnet ip_set_hash_ipportip ip_set_bitmap_port ip_set_hash_ipport dummy ip_set ip_vs_sh ip_vs_wrr ip_vs_rr ip_vs iptable_filter sch_ingress nfnetlink_cttimeout vport_gre ip_gre ip_tunnel gre vport_geneve geneve vport_vxlan vxlan ip6_udp_tunnel udp_tunnel openvswitch nf_conncount dm_round_robin dm_service_time dm_multipath xt_nat xt_MASQUERADE nft_chain_nat nf_nat xt_mark xt_conntrack xt_comment nft_compat nft_counter nf_tables nfnetlink ocfs2 ocfs2_nodemanager ocfs2_stackglue iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi ipmi_ssif nbd overlay 8021q garp mrp bonding tls rfkill sunrpc ext4 mbcache jbd2 [232066.591052]  vfat fat cas_cache cas_disk ses enclosure scsi_transport_sas sg acpi_ipmi ipmi_si ipmi_devintf ipmi_msghandler ip_tables vfio_pci vfio_pci_core vfio_virqfd vfio_iommu_type1 vfio dm_mirror dm_region_hash dm_log dm_mod nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 br_netfilter bridge stp llc fuse xfs libcrc32c ast drm_vram_helper qla2xxx drm_kms_helper syscopyarea crct10dif_ce sysfillrect ghash_ce sysimgblt sha2_ce fb_sys_fops cec sha256_arm64 sha1_ce drm_ttm_helper ttm nvme_fc igb sbsa_gwdt nvme_fabrics drm nvme_core i2c_algo_bit i40e scsi_transport_fc megaraid_sas aes_neon_bs [232066.596953] CPU: 6 PID: 4124696 Comm: 10.253.166.125- Kdump: loaded Not tainted 5.15.131-9.cl9_ocfs2.aarch64 #1 [232066.597356] Hardware name: Great Wall .\x93\x8e...RF6260 V5/GWMSSE2GL1T, BIOS T656FBE_V3.0.18 2024-01-06 [232066.597721] pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--) [232066.598034] pc : nfs4_reclaim_open_state+0x220/0x800 [nfsv4] [232066.598327] lr : nfs4_reclaim_open_state+0x12c/0x800 [nfsv4] [232066.598595] sp : ffff8000f568fc70 [232066.598731] x29: ffff8000f568fc70 x28: 0000000000001000 x27: ffff21003db33000 [232066.599030] x26: ffff800005521ae0 x25: ffff0100f98fa3f0 x24: 0000000000000001 [232066.599319] x23: ffff800009920008 x22: ffff21003db33040 x21: ffff21003db33050 [232066.599628] x20: ffff410172fe9e40 x19: ffff410172fe9e00 x18: 0000000000000000 [232066.599914] x17: 0000000000000000 x16: 0000000000000004 x15: 0000000000000000 [232066.600195] x14: 0000000000000000 x13: ffff800008e685a8 x12: 00000000eac0c6e6 [232066.600498] x11: 00000000000000 ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50045?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50045" src="https://img.shields.io/badge/CVE--2024--50045-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  netfilter: br_netfilter: fix panic with metadata_dst skb  Fix a kernel panic in the br_netfilter module when sending untagged traffic via a VxLAN device. This happens during the check for fragmentation in br_nf_dev_queue_xmit.  It is dependent on: 1) the br_netfilter module being loaded; 2) net.bridge.bridge-nf-call-iptables set to 1; 3) a bridge with a VxLAN (single-vxlan-device) netdevice as a bridge port; 4) untagged frames with size higher than the VxLAN MTU forwarded/flooded  When forwarding the untagged packet to the VxLAN bridge port, before the netfilter hooks are called, br_handle_egress_vlan_tunnel is called and changes the skb_dst to the tunnel dst. The tunnel_dst is a metadata type of dst, i.e., skb_valid_dst(skb) is false, and metadata->dst.dev is NULL.  Then in the br_netfilter hooks, in br_nf_dev_queue_xmit, there's a check for frames that needs to be fragmented: frames with higher MTU than the VxLAN device end up calling br_nf_ip_fragment, which in turns call ip_skb_dst_mtu.  The ip_dst_mtu tries to use the skb_dst(skb) as if it was a valid dst with valid dst->dev, thus the crash.  This case was never supported in the first place, so drop the packet instead.  PING 10.0.0.2 (10.0.0.2) from 0.0.0.0 h1-eth0: 2000(2028) bytes of data. [  176.291791] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000110 [  176.292101] Mem abort info: [  176.292184]   ESR = 0x0000000096000004 [  176.292322]   EC = 0x25: DABT (current EL), IL = 32 bits [  176.292530]   SET = 0, FnV = 0 [  176.292709]   EA = 0, S1PTW = 0 [  176.292862]   FSC = 0x04: level 0 translation fault [  176.293013] Data abort info: [  176.293104]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000 [  176.293488]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0 [  176.293787]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0 [  176.293995] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000043ef5000 [  176.294166] [0000000000000110] pgd=0000000000000000, p4d=0000000000000000 [  176.294827] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP [  176.295252] Modules linked in: vxlan ip6_udp_tunnel udp_tunnel veth br_netfilter bridge stp llc ipv6 crct10dif_ce [  176.295923] CPU: 0 PID: 188 Comm: ping Not tainted 6.8.0-rc3-g5b3fbd61b9d1 #2 [  176.296314] Hardware name: linux,dummy-virt (DT) [  176.296535] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--) [  176.296808] pc : br_nf_dev_queue_xmit+0x390/0x4ec [br_netfilter] [  176.297382] lr : br_nf_dev_queue_xmit+0x2ac/0x4ec [br_netfilter] [  176.297636] sp : ffff800080003630 [  176.297743] x29: ffff800080003630 x28: 0000000000000008 x27: ffff6828c49ad9f8 [  176.298093] x26: ffff6828c49ad000 x25: 0000000000000000 x24: 00000000000003e8 [  176.298430] x23: 0000000000000000 x22: ffff6828c4960b40 x21: ffff6828c3b16d28 [  176.298652] x20: ffff6828c3167048 x19: ffff6828c3b16d00 x18: 0000000000000014 [  176.298926] x17: ffffb0476322f000 x16: ffffb7e164023730 x15: 0000000095744632 [  176.299296] x14: ffff6828c3f1c880 x13: 0000000000000002 x12: ffffb7e137926a70 [  176.299574] x11: 0000000000000001 x10: ffff6828c3f1c898 x9 : 0000000000000000 [  176.300049] x8 : ffff6828c49bf070 x7 : 0008460f18d5f20e x6 : f20e0100bebafeca [  176.300302] x5 : ffff6828c7f918fe x4 : ffff6828c49bf070 x3 : 0000000000000000 [  176.300586] x2 : 0000000000000000 x1 : ffff6828c3c7ad00 x0 : ffff6828c7f918f0 [  176.300889] Call trace: [  176.301123]  br_nf_dev_queue_xmit+0x390/0x4ec [br_netfilter] [  176.301411]  br_nf_post_routing+0x2a8/0x3e4 [br_netfilter] [  176.301703]  nf_hook_slow+0x48/0x124 [  176.302060]  br_forward_finish+0xc8/0xe8 [bridge] [  176.302371]  br_nf_hook_thresh+0x124/0x134 [br_netfilter] [  176.302605]  br_nf_forward_finish+0x118/0x22c [br_netfilter] [  176.302824]  br_nf_forward_ip.part.0+0x264/0x290 [br_netfilter] [  176.303136]  br_nf_forward+0x2b8/0x4e0 [br_netfilter] [  176.303359]  nf_hook_slow+0x48/0x124 [  176.303 ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50041?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50041" src="https://img.shields.io/badge/CVE--2024--50041-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  i40e: Fix macvlan leak by synchronizing access to mac_filter_hash  This patch addresses a macvlan leak issue in the i40e driver caused by concurrent access to vsi->mac_filter_hash. The leak occurs when multiple threads attempt to modify the mac_filter_hash simultaneously, leading to inconsistent state and potential memory leaks.  To fix this, we now wrap the calls to i40e_del_mac_filter() and zeroing vf->default_lan_addr.addr with spin_lock/unlock_bh(&vsi->mac_filter_hash_lock), ensuring atomic operations and preventing concurrent access.  Additionally, we add lockdep_assert_held(&vsi->mac_filter_hash_lock) in i40e_add_mac_filter() to help catch similar issues in the future.  Reproduction steps: 1. Spawn VFs and configure port vlan on them. 2. Trigger concurrent macvlan operations (e.g., adding and deleting portvlan and/or mac filters). 3. Observe the potential memory leak and inconsistent state in the mac_filter_hash.  This synchronization ensures the integrity of the mac_filter_hash and prevents the described leak.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50040?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50040" src="https://img.shields.io/badge/CVE--2024--50040-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  igb: Do not bring the device up after non-fatal error  Commit 004d25060c78 ("igb: Fix igb_down hung on surprise removal") changed igb_io_error_detected() to ignore non-fatal pcie errors in order to avoid hung task that can happen when igb_down() is called multiple times. This caused an issue when processing transient non-fatal errors. igb_io_resume(), which is called after igb_io_error_detected(), assumes that device is brought down by igb_io_error_detected() if the interface is up. This resulted in panic with stacktrace below.  [ T3256] igb 0000:09:00.0 haeth0: igb: haeth0 NIC Link is Down [  T292] pcieport 0000:00:1c.5: AER: Uncorrected (Non-Fatal) error received: 0000:09:00.0 [  T292] igb 0000:09:00.0: PCIe Bus Error: severity=Uncorrected (Non-Fatal), type=Transaction Layer, (Requester ID) [  T292] igb 0000:09:00.0:   device [8086:1537] error status/mask=00004000/00000000 [  T292] igb 0000:09:00.0:    [14] CmpltTO [  200.105524,009][  T292] igb 0000:09:00.0: AER:   TLP Header: 00000000 00000000 00000000 00000000 [  T292] pcieport 0000:00:1c.5: AER: broadcast error_detected message [  T292] igb 0000:09:00.0: Non-correctable non-fatal error reported. [  T292] pcieport 0000:00:1c.5: AER: broadcast mmio_enabled message [  T292] pcieport 0000:00:1c.5: AER: broadcast resume message [  T292] ------------[ cut here ]------------ [  T292] kernel BUG at net/core/dev.c:6539! [  T292] invalid opcode: 0000 [#1] PREEMPT SMP [  T292] RIP: 0010:napi_enable+0x37/0x40 [  T292] Call Trace: [  T292]  <TASK> [  T292]  ? die+0x33/0x90 [  T292]  ? do_trap+0xdc/0x110 [  T292]  ? napi_enable+0x37/0x40 [  T292]  ? do_error_trap+0x70/0xb0 [  T292]  ? napi_enable+0x37/0x40 [  T292]  ? napi_enable+0x37/0x40 [  T292]  ? exc_invalid_op+0x4e/0x70 [  T292]  ? napi_enable+0x37/0x40 [  T292]  ? asm_exc_invalid_op+0x16/0x20 [  T292]  ? napi_enable+0x37/0x40 [  T292]  igb_up+0x41/0x150 [  T292]  igb_io_resume+0x25/0x70 [  T292]  report_resume+0x54/0x70 [  T292]  ? report_frozen_detected+0x20/0x20 [  T292]  pci_walk_bus+0x6c/0x90 [  T292]  ? aer_print_port_info+0xa0/0xa0 [  T292]  pcie_do_recovery+0x22f/0x380 [  T292]  aer_process_err_devices+0x110/0x160 [  T292]  aer_isr+0x1c1/0x1e0 [  T292]  ? disable_irq_nosync+0x10/0x10 [  T292]  irq_thread_fn+0x1a/0x60 [  T292]  irq_thread+0xe3/0x1a0 [  T292]  ? irq_set_affinity_notifier+0x120/0x120 [  T292]  ? irq_affinity_notify+0x100/0x100 [  T292]  kthread+0xe2/0x110 [  T292]  ? kthread_complete_and_exit+0x20/0x20 [  T292]  ret_from_fork+0x2d/0x50 [  T292]  ? kthread_complete_and_exit+0x20/0x20 [  T292]  ret_from_fork_asm+0x11/0x20 [  T292]  </TASK>  To fix this issue igb_io_resume() checks if the interface is running and the device is not down this means igb_io_error_detected() did not bring the device down and there is no need to bring it up.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50039?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50039" src="https://img.shields.io/badge/CVE--2024--50039-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net/sched: accept TCA_STAB only for root qdisc  Most qdiscs maintain their backlog using qdisc_pkt_len(skb) on the assumption it is invariant between the enqueue() and dequeue() handlers.  Unfortunately syzbot can crash a host rather easily using a TBF + SFQ combination, with an STAB on SFQ [1]  We can't support TCA_STAB on arbitrary level, this would require to maintain per-qdisc storage.  [1] [   88.796496] BUG: kernel NULL pointer dereference, address: 0000000000000000 [   88.798611] #PF: supervisor read access in kernel mode [   88.799014] #PF: error_code(0x0000) - not-present page [   88.799506] PGD 0 P4D 0 [   88.799829] Oops: Oops: 0000 [#1] SMP NOPTI [   88.800569] CPU: 14 UID: 0 PID: 2053 Comm: b371744477 Not tainted 6.12.0-rc1-virtme #1117 [   88.801107] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014 [   88.801779] RIP: 0010:sfq_dequeue (net/sched/sch_sfq.c:272 net/sched/sch_sfq.c:499) sch_sfq [ 88.802544] Code: 0f b7 50 12 48 8d 04 d5 00 00 00 00 48 89 d6 48 29 d0 48 8b 91 c0 01 00 00 48 c1 e0 03 48 01 c2 66 83 7a 1a 00 7e c0 48 8b 3a <4c> 8b 07 4c 89 02 49 89 50 08 48 c7 47 08 00 00 00 00 48 c7 07 00 All code ======== 0:	0f b7 50 12          	movzwl 0x12(%rax),%edx 4:	48 8d 04 d5 00 00 00 	lea    0x0(,%rdx,8),%rax b:	00 c:	48 89 d6             	mov    %rdx,%rsi f:	48 29 d0             	sub    %rdx,%rax 12:	48 8b 91 c0 01 00 00 	mov    0x1c0(%rcx),%rdx 19:	48 c1 e0 03          	shl    $0x3,%rax 1d:	48 01 c2             	add    %rax,%rdx 20:	66 83 7a 1a 00       	cmpw   $0x0,0x1a(%rdx) 25:	7e c0                	jle    0xffffffffffffffe7 27:	48 8b 3a             	mov    (%rdx),%rdi 2a:*	4c 8b 07             	mov    (%rdi),%r8		<-- trapping instruction 2d:	4c 89 02             	mov    %r8,(%rdx) 30:	49 89 50 08          	mov    %rdx,0x8(%r8) 34:	48 c7 47 08 00 00 00 	movq   $0x0,0x8(%rdi) 3b:	00 3c:	48                   	rex.W 3d:	c7                   	.byte 0xc7 3e:	07                   	(bad) ...  Code starting with the faulting instruction =========================================== 0:	4c 8b 07             	mov    (%rdi),%r8 3:	4c 89 02             	mov    %r8,(%rdx) 6:	49 89 50 08          	mov    %rdx,0x8(%r8) a:	48 c7 47 08 00 00 00 	movq   $0x0,0x8(%rdi) 11:	00 12:	48                   	rex.W 13:	c7                   	.byte 0xc7 14:	07                   	(bad) ... [   88.803721] RSP: 0018:ffff9a1f892b7d58 EFLAGS: 00000206 [   88.804032] RAX: 0000000000000000 RBX: ffff9a1f8420c800 RCX: ffff9a1f8420c800 [   88.804560] RDX: ffff9a1f81bc1440 RSI: 0000000000000000 RDI: 0000000000000000 [   88.805056] RBP: ffffffffc04bb0e0 R08: 0000000000000001 R09: 00000000ff7f9a1f [   88.805473] R10: 000000000001001b R11: 0000000000009a1f R12: 0000000000000140 [   88.806194] R13: 0000000000000001 R14: ffff9a1f886df400 R15: ffff9a1f886df4ac [   88.806734] FS:  00007f445601a740(0000) GS:ffff9a2e7fd80000(0000) knlGS:0000000000000000 [   88.807225] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 [   88.807672] CR2: 0000000000000000 CR3: 000000050cc46000 CR4: 00000000000006f0 [   88.808165] Call Trace: [   88.808459]  <TASK> [   88.808710] ? __die (arch/x86/kernel/dumpstack.c:421 arch/x86/kernel/dumpstack.c:434) [   88.809261] ? page_fault_oops (arch/x86/mm/fault.c:715) [   88.809561] ? exc_page_fault (./arch/x86/include/asm/irqflags.h:26 ./arch/x86/include/asm/irqflags.h:87 ./arch/x86/include/asm/irqflags.h:147 arch/x86/mm/fault.c:1489 arch/x86/mm/fault.c:1539) [   88.809806] ? asm_exc_page_fault (./arch/x86/include/asm/idtentry.h:623) [   88.810074] ? sfq_dequeue (net/sched/sch_sfq.c:272 net/sched/sch_sfq.c:499) sch_sfq [   88.810411] sfq_reset (net/sched/sch_sfq.c:525) sch_sfq [   88.810671] qdisc_reset (./include/linux/skbuff.h:2135 ./include/linux/skbuff.h:2441 ./include/linux/skbuff.h:3304 ./include/linux/skbuff.h:3310 net/sched/sch_g ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50038?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50038" src="https://img.shields.io/badge/CVE--2024--50038-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  netfilter: xtables: avoid NFPROTO_UNSPEC where needed  syzbot managed to call xt_cluster match via ebtables:  WARNING: CPU: 0 PID: 11 at net/netfilter/xt_cluster.c:72 xt_cluster_mt+0x196/0x780 [..] ebt_do_table+0x174b/0x2a40  Module registers to NFPROTO_UNSPEC, but it assumes ipv4/ipv6 packet processing.  As this is only useful to restrict locally terminating TCP/UDP traffic, register this for ipv4 and ipv6 family only.  Pablo points out that this is a general issue, direct users of the set/getsockopt interface can call into targets/matches that were only intended for use with ip(6)tables.  Check all UNSPEC matches and targets for similar issues:  - matches and targets are fine except if they assume skb_network_header() is valid -- this is only true when called from inet layer: ip(6) stack pulls the ip/ipv6 header into linear data area. - targets that return XT_CONTINUE or other xtables verdicts must be restricted too, they are incompatbile with the ebtables traverser, e.g. EBT_CONTINUE is a completely different value than XT_CONTINUE.  Most matches/targets are changed to register for NFPROTO_IPV4/IPV6, as they are provided for use by ip(6)tables.  The MARK target is also used by arptables, so register for NFPROTO_ARP too.  While at it, bail out if connbytes fails to enable the corresponding conntrack family.  This change passes the selftests in iptables.git.
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-50034?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.5: CVE--2024--50034" src="https://img.shields.io/badge/CVE--2024--50034-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
 
 <table>
@@ -5221,253 +3663,6 @@ In the Linux kernel, the following vulnerability has been resolved:  netfilter: 
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  net/smc: fix lacks of icsk_syn_mss with IPPROTO_SMC  Eric report a panic on IPPROTO_SMC, and give the facts that when INET_PROTOSW_ICSK was set, icsk->icsk_sync_mss must be set too.  Bug: Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000 Mem abort info: ESR = 0x0000000086000005 EC = 0x21: IABT (current EL), IL = 32 bits SET = 0, FnV = 0 EA = 0, S1PTW = 0 FSC = 0x05: level 1 translation fault user pgtable: 4k pages, 48-bit VAs, pgdp=00000001195d1000 [0000000000000000] pgd=0800000109c46003, p4d=0800000109c46003, pud=0000000000000000 Internal error: Oops: 0000000086000005 [#1] PREEMPT SMP Modules linked in: CPU: 1 UID: 0 PID: 8037 Comm: syz.3.265 Not tainted 6.11.0-rc7-syzkaller-g5f5673607153 #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/06/2024 pstate: 80400005 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--) pc : 0x0 lr : cipso_v4_sock_setattr+0x2a8/0x3c0 net/ipv4/cipso_ipv4.c:1910 sp : ffff80009b887a90 x29: ffff80009b887aa0 x28: ffff80008db94050 x27: 0000000000000000 x26: 1fffe0001aa6f5b3 x25: dfff800000000000 x24: ffff0000db75da00 x23: 0000000000000000 x22: ffff0000d8b78518 x21: 0000000000000000 x20: ffff0000d537ad80 x19: ffff0000d8b78000 x18: 1fffe000366d79ee x17: ffff8000800614a8 x16: ffff800080569b84 x15: 0000000000000001 x14: 000000008b336894 x13: 00000000cd96feaa x12: 0000000000000003 x11: 0000000000040000 x10: 00000000000020a3 x9 : 1fffe0001b16f0f1 x8 : 0000000000000000 x7 : 0000000000000000 x6 : 000000000000003f x5 : 0000000000000040 x4 : 0000000000000001 x3 : 0000000000000000 x2 : 0000000000000002 x1 : 0000000000000000 x0 : ffff0000d8b78000 Call trace: 0x0 netlbl_sock_setattr+0x2e4/0x338 net/netlabel/netlabel_kapi.c:1000 smack_netlbl_add+0xa4/0x154 security/smack/smack_lsm.c:2593 smack_socket_post_create+0xa8/0x14c security/smack/smack_lsm.c:2973 security_socket_post_create+0x94/0xd4 security/security.c:4425 __sock_create+0x4c8/0x884 net/socket.c:1587 sock_create net/socket.c:1622 [inline] __sys_socket_create net/socket.c:1659 [inline] __sys_socket+0x134/0x340 net/socket.c:1706 __do_sys_socket net/socket.c:1720 [inline] __se_sys_socket net/socket.c:1718 [inline] __arm64_sys_socket+0x7c/0x94 net/socket.c:1718 __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline] invoke_syscall+0x98/0x2b8 arch/arm64/kernel/syscall.c:49 el0_svc_common+0x130/0x23c arch/arm64/kernel/syscall.c:132 do_el0_svc+0x48/0x58 arch/arm64/kernel/syscall.c:151 el0_svc+0x54/0x168 arch/arm64/kernel/entry-common.c:712 el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730 el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598 Code: ???????? ???????? ???????? ???????? (????????) ---[ end trace 0000000000000000 ]---  This patch add a toy implementation that performs a simple return to prevent such panic. This is because MSS can be set in sock_create_kern or smc_setsockopt, similar to how it's done in AF_SMC. However, for AF_SMC, there is currently no way to synchronize MSS within __sys_connect_file. This toy implementation lays the groundwork for us to support such feature for IPPROTO_SMC in the future.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50032?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50032" src="https://img.shields.io/badge/CVE--2024--50032-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  rcu/nocb: Fix rcuog wake-up from offline softirq  After a CPU has set itself offline and before it eventually calls rcutree_report_cpu_dead(), there are still opportunities for callbacks to be enqueued, for example from a softirq. When that happens on NOCB, the rcuog wake-up is deferred through an IPI to an online CPU in order not to call into the scheduler and risk arming the RT-bandwidth after hrtimers have been migrated out and disabled.  But performing a synchronized IPI from a softirq is buggy as reported in the following scenario:  WARNING: CPU: 1 PID: 26 at kernel/smp.c:633 smp_call_function_single Modules linked in: rcutorture torture CPU: 1 UID: 0 PID: 26 Comm: migration/1 Not tainted 6.11.0-rc1-00012-g9139f93209d1 #1 Stopper: multi_cpu_stop+0x0/0x320 <- __stop_cpus+0xd0/0x120 RIP: 0010:smp_call_function_single <IRQ> swake_up_one_online __call_rcu_nocb_wake __call_rcu_common ? rcu_torture_one_read call_timer_fn __run_timers run_timer_softirq handle_softirqs irq_exit_rcu ? tick_handle_periodic sysvec_apic_timer_interrupt </IRQ>  Fix this with forcing deferred rcuog wake up through the NOCB timer when the CPU is offline. The actual wake up will happen from rcutree_report_cpu_dead().
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50031?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50031" src="https://img.shields.io/badge/CVE--2024--50031-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/v3d: Stop the active perfmon before being destroyed  When running `kmscube` with one or more performance monitors enabled via `GALLIUM_HUD`, the following kernel panic can occur:  [   55.008324] Unable to handle kernel paging request at virtual address 00000000052004a4 [   55.008368] Mem abort info: [   55.008377]   ESR = 0x0000000096000005 [   55.008387]   EC = 0x25: DABT (current EL), IL = 32 bits [   55.008402]   SET = 0, FnV = 0 [   55.008412]   EA = 0, S1PTW = 0 [   55.008421]   FSC = 0x05: level 1 translation fault [   55.008434] Data abort info: [   55.008442]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000 [   55.008455]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0 [   55.008467]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0 [   55.008481] user pgtable: 4k pages, 39-bit VAs, pgdp=00000001046c6000 [   55.008497] [00000000052004a4] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000 [   55.008525] Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP [   55.008542] Modules linked in: rfcomm [...] vc4 v3d snd_soc_hdmi_codec drm_display_helper gpu_sched drm_shmem_helper cec drm_dma_helper drm_kms_helper i2c_brcmstb drm drm_panel_orientation_quirks snd_soc_core snd_compress snd_pcm_dmaengine snd_pcm snd_timer snd backlight [   55.008799] CPU: 2 PID: 166 Comm: v3d_bin Tainted: G         C 6.6.47+rpt-rpi-v8 #1  Debian 1:6.6.47-1+rpt1 [   55.008824] Hardware name: Raspberry Pi 4 Model B Rev 1.5 (DT) [   55.008838] pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--) [   55.008855] pc : __mutex_lock.constprop.0+0x90/0x608 [   55.008879] lr : __mutex_lock.constprop.0+0x58/0x608 [   55.008895] sp : ffffffc080673cf0 [   55.008904] x29: ffffffc080673cf0 x28: 0000000000000000 x27: ffffff8106188a28 [   55.008926] x26: ffffff8101e78040 x25: ffffff8101baa6c0 x24: ffffffd9d989f148 [   55.008947] x23: ffffffda1c2a4008 x22: 0000000000000002 x21: ffffffc080673d38 [   55.008968] x20: ffffff8101238000 x19: ffffff8104f83188 x18: 0000000000000000 [   55.008988] x17: 0000000000000000 x16: ffffffda1bd04d18 x15: 00000055bb08bc90 [   55.009715] x14: 0000000000000000 x13: 0000000000000000 x12: ffffffda1bd4cbb0 [   55.010433] x11: 00000000fa83b2da x10: 0000000000001a40 x9 : ffffffda1bd04d04 [   55.011162] x8 : ffffff8102097b80 x7 : 0000000000000000 x6 : 00000000030a5857 [   55.011880] x5 : 00ffffffffffffff x4 : 0300000005200470 x3 : 0300000005200470 [   55.012598] x2 : ffffff8101238000 x1 : 0000000000000021 x0 : 0300000005200470 [   55.013292] Call trace: [   55.013959]  __mutex_lock.constprop.0+0x90/0x608 [   55.014646]  __mutex_lock_slowpath+0x1c/0x30 [   55.015317]  mutex_lock+0x50/0x68 [   55.015961]  v3d_perfmon_stop+0x40/0xe0 [v3d] [   55.016627]  v3d_bin_job_run+0x10c/0x2d8 [v3d] [   55.017282]  drm_sched_main+0x178/0x3f8 [gpu_sched] [   55.017921]  kthread+0x11c/0x128 [   55.018554]  ret_from_fork+0x10/0x20 [   55.019168] Code: f9400260 f1001c1f 54001ea9 927df000 (b9403401) [   55.019776] ---[ end trace 0000000000000000 ]--- [   55.020411] note: v3d_bin[166] exited with preempt_count 1  This issue arises because, upon closing the file descriptor (which happens when we interrupt `kmscube`), the active performance monitor is not stopped. Although all perfmons are destroyed in `v3d_perfmon_close_file()`, the active performance monitor's pointer (`v3d->active_perfmon`) is still retained.  If `kmscube` is run again, the driver will attempt to stop the active performance monitor using the stale pointer in `v3d->active_perfmon`. However, this pointer is no longer valid because the previous process has already terminated, and all performance monitors associated with it have been destroyed and freed.  To fix this, when the active performance monitor belongs to a given process, explicitly stop it before destroying and freeing it.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50028?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50028" src="https://img.shields.io/badge/CVE--2024--50028-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.034%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  thermal: core: Reference count the zone in thermal_zone_get_by_id()  There are places in the thermal netlink code where nothing prevents the thermal zone object from going away while being accessed after it has been returned by thermal_zone_get_by_id().  To address this, make thermal_zone_get_by_id() get a reference on the thermal zone device object to be returned with the help of get_device(), under thermal_list_lock, and adjust all of its callers to this change with the help of the cleanup.h infrastructure.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50027?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50027" src="https://img.shields.io/badge/CVE--2024--50027-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  thermal: core: Free tzp copy along with the thermal zone  The object pointed to by tz->tzp may still be accessed after being freed in thermal_zone_device_unregister(), so move the freeing of it to the point after the removal completion has been completed at which it cannot be accessed any more.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50026?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50026" src="https://img.shields.io/badge/CVE--2024--50026-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  scsi: wd33c93: Don't use stale scsi_pointer value  A regression was introduced with commit dbb2da557a6a ("scsi: wd33c93: Move the SCSI pointer to private command data") which results in an oops in wd33c93_intr(). That commit added the scsi_pointer variable and initialized it from hostdata->connected. However, during selection, hostdata->connected is not yet valid. Fix this by getting the current scsi_pointer from hostdata->selecting.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50025?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50025" src="https://img.shields.io/badge/CVE--2024--50025-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  scsi: fnic: Move flush_work initialization out of if block  After commit 379a58caa199 ("scsi: fnic: Move fnic_fnic_flush_tx() to a work queue"), it can happen that a work item is sent to an uninitialized work queue.  This may has the effect that the item being queued is never actually queued, and any further actions depending on it will not proceed.  The following warning is observed while the fnic driver is loaded:  kernel: WARNING: CPU: 11 PID: 0 at ../kernel/workqueue.c:1524 __queue_work+0x373/0x410 kernel:  <IRQ> kernel:  queue_work_on+0x3a/0x50 kernel:  fnic_wq_copy_cmpl_handler+0x54a/0x730 [fnic 62fbff0c42e7fb825c60a55cde2fb91facb2ed24] kernel:  fnic_isr_msix_wq_copy+0x2d/0x60 [fnic 62fbff0c42e7fb825c60a55cde2fb91facb2ed24] kernel:  __handle_irq_event_percpu+0x36/0x1a0 kernel:  handle_irq_event_percpu+0x30/0x70 kernel:  handle_irq_event+0x34/0x60 kernel:  handle_edge_irq+0x7e/0x1a0 kernel:  __common_interrupt+0x3b/0xb0 kernel:  common_interrupt+0x58/0xa0 kernel:  </IRQ>  It has been observed that this may break the rediscovery of Fibre Channel devices after a temporary fabric failure.  This patch fixes it by moving the work queue initialization out of an if block in fnic_probe().
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50024?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50024" src="https://img.shields.io/badge/CVE--2024--50024-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: Fix an unsafe loop on the list  The kernel may crash when deleting a genetlink family if there are still listeners for that family:  Oops: Kernel access of bad area, sig: 11 [#1] ... NIP [c000000000c080bc] netlink_update_socket_mc+0x3c/0xc0 LR [c000000000c0f764] __netlink_clear_multicast_users+0x74/0xc0 Call Trace: __netlink_clear_multicast_users+0x74/0xc0 genl_unregister_family+0xd4/0x2d0  Change the unsafe loop on the list to a safe one, because inside the loop there is an element removal from this list.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50023?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50023" src="https://img.shields.io/badge/CVE--2024--50023-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: phy: Remove LED entry from LEDs list on unregister  Commit c938ab4da0eb ("net: phy: Manual remove LEDs to ensure correct ordering") correctly fixed a problem with using devm_ but missed removing the LED entry from the LEDs list.  This cause kernel panic on specific scenario where the port for the PHY is torn down and up and the kmod for the PHY is removed.  On setting the port down the first time, the assosiacted LEDs are correctly unregistered. The associated kmod for the PHY is now removed. The kmod is now added again and the port is now put up, the associated LED are registered again. On putting the port down again for the second time after these step, the LED list now have 4 elements. With the first 2 already unregistered previously and the 2 new one registered again.  This cause a kernel panic as the first 2 element should have been removed.  Fix this by correctly removing the element when LED is unregistered.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50022?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50022" src="https://img.shields.io/badge/CVE--2024--50022-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.033%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  device-dax: correct pgoff align in dax_set_mapping()  pgoff should be aligned using ALIGN_DOWN() instead of ALIGN().  Otherwise, vmf->address not aligned to fault_size will be aligned to the next alignment, that can result in memory failure getting the wrong address.  It's a subtle situation that only can be observed in page_mapped_in_vma() after the page is page fault handled by dev_dax_huge_fault.  Generally, there is little chance to perform page_mapped_in_vma in dev-dax's page unless in specific error injection to the dax device to trigger an MCE - memory-failure.  In that case, page_mapped_in_vma() will be triggered to determine which task is accessing the failure address and kill that task in the end.   We used self-developed dax device (which is 2M aligned mapping) , to perform error injection to random address.  It turned out that error injected to non-2M-aligned address was causing endless MCE until panic. Because page_mapped_in_vma() kept resulting wrong address and the task accessing the failure address was never killed properly:   [ 3783.719419] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3784.049006] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3784.049190] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3784.448042] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3784.448186] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3784.792026] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3784.792179] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3785.162502] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3785.162633] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3785.461116] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3785.461247] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3785.764730] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3785.764859] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3786.042128] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3786.042259] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3786.464293] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3786.464423] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3786.818090] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3786.818217] Memory failure: 0x200c9742: recovery action for dax page: Recovered [ 3787.085297] mce: Uncorrected hardware memory error in user-access at 200c9742380 [ 3787.085424] Memory failure: 0x200c9742: recovery action for dax page: Recovered  It took us several weeks to pinpoint this problem,  but we eventually used bpftrace to trace the page fault and mce address and successfully identified the issue.   Joao added:  ; Likely we never reproduce in production because we always pin : device-dax regions in the region align they provide (Qemu does : similarly with prealloc in hugetlb/file backed memory).  I think this : bug requires that we touch *unpinned* device-dax regions unaligned to : the device-dax selected alignment (page size i.e.  4K/2M/1G)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50021?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50021" src="https://img.shields.io/badge/CVE--2024--50021-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ice: Fix improper handling of refcount in ice_dpll_init_rclk_pins()  This patch addresses a reference count handling issue in the ice_dpll_init_rclk_pins() function. The function calls ice_dpll_get_pins(), which increments the reference count of the relevant resources. However, if the condition WARN_ON((!vsi || !vsi->netdev)) is met, the function currently returns an error without properly releasing the resources acquired by ice_dpll_get_pins(), leading to a reference count leak.  To resolve this, the check has been moved to the top of the function. This ensures that the function verifies the state before any resources are acquired, avoiding the need for additional resource management in the error path.  This bug was identified by an experimental static analysis tool developed by our team. The tool specializes in analyzing reference count operations and detecting potential issues where resources are not properly managed. In this case, the tool flagged the missing release operation as a potential problem, which led to the development of this patch.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50020?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50020" src="https://img.shields.io/badge/CVE--2024--50020-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ice: Fix improper handling of refcount in ice_sriov_set_msix_vec_count()  This patch addresses an issue with improper reference count handling in the ice_sriov_set_msix_vec_count() function.  First, the function calls ice_get_vf_by_id(), which increments the reference count of the vf pointer. If the subsequent call to ice_get_vf_vsi() fails, the function currently returns an error without decrementing the reference count of the vf pointer, leading to a reference count leak. The correct behavior, as implemented in this patch, is to decrement the reference count using ice_put_vf(vf) before returning an error when vsi is NULL.  Second, the function calls ice_sriov_get_irqs(), which sets vf->first_vector_idx. If this call returns a negative value, indicating an error, the function returns an error without decrementing the reference count of the vf pointer, resulting in another reference count leak. The patch addresses this by adding a call to ice_put_vf(vf) before returning an error when vf->first_vector_idx < 0.  This bug was identified by an experimental static analysis tool developed by our team. The tool specializes in analyzing reference count operations and identifying potential mismanagement of reference counts. In this case, the tool flagged the missing decrement operation as a potential issue, leading to this patch.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50019?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50019" src="https://img.shields.io/badge/CVE--2024--50019-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  kthread: unpark only parked kthread  Calling into kthread unparking unconditionally is mostly harmless when the kthread is already unparked. The wake up is then simply ignored because the target is not in TASK_PARKED state.  However if the kthread is per CPU, the wake up is preceded by a call to kthread_bind() which expects the task to be inactive and in TASK_PARKED state, which obviously isn't the case if it is unparked.  As a result, calling kthread_stop() on an unparked per-cpu kthread triggers such a warning:  WARNING: CPU: 0 PID: 11 at kernel/kthread.c:525 __kthread_bind_mask kernel/kthread.c:525 <TASK> kthread_stop+0x17a/0x630 kernel/kthread.c:707 destroy_workqueue+0x136/0xc40 kernel/workqueue.c:5810 wg_destruct+0x1e2/0x2e0 drivers/net/wireguard/device.c:257 netdev_run_todo+0xe1a/0x1000 net/core/dev.c:10693 default_device_exit_batch+0xa14/0xa90 net/core/dev.c:11769 ops_exit_list net/core/net_namespace.c:178 [inline] cleanup_net+0x89d/0xcc0 net/core/net_namespace.c:640 process_one_work kernel/workqueue.c:3231 [inline] process_scheduled_works+0xa2c/0x1830 kernel/workqueue.c:3312 worker_thread+0x86d/0xd70 kernel/workqueue.c:3393 kthread+0x2f0/0x390 kernel/kthread.c:389 ret_from_fork+0x4b/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 </TASK>  Fix this with skipping unecessary unparking while stopping a kthread.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50009?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--50009" src="https://img.shields.io/badge/CVE--2024--50009-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  cpufreq: amd-pstate: add check for cpufreq_cpu_get's return value  cpufreq_cpu_get may return NULL. To avoid NULL-dereference check it and return in case of error.  Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
 </blockquote>
 </details>
@@ -5548,25 +3743,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/xe/hdcp
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-49972?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--49972" src="https://img.shields.io/badge/CVE--2024--49972-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Deallocate DML memory if allocation fails  [Why] When DC state create DML memory allocation fails, memory is not deallocated subsequently, resulting in uninitialized structure that is not NULL.  [How] Deallocate memory if DML memory allocation fails.
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-49971?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.5: CVE--2024--49971" src="https://img.shields.io/badge/CVE--2024--49971-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
 
 <table>
@@ -5643,44 +3819,6 @@ In the Linux kernel, the following vulnerability has been resolved:  btrfs: don'
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-49921?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--49921" src="https://img.shields.io/badge/CVE--2024--49921-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Check null pointers before used  [WHAT & HOW] Poniters, such as dc->clk_mgr, are null checked previously in the same function, so Coverity warns "implies that "dc->clk_mgr" might be null". As a result, these pointers need to be checked when used again.  This fixes 10 FORWARD_NULL issues reported by Coverity.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-49920?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--49920" src="https://img.shields.io/badge/CVE--2024--49920-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Check null pointers before multiple uses  [WHAT & HOW] Poniters, such as stream_enc and dc->bw_vbios, are null checked previously in the same function, so Coverity warns "implies that stream_enc and dc->bw_vbios might be null". They are used multiple times in the subsequent code and need to be checked.  This fixes 10 FORWARD_NULL issues reported by Coverity.
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-49916?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.5: CVE--2024--49916" src="https://img.shields.io/badge/CVE--2024--49916-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
 
 <table>
@@ -5696,25 +3834,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Add NULL check for clk_mgr and clk_mgr->funcs in dcn401_init_hw  This commit addresses a potential null pointer dereference issue in the `dcn401_init_hw` function. The issue could occur when `dc->clk_mgr` or `dc->clk_mgr->funcs` is null.  The fix adds a check to ensure `dc->clk_mgr` and `dc->clk_mgr->funcs` is not null before accessing its functions. This prevents a potential null pointer dereference.  Reported by smatch: drivers/gpu/drm/amd/amdgpu/../display/dc/hwss/dcn401/dcn401_hwseq.c:416 dcn401_init_hw() error: we previously assumed 'dc->clk_mgr' could be null (see line 225)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-49914?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--49914" src="https://img.shields.io/badge/CVE--2024--49914-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Add null check for pipe_ctx->plane_state in dcn20_program_pipe  This commit addresses a null pointer dereference issue in the `dcn20_program_pipe` function. The issue could occur when `pipe_ctx->plane_state` is null.  The fix adds a check to ensure `pipe_ctx->plane_state` is not null before accessing. This prevents a null pointer dereference.  Reported by smatch: drivers/gpu/drm/amd/amdgpu/../display/dc/hwss/dcn20/dcn20_hwseq.c:1925 dcn20_program_pipe() error: we previously assumed 'pipe_ctx->plane_state' could be null (see line 1877)
 
 </blockquote>
 </details>
@@ -5772,25 +3891,6 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amd/dis
 <blockquote>
 
 In the Linux kernel, the following vulnerability has been resolved:  drm/amdgpu: add list empty check to avoid null pointer issue  Add list empty check to avoid null pointer issues in some corner cases. - list_for_each_entry_safe()
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-49893?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 5.5: CVE--2024--49893" src="https://img.shields.io/badge/CVE--2024--49893-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Check stream_status before it is used  [WHAT & HOW] dc_state_get_stream_status can return null, and therefore null must be checked before stream_status is used.  This fixes 1 NULL_RETURNS issue reported by Coverity.
 
 </blockquote>
 </details>
@@ -6088,7 +4188,7 @@ In the Linux kernel, the following vulnerability has been resolved: tracing: Hav
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.010%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6289,63 +4389,6 @@ In the Linux kernel, the following vulnerability has been resolved:  dm: fix a c
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50192?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 4.7: CVE--2024--50192" src="https://img.shields.io/badge/CVE--2024--50192-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.019%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  irqchip/gic-v4: Don't allow a VMOVP on a dying VPE  Kunkun Jiang reported that there is a small window of opportunity for userspace to force a change of affinity for a VPE while the VPE has already been unmapped, but the corresponding doorbell interrupt still visible in /proc/irq/.  Plug the race by checking the value of vmapp_count, which tracks whether the VPE is mapped ot not, and returning an error in this case.  This involves making vmapp_count common to both GICv4.1 and its v4.0 ancestor.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50183?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 4.7: CVE--2024--50183" src="https://img.shields.io/badge/CVE--2024--50183-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  scsi: lpfc: Ensure DA_ID handling completion before deleting an NPIV instance  Deleting an NPIV instance requires all fabric ndlps to be released before an NPIV's resources can be torn down.  Failure to release fabric ndlps beforehand opens kref imbalance race conditions.  Fix by forcing the DA_ID to complete synchronously with usage of wait_queue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50082?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 4.7: CVE--2024--50082" src="https://img.shields.io/badge/CVE--2024--50082-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  blk-rq-qos: fix crash on rq_qos_wait vs. rq_qos_wake_function race  We're seeing crashes from rq_qos_wake_function that look like this:  BUG: unable to handle page fault for address: ffffafe180a40084 #PF: supervisor write access in kernel mode #PF: error_code(0x0002) - not-present page PGD 100000067 P4D 100000067 PUD 10027c067 PMD 10115d067 PTE 0 Oops: Oops: 0002 [#1] PREEMPT SMP PTI CPU: 17 UID: 0 PID: 0 Comm: swapper/17 Not tainted 6.12.0-rc3-00013-geca631b8fe80 #11 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239552ce722-prebuilt.qemu.org 04/01/2014 RIP: 0010:_raw_spin_lock_irqsave+0x1d/0x40 Code: 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 0f 1f 44 00 00 41 54 9c 41 5c fa 65 ff 05 62 97 30 4c 31 c0 ba 01 00 00 00 <f0> 0f b1 17 75 0a 4c 89 e0 41 5c c3 cc cc cc cc 89 c6 e8 2c 0b 00 RSP: 0018:ffffafe180580ca0 EFLAGS: 00010046 RAX: 0000000000000000 RBX: ffffafe180a3f7a8 RCX: 0000000000000011 RDX: 0000000000000001 RSI: 0000000000000003 RDI: ffffafe180a40084 RBP: 0000000000000000 R08: 00000000001e7240 R09: 0000000000000011 R10: 0000000000000028 R11: 0000000000000888 R12: 0000000000000002 R13: ffffafe180a40084 R14: 0000000000000000 R15: 0000000000000003 FS:  0000000000000000(0000) GS:ffff9aaf1f280000(0000) knlGS:0000000000000000 CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: ffffafe180a40084 CR3: 000000010e428002 CR4: 0000000000770ef0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 PKRU: 55555554 Call Trace: <IRQ> try_to_wake_up+0x5a/0x6a0 rq_qos_wake_function+0x71/0x80 __wake_up_common+0x75/0xa0 __wake_up+0x36/0x60 scale_up.part.0+0x50/0x110 wb_timer_fn+0x227/0x450 ...  So rq_qos_wake_function() calls wake_up_process(data->task), which calls try_to_wake_up(), which faults in raw_spin_lock_irqsave(&p->pi_lock).  p comes from data->task, and data comes from the waitqueue entry, which is stored on the waiter's stack in rq_qos_wait(). Analyzing the core dump with drgn, I found that the waiter had already woken up and moved on to a completely unrelated code path, clobbering what was previously data->task. Meanwhile, the waker was passing the clobbered garbage in data->task to wake_up_process(), leading to the crash.  What's happening is that in between rq_qos_wake_function() deleting the waitqueue entry and calling wake_up_process(), rq_qos_wait() is finding that it already got a token and returning. The race looks like this:  rq_qos_wait()                           rq_qos_wake_function() ============================================================== prepare_to_wait_exclusive() data->got_token = true; list_del_init(&curr->entry); if (data.got_token) break; finish_wait(&rqw->wait, &data.wq); ^- returns immediately because list_empty_careful(&wq_entry->entry) is true ... return, go do something else ... wake_up_process(data->task) (NO LONGER VALID!)-^  Normally, finish_wait() is supposed to synchronize against the waker. But, as noted above, it is returning immediately because the waitqueue entry has already been removed from the waitqueue.  The bug is that rq_qos_wake_function() is accessing the waitqueue entry AFTER deleting it. Note that autoremove_wake_function() wakes the waiter and THEN deletes the waitqueue entry, which is the proper order.  Fix it by swapping the order. We also need to use list_del_init_careful() to match the list_empty_careful() in finish_wait().
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-42107?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 4.7: CVE--2024--42107" src="https://img.shields.io/badge/CVE--2024--42107-lightgrey?label=medium%204.7&labelColor=fbb552"/></a> 
 
 <table>
@@ -6384,44 +4427,6 @@ The Linux kernel 4.14.67 mishandles certain interaction among XFRM Netlink messa
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50057?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 3.3: CVE--2024--50057" src="https://img.shields.io/badge/CVE--2024--50057-lightgrey?label=medium%203.3&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  usb: typec: tipd: Free IRQ only if it was requested before  In polling mode, if no IRQ was requested there is no need to free it. Call devm_free_irq() only if client->irq is set. This fixes the warning caused by the tps6598x module removal:  WARNING: CPU: 2 PID: 333 at kernel/irq/devres.c:144 devm_free_irq+0x80/0x8c ... ... Call trace: devm_free_irq+0x80/0x8c tps6598x_remove+0x28/0x88 [tps6598x] i2c_device_remove+0x2c/0x9c device_remove+0x4c/0x80 device_release_driver_internal+0x1cc/0x228 driver_detach+0x50/0x98 bus_remove_driver+0x6c/0xbc driver_unregister+0x30/0x60 i2c_del_driver+0x54/0x64 tps6598x_i2c_driver_exit+0x18/0xc3c [tps6598x] __arm64_sys_delete_module+0x184/0x264 invoke_syscall+0x48/0x110 el0_svc_common.constprop.0+0xc8/0xe8 do_el0_svc+0x20/0x2c el0_svc+0x28/0x98 el0t_64_sync_handler+0x13c/0x158 el0t_64_sync+0x190/0x194
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50044?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium 3.3: CVE--2024--50044" src="https://img.shields.io/badge/CVE--2024--50044-lightgrey?label=medium%203.3&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: RFCOMM: FIX possible deadlock in rfcomm_sk_state_change  rfcomm_sk_state_change attempts to use sock_lock so it must never be called with it locked but rfcomm_sock_ioctl always attempt to lock it causing the following trace:  ====================================================== WARNING: possible circular locking dependency detected 6.8.0-syzkaller-08951-gfe46a7dd189e #0 Not tainted ------------------------------------------------------ syz-executor386/5093 is trying to acquire lock: ffff88807c396258 (sk_lock-AF_BLUETOOTH-BTPROTO_RFCOMM){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1671 [inline] ffff88807c396258 (sk_lock-AF_BLUETOOTH-BTPROTO_RFCOMM){+.+.}-{0:0}, at: rfcomm_sk_state_change+0x5b/0x310 net/bluetooth/rfcomm/sock.c:73  but task is already holding lock: ffff88807badfd28 (&d->lock){+.+.}-{3:3}, at: __rfcomm_dlc_close+0x226/0x6a0 net/bluetooth/rfcomm/core.c:491
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2025-2312?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--2312" src="https://img.shields.io/badge/CVE--2025--2312-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
@@ -6435,6 +4440,363 @@ In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: 
 <blockquote>
 
 A flaw was found in cifs-utils. When trying to obtain Kerberos credentials, the cifs.upcall program from the cifs-utils package makes an upcall to the wrong namespace in containerized environments. This issue may lead to disclosing sensitive data from the host's Kerberos credentials cache.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21892?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21892" src="https://img.shields.io/badge/CVE--2025--21892-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  RDMA/mlx5: Fix the recovery flow of the UMR QP  This patch addresses an issue in the recovery flow of the UMR QP, ensuring tasks do not get stuck, as highlighted by the call trace [1].  During recovery, before transitioning the QP to the RESET state, the software must wait for all outstanding WRs to complete.  Failing to do so can cause the firmware to skip sending some flushed CQEs with errors and simply discard them upon the RESET, as per the IB specification.  This race condition can result in lost CQEs and tasks becoming stuck.  To resolve this, the patch sends a final WR which serves only as a barrier before moving the QP state to RESET.  Once a CQE is received for that final WR, it guarantees that no outstanding WRs remain, making it safe to transition the QP to RESET and subsequently back to RTS, restoring proper functionality.  Note: For the barrier WR, we simply reuse the failed and ready WR. Since the QP is in an error state, it will only receive IB_WC_WR_FLUSH_ERR. However, as it serves only as a barrier we don't care about its status.  [1] INFO: task rdma_resource_l:1922 blocked for more than 120 seconds. Tainted: G        W          6.12.0-rc7+ #1626 "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message. task:rdma_resource_l state:D stack:0  pid:1922 tgid:1922  ppid:1369 flags:0x00004004 Call Trace: <TASK> __schedule+0x420/0xd30 schedule+0x47/0x130 schedule_timeout+0x280/0x300 ? mark_held_locks+0x48/0x80 ? lockdep_hardirqs_on_prepare+0xe5/0x1a0 wait_for_completion+0x75/0x130 mlx5r_umr_post_send_wait+0x3c2/0x5b0 [mlx5_ib] ? __pfx_mlx5r_umr_done+0x10/0x10 [mlx5_ib] mlx5r_umr_revoke_mr+0x93/0xc0 [mlx5_ib] __mlx5_ib_dereg_mr+0x299/0x520 [mlx5_ib] ? _raw_spin_unlock_irq+0x24/0x40 ? wait_for_completion+0xfe/0x130 ? rdma_restrack_put+0x63/0xe0 [ib_core] ib_dereg_mr_user+0x5f/0x120 [ib_core] ? lock_release+0xc6/0x280 destroy_hw_idr_uobject+0x1d/0x60 [ib_uverbs] uverbs_destroy_uobject+0x58/0x1d0 [ib_uverbs] uobj_destroy+0x3f/0x70 [ib_uverbs] ib_uverbs_cmd_verbs+0x3e4/0xbb0 [ib_uverbs] ? __pfx_uverbs_destroy_def_handler+0x10/0x10 [ib_uverbs] ? __lock_acquire+0x64e/0x2080 ? mark_held_locks+0x48/0x80 ? find_held_lock+0x2d/0xa0 ? lock_acquire+0xc1/0x2f0 ? ib_uverbs_ioctl+0xcb/0x170 [ib_uverbs] ? __fget_files+0xc3/0x1b0 ib_uverbs_ioctl+0xe7/0x170 [ib_uverbs] ? ib_uverbs_ioctl+0xcb/0x170 [ib_uverbs] __x64_sys_ioctl+0x1b0/0xa70 do_syscall_64+0x6b/0x140 entry_SYSCALL_64_after_hwframe+0x76/0x7e RIP: 0033:0x7f99c918b17b RSP: 002b:00007ffc766d0468 EFLAGS: 00000246 ORIG_RAX: 0000000000000010 RAX: ffffffffffffffda RBX: 00007ffc766d0578 RCX: 00007f99c918b17b RDX: 00007ffc766d0560 RSI: 00000000c0181b01 RDI: 0000000000000003 RBP: 00007ffc766d0540 R08: 00007f99c8f99010 R09: 000000000000bd7e R10: 00007f99c94c1c70 R11: 0000000000000246 R12: 00007ffc766d0530 R13: 000000000000001c R14: 0000000040246a80 R15: 0000000000000000 </TASK>
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21891?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21891" src="https://img.shields.io/badge/CVE--2025--21891-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  ipvlan: ensure network headers are in skb linear part  syzbot found that ipvlan_process_v6_outbound() was assuming the IPv6 network header isis present in skb->head [1]  Add the needed pskb_network_may_pull() calls for both IPv4 and IPv6 handlers.  [1] BUG: KMSAN: uninit-value in __ipv6_addr_type+0xa2/0x490 net/ipv6/addrconf_core.c:47 __ipv6_addr_type+0xa2/0x490 net/ipv6/addrconf_core.c:47 ipv6_addr_type include/net/ipv6.h:555 [inline] ip6_route_output_flags_noref net/ipv6/route.c:2616 [inline] ip6_route_output_flags+0x51/0x720 net/ipv6/route.c:2651 ip6_route_output include/net/ip6_route.h:93 [inline] ipvlan_route_v6_outbound+0x24e/0x520 drivers/net/ipvlan/ipvlan_core.c:476 ipvlan_process_v6_outbound drivers/net/ipvlan/ipvlan_core.c:491 [inline] ipvlan_process_outbound drivers/net/ipvlan/ipvlan_core.c:541 [inline] ipvlan_xmit_mode_l3 drivers/net/ipvlan/ipvlan_core.c:605 [inline] ipvlan_queue_xmit+0xd72/0x1780 drivers/net/ipvlan/ipvlan_core.c:671 ipvlan_start_xmit+0x5b/0x210 drivers/net/ipvlan/ipvlan_main.c:223 __netdev_start_xmit include/linux/netdevice.h:5150 [inline] netdev_start_xmit include/linux/netdevice.h:5159 [inline] xmit_one net/core/dev.c:3735 [inline] dev_hard_start_xmit+0x247/0xa20 net/core/dev.c:3751 sch_direct_xmit+0x399/0xd40 net/sched/sch_generic.c:343 qdisc_restart net/sched/sch_generic.c:408 [inline] __qdisc_run+0x14da/0x35d0 net/sched/sch_generic.c:416 qdisc_run+0x141/0x4d0 include/net/pkt_sched.h:127 net_tx_action+0x78b/0x940 net/core/dev.c:5484 handle_softirqs+0x1a0/0x7c0 kernel/softirq.c:561 __do_softirq+0x14/0x1a kernel/softirq.c:595 do_softirq+0x9a/0x100 kernel/softirq.c:462 __local_bh_enable_ip+0x9f/0xb0 kernel/softirq.c:389 local_bh_enable include/linux/bottom_half.h:33 [inline] rcu_read_unlock_bh include/linux/rcupdate.h:919 [inline] __dev_queue_xmit+0x2758/0x57d0 net/core/dev.c:4611 dev_queue_xmit include/linux/netdevice.h:3311 [inline] packet_xmit+0x9c/0x6c0 net/packet/af_packet.c:276 packet_snd net/packet/af_packet.c:3132 [inline] packet_sendmsg+0x93e0/0xa7e0 net/packet/af_packet.c:3164 sock_sendmsg_nosec net/socket.c:718 [inline]
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21890?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21890" src="https://img.shields.io/badge/CVE--2025--21890-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  idpf: fix checksums set in idpf_rx_rsc()  idpf_rx_rsc() uses skb_transport_offset(skb) while the transport header is not set yet.  This triggers the following warning for CONFIG_DEBUG_NET=y builds.  DEBUG_NET_WARN_ON_ONCE(!skb_transport_header_was_set(skb))  [   69.261620] WARNING: CPU: 7 PID: 0 at ./include/linux/skbuff.h:3020 idpf_vport_splitq_napi_poll (include/linux/skbuff.h:3020) idpf [   69.261629] Modules linked in: vfat fat dummy bridge intel_uncore_frequency_tpmi intel_uncore_frequency_common intel_vsec_tpmi idpf intel_vsec cdc_ncm cdc_eem cdc_ether usbnet mii xhci_pci xhci_hcd ehci_pci ehci_hcd libeth [   69.261644] CPU: 7 UID: 0 PID: 0 Comm: swapper/7 Tainted: G S      W 6.14.0-smp-DEV #1697 [   69.261648] Tainted: [S]=CPU_OUT_OF_SPEC, [W]=WARN [   69.261650] RIP: 0010:idpf_vport_splitq_napi_poll (include/linux/skbuff.h:3020) idpf [   69.261677] ? __warn (kernel/panic.c:242 kernel/panic.c:748) [   69.261682] ? idpf_vport_splitq_napi_poll (include/linux/skbuff.h:3020) idpf [   69.261687] ? report_bug (lib/bug.c:?) [   69.261690] ? handle_bug (arch/x86/kernel/traps.c:285) [   69.261694] ? exc_invalid_op (arch/x86/kernel/traps.c:309) [   69.261697] ? asm_exc_invalid_op (arch/x86/include/asm/idtentry.h:621) [   69.261700] ? __pfx_idpf_vport_splitq_napi_poll (drivers/net/ethernet/intel/idpf/idpf_txrx.c:4011) idpf [   69.261704] ? idpf_vport_splitq_napi_poll (include/linux/skbuff.h:3020) idpf [   69.261708] ? idpf_vport_splitq_napi_poll (drivers/net/ethernet/intel/idpf/idpf_txrx.c:3072) idpf [   69.261712] __napi_poll (net/core/dev.c:7194) [   69.261716] net_rx_action (net/core/dev.c:7265) [   69.261718] ? __qdisc_run (net/sched/sch_generic.c:293) [   69.261721] ? sched_clock (arch/x86/include/asm/preempt.h:84 arch/x86/kernel/tsc.c:288) [   69.261726] handle_softirqs (kernel/softirq.c:561)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21889?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21889" src="https://img.shields.io/badge/CVE--2025--21889-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  perf/core: Add RCU read lock protection to perf_iterate_ctx()  The perf_iterate_ctx() function performs RCU list traversal but currently lacks RCU read lock protection. This causes lockdep warnings when running perf probe with unshare(1) under CONFIG_PROVE_RCU_LIST=y:  WARNING: suspicious RCU usage kernel/events/core.c:8168 RCU-list traversed in non-reader section!!  Call Trace: lockdep_rcu_suspicious ? perf_event_addr_filters_apply perf_iterate_ctx perf_event_exec begin_new_exec ? load_elf_phdrs load_elf_binary ? lock_acquire ? find_held_lock ? bprm_execve bprm_execve do_execveat_common.isra.0 __x64_sys_execve do_syscall_64 entry_SYSCALL_64_after_hwframe  This protection was previously present but was removed in commit bd2756811766 ("perf: Rewrite core context handling"). Add back the necessary rcu_read_lock()/rcu_read_unlock() pair around perf_iterate_ctx() call in perf_event_exec().  [ mingo: Use scoped_guard() as suggested by Peter ]
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21888?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21888" src="https://img.shields.io/badge/CVE--2025--21888-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  RDMA/mlx5: Fix a WARN during dereg_mr for DM type  Memory regions (MR) of type DM (device memory) do not have an associated umem.  In the __mlx5_ib_dereg_mr() -> mlx5_free_priv_descs() flow, the code incorrectly takes the wrong branch, attempting to call dma_unmap_single() on a DMA address that is not mapped.  This results in a WARN [1], as shown below.  The issue is resolved by properly accounting for the DM type and ensuring the correct branch is selected in mlx5_free_priv_descs().  [1] WARNING: CPU: 12 PID: 1346 at drivers/iommu/dma-iommu.c:1230 iommu_dma_unmap_page+0x79/0x90 Modules linked in: ip6table_mangle ip6table_nat ip6table_filter ip6_tables iptable_mangle xt_conntrack xt_MASQUERADE nf_conntrack_netlink nfnetlink xt_addrtype iptable_nat nf_nat br_netfilter rpcsec_gss_krb5 auth_rpcgss oid_registry ovelay rpcrdma rdma_ucm ib_iser libiscsi scsi_transport_iscsi ib_umad rdma_cm ib_ipoib iw_cm ib_cm mlx5_ib ib_uverbs ib_core fuse mlx5_core CPU: 12 UID: 0 PID: 1346 Comm: ibv_rc_pingpong Not tainted 6.12.0-rc7+ #1631 Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS rel-1.13.0-0-gf21b5a4aeb02-prebuilt.qemu.org 04/01/2014 RIP: 0010:iommu_dma_unmap_page+0x79/0x90 Code: 2b 49 3b 29 72 26 49 3b 69 08 73 20 4d 89 f0 44 89 e9 4c 89 e2 48 89 ee 48 89 df 5b 5d 41 5c 41 5d 41 5e 41 5f e9 07 b8 88 ff <0f> 0b 5b 5d 41 5c 41 5d 41 5e 41 5f c3 cc cc cc cc 66 0f 1f 44 00 RSP: 0018:ffffc90001913a10 EFLAGS: 00010246 RAX: 0000000000000000 RBX: ffff88810194b0a8 RCX: 0000000000000000 RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000001 RBP: ffff88810194b0a8 R08: 0000000000000000 R09: 0000000000000000 R10: 0000000000000001 R11: 0000000000000000 R12: 0000000000000000 R13: 0000000000000001 R14: 0000000000000000 R15: 0000000000000000 FS:  00007f537abdd740(0000) GS:ffff88885fb00000(0000) knlGS:0000000000000000 CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 00007f537aeb8000 CR3: 000000010c248001 CR4: 0000000000372eb0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <TASK> ? __warn+0x84/0x190 ? iommu_dma_unmap_page+0x79/0x90 ? report_bug+0xf8/0x1c0 ? handle_bug+0x55/0x90 ? exc_invalid_op+0x13/0x60 ? asm_exc_invalid_op+0x16/0x20 ? iommu_dma_unmap_page+0x79/0x90 dma_unmap_page_attrs+0xe6/0x290 mlx5_free_priv_descs+0xb0/0xe0 [mlx5_ib] __mlx5_ib_dereg_mr+0x37e/0x520 [mlx5_ib] ? _raw_spin_unlock_irq+0x24/0x40 ? wait_for_completion+0xfe/0x130 ? rdma_restrack_put+0x63/0xe0 [ib_core] ib_dereg_mr_user+0x5f/0x120 [ib_core] ? lock_release+0xc6/0x280 destroy_hw_idr_uobject+0x1d/0x60 [ib_uverbs] uverbs_destroy_uobject+0x58/0x1d0 [ib_uverbs] uobj_destroy+0x3f/0x70 [ib_uverbs] ib_uverbs_cmd_verbs+0x3e4/0xbb0 [ib_uverbs] ? __pfx_uverbs_destroy_def_handler+0x10/0x10 [ib_uverbs] ? lock_acquire+0xc1/0x2f0 ? ib_uverbs_ioctl+0xcb/0x170 [ib_uverbs] ? ib_uverbs_ioctl+0x116/0x170 [ib_uverbs] ? lock_release+0xc6/0x280 ib_uverbs_ioctl+0xe7/0x170 [ib_uverbs] ? ib_uverbs_ioctl+0xcb/0x170 [ib_uverbs] __x64_sys_ioctl+0x1b0/0xa70 do_syscall_64+0x6b/0x140 entry_SYSCALL_64_after_hwframe+0x76/0x7e RIP: 0033:0x7f537adaf17b Code: 0f 1e fa 48 8b 05 1d ad 0c 00 64 c7 00 26 00 00 00 48 c7 c0 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa b8 10 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d ed ac 0c 00 f7 d8 64 89 01 48 RSP: 002b:00007ffff218f0b8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010 RAX: ffffffffffffffda RBX: 00007ffff218f1d8 RCX: 00007f537adaf17b RDX: 00007ffff218f1c0 RSI: 00000000c0181b01 RDI: 0000000000000003 RBP: 00007ffff218f1a0 R08: 00007f537aa8d010 R09: 0000561ee2e4f270 R10: 00007f537aace3a8 R11: 0000000000000246 R12: 00007ffff218f190 R13: 000000000000001c R14: 0000561ee2e4d7c0 R15: 00007ffff218f450 </TASK>
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21887?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21887" src="https://img.shields.io/badge/CVE--2025--21887-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  ovl: fix UAF in ovl_dentry_update_reval by moving dput() in ovl_link_up  The issue was caused by dput(upper) being called before ovl_dentry_update_reval(), while upper->d_flags was still accessed in ovl_dentry_remote().  Move dput(upper) after its last use to prevent use-after-free.  BUG: KASAN: slab-use-after-free in ovl_dentry_remote fs/overlayfs/util.c:162 [inline] BUG: KASAN: slab-use-after-free in ovl_dentry_update_reval+0xd2/0xf0 fs/overlayfs/util.c:167  Call Trace: <TASK> __dump_stack lib/dump_stack.c:88 [inline] dump_stack_lvl+0x116/0x1f0 lib/dump_stack.c:114 print_address_description mm/kasan/report.c:377 [inline] print_report+0xc3/0x620 mm/kasan/report.c:488 kasan_report+0xd9/0x110 mm/kasan/report.c:601 ovl_dentry_remote fs/overlayfs/util.c:162 [inline] ovl_dentry_update_reval+0xd2/0xf0 fs/overlayfs/util.c:167 ovl_link_up fs/overlayfs/copy_up.c:610 [inline] ovl_copy_up_one+0x2105/0x3490 fs/overlayfs/copy_up.c:1170 ovl_copy_up_flags+0x18d/0x200 fs/overlayfs/copy_up.c:1223 ovl_rename+0x39e/0x18c0 fs/overlayfs/dir.c:1136 vfs_rename+0xf84/0x20a0 fs/namei.c:4893 ... </TASK>
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21885?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21885" src="https://img.shields.io/badge/CVE--2025--21885-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  RDMA/bnxt_re: Fix the page details for the srq created by kernel consumers  While using nvme target with use_srq on, below kernel panic is noticed.  [  549.698111] bnxt_en 0000:41:00.0 enp65s0np0: FEC autoneg off encoding: Clause 91 RS(544,514) [  566.393619] Oops: divide error: 0000 [#1] PREEMPT SMP NOPTI .. [  566.393799]  <TASK> [  566.393807]  ? __die_body+0x1a/0x60 [  566.393823]  ? die+0x38/0x60 [  566.393835]  ? do_trap+0xe4/0x110 [  566.393847]  ? bnxt_qplib_alloc_init_hwq+0x1d4/0x580 [bnxt_re] [  566.393867]  ? bnxt_qplib_alloc_init_hwq+0x1d4/0x580 [bnxt_re] [  566.393881]  ? do_error_trap+0x7c/0x120 [  566.393890]  ? bnxt_qplib_alloc_init_hwq+0x1d4/0x580 [bnxt_re] [  566.393911]  ? exc_divide_error+0x34/0x50 [  566.393923]  ? bnxt_qplib_alloc_init_hwq+0x1d4/0x580 [bnxt_re] [  566.393939]  ? asm_exc_divide_error+0x16/0x20 [  566.393966]  ? bnxt_qplib_alloc_init_hwq+0x1d4/0x580 [bnxt_re] [  566.393997]  bnxt_qplib_create_srq+0xc9/0x340 [bnxt_re] [  566.394040]  bnxt_re_create_srq+0x335/0x3b0 [bnxt_re] [  566.394057]  ? srso_return_thunk+0x5/0x5f [  566.394068]  ? __init_swait_queue_head+0x4a/0x60 [  566.394090]  ib_create_srq_user+0xa7/0x150 [ib_core] [  566.394147]  nvmet_rdma_queue_connect+0x7d0/0xbe0 [nvmet_rdma] [  566.394174]  ? lock_release+0x22c/0x3f0 [  566.394187]  ? srso_return_thunk+0x5/0x5f  Page size and shift info is set only for the user space SRQs. Set page size and page shift for kernel space SRQs also.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21884?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21884" src="https://img.shields.io/badge/CVE--2025--21884-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  net: better track kernel sockets lifetime  While kernel sockets are dismantled during pernet_operations->exit(), their freeing can be delayed by any tx packets still held in qdisc or device queues, due to skb_set_owner_w() prior calls.  This then trigger the following warning from ref_tracker_dir_exit() [1]  To fix this, make sure that kernel sockets own a reference on net->passive.  Add sk_net_refcnt_upgrade() helper, used whenever a kernel socket is converted to a refcounted one.  [1]  [  136.263918][   T35] ref_tracker: net notrefcnt@ffff8880638f01e0 has 1/2 users at [  136.263918][   T35]      sk_alloc+0x2b3/0x370 [  136.263918][   T35]      inet6_create+0x6ce/0x10f0 [  136.263918][   T35]      __sock_create+0x4c0/0xa30 [  136.263918][   T35]      inet_ctl_sock_create+0xc2/0x250 [  136.263918][   T35]      igmp6_net_init+0x39/0x390 [  136.263918][   T35]      ops_init+0x31e/0x590 [  136.263918][   T35]      setup_net+0x287/0x9e0 [  136.263918][   T35]      copy_net_ns+0x33f/0x570 [  136.263918][   T35]      create_new_namespaces+0x425/0x7b0 [  136.263918][   T35]      unshare_nsproxy_namespaces+0x124/0x180 [  136.263918][   T35]      ksys_unshare+0x57d/0xa70 [  136.263918][   T35]      __x64_sys_unshare+0x38/0x40 [  136.263918][   T35]      do_syscall_64+0xf3/0x230 [  136.263918][   T35]      entry_SYSCALL_64_after_hwframe+0x77/0x7f [  136.263918][   T35] [  136.343488][   T35] ref_tracker: net notrefcnt@ffff8880638f01e0 has 1/2 users at [  136.343488][   T35]      sk_alloc+0x2b3/0x370 [  136.343488][   T35]      inet6_create+0x6ce/0x10f0 [  136.343488][   T35]      __sock_create+0x4c0/0xa30 [  136.343488][   T35]      inet_ctl_sock_create+0xc2/0x250 [  136.343488][   T35]      ndisc_net_init+0xa7/0x2b0 [  136.343488][   T35]      ops_init+0x31e/0x590 [  136.343488][   T35]      setup_net+0x287/0x9e0 [  136.343488][   T35]      copy_net_ns+0x33f/0x570 [  136.343488][   T35]      create_new_namespaces+0x425/0x7b0 [  136.343488][   T35]      unshare_nsproxy_namespaces+0x124/0x180 [  136.343488][   T35]      ksys_unshare+0x57d/0xa70 [  136.343488][   T35]      __x64_sys_unshare+0x38/0x40 [  136.343488][   T35]      do_syscall_64+0xf3/0x230 [  136.343488][   T35]      entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21883?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21883" src="https://img.shields.io/badge/CVE--2025--21883-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  ice: Fix deinitializing VF in error path  If ice_ena_vfs() fails after calling ice_create_vf_entries(), it frees all VFs without removing them from snapshot PF-VF mailbox list, leading to list corruption.  Reproducer: devlink dev eswitch set $PF1_PCI mode switchdev ip l s $PF1 up ip l s $PF1 promisc on sleep 1 echo 1 > /sys/class/net/$PF1/device/sriov_numvfs sleep 1 echo 1 > /sys/class/net/$PF1/device/sriov_numvfs  Trace (minimized): list_add corruption. next->prev should be prev (ffff8882e241c6f0), but was 0000000000000000. (next=ffff888455da1330). kernel BUG at lib/list_debug.c:29! RIP: 0010:__list_add_valid_or_report+0xa6/0x100 ice_mbx_init_vf_info+0xa7/0x180 [ice] ice_initialize_vf_entry+0x1fa/0x250 [ice] ice_sriov_configure+0x8d7/0x1520 [ice] ? __percpu_ref_switch_mode+0x1b1/0x5d0 ? __pfx_ice_sriov_configure+0x10/0x10 [ice]  Sometimes a KASAN report can be seen instead with a similar stack trace: BUG: KASAN: use-after-free in __list_add_valid_or_report+0xf1/0x100  VFs are added to this list in ice_mbx_init_vf_info(), but only removed in ice_free_vfs(). Move the removing to ice_free_vf_entries(), which is also being called in other places where VFs are being removed (including ice_free_vfs() itself).
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21881?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21881" src="https://img.shields.io/badge/CVE--2025--21881-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  uprobes: Reject the shared zeropage in uprobe_write_opcode()  We triggered the following crash in syzkaller tests:  BUG: Bad page state in process syz.7.38  pfn:1eff3 page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x1eff3 flags: 0x3fffff00004004(referenced|reserved|node=0|zone=1|lastcpupid=0x1fffff) raw: 003fffff00004004 ffffe6c6c07bfcc8 ffffe6c6c07bfcc8 0000000000000000 raw: 0000000000000000 0000000000000000 00000000fffffffe 0000000000000000 page dumped because: PAGE_FLAGS_CHECK_AT_FREE flag(s) set Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014 Call Trace: <TASK> dump_stack_lvl+0x32/0x50 bad_page+0x69/0xf0 free_unref_page_prepare+0x401/0x500 free_unref_page+0x6d/0x1b0 uprobe_write_opcode+0x460/0x8e0 install_breakpoint.part.0+0x51/0x80 register_for_each_vma+0x1d9/0x2b0 __uprobe_register+0x245/0x300 bpf_uprobe_multi_link_attach+0x29b/0x4f0 link_create+0x1e2/0x280 __sys_bpf+0x75f/0xac0 __x64_sys_bpf+0x1a/0x30 do_syscall_64+0x56/0x100 entry_SYSCALL_64_after_hwframe+0x78/0xe2  BUG: Bad rss-counter state mm:00000000452453e0 type:MM_FILEPAGES val:-1  The following syzkaller test case can be used to reproduce:  r2 = creat(&(0x7f0000000000)='./file0\x00', 0x8) write$nbd(r2, &(0x7f0000000580)=ANY=[], 0x10) r4 = openat(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x42, 0x0) mmap$IORING_OFF_SQ_RING(&(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x0, 0x12, r4, 0x0) r5 = userfaultfd(0x80801) ioctl$UFFDIO_API(r5, 0xc018aa3f, &(0x7f0000000040)={0xaa, 0x20}) r6 = userfaultfd(0x80801) ioctl$UFFDIO_API(r6, 0xc018aa3f, &(0x7f0000000140)) ioctl$UFFDIO_REGISTER(r6, 0xc020aa00, &(0x7f0000000100)={{&(0x7f0000ffc000/0x4000)=nil, 0x4000}, 0x2}) ioctl$UFFDIO_ZEROPAGE(r5, 0xc020aa04, &(0x7f0000000000)={{&(0x7f0000ffd000/0x1000)=nil, 0x1000}}) r7 = bpf$PROG_LOAD(0x5, &(0x7f0000000140)={0x2, 0x3, &(0x7f0000000200)=ANY=[@ANYBLOB="1800000000120000000000000000000095"], &(0x7f0000000000)='GPL\x00', 0x7, 0x0, 0x0, 0x0, 0x0, '\x00', 0x0, @fallback=0x30, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x94) bpf$BPF_LINK_CREATE_XDP(0x1c, &(0x7f0000000040)={r7, 0x0, 0x30, 0x1e, @val=@uprobe_multi={&(0x7f0000000080)='./file0\x00', &(0x7f0000000100)=[0x2], 0x0, 0x0, 0x1}}, 0x40)  The cause is that zero pfn is set to the PTE without increasing the RSS count in mfill_atomic_pte_zeropage() and the refcount of zero folio does not increase accordingly. Then, the operation on the same pfn is performed in uprobe_write_opcode()->__replace_page() to unconditional decrease the RSS count and old_folio's refcount.  Therefore, two bugs are introduced:  1. The RSS count is incorrect, when process exit, the check_mm() report error "Bad rss-count".  2. The reserved folio (zero folio) is freed when folio->refcount is zero, then free_pages_prepare->free_page_is_bad() report error "Bad page state".  There is more, the following warning could also theoretically be triggered:  __replace_page() -> ... -> folio_remove_rmap_pte() -> VM_WARN_ON_FOLIO(is_zero_folio(folio), folio)  Considering that uprobe hit on the zero folio is a very rare case, just reject zero old folio immediately after get_user_page_vma_remote().  [ mingo: Cleaned up the changelog ]
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21880?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21880" src="https://img.shields.io/badge/CVE--2025--21880-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  drm/xe/userptr: fix EFAULT handling  Currently we treat EFAULT from hmm_range_fault() as a non-fatal error when called from xe_vm_userptr_pin() with the idea that we want to avoid killing the entire vm and chucking an error, under the assumption that the user just did an unmap or something, and has no intention of actually touching that memory from the GPU.  At this point we have already zapped the PTEs so any access should generate a page fault, and if the pin fails there also it will then become fatal.  However it looks like it's possible for the userptr vma to still be on the rebind list in preempt_rebind_work_func(), if we had to retry the pin again due to something happening in the caller before we did the rebind step, but in the meantime needing to re-validate the userptr and this time hitting the EFAULT.  This explains an internal user report of hitting:  [  191.738349] WARNING: CPU: 1 PID: 157 at drivers/gpu/drm/xe/xe_res_cursor.h:158 xe_pt_stage_bind.constprop.0+0x60a/0x6b0 [xe] [  191.738551] Workqueue: xe-ordered-wq preempt_rebind_work_func [xe] [  191.738616] RIP: 0010:xe_pt_stage_bind.constprop.0+0x60a/0x6b0 [xe] [  191.738690] Call Trace: [  191.738692]  <TASK> [  191.738694]  ? show_regs+0x69/0x80 [  191.738698]  ? __warn+0x93/0x1a0 [  191.738703]  ? xe_pt_stage_bind.constprop.0+0x60a/0x6b0 [xe] [  191.738759]  ? report_bug+0x18f/0x1a0 [  191.738764]  ? handle_bug+0x63/0xa0 [  191.738767]  ? exc_invalid_op+0x19/0x70 [  191.738770]  ? asm_exc_invalid_op+0x1b/0x20 [  191.738777]  ? xe_pt_stage_bind.constprop.0+0x60a/0x6b0 [xe] [  191.738834]  ? ret_from_fork_asm+0x1a/0x30 [  191.738849]  bind_op_prepare+0x105/0x7b0 [xe] [  191.738906]  ? dma_resv_reserve_fences+0x301/0x380 [  191.738912]  xe_pt_update_ops_prepare+0x28c/0x4b0 [xe] [  191.738966]  ? kmemleak_alloc+0x4b/0x80 [  191.738973]  ops_execute+0x188/0x9d0 [xe] [  191.739036]  xe_vm_rebind+0x4ce/0x5a0 [xe] [  191.739098]  ? trace_hardirqs_on+0x4d/0x60 [  191.739112]  preempt_rebind_work_func+0x76f/0xd00 [xe]  Followed by NPD, when running some workload, since the sg was never actually populated but the vma is still marked for rebind when it should be skipped for this special EFAULT case. This is confirmed to fix the user report.  v2 (MattB): - Move earlier. v3 (MattB): - Update the commit message to make it clear that this indeed fixes the issue.  (cherry picked from commit 6b93cb98910c826c2e2004942f8b060311e43618)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21878?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21878" src="https://img.shields.io/badge/CVE--2025--21878-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  i2c: npcm: disable interrupt enable bit before devm_request_irq  The customer reports that there is a soft lockup issue related to the i2c driver. After checking, the i2c module was doing a tx transfer and the bmc machine reboots in the middle of the i2c transaction, the i2c module keeps the status without being reset.  Due to such an i2c module status, the i2c irq handler keeps getting triggered since the i2c irq handler is registered in the kernel booting process after the bmc machine is doing a warm rebooting. The continuous triggering is stopped by the soft lockup watchdog timer.  Disable the interrupt enable bit in the i2c module before calling devm_request_irq to fix this issue since the i2c relative status bit is read-only.  Here is the soft lockup log. [   28.176395] watchdog: BUG: soft lockup - CPU#0 stuck for 26s! [swapper/0:1] [   28.183351] Modules linked in: [   28.186407] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.15.120-yocto-s-dirty-bbebc78 #1 [   28.201174] pstate: 40000005 (nZcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--) [   28.208128] pc : __do_softirq+0xb0/0x368 [   28.212055] lr : __do_softirq+0x70/0x368 [   28.215972] sp : ffffff8035ebca00 [   28.219278] x29: ffffff8035ebca00 x28: 0000000000000002 x27: ffffff80071a3780 [   28.226412] x26: ffffffc008bdc000 x25: ffffffc008bcc640 x24: ffffffc008be50c0 [   28.233546] x23: ffffffc00800200c x22: 0000000000000000 x21: 000000000000001b [   28.240679] x20: 0000000000000000 x19: ffffff80001c3200 x18: ffffffffffffffff [   28.247812] x17: ffffffc02d2e0000 x16: ffffff8035eb8b40 x15: 00001e8480000000 [   28.254945] x14: 02c3647e37dbfcb6 x13: 02c364f2ab14200c x12: 0000000002c364f2 [   28.262078] x11: 00000000fa83b2da x10: 000000000000b67e x9 : ffffffc008010250 [   28.269211] x8 : 000000009d983d00 x7 : 7fffffffffffffff x6 : 0000036d74732434 [   28.276344] x5 : 00ffffffffffffff x4 : 0000000000000015 x3 : 0000000000000198 [   28.283476] x2 : ffffffc02d2e0000 x1 : 00000000000000e0 x0 : ffffffc008bdcb40 [   28.290611] Call trace: [   28.293052]  __do_softirq+0xb0/0x368 [   28.296625]  __irq_exit_rcu+0xe0/0x100 [   28.300374]  irq_exit+0x14/0x20 [   28.303513]  handle_domain_irq+0x68/0x90 [   28.307440]  gic_handle_irq+0x78/0xb0 [   28.311098]  call_on_irq_stack+0x20/0x38 [   28.315019]  do_interrupt_handler+0x54/0x5c [   28.319199]  el1_interrupt+0x2c/0x4c [   28.322777]  el1h_64_irq_handler+0x14/0x20 [   28.326872]  el1h_64_irq+0x74/0x78 [   28.330269]  __setup_irq+0x454/0x780 [   28.333841]  request_threaded_irq+0xd0/0x1b4 [   28.338107]  devm_request_threaded_irq+0x84/0x100 [   28.342809]  npcm_i2c_probe_bus+0x188/0x3d0 [   28.346990]  platform_probe+0x6c/0xc4 [   28.350653]  really_probe+0xcc/0x45c [   28.354227]  __driver_probe_device+0x8c/0x160 [   28.358578]  driver_probe_device+0x44/0xe0 [   28.362670]  __driver_attach+0x124/0x1d0 [   28.366589]  bus_for_each_dev+0x7c/0xe0 [   28.370426]  driver_attach+0x28/0x30 [   28.373997]  bus_add_driver+0x124/0x240 [   28.377830]  driver_register+0x7c/0x124 [   28.381662]  __platform_driver_register+0x2c/0x34 [   28.386362]  npcm_i2c_init+0x3c/0x5c [   28.389937]  do_one_initcall+0x74/0x230 [   28.393768]  kernel_init_freeable+0x24c/0x2b4 [   28.398126]  kernel_init+0x28/0x130 [   28.401614]  ret_from_fork+0x10/0x20 [   28.405189] Kernel panic - not syncing: softlockup: hung tasks [   28.411011] SMP: stopping secondary CPUs [   28.414933] Kernel Offset: disabled [   28.418412] CPU features: 0x00000000,00000802 [   28.427644] Rebooting in 20 seconds..
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21877?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21877" src="https://img.shields.io/badge/CVE--2025--21877-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  usbnet: gl620a: fix endpoint checking in genelink_bind()  Syzbot reports [1] a warning in usb_submit_urb() triggered by inconsistencies between expected and actually present endpoints in gl620a driver. Since genelink_bind() does not properly verify whether specified eps are in fact provided by the device, in this case, an artificially manufactured one, one may get a mismatch.  Fix the issue by resorting to a usbnet utility function usbnet_get_endpoints(), usually reserved for this very problem. Check for endpoints and return early before proceeding further if any are missing.  [1] Syzbot report: usb 5-1: Manufacturer: syz usb 5-1: SerialNumber: syz usb 5-1: config 0 descriptor?? gl620a 5-1:0.23 usb0: register 'gl620a' at usb-dummy_hcd.0-1, ... ------------[ cut here ]------------ usb 5-1: BOGUS urb xfer, pipe 3 != type 1 WARNING: CPU: 2 PID: 1841 at drivers/usb/core/urb.c:503 usb_submit_urb+0xe4b/0x1730 drivers/usb/core/urb.c:503 Modules linked in: CPU: 2 UID: 0 PID: 1841 Comm: kworker/2:2 Not tainted 6.12.0-syzkaller-07834-g06afb0f36106 #0 Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2~bpo12+1 04/01/2014 Workqueue: mld mld_ifc_work RIP: 0010:usb_submit_urb+0xe4b/0x1730 drivers/usb/core/urb.c:503 ... Call Trace: <TASK> usbnet_start_xmit+0x6be/0x2780 drivers/net/usb/usbnet.c:1467 __netdev_start_xmit include/linux/netdevice.h:5002 [inline] netdev_start_xmit include/linux/netdevice.h:5011 [inline] xmit_one net/core/dev.c:3590 [inline] dev_hard_start_xmit+0x9a/0x7b0 net/core/dev.c:3606 sch_direct_xmit+0x1ae/0xc30 net/sched/sch_generic.c:343 __dev_xmit_skb net/core/dev.c:3827 [inline] __dev_queue_xmit+0x13d4/0x43e0 net/core/dev.c:4400 dev_queue_xmit include/linux/netdevice.h:3168 [inline] neigh_resolve_output net/core/neighbour.c:1514 [inline] neigh_resolve_output+0x5bc/0x950 net/core/neighbour.c:1494 neigh_output include/net/neighbour.h:539 [inline] ip6_finish_output2+0xb1b/0x2070 net/ipv6/ip6_output.c:141 __ip6_finish_output net/ipv6/ip6_output.c:215 [inline] ip6_finish_output+0x3f9/0x1360 net/ipv6/ip6_output.c:226 NF_HOOK_COND include/linux/netfilter.h:303 [inline] ip6_output+0x1f8/0x540 net/ipv6/ip6_output.c:247 dst_output include/net/dst.h:450 [inline] NF_HOOK include/linux/netfilter.h:314 [inline] NF_HOOK include/linux/netfilter.h:308 [inline] mld_sendpack+0x9f0/0x11d0 net/ipv6/mcast.c:1819 mld_send_cr net/ipv6/mcast.c:2120 [inline] mld_ifc_work+0x740/0xca0 net/ipv6/mcast.c:2651 process_one_work+0x9c5/0x1ba0 kernel/workqueue.c:3229 process_scheduled_works kernel/workqueue.c:3310 [inline] worker_thread+0x6c8/0xf00 kernel/workqueue.c:3391 kthread+0x2c1/0x3a0 kernel/kthread.c:389 ret_from_fork+0x45/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 </TASK>
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21875?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21875" src="https://img.shields.io/badge/CVE--2025--21875-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  mptcp: always handle address removal under msk socket lock  Syzkaller reported a lockdep splat in the PM control path:  WARNING: CPU: 0 PID: 6693 at ./include/net/sock.h:1711 sock_owned_by_me include/net/sock.h:1711 [inline] WARNING: CPU: 0 PID: 6693 at ./include/net/sock.h:1711 msk_owned_by_me net/mptcp/protocol.h:363 [inline] WARNING: CPU: 0 PID: 6693 at ./include/net/sock.h:1711 mptcp_pm_nl_addr_send_ack+0x57c/0x610 net/mptcp/pm_netlink.c:788 Modules linked in: CPU: 0 UID: 0 PID: 6693 Comm: syz.0.205 Not tainted 6.14.0-rc2-syzkaller-00303-gad1b832bf1cf #0 Hardware name: Google Compute Engine/Google Compute Engine, BIOS Google 12/27/2024 RIP: 0010:sock_owned_by_me include/net/sock.h:1711 [inline] RIP: 0010:msk_owned_by_me net/mptcp/protocol.h:363 [inline] RIP: 0010:mptcp_pm_nl_addr_send_ack+0x57c/0x610 net/mptcp/pm_netlink.c:788 Code: 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc e8 ca 7b d3 f5 eb b9 e8 c3 7b d3 f5 90 0f 0b 90 e9 dd fb ff ff e8 b5 7b d3 f5 90 <0f> 0b 90 e9 3e fb ff ff 44 89 f1 80 e1 07 38 c1 0f 8c eb fb ff ff RSP: 0000:ffffc900034f6f60 EFLAGS: 00010283 RAX: ffffffff8bee3c2b RBX: 0000000000000001 RCX: 0000000000080000 RDX: ffffc90004d42000 RSI: 000000000000a407 RDI: 000000000000a408 RBP: ffffc900034f7030 R08: ffffffff8bee37f6 R09: 0100000000000000 R10: dffffc0000000000 R11: ffffed100bcc62e4 R12: ffff88805e6316e0 R13: ffff88805e630c00 R14: dffffc0000000000 R15: ffff88805e630c00 FS:  00007f7e9a7e96c0(0000) GS:ffff8880b8600000(0000) knlGS:0000000000000000 CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 0000001b2fd18ff8 CR3: 0000000032c24000 CR4: 00000000003526f0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <TASK> mptcp_pm_remove_addr+0x103/0x1d0 net/mptcp/pm.c:59 mptcp_pm_remove_anno_addr+0x1f4/0x2f0 net/mptcp/pm_netlink.c:1486 mptcp_nl_remove_subflow_and_signal_addr net/mptcp/pm_netlink.c:1518 [inline] mptcp_pm_nl_del_addr_doit+0x118d/0x1af0 net/mptcp/pm_netlink.c:1629 genl_family_rcv_msg_doit net/netlink/genetlink.c:1115 [inline] genl_family_rcv_msg net/netlink/genetlink.c:1195 [inline] genl_rcv_msg+0xb1f/0xec0 net/netlink/genetlink.c:1210 netlink_rcv_skb+0x206/0x480 net/netlink/af_netlink.c:2543 genl_rcv+0x28/0x40 net/netlink/genetlink.c:1219 netlink_unicast_kernel net/netlink/af_netlink.c:1322 [inline] netlink_unicast+0x7f6/0x990 net/netlink/af_netlink.c:1348 netlink_sendmsg+0x8de/0xcb0 net/netlink/af_netlink.c:1892 sock_sendmsg_nosec net/socket.c:718 [inline] __sock_sendmsg+0x221/0x270 net/socket.c:733 ____sys_sendmsg+0x53a/0x860 net/socket.c:2573 ___sys_sendmsg net/socket.c:2627 [inline] __sys_sendmsg+0x269/0x350 net/socket.c:2659 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f RIP: 0033:0x7f7e9998cde9 Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48 RSP: 002b:00007f7e9a7e9038 EFLAGS: 00000246 ORIG_RAX: 000000000000002e RAX: ffffffffffffffda RBX: 00007f7e99ba5fa0 RCX: 00007f7e9998cde9 RDX: 000000002000c094 RSI: 0000400000000000 RDI: 0000000000000007 RBP: 00007f7e99a0e2a0 R08: 0000000000000000 R09: 0000000000000000 R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000 R13: 0000000000000000 R14: 00007f7e99ba5fa0 R15: 00007fff49231088  Indeed the PM can try to send a RM_ADDR over a msk without acquiring first the msk socket lock.  The bugged code-path comes from an early optimization: when there are no subflows, the PM should (usually) not send RM_ADDR notifications.  The above statement is incorrect, as without locks another process could concur ---truncated---
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21873?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21873" src="https://img.shields.io/badge/CVE--2025--21873-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  scsi: ufs: core: bsg: Fix crash when arpmb command fails  If the device doesn't support arpmb we'll crash due to copying user data in bsg_transport_sg_io_fn().  In the case where ufs_bsg_exec_advanced_rpmb_req() returns an error, do not set the job's reply_len.  Memory crash backtrace: 3,1290,531166405,-;ufshcd 0000:00:12.5: ARPMB OP failed: error code -22  4,1308,531166555,-;Call Trace:  4,1309,531166559,-; <TASK>  4,1310,531166565,-; ? show_regs+0x6d/0x80  4,1311,531166575,-; ? die+0x37/0xa0  4,1312,531166583,-; ? do_trap+0xd4/0xf0  4,1313,531166593,-; ? do_error_trap+0x71/0xb0  4,1314,531166601,-; ? usercopy_abort+0x6c/0x80  4,1315,531166610,-; ? exc_invalid_op+0x52/0x80  4,1316,531166622,-; ? usercopy_abort+0x6c/0x80  4,1317,531166630,-; ? asm_exc_invalid_op+0x1b/0x20  4,1318,531166643,-; ? usercopy_abort+0x6c/0x80  4,1319,531166652,-; __check_heap_object+0xe3/0x120  4,1320,531166661,-; check_heap_object+0x185/0x1d0  4,1321,531166670,-; __check_object_size.part.0+0x72/0x150  4,1322,531166679,-; __check_object_size+0x23/0x30  4,1323,531166688,-; bsg_transport_sg_io_fn+0x314/0x3b0
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21872?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21872" src="https://img.shields.io/badge/CVE--2025--21872-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  efi: Don't map the entire mokvar table to determine its size  Currently, when validating the mokvar table, we (re)map the entire table on each iteration of the loop, adding space as we discover new entries. If the table grows over a certain size, this fails due to limitations of early_memmap(), and we get a failure and traceback:  ------------[ cut here ]------------ WARNING: CPU: 0 PID: 0 at mm/early_ioremap.c:139 __early_ioremap+0xef/0x220 ... Call Trace: <TASK> ? __early_ioremap+0xef/0x220 ? __warn.cold+0x93/0xfa ? __early_ioremap+0xef/0x220 ? report_bug+0xff/0x140 ? early_fixup_exception+0x5d/0xb0 ? early_idt_handler_common+0x2f/0x3a ? __early_ioremap+0xef/0x220 ? efi_mokvar_table_init+0xce/0x1d0 ? setup_arch+0x864/0xc10 ? start_kernel+0x6b/0xa10 ? x86_64_start_reservations+0x24/0x30 ? x86_64_start_kernel+0xed/0xf0 ? common_startup_64+0x13e/0x141 </TASK> ---[ end trace 0000000000000000 ]--- mokvar: Failed to map EFI MOKvar config table pa=0x7c4c3000, size=265187.  Mapping the entire structure isn't actually necessary, as we don't ever need more than one entry header mapped at once.  Changes efi_mokvar_table_init() to only map each entry header, not the entire table, when determining the table size.  Since we're not mapping any data past the variable name, it also changes the code to enforce that each variable name is NUL terminated, rather than attempting to verify it in place.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21871?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21871" src="https://img.shields.io/badge/CVE--2025--21871-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  tee: optee: Fix supplicant wait loop  OP-TEE supplicant is a user-space daemon and it's possible for it be hung or crashed or killed in the middle of processing an OP-TEE RPC call. It becomes more complicated when there is incorrect shutdown ordering of the supplicant process vs the OP-TEE client application which can eventually lead to system hang-up waiting for the closure of the client application.  Allow the client process waiting in kernel for supplicant response to be killed rather than indefinitely waiting in an unkillable state. Also, a normal uninterruptible wait should not have resulted in the hung-task watchdog getting triggered, but the endless loop would.  This fixes issues observed during system reboot/shutdown when supplicant got hung for some reason or gets crashed/killed which lead to client getting hung in an unkillable state. It in turn lead to system being in hung up state requiring hard power off/on to recover.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21870?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21870" src="https://img.shields.io/badge/CVE--2025--21870-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  ASoC: SOF: ipc4-topology: Harden loops for looking up ALH copiers  Other, non DAI copier widgets could have the same  stream name (sname) as the ALH copier and in that case the copier->data is NULL, no alh_data is attached, which could lead to NULL pointer dereference. We could check for this NULL pointer in sof_ipc4_prepare_copier_module() and avoid the crash, but a similar loop in sof_ipc4_widget_setup_comp_dai() will miscalculate the ALH device count, causing broken audio.  The correct fix is to harden the matching logic by making sure that the 1. widget is a DAI widget - so dai = w->private is valid 2. the dai (and thus the copier) is ALH copier
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21869?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21869" src="https://img.shields.io/badge/CVE--2025--21869-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  powerpc/code-patching: Disable KASAN report during patching via temporary mm  Erhard reports the following KASAN hit on Talos II (power9) with kernel 6.13:  [   12.028126] ================================================================== [   12.028198] BUG: KASAN: user-memory-access in copy_to_kernel_nofault+0x8c/0x1a0 [   12.028260] Write of size 8 at addr 0000187e458f2000 by task systemd/1  [   12.028346] CPU: 87 UID: 0 PID: 1 Comm: systemd Tainted: G T  6.13.0-P9-dirty #3 [   12.028408] Tainted: [T]=RANDSTRUCT [   12.028446] Hardware name: T2P9D01 REV 1.01 POWER9 0x4e1202 opal:skiboot-bc106a0 PowerNV [   12.028500] Call Trace: [   12.028536] [c000000008dbf3b0] [c000000001656a48] dump_stack_lvl+0xbc/0x110 (unreliable) [   12.028609] [c000000008dbf3f0] [c0000000006e2fc8] print_report+0x6b0/0x708 [   12.028666] [c000000008dbf4e0] [c0000000006e2454] kasan_report+0x164/0x300 [   12.028725] [c000000008dbf600] [c0000000006e54d4] kasan_check_range+0x314/0x370 [   12.028784] [c000000008dbf640] [c0000000006e6310] __kasan_check_write+0x20/0x40 [   12.028842] [c000000008dbf660] [c000000000578e8c] copy_to_kernel_nofault+0x8c/0x1a0 [   12.028902] [c000000008dbf6a0] [c0000000000acfe4] __patch_instructions+0x194/0x210 [   12.028965] [c000000008dbf6e0] [c0000000000ade80] patch_instructions+0x150/0x590 [   12.029026] [c000000008dbf7c0] [c0000000001159bc] bpf_arch_text_copy+0x6c/0xe0 [   12.029085] [c000000008dbf800] [c000000000424250] bpf_jit_binary_pack_finalize+0x40/0xc0 [   12.029147] [c000000008dbf830] [c000000000115dec] bpf_int_jit_compile+0x3bc/0x930 [   12.029206] [c000000008dbf990] [c000000000423720] bpf_prog_select_runtime+0x1f0/0x280 [   12.029266] [c000000008dbfa00] [c000000000434b18] bpf_prog_load+0xbb8/0x1370 [   12.029324] [c000000008dbfb70] [c000000000436ebc] __sys_bpf+0x5ac/0x2e00 [   12.029379] [c000000008dbfd00] [c00000000043a228] sys_bpf+0x28/0x40 [   12.029435] [c000000008dbfd20] [c000000000038eb4] system_call_exception+0x334/0x610 [   12.029497] [c000000008dbfe50] [c00000000000c270] system_call_vectored_common+0xf0/0x280 [   12.029561] --- interrupt: 3000 at 0x3fff82f5cfa8 [   12.029608] NIP:  00003fff82f5cfa8 LR: 00003fff82f5cfa8 CTR: 0000000000000000 [   12.029660] REGS: c000000008dbfe80 TRAP: 3000   Tainted: G T   (6.13.0-P9-dirty) [   12.029735] MSR:  900000000280f032 <SF,HV,VEC,VSX,EE,PR,FP,ME,IR,DR,RI> CR: 42004848  XER: 00000000 [   12.029855] IRQMASK: 0 GPR00: 0000000000000169 00003fffdcf789a0 00003fff83067100 0000000000000005 GPR04: 00003fffdcf78a98 0000000000000090 0000000000000000 0000000000000008 GPR08: 0000000000000000 0000000000000000 0000000000000000 0000000000000000 GPR12: 0000000000000000 00003fff836ff7e0 c000000000010678 0000000000000000 GPR16: 0000000000000000 0000000000000000 00003fffdcf78f28 00003fffdcf78f90 GPR20: 0000000000000000 0000000000000000 0000000000000000 00003fffdcf78f80 GPR24: 00003fffdcf78f70 00003fffdcf78d10 00003fff835c7239 00003fffdcf78bd8 GPR28: 00003fffdcf78a98 0000000000000000 0000000000000000 000000011f547580 [   12.030316] NIP [00003fff82f5cfa8] 0x3fff82f5cfa8 [   12.030361] LR [00003fff82f5cfa8] 0x3fff82f5cfa8 [   12.030405] --- interrupt: 3000 [   12.030444] ==================================================================  Commit c28c15b6d28a ("powerpc/code-patching: Use temporary mm for Radix MMU") is inspired from x86 but unlike x86 is doesn't disable KASAN reports during patching. This wasn't a problem at the begining because __patch_mem() is not instrumented.  Commit 465cabc97b42 ("powerpc/code-patching: introduce patch_instructions()") use copy_to_kernel_nofault() to copy several instructions at once. But when using temporary mm the destination is not regular kernel memory but a kind of kernel-like memory located in user address space. ---truncated---
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21868?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21868" src="https://img.shields.io/badge/CVE--2025--21868-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  net: allow small head cache usage with large MAX_SKB_FRAGS values  Sabrina reported the following splat:  WARNING: CPU: 0 PID: 1 at net/core/dev.c:6935 netif_napi_add_weight_locked+0x8f2/0xba0 Modules linked in: CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc1-net-00092-g011b03359038 #996 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.16.3-1-1 04/01/2014 RIP: 0010:netif_napi_add_weight_locked+0x8f2/0xba0 Code: e8 c3 e6 6a fe 48 83 c4 28 5b 5d 41 5c 41 5d 41 5e 41 5f c3 cc cc cc cc c7 44 24 10 ff ff ff ff e9 8f fb ff ff e8 9e e6 6a fe <0f> 0b e9 d3 fe ff ff e8 92 e6 6a fe 48 8b 04 24 be ff ff ff ff 48 RSP: 0000:ffffc9000001fc60 EFLAGS: 00010293 RAX: 0000000000000000 RBX: ffff88806ce48128 RCX: 1ffff11001664b9e RDX: ffff888008f00040 RSI: ffffffff8317ca42 RDI: ffff88800b325cb6 RBP: ffff88800b325c40 R08: 0000000000000001 R09: ffffed100167502c R10: ffff88800b3a8163 R11: 0000000000000000 R12: ffff88800ac1c168 R13: ffff88800ac1c168 R14: ffff88800ac1c168 R15: 0000000000000007 FS:  0000000000000000(0000) GS:ffff88806ce00000(0000) knlGS:0000000000000000 CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: ffff888008201000 CR3: 0000000004c94001 CR4: 0000000000370ef0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <TASK> gro_cells_init+0x1ba/0x270 xfrm_input_init+0x4b/0x2a0 xfrm_init+0x38/0x50 ip_rt_init+0x2d7/0x350 ip_init+0xf/0x20 inet_init+0x406/0x590 do_one_initcall+0x9d/0x2e0 do_initcalls+0x23b/0x280 kernel_init_freeable+0x445/0x490 kernel_init+0x20/0x1d0 ret_from_fork+0x46/0x80 ret_from_fork_asm+0x1a/0x30 </TASK> irq event stamp: 584330 hardirqs last  enabled at (584338): [<ffffffff8168bf87>] __up_console_sem+0x77/0xb0 hardirqs last disabled at (584345): [<ffffffff8168bf6c>] __up_console_sem+0x5c/0xb0 softirqs last  enabled at (583242): [<ffffffff833ee96d>] netlink_insert+0x14d/0x470 softirqs last disabled at (583754): [<ffffffff8317c8cd>] netif_napi_add_weight_locked+0x77d/0xba0  on kernel built with MAX_SKB_FRAGS=45, where SKB_WITH_OVERHEAD(1024) is smaller than GRO_MAX_HEAD.  Such built additionally contains the revert of the single page frag cache so that napi_get_frags() ends up using the page frag allocator, triggering the splat.  Note that the underlying issue is independent from the mentioned revert; address it ensuring that the small head cache will fit either TCP and GRO allocation and updating napi_alloc_skb() and __netdev_alloc_skb() to select kmalloc() usage for any allocation fitting such cache.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-21867?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2025--21867" src="https://img.shields.io/badge/CVE--2025--21867-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.013%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  bpf, test_run: Fix use-after-free issue in eth_skb_pkt_type()  KMSAN reported a use-after-free issue in eth_skb_pkt_type()[1]. The cause of the issue was that eth_skb_pkt_type() accessed skb's data that didn't contain an Ethernet header. This occurs when bpf_prog_test_run_xdp() passes an invalid value as the user_data argument to bpf_test_init().  Fix this by returning an error when user_data is less than ETH_HLEN in bpf_test_init(). Additionally, remove the check for "if (user_size > size)" as it is unnecessary.  [1] BUG: KMSAN: use-after-free in eth_skb_pkt_type include/linux/etherdevice.h:627 [inline] BUG: KMSAN: use-after-free in eth_type_trans+0x4ee/0x980 net/ethernet/eth.c:165 eth_skb_pkt_type include/linux/etherdevice.h:627 [inline] eth_type_trans+0x4ee/0x980 net/ethernet/eth.c:165 __xdp_build_skb_from_frame+0x5a8/0xa50 net/core/xdp.c:635 xdp_recv_frames net/bpf/test_run.c:272 [inline] xdp_test_run_batch net/bpf/test_run.c:361 [inline] bpf_test_run_xdp_live+0x2954/0x3330 net/bpf/test_run.c:390 bpf_prog_test_run_xdp+0x148e/0x1b10 net/bpf/test_run.c:1318 bpf_prog_test_run+0x5b7/0xa30 kernel/bpf/syscall.c:4371 __sys_bpf+0x6a6/0xe20 kernel/bpf/syscall.c:5777 __do_sys_bpf kernel/bpf/syscall.c:5866 [inline] __se_sys_bpf kernel/bpf/syscall.c:5864 [inline] __x64_sys_bpf+0xa4/0xf0 kernel/bpf/syscall.c:5864 x64_sys_call+0x2ea0/0x3d90 arch/x86/include/generated/asm/syscalls_64.h:322 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xd9/0x1d0 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f  Uninit was created at: free_pages_prepare mm/page_alloc.c:1056 [inline] free_unref_page+0x156/0x1320 mm/page_alloc.c:2657 __free_pages+0xa3/0x1b0 mm/page_alloc.c:4838 bpf_ringbuf_free kernel/bpf/ringbuf.c:226 [inline] ringbuf_map_free+0xff/0x1e0 kernel/bpf/ringbuf.c:235 bpf_map_free kernel/bpf/syscall.c:838 [inline] bpf_map_free_deferred+0x17c/0x310 kernel/bpf/syscall.c:862 process_one_work kernel/workqueue.c:3229 [inline] process_scheduled_works+0xa2b/0x1b60 kernel/workqueue.c:3310 worker_thread+0xedf/0x1550 kernel/workqueue.c:3391 kthread+0x535/0x6b0 kernel/kthread.c:389 ret_from_fork+0x6e/0x90 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244  CPU: 1 UID: 0 PID: 17276 Comm: syz.1.16450 Not tainted 6.12.0-05490-g9bb88c659673 #8 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-3.fc41 04/01/2014
 
 </blockquote>
 </details>
@@ -6512,8 +4874,8 @@ In the Linux kernel, the following vulnerability has been resolved:  usb: gadget
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6529,8 +4891,8 @@ In the Linux kernel, the following vulnerability has been resolved:  block: don'
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6546,8 +4908,8 @@ In the Linux kernel, the following vulnerability has been resolved:  landlock: H
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6563,8 +4925,8 @@ In the Linux kernel, the following vulnerability has been resolved:  RDMA/rxe: F
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6580,8 +4942,8 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: mac80
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6597,7 +4959,7 @@ In the Linux kernel, the following vulnerability has been resolved:  netfilter: 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -6615,7 +4977,7 @@ In the Linux kernel, the following vulnerability has been resolved:  bpf: Cancel
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6785,7 +5147,7 @@ In the Linux kernel, the following vulnerability has been resolved:  net: xdp: D
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6955,7 +5317,7 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/amdgpu:
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -6972,7 +5334,7 @@ In the Linux kernel, the following vulnerability has been resolved:  batman-adv:
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7040,7 +5402,7 @@ In the Linux kernel, the following vulnerability has been resolved:  ipv4: use R
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7414,7 +5776,7 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: rtw89
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7516,7 +5878,7 @@ In the Linux kernel, the following vulnerability has been resolved:  nilfs2: do 
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -7550,7 +5912,7 @@ In the Linux kernel, the following vulnerability has been resolved:  xfrm: delet
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8071,13 +6433,30 @@ In the Linux kernel, the following vulnerability has been resolved:  x86/fpu: En
 </blockquote>
 </details>
 
+<a href="https://scout.docker.com/v/CVE-2024-58090?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2024--58090" src="https://img.shields.io/badge/CVE--2024--58090-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  sched/core: Prevent rescheduling when interrupts are disabled  David reported a warning observed while loop testing kexec jump:  Interrupts enabled after irqrouter_resume+0x0/0x50 WARNING: CPU: 0 PID: 560 at drivers/base/syscore.c:103 syscore_resume+0x18a/0x220 kernel_kexec+0xf6/0x180 __do_sys_reboot+0x206/0x250 do_syscall_64+0x95/0x180  The corresponding interrupt flag trace:  hardirqs last  enabled at (15573): [<ffffffffa8281b8e>] __up_console_sem+0x7e/0x90 hardirqs last disabled at (15580): [<ffffffffa8281b73>] __up_console_sem+0x63/0x90  That means __up_console_sem() was invoked with interrupts enabled. Further instrumentation revealed that in the interrupt disabled section of kexec jump one of the syscore_suspend() callbacks woke up a task, which set the NEED_RESCHED flag. A later callback in the resume path invoked cond_resched() which in turn led to the invocation of the scheduler:  __cond_resched+0x21/0x60 down_timeout+0x18/0x60 acpi_os_wait_semaphore+0x4c/0x80 acpi_ut_acquire_mutex+0x3d/0x100 acpi_ns_get_node+0x27/0x60 acpi_ns_evaluate+0x1cb/0x2d0 acpi_rs_set_srs_method_data+0x156/0x190 acpi_pci_link_set+0x11c/0x290 irqrouter_resume+0x54/0x60 syscore_resume+0x6a/0x200 kernel_kexec+0x145/0x1c0 __do_sys_reboot+0xeb/0x240 do_syscall_64+0x95/0x180  This is a long standing problem, which probably got more visible with the recent printk changes. Something does a task wakeup and the scheduler sets the NEED_RESCHED flag. cond_resched() sees it set and invokes schedule() from a completely bogus context. The scheduler enables interrupts after context switching, which causes the above warning at the end.  Quite some of the code paths in syscore_suspend()/resume() can result in triggering a wakeup with the exactly same consequences. They might not have done so yet, but as they share a lot of code with normal operations it's just a question of time.  The problem only affects the PREEMPT_NONE and PREEMPT_VOLUNTARY scheduling models. Full preemption is not affected as cond_resched() is disabled and the preemption check preemptible() takes the interrupt disabled flag into account.  Cure the problem by adding a corresponding check into cond_resched().
+
+</blockquote>
+</details>
+
 <a href="https://scout.docker.com/v/CVE-2024-58086?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2024--58086" src="https://img.shields.io/badge/CVE--2024--58086-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8093,8 +6472,8 @@ In the Linux kernel, the following vulnerability has been resolved:  drm/v3d: St
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8110,8 +6489,8 @@ In the Linux kernel, the following vulnerability has been resolved:  tomoyo: don
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8127,7 +6506,7 @@ In the Linux kernel, the following vulnerability has been resolved:  KVM: Explic
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -8144,8 +6523,8 @@ In the Linux kernel, the following vulnerability has been resolved:  media: nuvo
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8161,8 +6540,8 @@ In the Linux kernel, the following vulnerability has been resolved:  media: uvcv
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8178,8 +6557,8 @@ In the Linux kernel, the following vulnerability has been resolved:  misc: misc_
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.050%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8195,8 +6574,8 @@ In the Linux kernel, the following vulnerability has been resolved:  ASoC: soc-p
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.079%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>21st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8212,8 +6591,8 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: rtlwi
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.050%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8229,7 +6608,7 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: mac80
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -8246,8 +6625,8 @@ In the Linux kernel, the following vulnerability has been resolved:  idpf: conve
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.050%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8263,8 +6642,8 @@ In the Linux kernel, the following vulnerability has been resolved:  remoteproc:
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.050%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8280,8 +6659,8 @@ In the Linux kernel, the following vulnerability has been resolved:  staging: me
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.026%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8297,8 +6676,8 @@ In the Linux kernel, the following vulnerability has been resolved:  rxrpc: Fix 
 <table>
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.106%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.115%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>27th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -8400,7 +6779,7 @@ In the Linux kernel, the following vulnerability has been resolved:  wifi: ath12
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -9295,40 +7674,6 @@ Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-50200?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium : CVE--2024--50200" src="https://img.shields.io/badge/CVE--2024--50200-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  maple_tree: correct tree corruption on spanning store  Patch series "maple_tree: correct tree corruption on spanning store", v3.  There has been a nasty yet subtle maple tree corruption bug that appears to have been in existence since the inception of the algorithm.  This bug seems far more likely to happen since commit f8d112a4e657 ("mm/mmap: avoid zeroing vma tree in mmap_region()"), which is the point at which reports started to be submitted concerning this bug.  We were made definitely aware of the bug thanks to the kind efforts of Bert Karwatzki who helped enormously in my being able to track this down and identify the cause of it.  The bug arises when an attempt is made to perform a spanning store across two leaf nodes, where the right leaf node is the rightmost child of the shared parent, AND the store completely consumes the right-mode node.  This results in mas_wr_spanning_store() mitakenly duplicating the new and existing entries at the maximum pivot within the range, and thus maple tree corruption.  The fix patch corrects this by detecting this scenario and disallowing the mistaken duplicate copy.  The fix patch commit message goes into great detail as to how this occurs.  This series also includes a test which reliably reproduces the issue, and asserts that the fix works correctly.  Bert has kindly tested the fix and confirmed it resolved his issues.  Also Mikhail Gavrilov kindly reported what appears to be precisely the same bug, which this fix should also resolve.   This patch (of 2):  There has been a subtle bug present in the maple tree implementation from its inception.  This arises from how stores are performed - when a store occurs, it will overwrite overlapping ranges and adjust the tree as necessary to accommodate this.  A range may always ultimately span two leaf nodes.  In this instance we walk the two leaf nodes, determine which elements are not overwritten to the left and to the right of the start and end of the ranges respectively and then rebalance the tree to contain these entries and the newly inserted one.  This kind of store is dubbed a 'spanning store' and is implemented by mas_wr_spanning_store().  In order to reach this stage, mas_store_gfp() invokes mas_wr_preallocate(), mas_wr_store_type() and mas_wr_walk() in turn to walk the tree and update the object (mas) to traverse to the location where the write should be performed, determining its store type.  When a spanning store is required, this function returns false stopping at the parent node which contains the target range, and mas_wr_store_type() marks the mas->store_type as wr_spanning_store to denote this fact.  When we go to perform the store in mas_wr_spanning_store(), we first determine the elements AFTER the END of the range we wish to store (that is, to the right of the entry to be inserted) - we do this by walking to the NEXT pivot in the tree (i.e.  r_mas.last + 1), starting at the node we have just determined contains the range over which we intend to write.  We then turn our attention to the entries to the left of the entry we are inserting, whose state is represented by l_mas, and copy these into a 'big node', which is a special node which contains enough slots to contain two leaf node's worth of data.  We then copy the entry we wish to store immediately after this - the copy and the insertion of the new entry is performed by mas_store_b_node().  After this we copy the elements to the right of the end of the range which we are inserting, if we have not exceeded the length of the node (i.e. r_mas.offset <= r_mas.end).  Herein lies the bug - under very specific circumstances, this logic can break and corrupt the maple tree.  Consider the following tree:  Height 0                             Root Node /      \ pivot = 0xffff /        \ pivot = ULONG_MAX / ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50199?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="medium : CVE--2024--50199" src="https://img.shields.io/badge/CVE--2024--50199-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.062%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>17th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  mm/swapfile: skip HugeTLB pages for unuse_vma  I got a bad pud error and lost a 1GB HugeTLB when calling swapoff.  The problem can be reproduced by the following steps:  1. Allocate an anonymous 1GB HugeTLB and some other anonymous memory. 2. Swapout the above anonymous memory. 3. run swapoff and we will get a bad pud error in kernel message:  mm/pgtable-generic.c:42: bad pud 00000000743d215d(84000001400000e7)  We can tell that pud_clear_bad is called by pud_none_or_clear_bad in unuse_pud_range() by ftrace.  And therefore the HugeTLB pages will never be freed because we lost it from page table.  We can skip HugeTLB pages for unuse_vma to fix it.
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2024-47755?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium : CVE--2024--47755" src="https://img.shields.io/badge/CVE--2024--47755-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
@@ -9933,25 +8278,6 @@ procps-ng, procps is vulnerable to a process hiding through race condition. Sinc
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2024-49968?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-56.58"><img alt="low 5.5: CVE--2024--49968" src="https://img.shields.io/badge/CVE--2024--49968-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-56.58</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-56.58</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.032%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  ext4: filesystems without casefold feature cannot be mounted with siphash  When mounting the ext4 filesystem, if the default hash version is set to DX_HASH_SIPHASH but the casefold feature is not set, exit the mounting.
-
-</blockquote>
-</details>
-
 <a href="https://scout.docker.com/v/CVE-2018-12929?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 5.5: CVE--2018--12929" src="https://img.shields.io/badge/CVE--2018--12929-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
 
 <table>
@@ -10055,7 +8381,7 @@ A flaw was found in the USB Host Controller Driver framework in the Linux kernel
 <tr><td>CVSS Score</td><td><code>4.6</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.073%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10190,24 +8516,22 @@ The PAM module pam_cap.so of libcap configuration supports group names starting 
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.8.3-1.1ubuntu3.2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>xz-utils</strong> <code>5.6.1+really5.4.5-1ubuntu0.2</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/gnutls28@3.8.3-1.1ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.8.3-1.1ubuntu3.3"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/xz-utils@5.6.1%2Breally5.4.5-1ubuntu0.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-31115?s=ubuntu&n=xz-utils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr="><img alt="medium : CVE--2025--31115" src="https://img.shields.io/badge/CVE--2025--31115-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><3.8.3-1.1ubuntu3.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.8.3-1.1ubuntu3.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.171%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code></code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.051%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
+The threaded .xz decoder in liblzma has a bug that can at least result in a crash (denial of service). The effects include heap use after free and writing to an address based on the null pointer plus an offset.
 
 </blockquote>
 </details>
@@ -10232,6 +8556,30 @@ A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. 
 <blockquote>
 
 A flaw in libtasn1 causes inefficient handling of specific certificate data. When processing a large number of elements in a certificate, libtasn1 takes much longer than expected, which can slow down or even crash the system. This flaw allows an attacker to send a specially crafted certificate, causing a denial of service attack.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.8.3-1.1ubuntu3.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnutls28@3.8.3-1.1ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.8.3-1.1ubuntu3.3"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.8.3-1.1ubuntu3.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.8.3-1.1ubuntu3.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.171%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
 
 </blockquote>
 </details>
@@ -10337,6 +8685,28 @@ An Invalid Pointer vulnerability exists in GNU patch 2.7 via the another_hunk fu
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.13+dfsg1-4ubuntu3.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/shadow@1%3A4.13%2Bdfsg1-4ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-56433?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2024--56433" src="https://img.shields.io/badge/CVE--2024--56433-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>3.171%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>libgcrypt20</strong> <code>1.10.3-2build1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/libgcrypt20@1.10.3-2build1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
@@ -10346,7 +8716,7 @@ An Invalid Pointer vulnerability exists in GNU patch 2.7 via the another_hunk fu
 <tr><td>Affected range</td><td><code>>=0</code></td></tr>
 <tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
 <tr><td>EPSS Score</td><td><code>0.123%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>28th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -10431,31 +8801,9 @@ sha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of ser
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.13+dfsg1-4ubuntu3.2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>binutils</strong> <code>2.42-4ubuntu2.5</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/shadow@1%3A4.13%2Bdfsg1-4ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-56433?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2024--56433" src="https://img.shields.io/badge/CVE--2024--56433-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>3.171%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-shadow-utils (aka shadow) 4.4 through 4.17.0 establishes a default /etc/subuid behavior (e.g., uid 100000 through 165535 for the first user account) that can realistically conflict with the uids of users defined on locally administered networks, potentially leading to account takeover, e.g., by leveraging newuidmap for access to an NFS home directory (or same-host resources in the case of remote logins by these local network users). NOTE: it may also be argued that system administrators should not have assigned uids, within local networks, that are within the range that can occur in /etc/subuid.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>binutils</strong> <code>2.42-4ubuntu2.4</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/binutils@2.42-4ubuntu2.4?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<small><code>pkg:deb/ubuntu/binutils@2.42-4ubuntu2.5?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
 <a href="https://scout.docker.com/v/CVE-2017-13716?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 5.5: CVE--2017--13716" src="https://img.shields.io/badge/CVE--2017--13716-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
 
 <table>
