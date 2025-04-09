@@ -102,8 +102,8 @@ Defined in `.github/workflows/docker-update.yml`, this workflow:
 ### Security Monitoring Workflow
 
 Defined in `.github/workflows/docker-scout.yaml`, this workflow:
-- Scans all Docker images for security vulnerabilities using Docker Scout
-- Generates comprehensive vulnerability reports
+- Scans all Docker images monthy for security vulnerabilities using Docker Scout
+- Generates comprehensive vulnerability reports in each tool's respective subdirectory
 
 ## Contributing
 

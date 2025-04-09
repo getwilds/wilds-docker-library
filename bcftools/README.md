@@ -4,9 +4,9 @@ This directory contains Docker images for BCFtools, a set of utilities for varia
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently BCFtools v1.19)
-- `1.19`: BCFtools v1.19
-- `1.11`: BCFtools v1.11
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bcftools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/bcftools/CVEs_latest.md) )
+- `1.19` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bcftools/Dockerfile_1.19) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/bcftools/CVEs_1.19.md) )
+- `1.11` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bcftools/Dockerfile_1.11) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/bcftools/CVEs_1.11.md) )
 
 ## Image Details
 
@@ -79,7 +79,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/tree/main/bcftools), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Source Repository
 
