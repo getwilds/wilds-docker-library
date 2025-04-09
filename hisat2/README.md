@@ -4,8 +4,8 @@ This directory contains Docker images for HISAT2, a fast and sensitive alignment
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently HISAT2 v2.2.1)
-- `2.2.1`: HISAT2 v2.2.1
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/hisat2/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/hisat2/CVEs_latest.md) )
+- `2.2.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/hisat2/Dockerfile_2.2.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/hisat2/CVEs_2.2.1.md) )
 
 ## Image Details
 
@@ -72,7 +72,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/tree/main/hisat2), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Dockerfile Structure
 
