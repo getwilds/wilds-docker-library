@@ -4,8 +4,8 @@ This directory contains Docker images for SRA Toolkit, a collection of tools for
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently SRA-tools v3.1.1)
-- `3.1.1`: SRA-tools v3.1.1
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/CVEs_latest.md) )
+- `3.1.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/Dockerfile_3.1.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/CVEs_3.1.1.md) )
 
 ## Image Details
 

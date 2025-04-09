@@ -4,8 +4,8 @@ This directory contains Docker images for sourmash, a tool for computing and com
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently sourmash v4.8.2)
-- `4.8.2`: sourmash v4.8.2
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_latest.md) )
+- `4.8.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_4.8.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_4.8.2.md) )
 
 ## Image Details
 
@@ -74,7 +74,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Dockerfile Structure
 
