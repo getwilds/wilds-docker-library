@@ -4,8 +4,8 @@ This directory contains Docker images for UMI-tools, a collection of tools for h
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently UMI-tools v1.1.6)
-- `1.1.6`: UMI-tools v1.1.6
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/umitools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/umitools/CVEs_latest.md) )
+- `1.1.6` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/umitools/Dockerfile_1.1.6) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/umitools/CVEs_1.1.6.md) )
 
 ## Image Details
 
