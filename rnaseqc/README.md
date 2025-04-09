@@ -4,8 +4,8 @@ This directory contains Docker images for RNA-SeQC, a tool for quality control m
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently RNA-SeQC v2.4.2)
-- `2.4.2`: RNA-SeQC v2.4.2
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/rnaseqc/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/rnaseqc/CVEs_latest.md) )
+- `2.4.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/rnaseqc/Dockerfile_2.4.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/rnaseqc/CVEs_2.4.2.md) )
 
 ## Image Details
 
@@ -81,7 +81,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/blob/main/rnaseqc), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Dockerfile Structure
 

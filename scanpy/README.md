@@ -4,8 +4,8 @@ This directory contains Docker images for Scanpy, a Python-based toolkit for ana
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently Scanpy v1.10.2)
-- `1.10.2`: Scanpy v1.10.2
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/scanpy/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/scanpy/CVEs_latest.md) )
+- `1.10.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/scanpy/Dockerfile_1.10.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/scanpy/CVEs_1.10.2.md) )
 
 ## Image Details
 
@@ -100,7 +100,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/blob/main/scanpy), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Source Repository
 
