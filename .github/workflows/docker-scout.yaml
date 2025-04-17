@@ -9,11 +9,11 @@ on:
         type: string
   schedule:
     - cron: "0 8 1 * *"
-  pull_request: # Testing Purposes
-    types: [opened, reopened, synchronize]
-    paths:
-      - '.github/scripts/docker_scout.py'
-      - '.github/workflows/docker-scout.yml'
+  # pull_request: # Testing Purposes
+  #   types: [opened, reopened, synchronize]
+  #   paths:
+  #     - '.github/scripts/docker_scout.py'
+  #     - '.github/workflows/docker-scout.yml'
 
 env:
   GH_TOKEN: ${{ github.token }}
