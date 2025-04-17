@@ -254,17 +254,9 @@ def update_dockerhub_descriptions(affected_dirs):
         logger.info("No directories to update descriptions for")
         return
     
-    # Get DockerHub credentials from environment
-    dockerhub_user = os.environ.get('DOCKERHUB_USER')
-    dockerhub_pw = os.environ.get('DOCKERHUB_PW')
-    
-    if not dockerhub_user or not dockerhub_pw:
-        logger.error("DockerHub credentials not found in environment variables")
-        return
-    
     # Get DockerHub token
     try:
-        auth_payload = {'username': dockerhub_user, 'password': dockerhub_pw}
+        auth_payload = {'username': os.environ.get('DOCKERHUB_USER'), 'password': os.environ.get('DOCKERHUB_PW')}
         response = requests.post('https://hub.docker.com/v2/users/login/', json=auth_payload)
         response.raise_for_status()
         token = response.json().get('token')
