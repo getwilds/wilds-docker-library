@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/picard:latest
 
-Report generated on 2025-04-17 19:47:14 PST
+Report generated on 2025-04-17 21:53:12 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/picard:latest</code></h2>
 
