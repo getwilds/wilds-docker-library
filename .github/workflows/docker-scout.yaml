@@ -50,15 +50,8 @@ jobs:
           sh install-scout.sh
 
       - name: Run Docker Scout Analysis
-        run: |
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            # In pull request mode, only run in test mode (no commits)
-            python .github/scripts/docker_scout.py ${{ github.event.inputs.tool }} --test-mode
-          else
-            python .github/scripts/docker_scout.py ${{ github.event.inputs.tool }}
-          fi
+        run: python .github/scripts/docker_scout.py ${{ github.event.inputs.tool }}
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}

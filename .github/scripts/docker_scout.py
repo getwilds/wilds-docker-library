@@ -13,10 +13,9 @@ Usage:
     If no tool_name is provided, all tools will be scanned.
 
 Environment variables:
-    GITHUB_TOKEN: GitHub token for API access
-    GITHUB_REPOSITORY: The GitHub repository name (e.g., 'getwilds/wilds-docker-library')
     GITHUB_REF_NAME: The branch or ref name
     GITHUB_EVENT_NAME: The name of the GitHub event that triggered the workflow
+    GITHUB_HEAD_REF: The branch being merged from in case of PR's
 """
 
 import os
@@ -176,10 +175,16 @@ def commit_changes(cve_files):
     ref_name = os.environ.get('GITHUB_REF_NAME', 'main')
     
     if event_name == 'pull_request':
-        # For pull requests, we need to check out the head of the PR
-        # Note: This would require additional data from the GitHub event context
-        logger.info("Pull request detected, but branch handling requires additional setup")
-        # This would need to be expanded for PR handling
+        # For pull requests, identify name of the source branch
+        head_ref = os.environ.get('GITHUB_HEAD_REF', '')
+        if head_ref:
+            logger.info(f"Pull request detected, source branch: {head_ref}")
+            repo.git.fetch('origin', head_ref)
+            repo.git.checkout(head_ref)
+            ref_name = head_ref
+        else:
+            logger.error("Pull request detected but GITHUB_HEAD_REF not found")
+            return
     else:
         # For direct branch pushes or workflow_dispatch
         logger.info(f"Working with branch {ref_name}")
