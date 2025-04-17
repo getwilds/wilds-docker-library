@@ -1,8 +1,12 @@
-#!/usr/bin/env python3
-"""
-Docker Scout Analysis Script
-
-This script automates the process of scanning Docker images for vulnerabilities
+#!/usr/bin/env python
+# -*-coding:utf-8 -*-
+'''
+@File    :   docker_scout.py
+@Time    :   2025/04/17 12:54:33
+@Author  :   Taylor Firman
+@Version :   v0.1
+@Contact :   tfirman@fredhutch.org
+@Desc    :   This script automates the process of scanning Docker images for vulnerabilities
 using Docker Scout. It handles discovering tools and tags, scanning each image,
 and committing the resulting CVE reports.
 
@@ -16,7 +20,7 @@ Environment variables:
     GITHUB_REF_NAME: The branch or ref name
     GITHUB_EVENT_NAME: The name of the GitHub event that triggered the workflow
     GITHUB_HEAD_REF: The branch being merged from in case of PR's
-"""
+'''
 
 import os
 import sys
