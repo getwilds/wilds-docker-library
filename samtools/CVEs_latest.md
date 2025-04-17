@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/samtools:latest
 
-Report generated on 2025-04-17 19:51:10 PST
+Report generated on 2025-04-17 21:43:54 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/samtools:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/samtools:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:1d912fe7104a1dd92102178a3c2249527344ad9e1d5ba7a53211221cdc46bb5c</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 8" src="https://img.shields.io/badge/high-8-e25d68"/> <img alt="medium: 603" src="https://img.shields.io/badge/medium-603-fbb552"/> <img alt="low: 34" src="https://img.shields.io/badge/low-34-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:d8cf1b60e0ecea622023472bd3303b199aa72532061e1ff520c1a6c90c0a9e6e</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 594" src="https://img.shields.io/badge/medium-594-fbb552"/> <img alt="low: 33" src="https://img.shields.io/badge/low-33-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>187 MB</td></tr>
+<tr><td>size</td><td>200 MB</td></tr>
 <tr><td>packages</td><td>229</td></tr>
 </table>
 </details></table>
@@ -16,161 +16,9 @@ Report generated on 2025-04-17 19:51:10 PST
 
 <table>
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 8" src="https://img.shields.io/badge/H-8-e25d68"/> <img alt="medium: 590" src="https://img.shields.io/badge/M-590-fbb552"/> <img alt="low: 23" src="https://img.shields.io/badge/L-23-fce1a9"/> <!-- unspecified: 0 --><strong>linux</strong> <code>6.8.0-56.58</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 590" src="https://img.shields.io/badge/M-590-fbb552"/> <img alt="low: 23" src="https://img.shields.io/badge/L-23-fce1a9"/> <!-- unspecified: 0 --><strong>linux</strong> <code>6.8.0-58.60</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/linux@6.8.0-56.58?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-57798?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 7.8: CVE--2024--57798" src="https://img.shields.io/badge/CVE--2024--57798-lightgrey?label=high%207.8&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  drm/dp_mst: Ensure mst_primary pointer is valid in drm_dp_mst_handle_up_req()  While receiving an MST up request message from one thread in drm_dp_mst_handle_up_req(), the MST topology could be removed from another thread via drm_dp_mst_topology_mgr_set_mst(false), freeing mst_primary and setting drm_dp_mst_topology_mgr::mst_primary to NULL. This could lead to a NULL deref/use-after-free of mst_primary in drm_dp_mst_handle_up_req().  Avoid the above by holding a reference for mst_primary in drm_dp_mst_handle_up_req() while it's used.  v2: Fix kfreeing the request if getting an mst_primary reference fails.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-56658?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 7.8: CVE--2024--56658" src="https://img.shields.io/badge/CVE--2024--56658-lightgrey?label=high%207.8&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.028%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  net: defer final 'struct net' free in netns dismantle  Ilya reported a slab-use-after-free in dst_destroy [1]  Issue is in xfrm6_net_init() and xfrm4_net_init() :  They copy xfrm[46]_dst_ops_template into net->xfrm.xfrm[46]_dst_ops.  But net structure might be freed before all the dst callbacks are called. So when dst_destroy() calls later :  if (dst->ops->destroy) dst->ops->destroy(dst);  dst->ops points to the old net->xfrm.xfrm[46]_dst_ops, which has been freed.  See a relevant issue fixed in :  ac888d58869b ("net: do not delay dst_entries_add() in dst_release()")  A fix is to queue the 'struct net' to be freed after one another cleanup_net() round (and existing rcu_barrier())  [1]  BUG: KASAN: slab-use-after-free in dst_destroy (net/core/dst.c:112) Read of size 8 at addr ffff8882137ccab0 by task swapper/37/0 Dec 03 05:46:18 kernel: CPU: 37 UID: 0 PID: 0 Comm: swapper/37 Kdump: loaded Not tainted 6.12.0 #67 Hardware name: Red Hat KVM/RHEL, BIOS 1.16.1-1.el9 04/01/2014 Call Trace: <IRQ> dump_stack_lvl (lib/dump_stack.c:124) print_address_description.constprop.0 (mm/kasan/report.c:378) ? dst_destroy (net/core/dst.c:112) print_report (mm/kasan/report.c:489) ? dst_destroy (net/core/dst.c:112) ? kasan_addr_to_slab (mm/kasan/common.c:37) kasan_report (mm/kasan/report.c:603) ? dst_destroy (net/core/dst.c:112) ? rcu_do_batch (kernel/rcu/tree.c:2567) dst_destroy (net/core/dst.c:112) rcu_do_batch (kernel/rcu/tree.c:2567) ? __pfx_rcu_do_batch (kernel/rcu/tree.c:2491) ? lockdep_hardirqs_on_prepare (kernel/locking/lockdep.c:4339 kernel/locking/lockdep.c:4406) rcu_core (kernel/rcu/tree.c:2825) handle_softirqs (kernel/softirq.c:554) __irq_exit_rcu (kernel/softirq.c:589 kernel/softirq.c:428 kernel/softirq.c:637) irq_exit_rcu (kernel/softirq.c:651) sysvec_apic_timer_interrupt (arch/x86/kernel/apic/apic.c:1049 arch/x86/kernel/apic/apic.c:1049) </IRQ> <TASK> asm_sysvec_apic_timer_interrupt (./arch/x86/include/asm/idtentry.h:702) RIP: 0010:default_idle (./arch/x86/include/asm/irqflags.h:37 ./arch/x86/include/asm/irqflags.h:92 arch/x86/kernel/process.c:743) Code: 00 4d 29 c8 4c 01 c7 4c 29 c2 e9 6e ff ff ff 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 66 90 0f 00 2d c7 c9 27 00 fb f4 <fa> c3 cc cc cc cc 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 90 RSP: 0018:ffff888100d2fe00 EFLAGS: 00000246 RAX: 00000000001870ed RBX: 1ffff110201a5fc2 RCX: ffffffffb61a3e46 RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffffffb3d4d123 RBP: 0000000000000000 R08: 0000000000000001 R09: ffffed11c7e1835d R10: ffff888e3f0c1aeb R11: 0000000000000000 R12: 0000000000000000 R13: ffff888100d20000 R14: dffffc0000000000 R15: 0000000000000000 ? ct_kernel_exit.constprop.0 (kernel/context_tracking.c:148) ? cpuidle_idle_call (kernel/sched/idle.c:186) default_idle_call (./include/linux/cpuidle.h:143 kernel/sched/idle.c:118) cpuidle_idle_call (kernel/sched/idle.c:186) ? __pfx_cpuidle_idle_call (kernel/sched/idle.c:168) ? lock_release (kernel/locking/lockdep.c:467 kernel/locking/lockdep.c:5848) ? lockdep_hardirqs_on_prepare (kernel/locking/lockdep.c:4347 kernel/locking/lockdep.c:4406) ? tsc_verify_tsc_adjust (arch/x86/kernel/tsc_sync.c:59) do_idle (kernel/sched/idle.c:326) cpu_startup_entry (kernel/sched/idle.c:423 (discriminator 1)) start_secondary (arch/x86/kernel/smpboot.c:202 arch/x86/kernel/smpboot.c:282) ? __pfx_start_secondary (arch/x86/kernel/smpboot.c:232) ? soft_restart_cpu (arch/x86/kernel/head_64.S:452) common_startup_64 (arch/x86/kernel/head_64.S:414) </TASK> Dec 03 05:46:18 kernel: Allocated by task 12184: kasan_save_stack (mm/kasan/common.c:48) kasan_save_track (./arch/x86/include/asm/current.h:49 mm/kasan/common.c:60 mm/kasan/common.c:69) __kasan_slab_alloc (mm/kasan/common.c:319 mm/kasan/common.c:345) kmem_cache_alloc_noprof (mm/slub.c:4085 mm/slub.c:4134 mm/slub.c:4141) copy_net_ns (net/core/net_namespace.c:421 net/core/net_namespace.c:480) create_new_namespaces ---truncated---
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-56598?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 7.8: CVE--2024--56598" src="https://img.shields.io/badge/CVE--2024--56598-lightgrey?label=high%207.8&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  jfs: array-index-out-of-bounds fix in dtReadFirst  The value of stbl can be sometimes out of bounds due to a bad filesystem. Added a check with appopriate return of error code in that case.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-56595?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 7.8: CVE--2024--56595" src="https://img.shields.io/badge/CVE--2024--56595-lightgrey?label=high%207.8&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  jfs: add a check to prevent array-index-out-of-bounds in dbAdjTree  When the value of lp is 0 at the beginning of the for loop, it will become negative in the next assignment and we should bail out.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-56672?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 7.0: CVE--2024--56672" src="https://img.shields.io/badge/CVE--2024--56672-lightgrey?label=high%207.0&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  blk-cgroup: Fix UAF in blkcg_unpin_online()  blkcg_unpin_online() walks up the blkcg hierarchy putting the online pin. To walk up, it uses blkcg_parent(blkcg) but it was calling that after blkcg_destroy_blkgs(blkcg) which could free the blkcg, leading to the following UAF:  ================================================================== BUG: KASAN: slab-use-after-free in blkcg_unpin_online+0x15a/0x270 Read of size 8 at addr ffff8881057678c0 by task kworker/9:1/117  CPU: 9 UID: 0 PID: 117 Comm: kworker/9:1 Not tainted 6.13.0-rc1-work-00182-gb8f52214c61a-dirty #48 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS unknown 02/02/2022 Workqueue: cgwb_release cgwb_release_workfn Call Trace: <TASK> dump_stack_lvl+0x27/0x80 print_report+0x151/0x710 kasan_report+0xc0/0x100 blkcg_unpin_online+0x15a/0x270 cgwb_release_workfn+0x194/0x480 process_scheduled_works+0x71b/0xe20 worker_thread+0x82a/0xbd0 kthread+0x242/0x2c0 ret_from_fork+0x33/0x70 ret_from_fork_asm+0x1a/0x30 </TASK> ... Freed by task 1944: kasan_save_track+0x2b/0x70 kasan_save_free_info+0x3c/0x50 __kasan_slab_free+0x33/0x50 kfree+0x10c/0x330 css_free_rwork_fn+0xe6/0xb30 process_scheduled_works+0x71b/0xe20 worker_thread+0x82a/0xbd0 kthread+0x242/0x2c0 ret_from_fork+0x33/0x70 ret_from_fork_asm+0x1a/0x30  Note that the UAF is not easy to trigger as the free path is indirected behind a couple RCU grace periods and a work item execution. I could only trigger it with artifical msleep() injected in blkcg_unpin_online().  Fix it by reading the parent pointer before destroying the blkcg's blkg's.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-53140?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 5.5: CVE--2024--53140" src="https://img.shields.io/badge/CVE--2024--53140-lightgrey?label=high%205.5&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  netlink: terminate outstanding dump on socket close  Netlink supports iterative dumping of data. It provides the families the following ops: - start - (optional) kicks off the dumping process - dump  - actual dump helper, keeps getting called until it returns 0 - done  - (optional) pairs with .start, can be used for cleanup The whole process is asynchronous and the repeated calls to .dump don't actually happen in a tight loop, but rather are triggered in response to recvmsg() on the socket.  This gives the user full control over the dump, but also means that the user can close the socket without getting to the end of the dump. To make sure .start is always paired with .done we check if there is an ongoing dump before freeing the socket, and if so call .done.  The complication is that sockets can get freed from BH and .done is allowed to sleep. So we use a workqueue to defer the call, when needed.  Unfortunately this does not work correctly. What we defer is not the cleanup but rather releasing a reference on the socket. We have no guarantee that we own the last reference, if someone else holds the socket they may release it in BH and we're back to square one.  The whole dance, however, appears to be unnecessary. Only the user can interact with dumps, so we can clean up when socket is closed. And close always happens in process context. Some async code may still access the socket after close, queue notification skbs to it etc. but no dumps can start, end or otherwise make progress.  Delete the workqueue and flush the dump state directly from the release handler. Note that further cleanup is possible in -next, for instance we now always call .done before releasing the main module reference, so dump doesn't have to take a reference of its own.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-53063?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 5.5: CVE--2024--53063" src="https://img.shields.io/badge/CVE--2024--53063-lightgrey?label=high%205.5&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  media: dvbdev: prevent the risk of out of memory access  The dvbdev contains a static variable used to store dvb minors.  The behavior of it depends if CONFIG_DVB_DYNAMIC_MINORS is set or not. When not set, dvb_register_device() won't check for boundaries, as it will rely that a previous call to dvb_register_adapter() would already be enforcing it.  On a similar way, dvb_device_open() uses the assumption that the register functions already did the needed checks.  This can be fragile if some device ends using different calls. This also generate warnings on static check analysers like Coverity.  So, add explicit guards to prevent potential risk of OOM issues.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50302?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-57.59"><img alt="high 5.5: CVE--2024--50302" src="https://img.shields.io/badge/CVE--2024--50302-lightgrey?label=high%205.5&labelColor=e25d68"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><6.8.0-57.59</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.8.0-57.59</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.296%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In the Linux kernel, the following vulnerability has been resolved:  HID: core: zero-initialize the report buffer  Since the report buffer is used by all kinds of drivers in various ways, let's zero-initialize it during allocation to make sure that it can't be ever used to leak kernel memory via specially-crafted report.
-
-</blockquote>
-</details>
-
+<small><code>pkg:deb/ubuntu/linux@6.8.0-58.60?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
 <a href="https://scout.docker.com/v/CVE-2024-58087?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 8.1: CVE--2024--58087" src="https://img.shields.io/badge/CVE--2024--58087-lightgrey?label=medium%208.1&labelColor=fbb552"/></a> 
 
 <table>
@@ -11276,121 +11124,6 @@ A flaw was found in the Linux kernels implementation of audit rules, where a sys
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 4" src="https://img.shields.io/badge/M-4-fbb552"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>binutils</strong> <code>2.42-4ubuntu2.4</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/binutils@2.42-4ubuntu2.4?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-1178?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.42-4ubuntu2.5"><img alt="medium 5.6: CVE--2025--1178" src="https://img.shields.io/badge/CVE--2025--1178-lightgrey?label=medium%205.6&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.42-4ubuntu2.5</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.42-4ubuntu2.5</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.6</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.132%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in GNU Binutils 2.43. It has been declared as problematic. Affected by this vulnerability is the function bfd_putl64 of the file libbfd.c of the component ld. The manipulation leads to memory corruption. The attack can be launched remotely. The complexity of an attack is rather high. The exploitation appears to be difficult. The exploit has been disclosed to the public and may be used. The identifier of the patch is 75086e9de1707281172cc77f178e7949a4414ed0. It is recommended to apply a patch to fix this issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-1176?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.42-4ubuntu2.5"><img alt="medium 5.0: CVE--2025--1176" src="https://img.shields.io/badge/CVE--2025--1176-lightgrey?label=medium%205.0&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.42-4ubuntu2.5</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.42-4ubuntu2.5</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.093%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>28th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in GNU Binutils 2.43 and classified as critical. This issue affects the function _bfd_elf_gc_mark_rsec of the file elflink.c of the component ld. The manipulation leads to heap-based buffer overflow. The attack may be initiated remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. The patch is named f9978defb6fab0bd8583942d97c112b0932ac814. It is recommended to apply a patch to fix this issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-1182?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.42-4ubuntu2.5"><img alt="medium : CVE--2025--1182" src="https://img.shields.io/badge/CVE--2025--1182-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.42-4ubuntu2.5</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.42-4ubuntu2.5</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability, which was classified as critical, was found in GNU Binutils 2.43. Affected is the function bfd_elf_reloc_symbol_deleted_p of the file bfd/elflink.c of the component ld. The manipulation leads to memory corruption. It is possible to launch the attack remotely. The complexity of an attack is rather high. The exploitability is told to be difficult. The exploit has been disclosed to the public and may be used. The patch is identified as b425859021d17adf62f06fb904797cf8642986ad. It is recommended to apply a patch to fix this issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-1181?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.42-4ubuntu2.5"><img alt="medium : CVE--2025--1181" src="https://img.shields.io/badge/CVE--2025--1181-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.42-4ubuntu2.5</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.42-4ubuntu2.5</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability classified as critical was found in GNU Binutils 2.43. This vulnerability affects the function _bfd_elf_gc_mark_rsec of the file bfd/elflink.c of the component ld. The manipulation leads to memory corruption. The attack can be initiated remotely. The complexity of an attack is rather high. The exploitation appears to be difficult. The exploit has been disclosed to the public and may be used. The name of the patch is 931494c9a89558acb36a03a340c01726545eef24. It is recommended to apply a patch to fix this issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-1153?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.42-4ubuntu2.5"><img alt="low 5.9: CVE--2025--1153" src="https://img.shields.io/badge/CVE--2025--1153-lightgrey?label=low%205.9&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.42-4ubuntu2.5</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.42-4ubuntu2.5</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.109%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>30th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability classified as problematic was found in GNU Binutils 2.43/2.44. Affected by this vulnerability is the function bfd_set_format of the file format.c. The manipulation leads to memory corruption. The attack can be launched remotely. The complexity of an attack is rather high. The exploitation appears to be difficult. Upgrading to version 2.45 is able to address this issue. The identifier of the patch is 8d97c1a53f3dc9fd8e1ccdb039b8a33d50133150. It is recommended to upgrade the affected component.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2017-13716?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 5.5: CVE--2017--13716" src="https://img.shields.io/badge/CVE--2017--13716-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.255%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>49th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The C++ symbol demangler routine in cplus-dem.c in libiberty, as distributed in GNU Binutils 2.29, allows remote attackers to cause a denial of service (excessive memory allocation and application crash) via a crafted file, as demonstrated by a call from the Binary File Descriptor (BFD) library (aka libbfd).
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.5.3-5ubuntu5.1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/pam@1.5.3-5ubuntu5.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
@@ -11434,161 +11167,6 @@ A vulnerability was found in PAM. The secret information is stored in memory, wh
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.4.4-2ubuntu17</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnupg2@2.4.4-2ubuntu17?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C2.4.4-2ubuntu17.2"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.4.4-2ubuntu17.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.4.4-2ubuntu17.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.010%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2022-3219?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 3.3: CVE--2022--3219" src="https://img.shields.io/badge/CVE--2022--3219-lightgrey?label=low%203.3&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libtasn1-6</strong> <code>4.19.0-3build1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/libtasn1-6@4.19.0-3build1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12133?s=ubuntu&n=libtasn1-6&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C4.19.0-3ubuntu0.24.04.1"><img alt="medium 5.3: CVE--2024--12133" src="https://img.shields.io/badge/CVE--2024--12133-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><4.19.0-3ubuntu0.24.04.1</code></td></tr>
-<tr><td>Fixed version</td><td><code>4.19.0-3ubuntu0.24.04.1</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw in libtasn1 causes inefficient handling of specific certificate data. When processing a large number of elements in a certificate, libtasn1 takes much longer than expected, which can slow down or even crash the system. This flaw allows an attacker to send a specially crafted certificate, causing a denial of service attack.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>xz-utils</strong> <code>5.6.1+really5.4.5-1build0.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/xz-utils@5.6.1%2Breally5.4.5-1build0.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-31115?s=ubuntu&n=xz-utils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C5.6.1%2Breally5.4.5-1ubuntu0.2"><img alt="medium : CVE--2025--31115" src="https://img.shields.io/badge/CVE--2025--31115-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><5.6.1+really5.4.5-1ubuntu0.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.6.1+really5.4.5-1ubuntu0.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.117%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-XZ Utils provide a general-purpose data-compression library plus command-line tools. In XZ Utils 5.3.3alpha to 5.8.0, the multithreaded .xz decoder in liblzma has a bug where invalid input can at least result in a crash. The effects include heap use after free and writing to an address based on the null pointer plus an offset. Applications and libraries that use the lzma_stream_decoder_mt function are affected. The bug has been fixed in XZ Utils 5.8.1, and the fix has been committed to the v5.4, v5.6, v5.8, and master branches in the xz Git repository. No new release packages will be made from the old stable branches, but a standalone patch is available that applies to all affected releases.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.38.2-3.2build2.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/perl@5.38.2-3.2build2.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-56406?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C5.38.2-3.2ubuntu0.1"><img alt="medium : CVE--2024--56406" src="https://img.shields.io/badge/CVE--2024--56406-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><5.38.2-3.2ubuntu0.1</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.38.2-3.2ubuntu0.1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A heap buffer overflow vulnerability was discovered in Perl.  Release branches 5.34, 5.36, 5.38 and 5.40 are affected, including development versions from 5.33.1 through 5.41.10.  When there are non-ASCII bytes in the left-hand-side of the `tr` operator, `S_do_trans_invmap` can overflow the destination pointer `d`.  $ perl -e '$_ = "\x{FF}" x 1000000; tr/\xFF/\x{100}/;' Segmentation fault (core dumped)  It is believed that this vulnerability can enable Denial of Service and possibly Code Execution attacks on platforms that lack sufficient defenses.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.66-5ubuntu2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/libcap2@1%3A2.66-5ubuntu2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C1%3A2.66-5ubuntu2.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1:2.66-5ubuntu2.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1:2.66-5ubuntu2.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.8.3-1.1ubuntu3.2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnutls28@3.8.3-1.1ubuntu3.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.8.3-1.1ubuntu3.3"><img alt="medium 5.3: CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.8.3-1.1ubuntu3.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.8.3-1.1ubuntu3.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.171%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>wget</strong> <code>1.21.4-1ubuntu4.1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/wget@1.21.4-1ubuntu4.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
@@ -11607,6 +11185,30 @@ A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. 
 <blockquote>
 
 GNU Wget through 1.21.1 does not omit the Authorization header upon a redirect to a different origin, a related issue to CVE-2018-1000007.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>krb5</strong> <code>1.20.1-6ubuntu2.5</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/krb5@1.20.1-6ubuntu2.5?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-3576?s=ubuntu&n=krb5&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="medium 5.9: CVE--2025--3576" src="https://img.shields.io/badge/CVE--2025--3576-lightgrey?label=medium%205.9&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability in the MIT Kerberos implementation allows GSSAPI-protected messages using RC4-HMAC-MD5 to be spoofed due to weaknesses in the MD5 checksum design. If RC4 is preferred over stronger encryption types, an attacker could exploit MD5 collisions to forge message integrity codes. This may lead to unauthorized message tampering.
 
 </blockquote>
 </details>
@@ -11700,28 +11302,6 @@ A timing-based side-channel flaw was found in libgcrypt's RSA implementation. Th
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>curl</strong> <code>8.5.0-2ubuntu10.6</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/curl@8.5.0-2ubuntu10.6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-0167?s=ubuntu&n=curl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2025--0167" src="https://img.shields.io/badge/CVE--2025--0167-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=0</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.062%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-When asked to use a `.netrc` file for credentials **and** to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has a `default` entry that omits both login and password. A rare circumstance.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>coreutils</strong> <code>9.4-3ubuntu6</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/coreutils@9.4-3ubuntu6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
@@ -11762,6 +11342,76 @@ chroot in GNU coreutils, when used with --userspec, allows local users to escape
 <blockquote>
 
 Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource consumption. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE and validate the order of the public key.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.4.4-2ubuntu17.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnupg2@2.4.4-2ubuntu17.2?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-3219?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 3.3: CVE--2022--3219" src="https://img.shields.io/badge/CVE--2022--3219-lightgrey?label=low%203.3&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+GnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>binutils</strong> <code>2.42-4ubuntu2.5</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/binutils@2.42-4ubuntu2.5?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2017-13716?s=ubuntu&n=binutils&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low 5.5: CVE--2017--13716" src="https://img.shields.io/badge/CVE--2017--13716-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.255%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>49th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The C++ symbol demangler routine in cplus-dem.c in libiberty, as distributed in GNU Binutils 2.29, allows remote attackers to cause a denial of service (excessive memory allocation and application crash) via a crafted file, as demonstrated by a call from the Binary File Descriptor (BFD) library (aka libbfd).
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>curl</strong> <code>8.5.0-2ubuntu10.6</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/curl@8.5.0-2ubuntu10.6?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-0167?s=ubuntu&n=curl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3E%3D0"><img alt="low : CVE--2025--0167" src="https://img.shields.io/badge/CVE--2025--0167-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code>>=0</code></td></tr>
+<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
+<tr><td>EPSS Score</td><td><code>0.062%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+When asked to use a `.netrc` file for credentials **and** to follow HTTP redirects, curl could leak the password used for the first host to the followed-to host under certain circumstances.  This flaw only manifests itself if the netrc file has a `default` entry that omits both login and password. A rare circumstance.
 
 </blockquote>
 </details>
