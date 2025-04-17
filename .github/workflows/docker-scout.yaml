@@ -9,138 +9,17 @@ on:
         type: string
   schedule:
     - cron: "0 8 1 * *"
-  # pull_request: # Testing Purposes
-  #   types: [opened, reopened, synchronize]
+  pull_request: # Testing Purposes
+    types: [opened, reopened, synchronize]
+    paths:
+      - '.github/scripts/docker_scout.py'
+      - '.github/workflows/docker-scout.yml'
 
 env:
   GH_TOKEN: ${{ github.token }}
 
 jobs:
-  # First job: discover all the tools/tags that need to be processed
-  discover:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Discover Tools and Tags
-        id: set-matrix
-        run: |
-          # Determine which directories to process
-          if [[ -n "${{ github.event.inputs.tool }}" ]]; then
-            # Check if the specified directory exists
-            if [[ ! -d "${{ github.event.inputs.tool }}" ]]; then
-              echo "Error: Directory '${{ github.event.inputs.tool }}' does not exist."
-              exit 1
-            fi
-            
-            echo "Processing single tool: ${{ github.event.inputs.tool }}"
-            DIRS=("${{ github.event.inputs.tool }}")
-          else
-            echo "Processing all tool directories"
-            # Get all directories except .github
-            DIRS=($(find . -maxdepth 1 -type d -not -path "./.git" -not -path "./.github" -not -path "." | sed 's|^\./||'))
-          fi
-          
-          # Build the matrix
-          echo "Building matrix of tools and tags..."
-          matrix="{\"include\":["
-          separator=""
-          
-          for image_dir in "${DIRS[@]}"; do
-            echo "Finding tags for $image_dir..."
-            
-            # Find all Dockerfile_* files to determine tags
-            shopt -s nullglob
-            dockerfiles=($image_dir/Dockerfile_*)
-            shopt -u nullglob
-            
-            if [ ${#dockerfiles[@]} -eq 0 ]; then
-              echo "No Dockerfile_* files found in $image_dir"
-              continue
-            fi
-            
-            for dockerfile in "${dockerfiles[@]}"; do
-              # Extract tag from filename (everything after the underscore)
-              tag=$(basename $dockerfile | cut -d'_' -f2-)
-              
-              # Add to matrix
-              matrix="${matrix}${separator}{\"tool\":\"${image_dir}\",\"tag\":\"${tag}\"}"
-              separator=","
-            done
-          done
-          
-          matrix="${matrix}]}"
-          
-          # Output the matrix
-          echo "Generated matrix: $matrix"
-          echo "matrix=$matrix" >> $GITHUB_OUTPUT
-
-  # Second job: process each tool/tag combination in parallel
-  scan:
-    needs: discover
-    runs-on: ubuntu-latest
-    strategy:
-      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
-      # Allow some jobs to fail without failing the whole workflow
-      fail-fast: false
-      # Limit concurrent jobs to avoid rate limiting
-      max-parallel: 4
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Login to DockerHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PW }}
-      
-      - name: Install Docker Scout
-        run: |
-          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
-          sh install-scout.sh
-      
-      - name: Docker Scout Scan for ${{ matrix.tool }}:${{ matrix.tag }}
-        run: |
-          # Pulling image from GitHub Container Registry to avoid rate limits
-          CONTAINER="ghcr.io/getwilds/${{ matrix.tool }}:${{ matrix.tag }}"
-          echo "Scanning $CONTAINER..."
-          
-          # Create CVE markdown file
-          CVE_FILE="${{ matrix.tool }}/CVEs_${{ matrix.tag }}.md"
-          
-          # Generate header for the file
-          echo "# Vulnerability Report for $CONTAINER" > $CVE_FILE
-          echo "" >> $CVE_FILE
-          echo "Report generated on $(TZ='America/Los_Angeles' date)" >> $CVE_FILE
-          echo "" >> $CVE_FILE
-          
-          if ! docker scout cves $CONTAINER --format markdown >> $CVE_FILE; then
-            echo "Error generating all vulnerabilities report. Please try again later." >> $CVE_FILE
-          fi
-
-          # Replace ghcr.io/getwilds with getwilds in the report
-          sed -i 's|ghcr.io/getwilds/|getwilds/|g' $CVE_FILE
-          
-          echo "Created vulnerability report at $CVE_FILE"
-          
-          # Clean up
-          docker system prune -af
-
-      - name: Upload CVE File
-        uses: actions/upload-artifact@v4
-        with:
-          name: cve-report-${{ matrix.tool }}-${{ matrix.tag }}
-          path: ${{ matrix.tool }}/CVEs_${{ matrix.tag }}.md
-          retention-days: 1
-
-  # Third job: commit all the generated CVE files
-  commit:
-    needs: scan
+  docker-scout:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -148,60 +27,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Get full history
-      
-      - name: Setup Git
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
         run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "actions@github.com"
-          
-          # Determine branch name - handle PR vs branch case
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            # For pull requests - check out the head of the PR
-            echo "Working with PR #${{ github.event.pull_request.number }}"
-            git checkout ${{ github.event.pull_request.head.ref }}
-          else
-            # For direct branch pushes or workflow_dispatch
-            echo "Working with branch ${{ github.ref_name }}"
-            git checkout ${{ github.ref_name }}
-          fi
-      
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-      
-      - name: List downloaded artifacts
-        run: find . -type f -name "CVEs_*.md" | sort
-      
-      - name: Move CVE Files to Correct Locations
+          pip install pyyaml gitpython requests
+
+      - name: Login to DockerHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+
+      - name: Install Docker Scout
         run: |
-          # For each CVE file in the artifacts, move it to the correct location
-          for cve_dir in cve-report-*; do
-            if [ -d "$cve_dir" ]; then
-              # Extract tool name from filename
-              artifact_name=${cve_dir#cve-report-}
-              tag=${artifact_name##*-}
-              tool=${artifact_name%-$tag}
-              
-              # Move all CVE files to the tool directory
-              find "$cve_dir" -name "CVEs_*.md" -exec mv {} "$tool/" \;
-            fi
-          done
-      
-      - name: Commit and Push Changes
-        run: |
-          # Check if there are changes to commit
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add */CVEs_*.md
-            git commit -m "Update vulnerability reports [skip ci]"
-            
-            # Push changes
-            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-              # Push to the PR branch
-              git push origin ${{ github.event.pull_request.head.ref }}
-            else
-              # Push to the current branch
-              git push origin ${{ github.ref_name }}
-            fi
-          else
-            echo "No changes to commit"
-          fi
+          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
+          sh install-scout.sh
+
+      - name: Run Docker Scout Analysis
+        run: python .github/scripts/docker_scout.py ${{ github.event.inputs.tool }}
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}

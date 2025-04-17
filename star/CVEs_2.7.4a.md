@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:2.7.4a
 
-Report generated on Tue Apr  8 10:01:03 PDT 2025
+Report generated on 2025-04-17 22:02:05 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/star:2.7.4a</code></h2>
 
@@ -15,4 +15,3 @@ Report generated on Tue Apr  8 10:01:03 PDT 2025
 </details>
 
 <table></table>
-

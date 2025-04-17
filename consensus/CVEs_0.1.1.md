@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/consensus:0.1.1
 
-Report generated on Tue Apr  8 09:56:54 PDT 2025
+Report generated on 2025-04-17 21:51:52 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/consensus:0.1.1</code></h2>
 
@@ -26,8 +26,8 @@ Report generated on Tue Apr  8 09:56:54 PDT 2025
 <tr><td>Fixed version</td><td><code>65.5.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:L/SI:L/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.318%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.326%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -46,7 +46,7 @@ Python Packaging Authority (PyPA)'s setuptools is a library designed to facilita
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.214%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>44th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -58,4 +58,3 @@ A vulnerability in the `package_index` module of pypa/setuptools versions up to 
 </details>
 </details></td></tr>
 </table>
-
