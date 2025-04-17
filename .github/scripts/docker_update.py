@@ -264,10 +264,8 @@ def update_dockerhub_descriptions(affected_dirs):
     
     # Get DockerHub token
     try:
-        response = requests.post(
-            'https://hub.docker.com/v2/users/login/',
-            json={'username': dockerhub_user, 'password': dockerhub_pw}
-        )
+        auth_payload = {'username': dockerhub_user, 'password': dockerhub_pw}
+        response = requests.post('https://hub.docker.com/v2/users/login/', json=auth_payload)
         response.raise_for_status()
         token = response.json().get('token')
         
