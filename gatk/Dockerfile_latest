@@ -19,23 +19,30 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV GATK_VERSION=4.6.1.0
 ENV GATK_HOME=/opt/gatk
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    wget \
-    unzip \
-    git \
-    python3 \
-    python3-pip \
-    curl \
-    samtools \
-    tzdata \
-    software-properties-common \
-    && add-apt-repository -y ppa:openjdk-r/ppa \
-    && apt-get update \
-    && apt-get install -y openjdk-17-jdk \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && ln -sf /usr/bin/python3 /usr/bin/python
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && SAMTOOLS_VERSION=$(apt-cache policy samtools | grep Candidate | awk '{print $2}') \
+  && OPENJDK_VERSION=$(apt-cache policy openjdk-17-jdk | grep Candidate | awk '{print $2}') \
+  && TZDATA_VERSION=$(apt-cache policy tzdata | grep Candidate | awk '{print $2}') \
+  && SPC_VERSION=$(apt-cache policy software-properties-common | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  git="${GIT_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3PIP_VERSION}" \
+  curl="${CURL_VERSION}" \
+  samtools="${SAMTOOLS_VERSION}" \
+  openjdk-17-jdk="${OPENJDK_VERSION}" \
+  tzdata="${TZDATA_VERSION}" \
+  software-properties-common="${SPC_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && ln -sf /usr/bin/python3 /usr/bin/python
 
 # Download and install GATK
 RUN mkdir -p ${GATK_HOME} && \
