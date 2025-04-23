@@ -26,11 +26,11 @@ import os
 import sys
 import glob
 import logging
-import subprocess
 import time
 from pathlib import Path
 from datetime import datetime
 import git
+from utils import run_command
 
 # Set up logging
 logging.basicConfig(
@@ -39,29 +39,6 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 logger = logging.getLogger("docker-scout")
-
-def run_command(cmd, cwd=None, check=True, capture_output=False):
-    """Run a shell command and return its output."""
-    logger.info(f"Running: {cmd}")
-    try:
-        result = subprocess.run(
-            cmd,
-            cwd=cwd,
-            check=check,
-            shell=True,
-            text=True,
-            capture_output=capture_output
-        )
-        if capture_output:
-            return result.stdout.strip()
-        return True
-    except subprocess.CalledProcessError as e:
-        logger.error(f"Command failed: {e}")
-        if capture_output:
-            logger.error(f"Error output: {e.stderr}")
-        if check:
-            raise
-        return False
 
 def discover_tools_and_tags(specific_tool=None):
     """
