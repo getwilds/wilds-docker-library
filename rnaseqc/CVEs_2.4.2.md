@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/rnaseqc:2.4.2
 
-Report generated on 2025-04-23 05:21:55 PST
+Report generated on 2025-04-24 22:20:28 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/rnaseqc:2.4.2</code></h2>
 
