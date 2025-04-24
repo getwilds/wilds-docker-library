@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/picard:3.1.1
 
-Report generated on 2025-04-23 05:16:09 PST
+Report generated on 2025-04-24 22:22:48 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/picard:3.1.1</code></h2>
 
@@ -139,7 +139,7 @@ Users are recommended to upgrade to version 1.26, which fixes the issue.
 <tr><td>Fixed version</td><td><code>1.26.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 

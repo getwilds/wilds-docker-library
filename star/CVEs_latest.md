@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:latest
 
-Report generated on 2025-04-23 05:23:40 PST
+Report generated on 2025-04-24 22:10:08 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/star:latest</code></h2>
 
