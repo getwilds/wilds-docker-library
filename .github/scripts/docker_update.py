@@ -160,14 +160,24 @@ def build_and_push_images(docker_files):
         
         logger.info(f"Building image for {tool_name}:{tag}")
         
-        # Build and push to GitHub Container Registry
+        # Build the image once
         run_command(
-            f"docker build --platform linux/amd64 -t ghcr.io/getwilds/{tool_name}:{tag} -f {dockerfile} --push ."
+            f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} ."
+        )
+
+        # Push to DockerHub
+        run_command(
+            f"docker push getwilds/{tool_name}:{tag}"
         )
         
-        # Build and push to DockerHub
+        # Tag the image for GitHub Container Registry
         run_command(
-            f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} --push ."
+            f"docker tag getwilds/{tool_name}:{tag} ghcr.io/getwilds/{tool_name}:{tag}"
+        )
+        
+        # Push to GitHub Container Registry
+        run_command(
+            f"docker push ghcr.io/getwilds/{tool_name}:{tag}"
         )
         
         # Update Docker Scout CVE markdown file
