@@ -36,6 +36,7 @@ jobs:
       
       - name: Install Python dependencies
         run: |
+          uv venv
           uv pip install gitpython requests
       
       - name: Set up QEMU
