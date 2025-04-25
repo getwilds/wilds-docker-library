@@ -3,7 +3,7 @@ FROM condaforge/miniforge3:24.7.1-2
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="sourmash" \
-      org.opencontainers.image.description="Container image for the use of Sourmash in FH DaSL's WILDS" \
+      org.opencontainers.image.description="Docker image for the use of Sourmash in FH DaSL's WILDS" \
       org.opencontainers.image.version="latest" \
       org.opencontainers.image.authors="wilds@fredhutch.org" \
       org.opencontainers.image.url="https://hutchdatascience.org/" \
