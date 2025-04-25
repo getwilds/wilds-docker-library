@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/consensus:latest
 
-Report generated on 2025-04-24 22:22:07 PST
+Report generated on 2025-04-25 18:56:11 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/consensus:latest</code></h2>
 

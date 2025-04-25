@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:2.7.6a
 
-Report generated on 2025-04-24 22:09:30 PST
+Report generated on 2025-04-25 18:41:50 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/star:2.7.6a</code></h2>
 
