@@ -26,7 +26,6 @@ import os
 import sys
 import glob
 import logging
-import time
 from pathlib import Path
 from datetime import datetime
 import git
@@ -106,28 +105,22 @@ def scan_image(tool, tag):
         f.write(f"Report generated on {pst_now}\n\n")
     
     # Run Docker Scout to generate CVE report
-    try:
-        result = run_command(
-            f"docker scout cves {container} --format markdown",
-            capture_output=True
-        )
+    result = run_command(
+        f"docker scout cves {container} --format markdown",
+        capture_output=True
+    )
+    
+    with open(cve_file, 'a') as f:
+        f.write(result)
         
-        with open(cve_file, 'a') as f:
-            f.write(result)
-            
-        # Replace ghcr.io/getwilds with getwilds in the report
-        with open(cve_file, 'r') as f:
-            content = f.read()
+    # Replace ghcr.io/getwilds with getwilds in the report
+    with open(cve_file, 'r') as f:
+        content = f.read()
+    
+    with open(cve_file, 'w') as f:
+        f.write(content.replace('ghcr.io/getwilds/', 'getwilds/'))
         
-        with open(cve_file, 'w') as f:
-            f.write(content.replace('ghcr.io/getwilds/', 'getwilds/'))
-            
-        logger.info(f"Created vulnerability report at {cve_file}")
-    except Exception as e:
-        logger.error(f"Error generating report: {e}")
-        
-        with open(cve_file, 'a') as f:
-            f.write("Error generating vulnerabilities report. Please try again later.\n")
+    logger.info(f"Created vulnerability report at {cve_file}")
     
     # Clean up Docker images to save space
     run_command("docker system prune -af", check=False)
@@ -206,19 +199,11 @@ def main():
     # Scan each tool/tag combination and collect CVE files
     cve_files = []
     for tool, tag in tool_tags:
-        try:
-            cve_file = scan_image(tool, tag)
-            cve_files.append(cve_file)
-            # Add a small delay between scans to avoid rate limiting
-            time.sleep(2)
-        except Exception as e:
-            logger.error(f"Error scanning {tool}:{tag}: {e}")
+        cve_file = scan_image(tool, tag)
+        cve_files.append(cve_file)
     
     # Commit and push changes
-    try:
-        commit_changes(cve_files)
-    except Exception as e:
-        logger.error(f"Error committing changes: {e}")
+    commit_changes(cve_files)
 
 if __name__ == "__main__":
     main()

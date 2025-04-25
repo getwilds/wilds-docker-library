@@ -188,28 +188,22 @@ def build_and_push_images(docker_files):
             f.write(f"# Vulnerability Report for getwilds/{tool_name}:{tag}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
         
-        try:
-            result = run_command(
-                f"docker scout cves ghcr.io/getwilds/{tool_name}:{tag} --format markdown",
-                capture_output=True
-            )
-            
-            with open(cve_file, 'a') as f:
-                f.write(result)
-            
-            # Replace ghcr.io/getwilds with getwilds in the report
-            with open(cve_file, 'r') as f:
-                content = f.read()
-            
-            with open(cve_file, 'w') as f:
-                f.write(content.replace('ghcr.io/getwilds/', 'getwilds/'))
-            
-            logger.info(f"Successfully generated vulnerability report for getwilds/{tool_name}:{tag}")
-        except Exception as e:
-            logger.error(f"Error generating report: {e}")
-            
-            with open(cve_file, 'a') as f:
-                f.write("Error generating vulnerabilities report. Please try again later.\n")
+        result = run_command(
+            f"docker scout cves ghcr.io/getwilds/{tool_name}:{tag} --format markdown",
+            capture_output=True
+        )
+        
+        with open(cve_file, 'a') as f:
+            f.write(result)
+        
+        # Replace ghcr.io/getwilds with getwilds in the report
+        with open(cve_file, 'r') as f:
+            content = f.read()
+        
+        with open(cve_file, 'w') as f:
+            f.write(content.replace('ghcr.io/getwilds/', 'getwilds/'))
+        
+        logger.info(f"Successfully generated vulnerability report for getwilds/{tool_name}:{tag}")
         
         # Add CVE file to git staging
         repo.git.add(cve_file)
@@ -242,21 +236,17 @@ def update_dockerhub_descriptions(affected_dirs):
         return
     
     # Get DockerHub token
-    try:
-        auth_payload = {'username': os.environ.get('DOCKERHUB_USER'), 'password': os.environ.get('DOCKERHUB_PW')}
-        response = requests.post('https://hub.docker.com/v2/users/login/', json=auth_payload)
-        response.raise_for_status()
-        token = response.json().get('token')
-        
-        if not token:
-            logger.error("Failed to get DockerHub token. Check your credentials.")
-            logger.error(f"Response was: {response.text}")
-            return
-        
-        logger.info("Successfully logged in to DockerHub")
-    except Exception as e:
-        logger.error(f"Error authenticating with DockerHub: {e}")
+    auth_payload = {'username': os.environ.get('DOCKERHUB_USER'), 'password': os.environ.get('DOCKERHUB_PW')}
+    response = requests.post('https://hub.docker.com/v2/users/login/', json=auth_payload)
+    response.raise_for_status()
+    token = response.json().get('token')
+    
+    if not token:
+        logger.error("Failed to get DockerHub token. Check your credentials.")
+        logger.error(f"Response was: {response.text}")
         return
+    
+    logger.info("Successfully logged in to DockerHub")
     
     # Process each affected directory
     for directory in affected_dirs:
@@ -306,24 +296,21 @@ def update_dockerhub_descriptions(affected_dirs):
             payload['description'] = short_desc
         
         # Update the DockerHub repository description
-        try:
-            headers = {
-                'Content-Type': 'application/json',
-                'Authorization': f'JWT {token}'
-            }
-            
-            response = requests.patch(
-                f'https://hub.docker.com/v2/repositories/getwilds/{repo_name}/',
-                headers=headers,
-                json=payload
-            )
-            
-            if response.status_code != 200:
-                logger.error(f"Error updating {repo_name}: {response.text}")
-            else:
-                logger.info(f"Successfully updated description for getwilds/{repo_name}")
-        except Exception as e:
-            logger.error(f"Error updating description for {repo_name}: {e}")
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'JWT {token}'
+        }
+        
+        response = requests.patch(
+            f'https://hub.docker.com/v2/repositories/getwilds/{repo_name}/',
+            headers=headers,
+            json=payload
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error updating {repo_name}: {response.text}")
+        else:
+            logger.info(f"Successfully updated description for getwilds/{repo_name}")
 
 def main():
     """Main function to orchestrate the Docker update process."""
