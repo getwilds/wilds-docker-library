@@ -24,15 +24,13 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-      
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.5.16"
+          version: "0.6.16"
+      
+      - name: Set up Python
+        run: uv python install 3.13
       
       - name: Install Python dependencies
         run: |
