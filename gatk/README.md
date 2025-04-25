@@ -4,15 +4,16 @@ This directory contains Docker images for the Genome Analysis Toolkit (GATK), a 
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently GATK v4.3.0.0 with Samtools v1.11)
-- `4.3.0.0`: GATK v4.3.0.0 with Samtools v1.11
+- `latest`: The most up-to-date stable version (currently GATK v4.6.1.0)
+- `4.6.1.0`: GATK v4.6.1.0
+- `4.3.0.0`: GATK v4.3.0.0
 
 ## Image Details
 
-These Docker images are built from Conda Forge Miniforge base image and include:
+These Docker images are built from an ubuntu base image and include:
 
-- GATK4 v4.3.0.0: A toolkit for variant discovery in high-throughput sequencing data
-- Samtools v1.11: A suite of programs for interacting with high-throughput sequencing data
+- GATK4: A toolkit for variant discovery in high-throughput sequencing data
+- Samtools: A suite of programs for interacting with high-throughput sequencing data
 
 The images are designed to be minimal and focused on a specific version of GATK with its dependencies.
 
@@ -60,7 +61,6 @@ The GATK Docker images include:
 - Installation through Conda to ensure properly built binaries
 - Pinned versions for reproducibility
 - Minimal installation with only required dependencies
-- Samtools built from source with appropriate security considerations
 
 ### Security Scanning and CVEs
 
@@ -74,12 +74,11 @@ For the latest security information about this image, please check the `CVEs.txt
 
 The Dockerfile follows these main steps:
 
-1. Uses Conda Forge Miniforge as the base image
+1. Uses Ubuntu 24.04 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs GATK4 via Conda
-4. Installs dependencies for building Samtools
-5. Downloads and builds Samtools v1.11 from source
-6. Cleans up build artifacts to minimize image size
+3. Installs dependencies for running GATK4 via `apt-get`
+4. Cleans up dependency artifacts to minimize image size
+5. Downloads and installs GATK4
 
 ## Source Repository
 
