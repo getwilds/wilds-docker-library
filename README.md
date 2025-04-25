@@ -176,4 +176,3 @@ For questions, bug reports, or feature requests:
 ## License
 
 Distributed under the MIT License. See `LICENSE` for details.
-
