@@ -15,19 +15,23 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install required R packages
-RUN R -e "BiocManager::install(c('DESeq2', 'apeglm', 'pheatmap', 'RColorBrewer'), update=FALSE)" \
-  && R -e "install.packages(c('optparse', 'ggplot2', 'dplyr'), repos='https://cloud.r-project.org/')" \
-  && apt-get update \
+# Install required system dependencies
+RUN apt-get update \
   && LIBXT6_VERSION=$(apt-cache policy libxt6 | grep Candidate | awk '{print $2}') \
   && CAIRO_VERSION=$(apt-cache policy libcairo2-dev | grep Candidate | awk '{print $2}') \
   && LIBXTDEV_VERSION=$(apt-cache policy libxt-dev | grep Candidate | awk '{print $2}') \
+  && LIBOPENBLAS_VERSION=$(apt-cache policy libopenblas-dev | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   libxt6="${LIBXT6_VERSION}" \
   libcairo2-dev="${CAIRO_VERSION}" \
   libxt-dev="${LIBXTDEV_VERSION}" \
+  libopenblas-dev="${LIBOPENBLAS_VERSION}" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+
+# Install required R packages
+RUN R -e "BiocManager::install(c('DESeq2', 'apeglm', 'pheatmap', 'RColorBrewer'), update=FALSE)" \
+  && R -e "install.packages(c('optparse', 'ggplot2', 'dplyr'), repos='https://cloud.r-project.org/')"
 
 # Copy the DESeq2 analysis script to the container
 COPY deseq2/deseq2_analysis.R /deseq2_analysis.R
