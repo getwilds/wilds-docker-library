@@ -13,6 +13,7 @@ import pandas as pd
 import os
 import argparse
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Combine STAR count matrices')
     parser.add_argument('--input', nargs='+', required=True, help='Input gene count files from STAR')
@@ -24,9 +25,10 @@ def parse_args():
                         help='Which column to use (2=unstranded, 3=stranded forward, 4=stranded reverse)')
     return parser.parse_args()
 
+
 def main():
     args = parse_args()
-    
+
     count_files = args.input
     count_column = args.count_column
     
@@ -59,27 +61,31 @@ def main():
     # Function to read STAR gene count file
     def read_star_counts(file_path, sample_name, count_col):
         # Skip the first 4 lines (summary statistics)
-        df = pd.read_csv(file_path, sep='\t', skiprows=4, header=None)
-        
+        df = pd.read_csv(file_path, sep="\t", skiprows=4, header=None)
+
         # Select only gene ID column and the requested count column
-        df = df.iloc[:, [0, count_col-1]]
-        
+        df = df.iloc[:, [0, count_col - 1]]
+
         # Name the columns
-        df.columns = ['gene_id', sample_name]
-        
+        df.columns = ["gene_id", sample_name]
+
         return df
-    
+
     # Read the first file to get the gene list
     print(f"Reading first file: {os.path.basename(count_files[0])}")
     combined = read_star_counts(count_files[0], sample_names[0], count_column)
-    
+
     # Add the rest of the samples
     if len(count_files) > 1:
         for i in range(1, len(count_files)):
-            print(f"Reading file {i+1}/{len(count_files)}: {os.path.basename(count_files[i])}")
-            sample_counts = read_star_counts(count_files[i], sample_names[i], count_column)
-            combined = pd.merge(combined, sample_counts, on='gene_id')
-    
+            print(
+                f"Reading file {i + 1}/{len(count_files)}: {os.path.basename(count_files[i])}"
+            )
+            sample_counts = read_star_counts(
+                count_files[i], sample_names[i], count_column
+            )
+            combined = pd.merge(combined, sample_counts, on="gene_id")
+
     # Write out the combined matrix
     print(f"Writing combined matrix to {args.output}...")
     combined.to_csv(args.output, sep='\t', index=False)
@@ -99,6 +105,7 @@ def main():
     print("Output files:")
     print(f"  - {args.output} (main counts matrix)")
     print(f"  - {args.metadata} (sample metadata for DESeq2)")
+
 
 if __name__ == "__main__":
     main()

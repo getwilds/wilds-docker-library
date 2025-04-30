@@ -4,8 +4,8 @@ This directory contains Docker images for the Genome Analysis Toolkit (GATK), a 
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently GATK v4.3.0.0 with Samtools v1.11)
-- `4.3.0.0`: GATK v4.3.0.0 with Samtools v1.11
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/gatk/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/gatk/CVEs_latest.md) )
+- `4.3.0.0` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/gatk/Dockerfile_4.3.0.0) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/gatk/CVEs_4.3.0.0.md) )
 
 ## Image Details
 
@@ -68,7 +68,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs.txt` file in this directory, which is automatically updated through our GitHub Actions workflow. Critical or high-severity vulnerabilities will also be reported as GitHub issues in the repository.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/tree/main/gatk), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Dockerfile Structure
 

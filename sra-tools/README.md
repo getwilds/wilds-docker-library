@@ -4,8 +4,8 @@ This directory contains Docker images for SRA Toolkit, a collection of tools for
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently SRA-tools v3.1.1)
-- `3.1.1`: SRA-tools v3.1.1
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/CVEs_latest.md) )
+- `3.1.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/Dockerfile_3.1.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sra-tools/CVEs_3.1.1.md) )
 
 ## Image Details
 
@@ -73,7 +73,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs.txt` file in this directory, which is automatically updated through our GitHub Actions workflow. Critical or high-severity vulnerabilities will also be reported as GitHub issues in the repository.
+For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Dockerfile Structure
 
