@@ -7,13 +7,13 @@ LABEL org.opencontainers.image.title="rnaseqc"
 LABEL org.opencontainers.image.description="Container image for the use of RNA-SeQC in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
 # Setting environment variables
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Installing Java
 RUN apt-get update \
@@ -21,7 +21,7 @@ RUN apt-get update \
     ant=1.10.14-1 wget=1.24.5-1ubuntu2 r-base=4.4.1-1 ca-certificates-java=20240118 \
     && rm -rf /var/lib/apt/lists/* \
     && update-ca-certificates -f;
-ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
 RUN export JAVA_HOME
 
 # Pulling RNA-SeQC jar to a location that will persist in Apptainer
