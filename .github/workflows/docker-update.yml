@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'git-diff-fix'
   workflow_dispatch:
     inputs:
       image_directory:
