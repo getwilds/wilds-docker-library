@@ -15,10 +15,22 @@ LABEL org.opencontainers.image.licenses=MIT
 # Setting environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Installing Java
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-17-jdk=17.0.12+7-2 \
-    ant=1.10.14-1 wget=1.24.5-1ubuntu2 r-base=4.4.1-1 ca-certificates-java=20240118 \
+    && OPENJDK_VERSION=$(apt-cache policy openjdk-17-jdk | grep Candidate | awk '{print $2}') \
+    && ANT_VERSION=$(apt-cache policy ant | grep Candidate | awk '{print $2}') \
+    && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+    && RBASE_VERSION=$(apt-cache policy r-base | grep Candidate | awk '{print $2}') \
+    && CACERT_VERSION=$(apt-cache policy ca-certificates-java | grep Candidate | awk '{print $2}') \
+    && apt-get install -y --no-install-recommends \
+    openjdk-17-jdk="${OPENJDK_VERSION}" \
+    ant="${ANT_VERSION}" \
+    wget="${WGET_VERSION}" \
+    r-base="${RBASE_VERSION}" \
+    ca-certificates-java="${CACERT_VERSION}" \
     && rm -rf /var/lib/apt/lists/* \
     && update-ca-certificates -f;
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
