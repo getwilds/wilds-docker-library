@@ -15,6 +15,9 @@ LABEL org.opencontainers.image.licenses=MIT
 # Setting environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Installing Java
 RUN apt-get update \
     && OPENJDK_VERSION=$(apt-cache policy openjdk-17-jdk | grep Candidate | awk '{print $2}') \
