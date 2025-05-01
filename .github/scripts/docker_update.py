@@ -86,25 +86,13 @@ def find_changed_files(specified_dir=None):
 
     else:
         logger.info("Processing push event - detecting changed files")
-
-        # Detect if we're dealing with a merge commit
-        is_merge = len(repo.head.commit.parents) > 1
-
-        if is_merge:
-            logger.info("Detected merge commit, comparing with first parent")
-            # For merge commits, compare with the first parent (the target branch)
-            diff_target = (
-                f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
-            )
-        else:
-            # For normal commits, compare with the previous commit
-            diff_target = (
-                f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
-            )
+        diff_target = (
+            f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
+        )
 
         # Get list of changed files
         changed_files = [
-            item.a_path
+            item
             for item in repo.git.diff(diff_target, name_only=True).split("\n")
             if item
         ]

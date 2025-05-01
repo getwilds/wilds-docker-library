@@ -23,4 +23,3 @@ RUN apt-get update \
   bedtools=2.31.1+dfsg-2 \
   && rm -rf /var/lib/apt/lists/*
 
-
