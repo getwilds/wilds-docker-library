@@ -86,25 +86,11 @@ def find_changed_files(specified_dir=None):
 
     else:
         logger.info("Processing push event - detecting changed files")
-
-        # Detect if we're dealing with a merge commit
-        is_merge = len(repo.head.commit.parents) > 1
-
-        if is_merge:
-            logger.info("Detected merge commit, comparing with first parent")
-            # For merge commits, compare with the first parent (the target branch)
-            diff_target = (
-                f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
-            )
-        else:
-            # For normal commits, compare with the previous commit
-            diff_target = (
-                f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
-            )
+        diff_target = f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
 
         # Get list of changed files
         changed_files = [
-            item.a_path
+            item
             for item in repo.git.diff(diff_target, name_only=True).split("\n")
             if item
         ]
@@ -154,8 +140,10 @@ def build_and_push_images(docker_files):
     repo = git.Repo(".")
 
     # Configure Git
-    repo.git.config("--global", "user.name", "GitHub Actions Bot")
-    repo.git.config("--global", "user.email", "actions@github.com")
+    repo.git.config("--global", "user.name", "WILDS Docker Library Automation[bot]")
+    repo.git.config(
+        "--global", "user.email", "github-actions[bot]@users.noreply.github.com"
+    )
 
     cve_files = []
 
@@ -227,7 +215,11 @@ def build_and_push_images(docker_files):
         # Commit and push CVE reports
         ref_name = os.environ.get("GITHUB_REF_NAME", "main")
         repo.git.commit("-m", "Update vulnerability reports [skip ci]")
-        repo.git.push("origin", ref_name)
+        token = os.environ.get("GH_APP_TOKEN")
+        repo.git.push(
+            f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git",
+            ref_name,
+        )
         logger.info("Committed and pushed vulnerability reports")
 
     return cve_files
