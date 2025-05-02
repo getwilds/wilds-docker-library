@@ -86,9 +86,7 @@ def find_changed_files(specified_dir=None):
 
     else:
         logger.info("Processing push event - detecting changed files")
-        diff_target = (
-            f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
-        )
+        diff_target = f"{repo.head.commit.parents[0].hexsha}..{repo.head.commit.hexsha}"
 
         # Get list of changed files
         changed_files = [
@@ -142,8 +140,10 @@ def build_and_push_images(docker_files):
     repo = git.Repo(".")
 
     # Configure Git
-    repo.git.config("--global", "user.name", "GitHub Actions Bot")
-    repo.git.config("--global", "user.email", "actions@github.com")
+    repo.git.config("--global", "user.name", "WILDS Docker Library Automation[bot]")
+    repo.git.config(
+        "--global", "user.email", "github-actions[bot]@users.noreply.github.com"
+    )
 
     cve_files = []
 
@@ -215,7 +215,11 @@ def build_and_push_images(docker_files):
         # Commit and push CVE reports
         ref_name = os.environ.get("GITHUB_REF_NAME", "main")
         repo.git.commit("-m", "Update vulnerability reports [skip ci]")
-        repo.git.push("origin", ref_name)
+        token = os.environ.get("GH_APP_TOKEN")
+        repo.git.push(
+            f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git",
+            ref_name,
+        )
         logger.info("Committed and pushed vulnerability reports")
 
     return cve_files
