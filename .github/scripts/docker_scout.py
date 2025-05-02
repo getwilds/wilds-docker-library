@@ -146,8 +146,8 @@ def commit_changes(cve_files):
     repo = git.Repo(".")
 
     # Configure Git
-    repo.git.config("--global", "user.name", "GitHub Actions Bot")
-    repo.git.config("--global", "user.email", "actions@github.com")
+    repo.git.config("--global", "user.name", "WILDS Docker Library Automation[bot]")
+    repo.git.config("--global", "user.email", "github-actions[bot]@users.noreply.github.com")
 
     # Determine which branch to use
     event_name = os.environ.get("GITHUB_EVENT_NAME", "")
