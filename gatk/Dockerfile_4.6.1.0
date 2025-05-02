@@ -1,0 +1,64 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="gatk"
+LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="4.6.1.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Avoid interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set environment variables
+ENV GATK_VERSION=4.6.1.0
+ENV GATK_HOME=/opt/gatk
+
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && SAMTOOLS_VERSION=$(apt-cache policy samtools | grep Candidate | awk '{print $2}') \
+  && OPENJDK_VERSION=$(apt-cache policy openjdk-17-jdk | grep Candidate | awk '{print $2}') \
+  && TZDATA_VERSION=$(apt-cache policy tzdata | grep Candidate | awk '{print $2}') \
+  && SPC_VERSION=$(apt-cache policy software-properties-common | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  git="${GIT_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3PIP_VERSION}" \
+  curl="${CURL_VERSION}" \
+  samtools="${SAMTOOLS_VERSION}" \
+  openjdk-17-jdk="${OPENJDK_VERSION}" \
+  tzdata="${TZDATA_VERSION}" \
+  software-properties-common="${SPC_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && ln -sf /usr/bin/python3 /usr/bin/python
+
+# Download and install GATK
+RUN mkdir -p ${GATK_HOME} && \
+    wget -q https://github.com/broadinstitute/gatk/releases/download/${GATK_VERSION}/gatk-${GATK_VERSION}.zip && \
+    unzip gatk-${GATK_VERSION}.zip -d /opt && \
+    rm gatk-${GATK_VERSION}.zip && \
+    ln -s /opt/gatk-${GATK_VERSION}/gatk /usr/local/bin/gatk
+
+# Verify installation
+RUN gatk --version
+
+# Create working directory
+WORKDIR /data
+
+# Command to run when container starts
+CMD ["/bin/bash"]
