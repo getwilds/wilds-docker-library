@@ -180,7 +180,8 @@ def commit_changes(cve_files):
         # Push changes
         logger.info(f"Pushing changes to {ref_name}")
         try:
-            repo.git.push(f"https://x-access-token:{os.environ.get('PAT_GITHUB')}@github.com/getwilds/wilds-docker-library.git", ref_name)
+            token = os.environ.get("GH_APP_TOKEN")
+            repo.git.push(f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git", ref_name)
             logger.info("Successfully pushed changes")
         except git.GitCommandError as e:
             logger.error(f"Failed to push changes: {e}")

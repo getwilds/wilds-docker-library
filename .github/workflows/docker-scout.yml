@@ -66,4 +66,4 @@ jobs:
           GITHUB_REF_NAME: ${{ github.ref_name }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_HEAD_REF: ${{ github.head_ref }}
-          PAT_GITHUB: ${{ secrets.PAT_TF }}
+          GH_APP_TOKEN: ${{ steps.generate_token.outputs.token }}
