@@ -1,35 +1,64 @@
-# Using the Miniconda base image
-FROM condaforge/miniforge3:24.7.1-2
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="gatk"
 LABEL org.opencontainers.image.description="Container image for the use of GATK in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="4.3.0.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Switching from hard-links to copies and installing GATK
-RUN conda config --set always_copy true \
-  && conda install -y --channel bioconda gatk4=4.3.0.0
+# Avoid interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Installing Samtools prerequisites
+# Set environment variables
+ENV GATK_VERSION=4.3.0.0
+ENV GATK_HOME=/opt/gatk
+
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.8ubuntu1.1 wget=1.20.3-1ubuntu2.1 \
-  zlib1g-dev=1:1.2.11.dfsg-2ubuntu1.5 autoconf=2.69-11.1 automake=1:1.16.1-4ubuntu6 \
-  libncurses5-dev=6.2-0ubuntu2.1 libbz2-dev=1.0.8-2 liblzma-dev=5.2.4-1ubuntu1.1 \
-  libssl-dev=1.1.1f-1ubuntu2.23 libcurl4-gnutls-dev=7.68.0-1ubuntu2.24 \
-  && rm -rf /var/lib/apt/lists/*
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && SAMTOOLS_VERSION=$(apt-cache policy samtools | grep Candidate | awk '{print $2}') \
+  && OPENJDK_VERSION=$(apt-cache policy openjdk-17-jdk | grep Candidate | awk '{print $2}') \
+  && TZDATA_VERSION=$(apt-cache policy tzdata | grep Candidate | awk '{print $2}') \
+  && SPC_VERSION=$(apt-cache policy software-properties-common | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  git="${GIT_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3PIP_VERSION}" \
+  curl="${CURL_VERSION}" \
+  samtools="${SAMTOOLS_VERSION}" \
+  openjdk-17-jdk="${OPENJDK_VERSION}" \
+  tzdata="${TZDATA_VERSION}" \
+  software-properties-common="${SPC_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && ln -sf /usr/bin/python3 /usr/bin/python
 
-# Pulling and extracting Samtools source code
-RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2 && tar -jxf samtools-1.11.tar.bz2
+# Download and install GATK
+RUN mkdir -p ${GATK_HOME} && \
+    wget -q https://github.com/broadinstitute/gatk/releases/download/${GATK_VERSION}/gatk-${GATK_VERSION}.zip && \
+    unzip gatk-${GATK_VERSION}.zip -d /opt && \
+    rm gatk-${GATK_VERSION}.zip && \
+    ln -s /opt/gatk-${GATK_VERSION}/gatk /usr/local/bin/gatk
 
-# Installing Samtools
-WORKDIR /samtools-1.11
-RUN ./configure && make && make install
-WORKDIR /
+# Verify installation
+RUN gatk --version
 
-# Cleanup
-RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
+# Create working directory
+WORKDIR /data
+
+# Command to run when container starts
+CMD ["/bin/bash"]
