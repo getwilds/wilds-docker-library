@@ -4,9 +4,9 @@ This directory contains Docker images for STAR (Spliced Transcripts Alignment to
 
 ## Available Versions
 
-- `latest`: The most up-to-date stable version (currently STAR v2.7.6a with Samtools v1.11)
-- `2.7.6a`: STAR v2.7.6a with Samtools v1.11
-- `2.7.4a`: STAR v2.7.4a with Samtools v1.11
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/star/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/star/CVEs_latest.md) )
+- `2.7.6a` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/star/Dockerfile_2.7.6a) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/star/CVEs_2.7.6a.md) )
+- `2.7.4a` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/star/Dockerfile_2.7.4a) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/star/CVEs_2.7.4a.md) )
 
 ## Image Details
 
@@ -75,7 +75,7 @@ These images are regularly scanned for vulnerabilities using Docker Scout. Howev
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-For the latest security information about this image, please check the `CVEs.txt` file in this directory, which is automatically updated through our GitHub Actions workflow. Critical or high-severity vulnerabilities will also be reported as GitHub issues in the repository.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/blob/main/star), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
 
 ## Source Repository
 
