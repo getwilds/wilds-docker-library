@@ -147,7 +147,9 @@ def commit_changes(cve_files):
 
     # Configure Git
     repo.git.config("--global", "user.name", "WILDS Docker Library Automation[bot]")
-    repo.git.config("--global", "user.email", "github-actions[bot]@users.noreply.github.com")
+    repo.git.config(
+        "--global", "user.email", "github-actions[bot]@users.noreply.github.com"
+    )
 
     # Determine which branch to use
     event_name = os.environ.get("GITHUB_EVENT_NAME", "")
@@ -181,7 +183,10 @@ def commit_changes(cve_files):
         logger.info(f"Pushing changes to {ref_name}")
         try:
             token = os.environ.get("GH_APP_TOKEN")
-            repo.git.push(f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git", ref_name)
+            repo.git.push(
+                f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git",
+                ref_name,
+            )
             logger.info("Successfully pushed changes")
         except git.GitCommandError as e:
             logger.error(f"Failed to push changes: {e}")
