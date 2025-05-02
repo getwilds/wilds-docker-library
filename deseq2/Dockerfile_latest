@@ -12,12 +12,18 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libopenblas-dev \
-    liblapack-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+  && LIBOPENBLAS_VERSION=$(apt-cache policy libopenblas-dev | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  libopenblas-dev="${LIBOPENBLAS_VERSION}" \
+  liblapack-dev="${LIBLAPACK_VERSION}" \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 # Set R library paths to avoid host contamination in Apptainer
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
