@@ -15,26 +15,14 @@ import argparse
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Combine STAR count matrices")
-    parser.add_argument(
-        "--input", nargs="+", required=True, help="Input gene count files from STAR"
-    )
-    parser.add_argument(
-        "--output",
-        default="combined_counts_matrix.txt",
-        help="Output combined matrix file",
-    )
-    parser.add_argument(
-        "--metadata",
-        default="sample_metadata_template.txt",
-        help="Output sample metadata template",
-    )
-    parser.add_argument(
-        "--count_column",
-        type=int,
-        default=2,
-        help="Which column to use (2=unstranded, 3=stranded forward, 4=stranded reverse)",
-    )
+    parser = argparse.ArgumentParser(description='Combine STAR count matrices')
+    parser.add_argument('--input', nargs='+', required=True, help='Input gene count files from STAR')
+    parser.add_argument('--names', nargs='+', required=False, help='Sample names corresponding to input files')
+    parser.add_argument('--conditions', nargs='+', required=False, help='Condition labels for each sample')
+    parser.add_argument('--output', default='combined_counts_matrix.txt', help='Output combined matrix file')
+    parser.add_argument('--metadata', default='sample_metadata.txt', help='Output metadata file for DESeq2')
+    parser.add_argument('--count_column', type=int, default=2, 
+                        help='Which column to use (2=unstranded, 3=stranded forward, 4=stranded reverse)')
     return parser.parse_args()
 
 
@@ -43,19 +31,33 @@ def main():
 
     count_files = args.input
     count_column = args.count_column
-
-    # Extract sample names from file paths
-    sample_names = []
-    for file_path in count_files:
-        # Extract the base filename from the path
-        basename = os.path.basename(file_path)
-        # Extract the sample name before the first dot
-        sample_name = basename.split(".")[0]
-        sample_names.append(sample_name)
-
+    
+    # Extract or use provided sample names
+    if args.names and len(args.names) == len(count_files):
+        sample_names = args.names
+        print(f"Using provided sample names: {sample_names}")
+    else:
+        # Extract sample names from file paths
+        sample_names = []
+        for file_path in count_files:
+            # Extract the base filename from the path
+            basename = os.path.basename(file_path)
+            # Extract the sample name before the first dot
+            sample_name = basename.split('.')[0]
+            sample_names.append(sample_name)
+        print(f"Extracted sample names from filenames: {sample_names}")
+    
+    # Check if conditions are provided
+    if args.conditions and len(args.conditions) == len(count_files):
+        conditions = args.conditions
+        print(f"Using provided conditions: {conditions}")
+    else:
+        # If conditions not provided, use "unknown" for all samples
+        conditions = ["unknown"] * len(count_files)
+        print("No conditions provided, using 'unknown' for all samples")
+    
     print(f"Processing {len(count_files)} count files...")
-    print(f"Sample names extracted: {sample_names}")
-
+    
     # Function to read STAR gene count file
     def read_star_counts(file_path, sample_name, count_col):
         # Skip the first 4 lines (summary statistics)
@@ -86,20 +88,23 @@ def main():
 
     # Write out the combined matrix
     print(f"Writing combined matrix to {args.output}...")
-    combined.to_csv(args.output, sep="\t", index=False)
-
-    # Create a sample metadata template for DESeq2
-    metadata = pd.DataFrame(
-        {"sample_id": sample_names, "condition": ["condition"] * len(sample_names)}
-    )
-    metadata.to_csv(args.metadata, sep="\t", index=False)
-
+    combined.to_csv(args.output, sep='\t', index=False)
+    
+    # Create and write metadata file for DESeq2
+    metadata = pd.DataFrame({
+        'sample': sample_names,
+        'condition': conditions
+    })
+    
+    print(f"Writing sample metadata to {args.metadata}...")
+    metadata.to_csv(args.metadata, sep='\t', index=False)
+    
     # Print summary
     print(f"Combined {len(sample_names)} samples into a single count matrix")
     print(f"Total genes: {len(combined)}")
     print("Output files:")
     print(f"  - {args.output} (main counts matrix)")
-    print(f"  - {args.metadata} (template for DESeq2 sample metadata)")
+    print(f"  - {args.metadata} (sample metadata for DESeq2)")
 
 
 if __name__ == "__main__":
