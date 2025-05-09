@@ -1,0 +1,16 @@
+
+# Using Python base image
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="cnvkit" \
+      org.opencontainers.image.description="Container image for the use of CNVkit in FH DaSL's WILDS" \
+      org.opencontainers.image.version="latest" \
+      org.opencontainers.image.authors="wilds@fredhutch.org" \
+      org.opencontainers.image.url="https://ocdo.fredhutch.org/" \
+      org.opencontainers.image.documentation="https://getwilds.org/" \
+      org.opencontainers.image.source="https://github.com/getwilds/wilds-docker-library" \
+      org.opencontainers.image.licenses="MIT"
+
+# Install CNVkit
+RUN pip install --no-cache-dir cnvkit==0.9.10
