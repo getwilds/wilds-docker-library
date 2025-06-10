@@ -9,13 +9,7 @@ This directory contains Docker images for Manta, a structural variant caller des
 
 ## Image Details
 
-These Docker images are built from Ubuntu Oracular and include:
-
-- Manta v1.6.0: A structural variant caller optimized for speed and accuracy
-- Samtools v1.11: A suite of programs for interacting with high-throughput sequencing data
-- Python 3.12: Required for Manta's workflow management scripts
-
-The images are designed to be minimal and focused on structural variant detection with all necessary dependencies.
+These Docker images are built from Python 2.7 Slim and include Manta v1.6.0. The images are designed to be minimal and focused on structural variant detection with only the necessary dependencies.
 
 ## Usage
 
@@ -63,20 +57,6 @@ apptainer run --bind /path/to/data:/data docker://getwilds/manta:latest configMa
 
 apptainer run --bind /path/to/data:/data docker://getwilds/manta:latest \
   /data/manta_analysis/runWorkflow.py -m local -j 8
-```
-
-#### RNA-seq Analysis
-
-```bash
-# Docker
-docker run --rm -v /path/to/data:/data getwilds/manta:latest configManta.py \
-  --bam /data/rna_sample.bam \
-  --referenceFasta /data/reference.fasta \
-  --rna \
-  --runDir /data/manta_rna_analysis
-
-docker run --rm -v /path/to/data:/data getwilds/manta:latest \
-  /data/manta_rna_analysis/runWorkflow.py -m local -j 8
 ```
 
 #### Targeted Analysis with BED file
@@ -129,17 +109,6 @@ Manta generates several key output files:
 - Use `--callRegions` for targeted sequencing to improve speed
 - Consider splitting large genomes by chromosome for very large datasets
 - Ensure input BAMs are properly sorted and indexed
-
-## Dockerfile Structure
-
-The Dockerfile follows these main steps:
-
-1. Uses Ubuntu Oracular as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs prerequisites including Python 3.12 and development tools
-4. Downloads and installs Manta v1.6.0 from pre-compiled binaries
-5. Includes Samtools v1.11 built from source
-6. Performs cleanup to minimize image size
 
 ## Security Scanning and CVEs
 
