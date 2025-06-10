@@ -4,12 +4,15 @@ FROM python:2.7-slim
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="manta"
 LABEL org.opencontainers.image.description="Container image for the use of Manta structural variant caller in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="1.6.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Installing prerequisites
 RUN apt-get update \
