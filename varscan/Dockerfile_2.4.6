@@ -1,0 +1,74 @@
+# VarScan Docker Image for WILDS
+# Using Ubuntu as base image for Java compatibility and tool installation
+FROM ubuntu:22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="varscan"
+LABEL org.opencontainers.image.description="Docker image for VarScan variant caller with SAMtools and bcftools dependencies"
+LABEL org.opencontainers.image.version="2.4.6"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses="MIT"
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set environment variables for non-interactive installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Installing prerequisites
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL4_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && OPENJDK_VERSION=$(apt-cache policy openjdk-8-jdk | grep Candidate | awk '{print $2}') \
+  && VCFTOOLS_VERSION=$(apt-cache policy vcftools | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  zlib1g-dev="${ZLIB1G_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL4_VERSION}" \
+  openjdk-8-jdk="${OPENJDK_VERSION}" \
+  vcftools="${VCFTOOLS_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set JAVA_HOME environment variable
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+# Install htslib first (dependency for samtools and bcftools)
+WORKDIR /tmp
+RUN wget -q https://github.com/samtools/htslib/releases/download/1.19/htslib-1.19.tar.bz2 && tar -xjf htslib-1.19.tar.bz2
+WORKDIR /tmp/htslib-1.19
+RUN make && make install
+WORKDIR /tmp
+RUN rm -rf htslib-1.19*
+
+# Install samtools
+RUN wget -q https://github.com/samtools/samtools/releases/download/1.19/samtools-1.19.tar.bz2 && tar -xjf samtools-1.19.tar.bz2
+WORKDIR /tmp/samtools-1.19
+RUN make && make install
+WORKDIR /tmp
+RUN rm -rf samtools-1.19*
+
+# Install bcftools
+RUN wget -q https://github.com/samtools/bcftools/releases/download/1.19/bcftools-1.19.tar.bz2 && tar -xjf bcftools-1.19.tar.bz2
+WORKDIR /tmp/bcftools-1.19
+RUN make && make install
+WORKDIR /tmp
+RUN rm -rf bcftools-1.19*
+
+# Download and install VarScan
+RUN wget -q https://github.com/dkoboldt/varscan/releases/download/v2.4.6/VarScan.v2.4.6.jar \
+    && mv VarScan.v2.4.6.jar /usr/local/bin/VarScan.jar \
+    && chmod +x /usr/local/bin/VarScan.jar
