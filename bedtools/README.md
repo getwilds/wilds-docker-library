@@ -11,9 +11,10 @@ This directory contains Docker images for BEDTools, a powerful toolset for genom
 
 These Docker images are built from Ubuntu 24.04 and include:
 
-- BEDTools v2.31.1: A suite of utilities for genomic feature operations and manipulations
+- **BEDTools v2.31.1**: A suite of utilities for genomic feature operations and manipulations
+- **Samtools 1.20**: A suite of programs for interacting with high-throughput sequencing data
 
-The images are designed to be minimal and focused on a specific version of BEDTools with its dependencies.
+The images are designed to be comprehensive yet minimal, providing essential tools for a workflow using BEDTools.
 
 ## Usage
 
@@ -51,6 +52,36 @@ apptainer run --bind /path/to/data:/data docker://getwilds/bedtools:latest bedto
 # Apptainer (local SIF file)
 apptainer run --bind /path/to/data:/data bedtools_latest.sif bedtools intersect -a file1.bed -b file2.bed > intersections.bed
 ```
+
+## Key Features
+
+### **BEDTools utilities**
+- **Interval Operations**: intersect, merge, subtract, closest
+- **Format Conversion**: bamtobed, bedtobam, bedtofastq
+- **Coverage Analysis**: coverage, genomecov, multicov
+- **Sequence Analysis**: getfasta, maskfasta, nuc
+- **Utilities**: sort, shuffle, random, complement
+
+### **Supporting Tools**
+- **samtools**: BAM/SAM/CRAM file manipulation and analysis
+
+### **Compatibility**
+- **Input formats**: BED, BAM, SAM, CRAM, GFF, GTF, VCF
+- **Reference genomes**: Human, mouse, and custom assemblies
+- **Workflow engines**: Compatible with WDL, Nextflow, Snakemake
+
+## Performance Considerations
+
+### Resource Requirements
+- **Memory**: 2-16GB recommended depending on genome size and operation
+- **CPU**: Single-threaded operations, but parallelizable across intervals
+- **Storage**: Ensure sufficient space for output files and temporary data
+
+### Optimization Tips
+- Sort BED files for optimal performance with bedtools operations
+- Use streaming operations when possible to reduce memory footprint
+- Consider splitting large datasets into smaller chunks for parallel processing
+- Pre-index BAM files with samtools for faster random access operations
 
 ## Security Features
 
