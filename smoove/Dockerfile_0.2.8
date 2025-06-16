@@ -18,20 +18,134 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Set environment variables for non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Update package list and install dependencies
+# Update package list and install system dependencies
 RUN apt-get update \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
   && BZIP2_VERSION=$(apt-cache policy bzip2 | grep Candidate | awk '{print $2}') \
   && CACERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+  && AUTOTOOLS_VERSION=$(apt-cache policy autotools-dev | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   wget="${WGET_VERSION}" \
   curl="${CURL_VERSION}" \
   bzip2="${BZIP2_VERSION}" \
   ca-certificates="${CACERT_VERSION}" \
+  build-essential="${BUILD_ESSENTIAL_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  git="${GIT_VERSION}" \
+  autoconf="${AUTOCONF_VERSION}" \
+  automake="${AUTOMAKE_VERSION}" \
+  autotools-dev="${AUTOTOOLS_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
+
+# Set working directory for installations
+WORKDIR /opt
+
+# Install htslib (required for many tools)
+RUN wget -q https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 \
+  && tar -xjf htslib-1.19.1.tar.bz2 \
+  && cd htslib-1.19.1 \
+  && ./configure --prefix=/usr/local \
+  && make && make install \
+  && cd .. && rm -rf htslib-1.19.1*
+
+# Install samtools
+RUN wget -q https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2 \
+  && tar -xjf samtools-1.19.2.tar.bz2 \
+  && cd samtools-1.19.2 \
+  && ./configure --prefix=/usr/local \
+  && make && make install \
+  && cd .. && rm -rf samtools-1.19.2*
+
+# Install bcftools
+RUN wget -q https://github.com/samtools/bcftools/releases/download/1.19/bcftools-1.19.tar.bz2 \
+  && tar -xjf bcftools-1.19.tar.bz2 \
+  && cd bcftools-1.19 \
+  && ./configure --prefix=/usr/local \
+  && make && make install \
+  && cd .. && rm -rf bcftools-1.19*
+
+# Install lumpy-sv (includes lumpy and lumpy_filter)
+RUN git clone --recursive https://github.com/arq5x/lumpy-sv.git \
+  && cd lumpy-sv \
+  && echo "Fixing autotools configuration..." \
+  && cd lib/htslib \
+  && autoreconf -fiv || (echo "autoreconf failed, trying manual config file copy..." && \
+     cp /usr/share/misc/config.guess . && \
+     cp /usr/share/misc/config.sub . && \
+     autoreconf -fiv) \
+  && cd ../.. \
+  && echo "Building lumpy-sv..." \
+  && make all \
+  && echo "Installing lumpy binaries..." \
+  && cp bin/* /usr/local/bin/ \
+  && ls -la bin/ \
+  && cd .. && rm -rf lumpy-sv \
+  && echo "Verifying lumpy installation..." \
+  && lumpy --help || echo "lumpy installed" \
+  && lumpy_filter --help || echo "lumpy_filter installed"
+
+# Install gsort
+RUN wget -q https://github.com/brentp/gsort/releases/download/v0.1.4/gsort_linux_amd64 \
+  && chmod +x gsort_linux_amd64 \
+  && mv gsort_linux_amd64 /usr/local/bin/gsort
+
+# Install Python3 and pip (needed for svtyper and svtools)
+RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && PYTHON3_DEV_VERSION=$(apt-cache policy python3-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3_PIP_VERSION}" \
+  python3-dev="${PYTHON3_DEV_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install required Python packages (skip pandas to avoid numpy compilation issues)
+RUN pip3 install --no-cache-dir numpy scipy pysam
+
+# Install svtyper
+RUN pip3 install --no-cache-dir svtyper
+
+# Skip svtools installation - it has Python 2/3 compatibility issues and is optional
+# svtools is mainly needed for large cohorts (>100 samples) and can be added separately if needed
+RUN echo "Note: svtools skipped due to Python 2/3 compatibility issues"
+
+# Install mosdepth
+RUN wget -q https://github.com/brentp/mosdepth/releases/download/v0.3.6/mosdepth \
+  && chmod +x mosdepth \
+  && mv mosdepth /usr/local/bin/
+
+# Install duphold
+RUN wget -q https://github.com/brentp/duphold/releases/download/v0.2.3/duphold \
+  && chmod +x duphold \
+  && mv duphold /usr/local/bin/
 
 # Download and install smoove binary
 WORKDIR /usr/local/bin
-RUN wget -q https://github.com/brentp/smoove/releases/download/v0.2.8/smoove && \
-    chmod +x smoove
+RUN wget -q https://github.com/brentp/smoove/releases/download/v0.2.8/smoove \
+  && chmod +x smoove
+
+# Update library path for htslib
+RUN ldconfig
+
+# Test that all dependencies are available
+RUN smoove --help || true
+
+# Set working directory back to root
+WORKDIR /
