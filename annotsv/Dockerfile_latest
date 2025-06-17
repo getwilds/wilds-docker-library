@@ -2,8 +2,8 @@
 FROM ubuntu:22.04
 
 # Adding labels for the GitHub Container Registry following WILDS standards
-LABEL org.opencontainers.image.title="annotSV"
-LABEL org.opencontainers.image.description="Container image for annotSV annotation tool in WILDS"
+LABEL org.opencontainers.image.title="annotsv"
+LABEL org.opencontainers.image.description="Container image for AnnotSV annotation tool in WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
