@@ -57,34 +57,28 @@ RUN apt-get update \
 WORKDIR /opt
 
 # Install htslib (required for many tools)
-RUN wget -q https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 \
-  && tar -xjf htslib-1.19.1.tar.bz2 \
-  && cd htslib-1.19.1 \
-  && ./configure --prefix=/usr/local \
-  && make && make install \
-  && cd .. && rm -rf htslib-1.19.1*
+RUN wget -q https://github.com/samtools/htslib/releases/download/1.19.1/htslib-1.19.1.tar.bz2 && tar -xjf htslib-1.19.1.tar.bz2
+WORKDIR /opt/htslib-1.19.1
+RUN ./configure --prefix=/usr/local && make && make install
+WORKDIR /opt
 
 # Install samtools
-RUN wget -q https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2 \
-  && tar -xjf samtools-1.19.2.tar.bz2 \
-  && cd samtools-1.19.2 \
-  && ./configure --prefix=/usr/local \
-  && make && make install \
-  && cd .. && rm -rf samtools-1.19.2*
+RUN wget -q https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2 && tar -xjf samtools-1.19.2.tar.bz2
+WORKDIR /opt/samtools-1.19.2
+RUN ./configure --prefix=/usr/local && make && make install
+WORKDIR /opt
 
 # Install bcftools
-RUN wget -q https://github.com/samtools/bcftools/releases/download/1.19/bcftools-1.19.tar.bz2 \
-  && tar -xjf bcftools-1.19.tar.bz2 \
-  && cd bcftools-1.19 \
-  && ./configure --prefix=/usr/local \
-  && make && make install \
-  && cd .. && rm -rf bcftools-1.19*
+RUN wget -q https://github.com/samtools/bcftools/releases/download/1.19/bcftools-1.19.tar.bz2 && tar -xjf bcftools-1.19.tar.bz2
+WORKDIR /opt/bcftools-1.19
+RUN ./configure --prefix=/usr/local && make && make install
+WORKDIR /opt
 
 # Install lumpy-sv (includes lumpy and lumpy_filter)
-RUN git clone --recursive https://github.com/arq5x/lumpy-sv.git \
-  && cd lumpy-sv \
-  && echo "Fixing autotools configuration..." \
-  && cd lib/htslib \
+RUN git clone --recursive https://github.com/arq5x/lumpy-sv.git
+WORKDIR /opt/lumpy-sv
+RUN echo "Fixing autotools configuration..."
+WORKDIR /opt/lumpy-sv/lib/htslib \
   && autoreconf -fiv || (echo "autoreconf failed, trying manual config file copy..." && \
      cp /usr/share/misc/config.guess . && \
      cp /usr/share/misc/config.sub . && \
@@ -94,8 +88,9 @@ RUN git clone --recursive https://github.com/arq5x/lumpy-sv.git \
   && make all \
   && echo "Installing lumpy binaries..." \
   && cp bin/* /usr/local/bin/ \
-  && ls -la bin/ \
-  && cd .. && rm -rf lumpy-sv \
+  && ls -la bin/
+WORKDIR /opt
+RUN rm -rf lumpy-sv \
   && echo "Verifying lumpy installation..." \
   && lumpy --help || echo "lumpy installed" \
   && lumpy_filter --help || echo "lumpy_filter installed"
@@ -114,20 +109,15 @@ RUN apt-get update \
   python3="${PYTHON3_VERSION}" \
   python3-pip="${PYTHON3_PIP_VERSION}" \
   python3-dev="${PYTHON3_DEV_VERSION}" \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* htslib-1.19.1* samtools-1.19.2* bcftools-1.19*
 
 # Install required Python packages (skip pandas to avoid numpy compilation issues)
-RUN pip3 install --no-cache-dir numpy scipy pysam
-
-# Install svtyper
-RUN pip3 install --no-cache-dir svtyper
+RUN pip3 install --no-cache-dir numpy==2.2.6 scipy==1.15.3 pysam==0.23.3 svtyper==0.7.1
 
 # Skip svtools installation - it has Python 2/3 compatibility issues and is optional
 # svtools is mainly needed for large cohorts (>100 samples) and can be added separately if needed
-RUN echo "Note: svtools skipped due to Python 2/3 compatibility issues"
-
-# Install mosdepth
-RUN wget -q https://github.com/brentp/mosdepth/releases/download/v0.3.6/mosdepth \
+RUN echo "Note: svtools skipped due to Python 2/3 compatibility issues" \
+  && wget -q https://github.com/brentp/mosdepth/releases/download/v0.3.6/mosdepth \
   && chmod +x mosdepth \
   && mv mosdepth /usr/local/bin/
 
