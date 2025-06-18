@@ -14,22 +14,37 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install dependencies and AnnotSV in one layer
+# Install dependencies
 RUN apt-get update \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && TCL_VERSION=$(apt-cache policy tcl | grep Candidate | awk '{print $2}') \
   && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && BEDTOOLS_VERSION=$(apt-cache policy bedtools | grep Candidate | awk '{print $2}') \
+  && BCFTOOLS_VERSION=$(apt-cache policy bcftools | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && CA_CERTIFICATES_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   wget="${WGET_VERSION}" \
   tcl="${TCL_VERSION}" \
   make="${MAKE_VERSION}" \
   gcc="${GCC_VERSION}" \
+  bedtools="${BEDTOOLS_VERSION}" \
+  bcftools="${BCFTOOLS_VERSION}" \
+  curl="${CURL_VERSION}" \
+  ca-certificates="${CA_CERTIFICATES_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
-RUN wget -q --no-check-certificate -O annotsv.tar.gz https://github.com/lgmgeo/AnnotSV/archive/v3.4.4.tar.gz && tar -xzf annotsv.tar.gz
+
+# Download and install AnnotSV
+RUN wget -q -O annotsv.tar.gz https://github.com/lgmgeo/AnnotSV/archive/v3.4.4.tar.gz && tar -xzf annotsv.tar.gz
 WORKDIR /AnnotSV-3.4.4
-RUN make PREFIX=/usr/local install
+RUN make PREFIX=. install \
+  && make PREFIX=. install-human-annotation
 WORKDIR /
-RUN rm -rf AnnotSV-3.4.4 annotsv.tar.gz
+
+ENV ANNOTSV=/AnnotSV-3.4.4
+ENV PATH=/AnnotSV-3.4.4/bin:$PATH
 
 CMD ["AnnotSV", "-help"]
