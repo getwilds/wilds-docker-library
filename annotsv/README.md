@@ -9,12 +9,14 @@ This directory contains Docker images for AnnotSV, a tool for annotating and ran
 
 ## Image Details
 
-This Docker image is built from Ubuntu 22.04 base image and includes:
+These Docker images are built from Ubuntu 22.04 base image and include:
 
 - AnnotSV v3.4.4: A tool for annotating and ranking structural variants from VCF files
-- Essential system dependencies for compilation and execution
+- Pre-installed human annotation databases for immediate use
+- Essential system dependencies including bedtools, bcftools, and build tools
+- Properly configured environment with AnnotSV in PATH
 
-The image is designed to be minimal and focused on providing AnnotSV functionality for structural variant annotation workflows.
+The images are designed to be minimal and focused on providing AnnotSV functionality for structural variant annotation workflows with all necessary dependencies included.
 
 ## Usage
 
@@ -50,11 +52,15 @@ docker run --rm getwilds/annotsv:latest AnnotSV -help
 docker run --rm -v /path/to/data:/data getwilds/annotsv:latest \
   AnnotSV -SVinputFile /data/input.vcf -outputDir /data/output
 
-# Use with custom annotations database
-docker run --rm -v /path/to/data:/data -v /path/to/annotations:/annotations getwilds/annotsv:latest \
-  AnnotSV -SVinputFile /data/input.vcf -outputDir /data/output -annotationsDir /annotations
+# Specify genome build and minimum SV size
+docker run --rm -v /path/to/data:/data getwilds/annotsv:latest \
+  AnnotSV -SVinputFile /data/input.vcf -outputDir /data/output \
+  -genomeBuild GRCh38 -SVminSize 50
 
-# Run with Apptainer
+# Run with Apptainer using local SIF file
+apptainer exec annotsv_latest.sif AnnotSV -SVinputFile /data/input.vcf -outputDir /data/output
+
+# Run with Apptainer from registry
 apptainer run --bind /path/to/data:/data docker://getwilds/annotsv:latest \
   AnnotSV -SVinputFile /data/input.vcf -outputDir /data/output
 ```
@@ -63,10 +69,17 @@ apptainer run --bind /path/to/data:/data docker://getwilds/annotsv:latest \
 
 - `-SVinputFile`: Input VCF file containing structural variants
 - `-outputDir`: Directory for output files
-- `-annotationsDir`: Directory containing annotation databases
 - `-genomeBuild`: Genome build (GRCh37/hg19 or GRCh38/hg38)
 - `-SVminSize`: Minimum SV size to consider (default: 50bp)
 - `-includeCI`: Include confidence intervals in output
+- `-annotationsDir`: Directory containing annotation databases (pre-configured in container)
+
+### Environment Variables
+
+The container includes these pre-configured environment variables:
+
+- `ANNOTSV`: Points to the AnnotSV installation directory (`/AnnotSV-3.4.4`)
+- `PATH`: Includes the AnnotSV binary directory, allowing direct execution of `AnnotSV` command
 
 ## Integration with WILDS
 
@@ -78,12 +91,13 @@ This container is designed for use in structural variant analysis workflows with
 
 ## Security Features
 
-The AnnotSV Docker image includes:
+The AnnotSV Docker images include:
 
 - Minimal Ubuntu base image with only essential dependencies
 - Version-pinned package installations for reproducibility
+- SSL certificate support for secure downloads
 - Cleaned package cache to minimize image size
-- Secure download practices with checksum verification
+- Secure download practices with verified checksums
 
 ### Security Scanning and CVEs
 
@@ -100,11 +114,11 @@ The Dockerfile follows these main steps:
 1. Uses Ubuntu 22.04 as the base image for stability and security
 2. Adds metadata labels for documentation and attribution
 3. Sets shell options for robust error handling
-4. Installs minimal dependencies with version pinning
-5. Downloads and compiles AnnotSV v3.4.4 from source
-6. Cleans up build artifacts and package cache to minimize image size
+4. Installs minimal dependencies with version pinning including ca-certificates for SSL support
+5. Downloads and compiles AnnotSV v3.4.4 from source with human annotations
+6. Configures environment variables for proper PATH and ANNOTSV location
+7. Cleans up build artifacts and package cache to minimize image size
 
 ## Source Repository
 
 These Dockerfiles are maintained in the [WILDS Docker Library](https://github.com/getwilds/wilds-docker-library) repository.
-
