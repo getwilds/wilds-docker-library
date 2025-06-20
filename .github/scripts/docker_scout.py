@@ -7,19 +7,15 @@
 @Version :   v0.1
 @Contact :   tfirman@fredhutch.org
 @Desc    :   This script automates the process of scanning Docker images for vulnerabilities
-using Docker Scout. It handles discovering tools and tags, scanning each image,
-and committing the resulting CVE reports.
+using Docker Scout. It handles discovering tools and tags and scanning each image.
 
 Usage:
     python docker_scout.py [tool_name]
 
     If tool_name is provided, only that tool will be scanned.
     If no tool_name is provided, all tools will be scanned.
-
-Environment variables:
-    GITHUB_REF_NAME: The branch or ref name
-    GITHUB_EVENT_NAME: The name of the GitHub event that triggered the workflow
-    GITHUB_HEAD_REF: The branch being merged from in case of PR's
+    Generates CVE reports in markdown format for each tool and tag combination.
+    Passes along the CVE report files to the commit step via .cve_manifest.txt.
 """
 
 import os
@@ -27,7 +23,6 @@ import sys
 import glob
 import logging
 from datetime import datetime
-import git
 from utils import run_command
 
 # Set up logging
@@ -132,70 +127,8 @@ def scan_image(tool, tag):
     return cve_file
 
 
-def commit_changes(cve_files):
-    """
-    Commit and push CVE report files to the repository.
-
-    Args:
-        cve_files: List of CVE report files to commit
-    """
-    if not cve_files:
-        logger.info("No CVE files to commit")
-        return
-
-    repo = git.Repo(".")
-
-    # Configure Git
-    repo.git.config("--global", "user.name", "WILDS Docker Library Automation[bot]")
-    repo.git.config(
-        "--global", "user.email", "github-actions[bot]@users.noreply.github.com"
-    )
-
-    # Determine which branch to use
-    event_name = os.environ.get("GITHUB_EVENT_NAME", "")
-    ref_name = os.environ.get("GITHUB_REF_NAME", "main")
-
-    if event_name == "pull_request":
-        # For pull requests, identify name of the source branch
-        head_ref = os.environ.get("GITHUB_HEAD_REF", "")
-        if head_ref:
-            logger.info(f"Pull request detected, source branch: {head_ref}")
-            repo.git.fetch("origin", head_ref)
-            repo.git.checkout(head_ref)
-            ref_name = head_ref
-        else:
-            logger.error("Pull request detected but GITHUB_HEAD_REF not found")
-            return
-    else:
-        # For direct branch pushes or workflow_dispatch
-        logger.info(f"Working with branch {ref_name}")
-
-    # Check if there are changes to commit
-    if repo.is_dirty(untracked_files=True):
-        # Stage CVE files
-        for cve_file in cve_files:
-            repo.git.add(cve_file)
-
-        # Commit changes
-        repo.git.commit("-m", "Update vulnerability reports [skip ci]")
-
-        # Push changes
-        logger.info(f"Pushing changes to {ref_name}")
-        try:
-            token = os.environ.get("GH_APP_TOKEN")
-            repo.git.push(
-                f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git",
-                ref_name,
-            )
-            logger.info("Successfully pushed changes")
-        except git.GitCommandError as e:
-            logger.error(f"Failed to push changes: {e}")
-    else:
-        logger.info("No changes to commit")
-
-
 def main():
-    """Main function to orchestrate the Docker Scout analysis."""
+    """Generate CVE reports and write manifest of successful scans."""
     # Get the specific tool from command line argument if provided
     specific_tool = sys.argv[1] if len(sys.argv) > 1 else None
 
@@ -215,9 +148,12 @@ def main():
         if cve_file is not None:  # Only add successful scans
             cve_files.append(cve_file)
 
-    # Commit and push changes
-    commit_changes(cve_files)
-
+    # Write manifest of successful CVE files for commit step
+    with open('.cve_manifest.txt', 'w') as f:
+        for cve_file in cve_files:
+            f.write(f"{cve_file}\n")
+    
+    logger.info(f"Generated {len(cve_files)} CVE reports")
 
 if __name__ == "__main__":
     main()
