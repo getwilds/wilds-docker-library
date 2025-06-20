@@ -111,7 +111,7 @@ def scan_image(tool, tag):
 
     # Run Docker Scout to generate CVE report
     result = run_command(
-        f"docker scout cves {container} --format markdown", capture_output=True
+        f"docker scout cves {container} --format markdown --only-fixed", capture_output=True
     )
 
     with open(cve_file, "a") as f:
