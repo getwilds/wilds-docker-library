@@ -7,22 +7,26 @@
 @Version :   v0.1
 @Contact :   tfirman@fredhutch.org
 @Desc    :   This script automates the process of scanning Docker images for vulnerabilities
-using Docker Scout. It handles discovering tools and tags and scanning each image.
+using Docker Scout. It handles discovering tools and tags, scanning each image,
+and generating CVE reports. CVE reports are written to a manifest file for
+separate commit by commit_cve_reports.py.
 
 Usage:
     python docker_scout.py [tool_name]
 
     If tool_name is provided, only that tool will be scanned.
     If no tool_name is provided, all tools will be scanned.
-    Generates CVE reports in markdown format for each tool and tag combination.
-    Passes along the CVE report files to the commit step via .cve_manifest.txt.
+
+Environment variables:
+    DOCKERHUB_USER: DockerHub username for authentication
+    DOCKERHUB_PW: DockerHub password for authentication
 """
 
 import os
 import sys
 import glob
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from utils import run_command
 
 # Set up logging
@@ -32,6 +36,47 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 logger = logging.getLogger("docker-scout")
+
+
+class DockerCredentialsManager:
+    """Manages Docker Hub credentials with automatic refresh"""
+    
+    def __init__(self):
+        self.last_login = None
+        self.login_interval = timedelta(minutes=50)  # Refresh every 50 minutes
+    
+    def ensure_logged_in(self):
+        """Ensure Docker credentials are fresh"""
+        now = datetime.now()
+        
+        if self.last_login is None or (now - self.last_login) > self.login_interval:
+            logger.info("Refreshing Docker Hub credentials...")
+            try:
+                # Get Docker Hub credentials from environment
+                dockerhub_user = os.environ.get("DOCKERHUB_USER")
+                dockerhub_pw = os.environ.get("DOCKERHUB_PW")
+                
+                if not dockerhub_user or not dockerhub_pw:
+                    logger.warning("Docker Hub credentials not found in environment")
+                    return False
+                
+                # Use docker login command via run_command
+                login_cmd = f"echo '{dockerhub_pw}' | docker login --username {dockerhub_user} --password-stdin"
+                run_command(login_cmd)
+                
+                self.last_login = now
+                logger.info("Successfully refreshed Docker Hub credentials")
+                return True
+                    
+            except Exception as e:
+                logger.error(f"Failed to refresh Docker credentials: {e}")
+                return False
+        
+        return True
+
+
+# Global credentials manager
+docker_creds = DockerCredentialsManager()
 
 
 def discover_tools_and_tags(specific_tool=None):
@@ -88,12 +133,17 @@ def scan_image(tool, tag):
         tag: The image tag
 
     Returns:
-        Path to the generated CVE report file
+        Path to the generated CVE report file, or None if scan failed
     """
     container = f"ghcr.io/getwilds/{tool}:{tag}"
     cve_file = f"{tool}/CVEs_{tag}.md"
 
     logger.info(f"Scanning {container}...")
+    
+    # Ensure Docker credentials are fresh
+    if not docker_creds.ensure_logged_in():
+        logger.error(f"Cannot refresh Docker credentials for {tool}:{tag}")
+        return None
 
     # Create directory if it doesn't exist
     os.makedirs(os.path.dirname(cve_file), exist_ok=True)
@@ -104,6 +154,7 @@ def scan_image(tool, tag):
             f"docker scout cves {container} --format markdown --only-fixed", capture_output=True
         )
 
+        # Only create the file after successful scan
         with open(cve_file, "w") as f:
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
             f.write(f"# Vulnerability Report for {container}\n\n")
