@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:2.2.1
 
-Report generated on 2025-06-20 19:08:22 PST
+Report generated on 2025-06-20 21:56:32 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/hisat2:2.2.1</code></h2>
 

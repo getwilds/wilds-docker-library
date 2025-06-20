@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sra-tools:latest
 
-Report generated on 2025-06-20 19:20:49 PST
+Report generated on 2025-06-20 22:08:38 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/sra-tools:latest</code></h2>
 
@@ -342,6 +342,50 @@ You can remediate this vulnerability with the following steps:
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.6.13-2ubuntu1.11</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnutls28@3.6.13-2ubuntu1.11?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C3.6.13-2ubuntu1.12"><img alt="medium : CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.6.13-2ubuntu1.12</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.6.13-2ubuntu1.12</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.623%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.19-3ubuntu2.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnupg2@2.2.19-3ubuntu2.2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C2.2.19-3ubuntu2.4"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.2.19-3ubuntu2.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.2.19-3ubuntu2.4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>expat</strong> <code>2.2.9-1ubuntu0.7</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/expat@2.2.9-1ubuntu0.7?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
@@ -386,22 +430,22 @@ In SQLite 3.49.0 before 3.49.1, certain argument values to sqlite3_db_config (in
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.19-3ubuntu2.2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libtasn1-6</strong> <code>4.16.0-2</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/gnupg2@2.2.19-3ubuntu2.2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C2.2.19-3ubuntu2.4"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/libtasn1-6@4.16.0-2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12133?s=ubuntu&n=libtasn1-6&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C4.16.0-2ubuntu0.1"><img alt="medium : CVE--2024--12133" src="https://img.shields.io/badge/CVE--2024--12133-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><2.2.19-3ubuntu2.4</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.2.19-3ubuntu2.4</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><4.16.0-2ubuntu0.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>4.16.0-2ubuntu0.1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.271%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
+A flaw in libtasn1 causes inefficient handling of specific certificate data. When processing a large number of elements in a certificate, libtasn1 takes much longer than expected, which can slow down or even crash the system. This flaw allows an attacker to send a specially crafted certificate, causing a denial of service attack.
 
 </blockquote>
 </details>
@@ -435,50 +479,6 @@ For older versions of Requests, use of the .netrc file can be disabled with `tru
 ### References
 https://github.com/psf/requests/pull/6965
 https://seclists.org/fulldisclosure/2025/Jun/2
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libtasn1-6</strong> <code>4.16.0-2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/libtasn1-6@4.16.0-2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12133?s=ubuntu&n=libtasn1-6&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C4.16.0-2ubuntu0.1"><img alt="medium : CVE--2024--12133" src="https://img.shields.io/badge/CVE--2024--12133-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><4.16.0-2ubuntu0.1</code></td></tr>
-<tr><td>Fixed version</td><td><code>4.16.0-2ubuntu0.1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.271%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw in libtasn1 causes inefficient handling of specific certificate data. When processing a large number of elements in a certificate, libtasn1 takes much longer than expected, which can slow down or even crash the system. This flaw allows an attacker to send a specially crafted certificate, causing a denial of service attack.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.6.13-2ubuntu1.11</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnutls28@3.6.13-2ubuntu1.11?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12243?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C3.6.13-2ubuntu1.12"><img alt="medium : CVE--2024--12243" src="https://img.shields.io/badge/CVE--2024--12243-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.6.13-2ubuntu1.12</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.6.13-2ubuntu1.12</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.623%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. Due to an inefficient algorithm in libtasn1, decoding certain DER-encoded certificate data can take excessive time, leading to increased resource consumption. This flaw allows a remote attacker to send a specially crafted certificate, causing GnuTLS to become unresponsive or slow, resulting in a denial-of-service condition.
 
 </blockquote>
 </details>

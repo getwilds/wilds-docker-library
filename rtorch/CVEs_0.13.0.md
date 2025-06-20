@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/rtorch:0.13.0
 
-Report generated on 2025-06-20 19:39:27 PST
+Report generated on 2025-06-20 22:27:12 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/rtorch:0.13.0</code></h2>
 
@@ -35658,6 +35658,47 @@ SQLite through 3.40.0, when relying on --safe for execution of an untrusted CLI 
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.4.0-11ubuntu2.3</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/pam@1.4.0-11ubuntu2.3?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-22365?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.4.0-11ubuntu2.4"><img alt="medium 5.5: CVE--2024--22365" src="https://img.shields.io/badge/CVE--2024--22365-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.079%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+linux-pam (aka Linux PAM) before 1.6.0 allows attackers to cause a denial of service (blocked login process) via mkfifo because the openat call (for protect_dir) lacks O_DIRECTORY.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-6020?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.4.0-11ubuntu2.6"><img alt="medium : CVE--2025--6020" src="https://img.shields.io/badge/CVE--2025--6020-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.6</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.020%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>glib2.0</strong> <code>2.72.4-0ubuntu2.3</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/glib2.0@2.72.4-0ubuntu2.3?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -35736,47 +35777,6 @@ An issue was discovered in libexpat before 2.6.4. There is a crash within the XM
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.4.0-11ubuntu2.3</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/pam@1.4.0-11ubuntu2.3?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-22365?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.4.0-11ubuntu2.4"><img alt="medium 5.5: CVE--2024--22365" src="https://img.shields.io/badge/CVE--2024--22365-lightgrey?label=medium%205.5&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.4</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.4</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.079%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-linux-pam (aka Linux PAM) before 1.6.0 allows attackers to cause a denial of service (blocked login process) via mkfifo because the openat call (for protect_dir) lacks O_DIRECTORY.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-6020?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.4.0-11ubuntu2.6"><img alt="medium : CVE--2025--6020" src="https://img.shields.io/badge/CVE--2025--6020-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.6</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.020%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libtasn1-6</strong> <code>4.18.0-4build1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/libtasn1-6@4.18.0-4build1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -35821,6 +35821,28 @@ wall in util-linux through 2.40, often installed with setgid tty permissions, al
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>tar</strong> <code>1.34+dfsg-1ubuntu0.1.22.04.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/tar@1.34%2Bdfsg-1ubuntu0.1.22.04.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-39804?s=ubuntu&n=tar&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.34%2Bdfsg-1ubuntu0.1.22.04.2"><img alt="medium : CVE--2023--39804" src="https://img.shields.io/badge/CVE--2023--39804-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.34+dfsg-1ubuntu0.1.22.04.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.34+dfsg-1ubuntu0.1.22.04.2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In GNU tar before 1.35, mishandled extension attributes in a PAX archive can lead to an application crash in xheader.c.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>freetype</strong> <code>2.11.1+dfsg-1ubuntu0.2</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/freetype@2.11.1%2Bdfsg-1ubuntu0.2?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -35845,6 +35867,28 @@ An out of bounds write exists in FreeType versions 2.13.0 and below (newer versi
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.44-1ubuntu0.22.04.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/libcap2@1%3A2.44-1ubuntu0.22.04.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A2.44-1ubuntu0.22.04.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1:2.44-1ubuntu0.22.04.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>1:2.44-1ubuntu0.22.04.2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>systemd</strong> <code>249.11-0ubuntu3.10</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/systemd@249.11-0ubuntu3.10?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -35861,50 +35905,6 @@ An out of bounds write exists in FreeType versions 2.13.0 and below (newer versi
 <blockquote>
 
 A vulnerability was found in systemd-coredump. This flaw allows an attacker to force a SUID process to crash and replace it with a non-SUID binary to access the original's privileged process coredump, allowing the attacker to read sensitive data, such as /etc/shadow content, loaded by the original process.  A SUID binary or process has a special type of permission, which allows the process to run with the file owner's permissions, regardless of the user executing the binary. This allows the process to access more restricted data than unprivileged users or processes would be able to. An attacker can leverage this flaw by forcing a SUID process to crash and force the Linux kernel to recycle the process PID before systemd-coredump can analyze the /proc/pid/auxv file. If the attacker wins the race condition, they gain access to the original's SUID process coredump file. They can read sensitive content loaded into memory by the original binary, affecting data confidentiality.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.27-3ubuntu2.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnupg2@2.2.27-3ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.2.27-3ubuntu2.3"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.2.27-3ubuntu2.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.2.27-3ubuntu2.3</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>tar</strong> <code>1.34+dfsg-1ubuntu0.1.22.04.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/tar@1.34%2Bdfsg-1ubuntu0.1.22.04.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-39804?s=ubuntu&n=tar&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.34%2Bdfsg-1ubuntu0.1.22.04.2"><img alt="medium : CVE--2023--39804" src="https://img.shields.io/badge/CVE--2023--39804-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1.34+dfsg-1ubuntu0.1.22.04.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.34+dfsg-1ubuntu0.1.22.04.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In GNU tar before 1.35, mishandled extension attributes in a PAX archive can lead to an application crash in xheader.c.
 
 </blockquote>
 </details>
@@ -35935,22 +35935,22 @@ A flaw was found in the bash package, where a heap-buffer overflow can occur in 
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.44-1ubuntu0.22.04.1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.27-3ubuntu2.1</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/libcap2@1%3A2.44-1ubuntu0.22.04.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A2.44-1ubuntu0.22.04.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/gnupg2@2.2.27-3ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.2.27-3ubuntu2.3"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><1:2.44-1ubuntu0.22.04.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1:2.44-1ubuntu0.22.04.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><2.2.27-3ubuntu2.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.2.27-3ubuntu2.3</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
+In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
 
 </blockquote>
 </details>
@@ -36022,30 +36022,6 @@ A vulnerability was found in openldap. This security flaw causes a null pointer 
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.8.1-2ubuntu2.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/shadow@1%3A4.8.1-2ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-4641?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A4.8.1-2ubuntu2.2"><img alt="low 5.5: CVE--2023--4641" src="https://img.shields.io/badge/CVE--2023--4641-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1:4.8.1-2ubuntu2.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1:4.8.1-2ubuntu2.2</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in shadow-utils. When asking for a new password, shadow-utils asks the password twice. If the password fails on the second attempt, shadow-utils fails in cleaning the buffer used to store the first entry. This may allow an attacker with enough access to retrieve the password from the memory.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>harfbuzz</strong> <code>2.7.4-1ubuntu3.1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/harfbuzz@2.7.4-1ubuntu3.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -36064,6 +36040,30 @@ A flaw was found in shadow-utils. When asking for a new password, shadow-utils a
 <blockquote>
 
 hb-ot-layout-gsubgpos.hh in HarfBuzz through 6.0.0 allows attackers to trigger O(n^2) growth via consecutive marks during the process of looking back for base glyphs when attaching marks.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.8.1-2ubuntu2.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/shadow@1%3A4.8.1-2ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-4641?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A4.8.1-2ubuntu2.2"><img alt="low 5.5: CVE--2023--4641" src="https://img.shields.io/badge/CVE--2023--4641-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1:4.8.1-2ubuntu2.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>1:4.8.1-2ubuntu2.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in shadow-utils. When asking for a new password, shadow-utils asks the password twice. If the password fails on the second attempt, shadow-utils fails in cleaning the buffer used to store the first entry. This may allow an attacker with enough access to retrieve the password from the memory.
 
 </blockquote>
 </details>

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/rtorch:latest
 
-Report generated on 2025-06-20 19:34:09 PST
+Report generated on 2025-06-20 22:21:53 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/rtorch:latest</code></h2>
 
@@ -35538,66 +35538,6 @@ Issue summary: Checking excessively long invalid RSA public keys may take a long
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.34.0-3ubuntu1.2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/perl@5.34.0-3ubuntu1.2?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-47038?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.3"><img alt="medium 7.8: CVE--2023--47038" src="https://img.shields.io/badge/CVE--2023--47038-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.142%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in perl 5.30.0 through 5.38.0. This issue occurs when a crafted regular expression is compiled by perl, which can allow an attacker controlled byte buffer overflow in a heap allocated buffer.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-56406?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.4"><img alt="medium : CVE--2024--56406" src="https://img.shields.io/badge/CVE--2024--56406-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.4</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.4</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.175%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A heap buffer overflow vulnerability was discovered in Perl.  Release branches 5.34, 5.36, 5.38 and 5.40 are affected, including development versions from 5.33.1 through 5.41.10.  When there are non-ASCII bytes in the left-hand-side of the `tr` operator, `S_do_trans_invmap` can overflow the destination pointer `d`.  $ perl -e '$_ = "\x{FF}" x 1000000; tr/\xFF/\x{100}/;' Segmentation fault (core dumped)  It is believed that this vulnerability can enable Denial of Service and possibly Code Execution attacks on platforms that lack sufficient defenses.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2022-48522?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.3"><img alt="low 9.8: CVE--2022--48522" src="https://img.shields.io/badge/CVE--2022--48522-lightgrey?label=low%209.8&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>9.922%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Perl 5.34.0, function S_find_uninit_var in sv.c has a stack-based crash that can lead to remote code execution or local privilege escalation.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>sqlite3</strong> <code>3.37.2-2ubuntu0.1</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/sqlite3@3.37.2-2ubuntu0.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -35658,6 +35598,66 @@ SQLite through 3.40.0, when relying on --safe for execution of an untrusted CLI 
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.34.0-3ubuntu1.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/perl@5.34.0-3ubuntu1.2?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-47038?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.3"><img alt="medium 7.8: CVE--2023--47038" src="https://img.shields.io/badge/CVE--2023--47038-lightgrey?label=medium%207.8&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.142%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability was found in perl 5.30.0 through 5.38.0. This issue occurs when a crafted regular expression is compiled by perl, which can allow an attacker controlled byte buffer overflow in a heap allocated buffer.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-56406?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.4"><img alt="medium : CVE--2024--56406" src="https://img.shields.io/badge/CVE--2024--56406-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.175%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A heap buffer overflow vulnerability was discovered in Perl.  Release branches 5.34, 5.36, 5.38 and 5.40 are affected, including development versions from 5.33.1 through 5.41.10.  When there are non-ASCII bytes in the left-hand-side of the `tr` operator, `S_do_trans_invmap` can overflow the destination pointer `d`.  $ perl -e '$_ = "\x{FF}" x 1000000; tr/\xFF/\x{100}/;' Segmentation fault (core dumped)  It is believed that this vulnerability can enable Denial of Service and possibly Code Execution attacks on platforms that lack sufficient defenses.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2022-48522?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.3"><img alt="low 9.8: CVE--2022--48522" src="https://img.shields.io/badge/CVE--2022--48522-lightgrey?label=low%209.8&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.922%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Perl 5.34.0, function S_find_uninit_var in sv.c has a stack-based crash that can lead to remote code execution or local privilege escalation.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>glib2.0</strong> <code>2.72.4-0ubuntu2.3</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/glib2.0@2.72.4-0ubuntu2.3?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -35691,45 +35691,6 @@ A flaw was found in GLib, which is vulnerable to an integer overflow in the g_st
 <blockquote>
 
 gio/gsocks4aproxy.c in GNOME GLib before 2.82.1 has an off-by-one error and resultant buffer overflow because SOCKS4_CONN_MSG_LEN is not sufficient for a trailing '\0' character.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>expat</strong> <code>2.4.7-1ubuntu0.4</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/expat@2.4.7-1ubuntu0.4?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-8176?s=ubuntu&n=expat&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.4.7-1ubuntu0.6"><img alt="medium : CVE--2024--8176" src="https://img.shields.io/badge/CVE--2024--8176-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.4.7-1ubuntu0.6</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.4.7-1ubuntu0.6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.343%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A stack overflow vulnerability exists in the libexpat library due to the way it handles recursive entity expansion in XML documents. When parsing an XML document with deeply nested entity references, libexpat can be forced to recurse indefinitely, exhausting the stack space and causing a crash. This issue could lead to denial of service (DoS) or, in some cases, exploitable memory corruption, depending on the environment and library usage.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-50602?s=ubuntu&n=expat&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.4.7-1ubuntu0.5"><img alt="medium : CVE--2024--50602" src="https://img.shields.io/badge/CVE--2024--50602-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.4.7-1ubuntu0.5</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.4.7-1ubuntu0.5</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.037%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.
 
 </blockquote>
 </details>
@@ -35777,66 +35738,63 @@ A flaw was found in linux-pam. The module pam_namespace may use access user-cont
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.44-1ubuntu0.22.04.1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>expat</strong> <code>2.4.7-1ubuntu0.4</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/libcap2@1%3A2.44-1ubuntu0.22.04.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A2.44-1ubuntu0.22.04.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/expat@2.4.7-1ubuntu0.4?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-8176?s=ubuntu&n=expat&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.4.7-1ubuntu0.6"><img alt="medium : CVE--2024--8176" src="https://img.shields.io/badge/CVE--2024--8176-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><1:2.44-1ubuntu0.22.04.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1:2.44-1ubuntu0.22.04.2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><2.4.7-1ubuntu0.6</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.4.7-1ubuntu0.6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.343%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
+A stack overflow vulnerability exists in the libexpat library due to the way it handles recursive entity expansion in XML documents. When parsing an XML document with deeply nested entity references, libexpat can be forced to recurse indefinitely, exhausting the stack space and causing a crash. This issue could lead to denial of service (DoS) or, in some cases, exploitable memory corruption, depending on the environment and library usage.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-50602?s=ubuntu&n=expat&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.4.7-1ubuntu0.5"><img alt="medium : CVE--2024--50602" src="https://img.shields.io/badge/CVE--2024--50602-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.4.7-1ubuntu0.5</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.4.7-1ubuntu0.5</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.037%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.
 
 </blockquote>
 </details>
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.27-3ubuntu2.1</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>freetype</strong> <code>2.11.1+dfsg-1ubuntu0.2</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/gnupg2@2.2.27-3ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.2.27-3ubuntu2.3"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/freetype@2.11.1%2Bdfsg-1ubuntu0.2?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-27363?s=ubuntu&n=freetype&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.11.1%2Bdfsg-1ubuntu0.3"><img alt="medium 8.1: CVE--2025--27363" src="https://img.shields.io/badge/CVE--2025--27363-lightgrey?label=medium%208.1&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><2.2.27-3ubuntu2.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.2.27-3ubuntu2.3</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><2.11.1+dfsg-1ubuntu0.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.11.1+dfsg-1ubuntu0.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>73.011%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libtasn1-6</strong> <code>4.18.0-4build1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/libtasn1-6@4.18.0-4build1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-12133?s=ubuntu&n=libtasn1-6&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C4.18.0-4ubuntu0.1"><img alt="medium : CVE--2024--12133" src="https://img.shields.io/badge/CVE--2024--12133-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><4.18.0-4ubuntu0.1</code></td></tr>
-<tr><td>Fixed version</td><td><code>4.18.0-4ubuntu0.1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.271%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw in libtasn1 causes inefficient handling of specific certificate data. When processing a large number of elements in a certificate, libtasn1 takes much longer than expected, which can slow down or even crash the system. This flaw allows an attacker to send a specially crafted certificate, causing a denial of service attack.
+An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.
 
 </blockquote>
 </details>
@@ -35889,24 +35847,22 @@ A flaw was found in the bash package, where a heap-buffer overflow can occur in 
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>freetype</strong> <code>2.11.1+dfsg-1ubuntu0.2</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libtasn1-6</strong> <code>4.18.0-4build1</code> (deb)</summary>
 
-<small><code>pkg:deb/ubuntu/freetype@2.11.1%2Bdfsg-1ubuntu0.2?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-27363?s=ubuntu&n=freetype&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.11.1%2Bdfsg-1ubuntu0.3"><img alt="medium 8.1: CVE--2025--27363" src="https://img.shields.io/badge/CVE--2025--27363-lightgrey?label=medium%208.1&labelColor=fbb552"/></a> 
+<small><code>pkg:deb/ubuntu/libtasn1-6@4.18.0-4build1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-12133?s=ubuntu&n=libtasn1-6&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C4.18.0-4ubuntu0.1"><img alt="medium : CVE--2024--12133" src="https://img.shields.io/badge/CVE--2024--12133-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><2.11.1+dfsg-1ubuntu0.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.11.1+dfsg-1ubuntu0.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>73.011%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><4.18.0-4ubuntu0.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>4.18.0-4ubuntu0.1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.271%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.
+A flaw in libtasn1 causes inefficient handling of specific certificate data. When processing a large number of elements in a certificate, libtasn1 takes much longer than expected, which can slow down or even crash the system. This flaw allows an attacker to send a specially crafted certificate, causing a denial of service attack.
 
 </blockquote>
 </details>
@@ -35951,6 +35907,50 @@ In GNU tar before 1.35, mishandled extension attributes in a PAX archive can lea
 <blockquote>
 
 A vulnerability was found in systemd-coredump. This flaw allows an attacker to force a SUID process to crash and replace it with a non-SUID binary to access the original's privileged process coredump, allowing the attacker to read sensitive data, such as /etc/shadow content, loaded by the original process.  A SUID binary or process has a special type of permission, which allows the process to run with the file owner's permissions, regardless of the user executing the binary. This allows the process to access more restricted data than unprivileged users or processes would be able to. An attacker can leverage this flaw by forcing a SUID process to crash and force the Linux kernel to recycle the process PID before systemd-coredump can analyze the /proc/pid/auxv file. If the attacker wins the race condition, they gain access to the original's SUID process coredump file. They can read sensitive content loaded into memory by the original binary, affecting data confidentiality.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libcap2</strong> <code>1:2.44-1ubuntu0.22.04.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/libcap2@1%3A2.44-1ubuntu0.22.04.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-1390?s=ubuntu&n=libcap2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A2.44-1ubuntu0.22.04.2"><img alt="medium : CVE--2025--1390" src="https://img.shields.io/badge/CVE--2025--1390-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1:2.44-1ubuntu0.22.04.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>1:2.44-1ubuntu0.22.04.2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The PAM module pam_cap.so of libcap configuration supports group names starting with “@”, during actual parsing, configurations not starting with “@” are incorrectly recognized as group names. This may result in nonintended users being granted an inherited capability set, potentially leading to security risks. Attackers can exploit this vulnerability to achieve local privilege escalation on systems where /etc/security/capability.conf is used to configure user inherited privileges by constructing specific usernames.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.27-3ubuntu2.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnupg2@2.2.27-3ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C2.2.27-3ubuntu2.3"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.2.27-3ubuntu2.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.2.27-3ubuntu2.3</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
 
 </blockquote>
 </details>
@@ -36022,6 +36022,30 @@ A vulnerability was found in openldap. This security flaw causes a null pointer 
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.8.1-2ubuntu2.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/shadow@1%3A4.8.1-2ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-4641?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A4.8.1-2ubuntu2.2"><img alt="low 5.5: CVE--2023--4641" src="https://img.shields.io/badge/CVE--2023--4641-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1:4.8.1-2ubuntu2.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>1:4.8.1-2ubuntu2.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in shadow-utils. When asking for a new password, shadow-utils asks the password twice. If the password fails on the second attempt, shadow-utils fails in cleaning the buffer used to store the first entry. This may allow an attacker with enough access to retrieve the password from the memory.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>procps</strong> <code>2:3.3.17-6ubuntu2</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/procps@2%3A3.3.17-6ubuntu2?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
@@ -36064,30 +36088,6 @@ Under some circumstances, this weakness allows a user who has access to run the 
 <blockquote>
 
 hb-ot-layout-gsubgpos.hh in HarfBuzz through 6.0.0 allows attackers to trigger O(n^2) growth via consecutive marks during the process of looking back for base glyphs when attaching marks.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>shadow</strong> <code>1:4.8.1-2ubuntu2.1</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/shadow@1%3A4.8.1-2ubuntu2.1?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-4641?s=ubuntu&n=shadow&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1%3A4.8.1-2ubuntu2.2"><img alt="low 5.5: CVE--2023--4641" src="https://img.shields.io/badge/CVE--2023--4641-lightgrey?label=low%205.5&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1:4.8.1-2ubuntu2.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>1:4.8.1-2ubuntu2.2</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.015%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in shadow-utils. When asking for a new password, shadow-utils asks the password twice. If the password fails on the second attempt, shadow-utils fails in cleaning the buffer used to store the first entry. This may allow an attacker with enough access to retrieve the password from the memory.
 
 </blockquote>
 </details>
