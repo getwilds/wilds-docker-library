@@ -109,13 +109,22 @@ def scan_image(tool, tag):
         f.write(f"# Vulnerability Report for {container}\n\n")
         f.write(f"Report generated on {pst_now}\n\n")
 
-    # Run Docker Scout to generate CVE report
-    result = run_command(
-        f"docker scout cves {container} --format markdown --only-fixed", capture_output=True
-    )
+    try:
+        # Run Docker Scout to generate CVE report
+        result = run_command(
+            f"docker scout cves {container} --format markdown --only-fixed", capture_output=True
+        )
 
-    with open(cve_file, "a") as f:
-        f.write(result)
+        with open(cve_file, "a") as f:
+            f.write(result)
+        
+        logger.info(f"Successfully generated CVE report for {container}")
+    except Exception as e:
+        logger.warning(f"Docker Scout failed for {container}: {e}")
+        # Write a fallback message to the CVE file
+        with open(cve_file, "a") as f:
+            f.write(f"**Docker Scout scan failed for this image**\n\n")
+            f.write(f"Error: {str(e)}\n\n")
 
     # Replace ghcr.io/getwilds with getwilds in the report
     with open(cve_file, "r") as f:
