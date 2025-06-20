@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/manta:1.6.0
 
-Report generated on 2025-06-10 18:10:39 PST
+Report generated on 2025-06-20 19:09:15 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/manta:1.6.0</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/manta:1.6.0</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:730d11f0c2be003fc940e316c207e57a586f734443155e9c3d16be36f6464773</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 5" src="https://img.shields.io/badge/high-5-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 4" src="https://img.shields.io/badge/low-4-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:84f3fe0d9b568060f32cde7f963be530c0ed99ed1cced8cdbb5a5bf879824810</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 5" src="https://img.shields.io/badge/high-5-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>192 MB</td></tr>
+<tr><td>size</td><td>172 MB</td></tr>
 <tr><td>packages</td><td>182</td></tr>
 </table>
 </details></table>
@@ -45,8 +45,8 @@ Python Packaging Authority (PyPA)'s setuptools is a library designed to facilita
 <tr><td>Fixed version</td><td><code>78.1.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.435%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>62nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.120%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -100,7 +100,7 @@ https://github.com/pypa/setuptools/issues/4946
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.227%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>46th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>45th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -174,85 +174,6 @@ When installing a package from a Mercurial VCS URL, e.g. `pip install hg+...`, w
 <blockquote>
 
 Python Packaging Authority (PyPA) Wheel is a reference implementation of the Python wheel packaging standard. Wheel 0.37.1 and earlier are vulnerable to a Regular Expression denial of service via attacker controlled input to the wheel cli. The vulnerable regex is used to verify the validity of Wheel file names. This has been patched in version 0.38.1.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 4" src="https://img.shields.io/badge/L-4-fce1a9"/> <!-- unspecified: 0 --><strong>binutils</strong> <code>2.31.1-16</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/binutils@2.31.1-16?os_distro=buster&os_name=debian&os_version=10</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-25587?s=debian&n=binutils&ns=debian&t=deb&osn=debian&osv=10&vr=%3E%3D2.31.1-16"><img alt="low : CVE--2023--25587" src="https://img.shields.io/badge/CVE--2023--25587-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.31.1-16</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: This candidate was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: none.
-
----
-REJECTED
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2023-22608?s=debian&n=binutils&ns=debian&t=deb&osn=debian&osv=10&vr=%3E%3D2.31.1-16"><img alt="low : CVE--2023--22608" src="https://img.shields.io/badge/CVE--2023--22608-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.31.1-16</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: This candidate was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: none
-
----
-REJECTED
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2023-2222?s=debian&n=binutils&ns=debian&t=deb&osn=debian&osv=10&vr=%3E%3D2.31.1-16"><img alt="low : CVE--2023--2222" src="https://img.shields.io/badge/CVE--2023--2222-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.31.1-16</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-** REJECT ** This was deemed not a security vulnerability by upstream.
-
----
-REJECTED
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2021-3487?s=debian&n=binutils&ns=debian&t=deb&osn=debian&osv=10&vr=%3E%3D2.31.1-16"><img alt="low : CVE--2021--3487" src="https://img.shields.io/badge/CVE--2021--3487-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.31.1-16</code></td></tr>
-<tr><td>Fixed version</td><td><strong>Not Fixed</strong></td></tr>
-<tr><td>EPSS Score</td><td><code>0.059%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>28th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-There's a flaw in the BFD library of binutils in versions before 2.36. An attacker who supplies a crafted file to an application linked with BFD, and using the DWARF functionality, could cause an impact to system availability by way of excessive memory consumption.
-
----
-REJECTED
 
 </blockquote>
 </details>
