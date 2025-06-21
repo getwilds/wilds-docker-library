@@ -22,6 +22,7 @@ import os
 import sys
 import glob
 import logging
+import time
 from datetime import datetime
 from utils import run_command
 
@@ -134,7 +135,9 @@ def scan_image(tool, tag):
         cve_file = None
 
     # Clean up Docker images to save space
-    run_command("docker system prune -af", check=False)
+    time.sleep(10)  # Let Docker Scout fully complete
+    run_command("docker system prune -af --volumes", check=False)
+    run_command("docker builder prune -af", check=False)
 
     return cve_file
 
