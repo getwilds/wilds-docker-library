@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/manta:latest
 
-Report generated on 2025-06-20 21:57:07 PST
+Report generated on 2025-06-21 17:08:09 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/manta:latest</code></h2>
 
