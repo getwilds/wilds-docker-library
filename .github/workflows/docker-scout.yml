@@ -52,6 +52,15 @@ jobs:
 
       - name: Run Docker Scout Analysis
         run: uv run .github/scripts/docker_scout.py ${{ github.event.inputs.tool }}
+      
+      - name: Refresh Docker Credentials
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+      
+      - name: Re-run Docker Scout Analysis to pick up remaining tools
+        run: uv run .github/scripts/docker_scout.py ${{ github.event.inputs.tool }}
 
       - name: Generate fresh token for git operations
         id: generate_token

@@ -62,6 +62,13 @@ def discover_tools_and_tags(specific_tool=None):
         ]
         logger.info(f"Processing all tool directories: {dirs}")
 
+    if os.path.exists('.cve_manifest.txt'):
+        logger.info("Found existing .cve_manifest.txt, excluding tools already scanned")
+        with open('.cve_manifest.txt', 'r') as f:
+            existing_scans = [line.strip() for line in f if line.strip()]
+    else:
+        existing_scans = []
+
     # Find all Dockerfile_* files to determine tags
     for tool_dir in dirs:
         dockerfiles = glob.glob(f"{tool_dir}/Dockerfile_*")
@@ -73,8 +80,13 @@ def discover_tools_and_tags(specific_tool=None):
         for dockerfile in dockerfiles:
             # Extract tag from filename (everything after the underscore)
             tag = os.path.basename(dockerfile).split("_")[-1]
-            tool_tags.append((tool_dir, tag))
-            logger.info(f"Found {tool_dir}:{tag}")
+            cve_file = f"{tool_dir}/CVEs_{tag}.md"
+            if cve_file in existing_scans:
+                logger.info(f"Skipping {tool_dir}:{tag} - already scanned")
+                continue
+            else:
+                tool_tags.append((tool_dir, tag))
+                logger.info(f"Found {tool_dir}:{tag}")
 
     return tool_tags
 
@@ -149,7 +161,7 @@ def main():
             cve_files.append(cve_file)
 
     # Write manifest of successful CVE files for commit step
-    with open('.cve_manifest.txt', 'w') as f:
+    with open('.cve_manifest.txt', 'a') as f:
         for cve_file in cve_files:
             f.write(f"{cve_file}\n")
     
