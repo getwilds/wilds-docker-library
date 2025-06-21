@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/combine-counts:0.1.0
 
-Report generated on 2025-06-20 21:57:42 PST
+Report generated on 2025-06-21 17:08:42 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/combine-counts:0.1.0</code></h2>
 
@@ -163,8 +163,8 @@ https://github.com/openssl/openssl/commit/07272b05b04836a762b4baa874958af51d5138
 <table>
 <tr><td>Affected range</td><td><code><1:2.66-4+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1:2.66-4+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
