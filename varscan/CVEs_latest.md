@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/varscan:latest
 
-Report generated on 2025-06-21 17:20:41 PST
+Report generated on 2025-06-21 22:49:19 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/varscan:latest</code></h2>
 
