@@ -136,8 +136,16 @@ def scan_image(tool, tag):
 
     # Clean up Docker images to save space
     time.sleep(10)  # Let Docker Scout fully complete
+
+    df_before = run_command("df -h / | tail -1", capture_output=True)
+    logger.info(f"Disk before cleanup: {df_before}")
+
+    run_command("find /tmp -name 'docker-scout*' -o -name 'stereoscope-*' | xargs rm -rf", check=False)
     run_command("docker system prune -af --volumes", check=False)
     run_command("docker builder prune -af", check=False)
+
+    df_after = run_command("df -h / | tail -1", capture_output=True)
+    logger.info(f"Disk after cleanup: {df_after}")
 
     return cve_file
 
