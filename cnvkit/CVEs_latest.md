@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cnvkit:latest
 
-Report generated on 2025-06-21 22:28:11 PST
+Report generated on 2025-06-22 02:32:58 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/cnvkit:latest</code></h2>
 

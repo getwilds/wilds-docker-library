@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bwa:0.7.17
 
-Report generated on 2025-06-21 18:48:38 PST
+Report generated on 2025-06-22 04:03:46 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/bwa:0.7.17</code></h2>
 
