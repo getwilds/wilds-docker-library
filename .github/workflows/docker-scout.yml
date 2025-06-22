@@ -21,20 +21,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: getwilds
-          repositories: wilds-docker-library
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ steps.generate_token.outputs.token }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -62,6 +52,18 @@ jobs:
 
       - name: Run Docker Scout Analysis
         run: uv run .github/scripts/docker_scout.py ${{ github.event.inputs.tool }}
+      
+      - name: Generate fresh token for git operations
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: getwilds
+          repositories: wilds-docker-library
+
+      - name: Commit CVE Reports
+        run: uv run .github/scripts/commit_cve_reports.py
         env:
           GITHUB_REF_NAME: ${{ github.ref_name }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}

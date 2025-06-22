@@ -182,13 +182,22 @@ def build_and_push_images(docker_files):
             f.write(f"# Vulnerability Report for getwilds/{tool_name}:{tag}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
 
-        result = run_command(
-            f"docker scout cves ghcr.io/getwilds/{tool_name}:{tag} --format markdown",
-            capture_output=True,
-        )
+        try:
+            result = run_command(
+                f"docker scout cves ghcr.io/getwilds/{tool_name}:{tag} --format markdown --only-fixed",
+                capture_output=True,
+            )
 
-        with open(cve_file, "a") as f:
-            f.write(result)
+            with open(cve_file, "a") as f:
+                f.write(result)
+            
+            logger.info(f"Successfully generated CVE report for {tool_name}:{tag}")
+        except Exception as e:
+            logger.warning(f"Docker Scout failed for {tool_name}:{tag}: {e}")
+            # Write a fallback message to the CVE file
+            with open(cve_file, "a") as f:
+                f.write(f"**Docker Scout scan failed for this image**\n\n")
+                f.write(f"Error: {str(e)}\n\n")
 
         # Replace ghcr.io/getwilds with getwilds in the report
         with open(cve_file, "r") as f:

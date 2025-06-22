@@ -49,8 +49,11 @@ def run_command(cmd, cwd=None, check=True, capture_output=False):
         return True
     except subprocess.CalledProcessError as e:
         logger.error(f"Command failed: {e}")
-        if capture_output:
-            logger.error(f"Error output: {e.stderr}")
+        logger.error(f"Return code: {e.returncode}")
+        if e.stdout:
+            logger.error(f"STDOUT: {e.stdout}")
+        if e.stderr:
+            logger.error(f"STDERR: {e.stderr}")
         if check:
             raise
         return False
