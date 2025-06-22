@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedtools:2.31.1
 
-Report generated on 2025-06-21 22:50:15 PST
+Report generated on 2025-06-22 02:54:56 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/bedtools:2.31.1</code></h2>
 
