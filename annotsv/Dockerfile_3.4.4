@@ -41,7 +41,8 @@ RUN apt-get update \
 RUN wget -q -O annotsv.tar.gz https://github.com/lgmgeo/AnnotSV/archive/v3.4.4.tar.gz && tar -xzf annotsv.tar.gz
 WORKDIR /AnnotSV-3.4.4
 RUN make PREFIX=. install \
-  && make PREFIX=. install-human-annotation
+  && make PREFIX=. install-human-annotation \
+  && rm -rf share/AnnotSV/Annotations_Exomiser
 WORKDIR /
 
 ENV ANNOTSV=/AnnotSV-3.4.4
