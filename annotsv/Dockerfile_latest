@@ -49,3 +49,4 @@ ENV ANNOTSV=/AnnotSV-3.4.4
 ENV PATH=/AnnotSV-3.4.4/bin:$PATH
 
 CMD ["AnnotSV", "-help"]
+
