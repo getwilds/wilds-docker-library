@@ -69,7 +69,7 @@ apptainer run --bind /path/to/data:/data docker://getwilds/annotsv:latest \
 
 - `-SVinputFile`: Input VCF file containing structural variants
 - `-outputDir`: Directory for output files
-- `-genomeBuild`: Genome build (GRCh37/hg19 or GRCh38/hg38)
+- `-genomeBuild`: Genome build (GRCh37 or GRCh38)
 - `-SVminSize`: Minimum SV size to consider (default: 50bp)
 - `-includeCI`: Include confidence intervals in output
 - `-annotationsDir`: Directory containing annotation databases (pre-configured in container)
@@ -80,6 +80,11 @@ The container includes these pre-configured environment variables:
 
 - `ANNOTSV`: Points to the AnnotSV installation directory (`/AnnotSV-3.4.4`)
 - `PATH`: Includes the AnnotSV binary directory, allowing direct execution of `AnnotSV` command
+
+### Functionality Limitations
+
+- Exomiser reference data has been deleted from the image as it is way too big and isn't used frequently within the WILDS WDL ecosystem.
+- For use in Apptainer, we recommend sticking with the default promoter size of 500, as custom promoter sizes require writing to the container's file system (which frequently isn't allowed in Apptainer).
 
 ## Integration with WILDS
 
