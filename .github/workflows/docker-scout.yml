@@ -62,6 +62,24 @@ jobs:
           owner: getwilds
           repositories: wilds-docker-library
 
+      - name: Stash changes before fresh checkout
+        run: git stash push -u -m "CVE reports and manifest"
+
+      - name: Checkout with fresh token
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.generate_token.outputs.token }}
+          clean: false
+
+      - name: Reinstall dependencies for commit step
+        run: |
+          uv venv
+          uv pip install pyyaml gitpython requests
+
+      - name: Restore stashed changes
+        run: git stash pop
+
       - name: Commit CVE Reports
         run: uv run .github/scripts/commit_cve_reports.py
         env:
