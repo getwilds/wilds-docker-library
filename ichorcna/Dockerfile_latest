@@ -1,6 +1,19 @@
 # Using the Ubuntu base image (note we'll use R 3.6.0)
 FROM ubuntu:20.04
 
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="ichorcna"
+LABEL org.opencontainers.image.description="Container image for ichorCNA tumor fraction estimator in WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Set environment variables
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
