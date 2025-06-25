@@ -57,11 +57,14 @@ RUN apt-get update \
   libreadline-dev="${LIBREADLINE_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
+# Set working directory for R installation
+WORKDIR /tmp
+
 # Set up locale for installing R
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen en_US.UTF-8
 
 # Install R 3.6.0 from source
-RUN wget https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz && \
+RUN wget -q https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz && \
     tar -xzf R-3.6.0.tar.gz && \
     cd R-3.6.0 && \
     ./configure --enable-R-shlib --without-x && \
@@ -79,7 +82,10 @@ RUN mkdir -p /usr/local/lib/R/site-library && \
 RUN Rscript -e "install.packages(c('plyr', 'optparse', 'foreach', 'doMC', 'BiocManager'), repos = 'https://cran.r-project.org')" && \
     Rscript -e "BiocManager::install(c('HMMcopy', 'GenomeInfoDb', 'GenomicRanges'))"
 
-# Install IchorCNA
+# Set working directory for ichorCNA installation
+WORKDIR /usr/local/bin
+
+# Install ichorCNA
 RUN git clone https://github.com/GavinHaLab/ichorCNA.git /usr/local/bin/ichorCNA && \
     cd /usr/local/bin/ichorCNA && \
     git checkout b2bbce0a9997f31733f0f0ea4278cfba937ded41 && \
@@ -87,3 +93,6 @@ RUN git clone https://github.com/GavinHaLab/ichorCNA.git /usr/local/bin/ichorCNA
 
 # Clean up to reduce image size
 RUN rm -rf /opt/*.gz /opt/*.bz2 /opt/*.tar.gz /tmp/*
+
+# Reset to root directory
+WORKDIR /
