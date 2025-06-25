@@ -105,7 +105,7 @@ apptainer run --bind /path/to/data:/data docker://getwilds/ichorcna:latest \
 ## Performance Considerations
 
 ### Resource Requirements
-- **Memory**: 4-32GB recommended for copy number analysis and tumor fraction estimation
+- **Memory**: 4-32 GB recommended for copy number analysis and tumor fraction estimation
 - **CPU**: Multi-threaded operations supported via doMC parallel processing
 - **Storage**: Ensure sufficient space for output files and temporary data
 
@@ -133,11 +133,12 @@ For the latest security information about this image, please check the `CVEs_*.m
 The Dockerfile follows these main steps:
 
 1. Uses Ubuntu 20.04 as the base image
-2. Dynamically determines and pins the latest security-patched version of build-essential
-3. Downloads and installs R 3.6.0 from source
-4. Installs required R packages from CRAN and Bioconductor repositories
-5. Clones and installs IchorCNA from GitHub
-6. Cleans up temporary files and build artifacts to minimize image size
+2. Adds metadata labels for documentation and attribution following WILDS standards
+3. Dynamically determines and pins the latest security-patched version of build-essential
+4. Downloads and installs R 3.6.0 from source
+5. Installs required R packages from CRAN and Bioconductor repositories
+6. Clones and installs IchorCNA from GitHub
+7. Cleans up temporary files and build artifacts to minimize image size
 
 ## Source Repository
 
