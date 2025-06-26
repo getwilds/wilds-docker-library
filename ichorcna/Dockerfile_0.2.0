@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 # Adding labels for the GitHub Container Registry following WILDS standards
 LABEL org.opencontainers.image.title="ichorcna"
 LABEL org.opencontainers.image.description="Container image for ichorCNA tumor fraction estimator in WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="0.2.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
