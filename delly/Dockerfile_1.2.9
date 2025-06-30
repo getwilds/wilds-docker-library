@@ -96,7 +96,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install minimal runtime dependencies
 RUN apt-get update \
   && LIBGOMP1_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
-  && apt-get install -y --no-install-recommends libgomp1="${LIBGOMP1_VERSION}" \
+  && BCFTOOLS_VERSION=$(apt-cache policy bcftools | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  libgomp1="${LIBGOMP1_VERSION}" \
+  bcftools="${BCFTOOLS_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Create directory and copy binary
