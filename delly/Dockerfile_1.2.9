@@ -1,7 +1,7 @@
 # Delly Dockerfile for WILDS Docker Library
 # Essentially a direct copy of the dellytools/delly Dockerfile, just want our own copy
 # Delly: structural variant discovery by integrated paired-end and split-read analysis
-FROM ubuntu:22.04
+FROM ubuntu:22.04 AS builder
 
 # Adding labels for the GitHub Container Registry following WILDS standards
 LABEL org.opencontainers.image.title="delly"
@@ -71,13 +71,11 @@ RUN apt-get update \
 # Set environment variable for Boost
 ENV BOOST_ROOT=/usr
 
-# Install Delly from source at specific version
-RUN cd /opt \
-  && git clone --recursive https://github.com/dellytools/delly.git \
-  && cd /opt/delly/ \
-  && git checkout v1.2.9 \
-  && make STATIC=1 all \
-  && make install
+# Install Delly from source
+WORKDIR /opt
+RUN git clone --recursive https://github.com/dellytools/delly.git
+WORKDIR /opt/delly
+RUN git checkout v1.2.9 && make STATIC=1 all && make install
 
 # Multi-stage build to reduce image size
 FROM ubuntu:22.04
@@ -92,10 +90,13 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Install minimal runtime dependencies
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-  libgomp1 \
+  && LIBGOMP1_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends libgomp1="${LIBGOMP1_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Create directory and copy binary
@@ -103,7 +104,7 @@ RUN mkdir -p /opt/delly/bin
 WORKDIR /opt/delly/bin
 
 # Copy the statically compiled Delly binary from the build stage
-COPY --from=0 /opt/delly/bin/delly .
+COPY --from=builder /opt/delly/bin/delly .
 
 # Add Delly to PATH
 ENV PATH="/opt/delly/bin:${PATH}"
