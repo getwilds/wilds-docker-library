@@ -9,7 +9,7 @@ This directory contains Docker images for Delly, an integrated structural varian
 
 ## Image Details
 
-These Docker images are built from Ubuntu 22.04 and include a statically compiled Delly binary. The images use a multi-stage build process to minimize the final image size while ensuring all necessary dependencies are included. Delly uses paired-ends, split-reads and read-depth to sensitively and accurately delineate genomic rearrangements throughout the genome.
+These Docker images are built from Ubuntu 22.04 and include a statically compiled Delly binary with bcftools for BCF indexing and manipulation. The images use a multi-stage build process to minimize the final image size while ensuring all necessary dependencies are included. Delly uses paired-ends, split-reads and read-depth to sensitively and accurately delineate genomic rearrangements throughout the genome.
 
 ## Usage
 
