@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/ichorcna:0.2.0
 
-Report generated on 2025-06-26 18:17:05 PST
+Report generated on 2025-07-01 09:03:49 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/ichorcna:0.2.0</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/ichorcna:0.2.0</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:9c6ae2c4f7e37c7984fcf00205b0ab2dc7b0dbcaf59a5c70472872240b8e6d80</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:9c5754b7c55cdefc56681be7a213cbc64c3858f88af63c32fc79159ca81dca89</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>486 MB</td></tr>
+<tr><td>size</td><td>438 MB</td></tr>
 <tr><td>packages</td><td>315</td></tr>
 </table>
 </details></table>
@@ -24,8 +24,8 @@ Report generated on 2025-06-26 18:17:05 PST
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.18</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.18</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.006%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>

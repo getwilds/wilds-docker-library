@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/ichorcna:latest
 
-Report generated on 2025-06-26 18:29:21 PST
+Report generated on 2025-07-01 09:04:35 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/ichorcna:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/ichorcna:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:3c5862d6a92cb51510cf90f7222b4aa5dc61a4250b041605166f2c2d7b72c9ad</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:8427aaaa5137c9097be5956781d500642532fe0497c10bfd6578b16d8370c8ab</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>486 MB</td></tr>
+<tr><td>size</td><td>438 MB</td></tr>
 <tr><td>packages</td><td>315</td></tr>
 </table>
 </details></table>
@@ -24,8 +24,8 @@ Report generated on 2025-06-26 18:29:21 PST
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.18</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.18</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.006%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>

@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/delly:latest
 
-Report generated on 2025-06-30 20:42:32 PST
+Report generated on 2025-07-01 08:33:20 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/delly:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/delly:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:b56cc66a71838d7b1b0cce339a5d06578cbb0bfbb093c3d1d2ceba4f28216b99</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/medium-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:5974decd65fb3bdc25102e3b7d7ac75e6a12f5e19fbd5771af3a22b8c88c2d0a</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/medium-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>42 MB</td></tr>
+<tr><td>size</td><td>37 MB</td></tr>
 <tr><td>packages</td><td>168</td></tr>
 </table>
 </details></table>

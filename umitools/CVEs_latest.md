@@ -1,12 +1,12 @@
 # Vulnerability Report for getwilds/umitools:latest
 
-Report generated on 2025-06-22 03:13:16 PST
+Report generated on 2025-07-01 09:42:25 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/umitools:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/umitools:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:0a17dd42930be4c0a6b3cca0c30d4bb52faacf9ae27c3756178cf5d4338698d8</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 1" src="https://img.shields.io/badge/critical-1-8b1924"/> <img alt="high: 6" src="https://img.shields.io/badge/high-6-e25d68"/> <img alt="medium: 11" src="https://img.shields.io/badge/medium-11-fbb552"/> <img alt="low: 12" src="https://img.shields.io/badge/low-12-fce1a9"/> <img alt="unspecified: 1" src="https://img.shields.io/badge/unspecified-1-lightgrey"/></td></tr>
+<tr><td>digest</td><td><code>sha256:0a17dd42930be4c0a6b3cca0c30d4bb52faacf9ae27c3756178cf5d4338698d8</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 1" src="https://img.shields.io/badge/critical-1-8b1924"/> <img alt="high: 11" src="https://img.shields.io/badge/high-11-e25d68"/> <img alt="medium: 14" src="https://img.shields.io/badge/medium-14-fbb552"/> <img alt="low: 16" src="https://img.shields.io/badge/low-16-fce1a9"/> <img alt="unspecified: 1" src="https://img.shields.io/badge/unspecified-1-lightgrey"/></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
 <tr><td>size</td><td>531 MB</td></tr>
 <tr><td>packages</td><td>607</td></tr>
@@ -45,6 +45,255 @@ Fixed by: https://git.savannah.gnu.org/cgit/wget.git/commit/?id=ed0c7c7e0e8f7298
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 4" src="https://img.shields.io/badge/H-4-e25d68"/> <img alt="medium: 3" src="https://img.shields.io/badge/M-3-fbb552"/> <img alt="low: 3" src="https://img.shields.io/badge/L-3-fce1a9"/> <!-- unspecified: 0 --><strong>libxml2</strong> <code>2.9.14+dfsg-1.3~deb12u1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/libxml2@2.9.14%2Bdfsg-1.3~deb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-49043?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="high : CVE--2022--49043" src="https://img.shields.io/badge/CVE--2022--49043-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+xmlXIncludeAddNode in xinclude.c in libxml2 before 2.11.0 has a use-after-free.
+
+---
+[experimental] - libxml2 2.12.3+dfsg-0exp1
+- libxml2 2.12.7+dfsg+really2.9.14-0.4 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1094238)
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/5a19e21605398cef6a8b1452477a8705cb41562b (v2.11.0)
+https://github.com/php/php-src/issues/17467
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-24928?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="high : CVE--2025--24928" src="https://img.shields.io/badge/CVE--2025--24928-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+libxml2 before 2.12.10 and 2.13.x before 2.13.6 has a stack-based buffer overflow in xmlSnprintfElements in valid.c. To exploit this, DTD validation must occur for an untrusted document or untrusted DTD. NOTE: this is similar to CVE-2017-9047.
+
+---
+- libxml2 2.12.7+dfsg+really2.9.14-0.4 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1098321)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/847
+https://www.openwall.com/lists/oss-security/2025/02/18/2
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/8c8753ad5280ee13aee5eec9b0f6eee2ed920f57
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/858ca26c0689161a6b903a6682cc8a1cc10a0ea8 (v2.12.10)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-56171?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="high : CVE--2024--56171" src="https://img.shields.io/badge/CVE--2024--56171-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.008%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+libxml2 before 2.12.10 and 2.13.x before 2.13.6 has a use-after-free in xmlSchemaIDCFillNodeTables and xmlSchemaBubbleIDCNodeTables in xmlschemas.c. To exploit this, a crafted XML document must be validated against an XML schema with certain identity constraints, or a crafted XML schema must be used.
+
+---
+- libxml2 2.12.7+dfsg+really2.9.14-0.4 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1098320)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/828
+https://www.openwall.com/lists/oss-security/2025/02/18/2
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/5880a9a6bd97c0f9ac8fc4f30110fe023f484746
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/245b70d7d2768572ae1b05b3668ca858b9ec4ed4 (v2.12.10)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-25062?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="high : CVE--2024--25062" src="https://img.shields.io/badge/CVE--2024--25062-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.155%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+An issue was discovered in libxml2 before 2.11.7 and 2.12.x before 2.12.5. When using the XML Reader interface with DTD validation and XInclude expansion enabled, processing crafted XML documents can lead to an xmlValidatePopElement use-after-free.
+
+---
+[experimental] - libxml2 2.12.5+dfsg-0exp1
+- libxml2 2.12.7+dfsg+really2.9.14-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1063234)
+[buster] - libxml2 <no-dsa> (Minor issue)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/604
+https://gitlab.gnome.org/GNOME/libxml2/-/commit/2b0aac140d739905c7848a42efc60bfe783a39b7 (v2.11.7)
+https://gitlab.gnome.org/GNOME/libxml2/-/commit/92721970884fcc13305cb8e23cdc5f0dd7667c2c (v2.12.5)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2023-45322?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="medium : CVE--2023--45322" src="https://img.shields.io/badge/CVE--2023--45322-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+libxml2 through 2.11.5 has a use-after-free that can only occur after a certain memory allocation fails. This occurs in xmlUnlinkNode in tree.c. NOTE: the vendor's position is "I don't think these issues are critical enough to warrant a CVE ID ... because an attacker typically can't control when memory allocations fail."
+
+---
+[experimental] - libxml2 2.12.3+dfsg-0exp1
+- libxml2 2.12.7+dfsg+really2.9.14-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1053629)
+[buster] - libxml2 <postponed> (Minor issue, very hard/unlikely to trigger)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/583
+Originally fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/d39f78069dff496ec865c73aa44d7110e429bce9 (v2.12.0)
+Introduced regression (and thus commit reverted temporarily upstream):
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/634
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/30d7660ba87c8487b26582ccc050f4d2880ccb3c (v2.12.2)
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/8707838e69f9c6e729c1d1d46bb3681d9e622be5 (v2.13.0)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/344
+http://www.openwall.com/lists/oss-security/2023/10/06/5
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2023-39615?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="medium : CVE--2023--39615" src="https://img.shields.io/badge/CVE--2023--39615-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.093%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>27th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Xmlsoft Libxml2 v2.11.0 was discovered to contain an out-of-bounds read via the xmlSAX2StartElement() function at /libxml2/SAX2.c. This vulnerability allows attackers to cause a Denial of Service (DoS) via supplying a crafted XML file. NOTE: the vendor's position is that the product does not support the legacy SAX1 interface with custom callbacks; there is a crash even without crafted input.
+
+---
+[experimental] - libxml2 2.12.3+dfsg-0exp1
+- libxml2 2.12.7+dfsg+really2.9.14-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1051230)
+[buster] - libxml2 <no-dsa> (Minor issue)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/535
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/d0c3f01e110d54415611c5fa0040cdf4a56053f9 (v2.12.0)
+Followup: https://gitlab.gnome.org/GNOME/libxml2/-/commit/235b15a590eecf97b09e87bdb7e4f8333e9de129 (v2.12.0)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-32414?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="medium : CVE--2025--32414" src="https://img.shields.io/badge/CVE--2025--32414-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In libxml2 before 2.13.8 and 2.14.x before 2.14.2, out-of-bounds memory access can occur in the Python API (Python bindings) because of an incorrect return value. This occurs in xmlPythonFileRead and xmlPythonFileReadRaw because of a difference between bytes and characters.
+
+---
+- libxml2 2.12.7+dfsg+really2.9.14-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1102521)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/889
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-32415?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="low : CVE--2025--32415" src="https://img.shields.io/badge/CVE--2025--32415-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In libxml2 before 2.13.8 and 2.14.x before 2.14.2, xmlSchemaIDCFillNodeTables in xmlschemas.c has a heap-based buffer under-read. To exploit this, a crafted XML document must be validated against an XML schema with certain identity constraints, or a crafted XML schema must be used.
+
+---
+- libxml2 2.12.7+dfsg+really2.9.14-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1103511)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/890
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/487ee1d8711c6415218b373ef455fcd969d12399 (master)
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/8ac33b1c821b4e67326e8e416945b31c9537c7c0 (v2.14.2)
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/384cc7c182fc00c6d5e2ab4b5e3671b2e3f93c84 (v2.13.8)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-27113?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="low : CVE--2025--27113" src="https://img.shields.io/badge/CVE--2025--27113-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+libxml2 before 2.12.10 and 2.13.x before 2.13.6 has a NULL pointer dereference in xmlPatMatch in pattern.c.
+
+---
+- libxml2 2.12.7+dfsg+really2.9.14-0.4 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1098322)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/861
+https://www.openwall.com/lists/oss-security/2025/02/18/2
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/6c716d491dd2e67f08066f4dc0619efeb49e43e6
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/503f788e84f1c1f1d769c2c7258d77faee94b5a3 (v2.12.10)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-34459?s=debian&n=libxml2&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.9.14%2Bdfsg-1.3%7Edeb12u2"><img alt="low : CVE--2024--34459" src="https://img.shields.io/badge/CVE--2024--34459-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.9.14+dfsg-1.3~deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.132%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+An issue was discovered in xmllint (from libxml2) before 2.11.8 and 2.12.x before 2.12.7. Formatting error messages with xmllint --htmlout can result in a buffer over-read in xmlHTMLPrintFileContext in xmllint.c.
+
+---
+- libxml2 2.12.7+dfsg+really2.9.14-0.4 (unimportant; bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1071162)
+https://gitlab.gnome.org/GNOME/libxml2/-/issues/720
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/8ddc7f13337c9fe7c6b6e616f404b0fffb8a5145 (v2.11.8)
+Fixed by: https://gitlab.gnome.org/GNOME/libxml2/-/commit/2876ac5392a4e891b81e40e592c3ac6cb46016ce (v2.12.7)
+Crash in CLI tool, no security impact
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/H-2-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libxslt</strong> <code>1.1.35-1</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/libxslt@1.1.35-1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -53,8 +302,8 @@ Fixed by: https://git.savannah.gnu.org/cgit/wget.git/commit/?id=ed0c7c7e0e8f7298
 <table>
 <tr><td>Affected range</td><td><code><1.1.35-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.1.35-1+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.005%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -75,7 +324,7 @@ Fixed by: https://gitlab.gnome.org/GNOME/libxslt/-/commit/c7c7f1f78dd202a053996f
 <table>
 <tr><td>Affected range</td><td><code><1.1.35-1+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.1.35-1+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.007%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.004%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
 </table>
 
@@ -136,8 +385,8 @@ https://www.postgresql.org/about/news/postgresql-174-168-1512-1417-and-1320-rele
 <table>
 <tr><td>Affected range</td><td><code><15.13-0+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>15.13-0+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.080%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.067%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>21st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -160,6 +409,36 @@ https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=cbadeaca9271a1bad
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>freetype</strong> <code>2.12.1+dfsg-5+deb12u3</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/freetype@2.12.1%2Bdfsg-5%2Bdeb12u3?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-27363?s=debian&n=freetype&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.12.1%2Bdfsg-5%2Bdeb12u4"><img alt="high : CVE--2025--27363" src="https://img.shields.io/badge/CVE--2025--27363-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.12.1+dfsg-5+deb12u4</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.12.1+dfsg-5+deb12u4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>68.423%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.
+
+---
+- freetype 2.13.1+dfsg-1
+https://www.facebook.com/security/advisories/cve-2025-27363
+https://gitlab.freedesktop.org/freetype/freetype/-/issues/1322
+Requisite (macro fixup for FT_Q(RE)NEW_ARRAY): https://gitlab.freedesktop.org/freetype/freetype/-/commit/c71eb22dde1a3101891a865fdac20a6de814267d (VER-2-11-1)
+Fixed by: https://gitlab.freedesktop.org/freetype/freetype/-/commit/ef636696524b081f1b8819eb0c6a0b932d35757d (VER-2-13-1)
+Followup: https://gitlab.freedesktop.org/freetype/freetype/-/commit/73720c7c9958e87b3d134a7574d1720ad2d24442 (VER-2-13-3)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>glibc</strong> <code>2.36-9+deb12u9</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/glibc@2.36-9%2Bdeb12u9?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -168,8 +447,8 @@ https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=cbadeaca9271a1bad
 <table>
 <tr><td>Affected range</td><td><code><2.36-9+deb12u10</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.36-9+deb12u10</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.172%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.191%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -251,30 +530,27 @@ https://github.com/pypa/setuptools/issues/4946
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>freetype</strong> <code>2.12.1+dfsg-5+deb12u3</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>icu</strong> <code>72.1-3</code> (deb)</summary>
 
-<small><code>pkg:deb/debian/freetype@2.12.1%2Bdfsg-5%2Bdeb12u3?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-27363?s=debian&n=freetype&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.12.1%2Bdfsg-5%2Bdeb12u4"><img alt="high : CVE--2025--27363" src="https://img.shields.io/badge/CVE--2025--27363-lightgrey?label=high%20&labelColor=e25d68"/></a> 
+<small><code>pkg:deb/debian/icu@72.1-3?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-5222?s=debian&n=icu&ns=debian&t=deb&osn=debian&osv=12&vr=%3C72.1-3%2Bdeb12u1"><img alt="high : CVE--2025--5222" src="https://img.shields.io/badge/CVE--2025--5222-lightgrey?label=high%20&labelColor=e25d68"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code><2.12.1+dfsg-5+deb12u4</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.12.1+dfsg-5+deb12u4</code></td></tr>
-<tr><td>EPSS Score</td><td><code>68.423%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><72.1-3+deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><code>72.1-3+deb12u1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.
+A stack buffer overflow was found in Internationl components for unicode (ICU ). While running the genrb binary, the 'subtag' struct overflowed at the SRBRoot::addTag function. This issue may lead to memory corruption and local arbitrary code execution.
 
 ---
-- freetype 2.13.1+dfsg-1
-https://www.facebook.com/security/advisories/cve-2025-27363
-https://gitlab.freedesktop.org/freetype/freetype/-/issues/1322
-Requisite (macro fixup for FT_Q(RE)NEW_ARRAY): https://gitlab.freedesktop.org/freetype/freetype/-/commit/c71eb22dde1a3101891a865fdac20a6de814267d (VER-2-11-1)
-Fixed by: https://gitlab.freedesktop.org/freetype/freetype/-/commit/ef636696524b081f1b8819eb0c6a0b932d35757d (VER-2-13-1)
-Followup: https://gitlab.freedesktop.org/freetype/freetype/-/commit/73720c7c9958e87b3d134a7574d1720ad2d24442 (VER-2-13-3)
+- icu 76.1-4 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1106684)
+https://unicode-org.atlassian.net/browse/ICU-22957
+Fixed by: https://github.com/unicode-org/icu/commit/2c667e31cfd0b6bb1923627a932fd3453a5bac77 (release-77-rc)
 
 </blockquote>
 </details>
@@ -315,8 +591,8 @@ MariaDB Commit: https://github.com/MariaDB/server/commit/82310f926b7c6547f25dd80
 <table>
 <tr><td>Affected range</td><td><code><1:10.11.11-0+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>1:10.11.11-0+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -384,7 +660,7 @@ Fixed by: https://github.com/curl/curl/commit/a94973805df96269bf3f3bf0a20ccb9887
 <tr><td>Affected range</td><td><code><7.88.1-10+deb12u11</code></td></tr>
 <tr><td>Fixed version</td><td><code>7.88.1-10+deb12u11</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>27th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -424,80 +700,6 @@ When asked to both use a `.netrc` file for credentials and to follow HTTP redire
 https://curl.se/docs/CVE-2024-11053.html
 Introduced by: https://github.com/curl/curl/commit/46620b97431e19c53ce82e55055c85830f088cf4 (curl-7_76_0)
 Fixed by: https://github.com/curl/curl/commit/e9b9bbac22c26cf67316fa8e6c6b9e831af31949 (curl-8_11_1)
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>python3.11</strong> <code>3.11.2-6+deb12u5</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/python3.11@3.11.2-6%2Bdeb12u5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-0938?s=debian&n=python3.11&ns=debian&t=deb&osn=debian&osv=12&vr=%3C3.11.2-6%2Bdeb12u6"><img alt="medium : CVE--2025--0938" src="https://img.shields.io/badge/CVE--2025--0938-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.11.2-6+deb12u6</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.11.2-6+deb12u6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>76th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The Python standard library functions `urllib.parse.urlsplit` and `urlparse` accepted domain names that included square brackets which isn't valid according to RFC 3986. Square brackets are only meant to be used as delimiters for specifying IPv6 and IPvFuture hosts in URLs. This could result in differential parsing across the Python URL parser and other specification-compliant URL parsers.
-
----
-- python3.13 3.13.2-1
-- python3.12 3.12.9-1
-- python3.11 <removed>
-[bookworm] - python3.11 3.11.2-6+deb12u6
-- python3.9 <removed>
-- pypy3 7.3.18+dfsg-2
-[bookworm] - pypy3 <no-dsa> (Minor issue)
-[bullseye] - pypy3 <postponed> (Minor issue)
-https://mail.python.org/archives/list/security-announce@python.org/thread/K4EUG6EKV6JYFIC24BASYOZS4M5XOQIB/
-https://github.com/python/cpython/issues/105704
-https://github.com/python/cpython/pull/129418
-Fixed by: https://github.com/python/cpython/commit/d89a5f6a6e65511a5f6e0618c4c30a7aa5aba56a
-Fixed by: https://github.com/python/cpython/commit/90e526ae67b172ed7c6c56e7edad36263b0f9403 (v3.13.2)
-Fixed by: https://github.com/python/cpython/commit/a7084f6075c9595ba60119ce8c62f1496f50c568 (v3.12.9)
-https://github.com/python/cpython/pull/129528 (3.11)
-https://github.com/python/cpython/pull/129530 (3.9)
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-1795?s=debian&n=python3.11&ns=debian&t=deb&osn=debian&osv=12&vr=%3C3.11.2-6%2Bdeb12u6"><img alt="low : CVE--2025--1795" src="https://img.shields.io/badge/CVE--2025--1795-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.11.2-6+deb12u6</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.11.2-6+deb12u6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.167%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-During an address list folding when a separating comma ends up on a folded line and that line is to be unicode-encoded then the separator itself is also unicode-encoded. Expected behavior is that the separating comma remains a plan comma. This can result in the address header being misinterpreted by some mail servers.
-
----
-- python3.13 3.13.0~b1-1
-- python3.12 3.12.9-1
-- python3.11 <removed>
-[bookworm] - python3.11 3.11.2-6+deb12u6
-- python3.9 <removed>
-https://github.com/python/cpython/issues/100884
-Regression issue: https://github.com/python/cpython/issues/118643
-https://mail.python.org/archives/list/security-announce@python.org/thread/MB62IZMEC3UM6SGHP5LET5JX2Y7H4ZUR/
-Fixed by: https://github.com/python/cpython/commit/09fab93c3d857496c0bd162797fab816c311ee48 (v3.13.0a5)
-Regression fixed by: https://github.com/python/cpython/commit/6892b400dc8c95375ef31f6d716d62a6ff0c4cf2 (v3.13.0b2)
-Fixed by: https://github.com/python/cpython/commit/9148b77e0af91cdacaa7fe3dfac09635c3fe9a74 (v3.12.3)
-Regression fixed by: https://github.com/python/cpython/commit/8c96850161da23ad2b37551d2a89c7d4716fe024 (v3.12.4)
-Fixed by: https://github.com/python/cpython/commit/70754d21c288535e86070ca7a6e90dcb670b8593 (v3.11.9)
-Regression Fixed by: https://github.com/python/cpython/commit/4762b365406a8cf026a4a4ddcae34c28a41c3de9 (v3.11.10)
-Introduced by: https://github.com/python/cpython/commit/0b6f6c82b51b7071d88f48abb3192bf3dc2a2d24 (v3.3.0a4)
 
 </blockquote>
 </details>
@@ -554,6 +756,163 @@ Fixed by: https://github.com/shadow-maint/shadow/commit/e5905c4b84d4fb90aefcd96e
 Regression fix: https://github.com/shadow-maint/shadow/commit/2eaea70111f65b16d55998386e4ceb4273c19eb4 (4.14.0-rc1)
 https://www.trustwave.com/en-us/resources/security-resources/security-advisories/?fid=31797
 https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/cve-2023-29383-abusing-linux-chfn-to-misrepresent-etc-passwd/
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>python3.11</strong> <code>3.11.2-6+deb12u5</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/python3.11@3.11.2-6%2Bdeb12u5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-0938?s=debian&n=python3.11&ns=debian&t=deb&osn=debian&osv=12&vr=%3C3.11.2-6%2Bdeb12u6"><img alt="medium : CVE--2025--0938" src="https://img.shields.io/badge/CVE--2025--0938-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.11.2-6+deb12u6</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.11.2-6+deb12u6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.633%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The Python standard library functions `urllib.parse.urlsplit` and `urlparse` accepted domain names that included square brackets which isn't valid according to RFC 3986. Square brackets are only meant to be used as delimiters for specifying IPv6 and IPvFuture hosts in URLs. This could result in differential parsing across the Python URL parser and other specification-compliant URL parsers.
+
+---
+- python3.13 3.13.2-1
+- python3.12 3.12.9-1
+- python3.11 <removed>
+[bookworm] - python3.11 3.11.2-6+deb12u6
+- python3.9 <removed>
+- pypy3 7.3.18+dfsg-2
+[bookworm] - pypy3 <no-dsa> (Minor issue)
+[bullseye] - pypy3 <postponed> (Minor issue)
+https://mail.python.org/archives/list/security-announce@python.org/thread/K4EUG6EKV6JYFIC24BASYOZS4M5XOQIB/
+https://github.com/python/cpython/issues/105704
+https://github.com/python/cpython/pull/129418
+Fixed by: https://github.com/python/cpython/commit/d89a5f6a6e65511a5f6e0618c4c30a7aa5aba56a
+Fixed by: https://github.com/python/cpython/commit/90e526ae67b172ed7c6c56e7edad36263b0f9403 (v3.13.2)
+Fixed by: https://github.com/python/cpython/commit/a7084f6075c9595ba60119ce8c62f1496f50c568 (v3.12.9)
+https://github.com/python/cpython/pull/129528 (3.11)
+https://github.com/python/cpython/pull/129530 (3.9)
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-1795?s=debian&n=python3.11&ns=debian&t=deb&osn=debian&osv=12&vr=%3C3.11.2-6%2Bdeb12u6"><img alt="low : CVE--2025--1795" src="https://img.shields.io/badge/CVE--2025--1795-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.11.2-6+deb12u6</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.11.2-6+deb12u6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.231%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>46th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+During an address list folding when a separating comma ends up on a folded line and that line is to be unicode-encoded then the separator itself is also unicode-encoded. Expected behavior is that the separating comma remains a plan comma. This can result in the address header being misinterpreted by some mail servers.
+
+---
+- python3.13 3.13.0~b1-1
+- python3.12 3.12.9-1
+- python3.11 <removed>
+[bookworm] - python3.11 3.11.2-6+deb12u6
+- python3.9 <removed>
+https://github.com/python/cpython/issues/100884
+Regression issue: https://github.com/python/cpython/issues/118643
+https://mail.python.org/archives/list/security-announce@python.org/thread/MB62IZMEC3UM6SGHP5LET5JX2Y7H4ZUR/
+Fixed by: https://github.com/python/cpython/commit/09fab93c3d857496c0bd162797fab816c311ee48 (v3.13.0a5)
+Regression fixed by: https://github.com/python/cpython/commit/6892b400dc8c95375ef31f6d716d62a6ff0c4cf2 (v3.13.0b2)
+Fixed by: https://github.com/python/cpython/commit/9148b77e0af91cdacaa7fe3dfac09635c3fe9a74 (v3.12.3)
+Regression fixed by: https://github.com/python/cpython/commit/8c96850161da23ad2b37551d2a89c7d4716fe024 (v3.12.4)
+Fixed by: https://github.com/python/cpython/commit/70754d21c288535e86070ca7a6e90dcb670b8593 (v3.11.9)
+Regression Fixed by: https://github.com/python/cpython/commit/4762b365406a8cf026a4a4ddcae34c28a41c3de9 (v3.11.10)
+Introduced by: https://github.com/python/cpython/commit/0b6f6c82b51b7071d88f48abb3192bf3dc2a2d24 (v3.3.0a4)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>3.0.15-1~deb12u1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/openssl@3.0.15-1~deb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-13176?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=12&vr=%3C3.0.16-1%7Edeb12u1"><img alt="medium : CVE--2024--13176" src="https://img.shields.io/badge/CVE--2024--13176-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.0.16-1~deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.0.16-1~deb12u1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Issue summary: A timing side-channel which could potentially allow recovering the private key exists in the ECDSA signature computation.  Impact summary: A timing side-channel in ECDSA signature computations could allow recovering the private key by an attacker. However, measuring the timing would require either local access to the signing application or a very fast network connection with low latency.  There is a timing signal of around 300 nanoseconds when the top word of the inverted ECDSA nonce value is zero. This can happen with significant probability only for some of the supported elliptic curves. In particular the NIST P-521 curve is affected. To be able to measure this leak, the attacker process must either be located in the same physical computer or must have a very fast network connection with low latency. For that reason the severity of this vulnerability is Low.  The FIPS modules in 3.4, 3.3, 3.2, 3.1 and 3.0 are affected by this issue.
+
+---
+- openssl 3.4.1-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1094027)
+[bookworm] - openssl 3.0.16-1~deb12u1
+https://openssl-library.org/news/secadv/20250120.txt
+https://github.com/openssl/openssl/commit/77c608f4c8857e63e98e66444e2e761c9627916f (openssl-3.4.1)
+https://github.com/openssl/openssl/commit/392dcb336405a0c94486aa6655057f59fd3a0902 (openssl-3.3.3)
+https://github.com/openssl/openssl/commit/4b1cb94a734a7d4ec363ac0a215a25c181e11f65 (openssl-3.2.4)
+https://github.com/openssl/openssl/commit/2af62e74fb59bc469506bc37eb2990ea408d9467 (openssl-3.1.8)
+https://github.com/openssl/openssl/commit/07272b05b04836a762b4baa874958af51d513844 (openssl-3.0.16)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>systemd</strong> <code>252.33-1~deb12u1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/systemd@252.33-1~deb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-4598?s=debian&n=systemd&ns=debian&t=deb&osn=debian&osv=12&vr=%3C252.38-1%7Edeb12u1"><img alt="medium : CVE--2025--4598" src="https://img.shields.io/badge/CVE--2025--4598-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><252.38-1~deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><code>252.38-1~deb12u1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability was found in systemd-coredump. This flaw allows an attacker to force a SUID process to crash and replace it with a non-SUID binary to access the original's privileged process coredump, allowing the attacker to read sensitive data, such as /etc/shadow content, loaded by the original process.  A SUID binary or process has a special type of permission, which allows the process to run with the file owner's permissions, regardless of the user executing the binary. This allows the process to access more restricted data than unprivileged users or processes would be able to. An attacker can leverage this flaw by forcing a SUID process to crash and force the Linux kernel to recycle the process PID before systemd-coredump can analyze the /proc/pid/auxv file. If the attacker wins the race condition, they gain access to the original's SUID process coredump file. They can read sensitive content loaded into memory by the original binary, affecting data confidentiality.
+
+---
+- systemd 257.6-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1106785)
+https://www.qualys.com/2025/05/29/apport-coredump/apport-coredump.txt
+For a comprehensive fix a kernel change is required (to hand a pidfd to the usermode
+coredump helper):
+https://git.kernel.org/linus/b5325b2a270fcaf7b2a9a0f23d422ca8a5a8bdea
+Backports (src:linux):
+https://lore.kernel.org/linux-fsdevel/CAMw=ZnT4KSk_+Z422mEZVzfAkTueKvzdw=r9ZB2JKg5-1t6BDw@mail.gmail.com/
+Fixed by: https://github.com/systemd/systemd/commit/49f1f2d4a7612bbed5211a73d11d6a94fbe3bb69 (main)
+Fixed by: https://github.com/systemd/systemd/commit/0c49e0049b7665bb7769a13ef346fef92e1ad4d6 (main)
+Fixed by: https://github.com/systemd/systemd/commit/8fc7b2a211eb13ef1a94250b28e1c79cab8bdcb9 (main)
+Follow up (optional): https://github.com/systemd/systemd/commit/13902e025321242b1d95c6d8b4e482b37f58cdef (main)
+Follow up (optional): https://github.com/systemd/systemd/commit/868d95577ec9f862580ad365726515459be582fc (main)
+Follow up (optional): https://github.com/systemd/systemd/commit/e6a8687b939ab21854f12f59a3cce703e32768cf (main)
+Follow up (optional): https://github.com/systemd/systemd/commit/76e0ab49c47965877c19772a2b3bf55f6417ca39 (main)
+Follow up (optional): https://github.com/systemd/systemd/commit/9ce8e3e449def92c75ada41b7d10c5bc3946be77 (main)
+Fixed by: https://github.com/systemd/systemd/commit/0c49e0049b7665bb7769a13ef346fef92e1ad4d6 (v258)
+Fixed by: https://github.com/systemd/systemd/commit/868d95577ec9f862580ad365726515459be582fc (v258)
+Fixed by: https://github.com/systemd/systemd/commit/c58a8a6ec9817275bb4babaa2c08e0e35090d4e3 (v257.6)
+Fixed by: https://github.com/systemd/systemd/commit/61556694affa290c0a16d48717b3892b85622d96 (v257.6)
+Fixed by: https://github.com/systemd/systemd/commit/19d439189ab85dd7222bdd59fd442bbcc8ea99a7 (v256.16)
+Fixed by: https://github.com/systemd/systemd-stable/commit/254ab8d2a7866679cee006d844d078774cbac3c9 (v255.21)
+Fixed by: https://github.com/systemd/systemd-stable/commit/7fc7aa5a4d28d7768dfd1eb85be385c3ea949168 (v254.26)
+Fixed by: https://github.com/systemd/systemd-stable/commit/19b228662e0fcc6596c0395a0af8486a4b3f1627 (v253.33)
+Fixed by: https://github.com/systemd/systemd-stable/commit/2eb46dce078334805c547cbcf5e6462cf9d2f9f0 (v252.38)
+Issue relates to race condition exploitable while checking if a user should
+be allowed to read a core file or not via the grant_user_access() function,
+which was introduced as part of the fix for CVE-2022-4415.
 
 </blockquote>
 </details>
@@ -643,89 +1002,6 @@ Fixed by: https://foss.heptapod.net/mercurial/mercurial-devel/-/commit/a5c72ed29
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>systemd</strong> <code>252.33-1~deb12u1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/systemd@252.33-1~deb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-4598?s=debian&n=systemd&ns=debian&t=deb&osn=debian&osv=12&vr=%3C252.38-1%7Edeb12u1"><img alt="medium : CVE--2025--4598" src="https://img.shields.io/badge/CVE--2025--4598-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><252.38-1~deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><code>252.38-1~deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in systemd-coredump. This flaw allows an attacker to force a SUID process to crash and replace it with a non-SUID binary to access the original's privileged process coredump, allowing the attacker to read sensitive data, such as /etc/shadow content, loaded by the original process.  A SUID binary or process has a special type of permission, which allows the process to run with the file owner's permissions, regardless of the user executing the binary. This allows the process to access more restricted data than unprivileged users or processes would be able to. An attacker can leverage this flaw by forcing a SUID process to crash and force the Linux kernel to recycle the process PID before systemd-coredump can analyze the /proc/pid/auxv file. If the attacker wins the race condition, they gain access to the original's SUID process coredump file. They can read sensitive content loaded into memory by the original binary, affecting data confidentiality.
-
----
-- systemd 257.6-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1106785)
-https://www.qualys.com/2025/05/29/apport-coredump/apport-coredump.txt
-For a comprehensive fix a kernel change is required (to hand a pidfd to the usermode
-coredump helper):
-https://git.kernel.org/linus/b5325b2a270fcaf7b2a9a0f23d422ca8a5a8bdea
-Backports (src:linux):
-https://lore.kernel.org/linux-fsdevel/CAMw=ZnT4KSk_+Z422mEZVzfAkTueKvzdw=r9ZB2JKg5-1t6BDw@mail.gmail.com/
-Fixed by: https://github.com/systemd/systemd/commit/49f1f2d4a7612bbed5211a73d11d6a94fbe3bb69 (main)
-Fixed by: https://github.com/systemd/systemd/commit/0c49e0049b7665bb7769a13ef346fef92e1ad4d6 (main)
-Fixed by: https://github.com/systemd/systemd/commit/8fc7b2a211eb13ef1a94250b28e1c79cab8bdcb9 (main)
-Follow up (optional): https://github.com/systemd/systemd/commit/13902e025321242b1d95c6d8b4e482b37f58cdef (main)
-Follow up (optional): https://github.com/systemd/systemd/commit/868d95577ec9f862580ad365726515459be582fc (main)
-Follow up (optional): https://github.com/systemd/systemd/commit/e6a8687b939ab21854f12f59a3cce703e32768cf (main)
-Follow up (optional): https://github.com/systemd/systemd/commit/76e0ab49c47965877c19772a2b3bf55f6417ca39 (main)
-Follow up (optional): https://github.com/systemd/systemd/commit/9ce8e3e449def92c75ada41b7d10c5bc3946be77 (main)
-Fixed by: https://github.com/systemd/systemd/commit/0c49e0049b7665bb7769a13ef346fef92e1ad4d6 (v258)
-Fixed by: https://github.com/systemd/systemd/commit/868d95577ec9f862580ad365726515459be582fc (v258)
-Fixed by: https://github.com/systemd/systemd/commit/c58a8a6ec9817275bb4babaa2c08e0e35090d4e3 (v257.6)
-Fixed by: https://github.com/systemd/systemd/commit/61556694affa290c0a16d48717b3892b85622d96 (v257.6)
-Fixed by: https://github.com/systemd/systemd/commit/19d439189ab85dd7222bdd59fd442bbcc8ea99a7 (v256.16)
-Fixed by: https://github.com/systemd/systemd-stable/commit/254ab8d2a7866679cee006d844d078774cbac3c9 (v255.21)
-Fixed by: https://github.com/systemd/systemd-stable/commit/7fc7aa5a4d28d7768dfd1eb85be385c3ea949168 (v254.26)
-Fixed by: https://github.com/systemd/systemd-stable/commit/19b228662e0fcc6596c0395a0af8486a4b3f1627 (v253.33)
-Fixed by: https://github.com/systemd/systemd-stable/commit/2eb46dce078334805c547cbcf5e6462cf9d2f9f0 (v252.38)
-Issue relates to race condition exploitable while checking if a user should
-be allowed to read a core file or not via the grant_user_access() function,
-which was introduced as part of the fix for CVE-2022-4415.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>3.0.15-1~deb12u1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/openssl@3.0.15-1~deb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-13176?s=debian&n=openssl&ns=debian&t=deb&osn=debian&osv=12&vr=%3C3.0.16-1%7Edeb12u1"><img alt="medium : CVE--2024--13176" src="https://img.shields.io/badge/CVE--2024--13176-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.0.16-1~deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.0.16-1~deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Issue summary: A timing side-channel which could potentially allow recovering the private key exists in the ECDSA signature computation.  Impact summary: A timing side-channel in ECDSA signature computations could allow recovering the private key by an attacker. However, measuring the timing would require either local access to the signing application or a very fast network connection with low latency.  There is a timing signal of around 300 nanoseconds when the top word of the inverted ECDSA nonce value is zero. This can happen with significant probability only for some of the supported elliptic curves. In particular the NIST P-521 curve is affected. To be able to measure this leak, the attacker process must either be located in the same physical computer or must have a very fast network connection with low latency. For that reason the severity of this vulnerability is Low.  The FIPS modules in 3.4, 3.3, 3.2, 3.1 and 3.0 are affected by this issue.
-
----
-- openssl 3.4.1-1 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1094027)
-[bookworm] - openssl 3.0.16-1~deb12u1
-https://openssl-library.org/news/secadv/20250120.txt
-https://github.com/openssl/openssl/commit/77c608f4c8857e63e98e66444e2e761c9627916f (openssl-3.4.1)
-https://github.com/openssl/openssl/commit/392dcb336405a0c94486aa6655057f59fd3a0902 (openssl-3.3.3)
-https://github.com/openssl/openssl/commit/4b1cb94a734a7d4ec363ac0a215a25c181e11f65 (openssl-3.2.4)
-https://github.com/openssl/openssl/commit/2af62e74fb59bc469506bc37eb2990ea408d9467 (openssl-3.1.8)
-https://github.com/openssl/openssl/commit/07272b05b04836a762b4baa874958af51d513844 (openssl-3.0.16)
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <img alt="unspecified: 1" src="https://img.shields.io/badge/U-1-lightgrey"/><strong>krb5</strong> <code>1.20.1-2+deb12u2</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/krb5@1.20.1-2%2Bdeb12u2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -734,7 +1010,7 @@ https://github.com/openssl/openssl/commit/07272b05b04836a762b4baa874958af51d5138
 <table>
 <tr><td>Affected range</td><td><code><1.20.1-2+deb12u3</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.20.1-2+deb12u3</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
@@ -804,6 +1080,97 @@ https://subversion.apache.org/security/CVE-2024-46901-advisory.txt
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>subversion</strong> <code>1.14.2-4+b2</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/subversion@1.14.2-4%2Bb2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-46901?s=debian&n=subversion&ns=debian&t=deb&osn=debian&osv=12&vr=%3C1.14.2-4%2Bdeb12u1"><img alt="low : CVE--2024--46901" src="https://img.shields.io/badge/CVE--2024--46901-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.14.2-4+deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.14.2-4+deb12u1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>5.579%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Insufficient validation of filenames against control characters in Apache Subversion repositories served via mod_dav_svn allows authenticated users with commit access to commit a corrupted revision, leading to disruption for users of the repository.  All versions of Subversion up to and including Subversion 1.14.4 are affected if serving repositories via mod_dav_svn. Users are recommended to upgrade to version 1.14.5, which fixes this issue.  Repositories served via other access methods are not affected.
+
+---
+- subversion 1.14.5-1
+[bookworm] - subversion 1.14.2-4+deb12u1
+https://subversion.apache.org/security/CVE-2024-46901-advisory.txt
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gcc-12</strong> <code>12.2.0-14</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/gcc-12@12.2.0-14?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-4039?s=debian&n=gcc-12&ns=debian&t=deb&osn=debian&osv=12&vr=%3C12.2.0-14%2Bdeb12u1"><img alt="low : CVE--2023--4039" src="https://img.shields.io/badge/CVE--2023--4039-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><12.2.0-14+deb12u1</code></td></tr>
+<tr><td>Fixed version</td><td><code>12.2.0-14+deb12u1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.149%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains  that target AArch64 allows an attacker to exploit an existing buffer  overflow in dynamically-sized local variables in your application  without this being detected. This stack-protector failure only applies  to C99-style dynamically-sized local variables or those created using  alloca(). The stack-protector operates as intended for statically-sized  local variables.  The default behavior when the stack-protector  detects an overflow is to terminate your application, resulting in  controlled loss of availability. An attacker who can exploit a buffer  overflow without triggering the stack-protector might be able to change  program flow control to cause an uncontrolled loss of availability or to  go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.
+
+---
+- gcc-13 13.2.0-4 (unimportant)
+- gcc-12 12.3.0-9 (unimportant)
+[bookworm] - gcc-12 12.2.0-14+deb12u1
+- gcc-11 11.4.0-4 (unimportant)
+- gcc-10 10.5.0-3 (unimportant)
+- gcc-9 9.5.0-6 (unimportant)
+- gcc-8 <removed> (unimportant)
+- gcc-7 <removed> (unimportant)
+https://github.com/metaredteam/external-disclosures/security/advisories/GHSA-x7ch-h5rf-w2mf
+Not considered a security issue by GCC upstream
+https://developer.arm.com/Arm%20Security%20Center/GCC%20Stack%20Protector%20Vulnerability%20AArch64
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.36.0-7+deb12u1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/perl@5.36.0-7%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-56406?s=debian&n=perl&ns=debian&t=deb&osn=debian&osv=12&vr=%3C5.36.0-7%2Bdeb12u2"><img alt="low : CVE--2024--56406" src="https://img.shields.io/badge/CVE--2024--56406-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><5.36.0-7+deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.36.0-7+deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.050%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A heap buffer overflow vulnerability was discovered in Perl.   Release branches 5.34, 5.36, 5.38 and 5.40 are affected, including development versions from 5.33.1 through 5.41.10.  When there are non-ASCII bytes in the left-hand-side of the `tr` operator, `S_do_trans_invmap` can overflow the destination pointer `d`.     $ perl -e '$_ = "\x{FF}" x 1000000; tr/\xFF/\x{100}/;'     Segmentation fault (core dumped)  It is believed that this vulnerability can enable Denial of Service and possibly Code Execution attacks on platforms that lack sufficient defenses.
+
+---
+- perl 5.40.1-3
+[bullseye] - perl <not-affected> (Vulnerable code introduced later)
+https://lists.security.metacpan.org/cve-announce/msg/28708725/
+Introduced by: https://github.com/Perl/perl5/commit/a311ee08b6781f83a7785f578a26bbc21a7ae457 (v5.33.1)
+Fixed by: https://github.com/Perl/perl5/commit/87f42aa0e0096e9a346c9672aa3a0bd3bef8c1dd
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>glib2.0</strong> <code>2.74.6-2+deb12u5</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/glib2.0@2.74.6-2%2Bdeb12u5?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -831,41 +1198,6 @@ https://gitlab.gnome.org/GNOME/glib/-/commit/0b225e7cd80801aca6e627696064d1698aa
 https://gitlab.gnome.org/GNOME/glib/-/commit/3672764a17c26341ab8224dcaddf3e7cad699443 (2.83.4)
 https://gitlab.gnome.org/GNOME/glib/-/commit/0ffdbebd9ab3246958e14ab33bd0c65b6f05fd13 (2.83.4)
 Introduced by https://gitlab.gnome.org/GNOME/glib/-/commit/491f835c17d200ede52c823ab1566c493479cdc1 (2.55.0)
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gcc-12</strong> <code>12.2.0-14</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/gcc-12@12.2.0-14?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-4039?s=debian&n=gcc-12&ns=debian&t=deb&osn=debian&osv=12&vr=%3C12.2.0-14%2Bdeb12u1"><img alt="low : CVE--2023--4039" src="https://img.shields.io/badge/CVE--2023--4039-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><12.2.0-14+deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><code>12.2.0-14+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.149%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains  that target AArch64 allows an attacker to exploit an existing buffer  overflow in dynamically-sized local variables in your application  without this being detected. This stack-protector failure only applies  to C99-style dynamically-sized local variables or those created using  alloca(). The stack-protector operates as intended for statically-sized  local variables.  The default behavior when the stack-protector  detects an overflow is to terminate your application, resulting in  controlled loss of availability. An attacker who can exploit a buffer  overflow without triggering the stack-protector might be able to change  program flow control to cause an uncontrolled loss of availability or to  go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.
-
----
-- gcc-13 13.2.0-4 (unimportant)
-- gcc-12 12.3.0-9 (unimportant)
-[bookworm] - gcc-12 12.2.0-14+deb12u1
-- gcc-11 11.4.0-4 (unimportant)
-- gcc-10 10.5.0-3 (unimportant)
-- gcc-9 9.5.0-6 (unimportant)
-- gcc-8 <removed> (unimportant)
-- gcc-7 <removed> (unimportant)
-https://github.com/metaredteam/external-disclosures/security/advisories/GHSA-x7ch-h5rf-w2mf
-Not considered a security issue by GCC upstream
-https://developer.arm.com/Arm%20Security%20Center/GCC%20Stack%20Protector%20Vulnerability%20AArch64
 
 </blockquote>
 </details>
@@ -901,62 +1233,6 @@ https://github.com/tukaani-project/xz/security/advisories/GHSA-6cc8-p5mm-29w2
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>subversion</strong> <code>1.14.2-4+b2</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/subversion@1.14.2-4%2Bb2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-46901?s=debian&n=subversion&ns=debian&t=deb&osn=debian&osv=12&vr=%3C1.14.2-4%2Bdeb12u1"><img alt="low : CVE--2024--46901" src="https://img.shields.io/badge/CVE--2024--46901-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1.14.2-4+deb12u1</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.14.2-4+deb12u1</code></td></tr>
-<tr><td>EPSS Score</td><td><code>5.579%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Insufficient validation of filenames against control characters in Apache Subversion repositories served via mod_dav_svn allows authenticated users with commit access to commit a corrupted revision, leading to disruption for users of the repository.  All versions of Subversion up to and including Subversion 1.14.4 are affected if serving repositories via mod_dav_svn. Users are recommended to upgrade to version 1.14.5, which fixes this issue.  Repositories served via other access methods are not affected.
-
----
-- subversion 1.14.5-1
-[bookworm] - subversion 1.14.2-4+deb12u1
-https://subversion.apache.org/security/CVE-2024-46901-advisory.txt
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.36.0-7+deb12u1</code> (deb)</summary>
-
-<small><code>pkg:deb/debian/perl@5.36.0-7%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-56406?s=debian&n=perl&ns=debian&t=deb&osn=debian&osv=12&vr=%3C5.36.0-7%2Bdeb12u2"><img alt="low : CVE--2024--56406" src="https://img.shields.io/badge/CVE--2024--56406-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><5.36.0-7+deb12u2</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.36.0-7+deb12u2</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.183%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A heap buffer overflow vulnerability was discovered in Perl.   Release branches 5.34, 5.36, 5.38 and 5.40 are affected, including development versions from 5.33.1 through 5.41.10.  When there are non-ASCII bytes in the left-hand-side of the `tr` operator, `S_do_trans_invmap` can overflow the destination pointer `d`.     $ perl -e '$_ = "\x{FF}" x 1000000; tr/\xFF/\x{100}/;'     Segmentation fault (core dumped)  It is believed that this vulnerability can enable Denial of Service and possibly Code Execution attacks on platforms that lack sufficient defenses.
-
----
-- perl 5.40.1-3
-[bullseye] - perl <not-affected> (Vulnerable code introduced later)
-https://lists.security.metacpan.org/cve-announce/msg/28708725/
-Introduced by: https://github.com/Perl/perl5/commit/a311ee08b6781f83a7785f578a26bbc21a7ae457 (v5.33.1)
-Fixed by: https://github.com/Perl/perl5/commit/87f42aa0e0096e9a346c9672aa3a0bd3bef8c1dd
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>imagemagick</strong> <code>8:6.9.11.60+dfsg-1.6+deb12u2</code> (deb)</summary>
 
 <small><code>pkg:deb/debian/imagemagick@8%3A6.9.11.60%2Bdfsg-1.6%2Bdeb12u2?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
@@ -965,7 +1241,7 @@ Fixed by: https://github.com/Perl/perl5/commit/87f42aa0e0096e9a346c9672aa3a0bd3b
 <table>
 <tr><td>Affected range</td><td><code><8:6.9.11.60+dfsg-1.6+deb12u3</code></td></tr>
 <tr><td>Fixed version</td><td><code>8:6.9.11.60+dfsg-1.6+deb12u3</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
@@ -979,6 +1255,35 @@ In MIFF image processing in ImageMagick before 7.1.1-44, image depth is mishandl
 [bookworm] - imagemagick 8:6.9.11.60+dfsg-1.6+deb12u3
 Fixed by: https://github.com/ImageMagick/ImageMagick/commit/bac413a26073923d3ffb258adaab07fb3fe8fdc9 (7.1.1-44)
 Fixed by: https://github.com/ImageMagick/ImageMagick6/commit/c99cbc8d8663248bf353cd9042b04d7936e7587a (6.9.13-22)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>gdk-pixbuf</strong> <code>2.42.10+dfsg-1+deb12u1</code> (deb)</summary>
+
+<small><code>pkg:deb/debian/gdk-pixbuf@2.42.10%2Bdfsg-1%2Bdeb12u1?os_distro=bookworm&os_name=debian&os_version=12</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-6199?s=debian&n=gdk-pixbuf&ns=debian&t=deb&osn=debian&osv=12&vr=%3C2.42.10%2Bdfsg-1%2Bdeb12u2"><img alt="low : CVE--2025--6199" src="https://img.shields.io/badge/CVE--2025--6199-lightgrey?label=low%20&labelColor=fce1a9"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.42.10+dfsg-1+deb12u2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.42.10+dfsg-1+deb12u2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.013%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in the GIF parser of GdkPixbuf’s LZW decoder. When an invalid symbol is encountered during decompression, the decoder sets the reported output size to the full buffer length rather than the actual number of written bytes. This logic error results in uninitialized sections of the buffer being included in the output, potentially leaking arbitrary memory contents in the processed image.
+
+---
+- gdk-pixbuf 2.42.12+dfsg-3 (bug https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1107994)
+https://bugzilla.redhat.com/show_bug.cgi?id=2373147
+https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/issues/257
+https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/merge_requests/191
+Fixed by: https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/commit/c4986342b241cdc075259565f3fa7a7597d32a32 (2.43.2)
 
 </blockquote>
 </details>

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sra-tools:3.1.1
 
-Report generated on 2025-06-22 02:51:43 PST
+Report generated on 2025-07-01 09:43:22 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/sra-tools:3.1.1</code></h2>
 
@@ -102,8 +102,8 @@ RADIUS Protocol under RFC 2865 is susceptible to forgery attacks by a local atta
 <table>
 <tr><td>Affected range</td><td><code><1.17-6ubuntu4.11</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.17-6ubuntu4.11</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -173,8 +173,8 @@ Kerberos 5 (aka krb5) 1.21.2 contains a memory leak in /krb5/src/lib/rpc/pmap_rm
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.18</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.18</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.006%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -190,8 +190,8 @@ Untrusted LD_LIBRARY_PATH environment variable vulnerability in the GNU C Librar
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.17</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.17</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.172%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.191%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -212,8 +212,8 @@ When the assert() function in the GNU C Library versions 2.13 to 2.40 fails, it 
 <table>
 <tr><td>Affected range</td><td><code><1:2.25.1-1ubuntu3.14</code></td></tr>
 <tr><td>Fixed version</td><td><code>1:2.25.1-1ubuntu3.14</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.141%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.178%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -229,8 +229,8 @@ Git is a fast, scalable, distributed revision control system with an unusually r
 <table>
 <tr><td>Affected range</td><td><code><1:2.25.1-1ubuntu3.14</code></td></tr>
 <tr><td>Fixed version</td><td><code>1:2.25.1-1ubuntu3.14</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.077%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.097%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>28th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -246,14 +246,14 @@ Git is a fast, scalable, distributed revision control system with an unusually r
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>urllib3</strong> <code>2.2.3</code> (pypi)</summary>
 
 <small><code>pkg:pypi/urllib3@2.2.3</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-50182?s=github&n=urllib3&t=pypi&vr=%3C2.5.0"><img alt="medium 5.3: CVE--2025--50182" src="https://img.shields.io/badge/CVE--2025--50182-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>URL Redirection to Untrusted Site ('Open Redirect')</i>
+<a href="https://scout.docker.com/v/CVE-2025-50182?s=github&n=urllib3&t=pypi&vr=%3E%3D2.2.0%2C%3C2.5.0"><img alt="medium 5.3: CVE--2025--50182" src="https://img.shields.io/badge/CVE--2025--50182-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>URL Redirection to Untrusted Site ('Open Redirect')</i>
 
 <table>
-<tr><td>Affected range</td><td><code><2.5.0</code></td></tr>
+<tr><td>Affected range</td><td><code>>=2.2.0<br/><2.5.0</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.5.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.010%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -291,7 +291,7 @@ Unfortunately, browsers provide no suitable way which urllib3 can use: `XMLHttpR
 <tr><td>Fixed version</td><td><code>2.5.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.010%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
 </table>
 
@@ -342,39 +342,6 @@ You can remediate this vulnerability with the following steps:
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>requests</strong> <code>2.32.3</code> (pypi)</summary>
-
-<small><code>pkg:pypi/requests@2.32.3</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-47081?s=github&n=requests&t=pypi&vr=%3C2.32.4"><img alt="medium 5.3: CVE--2024--47081" src="https://img.shields.io/badge/CVE--2024--47081-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>Insufficiently Protected Credentials</i>
-
-<table>
-<tr><td>Affected range</td><td><code><2.32.4</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.32.4</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.062%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-### Impact
-
-Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.
-
-### Workarounds
-For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on your Requests Session ([docs](https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env)).
-
-### References
-https://github.com/psf/requests/pull/6965
-https://seclists.org/fulldisclosure/2025/Jun/2
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>expat</strong> <code>2.2.9-1ubuntu0.7</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/expat@2.2.9-1ubuntu0.7?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
@@ -391,50 +358,6 @@ https://seclists.org/fulldisclosure/2025/Jun/2
 <blockquote>
 
 An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>sqlite3</strong> <code>3.31.1-4ubuntu0.6</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/sqlite3@3.31.1-4ubuntu0.6?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-29088?s=ubuntu&n=sqlite3&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C3.31.1-4ubuntu0.7"><img alt="medium : CVE--2025--29088" src="https://img.shields.io/badge/CVE--2025--29088-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><3.31.1-4ubuntu0.7</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.31.1-4ubuntu0.7</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In SQLite 3.49.0 before 3.49.1, certain argument values to sqlite3_db_config (in the C-language API) can cause a denial of service (application crash). An sz*nBig multiplication is not cast to a 64-bit integer, and consequently some memory allocations may be incorrect.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.19-3ubuntu2.2</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/gnupg2@2.2.19-3ubuntu2.2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C2.2.19-3ubuntu2.4"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.2.19-3ubuntu2.4</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.2.19-3ubuntu2.4</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
 
 </blockquote>
 </details>
@@ -485,6 +408,83 @@ A flaw was found in GnuTLS, which relies on libtasn1 for ASN.1 data processing. 
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>requests</strong> <code>2.32.3</code> (pypi)</summary>
+
+<small><code>pkg:pypi/requests@2.32.3</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-47081?s=github&n=requests&t=pypi&vr=%3C2.32.4"><img alt="medium 5.3: CVE--2024--47081" src="https://img.shields.io/badge/CVE--2024--47081-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>Insufficiently Protected Credentials</i>
+
+<table>
+<tr><td>Affected range</td><td><code><2.32.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.32.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.062%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+### Impact
+
+Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.
+
+### Workarounds
+For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on your Requests Session ([docs](https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env)).
+
+### References
+https://github.com/psf/requests/pull/6965
+https://seclists.org/fulldisclosure/2025/Jun/2
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>sqlite3</strong> <code>3.31.1-4ubuntu0.6</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/sqlite3@3.31.1-4ubuntu0.6?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-29088?s=ubuntu&n=sqlite3&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C3.31.1-4ubuntu0.7"><img alt="medium : CVE--2025--29088" src="https://img.shields.io/badge/CVE--2025--29088-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.31.1-4ubuntu0.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.31.1-4ubuntu0.7</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In SQLite 3.49.0 before 3.49.1, certain argument values to sqlite3_db_config (in the C-language API) can cause a denial of service (application crash). An sz*nBig multiplication is not cast to a 64-bit integer, and consequently some memory allocations may be incorrect.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnupg2</strong> <code>2.2.19-3ubuntu2.2</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnupg2@2.2.19-3ubuntu2.2?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-30258?s=ubuntu&n=gnupg2&ns=ubuntu&t=deb&osn=ubuntu&osv=20.04&vr=%3C2.2.19-3ubuntu2.4"><img alt="medium : CVE--2025--30258" src="https://img.shields.io/badge/CVE--2025--30258-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.2.19-3ubuntu2.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.2.19-3ubuntu2.4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.012%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In GnuPG before 2.5.5, if a user chooses to import a certificate with certain crafted subkey data that lacks a valid backsig or that has incorrect usage flags, the user loses the ability to verify signatures made from certain other signing keys, aka a "verification DoS."
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>openssl</strong> <code>1.1.1f-1ubuntu2.23</code> (deb)</summary>
 
 <small><code>pkg:deb/ubuntu/openssl@1.1.1f-1ubuntu2.23?os_distro=focal&os_name=ubuntu&os_version=20.04</code></small><br/>
@@ -510,8 +510,8 @@ Issue summary: Use of the low-level GF(2^m) elliptic curve APIs with untrusted e
 <table>
 <tr><td>Affected range</td><td><code><1.1.1f-1ubuntu2.24</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.1.1f-1ubuntu2.24</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>

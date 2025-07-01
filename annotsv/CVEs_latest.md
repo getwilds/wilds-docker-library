@@ -1,12 +1,12 @@
 # Vulnerability Report for getwilds/annotsv:latest
 
-Report generated on 2025-06-24 04:49:26 PST
+Report generated on 2025-07-01 08:21:48 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/annotsv:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/annotsv:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:8c5f7fd63d555440bd565e5c8ccb24789f92f8d693e73ebbc68157dda82d4b6b</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 22" src="https://img.shields.io/badge/critical-22-8b1924"/> <img alt="high: 97" src="https://img.shields.io/badge/high-97-e25d68"/> <img alt="medium: 59" src="https://img.shields.io/badge/medium-59-fbb552"/> <img alt="low: 4" src="https://img.shields.io/badge/low-4-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:8c5f7fd63d555440bd565e5c8ccb24789f92f8d693e73ebbc68157dda82d4b6b</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 22" src="https://img.shields.io/badge/critical-22-8b1924"/> <img alt="high: 98" src="https://img.shields.io/badge/high-98-e25d68"/> <img alt="medium: 59" src="https://img.shields.io/badge/medium-59-fbb552"/> <img alt="low: 4" src="https://img.shields.io/badge/low-4-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
 <tr><td>size</td><td>2.3 GB</td></tr>
 <tr><td>packages</td><td>300</td></tr>
@@ -140,8 +140,8 @@ A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.0.0 pr
 <tr><td>Fixed version</td><td><code>2.9.10</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.357%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>79th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.195%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>78th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1117,8 +1117,8 @@ Users are recommended to upgrade to version 11.0.3, 10.1.35 or 9.0.99, which fix
 <tr><td>Fixed version</td><td><code>9.0.106</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.052%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.177%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1182,7 +1182,7 @@ If a web application sends a WebSocket message concurrently with the WebSocket c
 <tr><td>Fixed version</td><td><code>9.0.17</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.225%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.164%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1220,8 +1220,8 @@ A Incorrect Default Permissions vulnerability in the packaging of tomcat on SUSE
 <tr><td>Fixed version</td><td><code>9.0.83</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>45.383%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>49.620%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1374,7 +1374,7 @@ While investigating bug it was discovered that Apache Tomcat to to to could re-u
 <tr><td>Fixed version</td><td><code>9.0.37</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>92.541%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>92.318%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1524,7 +1524,7 @@ Users are recommended to upgrade to version 11.0.2, 10.1.34 or 9.0.98, which fix
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.150%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1599,7 +1599,7 @@ When Apache Tomcat 9.0.0.M1 to 9.0.28, 8.5.0 to 8.5.47, 7.0.0 and 7.0.97 is conf
 <tr><td>Fixed version</td><td><code>9.0.81</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.437%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.474%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1940,8 +1940,8 @@ The simplified implementation of blocking reads and writes introduced in Tomcat 
 <tr><td>Fixed version</td><td><code>9.0.105</code></td></tr>
 <tr><td>CVSS Score</td><td><code>1.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/E:U/U:Clear</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.017%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2069,8 +2069,8 @@ In Spring Framework, an application is vulnerable to a reflected file download (
 <tr><td>Fixed version</td><td><code>5.3.38</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.172%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.192%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2328,8 +2328,8 @@ In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupport
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.071%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2411,8 +2411,8 @@ In spring framework versions prior to 5.3.20+ , 5.2.22+ and old unsupported vers
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.071%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2468,6 +2468,30 @@ Thymeleaf through 3.1.1.RELEASE, as used in spring-boot-admin (aka Spring Boot A
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework.boot/spring-boot-actuator-autoconfigure</strong> <code>2.1.3.RELEASE</code> (maven)</summary>
+
+<small><code>pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@2.1.3.RELEASE</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-20873?s=github&n=spring-boot-actuator-autoconfigure&ns=org.springframework.boot&t=maven&vr=%3C2.5.15"><img alt="critical 9.8: CVE--2023--20873" src="https://img.shields.io/badge/CVE--2023--20873-lightgrey?label=critical%209.8&labelColor=8b1924"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><2.5.15</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.5.15</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.385%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>59th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Spring Boot versions 3.0.0 - 3.0.5, 2.7.0 - 2.7.10, and older unsupported versions, an application that is deployed to Cloud Foundry could be susceptible to a security bypass. Users of affected versions should apply the following mitigation: 3.0.x users should upgrade to 3.0.6+. 2.7.x users should upgrade to 2.7.11+. Users of older, unsupported versions should upgrade to 3.0.6+ or 2.7.11+.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework.boot/spring-boot-starter-web</strong> <code>2.1.3.RELEASE</code> (maven)</summary>
 
 <small><code>pkg:maven/org.springframework.boot/spring-boot-starter-web@2.1.3.RELEASE</code></small><br/>
@@ -2507,30 +2531,6 @@ These are the prerequisites for the exploit:
 For those who are unable to upgrade, leaked reports recommend setting `disallowedFields` on `WebDataBinder` through an `@ControllerAdvice`. This works generally, but as a centrally applied workaround fix, may leave some loopholes, in particular if a controller sets `disallowedFields` locally through its own `@InitBinder` method, which overrides the global setting.
 
 To apply the workaround in a more fail-safe way, applications could extend `RequestMappingHandlerAdapter` to update the `WebDataBinder` at the end after all other initialization. In order to do that, a Spring Boot application can declare a `WebMvcRegistrations` bean (Spring MVC) or a `WebFluxRegistrations` bean (Spring WebFlux).
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework.boot/spring-boot-actuator-autoconfigure</strong> <code>2.1.3.RELEASE</code> (maven)</summary>
-
-<small><code>pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@2.1.3.RELEASE</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-20873?s=github&n=spring-boot-actuator-autoconfigure&ns=org.springframework.boot&t=maven&vr=%3C2.5.15"><img alt="critical 9.8: CVE--2023--20873" src="https://img.shields.io/badge/CVE--2023--20873-lightgrey?label=critical%209.8&labelColor=8b1924"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><2.5.15</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.5.15</code></td></tr>
-<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.385%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>59th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Spring Boot versions 3.0.0 - 3.0.5, 2.7.0 - 2.7.10, and older unsupported versions, an application that is deployed to Cloud Foundry could be susceptible to a security bypass. Users of affected versions should apply the following mitigation: 3.0.x users should upgrade to 3.0.6+. 2.7.x users should upgrade to 2.7.11+. Users of older, unsupported versions should upgrade to 3.0.6+ or 2.7.11+.
 
 </blockquote>
 </details>
@@ -2729,8 +2729,8 @@ google-protobuf [JRuby gem only] (3.21.7, 3.20.3, 3.19.6)
 <tr><td>Fixed version</td><td><code>1.21</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.287%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.279%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>51st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2748,8 +2748,8 @@ When reading a specially crafted ZIP archive, Compress can be made to allocate l
 <tr><td>Fixed version</td><td><code>1.21</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.323%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.314%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>54th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2767,7 +2767,7 @@ When reading a specially crafted TAR archive, Compress can be made to allocate l
 <tr><td>Fixed version</td><td><code>1.21</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.320%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.311%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>54th percentile</code></td></tr>
 </table>
 
@@ -2786,8 +2786,8 @@ When reading a specially crafted 7Z archive, Compress can be made to allocate la
 <tr><td>Fixed version</td><td><code>1.21</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.123%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.120%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2831,7 +2831,7 @@ Users are recommended to upgrade to version 1.26.0 which fixes the issue.
 <tr><td>Fixed version</td><td><code>2.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>93.796%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>93.849%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2922,8 +2922,8 @@ See https://bitbucket.org/snakeyaml/snakeyaml/issues/561/cve-2022-1471-vulnerabi
 <tr><td>Fixed version</td><td><code>1.31</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.280%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>51st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.299%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>53rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2941,8 +2941,8 @@ The package org.yaml:snakeyaml from 0 and before 1.31 are vulnerable to Denial o
 <tr><td>Fixed version</td><td><code>1.26</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.166%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.766%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2979,8 +2979,8 @@ Those using Snakeyaml to parse untrusted YAML files may be vulnerable to Denial 
 <tr><td>Fixed version</td><td><code>1.32</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.167%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.200%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>43rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3079,7 +3079,7 @@ Netty project is an event-driven asynchronous network application framework. In 
 <tr><td>Fixed version</td><td><code>4.1.68</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.229%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.232%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>46th percentile</code></td></tr>
 </table>
 
@@ -3117,7 +3117,7 @@ Netty before 4.1.42.Final mishandles whitespace before the colon in HTTP headers
 <tr><td>Fixed version</td><td><code>4.1.94.Final</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.426%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.416%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>61st percentile</code></td></tr>
 </table>
 
@@ -3136,7 +3136,7 @@ Netty is an asynchronous event-driven network application framework for rapid de
 <tr><td>Fixed version</td><td><code>4.1.61.Final</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>5.113%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>4.983%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>89th percentile</code></td></tr>
 </table>
 
@@ -3179,8 +3179,8 @@ Netty is an open-source, asynchronous event-driven network application framework
 <tr><td>Fixed version</td><td><code>8.5.96, 9.0.83, 10.1.16</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>45.383%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>49.620%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3200,7 +3200,7 @@ Users are recommended to upgrade to version 11.0.0-M11 onwards, 10.1.16 onwards
 <tr><td>Fixed version</td><td><code>7.0.105, 8.5.57, 9.0.37, 10.0.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>92.541%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>92.318%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -3323,7 +3323,7 @@ In Spring Framework versions 6.0.0 - 6.0.6, 5.3.0 - 5.3.25, 5.2.0.RELEASE - 5.2.
 <tr><td>Fixed version</td><td><code>5.2.20.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>4.547%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>4.708%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>89th percentile</code></td></tr>
 </table>
 
@@ -3365,8 +3365,8 @@ Specifically, an application is vulnerable when the following is true:
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.071%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3462,6 +3462,212 @@ A successful attack requires the user to have write access to a configuration fi
 Server-Side Request Forgery (SSRF) in SaxEventRecorder by QOS.CH logback version 1.5.12 on the Java platform, allows an attacker to forge requests by compromising logback configuration files in XML.
  
 The attacks involves the modification of DOCTYPE declaration in  XML configuration files.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.fasterxml.jackson.core/jackson-core</strong> <code>2.9.8</code> (maven)</summary>
+
+<small><code>pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-52999?s=github&n=jackson-core&ns=com.fasterxml.jackson.core&t=maven&vr=%3C2.15.0"><img alt="high 8.7: CVE--2025--52999" src="https://img.shields.io/badge/CVE--2025--52999-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Stack-based Buffer Overflow</i>
+
+<table>
+<tr><td>Affected range</td><td><code><2.15.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.15.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+### Impact
+With older versions  of jackson-core, if you parse an input file and it has deeply nested data, Jackson could end up throwing a StackoverflowError if the depth is particularly large.
+
+### Patches
+jackson-core 2.15.0 contains a configurable limit for how deep Jackson will traverse in an input document, defaulting to an allowable depth of 1000. Change is in https://github.com/FasterXML/jackson-core/pull/943. jackson-core will throw a StreamConstraintsException if the limit is reached.
+jackson-databind also benefits from this change because it uses jackson-core to parse JSON inputs.
+
+### Workarounds
+Users should avoid parsing input files from untrusted sources.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-49128?s=github&n=jackson-core&ns=com.fasterxml.jackson.core&t=maven&vr=%3E%3D2.0.0%2C%3C2.13.0"><img alt="medium 4.0: CVE--2025--49128" src="https://img.shields.io/badge/CVE--2025--49128-lightgrey?label=medium%204.0&labelColor=fbb552"/></a> <i>Generation of Error Message Containing Sensitive Information</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.0.0<br/><2.13.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.13.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>4</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.005%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+### Overview
+
+A flaw in Jackson-core's `JsonLocation._appendSourceDesc` method allows up to 500 bytes of unintended memory content to be included in exception messages. When parsing JSON from a byte array with an offset and length, the exception message incorrectly reads from the beginning of the array instead of the logical payload start. This results in possible **information disclosure** in systems using **pooled or reused buffers**, like Netty or Vert.x.
+
+### Details
+
+The vulnerability affects the creation of exception messages like:
+
+```
+JsonParseException: Unexpected character ... at [Source: (byte[])...]
+```
+
+When `JsonFactory.createParser(byte[] data, int offset, int len)` is used, and an error occurs while parsing, the exception message should include a snippet from the specified logical payload. However, the method `_appendSourceDesc` ignores the `offset`, and always starts reading from index `0`.
+
+If the buffer contains residual sensitive data from a previous request, such as credentials or document contents, that data may be exposed if the exception is propagated to the client.
+
+The issue particularly impacts server applications using:
+
+* Pooled byte buffers (e.g., Netty)
+* Frameworks that surface parse errors in HTTP responses
+* Default Jackson settings (i.e., `INCLUDE_SOURCE_IN_LOCATION` is enabled)
+
+A documented real-world example is [CVE-2021-22145](https://nvd.nist.gov/vuln/detail/CVE-2021-22145) in Elasticsearch, which stemmed from the same root cause.
+
+### Attack Scenario
+
+An attacker sends malformed JSON to a service using Jackson and pooled byte buffers (e.g., Netty-based HTTP servers). If the server reuses a buffer and includes the parser’s exception in its HTTP 400 response, the attacker may receive residual data from previous requests.
+
+### Proof of Concept
+
+```java
+byte[] buffer = new byte[1000];
+System.arraycopy("SECRET".getBytes(), 0, buffer, 0, 6);
+System.arraycopy("{ \"bad\": }".getBytes(), 0, buffer, 700, 10);
+
+JsonFactory factory = new JsonFactory();
+JsonParser parser = factory.createParser(buffer, 700, 20);
+parser.nextToken(); // throws exception
+
+// Exception message will include "SECRET"
+```
+
+### Patches
+This issue was silently fixed in jackson-core version 2.13.0, released on September 30, 2021, via [PR #652](https://github.com/FasterXML/jackson-core/pull/652).
+
+All users should upgrade to version 2.13.0 or later.
+
+### Workarounds
+If upgrading is not immediately possible, applications can mitigate the issue by:
+
+1. **Disabling exception message exposure to clients** — avoid returning parsing exception messages in HTTP responses.
+2. **Disabling source inclusion in exceptions** by setting:
+
+   ```java
+   jsonFactory.disable(JsonFactory.Feature.INCLUDE_SOURCE_IN_LOCATION);
+   ```
+
+    This prevents Jackson from embedding any source content in exception messages, avoiding leakage.
+
+
+### References
+* [Pull Request #652 (Fix implementation)](https://github.com/FasterXML/jackson-core/pull/652)
+* [CVE-2021-22145 (Elasticsearch exposure of this flaw)](https://nvd.nist.gov/vuln/detail/CVE-2021-22145)
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-io/commons-io</strong> <code>2.4</code> (maven)</summary>
+
+<small><code>pkg:maven/commons-io/commons-io@2.4</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-47554?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3E%3D2.0%2C%3C2.14.0"><img alt="high 8.7: CVE--2024--47554" src="https://img.shields.io/badge/CVE--2024--47554-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Uncontrolled Resource Consumption</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.0<br/><2.14.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.14.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.061%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Uncontrolled Resource Consumption vulnerability in Apache Commons IO.
+
+The `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.
+
+
+This issue affects Apache Commons IO: from 2.0 before 2.14.0.
+
+Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2021-29425?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3C2.7"><img alt="medium 4.8: CVE--2021--29425" src="https://img.shields.io/badge/CVE--2021--29425-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>Improper Input Validation</i>
+
+<table>
+<tr><td>Affected range</td><td><code><2.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.7</code></td></tr>
+<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.357%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Apache Commons IO before 2.7, When invoking the method FileNameUtils.normalize with an improper input string, like "//../foo", or "\\..\foo", the result would be the same value, thus possibly providing access to files in the parent directory, but not further above (thus "limited" path traversal), if the calling code would use the result to construct a path value.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-context</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
+
+<small><code>pkg:maven/org.springframework/spring-context@5.1.5.RELEASE</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-22968?s=github&n=spring-context&ns=org.springframework&t=maven&vr=%3C5.2.21.RELEASE"><img alt="high 7.5: CVE--2022--22968" src="https://img.shields.io/badge/CVE--2022--22968-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>Improper Handling of Case Sensitivity</i>
+
+<table>
+<tr><td>Affected range</td><td><code><5.2.21.RELEASE</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.2.21.RELEASE</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>22.751%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>96th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupported versions, the patterns for disallowedFields on a DataBinder are case sensitive which means a field is not effectively protected unless it is listed with both upper and lower case for the first character of the field, including upper and lower case for the first character of all nested fields within the property path. Versions 5.3.19 and 5.2.21 contain a patch for this issue.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-38827?s=gitlab&n=spring-context&ns=org.springframework&t=maven&vr=%3C6.1.14"><img alt="medium 4.8: CVE--2024--38827" src="https://img.shields.io/badge/CVE--2024--38827-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code><6.1.14</code></td></tr>
+<tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
+<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
 
 </blockquote>
 </details>
@@ -3566,123 +3772,6 @@ Specifically, an application is vulnerable when all of the following are true:
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-io/commons-io</strong> <code>2.4</code> (maven)</summary>
-
-<small><code>pkg:maven/commons-io/commons-io@2.4</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-47554?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3E%3D2.0%2C%3C2.14.0"><img alt="high 8.7: CVE--2024--47554" src="https://img.shields.io/badge/CVE--2024--47554-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Uncontrolled Resource Consumption</i>
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.0<br/><2.14.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.14.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.046%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Uncontrolled Resource Consumption vulnerability in Apache Commons IO.
-
-The `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.
-
-
-This issue affects Apache Commons IO: from 2.0 before 2.14.0.
-
-Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2021-29425?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3C2.7"><img alt="medium 4.8: CVE--2021--29425" src="https://img.shields.io/badge/CVE--2021--29425-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>Improper Input Validation</i>
-
-<table>
-<tr><td>Affected range</td><td><code><2.7</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.7</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.357%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Apache Commons IO before 2.7, When invoking the method FileNameUtils.normalize with an improper input string, like "//../foo", or "\\..\foo", the result would be the same value, thus possibly providing access to files in the parent directory, but not further above (thus "limited" path traversal), if the calling code would use the result to construct a path value.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-context</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
-
-<small><code>pkg:maven/org.springframework/spring-context@5.1.5.RELEASE</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-22968?s=github&n=spring-context&ns=org.springframework&t=maven&vr=%3C5.2.21.RELEASE"><img alt="high 7.5: CVE--2022--22968" src="https://img.shields.io/badge/CVE--2022--22968-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>Improper Handling of Case Sensitivity</i>
-
-<table>
-<tr><td>Affected range</td><td><code><5.2.21.RELEASE</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.2.21.RELEASE</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>22.751%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>96th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupported versions, the patterns for disallowedFields on a DataBinder are case sensitive which means a field is not effectively protected unless it is listed with both upper and lower case for the first character of the field, including upper and lower case for the first character of all nested fields within the property path. Versions 5.3.19 and 5.2.21 contain a patch for this issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-38827?s=gitlab&n=spring-context&ns=org.springframework&t=maven&vr=%3C6.1.14"><img alt="medium 4.8: CVE--2024--38827" src="https://img.shields.io/badge/CVE--2024--38827-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code><6.1.14</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.071%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.google.code.gson/gson</strong> <code>2.8.5</code> (maven)</summary>
-
-<small><code>pkg:maven/com.google.code.gson/gson@2.8.5</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-25647?s=github&n=gson&ns=com.google.code.gson&t=maven&vr=%3C2.8.9"><img alt="high 7.7: CVE--2022--25647" src="https://img.shields.io/badge/CVE--2022--25647-lightgrey?label=high%207.7&labelColor=e25d68"/></a> <i>Deserialization of Untrusted Data</i>
-
-<table>
-<tr><td>Affected range</td><td><code><2.8.9</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.8.9</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.149%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The package `com.google.code.gson:gson` before 2.8.9 is vulnerable to Deserialization of Untrusted Data via the `writeReplace()` method in internal classes, which may lead to denial of service attacks.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework.boot/spring-boot-autoconfigure</strong> <code>2.1.3.RELEASE</code> (maven)</summary>
 
 <small><code>pkg:maven/org.springframework.boot/spring-boot-autoconfigure@2.1.3.RELEASE</code></small><br/>
@@ -3734,6 +3823,30 @@ Users of affected versions should apply the following mitigations:
 Users of older, unsupported versions should upgrade to 3.0.7+ or 2.7.12+.
 
 Workarounds: configure the reverse proxy not to cache 404 responses and/or not to cache responses to requests to the root (/) of the application.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.google.code.gson/gson</strong> <code>2.8.5</code> (maven)</summary>
+
+<small><code>pkg:maven/com.google.code.gson/gson@2.8.5</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-25647?s=github&n=gson&ns=com.google.code.gson&t=maven&vr=%3C2.8.9"><img alt="high 7.7: CVE--2022--25647" src="https://img.shields.io/badge/CVE--2022--25647-lightgrey?label=high%207.7&labelColor=e25d68"/></a> <i>Deserialization of Untrusted Data</i>
+
+<table>
+<tr><td>Affected range</td><td><code><2.8.9</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.8.9</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.666%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>81st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The package `com.google.code.gson:gson` before 2.8.9 is vulnerable to Deserialization of Untrusted Data via the `writeReplace()` method in internal classes, which may lead to denial of service attacks.
 
 </blockquote>
 </details>
@@ -3814,8 +3927,8 @@ A vulnerability was found in Hibernate-Validator. The SafeHtml validator annotat
 <tr><td>Fixed version</td><td><code>6.2.0.Final</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.038%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>10th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.144%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3912,6 +4025,28 @@ A temp directory creation vulnerability exists in Guava prior to version 32.0.0 
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>systemd</strong> <code>249.11-0ubuntu3.15</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/systemd@249.11-0ubuntu3.15?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-4598?s=ubuntu&n=systemd&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C249.11-0ubuntu3.16"><img alt="medium : CVE--2025--4598" src="https://img.shields.io/badge/CVE--2025--4598-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><249.11-0ubuntu3.16</code></td></tr>
+<tr><td>Fixed version</td><td><code>249.11-0ubuntu3.16</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability was found in systemd-coredump. This flaw allows an attacker to force a SUID process to crash and replace it with a non-SUID binary to access the original's privileged process coredump, allowing the attacker to read sensitive data, such as /etc/shadow content, loaded by the original process.  A SUID binary or process has a special type of permission, which allows the process to run with the file owner's permissions, regardless of the user executing the binary. This allows the process to access more restricted data than unprivileged users or processes would be able to. An attacker can leverage this flaw by forcing a SUID process to crash and force the Linux kernel to recycle the process PID before systemd-coredump can analyze the /proc/pid/auxv file. If the attacker wins the race condition, they gain access to the original's SUID process coredump file. They can read sensitive content loaded into memory by the original binary, affecting data confidentiality.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-jdbc</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
 
 <small><code>pkg:maven/org.springframework/spring-jdbc@5.1.5.RELEASE</code></small><br/>
@@ -3922,148 +4057,14 @@ A temp directory creation vulnerability exists in Guava prior to version 32.0.0 
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.071%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.4.0-11ubuntu2.5</code> (deb)</summary>
-
-<small><code>pkg:deb/ubuntu/pam@1.4.0-11ubuntu2.5?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-6020?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.4.0-11ubuntu2.6"><img alt="medium : CVE--2025--6020" src="https://img.shields.io/badge/CVE--2025--6020-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
-
-<table>
-<tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.6</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.020%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-net/commons-net</strong> <code>3.3</code> (maven)</summary>
-
-<small><code>pkg:maven/commons-net/commons-net@3.3</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2021-37533?s=github&n=commons-net&ns=commons-net&t=maven&vr=%3C3.9.0"><img alt="medium 6.5: CVE--2021--37533" src="https://img.shields.io/badge/CVE--2021--37533-lightgrey?label=medium%206.5&labelColor=fbb552"/></a> <i>Improper Input Validation</i>
-
-<table>
-<tr><td>Affected range</td><td><code><3.9.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.9.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.162%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Prior to Apache Commons Net 3.9.0, Net's FTP client trusts the host from PASV response by default. A malicious server can redirect the Commons Net code to use a different host, but the user has to connect to the malicious server in the first place. This may lead to leakage of information about services running on the private network of the client.
-The default in version 3.9.0 is now false to ignore such hosts, as cURL does. See https://issues.apache.org/jira/browse/NET-711.
-
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.fasterxml.jackson.core/jackson-core</strong> <code>2.9.8</code> (maven)</summary>
-
-<small><code>pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.8</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-49128?s=github&n=jackson-core&ns=com.fasterxml.jackson.core&t=maven&vr=%3E%3D2.0.0%2C%3C2.13.0"><img alt="medium 4.0: CVE--2025--49128" src="https://img.shields.io/badge/CVE--2025--49128-lightgrey?label=medium%204.0&labelColor=fbb552"/></a> <i>Generation of Error Message Containing Sensitive Information</i>
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.0.0<br/><2.13.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.13.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.005%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-### Overview
-
-A flaw in Jackson-core's `JsonLocation._appendSourceDesc` method allows up to 500 bytes of unintended memory content to be included in exception messages. When parsing JSON from a byte array with an offset and length, the exception message incorrectly reads from the beginning of the array instead of the logical payload start. This results in possible **information disclosure** in systems using **pooled or reused buffers**, like Netty or Vert.x.
-
-### Details
-
-The vulnerability affects the creation of exception messages like:
-
-```
-JsonParseException: Unexpected character ... at [Source: (byte[])...]
-```
-
-When `JsonFactory.createParser(byte[] data, int offset, int len)` is used, and an error occurs while parsing, the exception message should include a snippet from the specified logical payload. However, the method `_appendSourceDesc` ignores the `offset`, and always starts reading from index `0`.
-
-If the buffer contains residual sensitive data from a previous request, such as credentials or document contents, that data may be exposed if the exception is propagated to the client.
-
-The issue particularly impacts server applications using:
-
-* Pooled byte buffers (e.g., Netty)
-* Frameworks that surface parse errors in HTTP responses
-* Default Jackson settings (i.e., `INCLUDE_SOURCE_IN_LOCATION` is enabled)
-
-A documented real-world example is [CVE-2021-22145](https://nvd.nist.gov/vuln/detail/CVE-2021-22145) in Elasticsearch, which stemmed from the same root cause.
-
-### Attack Scenario
-
-An attacker sends malformed JSON to a service using Jackson and pooled byte buffers (e.g., Netty-based HTTP servers). If the server reuses a buffer and includes the parser’s exception in its HTTP 400 response, the attacker may receive residual data from previous requests.
-
-### Proof of Concept
-
-```java
-byte[] buffer = new byte[1000];
-System.arraycopy("SECRET".getBytes(), 0, buffer, 0, 6);
-System.arraycopy("{ \"bad\": }".getBytes(), 0, buffer, 700, 10);
-
-JsonFactory factory = new JsonFactory();
-JsonParser parser = factory.createParser(buffer, 700, 20);
-parser.nextToken(); // throws exception
-
-// Exception message will include "SECRET"
-```
-
-### Patches
-This issue was silently fixed in jackson-core version 2.13.0, released on September 30, 2021, via [PR #652](https://github.com/FasterXML/jackson-core/pull/652).
-
-All users should upgrade to version 2.13.0 or later.
-
-### Workarounds
-If upgrading is not immediately possible, applications can mitigate the issue by:
-
-1. **Disabling exception message exposure to clients** — avoid returning parsing exception messages in HTTP responses.
-2. **Disabling source inclusion in exceptions** by setting:
-
-   ```java
-   jsonFactory.disable(JsonFactory.Feature.INCLUDE_SOURCE_IN_LOCATION);
-   ```
-
-    This prevents Jackson from embedding any source content in exception messages, avoiding leakage.
-
-
-### References
-* [Pull Request #652 (Fix implementation)](https://github.com/FasterXML/jackson-core/pull/652)
-* [CVE-2021-22145 (Elasticsearch exposure of this flaw)](https://nvd.nist.gov/vuln/detail/CVE-2021-22145)
 
 </blockquote>
 </details>
@@ -4099,22 +4100,48 @@ Specifically, an application is vulnerable when all of the following are true:
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>systemd</strong> <code>249.11-0ubuntu3.15</code> (deb)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-net/commons-net</strong> <code>3.3</code> (maven)</summary>
 
-<small><code>pkg:deb/ubuntu/systemd@249.11-0ubuntu3.15?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-4598?s=ubuntu&n=systemd&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C249.11-0ubuntu3.16"><img alt="medium : CVE--2025--4598" src="https://img.shields.io/badge/CVE--2025--4598-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+<small><code>pkg:maven/commons-net/commons-net@3.3</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2021-37533?s=github&n=commons-net&ns=commons-net&t=maven&vr=%3C3.9.0"><img alt="medium 6.5: CVE--2021--37533" src="https://img.shields.io/badge/CVE--2021--37533-lightgrey?label=medium%206.5&labelColor=fbb552"/></a> <i>Improper Input Validation</i>
 
 <table>
-<tr><td>Affected range</td><td><code><249.11-0ubuntu3.16</code></td></tr>
-<tr><td>Fixed version</td><td><code>249.11-0ubuntu3.16</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.011%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><3.9.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.9.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.197%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-A vulnerability was found in systemd-coredump. This flaw allows an attacker to force a SUID process to crash and replace it with a non-SUID binary to access the original's privileged process coredump, allowing the attacker to read sensitive data, such as /etc/shadow content, loaded by the original process.  A SUID binary or process has a special type of permission, which allows the process to run with the file owner's permissions, regardless of the user executing the binary. This allows the process to access more restricted data than unprivileged users or processes would be able to. An attacker can leverage this flaw by forcing a SUID process to crash and force the Linux kernel to recycle the process PID before systemd-coredump can analyze the /proc/pid/auxv file. If the attacker wins the race condition, they gain access to the original's SUID process coredump file. They can read sensitive content loaded into memory by the original binary, affecting data confidentiality.
+Prior to Apache Commons Net 3.9.0, Net's FTP client trusts the host from PASV response by default. A malicious server can redirect the Commons Net code to use a different host, but the user has to connect to the malicious server in the first place. This may lead to leakage of information about services running on the private network of the client.
+The default in version 3.9.0 is now false to ignore such hosts, as cURL does. See https://issues.apache.org/jira/browse/NET-711.
+
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>pam</strong> <code>1.4.0-11ubuntu2.5</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/pam@1.4.0-11ubuntu2.5?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-6020?s=ubuntu&n=pam&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C1.4.0-11ubuntu2.6"><img alt="medium : CVE--2025--6020" src="https://img.shields.io/badge/CVE--2025--6020-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.6</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.
 
 </blockquote>
 </details>

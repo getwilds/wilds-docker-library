@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/combine-counts:latest
 
-Report generated on 2025-06-22 02:40:34 PST
+Report generated on 2025-07-01 08:51:37 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/combine-counts:latest</code></h2>
 
@@ -191,7 +191,7 @@ https://github.com/openssl/openssl/commit/07272b05b04836a762b4baa874958af51d5138
 <table>
 <tr><td>Affected range</td><td><code><1.20.1-2+deb12u3</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.20.1-2+deb12u3</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.025%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
 </table>
 
@@ -243,7 +243,7 @@ Fixed by: https://github.com/krb5/krb5/commit/78ceba024b64d49612375be4a12d1c066b
 <tr><td>Affected range</td><td><code><12.2.0-14+deb12u1</code></td></tr>
 <tr><td>Fixed version</td><td><code>12.2.0-14+deb12u1</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.149%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
