@@ -19,10 +19,12 @@ RUN apt-get update \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
   && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
   && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && SAMTOOLS_VERSION=$(apt-cache policy samtools | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
      curl="${CURL_VERSION}" \
      unzip="${UNZIP_VERSION}" \
      ca-certificates="${CERT_VERSION}" \
+     samtools="${SAMTOOLS_VERSION}" \
   && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
   && unzip awscliv2.zip \
   && ./aws/install \
