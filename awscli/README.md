@@ -12,11 +12,12 @@ This directory contains Docker images for AWS CLI, the unified command-line inte
 These Docker images are built from Ubuntu Noble (24.04 LTS) base image and include:
 
 - AWS CLI v2.27.49 (pinned version) or latest: Command-line interface for Amazon Web Services
+- samtools v1.19.2: For BAM/SAM file manipulation and filtering
 - curl: For downloading AWS CLI installer
 - unzip: For extracting AWS CLI installer
 - ca-certificates: For secure HTTPS connections
 
-The images are designed to be minimal and focused on providing AWS CLI functionality for accessing **public cloud datasets**. This image is primarily intended for downloading publicly available bioinformatics datasets without requiring AWS credentials.
+The images are designed to be minimal and focused on providing AWS CLI functionality for accessing **public cloud datasets**, with additional samtools support for BAM file processing. This image is primarily intended for downloading publicly available bioinformatics datasets and performing basic filtering operations without requiring AWS credentials.
 
 ## Usage
 
@@ -72,6 +73,22 @@ docker run --rm -v $(pwd):/data getwilds/awscli:latest \
   aws s3 sync --no-sign-request s3://gatk-test-data/wgs_bam/NA12878_20k_b37/ /data/test-bams/
 ```
 
+**Download and Filter BAM Files:**
+```bash
+# Download test BAM and subset to chromosome 1 only
+docker run --rm -v $(pwd):/data getwilds/awscli:latest bash -c "
+  aws s3 cp --no-sign-request s3://gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam /data/ &&
+  samtools view -b /data/NA12878.bam chr1 > /data/NA12878_chr1.bam &&
+  samtools index /data/NA12878_chr1.bam
+"
+
+# Create an even smaller test file with first 1000 reads
+docker run --rm -v $(pwd):/data getwilds/awscli:latest bash -c "
+  aws s3 cp --no-sign-request s3://gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam /data/ &&
+  samtools view -b /data/NA12878.bam | head -n 1000 | samtools view -b > /data/NA12878_1k.bam
+"
+```
+
 **Download Reference Genomes:**
 ```bash
 # Download reference files from public buckets
@@ -84,6 +101,16 @@ docker run --rm -v $(pwd):/data getwilds/awscli:latest \
 # Download multiple files with filtering
 docker run --rm -v $(pwd):/data getwilds/awscli:latest \
   aws s3 sync --no-sign-request s3://encode-public/2020/01/01/ /data/ --exclude "*" --include "*.bam"
+```
+
+**BAM File Quality Control:**
+```bash
+# Download and check BAM file statistics
+docker run --rm -v $(pwd):/data getwilds/awscli:latest bash -c "
+  aws s3 cp --no-sign-request s3://gatk-test-data/wgs_bam/NA12878_20k_b37/NA12878.bam /data/ &&
+  samtools flagstat /data/NA12878.bam > /data/NA12878_stats.txt &&
+  samtools idxstats /data/NA12878.bam > /data/NA12878_idxstats.txt
+"
 ```
 
 ## Security Features
