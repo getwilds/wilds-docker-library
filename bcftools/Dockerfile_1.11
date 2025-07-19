@@ -27,6 +27,7 @@ RUN apt-get update \
   && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
   && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
   && LIBCURL4_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   build-essential="${BE_VERSION}" \
   wget="${WGET_VERSION}" \
@@ -38,6 +39,7 @@ RUN apt-get update \
   liblzma-dev="${LIBLZMA_VERSION}" \
   libssl-dev="${LIBSSL_VERSION}" \
   libcurl4-gnutls-dev="${LIBCURL4_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting bcftools source code
