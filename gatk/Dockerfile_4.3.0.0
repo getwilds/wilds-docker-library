@@ -41,6 +41,7 @@ RUN apt-get update \
   && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
   && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
   && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && PARALLEL_VERSION=$(apt-cache policy parallel | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   wget="${WGET_VERSION}" \
   unzip="${UNZIP_VERSION}" \
@@ -59,6 +60,7 @@ RUN apt-get update \
   autoconf="${AUTOCONF_VERSION}" \
   automake="${AUTOMAKE_VERSION}" \
   libncurses-dev="${LIBNCURSES_VERSION}" \
+  parallel="${PARALLEL_VERSION}" \
   && rm -rf /var/lib/apt/lists/* \
   && ln -sf /usr/bin/python3 /usr/bin/python
 

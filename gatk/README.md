@@ -17,6 +17,7 @@ These Docker images are built from Ubuntu 24.04 and include:
 - **htslib 1.20**: High-throughput sequencing library including bgzip and tabix utilities
 - **Java 17**: Required runtime environment for GATK
 - **Python 3**: For GATK workflow scripts and utilities
+- **GNU Parallel**: For parallel execution of tasks
 
 The images are designed to be comprehensive yet minimal, providing all essential tools for genomics analysis workflows.
 
@@ -88,7 +89,7 @@ apptainer run --bind /path/to/data:/data docker://getwilds/gatk:latest gatk Hapl
 
 ### **Optimization Tips**
 - Use interval lists for targeted sequencing to improve performance
-- Consider parallel processing for large cohorts
+- Consider parallel processing for large cohorts using GNU Parallel
 - Use appropriate Java memory settings with `--java-options`
 
 ## Security Features
