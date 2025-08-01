@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/hmmcopy:latest
 
-Report generated on 2025-07-15 23:26:15 PST
+Report generated on 2025-08-01 08:11:21 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/hmmcopy:latest</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/hmmcopy:latest</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:7d3990ec4f2ebdeded6866112034573db5c9791c90386c58dc3068a0fb8178c6</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:d7bc42a9a04b0b9766ed89737079fb582bcafc2d170c1ba1aac4a672c79bb684</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/medium-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>217 MB</td></tr>
+<tr><td>size</td><td>192 MB</td></tr>
 <tr><td>packages</td><td>235</td></tr>
 </table>
 </details></table>
@@ -24,7 +24,7 @@ Report generated on 2025-07-15 23:26:15 PST
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.18</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.18</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.007%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.008%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
 </table>
 

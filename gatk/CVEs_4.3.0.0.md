@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/gatk:4.3.0.0
 
-Report generated on 2025-07-27 01:35:54 PST
+Report generated on 2025-08-01 09:09:35 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/gatk:4.3.0.0</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/gatk:4.3.0.0</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:b83fdcaa3c9b096f7f4116f03936b17065faf8fcab05e3deb8bcfdb8048245a2</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 11" src="https://img.shields.io/badge/critical-11-8b1924"/> <img alt="high: 56" src="https://img.shields.io/badge/high-56-e25d68"/> <img alt="medium: 33" src="https://img.shields.io/badge/medium-33-fbb552"/> <img alt="low: 9" src="https://img.shields.io/badge/low-9-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:72b9b124d12f5953bb5988c6a82c38623906d54da016645884c6e9d41ca8a41b</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 11" src="https://img.shields.io/badge/critical-11-8b1924"/> <img alt="high: 56" src="https://img.shields.io/badge/high-56-e25d68"/> <img alt="medium: 37" src="https://img.shields.io/badge/medium-37-fbb552"/> <img alt="low: 9" src="https://img.shields.io/badge/low-9-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>1.1 GB</td></tr>
+<tr><td>size</td><td>1.0 GB</td></tr>
 <tr><td>packages</td><td>715</td></tr>
 </table>
 </details></table>
@@ -83,8 +83,8 @@ There is a potential heap buffer overflow in Apache Hadoop libhdfs native code. 
 <tr><td>Fixed version</td><td><code>3.2.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.115%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.085%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -199,68 +199,6 @@ Users are recommended to upgrade to version 2.10.1, which fixes the issue.
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.nimbusds/nimbus-jose-jwt</strong> <code>4.41.1</code> (maven)</summary>
-
-<small><code>pkg:maven/com.nimbusds/nimbus-jose-jwt@4.41.1</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2019-17195?s=github&n=nimbus-jose-jwt&ns=com.nimbusds&t=maven&vr=%3C7.9"><img alt="critical 9.8: CVE--2019--17195" src="https://img.shields.io/badge/CVE--2019--17195-lightgrey?label=critical%209.8&labelColor=8b1924"/></a> <i>Improper Check for Unusual or Exceptional Conditions</i>
-
-<table>
-<tr><td>Affected range</td><td><code><7.9</code></td></tr>
-<tr><td>Fixed version</td><td><code>7.9</code></td></tr>
-<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>12.320%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Connect2id Nimbus JOSE+JWT before v7.9 can throw various uncaught exceptions while parsing a JWT, which could result in an application crash (potential information disclosure) or a potential authentication bypass.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2023-52428?s=github&n=nimbus-jose-jwt&ns=com.nimbusds&t=maven&vr=%3C9.37.2"><img alt="high 8.7: CVE--2023--52428" src="https://img.shields.io/badge/CVE--2023--52428-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Uncontrolled Resource Consumption</i>
-
-<table>
-<tr><td>Affected range</td><td><code><9.37.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>9.37.2</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.078%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Connect2id Nimbus JOSE+JWT before 9.37.2, an attacker can cause a denial of service (resource consumption) via a large JWE p2c header value (aka iteration count) for the PasswordBasedDecrypter (PBKDF2) component.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2025-53864?s=github&n=nimbus-jose-jwt&ns=com.nimbusds&t=maven&vr=%3C10.0.2"><img alt="medium 5.8: CVE--2025--53864" src="https://img.shields.io/badge/CVE--2025--53864-lightgrey?label=medium%205.8&labelColor=fbb552"/></a> <i>Uncontrolled Recursion</i>
-
-<table>
-<tr><td>Affected range</td><td><code><10.0.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>10.0.2</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.125%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Connect2id Nimbus JOSE + JWT before 10.0.2 allows a remote attacker to cause a denial of service via a deeply nested JSON object supplied in a JWT claim set, because of uncontrolled recursion. NOTE: this is independent of the Gson 2.11.0 issue because the Connect2id product could have checked the JSON object nesting depth, regardless of what limits (if any) were imposed by Gson.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.codehaus.plexus/plexus-utils</strong> <code>1.5.6</code> (maven)</summary>
 
 <small><code>pkg:maven/org.codehaus.plexus/plexus-utils@1.5.6</code></small><br/>
@@ -323,46 +261,62 @@ A flaw was found in codehaus-plexus. The `org.codehaus.plexus.util.xml.XmlWriter
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.apache.avro/avro</strong> <code>1.8.2</code> (maven)</summary>
+<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.nimbusds/nimbus-jose-jwt</strong> <code>4.41.1</code> (maven)</summary>
 
-<small><code>pkg:maven/org.apache.avro/avro@1.8.2</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-47561?s=github&n=avro&ns=org.apache.avro&t=maven&vr=%3C1.11.4"><img alt="critical 9.3: CVE--2024--47561" src="https://img.shields.io/badge/CVE--2024--47561-lightgrey?label=critical%209.3&labelColor=8b1924"/></a> <i>Deserialization of Untrusted Data</i>
+<small><code>pkg:maven/com.nimbusds/nimbus-jose-jwt@4.41.1</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2019-17195?s=github&n=nimbus-jose-jwt&ns=com.nimbusds&t=maven&vr=%3C7.9"><img alt="critical 9.8: CVE--2019--17195" src="https://img.shields.io/badge/CVE--2019--17195-lightgrey?label=critical%209.8&labelColor=8b1924"/></a> <i>Improper Check for Unusual or Exceptional Conditions</i>
 
 <table>
-<tr><td>Affected range</td><td><code><1.11.4</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.11.4</code></td></tr>
-<tr><td>CVSS Score</td><td><code>9.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.488%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>80th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><7.9</code></td></tr>
+<tr><td>Fixed version</td><td><code>7.9</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>12.320%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Schema parsing in the Java SDK of Apache Avro 1.11.3 and previous versions allows bad actors to execute arbitrary code.
-Users are recommended to upgrade to version 1.11.4 or 1.12.0, which fix this issue.
+Connect2id Nimbus JOSE+JWT before v7.9 can throw various uncaught exceptions while parsing a JWT, which could result in an application crash (potential information disclosure) or a potential authentication bypass.
 
 </blockquote>
 </details>
 
-<a href="https://scout.docker.com/v/CVE-2023-39410?s=github&n=avro&ns=org.apache.avro&t=maven&vr=%3C1.11.3"><img alt="high 7.5: CVE--2023--39410" src="https://img.shields.io/badge/CVE--2023--39410-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>Improper Input Validation</i>
+<a href="https://scout.docker.com/v/CVE-2023-52428?s=github&n=nimbus-jose-jwt&ns=com.nimbusds&t=maven&vr=%3C9.37.2"><img alt="high 8.7: CVE--2023--52428" src="https://img.shields.io/badge/CVE--2023--52428-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Uncontrolled Resource Consumption</i>
 
 <table>
-<tr><td>Affected range</td><td><code><1.11.3</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.11.3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.061%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><9.37.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>9.37.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.078%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-When deserializing untrusted or corrupted data, it is possible for a reader to consume memory beyond the allowed constraints and thus lead to out of memory on the system.
+In Connect2id Nimbus JOSE+JWT before 9.37.2, an attacker can cause a denial of service (resource consumption) via a large JWE p2c header value (aka iteration count) for the PasswordBasedDecrypter (PBKDF2) component.
 
-This issue affects Java applications using Apache Avro Java SDK up to and including 1.11.2.  Users should update to apache-avro version 1.11.3 which addresses this issue.
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-53864?s=github&n=nimbus-jose-jwt&ns=com.nimbusds&t=maven&vr=%3C10.0.2"><img alt="medium 5.8: CVE--2025--53864" src="https://img.shields.io/badge/CVE--2025--53864-lightgrey?label=medium%205.8&labelColor=fbb552"/></a> <i>Uncontrolled Recursion</i>
+
+<table>
+<tr><td>Affected range</td><td><code><10.0.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.0.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.125%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Connect2id Nimbus JOSE + JWT before 10.0.2 allows a remote attacker to cause a denial of service via a deeply nested JSON object supplied in a JWT claim set, because of uncontrolled recursion. NOTE: this is independent of the Gson 2.11.0 issue because the Connect2id product could have checked the JSON object nesting depth, regardless of what limits (if any) were imposed by Gson.
 
 </blockquote>
 </details>
@@ -379,8 +333,8 @@ This issue affects Java applications using Apache Avro Java SDK up to and includ
 <tr><td>Fixed version</td><td><code>1.15.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>10</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:A</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.270%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.378%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>59th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -421,24 +375,46 @@ Users are recommended to upgrade to 1.15.2 or set the system property "org.apach
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.apache.commons/commons-text</strong> <code>1.6</code> (maven)</summary>
+<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.apache.avro/avro</strong> <code>1.8.2</code> (maven)</summary>
 
-<small><code>pkg:maven/org.apache.commons/commons-text@1.6</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-42889?s=github&n=commons-text&ns=org.apache.commons&t=maven&vr=%3E%3D1.5%2C%3C1.10.0"><img alt="critical 9.8: CVE--2022--42889" src="https://img.shields.io/badge/CVE--2022--42889-lightgrey?label=critical%209.8&labelColor=8b1924"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
+<small><code>pkg:maven/org.apache.avro/avro@1.8.2</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-47561?s=github&n=avro&ns=org.apache.avro&t=maven&vr=%3C1.11.4"><img alt="critical 9.3: CVE--2024--47561" src="https://img.shields.io/badge/CVE--2024--47561-lightgrey?label=critical%209.3&labelColor=8b1924"/></a> <i>Deserialization of Untrusted Data</i>
 
 <table>
-<tr><td>Affected range</td><td><code>>=1.5<br/><1.10.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.10.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.161%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><1.11.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.11.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.594%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>81st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Apache Commons Text performs variable interpolation, allowing properties to be dynamically evaluated and expanded. The standard format for interpolation is "${prefix:name}", where "prefix" is used to locate an instance of org.apache.commons.text.lookup.StringLookup that performs the interpolation. Starting with version 1.5 and continuing through 1.9, the set of default Lookup instances included interpolators that could result in arbitrary code execution or contact with remote servers. These lookups are: - "script" - execute expressions using the JVM script execution engine (javax.script) - "dns" - resolve dns records - "url" - load values from urls, including from remote servers Applications using the interpolation defaults in the affected versions may be vulnerable to remote code execution or unintentional contact with remote servers if untrusted configuration values are used. Users are recommended to upgrade to Apache Commons Text 1.10.0, which disables the problematic interpolators by default.
+Schema parsing in the Java SDK of Apache Avro 1.11.3 and previous versions allows bad actors to execute arbitrary code.
+Users are recommended to upgrade to version 1.11.4 or 1.12.0, which fix this issue.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2023-39410?s=github&n=avro&ns=org.apache.avro&t=maven&vr=%3C1.11.3"><img alt="high 7.5: CVE--2023--39410" src="https://img.shields.io/badge/CVE--2023--39410-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>Improper Input Validation</i>
+
+<table>
+<tr><td>Affected range</td><td><code><1.11.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.11.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.061%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+When deserializing untrusted or corrupted data, it is possible for a reader to consume memory beyond the allowed constraints and thus lead to out of memory on the system.
+
+This issue affects Java applications using Apache Avro Java SDK up to and including 1.11.2.  Users should update to apache-avro version 1.11.3 which addresses this issue.
 
 </blockquote>
 </details>
@@ -469,6 +445,30 @@ An LDAP Injection vulnerability exists in the LdapIdentityBackend of Apache Ker
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 1" src="https://img.shields.io/badge/C-1-8b1924"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.apache.commons/commons-text</strong> <code>1.6</code> (maven)</summary>
+
+<small><code>pkg:maven/org.apache.commons/commons-text@1.6</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-42889?s=github&n=commons-text&ns=org.apache.commons&t=maven&vr=%3E%3D1.5%2C%3C1.10.0"><img alt="critical 9.8: CVE--2022--42889" src="https://img.shields.io/badge/CVE--2022--42889-lightgrey?label=critical%209.8&labelColor=8b1924"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=1.5<br/><1.10.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.10.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.161%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Apache Commons Text performs variable interpolation, allowing properties to be dynamically evaluated and expanded. The standard format for interpolation is "${prefix:name}", where "prefix" is used to locate an instance of org.apache.commons.text.lookup.StringLookup that performs the interpolation. Starting with version 1.5 and continuing through 1.9, the set of default Lookup instances included interpolators that could result in arbitrary code execution or contact with remote servers. These lookups are: - "script" - execute expressions using the JVM script execution engine (javax.script) - "dns" - resolve dns records - "url" - load values from urls, including from remote servers Applications using the interpolation defaults in the affected versions may be vulnerable to remote code execution or unintentional contact with remote servers if untrusted configuration values are used. Users are recommended to upgrade to Apache Commons Text 1.10.0, which disables the problematic interpolators by default.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 5" src="https://img.shields.io/badge/H-5-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.google.protobuf/protobuf-java</strong> <code>2.5.0</code> (maven)</summary>
 
 <small><code>pkg:maven/com.google.protobuf/protobuf-java@2.5.0</code></small><br/>
@@ -479,8 +479,8 @@ An LDAP Injection vulnerability exists in the LdapIdentityBackend of Apache Ker
 <tr><td>Fixed version</td><td><code>3.25.5</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.124%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.171%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -518,8 +518,8 @@ We have been working diligently to address this issue and have released a mitiga
 <tr><td>Fixed version</td><td><code>3.15.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.163%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.121%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -981,8 +981,8 @@ The issue is fixed by [this PR](https://github.com/stleary/JSON-java/pull/759).
 <tr><td>Fixed version</td><td><code>3.25.5</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.124%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.171%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1161,6 +1161,68 @@ jackson-databind is a data-binding package for the Jackson Data Processor. jacks
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 3" src="https://img.shields.io/badge/H-3-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.eclipse.jetty/jetty-util</strong> <code>9.3.27.v20190418</code> (maven)</summary>
+
+<small><code>pkg:maven/org.eclipse.jetty/jetty-util@9.3.27.v20190418</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2021-28165?s=gitlab&n=jetty-util&ns=org.eclipse.jetty&t=maven&vr=%3E%3D7.2.2%2C%3C9.4.39"><img alt="high 7.5: CVE--2021--28165" src="https://img.shields.io/badge/CVE--2021--28165-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=7.2.2<br/><9.4.39</code></td></tr>
+<tr><td>Fixed version</td><td><code>9.4.39.v20210325, 10.0.2, 11.0.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.290%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Eclipse Jetty to alpha0 to alpha0 to, CPU usage can reach % upon receiving a large invalid TLS frame.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2017-9735?s=gitlab&n=jetty-util&ns=org.eclipse.jetty&t=maven&vr=%3C9.4.6.v20170531"><img alt="high 7.5: CVE--2017--9735" src="https://img.shields.io/badge/CVE--2017--9735-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code><9.4.6.v20170531</code></td></tr>
+<tr><td>Fixed version</td><td><code>9.4.6.v20170531</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.522%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>66th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Jetty through 9.4.x is prone to a timing channel in util/security/Password.java, which makes it easier for remote attackers to obtain access by observing elapsed times before rejection of incorrect passwords.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2020-27216?s=gitlab&n=jetty-util&ns=org.eclipse.jetty&t=maven&vr=%3E%3D1.0%2C%3C9.4.33.v20201020"><img alt="high 7.0: CVE--2020--27216" src="https://img.shields.io/badge/CVE--2020--27216-lightgrey?label=high%207.0&labelColor=e25d68"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=1.0<br/><9.4.33.v20201020</code></td></tr>
+<tr><td>Fixed version</td><td><code>9.4.33.v20201020, 10.0.0.beta3, 11.0.0.beta3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.164%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Eclipse Jetty on Unix like systems, the system's temporary directory is shared between all users on that system. A collocated user can observe the process of creating a temporary sub directory in the shared temporary directory and race to complete the creation of the temporary subdirectory. If the attacker wins the race then they will have read and write permission to the subdirectory used to unpack web applications, including their `WEB-INF/lib` jar files and JSP files. If any code is ever executed out of this temporary directory, this can lead to a local privilege escalation vulnerability.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 3" src="https://img.shields.io/badge/H-3-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-beanutils/commons-beanutils</strong> <code>1.9.3</code> (maven)</summary>
 
 <small><code>pkg:maven/commons-beanutils/commons-beanutils@1.9.3</code></small><br/>
@@ -1210,8 +1272,8 @@ Users of the artifact org.apache.commons:commons-beanutils2
 <tr><td>Fixed version</td><td><code>1.9.4</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.317%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>54th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.321%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1241,68 +1303,6 @@ Apache Commons BeanUtils, as distributed in lib/commons-beanutils-1.8.0.jar in A
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 3" src="https://img.shields.io/badge/H-3-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.eclipse.jetty/jetty-util</strong> <code>9.3.27.v20190418</code> (maven)</summary>
-
-<small><code>pkg:maven/org.eclipse.jetty/jetty-util@9.3.27.v20190418</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2021-28165?s=gitlab&n=jetty-util&ns=org.eclipse.jetty&t=maven&vr=%3E%3D7.2.2%2C%3C9.4.39"><img alt="high 7.5: CVE--2021--28165" src="https://img.shields.io/badge/CVE--2021--28165-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code>>=7.2.2<br/><9.4.39</code></td></tr>
-<tr><td>Fixed version</td><td><code>9.4.39.v20210325, 10.0.2, 11.0.2</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>12.270%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Eclipse Jetty to alpha0 to alpha0 to, CPU usage can reach % upon receiving a large invalid TLS frame.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2017-9735?s=gitlab&n=jetty-util&ns=org.eclipse.jetty&t=maven&vr=%3C9.4.6.v20170531"><img alt="high 7.5: CVE--2017--9735" src="https://img.shields.io/badge/CVE--2017--9735-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code><9.4.6.v20170531</code></td></tr>
-<tr><td>Fixed version</td><td><code>9.4.6.v20170531</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.640%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Jetty through 9.4.x is prone to a timing channel in util/security/Password.java, which makes it easier for remote attackers to obtain access by observing elapsed times before rejection of incorrect passwords.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2020-27216?s=gitlab&n=jetty-util&ns=org.eclipse.jetty&t=maven&vr=%3E%3D1.0%2C%3C9.4.33.v20201020"><img alt="high 7.0: CVE--2020--27216" src="https://img.shields.io/badge/CVE--2020--27216-lightgrey?label=high%207.0&labelColor=e25d68"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code>>=1.0<br/><9.4.33.v20201020</code></td></tr>
-<tr><td>Fixed version</td><td><code>9.4.33.v20201020, 10.0.0.beta3, 11.0.0.beta3</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Eclipse Jetty on Unix like systems, the system's temporary directory is shared between all users on that system. A collocated user can observe the process of creating a temporary sub directory in the shared temporary directory and race to complete the creation of the temporary subdirectory. If the attacker wins the race then they will have read and write permission to the subdirectory used to unpack web applications, including their `WEB-INF/lib` jar files and JSP files. If any code is ever executed out of this temporary directory, this can lead to a local privilege escalation vulnerability.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 2" src="https://img.shields.io/badge/H-2-e25d68"/> <img alt="medium: 3" src="https://img.shields.io/badge/M-3-fbb552"/> <img alt="low: 2" src="https://img.shields.io/badge/L-2-fce1a9"/> <!-- unspecified: 0 --><strong>org.eclipse.jetty/jetty-server</strong> <code>9.3.27.v20190418</code> (maven)</summary>
 
 <small><code>pkg:maven/org.eclipse.jetty/jetty-server@9.3.27.v20190418</code></small><br/>
@@ -1313,8 +1313,8 @@ In Eclipse Jetty on Unix like systems, the system's temporary directory is share
 <tr><td>Fixed version</td><td><code>9.4.39</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>12.270%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.290%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1408,8 +1408,8 @@ lib/sslfix6072.jar
 <tr><td>Fixed version</td><td><code>9.4.33.v20201020, 10.0.0.beta3, 11.0.0.beta3</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.164%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1427,8 +1427,8 @@ In Eclipse Jetty on Unix like systems, the system's temporary directory is share
 <tr><td>Fixed version</td><td><code>9.4.56</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.304%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>53rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.213%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>44th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1476,8 +1476,8 @@ Jetty 12 - https://github.com/jetty/jetty.project/pull/11723
 <tr><td>Fixed version</td><td><code>9.4.52.v20230823, 10.0.16, 11.0.16, 12.0.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>3.921%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.542%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1522,7 +1522,7 @@ This behavior can lead to HTTP request smuggling and can be leveraged to bypass 
 <tr><td>Fixed version</td><td><code>9.4.51.v20230217</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>41.170%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>36.142%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
 </table>
 
@@ -1565,8 +1565,8 @@ Limiting multipart parameter `maxFileSize` won't be enough because an attacker c
 <tr><td>Fixed version</td><td><code>9.4.41</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.646%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.713%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>71st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1591,8 +1591,8 @@ The application should catch all Throwables within their `SessionListener#sessio
 <tr><td>Fixed version</td><td><code>9.4.51.v20230217</code></td></tr>
 <tr><td>CVSS Score</td><td><code>2.4</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.322%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.263%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1739,8 +1739,8 @@ Netty is an open-source, asynchronous event-driven network application framework
 <tr><td>Fixed version</td><td><code>9.4.39.v20210325, 10.0.2, 11.0.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>12.270%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.290%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1758,8 +1758,8 @@ In Eclipse Jetty to alpha0 to alpha0 to, CPU usage can reach % upon receiving a 
 <tr><td>Fixed version</td><td><code>9.4.33.v20201020, 10.0.0.beta3, 11.0.0.beta3</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.164%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1777,8 +1777,8 @@ In Eclipse Jetty on Unix like systems, the system's temporary directory is share
 <tr><td>Fixed version</td><td><code>12.0.12</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.192%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.135%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1866,8 +1866,8 @@ Note that the Chrome (and other browsers) parse the invalid user info section im
 <tr><td>Fixed version</td><td><code>9.4.52</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>3.921%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.542%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1912,8 +1912,8 @@ This behavior can lead to HTTP request smuggling and can be leveraged to bypass 
 <tr><td>Fixed version</td><td><code>9.4.47</code></td></tr>
 <tr><td>CVSS Score</td><td><code>2.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.221%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>78th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.878%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>74th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1954,8 +1954,8 @@ If you have any questions or comments about this advisory:
 <tr><td>Fixed version</td><td><code>9.4.39.v20210325, 10.0.2, 11.0.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>12.270%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.290%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1973,8 +1973,8 @@ In Eclipse Jetty to alpha0 to alpha0 to, CPU usage can reach % upon receiving a 
 <tr><td>Fixed version</td><td><code>9.4.33.v20201020, 10.0.0.beta3, 11.0.0.beta3</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.164%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1992,8 +1992,8 @@ In Eclipse Jetty on Unix like systems, the system's temporary directory is share
 <tr><td>Fixed version</td><td><code>9.4.51.v20230217, 10.0.14, 11.0.14, 12.0.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.322%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.263%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2068,7 +2068,7 @@ A vulnerability was discovered in the indexOf function of JSONParserByteArray in
 <tr><td>Fixed version</td><td><code>2.3.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.534%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.520%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>66th percentile</code></td></tr>
 </table>
 
@@ -2146,8 +2146,8 @@ https://github.com/pypa/setuptools/issues/4946
 <tr><td>Fixed version</td><td><code>70.0.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.251%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>48th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.227%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>46th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2170,8 +2170,8 @@ A vulnerability in the `package_index` module of pypa/setuptools versions up to 
 <tr><td>Fixed version</td><td><code>9.4.33.v20201020</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.027%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.164%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2329,8 +2329,8 @@ The original report of this vulnerability is below:
 <tr><td>Fixed version</td><td><code>9.4.52.v20230823, 10.0.16, 11.0.16</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>3.921%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.542%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2375,8 +2375,8 @@ This behavior can lead to HTTP request smuggling and can be leveraged to bypass 
 <tr><td>Fixed version</td><td><code>9.4.51.v20230217, 10.0.14, 11.0.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.322%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.263%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2394,8 +2394,8 @@ Jetty is a java based web server and servlet engine. Nonstandard cookie parsing 
 <tr><td>Fixed version</td><td><code>9.4.52.v20230823, 10.0.16, 11.0.16</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.862%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>74th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.627%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2407,56 +2407,6 @@ If a user sends a request to a `org.eclipse.jetty.servlets.CGI` Servlet for a bi
 if (execCmd.length() > 0 && execCmd.charAt(0) != '"' && execCmd.contains(" "))
 execCmd = "\"" + execCmd + "\"";
 ```
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-io/commons-io</strong> <code>2.6</code> (maven)</summary>
-
-<small><code>pkg:maven/commons-io/commons-io@2.6</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-47554?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3E%3D2.0%2C%3C2.14.0"><img alt="high 8.7: CVE--2024--47554" src="https://img.shields.io/badge/CVE--2024--47554-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Uncontrolled Resource Consumption</i>
-
-<table>
-<tr><td>Affected range</td><td><code>>=2.0<br/><2.14.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.14.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.202%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>43rd percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-Uncontrolled Resource Consumption vulnerability in Apache Commons IO.
-
-The `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.
-
-
-This issue affects Apache Commons IO: from 2.0 before 2.14.0.
-
-Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2021-29425?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3C2.7"><img alt="medium 4.8: CVE--2021--29425" src="https://img.shields.io/badge/CVE--2021--29425-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>Improper Input Validation</i>
-
-<table>
-<tr><td>Affected range</td><td><code><2.7</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.7</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.357%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Apache Commons IO before 2.7, When invoking the method FileNameUtils.normalize with an improper input string, like "//../foo", or "\\..\foo", the result would be the same value, thus possibly providing access to files in the parent directory, but not further above (thus "limited" path traversal), if the calling code would use the result to construct a path value.
 
 </blockquote>
 </details>
@@ -2520,6 +2470,56 @@ Users are recommended to upgrade to version 2.10.0, which fixes the issue.
 </details></td></tr>
 
 <tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>commons-io/commons-io</strong> <code>2.6</code> (maven)</summary>
+
+<small><code>pkg:maven/commons-io/commons-io@2.6</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-47554?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3E%3D2.0%2C%3C2.14.0"><img alt="high 8.7: CVE--2024--47554" src="https://img.shields.io/badge/CVE--2024--47554-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Uncontrolled Resource Consumption</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=2.0<br/><2.14.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.14.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.213%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>44th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Uncontrolled Resource Consumption vulnerability in Apache Commons IO.
+
+The `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.
+
+
+This issue affects Apache Commons IO: from 2.0 before 2.14.0.
+
+Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2021-29425?s=github&n=commons-io&ns=commons-io&t=maven&vr=%3C2.7"><img alt="medium 4.8: CVE--2021--29425" src="https://img.shields.io/badge/CVE--2021--29425-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>Improper Input Validation</i>
+
+<table>
+<tr><td>Affected range</td><td><code><2.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.7</code></td></tr>
+<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.357%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Apache Commons IO before 2.7, When invoking the method FileNameUtils.normalize with an improper input string, like "//../foo", or "\\..\foo", the result would be the same value, thus possibly providing access to files in the parent directory, but not further above (thus "limited" path traversal), if the calling code would use the result to construct a path value.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
 <details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 1" src="https://img.shields.io/badge/L-1-fce1a9"/> <!-- unspecified: 0 --><strong>log4j/log4j</strong> <code>1.2.17</code> (maven)</summary>
 
 <small><code>pkg:maven/log4j/log4j@1.2.17</code></small><br/>
@@ -2549,8 +2549,8 @@ Users are recommended to upgrade to version 2.10.0, which fixes the issue.
 <tr><td>Fixed version</td><td><code>2.12.3, 2.13.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.016%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.022%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2563,99 +2563,72 @@ Improper validation of certificate with host mismatch in Apache Log4j SMTP appen
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.xerial/sqlite-jdbc</strong> <code>3.36.0.3</code> (maven)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>dnsjava/dnsjava</strong> <code>2.1.7</code> (maven)</summary>
 
-<small><code>pkg:maven/org.xerial/sqlite-jdbc@3.36.0.3</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-32697?s=github&n=sqlite-jdbc&ns=org.xerial&t=maven&vr=%3E%3D3.6.14.1%2C%3C3.41.2.2"><img alt="high 8.8: CVE--2023--32697" src="https://img.shields.io/badge/CVE--2023--32697-lightgrey?label=high%208.8&labelColor=e25d68"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
-
-<table>
-<tr><td>Affected range</td><td><code>>=3.6.14.1<br/><3.41.2.2</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.41.2.2</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>3.512%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-## Summary
-
-Sqlite-jdbc addresses a remote code execution vulnerability via JDBC URL. 
-
-## Impacted versions : 
-
-3.6.14.1-3.41.2.1
- 
-## References
-
-https://github.com/xerial/sqlite-jdbc/releases/tag/3.41.2.2
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>io.airlift/aircompressor</strong> <code>0.10</code> (maven)</summary>
-
-<small><code>pkg:maven/io.airlift/aircompressor@0.10</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-36114?s=github&n=aircompressor&ns=io.airlift&t=maven&vr=%3C0.27"><img alt="high 8.6: CVE--2024--36114" src="https://img.shields.io/badge/CVE--2024--36114-lightgrey?label=high%208.6&labelColor=e25d68"/></a> <i>Out-of-bounds Read</i>
+<small><code>pkg:maven/dnsjava/dnsjava@2.1.7</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-25638?s=github&n=dnsjava&ns=dnsjava&t=maven&vr=%3C3.6.0"><img alt="high 7.0: CVE--2024--25638" src="https://img.shields.io/badge/CVE--2024--25638-lightgrey?label=high%207.0&labelColor=e25d68"/></a> <i>Insufficient Verification of Data Authenticity</i>
 
 <table>
-<tr><td>Affected range</td><td><code><0.27</code></td></tr>
-<tr><td>Fixed version</td><td><code>0.27</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.6</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><3.6.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.6.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:H/SA:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 ### Summary
-All decompressor implementations of Aircompressor (LZ4, LZO, Snappy, Zstandard) can crash the JVM for certain input, and in some cases also leak the content of other memory of the Java process (which could contain sensitive information).
+
+Records in DNS replies are not checked for their relevance to the query, allowing an attacker to respond with RRs from different zones.
 
 ### Details
-When decompressing certain data, the decompressors try to access memory outside the bounds of the given byte arrays or byte buffers. Because Aircompressor uses the JDK class `sun.misc.Unsafe` to speed up memory access, no additional bounds checks are performed and this has similar security consequences as out-of-bounds access in C or C++, namely it can lead to non-deterministic behavior or crash the JVM.
 
-Users should update to Aircompressor 0.27 or newer where these issues have been fixed.
+DNS Messages are not authenticated. They do not guarantee that
 
-### Impact
-When decompressing data from untrusted users, this can be exploited for a denial-of-service attack by crashing the JVM, or to leak other sensitive information from the Java process.
+- received RRs are authentic
+- not received RRs do not exist
+- all or any received records in a response relate to the request
 
-</blockquote>
-</details>
-</details></td></tr>
+Applications utilizing DNSSEC generally expect these guarantees to be met, however DNSSEC by itself only guarantees the first two.
+To meet the third guarantee, resolvers generally follow an (undocumented, as far as RFCs go) algorithm such as: (simplified, e.g. lacks DNSSEC validation!)
 
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.fasterxml.jackson.core/jackson-core</strong> <code>2.13.1</code> (maven)</summary>
+1. denote by `QNAME` the name you are querying (e.g. fraunhofer.de.), and initialize a list of aliases
+2. if the ANSWER section contains a valid PTR RRSet for `QNAME`, return it (and optionally return the list of aliases as well)
+3. if the ANSWER section contains a valid CNAME RRSet for `QNAME`, add it to the list of aliases. Set `QNAME` to the CNAME's target and go to 2.
+4. Verify that `QNAME` does not have any PTR, CNAME and DNAME records using valid NSEC or NSEC3 records. Return `null`.
 
-<small><code>pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.1</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-52999?s=github&n=jackson-core&ns=com.fasterxml.jackson.core&t=maven&vr=%3C2.15.0"><img alt="high 8.7: CVE--2025--52999" src="https://img.shields.io/badge/CVE--2025--52999-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Stack-based Buffer Overflow</i>
+Note that this algorithm relies on NSEC records and thus requires a considerable portion of the DNSSEC specifications to be implemented. For this reason, it cannot be performed by a DNS client (aka application) and is typically performed as part of the resolver logic.
 
-<table>
-<tr><td>Affected range</td><td><code><2.15.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.15.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.064%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>20th percentile</code></td></tr>
-</table>
+dnsjava does not implement a comparable algorithm, and the provided APIs instead return either
 
-<details><summary>Description</summary>
-<blockquote>
+- the received DNS message itself (e.g. when using a ValidatingResolver such as in [this](https://github.com/dnsjava/dnsjava/blob/master/EXAMPLES.md#dnssec-resolver) example), or
+- essentially just the contents of its ANSWER section (e.g. when using a LookupSession such as in [this](https://github.com/dnsjava/dnsjava/blob/master/EXAMPLES.md#simple-lookup-with-a-resolver) example)
+
+If applications blindly filter the received results for RRs of the desired record type (as seems to be typical usage for dnsjava), a rogue recursive resolver or (on UDP/TCP connections) a network attacker can
+
+- In addition to the actual DNS response, add RRs irrelevant to the query but of the right datatype, e.g. from another zone, as long as that zone is correctly using DNSSEC, or
+- completely exchange the relevant response records
 
 ### Impact
-With older versions  of jackson-core, if you parse an input file and it has deeply nested data, Jackson could end up throwing a StackoverflowError if the depth is particularly large.
 
-### Patches
-jackson-core 2.15.0 contains a configurable limit for how deep Jackson will traverse in an input document, defaulting to an allowable depth of 1000. Change is in https://github.com/FasterXML/jackson-core/pull/943. jackson-core will throw a StreamConstraintsException if the limit is reached.
-jackson-databind also benefits from this change because it uses jackson-core to parse JSON inputs.
+DNS(SEC) libraries are usually used as part of a larger security framework.
+Therefore, the main misuses of this vulnerability concern application code, which might take the returned records as authentic answers to the request.
+Here are three concrete examples of where this might be detrimental:
 
-### Workarounds
-Users should avoid parsing input files from untrusted sources.
+- [RFC 6186](https://datatracker.ietf.org/doc/html/rfc6186) specifies that to connect to an IMAP server for a user, a mail user agent should retrieve certain SRV records and send the user's credentials to the specified servers. Exchanging the SRV records can be a tool to redirect the credentials.
+- When delivering mail via SMTP, MX records determine where to deliver the mails to. Exchanging the MX records might lead to information disclosure. Additionally, an exchange of TLSA records might allow attackers to intercept TLS traffic.
+- Some research projects like [LIGHTest](https://www.lightest.eu/) are trying to manage CA trust stores via URI and SMIMEA records in the DNS. Exchanging these allows manipulating the root of trust for dependent applications.
+
+### Mitigations
+
+At this point, the following mitigations are recommended:
+
+- When using a ValidatingResolver, ignore any Server indications of whether or not data was available (e.g. NXDOMAIN, NODATA, ...).
+- For APIs returning RRs from DNS responses, filter the RRs using an algorithm such as the one above. This includes e.g. `LookupSession.lookupAsync`.
+- Remove APIs dealing with raw DNS messages from the examples section or place a noticable warning above.
 
 </blockquote>
 </details>
@@ -2746,72 +2719,99 @@ If you have any questions or comments about this advisory:
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>dnsjava/dnsjava</strong> <code>2.1.7</code> (maven)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>com.fasterxml.jackson.core/jackson-core</strong> <code>2.13.1</code> (maven)</summary>
 
-<small><code>pkg:maven/dnsjava/dnsjava@2.1.7</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-25638?s=github&n=dnsjava&ns=dnsjava&t=maven&vr=%3C3.6.0"><img alt="high 7.0: CVE--2024--25638" src="https://img.shields.io/badge/CVE--2024--25638-lightgrey?label=high%207.0&labelColor=e25d68"/></a> <i>Insufficient Verification of Data Authenticity</i>
+<small><code>pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.1</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-52999?s=github&n=jackson-core&ns=com.fasterxml.jackson.core&t=maven&vr=%3C2.15.0"><img alt="high 8.7: CVE--2025--52999" src="https://img.shields.io/badge/CVE--2025--52999-lightgrey?label=high%208.7&labelColor=e25d68"/></a> <i>Stack-based Buffer Overflow</i>
 
 <table>
-<tr><td>Affected range</td><td><code><3.6.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.6.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:H/SA:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><2.15.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.15.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+### Impact
+With older versions  of jackson-core, if you parse an input file and it has deeply nested data, Jackson could end up throwing a StackoverflowError if the depth is particularly large.
+
+### Patches
+jackson-core 2.15.0 contains a configurable limit for how deep Jackson will traverse in an input document, defaulting to an allowable depth of 1000. Change is in https://github.com/FasterXML/jackson-core/pull/943. jackson-core will throw a StreamConstraintsException if the limit is reached.
+jackson-databind also benefits from this change because it uses jackson-core to parse JSON inputs.
+
+### Workarounds
+Users should avoid parsing input files from untrusted sources.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.xerial/sqlite-jdbc</strong> <code>3.36.0.3</code> (maven)</summary>
+
+<small><code>pkg:maven/org.xerial/sqlite-jdbc@3.36.0.3</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-32697?s=github&n=sqlite-jdbc&ns=org.xerial&t=maven&vr=%3E%3D3.6.14.1%2C%3C3.41.2.2"><img alt="high 8.8: CVE--2023--32697" src="https://img.shields.io/badge/CVE--2023--32697-lightgrey?label=high%208.8&labelColor=e25d68"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=3.6.14.1<br/><3.41.2.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.41.2.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>3.512%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+## Summary
+
+Sqlite-jdbc addresses a remote code execution vulnerability via JDBC URL. 
+
+## Impacted versions : 
+
+3.6.14.1-3.41.2.1
+ 
+## References
+
+https://github.com/xerial/sqlite-jdbc/releases/tag/3.41.2.2
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>io.airlift/aircompressor</strong> <code>0.10</code> (maven)</summary>
+
+<small><code>pkg:maven/io.airlift/aircompressor@0.10</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-36114?s=github&n=aircompressor&ns=io.airlift&t=maven&vr=%3C0.27"><img alt="high 8.6: CVE--2024--36114" src="https://img.shields.io/badge/CVE--2024--36114-lightgrey?label=high%208.6&labelColor=e25d68"/></a> <i>Out-of-bounds Read</i>
+
+<table>
+<tr><td>Affected range</td><td><code><0.27</code></td></tr>
+<tr><td>Fixed version</td><td><code>0.27</code></td></tr>
+<tr><td>CVSS Score</td><td><code>8.6</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.089%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 ### Summary
-
-Records in DNS replies are not checked for their relevance to the query, allowing an attacker to respond with RRs from different zones.
+All decompressor implementations of Aircompressor (LZ4, LZO, Snappy, Zstandard) can crash the JVM for certain input, and in some cases also leak the content of other memory of the Java process (which could contain sensitive information).
 
 ### Details
+When decompressing certain data, the decompressors try to access memory outside the bounds of the given byte arrays or byte buffers. Because Aircompressor uses the JDK class `sun.misc.Unsafe` to speed up memory access, no additional bounds checks are performed and this has similar security consequences as out-of-bounds access in C or C++, namely it can lead to non-deterministic behavior or crash the JVM.
 
-DNS Messages are not authenticated. They do not guarantee that
-
-- received RRs are authentic
-- not received RRs do not exist
-- all or any received records in a response relate to the request
-
-Applications utilizing DNSSEC generally expect these guarantees to be met, however DNSSEC by itself only guarantees the first two.
-To meet the third guarantee, resolvers generally follow an (undocumented, as far as RFCs go) algorithm such as: (simplified, e.g. lacks DNSSEC validation!)
-
-1. denote by `QNAME` the name you are querying (e.g. fraunhofer.de.), and initialize a list of aliases
-2. if the ANSWER section contains a valid PTR RRSet for `QNAME`, return it (and optionally return the list of aliases as well)
-3. if the ANSWER section contains a valid CNAME RRSet for `QNAME`, add it to the list of aliases. Set `QNAME` to the CNAME's target and go to 2.
-4. Verify that `QNAME` does not have any PTR, CNAME and DNAME records using valid NSEC or NSEC3 records. Return `null`.
-
-Note that this algorithm relies on NSEC records and thus requires a considerable portion of the DNSSEC specifications to be implemented. For this reason, it cannot be performed by a DNS client (aka application) and is typically performed as part of the resolver logic.
-
-dnsjava does not implement a comparable algorithm, and the provided APIs instead return either
-
-- the received DNS message itself (e.g. when using a ValidatingResolver such as in [this](https://github.com/dnsjava/dnsjava/blob/master/EXAMPLES.md#dnssec-resolver) example), or
-- essentially just the contents of its ANSWER section (e.g. when using a LookupSession such as in [this](https://github.com/dnsjava/dnsjava/blob/master/EXAMPLES.md#simple-lookup-with-a-resolver) example)
-
-If applications blindly filter the received results for RRs of the desired record type (as seems to be typical usage for dnsjava), a rogue recursive resolver or (on UDP/TCP connections) a network attacker can
-
-- In addition to the actual DNS response, add RRs irrelevant to the query but of the right datatype, e.g. from another zone, as long as that zone is correctly using DNSSEC, or
-- completely exchange the relevant response records
+Users should update to Aircompressor 0.27 or newer where these issues have been fixed.
 
 ### Impact
-
-DNS(SEC) libraries are usually used as part of a larger security framework.
-Therefore, the main misuses of this vulnerability concern application code, which might take the returned records as authentic answers to the request.
-Here are three concrete examples of where this might be detrimental:
-
-- [RFC 6186](https://datatracker.ietf.org/doc/html/rfc6186) specifies that to connect to an IMAP server for a user, a mail user agent should retrieve certain SRV records and send the user's credentials to the specified servers. Exchanging the SRV records can be a tool to redirect the credentials.
-- When delivering mail via SMTP, MX records determine where to deliver the mails to. Exchanging the MX records might lead to information disclosure. Additionally, an exchange of TLSA records might allow attackers to intercept TLS traffic.
-- Some research projects like [LIGHTest](https://www.lightest.eu/) are trying to manage CA trust stores via URI and SMIMEA records in the DNS. Exchanging these allows manipulating the root of trust for dependent applications.
-
-### Mitigations
-
-At this point, the following mitigations are recommended:
-
-- When using a ValidatingResolver, ignore any Server indications of whether or not data was available (e.g. NXDOMAIN, NODATA, ...).
-- For APIs returning RRs from DNS responses, filter the RRs using an algorithm such as the one above. This includes e.g. `LookupSession.lookupAsync`.
-- Remove APIs dealing with raw DNS messages from the examples section or place a noticable warning above.
+When decompressing data from untrusted users, this can be exploited for a denial-of-service attack by crashing the JVM, or to leak other sensitive information from the Java process.
 
 </blockquote>
 </details>
@@ -2828,8 +2828,8 @@ At this point, the following mitigations are recommended:
 <tr><td>Fixed version</td><td><code>9.4.39.v20210325, 10.0.2, 11.0.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>12.270%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.290%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2852,8 +2852,8 @@ In Eclipse Jetty to alpha0 to alpha0 to, CPU usage can reach % upon receiving a 
 <tr><td>Fixed version</td><td><code>9.4.54</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.319%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>54th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.684%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>71st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2892,8 +2892,8 @@ Patched releases:
 <tr><td>Fixed version</td><td><code>9.4.52.v20230823, 10.0.16, 11.0.16</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>3.921%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>88th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.542%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2938,8 +2938,8 @@ This behavior can lead to HTTP request smuggling and can be leveraged to bypass 
 <tr><td>Fixed version</td><td><code>9.4.51.v20230217, 10.0.14, 11.0.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.322%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.263%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>50th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2957,7 +2957,7 @@ Jetty is a java based web server and servlet engine. Nonstandard cookie parsing 
 <tr><td>Fixed version</td><td><code>9.4.41</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>92.424%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>92.092%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2986,8 +2986,8 @@ If you cannot update to the latest version of Jetty, you can instead deploy your
 <tr><td>Fixed version</td><td><code>9.4.52</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.862%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>74th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.627%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3021,6 +3021,45 @@ The `org.eclipse.jetty.servlets.CGI` Servlet should not be used. Fast CGI suppor
 * https://github.com/eclipse/jetty.project/pull/9516
 * https://github.com/eclipse/jetty.project/pull/9889
 * https://github.com/eclipse/jetty.project/pull/9888
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 2" src="https://img.shields.io/badge/M-2-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>linux</strong> <code>6.8.0-64.67</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/linux@6.8.0-64.67?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-38083?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-71.71"><img alt="medium : CVE--2025--38083" src="https://img.shields.io/badge/CVE--2025--38083-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><6.8.0-71.71</code></td></tr>
+<tr><td>Fixed version</td><td><code>6.8.0-71.71</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.035%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>8th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  net_sched: prio: fix a race in prio_tune()  Gerrard Tai reported a race condition in PRIO, whenever SFQ perturb timer fires at the wrong time.  The race is as follows:  CPU 0                                 CPU 1 [1]: lock root [2]: qdisc_tree_flush_backlog() [3]: unlock root | |                                    [5]: lock root |                                    [6]: rehash |                                    [7]: qdisc_tree_reduce_backlog() | [4]: qdisc_put()  This can be abused to underflow a parent's qlen.  Calling qdisc_purge_queue() instead of qdisc_tree_flush_backlog() should fix the race, because all packets will be purged from the qdisc before releasing the lock.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-37797?s=ubuntu&n=linux&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C6.8.0-71.71"><img alt="medium : CVE--2025--37797" src="https://img.shields.io/badge/CVE--2025--37797-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><6.8.0-71.71</code></td></tr>
+<tr><td>Fixed version</td><td><code>6.8.0-71.71</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.053%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In the Linux kernel, the following vulnerability has been resolved:  net_sched: hfsc: Fix a UAF vulnerability in class handling  This patch fixes a Use-After-Free vulnerability in the HFSC qdisc class handling. The issue occurs due to a time-of-check/time-of-use condition in hfsc_change_class() when working with certain child qdiscs like netem or codel.  The vulnerability works as follows: 1. hfsc_change_class() checks if a class has packets (q.qlen != 0) 2. It then calls qdisc_peek_len(), which for certain qdiscs (e.g., codel, netem) might drop packets and empty the queue 3. The code continues assuming the queue is still non-empty, adding the class to vttree 4. This breaks HFSC scheduler assumptions that only non-empty classes are in vttree 5. Later, when the class is destroyed, this can lead to a Use-After-Free  The fix adds a second queue length check after qdisc_peek_len() to verify the queue wasn't emptied.
 
 </blockquote>
 </details>
@@ -3142,30 +3181,24 @@ The default in version 3.9.0 is now false to ignore such hosts, as cURL does. Se
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.apache.commons/commons-lang3</strong> <code>3.8.1</code> (maven)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>sqlite3</strong> <code>3.45.1-1ubuntu2.3</code> (deb)</summary>
 
-<small><code>pkg:maven/org.apache.commons/commons-lang3@3.8.1</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2025-48924?s=github&n=commons-lang3&ns=org.apache.commons&t=maven&vr=%3E%3D3.0%2C%3C3.18.0"><img alt="medium 6.5: CVE--2025--48924" src="https://img.shields.io/badge/CVE--2025--48924-lightgrey?label=medium%206.5&labelColor=fbb552"/></a> <i>Uncontrolled Recursion</i>
+<small><code>pkg:deb/ubuntu/sqlite3@3.45.1-1ubuntu2.3?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-6965?s=ubuntu&n=sqlite3&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C3.45.1-1ubuntu2.4"><img alt="medium 9.8: CVE--2025--6965" src="https://img.shields.io/badge/CVE--2025--6965-lightgrey?label=medium%209.8&labelColor=fbb552"/></a> 
 
 <table>
-<tr><td>Affected range</td><td><code>>=3.0<br/><3.18.0</code></td></tr>
-<tr><td>Fixed version</td><td><code>3.18.0</code></td></tr>
-<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.051%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><3.45.1-1ubuntu2.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.45.1-1ubuntu2.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-Uncontrolled Recursion vulnerability in Apache Commons Lang.
-
-This issue affects Apache Commons Lang: Starting with commons-lang:commons-lang 2.0 to 2.6, and, from org.apache.commons:commons-lang3 3.0 before 3.18.0.
-
-The methods ClassUtils.getClass(...) can throw StackOverflowError on very long inputs. Because an Error is usually not handled by applications and libraries, a StackOverflowError could cause an application to stop.
-
-Users are recommended to upgrade to version 3.18.0, which fixes the issue.
+There exists a vulnerability in SQLite versions before 3.50.2 where the number of aggregate terms could exceed the number of columns available. This could lead to a memory corruption issue. We recommend upgrading to version 3.50.2 or above.
 
 </blockquote>
 </details>
@@ -3182,8 +3215,8 @@ Users are recommended to upgrade to version 3.18.0, which fixes the issue.
 <tr><td>Fixed version</td><td><code>1.17.6</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.222%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>45th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.335%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3192,6 +3225,28 @@ Users are recommended to upgrade to version 3.18.0, which fixes the issue.
 GzipSource does not handle an exception that might be raised when parsing a malformed gzip buffer. This may lead to denial of service of the Okio client when handling a crafted GZIP archive, by using the GzipSource class.
 
 
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.38.2-3.2ubuntu0.1</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/perl@5.38.2-3.2ubuntu0.1?os_distro=noble&os_name=ubuntu&os_version=24.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-40909?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=24.04&vr=%3C5.38.2-3.2ubuntu0.2"><img alt="medium : CVE--2025--40909" src="https://img.shields.io/badge/CVE--2025--40909-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><5.38.2-3.2ubuntu0.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.38.2-3.2ubuntu0.2</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.006%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Perl threads have a working directory race condition where file operations may target unintended paths.  If a directory handle is open at thread creation, the process-wide current working directory is temporarily changed in order to clone that handle for the new thread, which is visible from any third (or more) thread already running.  This may lead to unintended operations such as loading code or accessing files from unexpected locations, which a local attacker may be able to exploit.  The bug was introduced in commit 11a11ecf4bea72b17d250cfb43c897be1341861e and released in Perl version 5.13.6
 
 </blockquote>
 </details>
@@ -3218,6 +3273,36 @@ GzipSource does not handle an exception that might be raised when parsing a malf
 Those using FasterXML/woodstox to seralize XML data may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow. This effect may support a denial of service attack.
 
 This vulnerability is only relevant for users making use of the DTD parsing functionality.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.apache.commons/commons-lang3</strong> <code>3.8.1</code> (maven)</summary>
+
+<small><code>pkg:maven/org.apache.commons/commons-lang3@3.8.1</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-48924?s=github&n=commons-lang3&ns=org.apache.commons&t=maven&vr=%3E%3D3.0%2C%3C3.18.0"><img alt="medium 6.5: CVE--2025--48924" src="https://img.shields.io/badge/CVE--2025--48924-lightgrey?label=medium%206.5&labelColor=fbb552"/></a> <i>Uncontrolled Recursion</i>
+
+<table>
+<tr><td>Affected range</td><td><code>>=3.0<br/><3.18.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.18.0</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.185%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Uncontrolled Recursion vulnerability in Apache Commons Lang.
+
+This issue affects Apache Commons Lang: Starting with commons-lang:commons-lang 2.0 to 2.6, and, from org.apache.commons:commons-lang3 3.0 before 3.18.0.
+
+The methods ClassUtils.getClass(...) can throw StackOverflowError on very long inputs. Because an Error is usually not handled by applications and libraries, a StackOverflowError could cause an application to stop.
+
+Users are recommended to upgrade to version 3.18.0, which fixes the issue.
 
 </blockquote>
 </details>

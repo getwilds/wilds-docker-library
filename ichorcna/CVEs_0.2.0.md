@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ichorcna:0.2.0
 
-Report generated on 2025-07-01 09:03:49 PST
+Report generated on 2025-08-01 08:39:17 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/ichorcna:0.2.0</code></h2>
 
@@ -24,8 +24,8 @@ Report generated on 2025-07-01 09:03:49 PST
 <table>
 <tr><td>Affected range</td><td><code><2.31-0ubuntu9.18</code></td></tr>
 <tr><td>Fixed version</td><td><code>2.31-0ubuntu9.18</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.009%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.008%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>

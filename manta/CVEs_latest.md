@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/manta:latest
 
-Report generated on 2025-07-01 09:52:10 PST
+Report generated on 2025-08-01 08:37:29 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/manta:latest</code></h2>
 
@@ -45,8 +45,8 @@ Python Packaging Authority (PyPA)'s setuptools is a library designed to facilita
 <tr><td>Fixed version</td><td><code>78.1.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.120%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.139%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -142,8 +142,8 @@ A flaw was found in python-pip in the way it handled Unicode separators in git r
 <tr><td>Fixed version</td><td><code>23.3</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.040%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.045%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>

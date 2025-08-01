@@ -1,12 +1,12 @@
 # Vulnerability Report for getwilds/annotsv:3.4.4
 
-Report generated on 2025-07-01 08:18:05 PST
+Report generated on 2025-08-01 08:18:40 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/annotsv:3.4.4</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/annotsv:3.4.4</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:4e0e8b17d00b0c2c23133907e3f675c3f28f73c1fd9d70b236918562b796c7bb</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 22" src="https://img.shields.io/badge/critical-22-8b1924"/> <img alt="high: 98" src="https://img.shields.io/badge/high-98-e25d68"/> <img alt="medium: 59" src="https://img.shields.io/badge/medium-59-fbb552"/> <img alt="low: 4" src="https://img.shields.io/badge/low-4-fce1a9"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:4e0e8b17d00b0c2c23133907e3f675c3f28f73c1fd9d70b236918562b796c7bb</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 22" src="https://img.shields.io/badge/critical-22-8b1924"/> <img alt="high: 98" src="https://img.shields.io/badge/high-98-e25d68"/> <img alt="medium: 67" src="https://img.shields.io/badge/medium-67-fbb552"/> <img alt="low: 4" src="https://img.shields.io/badge/low-4-fce1a9"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
 <tr><td>size</td><td>2.3 GB</td></tr>
 <tr><td>packages</td><td>300</td></tr>
@@ -26,8 +26,8 @@ Report generated on 2025-07-01 08:18:05 PST
 <tr><td>Fixed version</td><td><code>2.9.10.4</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>13.945%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>62.699%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -45,8 +45,8 @@ FasterXML jackson-databind 2.x before 2.9.10.4, 2.8.11.6, and 2.7.9.7 mishandles
 <tr><td>Fixed version</td><td><code>2.9.10.4</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>6.229%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>43.938%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -140,8 +140,8 @@ A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.0.0 pr
 <tr><td>Fixed version</td><td><code>2.9.10</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.195%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>78th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.357%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>79th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -197,8 +197,8 @@ A Polymorphic Typing issue was discovered in FasterXML jackson-databind 2.0.0 th
 <tr><td>Fixed version</td><td><code>2.9.10</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.651%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.740%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>72nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -216,8 +216,8 @@ A Polymorphic Typing issue was discovered in FasterXML jackson-databind before 2
 <tr><td>Fixed version</td><td><code>2.9.10</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>7.082%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>91st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>7.984%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -254,7 +254,7 @@ SubTypeValidator.java in FasterXML jackson-databind before 2.9.9.2, 2.8.11.4, an
 <tr><td>Fixed version</td><td><code>2.9.10.4</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>58.820%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>61.746%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -406,8 +406,8 @@ In FasterXML jackson-databind before 2.12.7.1 and in 2.13.x before 2.13.4, resou
 <tr><td>Fixed version</td><td><code>2.9.10.7</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.636%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>69th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.469%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -482,8 +482,8 @@ FasterXML jackson-databind 2.x before 2.9.10.8 mishandles the interaction betwee
 <tr><td>Fixed version</td><td><code>2.9.10.8</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.210%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -558,7 +558,7 @@ FasterXML jackson-databind 2.x before 2.9.10.8 and 2.6.7.5 mishandles the intera
 <tr><td>Fixed version</td><td><code>2.9.10.8</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.957%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.121%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
 </table>
 
@@ -578,7 +578,7 @@ FasterXML jackson-databind 2.x before 2.9.10.8 and 2.6.7.5 mishandles the intera
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>6.306%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>91st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -634,7 +634,7 @@ FasterXML jackson-databind 2.x before 2.9.10.8 and 2.6.7.5 mishandles the intera
 <tr><td>Fixed version</td><td><code>2.9.10.8</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>41.431%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>39.669%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
 </table>
 
@@ -730,7 +730,7 @@ This project contains the general-purpose data-binding functionality and tree-mo
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>9.511%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -749,7 +749,7 @@ FasterXML jackson-databind 2.x before 2.9.10.5 mishandles the interaction betwee
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>7.706%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>91st percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -805,8 +805,8 @@ FasterXML jackson-databind 2.x before 2.9.10.5 mishandles the interaction betwee
 <tr><td>Fixed version</td><td><code>2.9.10.4</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.1</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.241%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.796%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -862,8 +862,8 @@ The com.fasterxml.jackson.core:jackson-databind library before version 2.9.10.4 
 <tr><td>Fixed version</td><td><code>2.12.7.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.303%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>53rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.278%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>51st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -888,8 +888,8 @@ The `2.13.4.1` release does fix this issue, however it also references a non-exi
 <tr><td>Fixed version</td><td><code>2.12.6.1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.490%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.477%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>64th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1043,7 +1043,7 @@ FasterXML jackson-databind 2.x before 2.9.9.1 might allow attackers to have a va
 <tr><td>Fixed version</td><td><code>9.0.31</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.469%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.465%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1081,7 +1081,7 @@ A file inclusion vulnerability was found in the AJP connector enabled with a def
 <tr><td>Fixed version</td><td><code>9.0.99</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.2</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>93.871%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>93.966%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1117,8 +1117,8 @@ Users are recommended to upgrade to version 11.0.3, 10.1.35 or 9.0.99, which fix
 <tr><td>Fixed version</td><td><code>9.0.106</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.177%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.057%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>18th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1163,8 +1163,8 @@ Users are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which
 <tr><td>Fixed version</td><td><code>9.0.20</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.6</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.366%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>58th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.350%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1220,7 +1220,7 @@ A Incorrect Default Permissions vulnerability in the packaging of tomcat on SUSE
 <tr><td>Fixed version</td><td><code>9.0.83</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>49.620%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>50.252%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -1279,7 +1279,7 @@ If Apache Tomcat 8.5.0 to 8.5.82, 9.0.0-M1 to 9.0.67, 10.0.0-M1 to 10.0.26 or 10
 <tr><td>Fixed version</td><td><code>9.0.63</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>66.148%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>64.713%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -1299,7 +1299,7 @@ The documentation of Apache Tomcat 10.1.0-M1 to 10.1.0-M14, 10.0.0-M1 to 10.0.20
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.043%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>13th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1374,7 +1374,7 @@ While investigating bug it was discovered that Apache Tomcat to to to could re-u
 <tr><td>Fixed version</td><td><code>9.0.37</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>92.318%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>92.195%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1393,8 +1393,8 @@ The payload length in a WebSocket frame was not correctly validated in Apache To
 <tr><td>Fixed version</td><td><code>9.0.36</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>22.718%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>96th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>17.174%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>95th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1412,7 +1412,7 @@ An h2c direct connection to Apache Tomcat 10.0.0-M1 to 10.0.0-M6, 9.0.0.M5 to 9.
 <tr><td>Fixed version</td><td><code>9.0.35</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>37.402%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>31.135%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>97th percentile</code></td></tr>
 </table>
 
@@ -1431,8 +1431,8 @@ A specially crafted sequence of HTTP/2 requests sent to Apache Tomcat 10.0.0-M1 
 <tr><td>Fixed version</td><td><code>9.0.30</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>3.258%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>87th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>5.804%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>90th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1469,8 +1469,8 @@ The fix for CVE-2019-0199 was incomplete and did not address HTTP/2 connection w
 <tr><td>Fixed version</td><td><code>9.0.98</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.2</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:U</code></td></tr>
-<tr><td>EPSS Score</td><td><code>9.709%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>18.833%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>95th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1500,7 +1500,7 @@ Tomcat 11.0.3, 10.1.35 and 9.0.99 onwards will include checks that sun.io.useCa
 <tr><td>Fixed version</td><td><code>9.0.98</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.2</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:U</code></td></tr>
-<tr><td>EPSS Score</td><td><code>89.324%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>89.745%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1523,8 +1523,8 @@ Users are recommended to upgrade to version 11.0.2, 10.1.34 or 9.0.98, which fix
 <tr><td>Fixed version</td><td><code>9.0.58</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.150%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.138%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1561,7 +1561,7 @@ The fix for CVE-2020-9484 was incomplete. When using Apache Tomcat 10.0.0-M1 to 
 <tr><td>Fixed version</td><td><code>7.0.104, 8.5.55, 9.0.35, 10.0.0-M5</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>93.261%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>93.404%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1580,8 +1580,8 @@ When using Apache Tomcat, an attacker is able to control the contents and name o
 <tr><td>Fixed version</td><td><code>9.0.29</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.556%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.567%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>68th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1599,7 +1599,7 @@ When Apache Tomcat 9.0.0.M1 to 9.0.28, 8.5.0 to 8.5.47, 7.0.0 and 7.0.97 is conf
 <tr><td>Fixed version</td><td><code>9.0.81</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.474%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.410%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -1634,7 +1634,7 @@ swift-nio-http2 1.28 contains a remediation for this issue that applies reset co
 <tr><td>Fixed version</td><td><code>9.0.86</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.6</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U</code></td></tr>
-<tr><td>EPSS Score</td><td><code>55.100%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>52.453%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -1655,8 +1655,8 @@ Users are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.9
 <tr><td>Fixed version</td><td><code>9.0.45</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.244%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>48th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.179%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1674,8 +1674,8 @@ A vulnerability in the JNDI Realm of Apache Tomcat allows an attacker to authent
 <tr><td>Fixed version</td><td><code>9.0.106</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.024%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>5th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.049%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1697,8 +1697,8 @@ Users are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fi
 <tr><td>Fixed version</td><td><code>11.0.0-M17, 10.1.19, 9.0.86, 8.5.99</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.437%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>62nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.425%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>61st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1758,7 +1758,7 @@ The SSI printenv command in Apache Tomcat 9.0.0.M1 to 9.0.0.17, 8.5.0 to 8.5.39 
 <tr><td>Fixed version</td><td><code>9.0.40</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>59.872%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>57.133%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -1777,7 +1777,7 @@ When serving resources from a network location using the NTFS file system, Apach
 <tr><td>Fixed version</td><td><code>8.5.64, 9.0.44</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>68.617%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>67.881%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
 </table>
 
@@ -1798,8 +1798,8 @@ Users are recommended to upgrade to version 8.5.64 onwards or 9.0.44 onwards, wh
 <tr><td>Fixed version</td><td><code>9.0.81</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.753%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>72nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.540%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1822,8 +1822,8 @@ Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards,
 <tr><td>Fixed version</td><td><code>9.0.81</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.525%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>66th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.510%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>65th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1845,7 +1845,7 @@ Users are recommended to upgrade to version 11.0.0-M12 onwards, 10.1.14 onwards,
 <tr><td>Fixed version</td><td><code>9.0.48</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.607%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.506%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
 </table>
 
@@ -1864,8 +1864,8 @@ Apache Tomcat 10.0.0-M1 to 10.0.6, 9.0.0.M1 to 9.0.46 and 8.5.0 to 8.5.66 did no
 <tr><td>Fixed version</td><td><code>9.0.31</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.022%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>76th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.455%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>63rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1883,7 +1883,7 @@ In Apache Tomcat 9.0.0.M1 to 9.0.30, 8.5.0 to 8.5.50 and 7.0.0 to 7.0.99 the HTT
 <tr><td>Fixed version</td><td><code>10.1.6, 11.0.0, 8.5.86, 9.0.72</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.148%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.145%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
 </table>
 
@@ -1902,8 +1902,8 @@ When using the RemoteIpFilter with requests received from a reverse proxy via HT
 <tr><td>Fixed version</td><td><code>10.0.0-M7, 10.0.0-M7, 10.0.0-M7, 8.5.57</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>9.572%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>92nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>12.123%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>94th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1940,8 +1940,8 @@ The simplified implementation of blocking reads and writes introduced in Tomcat 
 <tr><td>Fixed version</td><td><code>9.0.105</code></td></tr>
 <tr><td>CVSS Score</td><td><code>1.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/E:U/U:Clear</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.029%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>6th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.036%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -1968,7 +1968,7 @@ Users are recommended to upgrade to version 11.0.7, 10.1.41 or 9.0.105, which fi
 <tr><td>Fixed version</td><td><code>6.0.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>59.745%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>49.416%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -1989,8 +1989,8 @@ Maintainers recommend investigating alternative components or a potential mitiga
 <tr><td>Fixed version</td><td><code>4.3.29.RELEASE, 5.0.19.RELEASE, 5.1.18.RELEASE, 5.2.9.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>68.606%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>59.873%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2050,7 +2050,7 @@ This is the same as  CVE-2024-22243 https://spring.io/security/cve-2024-22243, b
 <tr><td>Fixed version</td><td><code>5.0.16.RELEASE, 5.1.14.RELEASE, 5.2.3.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>90.647%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>90.844%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2069,8 +2069,8 @@ In Spring Framework, an application is vulnerable to a reflected file download (
 <tr><td>Fixed version</td><td><code>5.3.38</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.192%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.244%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>48th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2112,7 +2112,7 @@ Users of older, unsupported versions could enforce a size limit on `If-Match` an
 <tr><td>Fixed version</td><td><code>5.2.20.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.460%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.464%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2152,8 +2152,8 @@ To apply the workaround in a more fail-safe way, applications could extend `Requ
 <tr><td>Fixed version</td><td><code>4.3.29.RELEASE, 5.0.19.RELEASE, 5.1.18.RELEASE, 5.2.9.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>68.606%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>59.873%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2171,7 +2171,7 @@ In Spring Framework the protections against RFD attacks from CVE-2015-5211 may b
 <tr><td>Fixed version</td><td><code>5.1.13.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>90.647%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>90.844%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2195,7 +2195,7 @@ In Spring Framework, versions 5.2.x prior to 5.2.3, versions 5.1.x prior to 5.1.
 <tr><td>Fixed version</td><td><code>5.2.20, 5.3.18</code></td></tr>
 <tr><td>CVSS Score</td><td><code>10</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.460%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.464%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2214,8 +2214,8 @@ Improper Neutralization of Special Elements used in an OS Command ('OS Command I
 <tr><td>Fixed version</td><td><code>4.3.29.RELEASE, 5.0.19.RELEASE, 5.1.18.RELEASE, 5.2.9.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>68.606%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>99th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>59.873%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2253,7 +2253,7 @@ In spring framework versions prior to 5.2.24 release+,5.3.27+ and 6.0.8+, it is 
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.333%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2271,8 +2271,8 @@ In Spring Framework versions 6.0.0 - 6.0.6, 5.3.0 - 5.3.25, 5.2.0.RELEASE - 5.2.
 <tr><td>Fixed version</td><td><code>5.2.22.RELEASE, 5.3.20</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.594%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>68th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.356%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>57th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2290,8 +2290,8 @@ In spring framework versions prior to 5.3.20+, 5.2.22+ and old unsupported versi
 <tr><td>Fixed version</td><td><code>5.2.22.RELEASE, 5.3.20</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.288%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.173%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2328,8 +2328,8 @@ In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupport
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2352,7 +2352,7 @@ The usage of String.toLowerCase() and String.toUpperCase() has some Locale de
 <tr><td>Fixed version</td><td><code>5.2.20.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.460%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.464%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2392,8 +2392,8 @@ To apply the workaround in a more fail-safe way, applications could extend `Requ
 <tr><td>Fixed version</td><td><code>5.2.22.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.288%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.173%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2411,8 +2411,8 @@ In spring framework versions prior to 5.3.20+ , 5.2.22+ and old unsupported vers
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2435,7 +2435,7 @@ The usage of String.toLowerCase() and String.toUpperCase() has some Locale de
 <tr><td>Fixed version</td><td><code>3.0.13.RELEASE</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>4.468%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>5.138%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>89th percentile</code></td></tr>
 </table>
 
@@ -2502,7 +2502,7 @@ In Spring Boot versions 3.0.0 - 3.0.5, 2.7.0 - 2.7.10, and older unsupported ver
 <tr><td>Fixed version</td><td><code>2.5.12</code></td></tr>
 <tr><td>CVSS Score</td><td><code>9.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>94.460%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>94.464%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -2547,8 +2547,8 @@ To apply the workaround in a more fail-safe way, applications could extend `Requ
 <tr><td>Fixed version</td><td><code>3.25.5</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.150%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.124%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2586,8 +2586,8 @@ We have been working diligently to address this issue and have released a mitiga
 <tr><td>Fixed version</td><td><code>3.15.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.142%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>35th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.121%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>32nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2941,8 +2941,8 @@ The package org.yaml:snakeyaml from 0 and before 1.31 are vulnerable to Denial o
 <tr><td>Fixed version</td><td><code>1.26</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>2.766%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>85th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>2.166%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>84th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -2979,7 +2979,7 @@ Those using Snakeyaml to parse untrusted YAML files may be vulnerable to Denial 
 <tr><td>Fixed version</td><td><code>1.32</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.200%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.209%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>43rd percentile</code></td></tr>
 </table>
 
@@ -2998,8 +2998,8 @@ Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Ser
 <tr><td>Fixed version</td><td><code>1.31</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.163%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.173%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>39th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3017,8 +3017,8 @@ Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Ser
 <tr><td>Fixed version</td><td><code>1.31</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.543%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.580%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>68th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3036,8 +3036,8 @@ Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Ser
 <tr><td>Fixed version</td><td><code>1.31</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.080%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3079,7 +3079,7 @@ Netty project is an event-driven asynchronous network application framework. In 
 <tr><td>Fixed version</td><td><code>4.1.68</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.232%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.229%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>46th percentile</code></td></tr>
 </table>
 
@@ -3098,8 +3098,8 @@ The Bzip2 decompression decoder function does not allow setting size restriction
 <tr><td>Fixed version</td><td><code>4.1.42.Final</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.984%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.901%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>82nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3117,8 +3117,8 @@ Netty before 4.1.42.Final mishandles whitespace before the colon in HTTP headers
 <tr><td>Fixed version</td><td><code>4.1.94.Final</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.416%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>61st percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.563%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>67th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3179,7 +3179,7 @@ Netty is an open-source, asynchronous event-driven network application framework
 <tr><td>Fixed version</td><td><code>8.5.96, 9.0.83, 10.1.16</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>49.620%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>50.252%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -3200,7 +3200,7 @@ Users are recommended to upgrade to version 11.0.0-M11 onwards, 10.1.16 onwards
 <tr><td>Fixed version</td><td><code>7.0.105, 8.5.57, 9.0.37, 10.0.2</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>92.318%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>92.195%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>100th percentile</code></td></tr>
 </table>
 
@@ -3219,8 +3219,8 @@ The payload length in a WebSocket frame was not correctly validated in Apache To
 <tr><td>Fixed version</td><td><code>9.0.86</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.437%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>62nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.425%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>61st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3261,7 +3261,7 @@ The vulnerability is limited to the ROOT (default) web application.
 <tr><td>Fixed version</td><td><code>10.0.0-M10, 9.0.40, 8.5.60, 7.0.107</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>59.872%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>57.133%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>98th percentile</code></td></tr>
 </table>
 
@@ -3305,7 +3305,7 @@ In Spring Framework versions prior to 5.2.24.release+ , 5.3.27+ and 6.0.8+ , it 
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
 <tr><td>EPSS Score</td><td><code>0.333%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>55th percentile</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>56th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3365,8 +3365,8 @@ Specifically, an application is vulnerable when the following is true:
 <tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
 <tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3410,8 +3410,8 @@ This is only exploitable if logback receiver component is deployed. See https://
 <tr><td>Fixed version</td><td><code>1.2.9</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.6</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.989%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>83rd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>3.019%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>86th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3429,8 +3429,8 @@ In logback version 1.2.7 and prior versions, an attacker with the required privi
 <tr><td>Fixed version</td><td><code>1.3.15</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:L/VI:H/VA:L/SC:L/SI:H/SA:L/RE:L/U:Clear</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.150%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>37th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.161%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3452,8 +3452,8 @@ A successful attack requires the user to have write access to a configuration fi
 <tr><td>Fixed version</td><td><code>1.3.15</code></td></tr>
 <tr><td>CVSS Score</td><td><code>2.4</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:L/VI:N/VA:L/SC:H/SI:H/SA:H/V:D/U:Clear</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.039%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3462,147 +3462,6 @@ A successful attack requires the user to have write access to a configuration fi
 Server-Side Request Forgery (SSRF) in SaxEventRecorder by QOS.CH logback version 1.5.12 on the Java platform, allows an attacker to forge requests by compromising logback configuration files in XML.
  
 The attacks involves the modification of DOCTYPE declaration in  XML configuration files.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-context</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
-
-<small><code>pkg:maven/org.springframework/spring-context@5.1.5.RELEASE</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-22968?s=github&n=spring-context&ns=org.springframework&t=maven&vr=%3C5.2.21.RELEASE"><img alt="high 7.5: CVE--2022--22968" src="https://img.shields.io/badge/CVE--2022--22968-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>Improper Handling of Case Sensitivity</i>
-
-<table>
-<tr><td>Affected range</td><td><code><5.2.21.RELEASE</code></td></tr>
-<tr><td>Fixed version</td><td><code>5.2.21.RELEASE</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>22.751%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>96th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupported versions, the patterns for disallowedFields on a DataBinder are case sensitive which means a field is not effectively protected unless it is listed with both upper and lower case for the first character of the field, including upper and lower case for the first character of all nested fields within the property path. Versions 5.3.19 and 5.2.21 contain a patch for this issue.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2024-38827?s=gitlab&n=spring-context&ns=org.springframework&t=maven&vr=%3C6.1.14"><img alt="medium 4.8: CVE--2024--38827" src="https://img.shields.io/badge/CVE--2024--38827-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code><6.1.14</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework.boot/spring-boot</strong> <code>2.1.3.RELEASE</code> (maven)</summary>
-
-<small><code>pkg:maven/org.springframework.boot/spring-boot@2.1.3.RELEASE</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2022-27772?s=github&n=spring-boot&ns=org.springframework.boot&t=maven&vr=%3C%3D2.2.10.RELEASE"><img alt="high 7.8: CVE--2022--27772" src="https://img.shields.io/badge/CVE--2022--27772-lightgrey?label=high%207.8&labelColor=e25d68"/></a> <i>Insecure Temporary File</i>
-
-<table>
-<tr><td>Affected range</td><td><code><=2.2.10.RELEASE</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.2.11.RELEASE</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.058%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>77th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-spring-boot versions prior to version `v2.2.11.RELEASE` was vulnerable to temporary directory hijacking. This vulnerability impacted the `org.springframework.boot.web.server.AbstractConfigurableWebServerFactory.createTempDir` method.
-
-The vulnerable method is used to create a work directory for embedded web servers such as Tomcat and Jetty. The directory contains configuration files, JSP/class files, etc. If a local attacker got the permission to write in this directory, they could completely take over the application (ie. local privilege escalation).
-
-#### Impact Location
-
-This vulnerability impacted the following source location:
-
-```java
-	/**
-	 * Return the absolute temp dir for given web server.
-	 * @param prefix server name
-	 * @return the temp dir for given server.
-	 */
-	protected final File createTempDir(String prefix) {
-		try {
-			File tempDir = File.createTempFile(prefix + ".", "." + getPort());
-			tempDir.delete();
-			tempDir.mkdir();
-			tempDir.deleteOnExit();
-			return tempDir;
-		}
-```
-\- https://github.com/spring-projects/spring-boot/blob/ce70e7d768977242a8ea6f93188388f273be5851/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/server/AbstractConfigurableWebServerFactory.java#L165-L177
-
-This vulnerability exists because `File.mkdir` returns `false` when it fails to create a directory, it does not throw an exception. As such, the following race condition exists:
-
-```java
-File tmpDir =File.createTempFile(prefix + ".", "." + getPort()); // Attacker knows the full path of the file that will be generated
-// delete the file that was created
-tmpDir.delete(); // Attacker sees file is deleted and begins a race to create their own directory before Jetty.
-// and make a directory of the same name
-// SECURITY VULNERABILITY: Race Condition! - Attacker beats java code and now owns this directory
-tmpDir.mkdirs(); // This method returns 'false' because it was unable to create the directory. No exception is thrown.
-// Attacker can write any new files to this directory that they wish.
-// Attacker can read any files created by this process.
-```
-
-### Prerequisites
-
-This vulnerability impacts Unix-like systems, and very old versions of Mac OSX and Windows as they all share the system temporary directory between all users.
-
-### Patches
-
-This vulnerability was inadvertently fixed as a part of this patch: https://github.com/spring-projects/spring-boot/commit/667ccdae84822072f9ea1a27ed5c77964c71002d
-
-This vulnerability is patched in versions `v2.2.11.RELEASE` or later.
-
-### Workarounds
-
-Setting the `java.io.tmpdir` system environment variable to a directory that is exclusively owned by the executing user will fix this vulnerability for all operating systems.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2023-34055?s=gitlab&n=spring-boot&ns=org.springframework.boot&t=maven&vr=%3C2.7.18"><img alt="medium 5.3: CVE--2023--34055" src="https://img.shields.io/badge/CVE--2023--34055-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code><2.7.18</code></td></tr>
-<tr><td>Fixed version</td><td><code>2.7.18, 3.0.13, 3.1.6</code></td></tr>
-<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.282%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>51st percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-In Spring Boot versions 2.7.0 - 2.7.17, 3.0.0-3.0.12 and 3.1.0-3.1.5, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
-
-Specifically, an application is vulnerable when all of the following are true:
-
-*  the application uses Spring MVC or Spring WebFlux
-*  `org.springframework.boot:spring-boot-actuator` is on the classpath
 
 </blockquote>
 </details>
@@ -3619,8 +3478,8 @@ Specifically, an application is vulnerable when all of the following are true:
 <tr><td>Fixed version</td><td><code>2.15.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.048%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.069%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>22nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3732,8 +3591,8 @@ If upgrading is not immediately possible, applications can mitigate the issue by
 <tr><td>Fixed version</td><td><code>2.14.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>8.7</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.061%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.213%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>44th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3772,26 +3631,141 @@ In Apache Commons IO before 2.7, When invoking the method FileNameUtils.normaliz
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>ch.qos.logback/logback-classic</strong> <code>1.2.3</code> (maven)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-context</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
 
-<small><code>pkg:maven/ch.qos.logback/logback-classic@1.2.3</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2023-6378?s=github&n=logback-classic&ns=ch.qos.logback&t=maven&vr=%3C1.2.13"><img alt="high 7.1: CVE--2023--6378" src="https://img.shields.io/badge/CVE--2023--6378-lightgrey?label=high%207.1&labelColor=e25d68"/></a> <i>Deserialization of Untrusted Data</i>
+<small><code>pkg:maven/org.springframework/spring-context@5.1.5.RELEASE</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-22968?s=github&n=spring-context&ns=org.springframework&t=maven&vr=%3C5.2.21.RELEASE"><img alt="high 7.5: CVE--2022--22968" src="https://img.shields.io/badge/CVE--2022--22968-lightgrey?label=high%207.5&labelColor=e25d68"/></a> <i>Improper Handling of Case Sensitivity</i>
 
 <table>
-<tr><td>Affected range</td><td><code><1.2.13</code></td></tr>
-<tr><td>Fixed version</td><td><code>1.2.13</code></td></tr>
-<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.652%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
+<tr><td>Affected range</td><td><code><5.2.21.RELEASE</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.2.21.RELEASE</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>22.751%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>96th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
-A serialization vulnerability in logback receiver component part of logback allows an attacker to mount a Denial-Of-Service attack by sending poisoned data.
+In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupported versions, the patterns for disallowedFields on a DataBinder are case sensitive which means a field is not effectively protected unless it is listed with both upper and lower case for the first character of the field, including upper and lower case for the first character of all nested fields within the property path. Versions 5.3.19 and 5.2.21 contain a patch for this issue.
 
-This is only exploitable if logback receiver component is deployed. See https://logback.qos.ch/manual/receivers.html
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2024-38827?s=gitlab&n=spring-context&ns=org.springframework&t=maven&vr=%3C6.1.14"><img alt="medium 4.8: CVE--2024--38827" src="https://img.shields.io/badge/CVE--2024--38827-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code><6.1.14</code></td></tr>
+<tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
+<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework.boot/spring-boot</strong> <code>2.1.3.RELEASE</code> (maven)</summary>
+
+<small><code>pkg:maven/org.springframework.boot/spring-boot@2.1.3.RELEASE</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2022-27772?s=github&n=spring-boot&ns=org.springframework.boot&t=maven&vr=%3C%3D2.2.10.RELEASE"><img alt="high 7.8: CVE--2022--27772" src="https://img.shields.io/badge/CVE--2022--27772-lightgrey?label=high%207.8&labelColor=e25d68"/></a> <i>Insecure Temporary File</i>
+
+<table>
+<tr><td>Affected range</td><td><code><=2.2.10.RELEASE</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.2.11.RELEASE</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>1.074%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>77th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+spring-boot versions prior to version `v2.2.11.RELEASE` was vulnerable to temporary directory hijacking. This vulnerability impacted the `org.springframework.boot.web.server.AbstractConfigurableWebServerFactory.createTempDir` method.
+
+The vulnerable method is used to create a work directory for embedded web servers such as Tomcat and Jetty. The directory contains configuration files, JSP/class files, etc. If a local attacker got the permission to write in this directory, they could completely take over the application (ie. local privilege escalation).
+
+#### Impact Location
+
+This vulnerability impacted the following source location:
+
+```java
+	/**
+	 * Return the absolute temp dir for given web server.
+	 * @param prefix server name
+	 * @return the temp dir for given server.
+	 */
+	protected final File createTempDir(String prefix) {
+		try {
+			File tempDir = File.createTempFile(prefix + ".", "." + getPort());
+			tempDir.delete();
+			tempDir.mkdir();
+			tempDir.deleteOnExit();
+			return tempDir;
+		}
+```
+\- https://github.com/spring-projects/spring-boot/blob/ce70e7d768977242a8ea6f93188388f273be5851/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/web/server/AbstractConfigurableWebServerFactory.java#L165-L177
+
+This vulnerability exists because `File.mkdir` returns `false` when it fails to create a directory, it does not throw an exception. As such, the following race condition exists:
+
+```java
+File tmpDir =File.createTempFile(prefix + ".", "." + getPort()); // Attacker knows the full path of the file that will be generated
+// delete the file that was created
+tmpDir.delete(); // Attacker sees file is deleted and begins a race to create their own directory before Jetty.
+// and make a directory of the same name
+// SECURITY VULNERABILITY: Race Condition! - Attacker beats java code and now owns this directory
+tmpDir.mkdirs(); // This method returns 'false' because it was unable to create the directory. No exception is thrown.
+// Attacker can write any new files to this directory that they wish.
+// Attacker can read any files created by this process.
+```
+
+### Prerequisites
+
+This vulnerability impacts Unix-like systems, and very old versions of Mac OSX and Windows as they all share the system temporary directory between all users.
+
+### Patches
+
+This vulnerability was inadvertently fixed as a part of this patch: https://github.com/spring-projects/spring-boot/commit/667ccdae84822072f9ea1a27ed5c77964c71002d
+
+This vulnerability is patched in versions `v2.2.11.RELEASE` or later.
+
+### Workarounds
+
+Setting the `java.io.tmpdir` system environment variable to a directory that is exclusively owned by the executing user will fix this vulnerability for all operating systems.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2023-34055?s=gitlab&n=spring-boot&ns=org.springframework.boot&t=maven&vr=%3C2.7.18"><img alt="medium 5.3: CVE--2023--34055" src="https://img.shields.io/badge/CVE--2023--34055-lightgrey?label=medium%205.3&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code><2.7.18</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.7.18, 3.0.13, 3.1.6</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.282%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>51st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+In Spring Boot versions 2.7.0 - 2.7.17, 3.0.0-3.0.12 and 3.1.0-3.1.5, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.
+
+Specifically, an application is vulnerable when all of the following are true:
+
+*  the application uses Spring MVC or Spring WebFlux
+*  `org.springframework.boot:spring-boot-actuator` is on the classpath
 
 </blockquote>
 </details>
@@ -3879,7 +3853,177 @@ Workarounds: configure the reverse proxy not to cache 404 responses and/or not t
 </details></td></tr>
 
 <tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 4" src="https://img.shields.io/badge/M-4-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.hibernate.validator/hibernate-validator</strong> <code>6.0.14.Final</code> (maven)</summary>
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 1" src="https://img.shields.io/badge/H-1-e25d68"/> <img alt="medium: 0" src="https://img.shields.io/badge/M-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>ch.qos.logback/logback-classic</strong> <code>1.2.3</code> (maven)</summary>
+
+<small><code>pkg:maven/ch.qos.logback/logback-classic@1.2.3</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2023-6378?s=github&n=logback-classic&ns=ch.qos.logback&t=maven&vr=%3C1.2.13"><img alt="high 7.1: CVE--2023--6378" src="https://img.shields.io/badge/CVE--2023--6378-lightgrey?label=high%207.1&labelColor=e25d68"/></a> <i>Deserialization of Untrusted Data</i>
+
+<table>
+<tr><td>Affected range</td><td><code><1.2.13</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.2.13</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.1</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.652%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>70th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A serialization vulnerability in logback receiver component part of logback allows an attacker to mount a Denial-Of-Service attack by sending poisoned data.
+
+This is only exploitable if logback receiver component is deployed. See https://logback.qos.ch/manual/receivers.html
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 4" src="https://img.shields.io/badge/M-4-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>libssh</strong> <code>0.9.6-2ubuntu0.22.04.3</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/libssh@0.9.6-2ubuntu0.22.04.3?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-5372?s=ubuntu&n=libssh&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C0.9.6-2ubuntu0.22.04.4"><img alt="medium : CVE--2025--5372" src="https://img.shields.io/badge/CVE--2025--5372-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in libssh versions built with OpenSSL versions older than 3.0, specifically in the ssh_kdf() function responsible for key derivation. Due to inconsistent interpretation of return values where OpenSSL uses 0 to indicate failure and libssh uses 0 for success—the function may mistakenly return a success status even when key derivation fails. This results in uninitialized cryptographic key buffers being used in subsequent communication, potentially compromising SSH sessions' confidentiality, integrity, and availability.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-5318?s=ubuntu&n=libssh&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C0.9.6-2ubuntu0.22.04.4"><img alt="medium : CVE--2025--5318" src="https://img.shields.io/badge/CVE--2025--5318-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.047%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>14th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in the libssh library. An out-of-bounds read can be triggered in the sftp_handle function due to an incorrect comparison check that permits the function to access memory beyond the valid handle list and to return an invalid pointer, which is used in further processing. This vulnerability allows an authenticated remote attacker to potentially read unintended memory regions, exposing sensitive information or affect service behavior.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-4878?s=ubuntu&n=libssh&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C0.9.6-2ubuntu0.22.04.4"><img alt="medium : CVE--2025--4878" src="https://img.shields.io/badge/CVE--2025--4878-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.013%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>1st percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A vulnerability was found in libssh, where an uninitialized variable exists under certain conditions in the privatekey_from_file() function. This flaw can be triggered if the file specified by the filename doesn't exist and may lead to possible signing failures or heap corruption.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-4877?s=ubuntu&n=libssh&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C0.9.6-2ubuntu0.22.04.4"><img alt="medium : CVE--2025--4877" src="https://img.shields.io/badge/CVE--2025--4877-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><0.9.6-2ubuntu0.22.04.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>0.9.6-2ubuntu0.22.04.4</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Write beyond bounds in binary to base64 conversion functions
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 4" src="https://img.shields.io/badge/M-4-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>gnutls28</strong> <code>3.7.3-4ubuntu1.6</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/gnutls28@3.7.3-4ubuntu1.6?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-6395?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C3.7.3-4ubuntu1.7"><img alt="medium : CVE--2025--6395" src="https://img.shields.io/badge/CVE--2025--6395-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.053%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A NULL pointer dereference flaw was found in the GnuTLS software in _gnutls_figure_common_ciphersuite(). When it reads certain settings from a template file, it can allow an attacker to cause an out-of-bounds (OOB) NULL pointer write, resulting in memory corruption and a denial of service (DoS) that could crash the system.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-32990?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C3.7.3-4ubuntu1.7"><img alt="medium : CVE--2025--32990" src="https://img.shields.io/badge/CVE--2025--32990-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.059%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A heap-buffer-overflow (off-by-one) flaw was found in the GnuTLS software in the template parsing logic within the certtool utility. When it reads certain settings from a template file, it allows an attacker to cause an out-of-bounds (OOB) NULL pointer write, resulting in memory corruption and a denial-of-service (DoS) that could potentially crash the system.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-32989?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C3.7.3-4ubuntu1.7"><img alt="medium : CVE--2025--32989" src="https://img.shields.io/badge/CVE--2025--32989-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.021%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A heap-buffer-overread vulnerability was found in GnuTLS in how it handles the Certificate Transparency (CT) Signed Certificate Timestamp (SCT) extension during X.509 certificate parsing. This flaw allows a malicious user to create a certificate containing a malformed SCT extension (OID 1.3.6.1.4.1.11129.2.4.2) that contains sensitive data. This issue leads to the exposure of confidential information when GnuTLS verifies certificates from certain websites when the certificate (SCT) is not checked correctly.
+
+</blockquote>
+</details>
+
+<a href="https://scout.docker.com/v/CVE-2025-32988?s=ubuntu&n=gnutls28&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C3.7.3-4ubuntu1.7"><img alt="medium : CVE--2025--32988" src="https://img.shields.io/badge/CVE--2025--32988-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.7.3-4ubuntu1.7</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.052%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>16th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+A flaw was found in GnuTLS. A double-free vulnerability exists in GnuTLS due to incorrect ownership handling in the export logic of Subject Alternative Name (SAN) entries containing an otherName. If the type-id OID is invalid or malformed, GnuTLS will call asn1_delete_structure() on an ASN.1 node it does not own, leading to a double-free condition when the parent function or caller later attempts to free the same structure.  This vulnerability can be triggered using only public GnuTLS APIs and may result in denial of service or memory corruption, depending on allocator behavior.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 3" src="https://img.shields.io/badge/M-3-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.hibernate.validator/hibernate-validator</strong> <code>6.0.14.Final</code> (maven)</summary>
 
 <small><code>pkg:maven/org.hibernate.validator/hibernate-validator@6.0.14.Final</code></small><br/>
 <a href="https://scout.docker.com/v/CVE-2025-35036?s=github&n=hibernate-validator&ns=org.hibernate.validator&t=maven&vr=%3C6.2.0.CR1"><img alt="medium 6.9: CVE--2025--35036" src="https://img.shields.io/badge/CVE--2025--35036-lightgrey?label=medium%206.9&labelColor=fbb552"/></a> <i>Improper Control of Generation of Code ('Code Injection')</i>
@@ -3889,33 +4033,14 @@ Workarounds: configure the reverse proxy not to cache 404 responses and/or not t
 <tr><td>Fixed version</td><td><code>6.2.0.CR1</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.9</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.079%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 Hibernate Validator before 6.2.0 and 7.0.0, by default and depending how it is used, may interpolate user-supplied input in a constraint violation message with Expression Language. This could allow an attacker to access sensitive information or execute arbitrary Java code. Hibernate Validator as of 6.2.0 and 7.0.0 no longer interpolates custom constraint violation messages with Expression Language and strongly recommends not allowing user-supplied input in constraint violation messages. CVE-2020-5245 and CVE-2025-4428 are examples of related, downstream vulnerabilities involving Expression Language intepolation of user-supplied data.
-
-</blockquote>
-</details>
-
-<a href="https://scout.docker.com/v/CVE-2019-10219?s=gitlab&n=hibernate-validator&ns=org.hibernate.validator&t=maven&vr=%3C6.0.18"><img alt="medium 6.1: CVE--2019--10219" src="https://img.shields.io/badge/CVE--2019--10219-lightgrey?label=medium%206.1&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code><6.0.18</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.0.18, 6.1.0.Final</code></td></tr>
-<tr><td>CVSS Score</td><td><code>6.1</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>1.337%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>79th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-A vulnerability was found in Hibernate-Validator. The SafeHtml validator annotation fails to properly sanitize payloads consisting of potentially malicious code in HTML comments and instructions. This vulnerability can result in an XSS attack.
 
 </blockquote>
 </details>
@@ -3927,8 +4052,8 @@ A vulnerability was found in Hibernate-Validator. The SafeHtml validator annotat
 <tr><td>Fixed version</td><td><code>6.2.0.Final</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.144%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>36th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.193%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -3989,7 +4114,7 @@ Unbounded memory allocation in Google Guava 11.0 through 24.x before 24.1.1 allo
 <tr><td>Fixed version</td><td><code>32.0.0-android</code></td></tr>
 <tr><td>CVSS Score</td><td><code>5.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.041%</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.042%</code></td></tr>
 <tr><td>EPSS Percentile</td><td><code>12th percentile</code></td></tr>
 </table>
 
@@ -4010,8 +4135,8 @@ Even though the security vulnerability is fixed in version 32.0.0, maintainers r
 <tr><td>Fixed version</td><td><code>32.0.0-android</code></td></tr>
 <tr><td>CVSS Score</td><td><code>3.3</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.008%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.067%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>21st percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
@@ -4033,14 +4158,60 @@ A temp directory creation vulnerability exists in Guava prior to version 32.0.0 
 <table>
 <tr><td>Affected range</td><td><code><1.4.0-11ubuntu2.6</code></td></tr>
 <tr><td>Fixed version</td><td><code>1.4.0-11ubuntu2.6</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.023%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.018%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>3rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
 <blockquote>
 
 A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>perl</strong> <code>5.34.0-3ubuntu1.4</code> (deb)</summary>
+
+<small><code>pkg:deb/ubuntu/perl@5.34.0-3ubuntu1.4?os_distro=jammy&os_name=ubuntu&os_version=22.04</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2025-40909?s=ubuntu&n=perl&ns=ubuntu&t=deb&osn=ubuntu&osv=22.04&vr=%3C5.34.0-3ubuntu1.5"><img alt="medium : CVE--2025--40909" src="https://img.shields.io/badge/CVE--2025--40909-lightgrey?label=medium%20&labelColor=fbb552"/></a> 
+
+<table>
+<tr><td>Affected range</td><td><code><5.34.0-3ubuntu1.5</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.34.0-3ubuntu1.5</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.006%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>0th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+Perl threads have a working directory race condition where file operations may target unintended paths.  If a directory handle is open at thread creation, the process-wide current working directory is temporarily changed in order to clone that handle for the new thread, which is visible from any third (or more) thread already running.  This may lead to unintended operations such as loading code or accessing files from unexpected locations, which a local attacker may be able to exploit.  The bug was introduced in commit 11a11ecf4bea72b17d250cfb43c897be1341861e and released in Perl version 5.13.6
+
+</blockquote>
+</details>
+</details></td></tr>
+
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-jdbc</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
+
+<small><code>pkg:maven/org.springframework/spring-jdbc@5.1.5.RELEASE</code></small><br/>
+<a href="https://scout.docker.com/v/CVE-2024-38827?s=gitlab&n=spring-jdbc&ns=org.springframework&t=maven&vr=%3C6.1.14"><img alt="medium 4.8: CVE--2024--38827" src="https://img.shields.io/badge/CVE--2024--38827-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
+
+<table>
+<tr><td>Affected range</td><td><code><6.1.14</code></td></tr>
+<tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
+<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.086%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
+</table>
+
+<details><summary>Description</summary>
+<blockquote>
+
+The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
 
 </blockquote>
 </details>
@@ -4070,30 +4241,6 @@ Specifically, an application is vulnerable when all of the following are true:
 
   *  the application uses Spring MVC or Spring WebFlux
   *  `org.springframework.boot:spring-boot-actuator` is on the classpath
-
-</blockquote>
-</details>
-</details></td></tr>
-
-<tr><td valign="top">
-<details><summary><img alt="critical: 0" src="https://img.shields.io/badge/C-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/H-0-lightgrey"/> <img alt="medium: 1" src="https://img.shields.io/badge/M-1-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/L-0-lightgrey"/> <!-- unspecified: 0 --><strong>org.springframework/spring-jdbc</strong> <code>5.1.5.RELEASE</code> (maven)</summary>
-
-<small><code>pkg:maven/org.springframework/spring-jdbc@5.1.5.RELEASE</code></small><br/>
-<a href="https://scout.docker.com/v/CVE-2024-38827?s=gitlab&n=spring-jdbc&ns=org.springframework&t=maven&vr=%3C6.1.14"><img alt="medium 4.8: CVE--2024--38827" src="https://img.shields.io/badge/CVE--2024--38827-lightgrey?label=medium%204.8&labelColor=fbb552"/></a> <i>OWASP Top Ten 2017 Category A9 - Using Components with Known Vulnerabilities</i>
-
-<table>
-<tr><td>Affected range</td><td><code><6.1.14</code></td></tr>
-<tr><td>Fixed version</td><td><code>6.1.14</code></td></tr>
-<tr><td>CVSS Score</td><td><code>4.8</code></td></tr>
-<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.076%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>24th percentile</code></td></tr>
-</table>
-
-<details><summary>Description</summary>
-<blockquote>
-
-The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.
 
 </blockquote>
 </details>
@@ -4132,8 +4279,8 @@ A vulnerability was found in systemd-coredump. This flaw allows an attacker to f
 <tr><td>Fixed version</td><td><code>3.9.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.197%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>42nd percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.162%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
