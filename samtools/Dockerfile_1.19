@@ -5,7 +5,7 @@ FROM ubuntu:24.04
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="samtools"
 LABEL org.opencontainers.image.description="Docker image for the use of Samtools in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="1.19"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
