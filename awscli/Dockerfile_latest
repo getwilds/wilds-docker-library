@@ -30,3 +30,8 @@ RUN apt-get update \
   && ./aws/install \
   && rm -rf awscliv2.zip aws \
   && rm -rf /var/lib/apt/lists/*
+
+# Install AWS Signing Helper
+RUN curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/X86_64/Linux/aws_signing_helper \
+  && chmod +x aws_signing_helper \
+  && mv aws_signing_helper /usr/local/bin/
