@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hmmcopy:latest
 
-Report generated on 2025-08-01 08:11:21 PST
+Report generated on 2025-09-01 08:19:15 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/hmmcopy:latest</code></h2>
 

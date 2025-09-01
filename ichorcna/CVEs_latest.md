@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ichorcna:latest
 
-Report generated on 2025-08-01 08:38:37 PST
+Report generated on 2025-09-01 09:03:30 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/ichorcna:latest</code></h2>
 

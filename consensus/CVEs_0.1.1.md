@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/consensus:0.1.1
 
-Report generated on 2025-08-01 09:22:51 PST
+Report generated on 2025-09-01 09:30:48 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/consensus:0.1.1</code></h2>
 
@@ -99,8 +99,8 @@ https://github.com/pypa/setuptools/issues/4946
 <tr><td>Fixed version</td><td><code>70.0.0</code></td></tr>
 <tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
 <tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N</code></td></tr>
-<tr><td>EPSS Score</td><td><code>0.227%</code></td></tr>
-<tr><td>EPSS Percentile</td><td><code>46th percentile</code></td></tr>
+<tr><td>EPSS Score</td><td><code>9.839%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>93rd percentile</code></td></tr>
 </table>
 
 <details><summary>Description</summary>
