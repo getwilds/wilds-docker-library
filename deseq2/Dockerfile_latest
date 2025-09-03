@@ -30,7 +30,7 @@ ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
 # Install required R packages
-RUN R -e "BiocManager::install(c('DESeq2', 'ggplot2', 'pheatmap', 'optparse', 'RColorBrewer'), update=FALSE)"
+RUN R -e "BiocManager::install(c('DESeq2', 'pasilla', 'ggplot2', 'pheatmap', 'optparse', 'RColorBrewer'), update=FALSE, ask=FALSE, dependencies=TRUE)"
 
 # Copy the DESeq2 analysis script to the container
 COPY deseq2/deseq2_analysis.R /deseq2_analysis.R

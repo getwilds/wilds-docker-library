@@ -12,12 +12,13 @@ This directory contains Docker images for DESeq2, a Bioconductor package for dif
 These Docker images are built from the Bioconductor base image and include:
 
 - DESeq2 v1.40.2: A package for differential expression analysis of RNA-seq count data
+- pasilla: Example RNA-seq dataset from Drosophila for testing and tutorials
 - apeglm: For LFC shrinkage estimation
 - pheatmap & RColorBrewer: For visualization of differential expression results
 - optparse, ggplot2, dplyr: For command-line interface and data processing
 - A ready-to-use analysis script for standard differential expression workflows
 
-The images are designed to provide a comprehensive environment for RNA-seq differential expression analysis with DESeq2 methodology.
+The images are designed to provide a comprehensive environment for RNA-seq differential expression analysis with DESeq2 methodology, including example data for testing and learning purposes.
 
 ## Usage
 
@@ -89,6 +90,15 @@ The analysis produces the following outputs:
 5. `*_volcano.pdf`: Volcano plot of differential expression results
 6. `*_heatmap.pdf`: Heatmap of top differentially expressed genes
 
+## Example Data
+
+The image includes the `pasilla` dataset, which contains RNA-seq count data from a study on the pasilla gene in Drosophila. This dataset is useful for:
+
+- Testing DESeq2 workflows
+- Learning differential expression analysis
+- Validating analysis pipelines
+- Following DESeq2 tutorials and vignettes
+
 ## Security Features
 
 The DESeq2 Docker images include:
@@ -112,7 +122,7 @@ The Dockerfile follows these main steps:
 
 1. Uses Bioconductor RELEASE_3_17 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs DESeq2 and related R packages
+3. Installs DESeq2, pasilla example data, and related R packages
 4. Installs system dependencies with version pinning
 5. Adds the analysis script and makes it executable
 6. Sets up a working directory for data analysis
