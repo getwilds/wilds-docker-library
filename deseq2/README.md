@@ -77,17 +77,17 @@ apptainer run --bind /path/to/data:/data docker://getwilds/deseq2:latest Rscript
 # Generate test count matrices using the pasilla dataset
 docker run --rm -v /path/to/output:/data getwilds/deseq2:latest \
   generate_pasilla_counts.R \
-  --n-samples 7 \
-  --n-genes 10000 \
-  --condition-name condition \
-  --output-prefix /data/test_data
+  --nsamples 7 \
+  --ngenes 10000 \
+  --condition condition \
+  --prefix /data/test_data
 
 # Generate smaller test dataset
 docker run --rm -v /path/to/output:/data getwilds/deseq2:latest \
   generate_pasilla_counts.R \
-  --n-samples 4 \
-  --n-genes 5000 \
-  --output-prefix /data/small_test
+  --nsamples 4 \
+  --ngenes 5000 \
+  --prefix /data/small_test
 ```
 
 ### Script Parameters
@@ -107,10 +107,10 @@ The included `deseq2_analysis.R` script accepts the following parameters:
 
 The included `generate_pasilla_counts.R` script accepts the following parameters:
 
-- `--n-samples`: Number of samples to include (default: 7, max: 7 for pasilla dataset)
-- `--n-genes`: Approximate number of genes to include (default: 10000)
-- `--condition-name`: Name for the condition column in metadata (default: "condition")
-- `--output-prefix`: Prefix for output files (default: "pasilla")
+- `--nsamples`: Number of samples to include (default: 7, max: 7 for pasilla dataset)
+- `--ngenes`: Approximate number of genes to include (default: 10000)
+- `--condition`: Name for the condition column in metadata (default: "condition")
+- `--prefix`: Prefix for output files (default: "pasilla")
 
 ### Outputs
 

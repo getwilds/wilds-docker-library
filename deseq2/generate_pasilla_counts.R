@@ -13,16 +13,14 @@ suppressPackageStartupMessages({
 
 # Define command line options
 option_list <- list(
-    make_option(c("--n-samples"), type = "integer", default = 7,
+    make_option(c("-n", "--nsamples"), type = "integer", default = 7,
                 help = "Number of samples to include (default: 7, max: 7 for pasilla dataset)"),
-    make_option(c("--n-genes"), type = "integer", default = 10000,
+    make_option(c("-g", "--ngenes"), type = "integer", default = 10000,
                 help = "Approximate number of genes to include (will select top expressed genes)"),
-    make_option(c("--condition-name"), type = "character", default = "condition",
+    make_option(c("-c", "--condition"), type = "character", default = "condition",
                 help = "Name for the condition column in metadata"),
-    make_option(c("--output-prefix"), type = "character", default = "pasilla",
-                help = "Prefix for output files"),
-    make_option(c("-h", "--help"), action = "store_true", default = FALSE,
-                help = "Show this help message and exit")
+    make_option(c("-p", "--prefix"), type = "character", default = "pasilla",
+                help = "Prefix for output files")
 )
 
 # Parse command line arguments
@@ -30,20 +28,14 @@ opt_parser <- OptionParser(option_list = option_list,
                           description = "Generate DESeq2 test data from pasilla dataset")
 opt <- parse_args(opt_parser)
 
-# Show help if requested
-if (opt$help) {
-    print_help(opt_parser)
-    quit(status = 0)
-}
-
 # Main execution
 tryCatch({
     cat("=== Generating pasilla test data ===\n")
     cat("Parameters:\n")
-    cat("  Samples:", opt$`n-samples`, "\n")
-    cat("  Genes:", opt$`n-genes`, "\n")
-    cat("  Condition column:", opt$`condition-name`, "\n")
-    cat("  Output prefix:", opt$`output-prefix`, "\n\n")
+    cat("  Samples:", opt$nsamples, "\n")
+    cat("  Genes:", opt$ngenes, "\n")
+    cat("  Condition column:", opt$condition, "\n")
+    cat("  Output prefix:", opt$prefix, "\n\n")
     
     # Get the actual pasilla data files
     count_file <- system.file("extdata", "pasilla_gene_counts.tsv", package = "pasilla")
@@ -70,10 +62,10 @@ tryCatch({
     sample_data <- sample_data[common_samples, ]
     
     # Limit to requested number of samples
-    n_samples_requested <- opt$`n-samples`
+    n_samples_requested <- opt$nsamples
     if (n_samples_requested > ncol(count_data)) {
         n_samples_requested <- ncol(count_data)
-        cat("Warning: Requested", opt$`n-samples`, "samples, but only", ncol(count_data), "available\n")
+        cat("Warning: Requested", opt$nsamples, "samples, but only", ncol(count_data), "available\n")
     }
     
     # Select samples (ensure we have both conditions represented)
@@ -104,10 +96,10 @@ tryCatch({
     sample_data <- sample_data[selected_samples, ]
     
     # Select top expressed genes
-    n_genes_requested <- opt$`n-genes`
+    n_genes_requested <- opt$ngenes
     if (n_genes_requested > nrow(count_data)) {
         n_genes_requested <- nrow(count_data)
-        cat("Warning: Requested", opt$`n-genes`, "genes, but only", nrow(count_data), "available\n")
+        cat("Warning: Requested", opt$ngenes, "genes, but only", nrow(count_data), "available\n")
     }
     
     # Calculate mean counts per gene and select top expressed
@@ -125,15 +117,15 @@ tryCatch({
     )
     
     # Rename condition column if requested
-    condition_col_name <- opt$`condition-name`
+    condition_col_name <- opt$condition
     if (condition_col_name != "condition") {
         names(metadata)[names(metadata) == "condition"] <- condition_col_name
     }
     
     # Generate output filenames
-    counts_file <- paste0(opt$`output-prefix`, "_counts_matrix.txt")
-    metadata_file <- paste0(opt$`output-prefix`, "_sample_metadata.txt")
-    gene_info_file <- paste0(opt$`output-prefix`, "_gene_info.txt")
+    counts_file <- paste0(opt$prefix, "_counts_matrix.txt")
+    metadata_file <- paste0(opt$prefix, "_sample_metadata.txt")
+    gene_info_file <- paste0(opt$prefix, "_gene_info.txt")
     
     # Write count matrix (genes as rows, samples as columns)
     # Add gene names as first column
