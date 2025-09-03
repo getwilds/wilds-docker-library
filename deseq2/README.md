@@ -17,6 +17,7 @@ These Docker images are built from the Bioconductor base image and include:
 - pheatmap & RColorBrewer: For visualization of differential expression results
 - optparse, ggplot2, dplyr: For command-line interface and data processing
 - A ready-to-use analysis script for standard differential expression workflows
+- A test data generation script for creating DESeq2-compatible datasets
 
 The images are designed to provide a comprehensive environment for RNA-seq differential expression analysis with DESeq2 methodology, including example data for testing and learning purposes.
 
@@ -46,6 +47,8 @@ apptainer pull docker://ghcr.io/getwilds/deseq2:latest
 
 ### Example Commands
 
+#### Running DESeq2 Analysis
+
 ```bash
 # Running DESeq2 analysis with default parameters
 docker run --rm -v /path/to/data:/data getwilds/deseq2:latest Rscript /deseq2_analysis.R \
@@ -68,7 +71,28 @@ apptainer run --bind /path/to/data:/data docker://getwilds/deseq2:latest Rscript
   --output_prefix=/data/results
 ```
 
+#### Generating Test Data
+
+```bash
+# Generate test count matrices using the pasilla dataset
+docker run --rm -v /path/to/output:/data getwilds/deseq2:latest \
+  generate_pasilla_counts.R \
+  --nsamples 7 \
+  --ngenes 10000 \
+  --condition condition \
+  --prefix /data/test_data
+
+# Generate smaller test dataset
+docker run --rm -v /path/to/output:/data getwilds/deseq2:latest \
+  generate_pasilla_counts.R \
+  --nsamples 4 \
+  --ngenes 5000 \
+  --prefix /data/small_test
+```
+
 ### Script Parameters
+
+#### DESeq2 Analysis Script (`deseq2_analysis.R`)
 
 The included `deseq2_analysis.R` script accepts the following parameters:
 
@@ -79,7 +103,18 @@ The included `deseq2_analysis.R` script accepts the following parameters:
 - `--contrast`: Contrast to use in format: condition,treatment,control (default: infer from condition_column)
 - `--output_prefix`: Prefix for output files (default: "deseq2_results")
 
+#### Test Data Generation Script (`generate_pasilla_counts.R`)
+
+The included `generate_pasilla_counts.R` script accepts the following parameters:
+
+- `--nsamples`: Number of samples to include (default: 7, max: 7 for pasilla dataset)
+- `--ngenes`: Approximate number of genes to include (default: 10000)
+- `--condition`: Name for the condition column in metadata (default: "condition")
+- `--prefix`: Prefix for output files (default: "pasilla")
+
 ### Outputs
+
+#### DESeq2 Analysis Outputs
 
 The analysis produces the following outputs:
 
@@ -90,6 +125,14 @@ The analysis produces the following outputs:
 5. `*_volcano.pdf`: Volcano plot of differential expression results
 6. `*_heatmap.pdf`: Heatmap of top differentially expressed genes
 
+#### Test Data Generation Outputs
+
+The test data generation produces the following outputs:
+
+1. `*_counts_matrix.txt`: Count matrix with genes as rows and samples as columns
+2. `*_sample_metadata.txt`: Sample metadata file with conditions and sample information
+3. `*_gene_info.txt`: Gene annotation information including gene IDs
+
 ## Example Data
 
 The image includes the `pasilla` dataset, which contains RNA-seq count data from a study on the pasilla gene in Drosophila. This dataset is useful for:
@@ -98,6 +141,9 @@ The image includes the `pasilla` dataset, which contains RNA-seq count data from
 - Learning differential expression analysis
 - Validating analysis pipelines
 - Following DESeq2 tutorials and vignettes
+- Generating customizable test datasets for workflow development
+
+The `generate_pasilla_counts.R` script allows you to create subsets of this data with varying numbers of samples and genes, making it ideal for testing workflows with different data sizes.
 
 ## Security Features
 
@@ -124,7 +170,7 @@ The Dockerfile follows these main steps:
 2. Adds metadata labels for documentation and attribution
 3. Installs DESeq2, pasilla example data, and related R packages
 4. Installs system dependencies with version pinning
-5. Adds the analysis script and makes it executable
+5. Adds the analysis and test data generation scripts and makes them executable
 6. Sets up a working directory for data analysis
 
 ## Source Repository
