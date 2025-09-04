@@ -1,8 +1,8 @@
 #!/usr/bin/env Rscript
 
-# Generate DESeq2 test count matrices and metadata using the pasilla Bioconductor dataset
+# Generate individual STAR-format count files using the pasilla Bioconductor dataset
 # Author: WILDS Team
-# Description: Creates count matrix, sample metadata, and gene info files for testing
+# Description: Creates individual ReadsPerGene.out.tab files for each sample to mimic STAR output
 
 # Load required libraries
 suppressPackageStartupMessages({
@@ -25,12 +25,12 @@ option_list <- list(
 
 # Parse command line arguments
 opt_parser <- OptionParser(option_list = option_list,
-                          description = "Generate DESeq2 test data from pasilla dataset")
+                          description = "Generate individual STAR-format count files from pasilla dataset")
 opt <- parse_args(opt_parser)
 
 # Main execution
 tryCatch({
-    cat("=== Generating pasilla test data ===\n")
+    cat("=== Generating individual STAR-format count files from pasilla data ===\n")
     cat("Parameters:\n")
     cat("  Samples:", opt$nsamples, "\n")
     cat("  Genes:", opt$ngenes, "\n")
@@ -108,47 +108,80 @@ tryCatch({
     
     count_data <- count_data[top_genes, ]
     
-    # Create clean sample metadata
-    metadata <- data.frame(
-        sample_name = colnames(count_data),
-        condition = as.character(sample_data$condition),
-        type = as.character(sample_data$type),
-        stringsAsFactors = FALSE
-    )
+    # Create individual STAR-format count files for each sample
+    individual_count_files <- character(0)
+    sample_names <- character(0)
+    sample_conditions <- character(0)
     
-    # Rename condition column if requested
-    condition_col_name <- opt$condition
-    if (condition_col_name != "condition") {
-        names(metadata)[names(metadata) == "condition"] <- condition_col_name
+    for (i in 1:ncol(count_data)) {
+        sample_name <- colnames(count_data)[i]
+        sample_condition <- as.character(sample_data[sample_name, "condition"])
+        
+        # Generate filename in STAR format: samplename.ReadsPerGene.out.tab
+        count_filename <- paste0(sample_name, ".ReadsPerGene.out.tab")
+        
+        # Get counts for this sample
+        sample_counts <- count_data[, i]
+        
+        # Calculate some realistic summary statistics for STAR header
+        # These are fake but representative values
+        total_reads <- sum(sample_counts) * 2  # Approximate total reads
+        uniquely_mapped <- round(sum(sample_counts) * 0.85)  # ~85% uniquely mapped
+        multimapping <- round(sum(sample_counts) * 0.10)     # ~10% multimapping
+        unmapped <- total_reads - uniquely_mapped - multimapping
+        
+        # Create STAR-format output with header statistics
+        # STAR ReadsPerGene.out.tab format:
+        # First 4 lines are summary statistics
+        # Then: gene_id, unstranded_count, stranded_forward, stranded_reverse
+        
+        # Open file for writing
+        file_conn <- file(count_filename, "w")
+        
+        # Write STAR header lines (summary statistics)
+        writeLines(paste("N_unmapped", unmapped, sep = "\t"), file_conn)
+        writeLines(paste("N_multimapping", multimapping, sep = "\t"), file_conn)
+        writeLines(paste("N_noFeature", round(total_reads * 0.02), sep = "\t"), file_conn)  # ~2% no feature
+        writeLines(paste("N_ambiguous", round(total_reads * 0.03), sep = "\t"), file_conn)  # ~3% ambiguous
+        
+        # Write gene counts
+        # Format: gene_id, unstranded, forward_strand, reverse_strand
+        # We'll use the actual counts as "unstranded" and generate reasonable strand-specific counts
+        for (j in 1:length(sample_counts)) {
+            gene_id <- rownames(count_data)[j]
+            unstranded_count <- sample_counts[j]
+            
+            # Generate strand-specific counts (simulate roughly 60/40 split for strand specificity)
+            forward_count <- round(unstranded_count * runif(1, 0.3, 0.7))
+            reverse_count <- unstranded_count - forward_count
+            
+            writeLines(paste(gene_id, unstranded_count, forward_count, reverse_count, sep = "\t"), file_conn)
+        }
+        
+        close(file_conn)
+        
+        # Store information for outputs
+        individual_count_files <- c(individual_count_files, count_filename)
+        sample_names <- c(sample_names, sample_name)
+        sample_conditions <- c(sample_conditions, sample_condition)
+        
+        cat("Created:", count_filename, "for sample", sample_name, "with condition", sample_condition, "\n")
     }
     
-    # Generate output filenames
-    counts_file <- paste0(opt$prefix, "_counts_matrix.txt")
-    metadata_file <- paste0(opt$prefix, "_sample_metadata.txt")
+    # Create sample names file
+    sample_names_file <- paste0(opt$prefix, "_sample_names.txt")
+    writeLines(sample_names, sample_names_file)
+    
+    # Create sample conditions file
+    sample_conditions_file <- paste0(opt$prefix, "_sample_conditions.txt")
+    writeLines(sample_conditions, sample_conditions_file)
+    
+    # Create count files list
+    count_files_list <- paste0(opt$prefix, "_count_files.txt")
+    writeLines(individual_count_files, count_files_list)
+    
+    # Write gene information
     gene_info_file <- paste0(opt$prefix, "_gene_info.txt")
-    
-    # Write count matrix (genes as rows, samples as columns)
-    # Add gene names as first column
-    count_output <- cbind(
-        gene_id = rownames(count_data),
-        as.data.frame(count_data)
-    )
-    write.table(count_output, 
-                file = counts_file, 
-                sep = "\t", 
-                row.names = FALSE, 
-                col.names = TRUE,
-                quote = FALSE)
-    
-    # Write sample metadata
-    write.table(metadata, 
-                file = metadata_file, 
-                sep = "\t", 
-                row.names = FALSE, 
-                col.names = TRUE,
-                quote = FALSE)
-    
-    # Write gene information (simpler since we don't have detailed gene data)
     gene_info <- data.frame(
         gene_id = rownames(count_data),
         gene_name = rownames(count_data),  # Use gene ID as name since we don't have symbols
@@ -162,15 +195,20 @@ tryCatch({
                 quote = FALSE)
     
     # Print summary
-    cat("\n=== Generated pasilla test data ===\n")
+    cat("\n=== Generated individual STAR-format count files ===\n")
     cat("Files created:\n")
-    cat("  Count matrix:", counts_file, "\n")
-    cat("  Sample metadata:", metadata_file, "\n")
+    for (i in 1:length(individual_count_files)) {
+        cat("  Count file:", individual_count_files[i], "(", sample_names[i], "-", sample_conditions[i], ")\n")
+    }
+    cat("  Sample names list:", sample_names_file, "\n")
+    cat("  Sample conditions list:", sample_conditions_file, "\n")
+    cat("  Count files list:", count_files_list, "\n")
     cat("  Gene info:", gene_info_file, "\n\n")
     cat("Data summary:\n")
-    cat("  Samples:", ncol(count_data), "\n")
-    cat("  Genes:", nrow(count_data), "\n")
-    cat("  Conditions:", paste(unique(metadata[[condition_col_name]]), collapse = ", "), "\n")
+    cat("  Total samples:", length(sample_names), "\n")
+    cat("  Genes per file:", nrow(count_data), "\n")
+    cat("  Conditions:", paste(unique(sample_conditions), collapse = ", "), "\n")
+    cat("  Sample names:", paste(sample_names, collapse = ", "), "\n")
     cat("\nScript completed successfully!\n")
 
 }, error = function(e) {
