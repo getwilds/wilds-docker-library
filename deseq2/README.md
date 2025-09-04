@@ -17,7 +17,7 @@ These Docker images are built from the Bioconductor base image and include:
 - pheatmap & RColorBrewer: For visualization of differential expression results
 - optparse, ggplot2, dplyr: For command-line interface and data processing
 - A ready-to-use analysis script for standard differential expression workflows
-- A test data generation script for creating DESeq2-compatible datasets
+- A test data generation script for creating STAR-format individual count files
 
 The images are designed to provide a comprehensive environment for RNA-seq differential expression analysis with DESeq2 methodology, including example data for testing and learning purposes.
 
@@ -74,7 +74,7 @@ apptainer run --bind /path/to/data:/data docker://getwilds/deseq2:latest Rscript
 #### Generating Test Data
 
 ```bash
-# Generate test count matrices using the pasilla dataset
+# Generate individual STAR-format count files using the pasilla dataset
 docker run --rm -v /path/to/output:/data getwilds/deseq2:latest \
   generate_pasilla_counts.R \
   --nsamples 7 \
@@ -129,9 +129,15 @@ The analysis produces the following outputs:
 
 The test data generation produces the following outputs:
 
-1. `*_counts_matrix.txt`: Count matrix with genes as rows and samples as columns
-2. `*_sample_metadata.txt`: Sample metadata file with conditions and sample information
-3. `*_gene_info.txt`: Gene annotation information including gene IDs
+1. Individual STAR-format count files: `*_samplename.ReadsPerGene.out.tab` for each sample
+   - Format matches STAR output with 4-line header (mapping statistics) followed by gene counts
+   - Contains gene_id, unstranded_count, forward_strand_count, reverse_strand_count columns
+2. `*_sample_names.txt`: List of sample names corresponding to the count files
+3. `*_sample_conditions.txt`: List of experimental conditions for each sample
+4. `*_count_files.txt`: List of generated count file names
+5. `*_gene_info.txt`: Gene annotation information including gene IDs
+
+The individual count files are designed to mimic authentic STAR `ReadsPerGene.out.tab` output, making them suitable for testing workflows that process individual sample count files before combining them into a matrix.
 
 ## Example Data
 
@@ -142,8 +148,17 @@ The image includes the `pasilla` dataset, which contains RNA-seq count data from
 - Validating analysis pipelines
 - Following DESeq2 tutorials and vignettes
 - Generating customizable test datasets for workflow development
+- Creating realistic STAR-format individual count files for testing count matrix combination workflows
 
-The `generate_pasilla_counts.R` script allows you to create subsets of this data with varying numbers of samples and genes, making it ideal for testing workflows with different data sizes.
+The `generate_pasilla_counts.R` script allows you to create subsets of this data with varying numbers of samples and genes. The script generates individual count files in STAR format, which is particularly useful for testing complete RNA-seq analysis workflows that start from individual sample count files rather than pre-combined matrices.
+
+## Integration with WILDS WDL Workflows
+
+This Docker image is specifically designed to work with WILDS WDL modules:
+
+- The `deseq2_analysis.R` script is used by the `ww-deseq2` module for differential expression analysis
+- The `generate_pasilla_counts.R` script is used by the `ww-testdata` module to generate realistic test data
+- Individual STAR-format count files can be processed by count matrix combination workflows before DESeq2 analysis
 
 ## Security Features
 
