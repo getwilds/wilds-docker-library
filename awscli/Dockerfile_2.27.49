@@ -1,5 +1,5 @@
-# Using Ubuntu base image
-FROM ubuntu:noble-20241011
+# Using Ubuntu base image - updated to latest noble for security patches (CVE-2025-22871, CVE-2024-45337, CVE-2024-24790)
+FROM ubuntu:noble-20250805
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="awscli"

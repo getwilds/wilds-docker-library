@@ -13,7 +13,7 @@ These Docker images are built from Python 3.12-slim and include:
 
 - scvi-tools v1.1.6: Deep probabilistic analysis of single-cell omics data
 - scanpy v1.10.2: Single-Cell Analysis in Python
-- PyTorch v2.4.0: Deep learning framework
+- PyTorch v2.6.0: Deep learning framework
 - leiden-clustering v0.1.0: Community detection for single-cell data
 - scikit-misc v0.5.1: Miscellaneous scikit additions
 

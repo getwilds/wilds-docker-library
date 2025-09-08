@@ -1,6 +1,6 @@
 
-# Using a CUDA base image
-FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
+# Using a CUDA base image - updated to 11.8 for better security patches
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="python-dl"
@@ -14,9 +14,9 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing Python
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends python3=3.10.6-1~22.04.1 python3-pip=22.0.2+dfsg-1ubuntu0.4 \
+  && apt-get install -y --no-install-recommends python3=3.10.6-1~22.04.1 python3-pip=22.0.2+dfsg-1ubuntu0.6 \
   && rm -rf /var/lib/apt/lists/*
 
-# Installing necessary Python modules
+# Installing necessary Python modules - updated torch to 2.6.0+ to fix CVE-2025-32434
 RUN pip install --no-cache-dir numpy==1.26.4 seaborn==0.13.2 matplotlib==3.9.2 pandas==2.2.3 scikit-learn==1.5.2 \
-    scipy==1.14.1 optuna==4.0.0 joblib==1.4.2 keras==3.6.0 tensorflow==2.17.0 torch==2.5.0
+    scipy==1.14.1 optuna==4.0.0 joblib==1.4.2 keras==3.6.0 tensorflow==2.17.0 torch==2.6.0
