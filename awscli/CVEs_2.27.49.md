@@ -1,14 +1,14 @@
 # Vulnerability Report for getwilds/awscli:2.27.49
 
-Report generated on 2025-09-09 17:33:32 PST
+Report generated on 2025-09-09 17:47:53 PST
 
 <h2>:mag: Vulnerabilities of <code>getwilds/awscli:2.27.49</code></h2>
 
 <details open="true"><summary>:package: Image Reference</strong> <code>getwilds/awscli:2.27.49</code></summary>
 <table>
-<tr><td>digest</td><td><code>sha256:df014ca1cfb5c897f07f0d0cebb42154be2d46f2c29e1675763d3825313a231d</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 3" src="https://img.shields.io/badge/critical-3-8b1924"/> <img alt="high: 7" src="https://img.shields.io/badge/high-7-e25d68"/> <img alt="medium: 15" src="https://img.shields.io/badge/medium-15-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
+<tr><td>digest</td><td><code>sha256:81cbbea5f3c1c925897f22bbe20df05b6ed5aae30c6875f2320236dcb1c6a2dd</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 3" src="https://img.shields.io/badge/critical-3-8b1924"/> <img alt="high: 7" src="https://img.shields.io/badge/high-7-e25d68"/> <img alt="medium: 15" src="https://img.shields.io/badge/medium-15-fbb552"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
 <tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>104 MB</td></tr>
+<tr><td>size</td><td>118 MB</td></tr>
 <tr><td>packages</td><td>179</td></tr>
 </table>
 </details></table>
