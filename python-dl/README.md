@@ -9,11 +9,11 @@ This directory contains Docker images for deep learning with Python, providing a
 
 ## Image Details
 
-These Docker images are built from NVIDIA's CUDA 11.7.1 with cuDNN 8 base image and include:
+These Docker images are built from NVIDIA's CUDA 11.8.0 with cuDNN 8 base image and include:
 
 - Python 3.10: Core programming language
 - TensorFlow 2.17.0: Deep learning framework
-- PyTorch 2.5.0: Deep learning framework
+- PyTorch 2.6.0: Deep learning framework
 - Keras 3.6.0: High-level neural networks API
 - NumPy, Pandas, Matplotlib, Seaborn: Data manipulation and visualization
 - scikit-learn, scipy: Machine learning and scientific computing
@@ -87,7 +87,7 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 The Dockerfile follows these main steps:
 
-1. Uses NVIDIA CUDA 11.7.1 with cuDNN 8 as the base image
+1. Uses NVIDIA CUDA 11.8.0 with cuDNN 8 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs Python 3.10 and pip
 4. Installs Python packages for scientific computing and visualization
