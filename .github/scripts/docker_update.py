@@ -184,7 +184,7 @@ def build_and_push_images(docker_files):
 
         try:
             result = run_command(
-                f"docker scout quickview ghcr.io/getwilds/{tool_name}:{tag}",
+                f"docker scout cves ghcr.io/getwilds/{tool_name}:{tag} --format markdown --only-severity critical,high --only-fixed",
                 capture_output=True,
             )
 
