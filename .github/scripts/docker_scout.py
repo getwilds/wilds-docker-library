@@ -114,14 +114,16 @@ def scan_image(tool, tag):
     try:
         # Run Docker Scout to generate CVE report
         result = run_command(
-            f"docker scout cves {container} --format markdown --only-severity critical,high --only-fixed", capture_output=True
+            f"docker scout quickview {container}", capture_output=True
         )
 
         with open(cve_file, "w") as f:
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
             f.write(f"# Vulnerability Report for {container}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
+            f.write("```\n")
             f.write(result)
+            f.write("\n```\n")
         
         # Replace ghcr.io/getwilds with getwilds in the report
         with open(cve_file, "r") as f:

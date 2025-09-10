@@ -184,12 +184,14 @@ def build_and_push_images(docker_files):
 
         try:
             result = run_command(
-                f"docker scout cves ghcr.io/getwilds/{tool_name}:{tag} --format markdown --only-severity critical,high --only-fixed",
+                f"docker scout quickview ghcr.io/getwilds/{tool_name}:{tag}",
                 capture_output=True,
             )
 
             with open(cve_file, "a") as f:
+                f.write("```\n")
                 f.write(result)
+                f.write("\n```\n")
             
             logger.info(f"Successfully generated CVE report for {tool_name}:{tag}")
         except Exception as e:
