@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scvi-tools:1.1.6
 
-Report generated on 2025-09-10 05:47:41 PST
+Report generated on 2025-09-10 17:53:00 PST
 
 ## 📊 Vulnerability Summary
 

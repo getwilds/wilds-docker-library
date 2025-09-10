@@ -1,17 +1,49 @@
 # Vulnerability Report for getwilds/strelka:latest
 
-Report generated on 2025-09-01 08:09:39 PST
+Report generated on 2025-09-10 16:14:39 PST
 
-<h2>:mag: Vulnerabilities of <code>getwilds/strelka:latest</code></h2>
+## 📊 Vulnerability Summary
 
-<details open="true"><summary>:package: Image Reference</strong> <code>getwilds/strelka:latest</code></summary>
-<table>
-<tr><td>digest</td><td><code>sha256:786e8020208bebf4226c3f92dcda81931722efbe3dec6e54bceac1d3ce5b68b5</code></td><tr><tr><td>vulnerabilities</td><td><img alt="critical: 0" src="https://img.shields.io/badge/critical-0-lightgrey"/> <img alt="high: 0" src="https://img.shields.io/badge/high-0-lightgrey"/> <img alt="medium: 0" src="https://img.shields.io/badge/medium-0-lightgrey"/> <img alt="low: 0" src="https://img.shields.io/badge/low-0-lightgrey"/> <!-- unspecified: 0 --></td></tr>
-<tr><td>platform</td><td>linux/amd64</td></tr>
-<tr><td>size</td><td>404 MB</td></tr>
-<tr><td>packages</td><td>281</td></tr>
-</table>
-</details></table>
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 0 |
+| 🟠 High | 0 |
+| 🟡 Medium | 1142 |
+| 🟢 Low | 65 |
+| ⚪ Unknown | 0 |
+
+## 🐳 Base Image
+
+**Image:** `ubuntu:22.04`
+
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 0 |
+| 🟠 High | 0 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 13 |
+
+## 🔄 Recommendations
+
+**Refreshed base image:** `ubuntu:22.04`
+
+**Updated base image:** `ubuntu:25.10`
+
+<details>
+<summary>📋 Raw Docker Scout Output</summary>
+
+```text
+Target               │  getwilds/strelka:latest  │    0C     0H   1142M    65L   
+    digest             │  786e8020208b                     │                               
+  Base image           │  ubuntu:22.04                     │    0C     0H     3M    13L    
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     3M    12L    
+                       │                                   │                         -1    
+  Updated base image   │  ubuntu:25.10                     │    0C     0H     0M     0L    
+                       │                                   │                  -3    -13    
+
+What's next:
+    View vulnerabilities → docker scout cves getwilds/strelka:latest
+    View base image update recommendations → docker scout recommendations getwilds/strelka:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/strelka:latest --org <organization>
+```
 </details>
-
-<table></table>
