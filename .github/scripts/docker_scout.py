@@ -24,7 +24,7 @@ import glob
 import logging
 import time
 from datetime import datetime
-from utils import run_command
+from utils import run_command, parse_scout_quickview
 
 # Set up logging
 logging.basicConfig(
@@ -116,14 +116,15 @@ def scan_image(tool, tag):
         result = run_command(
             f"docker scout quickview {container}", capture_output=True
         )
+        
+        # Parse the scout output into clean markdown
+        parsed_markdown = parse_scout_quickview(result)
 
         with open(cve_file, "w") as f:
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
             f.write(f"# Vulnerability Report for {container}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
-            f.write("```\n")
-            f.write(result)
-            f.write("\n```\n")
+            f.write(parsed_markdown)
         
         # Replace ghcr.io/getwilds with getwilds in the report
         with open(cve_file, "r") as f:

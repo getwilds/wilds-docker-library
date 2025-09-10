@@ -32,7 +32,7 @@ import logging
 import requests
 from datetime import datetime
 import git
-from utils import run_command
+from utils import run_command, parse_scout_quickview
 
 # Set up logging
 logging.basicConfig(
@@ -187,11 +187,12 @@ def build_and_push_images(docker_files):
                 f"docker scout quickview ghcr.io/getwilds/{tool_name}:{tag}",
                 capture_output=True,
             )
+            
+            # Parse the scout output into clean markdown
+            parsed_markdown = parse_scout_quickview(result)
 
             with open(cve_file, "a") as f:
-                f.write("```\n")
-                f.write(result)
-                f.write("\n```\n")
+                f.write(parsed_markdown)
             
             logger.info(f"Successfully generated CVE report for {tool_name}:{tag}")
         except Exception as e:
