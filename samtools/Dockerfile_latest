@@ -1,33 +1,55 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:noble-20241011
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="samtools"
 LABEL org.opencontainers.image.description="Docker image for the use of Samtools in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Installing prerequisites
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 wget=1.21.4-1ubuntu4 \
-  zlib1g-dev=1:1.3.dfsg-3.1ubuntu2.1 autoconf=2.71-3 automake=1:1.16.5-1.3ubuntu1 \
-  libncurses-dev=6.4+20240113-1ubuntu2 libbz2-dev=1.0.8-5.1build0.1 liblzma-dev=5.6.1+really5.4.5-1build0.1 \
-  libssl-dev=3.0.13-0ubuntu3.4 libcurl4-gnutls-dev=8.5.0-2ubuntu10.4 bedtools=2.31.1+dfsg-2 \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL4_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && BEDTOOLS_VERSION=$(apt-cache policy bedtools | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  zlib1g-dev="${ZLIB1G_VERSION}" \
+  autoconf="${AUTOCONF_VERSION}" \
+  automake="${AUTOMAKE_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL4_VERSION}" \
+  bedtools="${BEDTOOLS_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting Samtools source code
-RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2 && tar -jxf samtools-1.11.tar.bz2
+RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.19/samtools-1.19.tar.bz2 && tar -jxf samtools-1.19.tar.bz2
 
 # Installing Samtools
-WORKDIR /samtools-1.11
+WORKDIR /samtools-1.19
 RUN ./configure && make && make install
 WORKDIR /
 
 # Cleanup
-RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
+RUN rm -rf samtools-1.19 samtools-1.19.tar.bz2
 

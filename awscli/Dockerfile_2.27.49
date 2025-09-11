@@ -1,0 +1,37 @@
+# Using Ubuntu base image - updated to latest noble for security patches (CVE-2025-22871, CVE-2024-45337, CVE-2024-24790)
+FROM ubuntu:noble-20250805
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="awscli"
+LABEL org.opencontainers.image.description="Docker image for AWS CLI in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="2.27.49"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install AWS CLI
+RUN apt-get update \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && SAMTOOLS_VERSION=$(apt-cache policy samtools | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+     curl="${CURL_VERSION}" \
+     unzip="${UNZIP_VERSION}" \
+     ca-certificates="${CERT_VERSION}" \
+     samtools="${SAMTOOLS_VERSION}" \
+  && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.27.49.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install \
+  && rm -rf awscliv2.zip aws \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install AWS Signing Helper
+RUN curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/X86_64/Linux/aws_signing_helper \
+  && chmod +x aws_signing_helper \
+  && mv aws_signing_helper /usr/local/bin/

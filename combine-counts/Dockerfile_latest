@@ -1,0 +1,21 @@
+
+# Using Python base image
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="combine-counts"
+LABEL org.opencontainers.image.description="Container image for the count matrix assembly necessary for DESeq2"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Installing packages via pip
+RUN pip install --no-cache-dir pandas==2.2.3
+
+# Copying combine_star_counts.py script from the repo
+COPY combine-counts/combine_star_counts.py /usr/local/bin/
+RUN chmod +x /usr/local/bin/combine_star_counts.py
+

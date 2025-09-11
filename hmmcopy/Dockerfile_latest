@@ -1,0 +1,42 @@
+# Using the Ubuntu base image
+FROM ubuntu:20.04
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="hmmcopy"
+LABEL org.opencontainers.image.description="Container image for the use of HMMcopy functionality in WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set timezone to avoid interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Installing prerequisites
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  git="${GIT_VERSION}" \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Cloning the ichorCNA repository and building the software
+RUN git clone https://github.com/shahcompbio/hmmcopy_utils.git
+WORKDIR /hmmcopy_utils
+RUN cmake . \
+    && make \
+    && cp bin/* /usr/local/bin/
+WORKDIR /

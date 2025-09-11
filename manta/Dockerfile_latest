@@ -1,0 +1,35 @@
+# Using the Ubuntu base image
+FROM python:2.7-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="manta"
+LABEL org.opencontainers.image.description="Container image for the use of Manta structural variant caller in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing prerequisites
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Pulling and extracting Manta source code
+RUN wget -q --no-check-certificate https://github.com/Illumina/manta/releases/download/v1.6.0/manta-1.6.0.centos6_x86_64.tar.bz2 \
+  && tar -jxf manta-1.6.0.centos6_x86_64.tar.bz2
+
+# Installing Manta
+WORKDIR /manta-1.6.0.centos6_x86_64
+ENV PATH="${PATH}:/manta-1.6.0.centos6_x86_64/bin"
+
+# Cleanup
+RUN rm -rf manta-1.6.0.centos6_x86_64.tar.bz2

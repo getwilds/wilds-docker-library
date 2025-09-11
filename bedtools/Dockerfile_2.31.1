@@ -1,19 +1,62 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:noble-20241011
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="bedtools"
 LABEL org.opencontainers.image.description="Docker image for the use of bedtools in FH DaSL's WILDS"
 LABEL org.opencontainers.image.version="2.31.1"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Installing prerequisites
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 bedtools=2.31.1+dfsg-2 \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL_VERSION}" \
+  autoconf="${AUTOCONF_VERSION}" \
+  automake="${AUTOMAKE_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  bedtools=2.31.1+dfsg-2 \
   && rm -rf /var/lib/apt/lists/*
 
+# Build and install samtools
+RUN wget -q https://github.com/samtools/samtools/releases/download/1.20/samtools-1.20.tar.bz2 && tar -jxf samtools-1.20.tar.bz2
+WORKDIR /samtools-1.20
+RUN ./configure && make && make install
+WORKDIR /
+RUN rm -rf samtools-1.20* && ldconfig
+
+# Verify installation
+RUN bedtools --version && samtools --version
+
+# Create working directory
+WORKDIR /data
+
+# Command to run when container starts
+CMD ["/bin/bash"]

@@ -1,0 +1,116 @@
+# Delly Dockerfile for WILDS Docker Library
+# Essentially a direct copy of the dellytools/delly Dockerfile, just want our own copy
+# Delly: structural variant discovery by integrated paired-end and split-read analysis
+FROM ubuntu:22.04 AS builder
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="delly"
+LABEL org.opencontainers.image.description="Container image for Delly structural variant caller in WILDS"
+LABEL org.opencontainers.image.version="1.2.9"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set environment variables for non-interactive installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update package list and install system dependencies
+RUN apt-get update \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && HDF5_VERSION=$(apt-cache policy hdf5-tools | grep Candidate | awk '{print $2}') \
+  && BOOST_DATETIME_VERSION=$(apt-cache policy libboost-date-time-dev | grep Candidate | awk '{print $2}') \
+  && BOOST_PROGRAM_VERSION=$(apt-cache policy libboost-program-options-dev | grep Candidate | awk '{print $2}') \
+  && BOOST_SYSTEM_VERSION=$(apt-cache policy libboost-system-dev | grep Candidate | awk '{print $2}') \
+  && BOOST_FILESYSTEM_VERSION=$(apt-cache policy libboost-filesystem-dev | grep Candidate | awk '{print $2}') \
+  && BOOST_IOSTREAMS_VERSION=$(apt-cache policy libboost-iostreams-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBDEFLATE_VERSION=$(apt-cache policy libdeflate-dev | grep Candidate | awk '{print $2}') \
+  && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  autoconf="${AUTOCONF_VERSION}" \
+  automake="${AUTOMAKE_VERSION}" \
+  build-essential="${BUILD_ESSENTIAL_VERSION}" \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  g++="${GPP_VERSION}" \
+  gfortran="${GFORTRAN_VERSION}" \
+  git="${GIT_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL_VERSION}" \
+  hdf5-tools="${HDF5_VERSION}" \
+  libboost-date-time-dev="${BOOST_DATETIME_VERSION}" \
+  libboost-program-options-dev="${BOOST_PROGRAM_VERSION}" \
+  libboost-system-dev="${BOOST_SYSTEM_VERSION}" \
+  libboost-filesystem-dev="${BOOST_FILESYSTEM_VERSION}" \
+  libboost-iostreams-dev="${BOOST_IOSTREAMS_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  libdeflate-dev="${LIBDEFLATE_VERSION}" \
+  libhdf5-dev="${LIBHDF5_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  pkg-config="${PKG_CONFIG_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set environment variable for Boost
+ENV BOOST_ROOT=/usr
+
+# Install Delly from source
+WORKDIR /opt
+RUN git clone --recursive https://github.com/dellytools/delly.git
+WORKDIR /opt/delly
+RUN git checkout v1.2.9 && make STATIC=1 all && make install
+
+# Multi-stage build to reduce image size
+FROM ubuntu:22.04
+
+# Copy labels to final stage
+LABEL org.opencontainers.image.title="delly"
+LABEL org.opencontainers.image.description="Container image for Delly structural variant caller in WILDS"
+LABEL org.opencontainers.image.version="1.2.9"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install minimal runtime dependencies
+RUN apt-get update \
+  && LIBGOMP1_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && BCFTOOLS_VERSION=$(apt-cache policy bcftools | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  libgomp1="${LIBGOMP1_VERSION}" \
+  bcftools="${BCFTOOLS_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Create directory and copy binary
+RUN mkdir -p /opt/delly/bin
+WORKDIR /opt/delly/bin
+
+# Copy the statically compiled Delly binary from the build stage
+COPY --from=builder /opt/delly/bin/delly .
+
+# Add Delly to PATH
+ENV PATH="/opt/delly/bin:${PATH}"
+
+# Set default command
+CMD ["delly"]

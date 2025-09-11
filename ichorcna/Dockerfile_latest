@@ -1,0 +1,102 @@
+# Using the Ubuntu base image (note we'll use R 3.6.0)
+FROM ubuntu:20.04
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="ichorcna"
+LABEL org.opencontainers.image.description="Container image for ichorCNA tumor fraction estimator in WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set environment variables
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive
+ENV R_CRAN_MIRROR=https://cran.r-project.org
+
+# Install prerequisites
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBXML2_VERSION=$(apt-cache policy libxml2-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBPCRE3_VERSION=$(apt-cache policy libpcre3-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LOCALES_VERSION=$(apt-cache policy locales | grep Candidate | awk '{print $2}') \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
+  && LIBREADLINE_VERSION=$(apt-cache policy libreadline-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  curl="${CURL_VERSION}" \
+  git="${GIT_VERSION}" \
+  wget="${WGET_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libxml2-dev="${LIBXML2_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  libpcre3-dev="${LIBPCRE3_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  locales="${LOCALES_VERSION}" \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  gfortran="${GFORTRAN_VERSION}" \
+  libreadline-dev="${LIBREADLINE_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set working directory for R installation
+WORKDIR /tmp
+
+# Set up locale for installing R
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen en_US.UTF-8
+
+# Install R 3.6.0 from source
+RUN wget -q https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz && \
+    tar -xzf R-3.6.0.tar.gz && \
+    rm -rf R-3.6.0.tar.gz
+
+WORKDIR /tmp/R-3.6.0
+RUN ./configure --enable-R-shlib --without-x && \
+    make && \
+    make install
+
+WORKDIR /tmp
+RUN rm -rf R-3.6.0
+
+# Set up R library directory with proper permissions
+RUN mkdir -p /usr/local/lib/R/site-library && \
+    chmod -R 777 /usr/local/lib/R && \
+    chown -R root:staff /usr/local/lib/R/site-library
+
+# Install necessary R packages
+RUN Rscript -e "install.packages(c('plyr', 'optparse', 'foreach', 'doMC', 'BiocManager'), repos = 'https://cran.r-project.org')" && \
+    Rscript -e "BiocManager::install(c('HMMcopy', 'GenomeInfoDb', 'GenomicRanges'))"
+
+# Set working directory for ichorCNA installation
+WORKDIR /usr/local/bin
+
+# Install ichorCNA
+RUN git clone https://github.com/GavinHaLab/ichorCNA.git /usr/local/bin/ichorCNA
+
+WORKDIR /usr/local/bin/ichorCNA
+RUN git checkout b2bbce0a9997f31733f0f0ea4278cfba937ded41 && \
+    R CMD INSTALL /usr/local/bin/ichorCNA
+
+# Clean up to reduce image size
+RUN rm -rf /opt/*.gz /opt/*.bz2 /opt/*.tar.gz /tmp/*
+
+# Reset to root directory
+WORKDIR /
