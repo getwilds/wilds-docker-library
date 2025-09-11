@@ -6,6 +6,7 @@ This directory contains Docker images for sourmash, a tool for computing and com
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_latest.md) )
 - `4.8.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_4.8.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_4.8.2.md) )
+- `4.8.2_samtools` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_4.8.2_samtools) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_4.8.2_samtools.md) )
 
 ## Image Details
 
@@ -13,6 +14,7 @@ These Docker images are built from Conda Forge Miniforge base image and include:
 
 - Python 3.10: Core programming language
 - sourmash-minimal v4.8.2: A tool for rapid genome and metagenome comparison using MinHash sketches
+- samtools v1.19: A suite of utilities for manipulating alignments in the SAM/BAM/CRAM format
 
 The images are designed to be minimal and focused on a specific version of sourmash with its dependencies, optimized for metagenomics and genomic comparison tasks.
 
@@ -23,7 +25,7 @@ The images are designed to be minimal and focused on a specific version of sourm
 ```bash
 docker pull getwilds/sourmash:latest
 # or
-docker pull getwilds/sourmash:4.8.2
+docker pull getwilds/sourmash:4.8.2_samtools
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/sourmash:latest
@@ -34,7 +36,7 @@ docker pull ghcr.io/getwilds/sourmash:latest
 ```bash
 apptainer pull docker://getwilds/sourmash:latest
 # or
-apptainer pull docker://getwilds/sourmash:4.8.2
+apptainer pull docker://getwilds/sourmash:4.8.2_samtools
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/sourmash:latest
@@ -82,12 +84,13 @@ The Dockerfile follows these main steps:
 
 1. Uses Conda Forge Miniforge as the base image
 2. Adds metadata labels for documentation and attribution
-3. Configures Conda to run in non-interactive mode
-4. Sets up the shell for proper conda environment activation
-5. Installs Python 3.10 and sourmash-minimal with specific versions
-6. Cleans Conda caches to minimize image size
-7. Verifies installation with version check
-8. Sets the default entrypoint to bash
+3. Installs packages need for Samtools installation
+4. Installs Samtools
+5. Configures Conda to run in non-interactive mode
+6. Sets up the shell for proper conda environment activation
+7. Installs Python 3.10 and sourmash-minimal with specific versions
+8. Cleans Conda caches to minimize image size
+9. Sets the default entrypoint to bash
 
 ## Source Repository
 
