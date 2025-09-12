@@ -2,14 +2,45 @@
 FROM condaforge/miniforge3:24.7.1-2
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="sourmash" \
-      org.opencontainers.image.description="Container image for the use of Sourmash in FH DaSL's WILDS" \
-      org.opencontainers.image.version="4.8.2" \
-      org.opencontainers.image.authors="wilds@fredhutch.org" \
-      org.opencontainers.image.url="https://ocdo.fredhutch.org/" \
-      org.opencontainers.image.documentation="https://getwilds.org/" \
-      org.opencontainers.image.source="https://github.com/getwilds/wilds-docker-library" \
-      org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.title="sourmash"
+LABEL org.opencontainers.image.description="Docker image for the use of Sourmash in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url="https://ocdo.fredhutch.org/"
+LABEL org.opencontainers.image.documentation="https://getwilds.org/"
+LABEL org.opencontainers.image.source="https://github.com/getwilds/wilds-docker-library"
+LABEL org.opencontainers.image.licenses="MIT"
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing prerequisites
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL4_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  zlib1g-dev="${ZLIB1G_VERSION}" \
+  libncurses-dev="${LIBNCURSES_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL4_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install Samtools
+RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.19/samtools-1.19.tar.bz2 && tar -jxf samtools-1.19.tar.bz2
+
+WORKDIR /samtools-1.19
+RUN ./configure && make && make install
+WORKDIR /
+
+RUN rm -rf samtools-1.19 samtools-1.19.tar.bz2
 
 # Configure conda to run in non-interactive mode
 ENV CONDA_ALWAYS_YES=true
@@ -18,14 +49,12 @@ ENV CONDA_ALWAYS_YES=true
 SHELL ["/bin/bash", "-c"]
 
 # Install Python 3.10 and sourmash with specific versions
-RUN /opt/conda/bin/conda install -c conda-forge python=3.10 sourmash-minimal=4.8.2 && \
-    /opt/conda/bin/conda clean -afy
+# Check what Python version you already have
+RUN python --version && \
+    /opt/conda/bin/pip install sourmash==4.8.2
 
 # Add conda binary directory to PATH
 ENV PATH=/opt/conda/bin:$PATH
-
-# Verify installation and version
-RUN sourmash --version
 
 # Set the default command
 ENTRYPOINT ["/bin/bash"]
