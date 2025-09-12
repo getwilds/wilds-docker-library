@@ -6,7 +6,6 @@ This directory contains Docker images for sourmash, a tool for computing and com
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_latest.md) )
 - `4.8.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_4.8.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_4.8.2.md) )
-- `4.8.2_samtools` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/Dockerfile_4.8.2_samtools) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/sourmash/CVEs_4.8.2_samtools.md) )
 
 ## Image Details
 
@@ -25,7 +24,7 @@ The images are designed to be minimal and focused on a specific version of sourm
 ```bash
 docker pull getwilds/sourmash:latest
 # or
-docker pull getwilds/sourmash:4.8.2_samtools
+docker pull getwilds/sourmash:4.8.2
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/sourmash:latest
@@ -36,7 +35,7 @@ docker pull ghcr.io/getwilds/sourmash:latest
 ```bash
 apptainer pull docker://getwilds/sourmash:latest
 # or
-apptainer pull docker://getwilds/sourmash:4.8.2_samtools
+apptainer pull docker://getwilds/sourmash:4.8.2
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/sourmash:latest
