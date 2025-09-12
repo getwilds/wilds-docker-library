@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sourmash:latest
 
-Report generated on 2025-09-10 17:21:54 PST
+Report generated on 2025-09-12 22:27:55 PST
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +8,8 @@ Report generated on 2025-09-10 17:21:54 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 1 |
-| 🟡 Medium | 16 |
-| 🟢 Low | 5 |
+| 🟡 Medium | 18 |
+| 🟢 Low | 4 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -31,8 +31,8 @@ Report generated on 2025-09-10 17:21:54 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/sourmash:latest  │    0C     1H    16M     5L   
-    digest           │  befdd412554b                      │                              
+Target             │  getwilds/sourmash:latest  │    0C     1H    18M     4L   
+    digest           │  927a7f73e76a                      │                              
   Base image         │  ubuntu:20.04                      │    0C     0H     5M     0L   
   Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L   
                      │                                    │                  -5          
