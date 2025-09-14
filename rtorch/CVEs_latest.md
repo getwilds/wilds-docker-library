@@ -1,15 +1,15 @@
 # Vulnerability Report for getwilds/rtorch:latest
 
-Report generated on 2025-09-10 17:33:06 PST
+Report generated on 2025-09-14 14:45:08 PST
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 72 |
-| 🟡 Medium | 3189 |
-| 🟢 Low | 164 |
+| 🟠 High | 74 |
+| 🟡 Medium | 3187 |
+| 🟢 Low | 165 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,7 +20,7 @@ Report generated on 2025-09-10 17:33:06 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 42 |
+| 🟡 Medium | 43 |
 | 🟢 Low | 33 |
 
 ## 🔄 Recommendations
@@ -33,12 +33,12 @@ Report generated on 2025-09-10 17:33:06 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/rtorch:latest  │    0C    72H   3189M   164L   
+Target               │  getwilds/rtorch:latest  │    0C    74H   3187M   165L   
     digest             │  620cb3ef1b5d                    │                               
-  Base image           │  ubuntu:22.04                    │    0C     0H    42M    33L    
-  Refreshed base image │  ubuntu:22.04                    │    0C     0H     3M    12L    
+  Base image           │  ubuntu:22.04                    │    0C     0H    43M    33L    
+  Refreshed base image │  ubuntu:22.04                    │    0C     0H     4M    12L    
                        │                                  │                 -39    -21    
-  Updated base image   │  ubuntu:24.04                    │    0C     0H     4M     5L    
+  Updated base image   │  ubuntu:24.04                    │    0C     0H     5M     5L    
                        │                                  │                 -38    -28    
 
 What's next:
