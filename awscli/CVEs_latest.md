@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/awscli:latest
 
-Report generated on 2025-09-10 16:29:22 PST
+Report generated on 2025-09-15 17:56:18 PST
 
 ## 📊 Vulnerability Summary
 
@@ -8,7 +8,7 @@ Report generated on 2025-09-10 16:29:22 PST
 |----------|-------|
 | 🔴 Critical | 3 |
 | 🟠 High | 7 |
-| 🟡 Medium | 21 |
+| 🟡 Medium | 22 |
 | 🟢 Low | 9 |
 | ⚪ Unknown | 0 |
 
@@ -20,7 +20,7 @@ Report generated on 2025-09-10 16:29:22 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 4 |
+| 🟡 Medium | 5 |
 | 🟢 Low | 5 |
 
 ## 🔄 Recommendations
@@ -31,11 +31,11 @@ Report generated on 2025-09-10 16:29:22 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/awscli:latest  │    3C     7H    21M     9L   
-    digest           │  faf3f9477b17                    │                              
-  Base image         │  ubuntu:24.04                    │    0C     0H     4M     5L   
+Target             │  getwilds/awscli:latest  │    3C     7H    22M     9L   
+    digest           │  0a10dc7c134d                    │                              
+  Base image         │  ubuntu:24.04                    │    0C     0H     5M     5L   
   Updated base image │  ubuntu:25.10                    │    0C     0H     0M     0L   
-                     │                                  │                  -4     -5   
+                     │                                  │                  -5     -5   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/awscli:latest
