@@ -181,14 +181,6 @@ def build_and_push_images(docker_files):
         logger.info("No Docker files to process")
         return []
 
-    repo = git.Repo(".")
-
-    # Configure Git
-    repo.git.config("--global", "user.name", "WILDS Docker Library Automation[bot]")
-    repo.git.config(
-        "--global", "user.email", "github-actions[bot]@users.noreply.github.com"
-    )
-
     cve_files = []
 
     for dockerfile in docker_files:
@@ -275,26 +267,20 @@ def build_and_push_images(docker_files):
             f"Successfully generated vulnerability report for getwilds/{tool_name}:{tag}"
         )
 
-        # Add CVE file to git staging
-        repo.git.add(cve_file)
+        # Add CVE file to manifest for later commit
         cve_files.append(cve_file)
 
         # Clean up Docker images to save space
         run_command("docker system prune -af", check=False)
 
-    # Check if there are any staged changes to commit
-    if not repo.git.diff("--staged"):
-        logger.info("No changes to commit")
+    # Write CVE files to manifest for commit_cve_reports.py
+    if cve_files:
+        with open('.cve_manifest.txt', 'w') as f:
+            for cve_file in cve_files:
+                f.write(f"{cve_file}\n")
+        logger.info(f"Written {len(cve_files)} CVE files to manifest")
     else:
-        # Commit and push CVE reports
-        ref_name = os.environ.get("GITHUB_REF_NAME", "main")
-        repo.git.commit("-m", "Update vulnerability reports [skip ci]")
-        token = os.environ.get("GH_APP_TOKEN")
-        repo.git.push(
-            f"https://x-access-token:{token}@github.com/getwilds/wilds-docker-library.git",
-            ref_name,
-        )
-        logger.info("Committed and pushed vulnerability reports")
+        logger.info("No CVE files generated")
 
     return cve_files
 
