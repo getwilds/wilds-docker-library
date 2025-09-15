@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/awscli:2.27.49
 
-Report generated on 2025-09-15 15:47:34 PST
+Report generated on 2025-09-15 17:55:04 PST
 
 ## 📊 Vulnerability Summary
 
@@ -32,7 +32,7 @@ Report generated on 2025-09-15 15:47:34 PST
 
 ```text
 Target             │  getwilds/awscli:2.27.49  │    3C     7H    22M     9L   
-    digest           │  6788509742fa                     │                              
+    digest           │  b5bdc0627278                     │                              
   Base image         │  ubuntu:24.04                     │    0C     0H     5M     5L   
   Updated base image │  ubuntu:25.10                     │    0C     0H     0M     0L   
                      │                                   │                  -5     -5   
