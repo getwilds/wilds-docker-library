@@ -27,16 +27,41 @@ The repository includes Docker images for popular bioinformatics tools including
 
 | Tool | Description | Available Versions |
 |------|-------------|-------------------|
-| STAR | RNA-seq aligner | 2.7.6a, 2.7.4a, latest |
-| BWA | Burrows-Wheeler Aligner | 0.7.17, latest |
-| Samtools | SAM/BAM manipulation | 1.11, 1.10, latest |
+| AnnotSV | Structural variant annotation | 3.4.4, latest |
+| ANNOVAR | Functional annotation of genetic variants | hg19, hg38, latest |
+| ArcPy | Python package for spatial analysis | latest |
+| AWS CLI | Amazon Web Services command line interface | 2.27.49, latest |
 | BCFtools | VCF/BCF manipulation | 1.19, 1.11, latest |
-| Picard | Sequence data manipulation | 3.1.1, latest |
+| BEDtools | Genome arithmetic toolkit | 2.31.1, latest |
+| biobambam2 | Tools for SAM/BAM processing | 2.0.185, latest |
+| BWA | Burrows-Wheeler Aligner | 0.7.17, latest |
+| Cell Ranger | 10x Genomics analysis | 6.0.2, latest |
+| CNVkit | Copy number variation detection | 0.9.10, latest |
+| combine-counts | Tool for combining count matrices | 0.1.0, latest |
+| consensus | Consensus sequence generation | 0.1.1, latest |
+| DELLY | Structural variant discovery | 1.2.9, latest |
+| DESeq2 | Differential gene expression analysis | 1.40.2, latest |
+| GATK | Genome analysis toolkit | 4.6.1.0, 4.3.0.0, latest |
+| gtf-smash | GTF file manipulation | v8, latest |
 | HISAT2 | Graph-based alignment | 2.2.1, latest |
+| HMMcopy | Copy number analysis | 1.0.0, latest |
+| ichorCNA | Copy number alteration detection | 0.2.0, latest |
+| Manta | Structural variant discovery | 1.6.0, latest |
+| Picard | Sequence data manipulation | 3.1.1, latest |
+| python-dl | Python deep learning environment | 1.0, latest |
+| RNA-SeQC | RNA-seq quality control | 2.4.2, latest |
+| RTorch | R interface to PyTorch | 0.13.0, latest |
+| Samtools | SAM/BAM manipulation | 1.19, 1.11, 1.10, latest |
 | Scanpy | Single-cell analysis | 1.10.2, latest |
 | scvi-tools | Deep learning for single-cell | 1.1.6, latest |
-| Cell Ranger | 10x Genomics analysis | 6.0.2, latest |
-| GATK | Genome analysis toolkit | 4.3.0.0, latest |
+| ShapeMapper | RNA structure mapping | 2.3, latest |
+| Smoove | SV calling and genotyping | 0.2.8, latest |
+| sourmash | k-mer analysis for genomic data | 4.8.2, latest |
+| SRA-tools | NCBI Sequence Read Archive toolkit | 3.1.1, latest |
+| STAR | RNA-seq aligner | 2.7.6a, 2.7.4a, latest |
+| Strelka | Small variant calling | 2.9.10, latest |
+| UMI-tools | UMI handling for NGS data | 1.1.6, latest |
+| VarScan | Variant detection in massively parallel sequencing | 2.4.6, latest |
 
 For a full list of available tools and versions, browse the repository directories.
 
@@ -101,9 +126,15 @@ Defined in `.github/workflows/docker-update.yml`, this workflow:
 
 ### Security Monitoring Workflow
 
-Defined in `.github/workflows/docker-scout.yaml`, this workflow:
-- Scans all Docker images monthy for security vulnerabilities using Docker Scout
+Defined in `.github/workflows/docker-scout.yml`, this workflow:
+- Scans all Docker images monthly for security vulnerabilities using Docker Scout
 - Generates comprehensive vulnerability reports in each tool's respective subdirectory
+
+### Dockerfile Linting Workflow
+
+Defined in `.github/workflows/dockerfile-linting.yml`, this workflow:
+- Automatically lints Dockerfiles for best practices and security issues
+- Ensures consistent formatting and optimization across all images
 
 ## Contributing
 
