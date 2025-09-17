@@ -1,0 +1,44 @@
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="fastqc"
+LABEL org.opencontainers.image.description="Docker image for the use of FastQC in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing prerequisites
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && OPENJDK_VERSION=$(apt-cache policy openjdk-11-jre | grep Candidate | awk '{print $2}') \
+  && PERL_VERSION=$(apt-cache policy perl | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  openjdk-11-jre="${OPENJDK_VERSION}" \
+  perl="${PERL_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download and install FastQC
+RUN wget -q https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip \
+  && unzip fastqc_v0.12.1.zip \
+  && chmod +x FastQC/fastqc \
+  && ln -s /FastQC/fastqc /usr/local/bin/fastqc \
+  && rm fastqc_v0.12.1.zip
+
+# Verify installation
+RUN fastqc --version
+
+# Create working directory
+WORKDIR /data
+
+# Command to run when container starts
+CMD ["/bin/bash"]
