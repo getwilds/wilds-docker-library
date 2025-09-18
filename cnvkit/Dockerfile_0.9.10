@@ -56,6 +56,10 @@ RUN pip install --no-cache-dir \
     "numpy<1.25" \
     cnvkit==0.9.10
 
+# Install R packages required by CNVkit
+RUN R -e "install.packages(c('BiocManager', 'ggplot2', 'gridExtra', 'RColorBrewer'))" && \
+    R -e "BiocManager::install(c('DNAcopy', 'PSCBS', 'GenomicRanges', 'IRanges'))"
+
 # Switch to non-root user
 USER cnvkit
 

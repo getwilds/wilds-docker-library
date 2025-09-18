@@ -14,6 +14,7 @@ These Docker images are built from Python slim base image and include:
 - Python 3.10: The core programming language (optimized for CNVkit compatibility)
 - CNVkit 0.9.10: A Python library and command-line software toolkit for detecting copy number variants and alterations from high-throughput sequencing
 - R base: Required for certain CNVkit statistical functions
+- R packages: Essential Bioconductor and CRAN packages (DNAcopy, PSCBS, GenomicRanges, IRanges, ggplot2, gridExtra, RColorBrewer, BiocManager)
 - Build tools: Essential compilation tools for native dependencies
 
 The images are designed to be secure and reliable while including all necessary components for CNVkit analysis of genomic data.
@@ -96,11 +97,12 @@ The Dockerfile follows these main steps:
 1. Uses Python 3.10-slim as the base image for optimal compatibility
 2. Adds metadata labels for documentation and attribution
 3. Sets environment variables for Python optimization
-4. Installs system dependencies (R, build tools, BLAS/LAPACK libraries)
+4. Installs system dependencies (R, build tools, BLAS/LAPACK libraries) with pinned versions
 5. Creates a non-root user for security
-6. Installs CNVkit 0.9.10 with compatible dependency versions
-7. Configures health checks and default command
-8. Switches to non-root user execution
+6. Installs CNVkit 0.9.10 with compatible dependency versions (Cython <3.0, NumPy <1.25)
+7. Installs essential R packages for CNVkit functionality
+8. Configures health checks and default command
+9. Switches to non-root user execution
 
 ## Source Repository
 
