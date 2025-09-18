@@ -1,31 +1,29 @@
 # Vulnerability Report for getwilds/cnvkit:latest
 
-Report generated on 2025-09-10 16:18:46 PST
+Report generated on 2025-09-18 05:57:35 PST
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 12 |
-| 🟢 Low | 13 |
-| ⚪ Unknown | 1 |
+| 🟠 High | 3 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 78 |
+| ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
-**Image:** `python:3.12-slim`
+**Image:** `python:3.10-slim`
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 4 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 12 |
+| 🟠 High | 2 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 20 |
 
 ## 🔄 Recommendations
-
-**Refreshed base image:** `python:3.12-slim`
 
 **Updated base image:** `python:3.13-slim`
 
@@ -33,13 +31,11 @@ Report generated on 2025-09-10 16:18:46 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/cnvkit:latest  │    0C     5H    12M    13L     1?   
-    digest             │  b6887b3407a7                    │                                     
-  Base image           │  python:3.12-slim                │    0C     4H    11M    12L     1?   
-  Refreshed base image │  python:3.12-slim                │    0C     0H     1M    20L          
-                       │                                  │           -4    -10     +8     -1   
-  Updated base image   │  python:3.13-slim                │    0C     0H     1M    20L          
-                       │                                  │           -4    -10     +8     -1   
+Target             │  getwilds/cnvkit:latest  │    0C     3H     2M    78L   
+    digest           │  237a8b43bb6e                    │                              
+  Base image         │  python:3.10-slim                │    0C     2H     2M    20L   
+  Updated base image │  python:3.13-slim                │    0C     0H     1M    20L   
+                     │                                  │           -2     -1          
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/cnvkit:latest
