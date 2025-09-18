@@ -43,7 +43,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("docker-update")
 
-# Size limit for Docker Scout scanning (5GB in bytes)
+# Size limit for Docker Scout scanning (4GB in bytes)
 DOCKER_SCOUT_SIZE_LIMIT = 4 * 1024 * 1024 * 1024
 
 def get_image_size(image_name):
