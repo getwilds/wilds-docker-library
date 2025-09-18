@@ -1,6 +1,6 @@
 
 # Using Python base image
-FROM python:3.12-slim
+FROM python:3.10-slim
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="cnvkit" \
@@ -12,5 +12,56 @@ LABEL org.opencontainers.image.title="cnvkit" \
       org.opencontainers.image.source="https://github.com/getwilds/wilds-docker-library" \
       org.opencontainers.image.licenses="MIT"
 
-# Install CNVkit
-RUN pip install --no-cache-dir cnvkit==0.9.10
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies with pinned versions
+RUN apt-get update && \
+    # Store current versions in variables
+    BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') && \
+    GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') && \
+    GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') && \
+    GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') && \
+    LIBBLAS_VERSION=$(apt-cache policy libblas-dev | grep Candidate | awk '{print $2}') && \
+    LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') && \
+    RBASE_VERSION=$(apt-cache policy r-base | grep Candidate | awk '{print $2}') && \
+    RBASEDEV_VERSION=$(apt-cache policy r-base-dev | grep Candidate | awk '{print $2}') && \
+    # Install packages with specific versions
+    apt-get install -y --no-install-recommends \
+    build-essential="${BUILD_ESSENTIAL_VERSION}" \
+    gcc="${GCC_VERSION}" \
+    g++="${GPP_VERSION}" \
+    gfortran="${GFORTRAN_VERSION}" \
+    libblas-dev="${LIBBLAS_VERSION}" \
+    liblapack-dev="${LIBLAPACK_VERSION}" \
+    r-base="${RBASE_VERSION}" \
+    r-base-dev="${RBASEDEV_VERSION}" \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash cnvkit
+
+# Set working directory
+WORKDIR /home/cnvkit
+
+# Install CNVkit with compatible dependencies
+RUN pip install --no-cache-dir \
+    "cython<3.0" \
+    "numpy<1.25" \
+    cnvkit==0.9.10
+
+# Switch to non-root user
+USER cnvkit
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python -c "import cnvkit; print('CNVkit is working')" || exit 1
+
+# Default command
+CMD ["cnvkit.py", "--help"]

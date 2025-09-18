@@ -11,10 +11,12 @@ This directory contains Docker images for CNVkit, a Python toolkit for detecting
 
 These Docker images are built from Python slim base image and include:
 
-- Python 3.12: The core programming language
+- Python 3.10: The core programming language (optimized for CNVkit compatibility)
 - CNVkit 0.9.10: A Python library and command-line software toolkit for detecting copy number variants and alterations from high-throughput sequencing
+- R base: Required for certain CNVkit statistical functions
+- Build tools: Essential compilation tools for native dependencies
 
-The images are designed to be minimal while including all necessary components for CNVkit analysis of genomic data.
+The images are designed to be secure and reliable while including all necessary components for CNVkit analysis of genomic data.
 
 ## Usage
 
@@ -72,9 +74,12 @@ apptainer run --bind /path/to/data:/data docker://getwilds/cnvkit:latest cnvkit.
 
 The CNVkit Docker images include:
 
+- Non-root user execution for enhanced security
 - Installation through pip to ensure properly built packages
-- Pinned version for reproducibility
+- Pinned versions for reproducibility (including Cython and NumPy compatibility versions)
 - Minimal dependencies to reduce attack surface
+- Health checks for container monitoring
+- Proper working directory setup
 
 ### Security Scanning and CVEs
 
@@ -88,10 +93,14 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 The Dockerfile follows these main steps:
 
-1. Uses Python 3.12-slim as the base image
+1. Uses Python 3.10-slim as the base image for optimal compatibility
 2. Adds metadata labels for documentation and attribution
-3. Installs CNVkit 0.9.10 via pip with pinned version
-4. Configures the default command as cnvkit.py for ease of use
+3. Sets environment variables for Python optimization
+4. Installs system dependencies (R, build tools, BLAS/LAPACK libraries)
+5. Creates a non-root user for security
+6. Installs CNVkit 0.9.10 with compatible dependency versions
+7. Configures health checks and default command
+8. Switches to non-root user execution
 
 ## Source Repository
 
