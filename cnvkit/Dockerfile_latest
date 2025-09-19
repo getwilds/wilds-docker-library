@@ -44,9 +44,6 @@ RUN apt-get update && \
     r-base-dev="${RBASEDEV_VERSION}" \
     && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user
-RUN useradd --create-home --shell /bin/bash cnvkit
-
 # Set working directory
 WORKDIR /home/cnvkit
 
@@ -59,9 +56,6 @@ RUN pip install --no-cache-dir \
 # Install R packages required by CNVkit
 RUN R -e "install.packages(c('BiocManager', 'ggplot2', 'gridExtra', 'RColorBrewer'))" && \
     R -e "BiocManager::install(c('DNAcopy', 'PSCBS', 'GenomicRanges', 'IRanges'))"
-
-# Switch to non-root user
-USER cnvkit
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
