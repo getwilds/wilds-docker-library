@@ -75,7 +75,6 @@ apptainer run --bind /path/to/data:/data docker://getwilds/cnvkit:latest cnvkit.
 
 The CNVkit Docker images include:
 
-- Non-root user execution for enhanced security
 - Installation through pip to ensure properly built packages
 - Pinned versions for reproducibility (including Cython and NumPy compatibility versions)
 - Minimal dependencies to reduce attack surface
@@ -98,11 +97,10 @@ The Dockerfile follows these main steps:
 2. Adds metadata labels for documentation and attribution
 3. Sets environment variables for Python optimization
 4. Installs system dependencies (R, build tools, BLAS/LAPACK libraries) with pinned versions
-5. Creates a non-root user for security
+5. Sets working directory
 6. Installs CNVkit 0.9.10 with compatible dependency versions (Cython <3.0, NumPy <1.25)
 7. Installs essential R packages for CNVkit functionality
 8. Configures health checks and default command
-9. Switches to non-root user execution
 
 ## Source Repository
 
