@@ -1,49 +1,16 @@
 # Vulnerability Report for getwilds/cnvkit:0.9.10
 
-Report generated on 2025-09-10 16:22:53 PST
+Report generated on 2025-09-19 02:10:50 PST
 
-## 📊 Vulnerability Summary
+## ⚠️ Scan Skipped - Image Too Large
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 12 |
-| 🟢 Low | 13 |
-| ⚪ Unknown | 1 |
+Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-## 🐳 Base Image
+**Image size:** 4.2 GB
+**Size limit:** 3.0 GB
 
-**Image:** `python:3.12-slim`
+Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 4 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 12 |
-
-## 🔄 Recommendations
-
-**Refreshed base image:** `python:3.12-slim`
-
-**Updated base image:** `python:3.13-slim`
-
-<details>
-<summary>📋 Raw Docker Scout Output</summary>
-
-```text
-Target               │  getwilds/cnvkit:0.9.10  │    0C     5H    12M    13L     1?   
-    digest             │  86eca5f4a058                    │                                     
-  Base image           │  python:3.12-slim                │    0C     4H    11M    12L     1?   
-  Refreshed base image │  python:3.12-slim                │    0C     0H     1M    20L          
-                       │                                  │           -4    -10     +8     -1   
-  Updated base image   │  python:3.13-slim                │    0C     0H     1M    20L          
-                       │                                  │           -4    -10     +8     -1   
-
-What's next:
-    View vulnerabilities → docker scout cves getwilds/cnvkit:0.9.10
-    View base image update recommendations → docker scout recommendations getwilds/cnvkit:0.9.10
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/cnvkit:0.9.10 --org <organization>
+```bash
+docker scout quickview getwilds/cnvkit:0.9.10
 ```
-</details>
