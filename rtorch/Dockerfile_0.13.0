@@ -20,5 +20,5 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends build-essential=12.9ubuntu3 r-base=4.1.2-1ubuntu2 \
   && rm -rf /var/lib/apt/lists/*
 RUN R -e "install.packages('remotes', repos = 'https://cloud.r-project.org', dependencies = TRUE); remotes::install_version('torch', version = '0.13.0', repos = 'https://cloud.r-project.org'); torch::install_torch()"
-RUN R -e "install.packages(c('coro', 'smotefamily', 'pacman', 'magick', 'pins', 'torchvision', 'tidyverse'), repos = 'https://cloud.r-project.org', dependencies = TRUE)"
+RUN R -e "install.packages(c('coro', 'smotefamily', 'pROC', 'pRROC', 'pacman', 'magick', 'pins', 'torchvision'), repos = 'https://cloud.r-project.org', dependencies = TRUE)"
 RUN R -e "install.packages(c('torchdatasets', 'tidyverse'), repos = 'https://cloud.r-project.org', dependencies = TRUE)"
