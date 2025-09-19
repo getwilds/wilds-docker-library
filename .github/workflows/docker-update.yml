@@ -85,4 +85,38 @@ jobs:
           GITHUB_REF_NAME: ${{ github.ref_name }}
           DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
           DOCKERHUB_PW: ${{ secrets.DOCKERHUB_PW }}
-          GH_APP_TOKEN: ${{ steps.generate_token.outputs.token }}
+
+      - name: Generate fresh token for git operations
+        id: generate_fresh_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: getwilds
+          repositories: wilds-docker-library
+
+      - name: Stash changes before fresh checkout
+        run: git stash push -u -m "CVE reports and vulnerability updates"
+
+      - name: Checkout with fresh token
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.generate_fresh_token.outputs.token }}
+          clean: false
+
+      - name: Reinstall dependencies for commit step
+        run: |
+          uv venv
+          uv pip install gitpython requests
+
+      - name: Restore stashed changes
+        run: git stash pop
+
+      - name: Commit CVE Reports
+        run: uv run .github/scripts/commit_cve_reports.py
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+          GH_APP_TOKEN: ${{ steps.generate_fresh_token.outputs.token }}
