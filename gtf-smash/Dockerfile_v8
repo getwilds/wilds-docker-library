@@ -14,7 +14,8 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Installing wget
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends wget=1.21.3-1+b2 && \
+    WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') && \
+    apt-get install -y --no-install-recommends wget="${WGET_VERSION}" && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
