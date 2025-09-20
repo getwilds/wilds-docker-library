@@ -87,6 +87,25 @@ def format_size(size_bytes):
     return f"{size_bytes:.1f} TB"
 
 
+def setup_buildx():
+    """Set up Docker buildx for multi-platform builds."""
+    logger.info("Setting up Docker buildx for multi-platform builds...")
+
+    try:
+        # Create and use a new builder instance
+        run_command("docker buildx create --name multiplatform --use", check=False)
+
+        # Bootstrap the builder (downloads necessary components)
+        run_command("docker buildx inspect --bootstrap")
+
+        logger.info("Docker buildx setup completed successfully")
+        return True
+    except Exception as e:
+        logger.warning(f"Failed to setup buildx: {e}")
+        logger.info("Falling back to single-platform builds")
+        return False
+
+
 def find_changed_files(specified_dir=None):
     """
     Find Dockerfiles and README files that have changed.
@@ -181,6 +200,9 @@ def build_and_push_images(docker_files):
         logger.info("No Docker files to process")
         return []
 
+    # Set up buildx for multi-platform builds
+    buildx_available = setup_buildx()
+
     cve_files = []
 
     for dockerfile in docker_files:
@@ -194,21 +216,34 @@ def build_and_push_images(docker_files):
 
         logger.info(f"Building image for {tool_name}:{tag}")
 
-        # Build the image once
-        run_command(
-            f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} ."
-        )
+        if buildx_available:
+            # Multi-platform build with buildx (builds and pushes in one command)
+            logger.info(f"Building multi-platform image (linux/amd64,linux/arm64)")
+            run_command(
+                f"docker buildx build "
+                f"--platform linux/amd64,linux/arm64 "
+                f"-t getwilds/{tool_name}:{tag} "
+                f"-t ghcr.io/getwilds/{tool_name}:{tag} "
+                f"-f {dockerfile} "
+                f"--push ."
+            )
+        else:
+            # Fallback to single-platform build
+            logger.info(f"Building single-platform image (linux/amd64)")
+            run_command(
+                f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} ."
+            )
 
-        # Push to DockerHub
-        run_command(f"docker push getwilds/{tool_name}:{tag}")
+            # Push to DockerHub
+            run_command(f"docker push getwilds/{tool_name}:{tag}")
 
-        # Tag the image for GitHub Container Registry
-        run_command(
-            f"docker tag getwilds/{tool_name}:{tag} ghcr.io/getwilds/{tool_name}:{tag}"
-        )
+            # Tag the image for GitHub Container Registry
+            run_command(
+                f"docker tag getwilds/{tool_name}:{tag} ghcr.io/getwilds/{tool_name}:{tag}"
+            )
 
-        # Push to GitHub Container Registry
-        run_command(f"docker push ghcr.io/getwilds/{tool_name}:{tag}")
+            # Push to GitHub Container Registry
+            run_command(f"docker push ghcr.io/getwilds/{tool_name}:{tag}")
 
         # Update Docker Scout CVE markdown file
         cve_file = f"{tool_name}/CVEs_{tag}.md"
