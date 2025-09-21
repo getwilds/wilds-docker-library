@@ -1,16 +1,16 @@
 # Vulnerability Report for getwilds/gtf-smash:latest
 
-Report generated on 2025-09-10 16:31:15 PST
+Report generated on 2025-09-20 20:08:49 PST
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 1 |
-| 🟠 High | 5 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 14 |
-| ⚪ Unknown | 1 |
+| 🔴 Critical | 0 |
+| 🟠 High | 0 |
+| 🟡 Medium | 1 |
+| 🟢 Low | 21 |
+| ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
@@ -19,13 +19,11 @@ Report generated on 2025-09-10 16:31:15 PST
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 14 |
+| 🟠 High | 0 |
+| 🟡 Medium | 1 |
+| 🟢 Low | 20 |
 
 ## 🔄 Recommendations
-
-**Refreshed base image:** `python:3.12-slim`
 
 **Updated base image:** `python:3.13-slim`
 
@@ -33,13 +31,11 @@ Report generated on 2025-09-10 16:31:15 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/gtf-smash:latest  │    1C     5H    11M    14L     1?   
-    digest             │  f6dda10ea564                       │                                     
-  Base image           │  python:3.12-slim                   │    0C     5H    11M    14L     1?   
-  Refreshed base image │  python:3.12-slim                   │    0C     0H     1M    20L          
-                       │                                     │           -5    -10     +6     -1   
-  Updated base image   │  python:3.13-slim                   │    0C     0H     1M    20L          
-                       │                                     │           -5    -10     +6     -1   
+Target             │  getwilds/gtf-smash:latest  │    0C     0H     1M    21L   
+    digest           │  d53c2a69942e                       │                              
+  Base image         │  python:3.12-slim                   │    0C     0H     1M    20L   
+  Updated base image │  python:3.13-slim                   │    0C     0H     1M    20L   
+                     │                                     │                              
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/gtf-smash:latest
