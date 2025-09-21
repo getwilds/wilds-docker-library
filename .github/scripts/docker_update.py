@@ -227,6 +227,7 @@ def build_and_push_images(docker_files):
                 f"-t getwilds/{tool_name}:{tag}-amd64 "
                 f"-t ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
                 f"-f {dockerfile} "
+                f"--provenance=false "
                 f"--push ."
             )
 
@@ -242,6 +243,7 @@ def build_and_push_images(docker_files):
                 f"-t getwilds/{tool_name}:{tag}-arm64 "
                 f"-t ghcr.io/getwilds/{tool_name}:{tag}-arm64 "
                 f"-f {dockerfile} "
+                f"--provenance=false "
                 f"--push ."
             )
 
