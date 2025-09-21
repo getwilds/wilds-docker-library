@@ -217,16 +217,38 @@ def build_and_push_images(docker_files):
         logger.info(f"Building image for {tool_name}:{tag}")
 
         if buildx_available:
-            # Multi-platform build with buildx (builds and pushes in one command)
-            logger.info(f"Building multi-platform image (linux/amd64,linux/arm64)")
+            # Sequential multi-platform builds to avoid disk space issues
+
+            # Build AMD64 first
+            logger.info(f"Building AMD64 image...")
             run_command(
                 f"docker buildx build "
-                f"--platform linux/amd64,linux/arm64 "
+                f"--platform linux/amd64 "
                 f"-t getwilds/{tool_name}:{tag} "
                 f"-t ghcr.io/getwilds/{tool_name}:{tag} "
                 f"-f {dockerfile} "
                 f"--push ."
             )
+
+            # Clean up build cache to free disk space
+            logger.info("Cleaning build cache...")
+            run_command("docker buildx prune -f", check=False)
+
+            # Build ARM64 second
+            logger.info(f"Building ARM64 image...")
+            run_command(
+                f"docker buildx build "
+                f"--platform linux/arm64 "
+                f"-t getwilds/{tool_name}:{tag} "
+                f"-t ghcr.io/getwilds/{tool_name}:{tag} "
+                f"-f {dockerfile} "
+                f"--push ."
+            )
+
+            # Final cleanup
+            logger.info("Final cleanup...")
+            run_command("docker buildx prune -f", check=False)
+
         else:
             # Fallback to single-platform build
             logger.info(f"Building single-platform image (linux/amd64)")
@@ -253,6 +275,11 @@ def build_and_push_images(docker_files):
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
             f.write(f"# Vulnerability Report for getwilds/{tool_name}:{tag}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
+            f.write("## Platform Coverage\n\n")
+            f.write("This vulnerability scan covers the **linux/amd64** platform. ")
+            f.write("While this image also supports linux/arm64, the security analysis ")
+            f.write("focuses on the AMD64 variant as it represents the majority of deployment targets. ")
+            f.write("Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n")
 
         # Check image size before running Docker Scout
         image_size = get_image_size(container)
@@ -268,12 +295,12 @@ def build_and_push_images(docker_files):
                 f.write("Large images can cause timeouts and resource exhaustion in CI/CD environments. ")
                 f.write("If you need a vulnerability scan for this image, please run it manually:\n\n")
                 f.write("```bash\n")
-                f.write(f"docker scout quickview {container}\n")
+                f.write(f"docker scout quickview {container} --platform linux/amd64\n")
                 f.write("```\n")
         else:
             try:
                 result = run_command(
-                    f"docker scout quickview {container}",
+                    f"docker scout quickview {container} --platform linux/amd64",
                     capture_output=True,
                 )
 

@@ -112,9 +112,9 @@ def scan_image(tool, tag):
     os.makedirs(os.path.dirname(cve_file), exist_ok=True)
 
     try:
-        # Run Docker Scout to generate CVE report
+        # Run Docker Scout to generate CVE report (targeting AMD64 platform)
         result = run_command(
-            f"docker scout quickview {container}", capture_output=True
+            f"docker scout quickview {container} --platform linux/amd64", capture_output=True
         )
         
         # Parse the scout output into clean markdown
@@ -124,6 +124,11 @@ def scan_image(tool, tag):
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
             f.write(f"# Vulnerability Report for {container}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
+            f.write("## Platform Coverage\n\n")
+            f.write("This vulnerability scan covers the **linux/amd64** platform. ")
+            f.write("While this image also supports linux/arm64, the security analysis ")
+            f.write("focuses on the AMD64 variant as it represents the majority of deployment targets. ")
+            f.write("Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n")
             f.write(parsed_markdown)
         
         # Replace ghcr.io/getwilds with getwilds in the report
