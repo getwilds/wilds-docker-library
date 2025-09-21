@@ -219,13 +219,13 @@ def build_and_push_images(docker_files):
         if buildx_available:
             # Sequential multi-platform builds to avoid disk space issues
 
-            # Build AMD64 first
+            # Build AMD64 first with architecture-specific tag
             logger.info(f"Building AMD64 image...")
             run_command(
                 f"docker buildx build "
                 f"--platform linux/amd64 "
-                f"-t getwilds/{tool_name}:{tag} "
-                f"-t ghcr.io/getwilds/{tool_name}:{tag} "
+                f"-t getwilds/{tool_name}:{tag}-amd64 "
+                f"-t ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
                 f"-f {dockerfile} "
                 f"--push ."
             )
@@ -234,16 +234,35 @@ def build_and_push_images(docker_files):
             logger.info("Cleaning build cache...")
             run_command("docker buildx prune -f", check=False)
 
-            # Build ARM64 second
+            # Build ARM64 second with architecture-specific tag
             logger.info(f"Building ARM64 image...")
             run_command(
                 f"docker buildx build "
                 f"--platform linux/arm64 "
-                f"-t getwilds/{tool_name}:{tag} "
-                f"-t ghcr.io/getwilds/{tool_name}:{tag} "
+                f"-t getwilds/{tool_name}:{tag}-arm64 "
+                f"-t ghcr.io/getwilds/{tool_name}:{tag}-arm64 "
                 f"-f {dockerfile} "
                 f"--push ."
             )
+
+            # Create multi-platform manifests
+            logger.info("Creating multi-platform manifests...")
+
+            # DockerHub manifest
+            run_command(
+                f"docker manifest create getwilds/{tool_name}:{tag} "
+                f"getwilds/{tool_name}:{tag}-amd64 "
+                f"getwilds/{tool_name}:{tag}-arm64"
+            )
+            run_command(f"docker manifest push getwilds/{tool_name}:{tag}")
+
+            # GitHub Container Registry manifest
+            run_command(
+                f"docker manifest create ghcr.io/getwilds/{tool_name}:{tag} "
+                f"ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
+                f"ghcr.io/getwilds/{tool_name}:{tag}-arm64"
+            )
+            run_command(f"docker manifest push ghcr.io/getwilds/{tool_name}:{tag}")
 
             # Final cleanup
             logger.info("Final cleanup...")
