@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/delly:latest
 
-Report generated on 2025-09-10 17:02:15 PST
+Report generated on 2025-09-22 18:48:29 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 17:02:15 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 15 |
-| 🟢 Low | 16 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 15 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,26 +24,22 @@ Report generated on 2025-09-10 17:02:15 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 10 |
-| 🟢 Low | 13 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 12 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:22.04`
-
-**Updated base image:** `ubuntu:24.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/delly:latest  │    0C     0H    15M    16L   
-    digest             │  5974decd65fb                   │                              
-  Base image           │  ubuntu:22.04                   │    0C     0H    10M    13L   
-  Refreshed base image │  ubuntu:22.04                   │    0C     0H     3M    12L   
-                       │                                 │                  -7     -1   
-  Updated base image   │  ubuntu:24.04                   │    0C     0H     4M     5L   
-                       │                                 │                  -6     -8   
+Target             │  getwilds/delly:latest  │    0C     0H     4M    15L   
+    digest           │  ef8bc05c9915                   │                              
+  Base image         │  ubuntu:22.04                   │    0C     0H     4M    12L   
+  Updated base image │  ubuntu:25.10                   │    0C     0H     0M     0L   
+                     │                                 │                  -4    -12   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/delly:latest
