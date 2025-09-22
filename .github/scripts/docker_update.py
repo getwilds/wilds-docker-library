@@ -46,6 +46,7 @@ logger = logging.getLogger("docker-update")
 # Size limit for Docker Scout scanning (3GB in bytes)
 DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
 
+
 def get_image_size(image_name):
     """
     Get the size of a Docker image in bytes using docker manifest inspect.
@@ -57,17 +58,19 @@ def get_image_size(image_name):
         Size in bytes, or None if unable to determine
     """
     try:
-        result = run_command(f"docker manifest inspect {image_name}", capture_output=True)
+        result = run_command(
+            f"docker manifest inspect {image_name}", capture_output=True
+        )
         manifest = json.loads(result)
 
         total_size = 0
-        if 'config' in manifest and 'size' in manifest['config']:
-            total_size += manifest['config']['size']
+        if "config" in manifest and "size" in manifest["config"]:
+            total_size += manifest["config"]["size"]
 
-        if 'layers' in manifest:
-            for layer in manifest['layers']:
-                if 'size' in layer:
-                    total_size += layer['size']
+        if "layers" in manifest:
+            for layer in manifest["layers"]:
+                if "size" in layer:
+                    total_size += layer["size"]
 
         return total_size
     except Exception as e:
@@ -80,7 +83,7 @@ def format_size(size_bytes):
     if size_bytes is None:
         return "unknown"
 
-    for unit in ['B', 'KB', 'MB', 'GB']:
+    for unit in ["B", "KB", "MB", "GB"]:
         if size_bytes < 1024.0:
             return f"{size_bytes:.1f} {unit}"
         size_bytes /= 1024.0
@@ -218,7 +221,7 @@ def build_and_push_images(docker_files):
 
         if buildx_available:
             # Build AMD64 first to check size
-            logger.info(f"Building AMD64 image...")
+            logger.info("Building AMD64 image...")
             run_command(
                 f"docker buildx build "
                 f"--platform linux/amd64 "
@@ -232,9 +235,13 @@ def build_and_push_images(docker_files):
             # Check the size of the built image (same logic as Docker Scout)
             image_size = get_image_size(f"getwilds/{tool_name}:{tag}")
             if image_size is not None and image_size > DOCKER_SCOUT_SIZE_LIMIT:
-                logger.info(f"Image is large ({format_size(image_size)}), skipping ARM64 build to avoid disk space issues")
+                logger.info(
+                    f"Image is large ({format_size(image_size)}), skipping ARM64 build to avoid disk space issues"
+                )
             else:
-                logger.info(f"Image is manageable ({format_size(image_size) if image_size else 'unknown'}), building ARM64...")
+                logger.info(
+                    f"Image is manageable ({format_size(image_size) if image_size else 'unknown'}), building ARM64..."
+                )
 
                 # Build multi-platform (this will update the manifest to include both platforms)
                 run_command(
@@ -253,7 +260,7 @@ def build_and_push_images(docker_files):
 
         else:
             # Fallback to single-platform build
-            logger.info(f"Building single-platform image (linux/amd64)")
+            logger.info("Building single-platform image (linux/amd64)")
             run_command(
                 f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} ."
             )
@@ -279,23 +286,37 @@ def build_and_push_images(docker_files):
             f.write(f"Report generated on {pst_now}\n\n")
             f.write("## Platform Coverage\n\n")
             f.write("This vulnerability scan covers the **linux/amd64** platform. ")
-            f.write("While this image also supports linux/arm64, the security analysis ")
-            f.write("focuses on the AMD64 variant as it represents the majority of deployment targets. ")
-            f.write("Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n")
+            f.write(
+                "While this image also supports linux/arm64, the security analysis "
+            )
+            f.write(
+                "focuses on the AMD64 variant as it represents the majority of deployment targets. "
+            )
+            f.write(
+                "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
+            )
 
         # Check image size before running Docker Scout
         image_size = get_image_size(container)
         if image_size is not None and image_size > DOCKER_SCOUT_SIZE_LIMIT:
-            logger.info(f"Image {container} is {format_size(image_size)}, exceeding limit of {format_size(DOCKER_SCOUT_SIZE_LIMIT)}. Skipping Docker Scout scan.")
+            logger.info(
+                f"Image {container} is {format_size(image_size)}, exceeding limit of {format_size(DOCKER_SCOUT_SIZE_LIMIT)}. Skipping Docker Scout scan."
+            )
 
             # Write size limit message to CVE file
             with open(cve_file, "a") as f:
                 f.write("## ⚠️ Scan Skipped - Image Too Large\n\n")
-                f.write(f"Docker Scout scan was skipped for this image because it exceeds the size limit.\n\n")
+                f.write(
+                    "Docker Scout scan was skipped for this image because it exceeds the size limit.\n\n"
+                )
                 f.write(f"**Image size:** {format_size(image_size)}\n")
                 f.write(f"**Size limit:** {format_size(DOCKER_SCOUT_SIZE_LIMIT)}\n\n")
-                f.write("Large images can cause timeouts and resource exhaustion in CI/CD environments. ")
-                f.write("If you need a vulnerability scan for this image, please run it manually:\n\n")
+                f.write(
+                    "Large images can cause timeouts and resource exhaustion in CI/CD environments. "
+                )
+                f.write(
+                    "If you need a vulnerability scan for this image, please run it manually:\n\n"
+                )
                 f.write("```bash\n")
                 f.write(f"docker scout quickview {container} --platform linux/amd64\n")
                 f.write("```\n")
@@ -317,7 +338,7 @@ def build_and_push_images(docker_files):
                 logger.warning(f"Docker Scout failed for {tool_name}:{tag}: {e}")
                 # Write a fallback message to the CVE file
                 with open(cve_file, "a") as f:
-                    f.write(f"**Docker Scout scan failed for this image**\n\n")
+                    f.write("**Docker Scout scan failed for this image**\n\n")
                     f.write(f"Error: {str(e)}\n\n")
 
         # Replace ghcr.io/getwilds with getwilds in the report
@@ -339,7 +360,7 @@ def build_and_push_images(docker_files):
 
     # Write CVE files to manifest for commit_cve_reports.py
     if cve_files:
-        with open('.cve_manifest.txt', 'w') as f:
+        with open(".cve_manifest.txt", "w") as f:
             for cve_file in cve_files:
                 f.write(f"{cve_file}\n")
         logger.info(f"Written {len(cve_files)} CVE files to manifest")

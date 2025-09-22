@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*-coding:utf-8 -*-
-'''
+"""
 @File    :   commit_cve_reports.py
 @Time    :   2025/06/20 11:34:12
 @Author  :   Taylor Firman
@@ -19,7 +19,7 @@ Environment variables:
     GITHUB_EVENT_NAME: The name of the GitHub event that triggered the workflow
     GITHUB_HEAD_REF: The branch being merged from in case of PR's
     GH_APP_TOKEN: Token used to commit CVE reports to the repository.
-'''
+"""
 
 import os
 import logging
@@ -33,15 +33,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger("commit-cve-reports")
 
+
 def commit_changes():
     """
     Commit and push CVE report files to the repository.
     """
-    if not os.path.exists('.cve_manifest.txt'):
+    if not os.path.exists(".cve_manifest.txt"):
         logger.info("No CVE manifest found, nothing to commit")
         return
 
-    with open('.cve_manifest.txt', 'r') as f:
+    with open(".cve_manifest.txt", "r") as f:
         cve_files = [line.strip() for line in f if line.strip()]
 
     if not cve_files:
@@ -101,7 +102,8 @@ def commit_changes():
         logger.info("No changes to commit")
 
     # Clean up manifest
-    os.remove('.cve_manifest.txt')
+    os.remove(".cve_manifest.txt")
+
 
 if __name__ == "__main__":
     commit_changes()
