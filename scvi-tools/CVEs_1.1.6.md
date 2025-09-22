@@ -1,45 +1,20 @@
 # Vulnerability Report for getwilds/scvi-tools:1.1.6
 
-Report generated on 2025-09-10 17:53:00 PST
+Report generated on 2025-09-22 06:21:21 PST
 
-## 📊 Vulnerability Summary
+## Platform Coverage
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 2 |
-| 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 21 |
-| ⚪ Unknown | 0 |
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
-## 🐳 Base Image
+## ⚠️ Scan Skipped - Image Too Large
 
-**Image:** `python:3.12-slim`
+Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 1 |
-| 🟢 Low | 20 |
+**Image size:** 4.5 GB
+**Size limit:** 3.0 GB
 
-## 🔄 Recommendations
+Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
 
-**Updated base image:** `python:3.13-slim`
-
-<details>
-<summary>📋 Raw Docker Scout Output</summary>
-
-```text
-Target             │  getwilds/scvi-tools:1.1.6  │    2C     0H     2M    21L   
-    digest           │  687022a89202                       │                              
-  Base image         │  python:3.12-slim                   │    0C     0H     1M    20L   
-  Updated base image │  python:3.13-slim                   │    0C     0H     1M    20L   
-                     │                                     │                              
-
-What's next:
-    View vulnerabilities → docker scout cves getwilds/scvi-tools:1.1.6
-    View base image update recommendations → docker scout recommendations getwilds/scvi-tools:1.1.6
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/scvi-tools:1.1.6 --org <organization>
+```bash
+docker scout quickview getwilds/scvi-tools:1.1.6 --platform linux/amd64
 ```
-</details>

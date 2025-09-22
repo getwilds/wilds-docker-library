@@ -1,45 +1,45 @@
 # Vulnerability Report for getwilds/umitools:latest
 
-Report generated on 2025-09-10 17:59:40 PST
+Report generated on 2025-09-22 06:06:36 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 3 |
-| 🟠 High | 23 |
-| 🟡 Medium | 32 |
-| 🟢 Low | 118 |
-| ⚪ Unknown | 5 |
+| 🔴 Critical | 0 |
+| 🟠 High | 6 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 156 |
+| ⚪ Unknown | 4 |
 
 ## 🐳 Base Image
 
-**Image:** `python:3.12`
+**Image:** `python:3.12-bookworm`
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 3 |
-| 🟠 High | 21 |
-| 🟡 Medium | 32 |
-| 🟢 Low | 117 |
+| 🔴 Critical | 0 |
+| 🟠 High | 5 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 156 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `python:3.12`
-
-**Updated base image:** `python:3.12-slim`
+**Updated base image:** `python:3.13-bookworm`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/umitools:latest  │    3C    23H    32M   118L     5?   
-    digest             │  0a17dd42930b                      │                                     
-  Base image           │  python:3.12                       │    3C    21H    32M   117L     5?   
-  Refreshed base image │  python:3.12                       │    0C     4H     3M   141L     2?   
-                       │                                    │    -3    -17    -29    +24     -3   
-  Updated base image   │  python:3.12-slim                  │    0C     0H     1M    20L          
-                       │                                    │    -3    -21    -31    -97     -5   
+Target             │  getwilds/umitools:latest  │    0C     6H     3M   156L     4?   
+    digest           │  06854ebcdc2e                      │                                     
+  Base image         │  python:3.12-bookworm              │    0C     5H     3M   156L     4?   
+  Updated base image │  python:3.13-bookworm              │    0C     5H     3M   156L     4?   
+                     │                                    │                                     
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/umitools:latest
