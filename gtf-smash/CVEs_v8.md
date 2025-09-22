@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gtf-smash:v8
 
-Report generated on 2025-09-21 17:13:29 PST
+Report generated on 2025-09-22 04:27:31 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/gtf-smash:v8  │    0C     0H     1M    21L   
-    digest           │  840c91e5da99                   │                              
+    digest           │  02c5b5f9157e                   │                              
   Base image         │  python:3.12-slim               │    0C     0H     1M    20L   
   Updated base image │  python:3.13-slim               │    0C     0H     1M    20L   
                      │                                 │                              
