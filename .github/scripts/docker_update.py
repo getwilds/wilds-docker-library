@@ -217,19 +217,35 @@ def build_and_push_images(docker_files):
         logger.info(f"Building image for {tool_name}:{tag}")
 
         if buildx_available:
-            # Sequential multi-platform builds to avoid disk space issues
-
-            # Use the original simultaneous approach, but with manifest creation after
-            logger.info(f"Building multi-platform image with simultaneous push...")
+            # Build AMD64 first to check size
+            logger.info(f"Building AMD64 image...")
             run_command(
                 f"docker buildx build "
-                f"--platform linux/amd64,linux/arm64 "
+                f"--platform linux/amd64 "
                 f"-t getwilds/{tool_name}:{tag} "
                 f"-t ghcr.io/getwilds/{tool_name}:{tag} "
                 f"-f {dockerfile} "
                 f"--provenance=false "
                 f"--push ."
             )
+
+            # Check the size of the built image (same logic as Docker Scout)
+            image_size = get_image_size(f"getwilds/{tool_name}:{tag}")
+            if image_size is not None and image_size > DOCKER_SCOUT_SIZE_LIMIT:
+                logger.info(f"Image is large ({format_size(image_size)}), skipping ARM64 build to avoid disk space issues")
+            else:
+                logger.info(f"Image is manageable ({format_size(image_size) if image_size else 'unknown'}), building ARM64...")
+
+                # Build multi-platform (this will update the manifest to include both platforms)
+                run_command(
+                    f"docker buildx build "
+                    f"--platform linux/amd64,linux/arm64 "
+                    f"-t getwilds/{tool_name}:{tag} "
+                    f"-t ghcr.io/getwilds/{tool_name}:{tag} "
+                    f"-f {dockerfile} "
+                    f"--provenance=false "
+                    f"--push ."
+                )
 
             # Final cleanup
             logger.info("Final cleanup...")
