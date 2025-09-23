@@ -1,38 +1,20 @@
 # Vulnerability Report for getwilds/python-dl:1.0
 
-Report generated on 2025-09-10 17:01:35 PST
+Report generated on 2025-09-22 05:38:08 PST
 
-## 📊 Vulnerability Summary
+## Platform Coverage
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 78 |
-| 🟡 Medium | 3178 |
-| 🟢 Low | 153 |
-| ⚪ Unknown | 1 |
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
-## 🐳 Base Image
+## ⚠️ Scan Skipped - Image Too Large
 
-**Image:** `nvidia/cuda:11.8.0-base-ubuntu22.04`
+Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 45 |
-| 🟢 Low | 35 |
+**Image size:** 8.6 GB
+**Size limit:** 3.0 GB
 
-<details>
-<summary>📋 Raw Docker Scout Output</summary>
+Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
 
-```text
-Target     │  getwilds/python-dl:1.0       │    0C    78H   3178M   153L     1?   
-    digest   │  91a4f34604d5                         │                                      
-  Base image │  nvidia/cuda:11.8.0-base-ubuntu22.04  │    0C     0H    45M    35L           
-
-What's next:
-    View vulnerabilities → docker scout cves getwilds/python-dl:1.0
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/python-dl:1.0 --org <organization>
+```bash
+docker scout quickview getwilds/python-dl:1.0 --platform linux/amd64
 ```
-</details>

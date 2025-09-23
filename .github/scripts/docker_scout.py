@@ -63,9 +63,9 @@ def discover_tools_and_tags(specific_tool=None):
         ]
         logger.info(f"Processing all tool directories: {dirs}")
 
-    if os.path.exists('.cve_manifest.txt'):
+    if os.path.exists(".cve_manifest.txt"):
         logger.info("Found existing .cve_manifest.txt, excluding tools already scanned")
-        with open('.cve_manifest.txt', 'r') as f:
+        with open(".cve_manifest.txt", "r") as f:
             existing_scans = [line.strip() for line in f if line.strip()]
     else:
         existing_scans = []
@@ -112,11 +112,12 @@ def scan_image(tool, tag):
     os.makedirs(os.path.dirname(cve_file), exist_ok=True)
 
     try:
-        # Run Docker Scout to generate CVE report
+        # Run Docker Scout to generate CVE report (targeting AMD64 platform)
         result = run_command(
-            f"docker scout quickview {container}", capture_output=True
+            f"docker scout quickview {container} --platform linux/amd64",
+            capture_output=True,
         )
-        
+
         # Parse the scout output into clean markdown
         parsed_markdown = parse_scout_quickview(result)
 
@@ -124,14 +125,25 @@ def scan_image(tool, tag):
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
             f.write(f"# Vulnerability Report for {container}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
+            f.write("## Platform Coverage\n\n")
+            f.write("This vulnerability scan covers the **linux/amd64** platform. ")
+            f.write(
+                "While this image also supports linux/arm64, the security analysis "
+            )
+            f.write(
+                "focuses on the AMD64 variant as it represents the majority of deployment targets. "
+            )
+            f.write(
+                "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
+            )
             f.write(parsed_markdown)
-        
+
         # Replace ghcr.io/getwilds with getwilds in the report
         with open(cve_file, "r") as f:
             content = f.read()
         with open(cve_file, "w") as f:
             f.write(content.replace("ghcr.io/getwilds/", "getwilds/"))
-        
+
         logger.info(f"Successfully generated CVE report for {container}")
     except Exception as e:
         logger.warning(f"Docker Scout failed for {container}: {e}")
@@ -139,7 +151,10 @@ def scan_image(tool, tag):
 
     # Clean up Docker images to save space
     time.sleep(10)  # Let Docker Scout fully complete
-    run_command("find /tmp -name 'docker-scout*' -o -name 'stereoscope-*' 2>/dev/null | xargs rm -rf", check=False)
+    run_command(
+        "find /tmp -name 'docker-scout*' -o -name 'stereoscope-*' 2>/dev/null | xargs rm -rf",
+        check=False,
+    )
     run_command("docker system prune -af --volumes", check=False)
     run_command("docker builder prune -af", check=False)
 
@@ -168,11 +183,12 @@ def main():
             cve_files.append(cve_file)
 
     # Write manifest of successful CVE files for commit step
-    with open('.cve_manifest.txt', 'a') as f:
+    with open(".cve_manifest.txt", "a") as f:
         for cve_file in cve_files:
             f.write(f"{cve_file}\n")
-    
+
     logger.info(f"Generated {len(cve_files)} CVE reports")
+
 
 if __name__ == "__main__":
     main()
