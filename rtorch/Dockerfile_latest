@@ -1,7 +1,5 @@
 
-
 # Using the Nvidia base image
-# FROM rocker/tidyverse:3.6.0
 FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
 
 # Adding labels for the GitHub Container Registry
@@ -14,9 +12,72 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Installing Torch
-ENV DEBIAN_FRONTEND noninteractive
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing system dependencies
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.9ubuntu3 r-base=4.1.2-1ubuntu2 \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
+  && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && XML2_VERSION=$(apt-cache policy libxml2-dev | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && SSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && FONTCONFIG_VERSION=$(apt-cache policy libfontconfig1-dev | grep Candidate | awk '{print $2}') \
+  && FREETYPE_VERSION=$(apt-cache policy libfreetype6-dev | grep Candidate | awk '{print $2}') \
+  && PNG_VERSION=$(apt-cache policy libpng-dev | grep Candidate | awk '{print $2}') \
+  && TIFF_VERSION=$(apt-cache policy libtiff5-dev | grep Candidate | awk '{print $2}') \
+  && JPEG_VERSION=$(apt-cache policy libjpeg-dev | grep Candidate | awk '{print $2}') \
+  && HARFBUZZ_VERSION=$(apt-cache policy libharfbuzz-dev | grep Candidate | awk '{print $2}') \
+  && FRIBIDI_VERSION=$(apt-cache policy libfribidi-dev | grep Candidate | awk '{print $2}') \
+  && GIT2_VERSION=$(apt-cache policy libgit2-dev | grep Candidate | awk '{print $2}') \
+  && SSH2_VERSION=$(apt-cache policy libssh2-1-dev | grep Candidate | awk '{print $2}') \
+  && LAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') \
+  && BLAS_VERSION=$(apt-cache policy libblas-dev | grep Candidate | awk '{print $2}') \
+  && AVFILTER_VERSION=$(apt-cache policy libavfilter-dev | grep Candidate | awk '{print $2}') \
+  && MAGICK_VERSION=$(apt-cache policy libmagick++-dev | grep Candidate | awk '{print $2}') \
+  && WEBP_VERSION=$(apt-cache policy libwebp-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+    build-essential="${BE_VERSION}" \
+    gfortran="${GFORTRAN_VERSION}" \
+    pkg-config="${PKG_CONFIG_VERSION}" \
+    r-base=4.1.2-1ubuntu2 \
+    libxml2-dev="${XML2_VERSION}" \
+    libcurl4-openssl-dev="${CURL_VERSION}" \
+    libssl-dev="${SSL_VERSION}" \
+    libfontconfig1-dev="${FONTCONFIG_VERSION}" \
+    libfreetype6-dev="${FREETYPE_VERSION}" \
+    libpng-dev="${PNG_VERSION}" \
+    libtiff5-dev="${TIFF_VERSION}" \
+    libjpeg-dev="${JPEG_VERSION}" \
+    libharfbuzz-dev="${HARFBUZZ_VERSION}" \
+    libfribidi-dev="${FRIBIDI_VERSION}" \
+    libgit2-dev="${GIT2_VERSION}" \
+    libssh2-1-dev="${SSH2_VERSION}" \
+    liblapack-dev="${LAPACK_VERSION}" \
+    libblas-dev="${BLAS_VERSION}" \
+    libavfilter-dev="${AVFILTER_VERSION}" \
+    libmagick++-dev="${MAGICK_VERSION}" \
+    libwebp-dev="${WEBP_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
-RUN R -e "install.packages(c('remotes', 'coro', 'smotefamily', 'pacman', 'magick', 'torchvision', 'torchdatasets', 'pins', 'tidyverse'), repos = 'https://cloud.r-project.org'); remotes::install_version('torch', version = '0.13.0', repos = 'https://cloud.r-project.org'); torch::install_torch()"
+
+# Install remotes, torch, and R packages
+RUN R -e "install.packages('remotes', repos = 'https://cloud.r-project.org', dependencies = TRUE); if (!require('remotes', quietly = TRUE)) quit(status = 1)" \
+  && R -e "remotes::install_version('torch', version = '0.13.0', repos = 'https://cloud.r-project.org'); if (!require('torch', quietly = TRUE)) quit(status = 1)" \
+  && R -e "torch::install_torch()" \
+  && R -e " \
+    packages <- c('coro', 'igraph', 'smotefamily', 'pROC', 'PRROC', 'pacman', 'magick', 'pins'); \
+    for (pkg in packages) { \
+      install.packages(pkg, repos = 'https://cloud.r-project.org', dependencies = TRUE); \
+      if (!require(pkg, character.only = TRUE, quietly = TRUE)) quit(status = 1); \
+    } \
+  " \
+  && R -e " \
+    packages <- c('torchvision', 'torchdatasets'); \
+    for (pkg in packages) { \
+      install.packages(pkg, repos = 'https://cloud.r-project.org', dependencies = TRUE); \
+      if (!require(pkg, character.only = TRUE, quietly = TRUE)) quit(status = 1); \
+    } \
+  " \
+  && R -e "install.packages('tidyverse', repos = 'https://cloud.r-project.org', dependencies = TRUE); if (!require('tidyverse', quietly = TRUE)) quit(status = 1)"

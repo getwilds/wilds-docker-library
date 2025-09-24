@@ -15,17 +15,37 @@ These Docker images are built from NVIDIA's CUDA 11.7.1 with cuDNN 8 base image 
 - torch v0.13.0: R interface to the PyTorch deep learning library
 - CUDA 11.7.1: For GPU acceleration
 - cuDNN 8: Deep Neural Network library
-- Preinstalled R packages for machine learning and data workflows:
-    * `pacman`: Convenience package maintainer to install/load packages; helpful in scripts and reproducible containers.
-    * `remotes`: Install specific versions of CRAN/GitHub packages; used at build time to pin `torch` to 0.13.0.
-    * `magick`: Image I/O and processing (resize, crop, annotate, format conversion) backed by ImageMagick; useful for computer vision preprocessing.
-    * `torchvision`: Vision utilities for R torch: common datasets, transforms/augmentations, and model helpers for CV tasks.
-    * `torchdatasets`: Dataset and dataloader tooling for torch; stream data, compose transforms, and build efficient input pipelines.
-    * `pins`: Versioned data artifacts (local folder, S3, GCS, etc.); cache datasets, models, and intermediate results.
-    * `tidyverse`: Data manipulation, visualization, and I/O (e.g., dplyr, ggplot2, readr, tidyr) for end-to-end analysis.
+- Preinstalled R packages for machine learning and data workflows
 - libtorch / PyTorch backends: Installed via `torch::install_torch()` for the appropriate CUDA runtime inside the image.
 
 The images are designed to provide a comprehensive environment for deep learning in R with GPU acceleration.
+
+## Preinstalled R Packages:
+
+**Core/Build:**
+
+- `remotes`: Install specific versions of CRAN/GitHub packages; used at build time to pin `torch` to 0.13.0.
+- `pacman`: Convenience package maintainer to install/load packages; helpful in scripts and reproducible containers.
+
+**Torch Ecosystem:**
+
+- `torch`: Tensor operations, autograd, modules, and optimizers for deep learning in R (0.13.0).
+- `torchvision`: Vision utilities for R torch: common datasets, transforms/augmentations, and model helpers for CV tasks.
+- `torchdatasets`: Dataset and dataloader tooling for torch; stream data, compose transforms, and build efficient input pipelines.
+- `coro`: Coroutines used by the torch input pipeline (e.g., iterators).
+
+**Data Engineering/Utilities:**
+
+- `magick`: Image I/O and processing (resize, crop, annotate, format conversion) backed by ImageMagick; useful for computer vision preprocessing.
+- `pins`: Versioned data artifacts (local folder, S3, GCS, etc.); cache datasets, models, and intermediate results.
+- `tidyverse`: Data manipulation, visualization, and I/O (e.g., dplyr, ggplot2, readr, tidyr) for end-to-end analysis.
+
+**Modeling/Evaluation:**
+
+- `smotefamily`: Oversampling for imbalanced class learning (SMOTE variants).
+- `pROC`: ROC curves, AUC, CI, partial AUC, etc.
+- `PRROC`: Precision-Recall, ROC curves with fast computation.
+- `igraph`: Network analysis and graph algorithms; useful for graph neural networks and complex network modeling.
 
 ## Usage
 
@@ -76,7 +96,8 @@ To use GPU acceleration with this image, ensure that:
 
 The rtorch Docker images include:
 
-- Pinned versions for all dependencies to ensure reproducibility
+- Automated version detection and pinning for all system dependencies to ensure reproducibility
+- hadolint-compliant Dockerfile structure with optimized layer consolidation
 - CUDA and cuDNN integration for GPU acceleration
 - Minimal installation with only required packages
 
@@ -94,10 +115,11 @@ The Dockerfile follows these main steps:
 
 1. Uses NVIDIA CUDA 11.7.1 with cuDNN 8 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Sets environment variables for non-interactive installation
-4. Installs R and build essentials
-5. Installs the torch R package with a specific version
-6. Installs PyTorch backends through the R interface
+3. Sets shell options with pipefail for better error handling
+4. Sets environment variables for non-interactive installation
+5. Installs system dependencies with automated version detection (gfortran, LAPACK/BLAS, graphics libraries, etc.)
+6. Installs R packages in consolidated layers: remotes, torch ecosystem, core data science packages, and tidyverse
+7. Installs PyTorch backends through the R interface
 
 ## Source Repository
 
