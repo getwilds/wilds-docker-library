@@ -33,7 +33,7 @@ import logging
 import requests
 from datetime import datetime
 import git
-from utils import run_command, parse_scout_quickview
+from utils import run_command, parse_scout_quickview, get_dockerhub_token
 
 # Set up logging
 logging.basicConfig(
@@ -88,6 +88,53 @@ def format_size(size_bytes):
             return f"{size_bytes:.1f} {unit}"
         size_bytes /= 1024.0
     return f"{size_bytes:.1f} TB"
+
+
+def cleanup_platform_tags(tool_name, tag, platforms):
+    """
+    Delete temporary platform-specific tags from DockerHub and GitHub Container Registry.
+
+    Args:
+        tool_name: The tool name (e.g., 'bwa')
+        tag: The base tag (e.g., 'latest')
+        platforms: List of platform suffixes to clean up (e.g., ['amd64', 'arm64'])
+    """
+    logger.info(f"Cleaning up temporary platform tags for {tool_name}:{tag}")
+
+    # Get DockerHub token for API calls
+    token = get_dockerhub_token()
+    if not token:
+        logger.warning("Failed to get DockerHub token for cleanup")
+        return
+
+    try:
+        # Delete platform-specific tags from DockerHub
+        headers = {"Authorization": f"JWT {token}"}
+        for platform in platforms:
+            platform_tag = f"{tag}-{platform}"
+            try:
+                response = requests.delete(
+                    f"https://hub.docker.com/v2/repositories/getwilds/{tool_name}/tags/{platform_tag}/",
+                    headers=headers,
+                )
+                if response.status_code == 204:
+                    logger.info(f"Successfully deleted DockerHub tag: {platform_tag}")
+                elif response.status_code == 404:
+                    logger.info(f"DockerHub tag {platform_tag} not found (may already be deleted)")
+                else:
+                    logger.warning(
+                        f"Failed to delete DockerHub tag {platform_tag}: {response.status_code} - {response.text}"
+                    )
+            except Exception as e:
+                logger.warning(f"Error deleting DockerHub tag {platform_tag}: {e}")
+
+        # Note: GitHub Container Registry doesn't provide a simple API for tag deletion
+        # The platform-specific tags will remain there, but they're less visible
+        # and don't clutter the main interface since the manifest list is the primary reference
+        logger.info("Note: GitHub Container Registry platform tags are left for reference")
+
+    except Exception as e:
+        logger.warning(f"Failed to cleanup platform tags: {e}")
 
 
 def setup_buildx():
@@ -220,39 +267,56 @@ def build_and_push_images(docker_files):
         logger.info(f"Building image for {tool_name}:{tag}")
 
         if buildx_available:
-            # Build AMD64 first to check size
+            # Build AMD64 first with platform-specific tag
             logger.info("Building AMD64 image...")
             run_command(
                 f"docker buildx build "
                 f"--platform linux/amd64 "
-                f"-t getwilds/{tool_name}:{tag} "
-                f"-t ghcr.io/getwilds/{tool_name}:{tag} "
+                f"-t getwilds/{tool_name}:{tag}-amd64 "
+                f"-t ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
                 f"-f {dockerfile} "
                 f"--provenance=false "
                 f"--push ."
             )
 
-            # Check the size of the built image (same logic as Docker Scout)
-            image_size = get_image_size(f"getwilds/{tool_name}:{tag}")
-            if image_size is not None and image_size > DOCKER_SCOUT_SIZE_LIMIT:
-                logger.info(
-                    f"Image is large ({format_size(image_size)}), skipping ARM64 build to avoid disk space issues"
-                )
-            else:
-                logger.info(
-                    f"Image is manageable ({format_size(image_size) if image_size else 'unknown'}), building ARM64..."
-                )
+            # Clean up build cache to free disk space
+            logger.info("Cleaning build cache...")
+            run_command("docker buildx prune -f", check=False)
 
-                # Build multi-platform (this will update the manifest to include both platforms)
-                run_command(
-                    f"docker buildx build "
-                    f"--platform linux/amd64,linux/arm64 "
-                    f"-t getwilds/{tool_name}:{tag} "
-                    f"-t ghcr.io/getwilds/{tool_name}:{tag} "
-                    f"-f {dockerfile} "
-                    f"--provenance=false "
-                    f"--push ."
-                )
+            # Build ARM64 with platform-specific tag
+            logger.info("Building ARM64 image...")
+            run_command(
+                f"docker buildx build "
+                f"--platform linux/arm64 "
+                f"-t getwilds/{tool_name}:{tag}-arm64 "
+                f"-t ghcr.io/getwilds/{tool_name}:{tag}-arm64 "
+                f"-f {dockerfile} "
+                f"--provenance=false "
+                f"--push ."
+            )
+
+            # Clean up build cache after ARM64 build
+            logger.info("Cleaning build cache after ARM64...")
+            run_command("docker buildx prune -f", check=False)
+
+            # Create multi-platform manifests
+            logger.info("Creating multi-platform manifests...")
+            run_command(
+                f"docker manifest create getwilds/{tool_name}:{tag} "
+                f"getwilds/{tool_name}:{tag}-amd64 "
+                f"getwilds/{tool_name}:{tag}-arm64"
+            )
+            run_command(f"docker manifest push getwilds/{tool_name}:{tag}")
+
+            run_command(
+                f"docker manifest create ghcr.io/getwilds/{tool_name}:{tag} "
+                f"ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
+                f"ghcr.io/getwilds/{tool_name}:{tag}-arm64"
+            )
+            run_command(f"docker manifest push ghcr.io/getwilds/{tool_name}:{tag}")
+
+            # Clean up temporary platform tags
+            cleanup_platform_tags(tool_name, tag, ["amd64", "arm64"])
 
             # Final cleanup
             logger.info("Final cleanup...")
@@ -278,7 +342,8 @@ def build_and_push_images(docker_files):
 
         # Update Docker Scout CVE markdown file
         cve_file = f"{tool_name}/CVEs_{tag}.md"
-        container = f"ghcr.io/getwilds/{tool_name}:{tag}"
+        # Use the AMD64-specific tag for scanning since Docker Scout scans the AMD64 platform
+        container = f"ghcr.io/getwilds/{tool_name}:{tag}-amd64" if buildx_available else f"ghcr.io/getwilds/{tool_name}:{tag}"
 
         with open(cve_file, "w") as f:
             pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
@@ -382,22 +447,10 @@ def update_dockerhub_descriptions(affected_dirs):
         return
 
     # Get DockerHub token
-    auth_payload = {
-        "username": os.environ.get("DOCKERHUB_USER"),
-        "password": os.environ.get("DOCKERHUB_PW"),
-    }
-    response = requests.post(
-        "https://hub.docker.com/v2/users/login/", json=auth_payload
-    )
-    response.raise_for_status()
-    token = response.json().get("token")
-
+    token = get_dockerhub_token()
     if not token:
-        logger.error("Failed to get DockerHub token. Check your credentials.")
-        logger.error(f"Response was: {response.text}")
+        logger.error("Failed to get DockerHub token for description updates")
         return
-
-    logger.info("Successfully logged in to DockerHub")
 
     # Process each affected directory
     for directory in affected_dirs:
