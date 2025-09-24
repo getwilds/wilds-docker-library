@@ -44,7 +44,8 @@ The images are designed to provide a comprehensive environment for deep learning
 
 - `smotefamily`: Oversampling for imbalanced class learning (SMOTE variants).
 - `pROC`: ROC curves, AUC, CI, partial AUC, etc.
-- `pRROC`: Precision-Recall, ROC curves with fast computation.
+- `PRROC`: Precision-Recall, ROC curves with fast computation.
+- `igraph`: Network analysis and graph algorithms; useful for graph neural networks and complex network modeling.
 
 ## Usage
 
@@ -95,7 +96,8 @@ To use GPU acceleration with this image, ensure that:
 
 The rtorch Docker images include:
 
-- Pinned versions for all dependencies to ensure reproducibility
+- Automated version detection and pinning for all system dependencies to ensure reproducibility
+- hadolint-compliant Dockerfile structure with optimized layer consolidation
 - CUDA and cuDNN integration for GPU acceleration
 - Minimal installation with only required packages
 
@@ -113,10 +115,11 @@ The Dockerfile follows these main steps:
 
 1. Uses NVIDIA CUDA 11.7.1 with cuDNN 8 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Sets environment variables for non-interactive installation
-4. Installs R and build essentials
-5. Installs the torch R package with a specific version
-6. Installs PyTorch backends through the R interface
+3. Sets shell options with pipefail for better error handling
+4. Sets environment variables for non-interactive installation
+5. Installs system dependencies with automated version detection (gfortran, LAPACK/BLAS, graphics libraries, etc.)
+6. Installs R packages in consolidated layers: remotes, torch ecosystem, core data science packages, and tidyverse
+7. Installs PyTorch backends through the R interface
 
 ## Source Repository
 
