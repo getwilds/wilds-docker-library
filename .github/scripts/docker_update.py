@@ -267,7 +267,7 @@ def build_and_push_images(docker_files):
         logger.info(f"Building image for {tool_name}:{tag}")
 
         if buildx_available:
-            # Build AMD64 first with platform-specific tag
+            # Build AMD64 with platform-specific tag (push to both registries - GHCR for CVE scanning)
             logger.info("Building AMD64 image...")
             run_command(
                 f"docker buildx build "
@@ -283,13 +283,12 @@ def build_and_push_images(docker_files):
             logger.info("Cleaning build cache...")
             run_command("docker buildx prune -f", check=False)
 
-            # Build ARM64 with platform-specific tag
+            # Build ARM64 with platform-specific tag (DockerHub only)
             logger.info("Building ARM64 image...")
             run_command(
                 f"docker buildx build "
                 f"--platform linux/arm64 "
                 f"-t getwilds/{tool_name}:{tag}-arm64 "
-                f"-t ghcr.io/getwilds/{tool_name}:{tag}-arm64 "
                 f"-f {dockerfile} "
                 f"--provenance=false "
                 f"--push ."
@@ -299,21 +298,14 @@ def build_and_push_images(docker_files):
             logger.info("Cleaning build cache after ARM64...")
             run_command("docker buildx prune -f", check=False)
 
-            # Create multi-platform manifests
-            logger.info("Creating multi-platform manifests...")
+            # Create multi-platform manifest for DockerHub
+            logger.info("Creating multi-platform manifest...")
             run_command(
                 f"docker manifest create getwilds/{tool_name}:{tag} "
                 f"getwilds/{tool_name}:{tag}-amd64 "
                 f"getwilds/{tool_name}:{tag}-arm64"
             )
             run_command(f"docker manifest push getwilds/{tool_name}:{tag}")
-
-            run_command(
-                f"docker manifest create ghcr.io/getwilds/{tool_name}:{tag} "
-                f"ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
-                f"ghcr.io/getwilds/{tool_name}:{tag}-arm64"
-            )
-            run_command(f"docker manifest push ghcr.io/getwilds/{tool_name}:{tag}")
 
             # Clean up temporary platform tags
             cleanup_platform_tags(tool_name, tag, ["amd64", "arm64"])
