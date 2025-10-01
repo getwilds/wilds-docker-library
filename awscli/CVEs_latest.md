@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/awscli:latest
 
-Report generated on 2025-09-15 17:56:18 PST
+Report generated on 2025-10-01 23:01:18 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-15 17:56:18 PST
 |----------|-------|
 | 🔴 Critical | 3 |
 | 🟠 High | 7 |
-| 🟡 Medium | 22 |
-| 🟢 Low | 9 |
+| 🟡 Medium | 21 |
+| 🟢 Low | 11 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -21,9 +25,11 @@ Report generated on 2025-09-15 17:56:18 PST
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 5 |
-| 🟢 Low | 5 |
+| 🟢 Low | 6 |
 
 ## 🔄 Recommendations
+
+**Refreshed base image:** `ubuntu:24.04`
 
 **Updated base image:** `ubuntu:25.10`
 
@@ -31,15 +37,17 @@ Report generated on 2025-09-15 17:56:18 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/awscli:latest  │    3C     7H    22M     9L   
-    digest           │  0a10dc7c134d                    │                              
-  Base image         │  ubuntu:24.04                    │    0C     0H     5M     5L   
-  Updated base image │  ubuntu:25.10                    │    0C     0H     0M     0L   
-                     │                                  │                  -5     -5   
+Target               │  getwilds/awscli:latest-amd64  │    3C     7H    21M    11L   
+    digest             │  e6cbfa5742ee                          │                              
+  Base image           │  ubuntu:24.04                          │    0C     0H     5M     6L   
+  Refreshed base image │  ubuntu:24.04                          │    0C     0H     5M     6L   
+                       │                                        │                              
+  Updated base image   │  ubuntu:25.10                          │    0C     0H     0M     0L   
+                       │                                        │                  -5     -6   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/awscli:latest
-    View base image update recommendations → docker scout recommendations getwilds/awscli:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/awscli:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/awscli:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/awscli:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/awscli:latest-amd64 --org <organization>
 ```
 </details>
