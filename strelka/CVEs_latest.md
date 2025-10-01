@@ -1,15 +1,19 @@
 # Vulnerability Report for getwilds/strelka:latest
 
-Report generated on 2025-09-10 16:14:39 PST
+Report generated on 2025-10-01 09:49:28 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 1142 |
-| 🟢 Low | 65 |
+| 🟠 High | 2 |
+| 🟡 Medium | 1454 |
+| 🟢 Low | 66 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 16:14:39 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 13 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 14 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-10 16:14:39 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/strelka:latest  │    0C     0H   1142M    65L   
+Target               │  getwilds/strelka:latest  │    0C     2H   1454M    66L   
     digest             │  786e8020208b                     │                               
-  Base image           │  ubuntu:22.04                     │    0C     0H     3M    13L    
-  Refreshed base image │  ubuntu:22.04                     │    0C     0H     3M    12L    
+  Base image           │  ubuntu:22.04                     │    0C     0H     4M    14L    
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     4M    13L    
                        │                                   │                         -1    
   Updated base image   │  ubuntu:25.10                     │    0C     0H     0M     0L    
-                       │                                   │                  -3    -13    
+                       │                                   │                  -4    -14    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/strelka:latest

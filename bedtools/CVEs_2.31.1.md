@@ -1,15 +1,19 @@
 # Vulnerability Report for getwilds/bedtools:2.31.1
 
-Report generated on 2025-09-10 17:40:51 PST
+Report generated on 2025-10-01 09:37:49 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 3 |
-| 🟡 Medium | 1242 |
-| 🟢 Low | 37 |
+| 🟠 High | 5 |
+| 🟡 Medium | 1428 |
+| 🟢 Low | 40 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,26 +24,26 @@ Report generated on 2025-09-10 17:40:51 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 12 |
-| 🟢 Low | 5 |
+| 🟡 Medium | 13 |
+| 🟢 Low | 6 |
 
 ## 🔄 Recommendations
 
 **Refreshed base image:** `ubuntu:24.04`
 
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/bedtools:2.31.1  │    0C     3H   1242M    37L   
+Target               │  getwilds/bedtools:2.31.1  │    0C     5H   1428M    40L   
     digest             │  7ccc610a71d8                      │                               
-  Base image           │  ubuntu:24.04                      │    0C     0H    12M     5L    
-  Refreshed base image │  ubuntu:24.04                      │    0C     0H     4M     5L    
+  Base image           │  ubuntu:24.04                      │    0C     0H    13M     6L    
+  Refreshed base image │  ubuntu:24.04                      │    0C     0H     5M     6L    
                        │                                    │                  -8           
-  Updated base image   │  ubuntu:25.04                      │    0C     0H     5M     4L    
-                       │                                    │                  -7     -1    
+  Updated base image   │  ubuntu:25.10                      │    0C     0H     0M     0L    
+                       │                                    │                 -13     -6    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/bedtools:2.31.1

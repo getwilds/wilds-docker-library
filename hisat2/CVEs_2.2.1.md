@@ -1,15 +1,19 @@
 # Vulnerability Report for getwilds/hisat2:2.2.1
 
-Report generated on 2025-09-10 16:29:54 PST
+Report generated on 2025-10-01 08:20:37 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 1390 |
-| 🟢 Low | 39 |
+| 🟠 High | 7 |
+| 🟡 Medium | 1578 |
+| 🟢 Low | 42 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 16:29:54 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 13 |
-| 🟢 Low | 5 |
+| 🟡 Medium | 14 |
+| 🟢 Low | 6 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-10 16:29:54 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/hisat2:2.2.1  │    0C     5H   1390M    39L   
+Target               │  getwilds/hisat2:2.2.1  │    0C     7H   1578M    42L   
     digest             │  506451743480                   │                               
-  Base image           │  ubuntu:24.04                   │    0C     0H    13M     5L    
-  Refreshed base image │  ubuntu:24.04                   │    0C     0H     4M     5L    
+  Base image           │  ubuntu:24.04                   │    0C     0H    14M     6L    
+  Refreshed base image │  ubuntu:24.04                   │    0C     0H     5M     6L    
                        │                                 │                  -9           
-  Updated base image   │  ubuntu:25.04                   │    0C     0H     5M     4L    
-                       │                                 │                  -8     -1    
+  Updated base image   │  ubuntu:25.04                   │    0C     0H     7M     6L    
+                       │                                 │                  -7           
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/hisat2:2.2.1

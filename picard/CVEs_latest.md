@@ -1,15 +1,19 @@
 # Vulnerability Report for getwilds/picard:latest
 
-Report generated on 2025-09-10 17:09:44 PST
+Report generated on 2025-10-01 09:35:55 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 49 |
-| 🟢 Low | 20 |
+| 🟠 High | 3 |
+| 🟡 Medium | 52 |
+| 🟢 Low | 24 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 17:09:44 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 13 |
-| 🟢 Low | 5 |
+| 🟡 Medium | 14 |
+| 🟢 Low | 6 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-10 17:09:44 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/picard:latest  │    0C     2H    49M    20L   
+Target               │  getwilds/picard:latest  │    0C     3H    52M    24L   
     digest             │  65839270a2e5                    │                              
-  Base image           │  ubuntu:24.04                    │    0C     0H    13M     5L   
-  Refreshed base image │  ubuntu:24.04                    │    0C     0H     4M     5L   
+  Base image           │  ubuntu:24.04                    │    0C     0H    14M     6L   
+  Refreshed base image │  ubuntu:24.04                    │    0C     0H     5M     6L   
                        │                                  │                  -9          
-  Updated base image   │  ubuntu:25.04                    │    0C     0H     5M     4L   
-                       │                                  │                  -8     -1   
+  Updated base image   │  ubuntu:25.04                    │    0C     0H     7M     6L   
+                       │                                  │                  -7          
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/picard:latest

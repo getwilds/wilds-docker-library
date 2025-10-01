@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/sra-tools:latest
 
-Report generated on 2025-09-10 17:40:21 PST
+Report generated on 2025-10-01 08:55:16 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,7 +12,7 @@ Report generated on 2025-09-10 17:40:21 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 1 |
-| 🟡 Medium | 16 |
+| 🟡 Medium | 17 |
 | 🟢 Low | 5 |
 | ⚪ Unknown | 0 |
 
@@ -31,7 +35,7 @@ Report generated on 2025-09-10 17:40:21 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/sra-tools:latest  │    0C     1H    16M     5L   
+Target             │  getwilds/sra-tools:latest  │    0C     1H    17M     5L   
     digest           │  23751f1a94fa                       │                              
   Base image         │  ubuntu:20.04                       │    0C     0H     5M     0L   
   Updated base image │  ubuntu:25.10                       │    0C     0H     0M     0L   

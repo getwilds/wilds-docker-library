@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/annotsv:3.4.4
 
-Report generated on 2025-09-10 16:38:07 PST
+Report generated on 2025-10-01 09:02:04 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 16:38:07 PST
 |----------|-------|
 | 🔴 Critical | 22 |
 | 🟠 High | 102 |
-| 🟡 Medium | 76 |
-| 🟢 Low | 30 |
+| 🟡 Medium | 70 |
+| 🟢 Low | 29 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,26 +24,22 @@ Report generated on 2025-09-10 16:38:07 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 10 |
+| 🟡 Medium | 4 |
 | 🟢 Low | 13 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:22.04`
-
-**Updated base image:** `ubuntu:24.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/annotsv:3.4.4  │   22C   102H    76M    30L   
-    digest             │  4e0e8b17d00b                    │                              
-  Base image           │  ubuntu:22.04                    │    0C     0H    10M    13L   
-  Refreshed base image │  ubuntu:22.04                    │    0C     0H     3M    12L   
-                       │                                  │                  -7     -1   
-  Updated base image   │  ubuntu:24.04                    │    0C     0H     4M     5L   
-                       │                                  │                  -6     -8   
+Target             │  getwilds/annotsv:3.4.4  │   22C   102H    70M    29L   
+    digest           │  0248570cf62f                    │                              
+  Base image         │  ubuntu:22.04                    │    0C     0H     4M    13L   
+  Updated base image │  ubuntu:25.10                    │    0C     0H     0M     0L   
+                     │                                  │                  -4    -13   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/annotsv:3.4.4

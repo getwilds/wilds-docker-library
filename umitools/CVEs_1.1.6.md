@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/umitools:1.1.6
 
-Report generated on 2025-09-22 05:59:18 PST
+Report generated on 2025-10-01 08:12:59 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 6 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 156 |
+| 🟠 High | 7 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 158 |
 | ⚪ Unknown | 4 |
 
 ## 🐳 Base Image
@@ -23,9 +23,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 156 |
+| 🟠 High | 6 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 158 |
 
 ## 🔄 Recommendations
 
@@ -35,10 +35,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/umitools:1.1.6  │    0C     6H     3M   156L     4?   
+Target             │  getwilds/umitools:1.1.6  │    0C     7H     4M   158L     4?   
     digest           │  2d40b00c6b4d                     │                                     
-  Base image         │  python:3.12-bookworm             │    0C     5H     3M   156L     4?   
-  Updated base image │  python:3.13-bookworm             │    0C     5H     3M   156L     4?   
+  Base image         │  python:3.12-bookworm             │    0C     6H     4M   158L     4?   
+  Updated base image │  python:3.13-bookworm             │    0C     6H     4M   158L     4?   
                      │                                   │                                     
 
 What's next:

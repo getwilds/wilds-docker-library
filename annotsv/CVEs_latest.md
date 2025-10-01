@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/annotsv:latest
 
-Report generated on 2025-09-10 16:34:43 PST
+Report generated on 2025-10-01 08:58:40 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 16:34:43 PST
 |----------|-------|
 | 🔴 Critical | 22 |
 | 🟠 High | 102 |
-| 🟡 Medium | 76 |
-| 🟢 Low | 30 |
+| 🟡 Medium | 81 |
+| 🟢 Low | 31 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 16:34:43 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 10 |
-| 🟢 Low | 13 |
+| 🟡 Medium | 11 |
+| 🟢 Low | 14 |
 
 ## 🔄 Recommendations
 
@@ -33,12 +37,12 @@ Report generated on 2025-09-10 16:34:43 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/annotsv:latest  │   22C   102H    76M    30L   
+Target               │  getwilds/annotsv:latest  │   22C   102H    81M    31L   
     digest             │  8c5f7fd63d55                     │                              
-  Base image           │  ubuntu:22.04                     │    0C     0H    10M    13L   
-  Refreshed base image │  ubuntu:22.04                     │    0C     0H     3M    12L   
+  Base image           │  ubuntu:22.04                     │    0C     0H    11M    14L   
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     4M    13L   
                        │                                   │                  -7     -1   
-  Updated base image   │  ubuntu:24.04                     │    0C     0H     4M     5L   
+  Updated base image   │  ubuntu:24.04                     │    0C     0H     5M     6L   
                        │                                   │                  -6     -8   
 
 What's next:

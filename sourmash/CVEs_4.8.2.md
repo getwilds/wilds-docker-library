@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/sourmash:4.8.2
 
-Report generated on 2025-09-12 22:24:11 PST
+Report generated on 2025-10-01 09:39:57 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -32,7 +36,7 @@ Report generated on 2025-09-12 22:24:11 PST
 
 ```text
 Target             │  getwilds/sourmash:4.8.2  │    0C     1H    18M     4L   
-    digest           │  618f98a50b07                     │                              
+    digest           │  c84aed7b39ff                     │                              
   Base image         │  ubuntu:20.04                     │    0C     0H     5M     0L   
   Updated base image │  ubuntu:25.10                     │    0C     0H     0M     0L   
                      │                                   │                  -5          

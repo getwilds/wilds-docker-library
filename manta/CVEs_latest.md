@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/manta:latest
 
-Report generated on 2025-09-10 16:28:34 PST
+Report generated on 2025-10-01 09:15:37 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,7 +12,7 @@ Report generated on 2025-09-10 16:28:34 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 5 |
-| 🟡 Medium | 1 |
+| 🟡 Medium | 2 |
 | 🟢 Low | 4 |
 | ⚪ Unknown | 0 |
 
@@ -20,7 +24,7 @@ Report generated on 2025-09-10 16:28:34 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 5 |
-| 🟡 Medium | 1 |
+| 🟡 Medium | 2 |
 | 🟢 Low | 0 |
 
 ## 🔄 Recommendations
@@ -31,11 +35,11 @@ Report generated on 2025-09-10 16:28:34 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/manta:latest  │    0C     5H     1M     4L   
+Target             │  getwilds/manta:latest  │    0C     5H     2M     4L   
     digest           │  6d64e8b839b9                   │                              
-  Base image         │  python:2-slim                  │    0C     5H     1M     0L   
-  Updated base image │  python:3.9-slim                │    0C     3H     2M    20L   
-                     │                                 │           -2     +1    +20   
+  Base image         │  python:2-slim                  │    0C     5H     2M     0L   
+  Updated base image │  python:3.9-slim                │    0C     4H     3M    22L   
+                     │                                 │           -1     +1    +22   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/manta:latest

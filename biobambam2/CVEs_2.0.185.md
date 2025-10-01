@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/biobambam2:2.0.185
 
-Report generated on 2025-09-10 17:36:49 PST
+Report generated on 2025-10-01 08:53:17 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 17:36:49 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 23 |
-| 🟢 Low | 7 |
+| 🟡 Medium | 25 |
+| 🟢 Low | 8 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 17:36:49 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 19 |
-| 🟢 Low | 7 |
+| 🟡 Medium | 20 |
+| 🟢 Low | 8 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-10 17:36:49 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/biobambam2:2.0.185  │    0C     0H    23M     7L   
+Target               │  getwilds/biobambam2:2.0.185  │    0C     0H    25M     8L   
     digest             │  19b18bdba1e9                         │                              
-  Base image           │  ubuntu:24.04                         │    0C     0H    19M     7L   
-  Refreshed base image │  ubuntu:24.04                         │    0C     0H     4M     5L   
+  Base image           │  ubuntu:24.04                         │    0C     0H    20M     8L   
+  Refreshed base image │  ubuntu:24.04                         │    0C     0H     5M     6L   
                        │                                       │                 -15     -2   
-  Updated base image   │  ubuntu:25.04                         │    0C     0H     5M     4L   
-                       │                                       │                 -14     -3   
+  Updated base image   │  ubuntu:25.04                         │    0C     0H     7M     6L   
+                       │                                       │                 -13     -2   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/biobambam2:2.0.185

@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/consensus:latest
 
-Report generated on 2025-09-10 17:34:59 PST
+Report generated on 2025-10-01 08:22:09 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -25,7 +29,7 @@ Report generated on 2025-09-10 17:34:59 PST
 
 ## 🔄 Recommendations
 
-**Updated base image:** `debian:stable-slim`
+**Updated base image:** `debian:12-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
@@ -34,8 +38,8 @@ Report generated on 2025-09-10 17:34:59 PST
 Target             │  getwilds/consensus:latest  │    0C     3H     0M     0L   
     digest           │  0c55b578c246                       │                              
   Base image         │  debian:9                           │    0C     0H     0M     0L   
-  Updated base image │  debian:stable-slim                 │    0C     0H     1M    20L   
-                     │                                     │                  +1    +20   
+  Updated base image │  debian:12-slim                     │    0C     0H     1M    24L   
+                     │                                     │                  +1    +24   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/consensus:latest

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/delly:latest
 
-Report generated on 2025-09-22 18:48:29 PST
+Report generated on 2025-10-01 09:38:11 PST
 
 ## Platform Coverage
 
@@ -13,7 +13,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 4 |
-| 🟢 Low | 15 |
+| 🟢 Low | 16 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,7 +25,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 4 |
-| 🟢 Low | 12 |
+| 🟢 Low | 13 |
 
 ## 🔄 Recommendations
 
@@ -35,11 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/delly:latest  │    0C     0H     4M    15L   
+Target             │  getwilds/delly:latest  │    0C     0H     4M    16L   
     digest           │  ef8bc05c9915                   │                              
-  Base image         │  ubuntu:22.04                   │    0C     0H     4M    12L   
+  Base image         │  ubuntu:22.04                   │    0C     0H     4M    13L   
   Updated base image │  ubuntu:25.10                   │    0C     0H     0M     0L   
-                     │                                 │                  -4    -12   
+                     │                                 │                  -4    -13   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/delly:latest
