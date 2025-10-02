@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/biobambam2:latest
 
-Report generated on 2025-09-10 17:37:09 PST
+Report generated on 2025-10-02 03:03:25 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 17:37:09 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 23 |
-| 🟢 Low | 7 |
+| 🟡 Medium | 19 |
+| 🟢 Low | 8 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 17:37:09 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 19 |
-| 🟢 Low | 7 |
+| 🟡 Medium | 20 |
+| 🟢 Low | 8 |
 
 ## 🔄 Recommendations
 
@@ -33,17 +37,17 @@ Report generated on 2025-09-10 17:37:09 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/biobambam2:latest  │    0C     0H    23M     7L   
-    digest             │  7e04bce63c13                        │                              
-  Base image           │  ubuntu:24.04                        │    0C     0H    19M     7L   
-  Refreshed base image │  ubuntu:24.04                        │    0C     0H     4M     5L   
-                       │                                      │                 -15     -2   
-  Updated base image   │  ubuntu:25.04                        │    0C     0H     5M     4L   
-                       │                                      │                 -14     -3   
+Target               │  getwilds/biobambam2:latest-amd64  │    0C     0H    19M     8L   
+    digest             │  aa40a2831478                              │                              
+  Base image           │  ubuntu:24.04                              │    0C     0H    20M     8L   
+  Refreshed base image │  ubuntu:24.04                              │    0C     0H     5M     6L   
+                       │                                            │                 -15     -2   
+  Updated base image   │  ubuntu:25.04                              │    0C     0H     7M     6L   
+                       │                                            │                 -13     -2   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/biobambam2:latest
-    View base image update recommendations → docker scout recommendations getwilds/biobambam2:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/biobambam2:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/biobambam2:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/biobambam2:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/biobambam2:latest-amd64 --org <organization>
 ```
 </details>
