@@ -266,7 +266,12 @@ def build_and_push_images(docker_files):
 
         logger.info(f"Building image for {tool_name}:{tag}")
 
-        if buildx_available:
+        # Check if this image should be AMD64-only
+        amd64_only = tool_name in ["bwa"]
+        if amd64_only:
+            logger.info(f"Image {tool_name}:{tag} is configured for AMD64-only builds")
+
+        if buildx_available and not amd64_only:
             # Build AMD64 with platform-specific tag (push to both registries - GHCR for CVE scanning)
             logger.info("Building AMD64 image...")
             run_command(
