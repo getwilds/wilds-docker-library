@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedtools:latest
 
-Report generated on 2025-09-25 03:59:57 PST
+Report generated on 2025-10-02 02:29:06 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 2 |
-| 🟡 Medium | 1087 |
+| 🟡 Medium | 1082 |
 | 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
@@ -29,17 +29,17 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bedtools:latest-amd64  │    0C     2H   1087M    36L   
-    digest           │  2160b5273477                            │                               
+Target             │  getwilds/bedtools:latest-amd64  │    0C     2H   1082M    36L   
+    digest           │  4289bbf3747f                            │                               
   Base image         │  ubuntu:24.04                            │    0C     0H     5M     6L    
-  Updated base image │  ubuntu:25.04                            │    0C     0H     5M     5L    
-                     │                                          │                         -1    
+  Updated base image │  ubuntu:25.10                            │    0C     0H     0M     0L    
+                     │                                          │                  -5     -6    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/bedtools:latest-amd64
