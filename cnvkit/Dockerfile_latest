@@ -30,6 +30,7 @@ RUN apt-get update && \
     GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') && \
     LIBBLAS_VERSION=$(apt-cache policy libblas-dev | grep Candidate | awk '{print $2}') && \
     LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') && \
+    LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') && \
     RBASE_VERSION=$(apt-cache policy r-base | grep Candidate | awk '{print $2}') && \
     RBASEDEV_VERSION=$(apt-cache policy r-base-dev | grep Candidate | awk '{print $2}') && \
     # Install packages with specific versions
@@ -40,6 +41,7 @@ RUN apt-get update && \
     gfortran="${GFORTRAN_VERSION}" \
     libblas-dev="${LIBBLAS_VERSION}" \
     liblapack-dev="${LIBLAPACK_VERSION}" \
+    libssl-dev="${LIBSSL_VERSION}" \
     r-base="${RBASE_VERSION}" \
     r-base-dev="${RBASEDEV_VERSION}" \
     && rm -rf /var/lib/apt/lists/*
