@@ -31,6 +31,7 @@ RUN apt-get update && \
     LIBBLAS_VERSION=$(apt-cache policy libblas-dev | grep Candidate | awk '{print $2}') && \
     LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') && \
     LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') && \
+    LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') && \
     RBASE_VERSION=$(apt-cache policy r-base | grep Candidate | awk '{print $2}') && \
     RBASEDEV_VERSION=$(apt-cache policy r-base-dev | grep Candidate | awk '{print $2}') && \
     # Install packages with specific versions
@@ -42,6 +43,7 @@ RUN apt-get update && \
     libblas-dev="${LIBBLAS_VERSION}" \
     liblapack-dev="${LIBLAPACK_VERSION}" \
     libssl-dev="${LIBSSL_VERSION}" \
+    libcurl4-openssl-dev="${LIBCURL_VERSION}" \
     r-base="${RBASE_VERSION}" \
     r-base-dev="${RBASEDEV_VERSION}" \
     && rm -rf /var/lib/apt/lists/*
@@ -56,7 +58,7 @@ RUN pip install --no-cache-dir \
     cnvkit==0.9.10
 
 # Install R packages required by CNVkit
-RUN R -e "install.packages(c('BiocManager', 'ggplot2', 'gridExtra', 'RColorBrewer'))" && \
+RUN R -e "install.packages(c('BiocManager', 'httr', 'ggplot2', 'gridExtra', 'RColorBrewer'))" && \
     R -e "BiocManager::install(c('DNAcopy', 'PSCBS', 'GenomicRanges', 'IRanges'))"
 
 # Health check
