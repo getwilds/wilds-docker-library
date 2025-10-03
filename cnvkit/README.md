@@ -19,6 +19,12 @@ These Docker images are built from Python slim base image and include:
 
 The images are designed to be secure and reliable while including all necessary components for CNVkit analysis of genomic data.
 
+### Multi-Platform Support
+
+These images are built for both `linux/amd64` and `linux/arm64` platforms with an image size of approximately **600MB** for both architectures.
+
+To keep the images lightweight, we use CPU-only builds of PyTorch (a dependency of CNVkit's probabilistic modeling components). CNVkit does not utilize GPU acceleration, so excluding CUDA libraries has no impact on functionality while significantly reducing image size (~3.5GB savings compared to CUDA-enabled PyTorch builds).
+
 ## Usage
 
 ### Docker
