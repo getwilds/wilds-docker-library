@@ -1,45 +1,20 @@
 # Vulnerability Report for getwilds/cnvkit:latest
 
-Report generated on 2025-09-19 03:12:35 PST
+Report generated on 2025-10-03 09:34:27 PST
 
-## 📊 Vulnerability Summary
+## Platform Coverage
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 3 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 78 |
-| ⚪ Unknown | 0 |
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
-## 🐳 Base Image
+## ⚠️ Scan Skipped - Image Too Large
 
-**Image:** `python:3.10-slim`
+Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 20 |
+**Image size:** 4.2 GB
+**Size limit:** 3.0 GB
 
-## 🔄 Recommendations
+Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
 
-**Updated base image:** `python:3.13-slim`
-
-<details>
-<summary>📋 Raw Docker Scout Output</summary>
-
-```text
-Target             │  getwilds/cnvkit:latest  │    0C     3H     2M    78L   
-    digest           │  94c3e300a412                    │                              
-  Base image         │  python:3.10-slim                │    0C     2H     2M    20L   
-  Updated base image │  python:3.13-slim                │    0C     0H     1M    20L   
-                     │                                  │           -2     -1          
-
-What's next:
-    View vulnerabilities → docker scout cves getwilds/cnvkit:latest
-    View base image update recommendations → docker scout recommendations getwilds/cnvkit:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/cnvkit:latest --org <organization>
+```bash
+docker scout quickview getwilds/cnvkit:latest-amd64 --platform linux/amd64
 ```
-</details>
