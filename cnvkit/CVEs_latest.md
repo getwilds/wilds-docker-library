@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cnvkit:latest
 
-Report generated on 2025-10-03 09:34:27 PST
+Report generated on 2025-10-03 20:12:59 PST
 
 ## Platform Coverage
 
