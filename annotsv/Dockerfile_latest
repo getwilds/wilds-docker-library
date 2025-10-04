@@ -30,9 +30,12 @@ RUN wget -q -O annotsv.tar.gz https://github.com/lgmgeo/AnnotSV/archive/v3.4.4.t
   && rm annotsv.tar.gz
 
 WORKDIR /AnnotSV-3.4.4
-RUN make PREFIX=. install \
-  && make PREFIX=. install-human-annotation \
-  && rm -rf share/AnnotSV/Annotations_Exomiser
+RUN make PREFIX=. install
+
+# Manually install human annotations without Exomiser to save disk space
+RUN curl -C - -LO https://www.lbgi.fr/~geoffroy/Annotations/Annotations_Human_3.4.4.tar.gz \
+  && tar -xf Annotations_Human_3.4.4.tar.gz -C ./share/AnnotSV/ \
+  && rm -f Annotations_Human_3.4.4.tar.gz
 
 # Final stage - runtime image
 FROM ubuntu:22.04
