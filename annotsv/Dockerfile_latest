@@ -1,4 +1,40 @@
 # AnnotSV Docker Image for WILDS Docker Library
+# Multi-stage build to reduce final image size
+FROM ubuntu:22.04 AS builder
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install build dependencies only
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && TCL_VERSION=$(apt-cache policy tcl | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && CA_CERTIFICATES_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  tcl="${TCL_VERSION}" \
+  make="${MAKE_VERSION}" \
+  gcc="${GCC_VERSION}" \
+  curl="${CURL_VERSION}" \
+  ca-certificates="${CA_CERTIFICATES_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download, build, and install AnnotSV
+RUN wget -q -O annotsv.tar.gz https://github.com/lgmgeo/AnnotSV/archive/v3.4.4.tar.gz \
+  && tar -xzf annotsv.tar.gz \
+  && rm annotsv.tar.gz
+
+WORKDIR /AnnotSV-3.4.4
+RUN make PREFIX=. install \
+  && make PREFIX=. install-human-annotation \
+  && rm -rf share/AnnotSV/Annotations_Exomiser
+
+# Final stage - runtime image
 FROM ubuntu:22.04
 
 # Adding labels for the GitHub Container Registry following WILDS standards
@@ -14,36 +50,21 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install dependencies
+# Install only runtime dependencies
 RUN apt-get update \
-  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && TCL_VERSION=$(apt-cache policy tcl | grep Candidate | awk '{print $2}') \
-  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
-  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
   && BEDTOOLS_VERSION=$(apt-cache policy bedtools | grep Candidate | awk '{print $2}') \
   && BCFTOOLS_VERSION=$(apt-cache policy bcftools | grep Candidate | awk '{print $2}') \
-  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
-  && CA_CERTIFICATES_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
   && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
-  wget="${WGET_VERSION}" \
   tcl="${TCL_VERSION}" \
-  make="${MAKE_VERSION}" \
-  gcc="${GCC_VERSION}" \
   bedtools="${BEDTOOLS_VERSION}" \
   bcftools="${BCFTOOLS_VERSION}" \
-  curl="${CURL_VERSION}" \
-  ca-certificates="${CA_CERTIFICATES_VERSION}" \
   unzip="${UNZIP_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Download and install AnnotSV
-RUN wget -q -O annotsv.tar.gz https://github.com/lgmgeo/AnnotSV/archive/v3.4.4.tar.gz && tar -xzf annotsv.tar.gz
-WORKDIR /AnnotSV-3.4.4
-RUN make PREFIX=. install \
-  && make PREFIX=. install-human-annotation \
-  && rm -rf share/AnnotSV/Annotations_Exomiser
-WORKDIR /
+# Copy AnnotSV from builder stage
+COPY --from=builder /AnnotSV-3.4.4 /AnnotSV-3.4.4
 
 ENV ANNOTSV=/AnnotSV-3.4.4
 ENV PATH=/AnnotSV-3.4.4/bin:$PATH
