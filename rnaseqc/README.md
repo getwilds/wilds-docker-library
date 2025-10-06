@@ -9,7 +9,7 @@ This directory contains Docker images for RNA-SeQC, a tool for quality control m
 
 ## Image Details
 
-These Docker images are built from Ubuntu Oracular (24.04) and include:
+These Docker images are built from Ubuntu (24.04) and include:
 
 - RNA-SeQC v2.4.2: A robust quality control tool for RNA sequencing data
 - OpenJDK 17: Required Java runtime for RNA-SeQC
@@ -87,7 +87,7 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 The Dockerfile follows these main steps:
 
-1. Uses Ubuntu Oracular (24.04) as the base image
+1. Uses Ubuntu (24.04) as the base image
 2. Adds metadata labels for documentation and attribution
 3. Sets environment variables for non-interactive installation
 4. Installs OpenJDK 17 with pinned version
