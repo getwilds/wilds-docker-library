@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/picard:3.1.1
 
-Report generated on 2025-09-10 17:09:05 PST
+Report generated on 2025-10-06 19:52:06 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,7 +12,7 @@ Report generated on 2025-09-10 17:09:05 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 2 |
-| 🟡 Medium | 49 |
+| 🟡 Medium | 9 |
 | 🟢 Low | 20 |
 | ⚪ Unknown | 0 |
 
@@ -20,30 +24,26 @@ Report generated on 2025-09-10 17:09:05 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 13 |
+| 🟡 Medium | 3 |
 | 🟢 Low | 5 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:24.04`
-
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/picard:3.1.1  │    0C     2H    49M    20L   
-    digest             │  ece227274221                   │                              
-  Base image           │  ubuntu:24.04                   │    0C     0H    13M     5L   
-  Refreshed base image │  ubuntu:24.04                   │    0C     0H     4M     5L   
-                       │                                 │                  -9          
-  Updated base image   │  ubuntu:25.04                   │    0C     0H     5M     4L   
-                       │                                 │                  -8     -1   
+Target             │  getwilds/picard:3.1.1-amd64  │    0C     2H     9M    20L   
+    digest           │  885f70f94d6b                         │                              
+  Base image         │  ubuntu:24.04                         │    0C     0H     3M     5L   
+  Updated base image │  ubuntu:25.10                         │    0C     0H     0M     0L   
+                     │                                       │                  -3     -5   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/picard:3.1.1
-    View base image update recommendations → docker scout recommendations getwilds/picard:3.1.1
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/picard:3.1.1 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/picard:3.1.1-amd64
+    View base image update recommendations → docker scout recommendations getwilds/picard:3.1.1-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/picard:3.1.1-amd64 --org <organization>
 ```
 </details>
