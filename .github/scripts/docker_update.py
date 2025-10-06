@@ -46,6 +46,10 @@ logger = logging.getLogger("docker-update")
 # Size limit for Docker Scout scanning (3GB in bytes)
 DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
 
+# Tools that should only be built for AMD64 (not ARM64)
+# Add tool names here if they have architecture-specific dependencies
+AMD64_ONLY_TOOLS = {"bwa", "deseq2"}
+
 
 def get_image_size(image_name):
     """
@@ -236,6 +240,179 @@ def find_changed_files(specified_dir=None):
     return docker_files, readme_files, affected_dirs
 
 
+def build_multiplatform(tool_name, tag, dockerfile):
+    """
+    Build and push multi-platform (AMD64 + ARM64) images.
+
+    Args:
+        tool_name: Name of the tool (e.g., 'samtools')
+        tag: Version tag (e.g., '1.19')
+        dockerfile: Path to the Dockerfile
+    """
+    # Build AMD64 with platform-specific tag (push to both registries - GHCR for CVE scanning)
+    logger.info("Building AMD64 image...")
+    run_command(
+        f"docker buildx build "
+        f"--platform linux/amd64 "
+        f"-t getwilds/{tool_name}:{tag}-amd64 "
+        f"-t ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
+        f"-f {dockerfile} "
+        f"--provenance=false "
+        f"--push ."
+    )
+
+    # Clean up build cache to free disk space
+    logger.info("Cleaning build cache...")
+    run_command("docker buildx prune -f", check=False)
+
+    # Build ARM64 with platform-specific tag (DockerHub only)
+    logger.info("Building ARM64 image...")
+    run_command(
+        f"docker buildx build "
+        f"--platform linux/arm64 "
+        f"-t getwilds/{tool_name}:{tag}-arm64 "
+        f"-f {dockerfile} "
+        f"--provenance=false "
+        f"--push ."
+    )
+
+    # Clean up build cache after ARM64 build
+    logger.info("Cleaning build cache after ARM64...")
+    run_command("docker buildx prune -f", check=False)
+
+    # Create multi-platform manifest for DockerHub
+    logger.info("Creating multi-platform manifest...")
+    run_command(
+        f"docker manifest create getwilds/{tool_name}:{tag} "
+        f"getwilds/{tool_name}:{tag}-amd64 "
+        f"getwilds/{tool_name}:{tag}-arm64"
+    )
+    run_command(f"docker manifest push getwilds/{tool_name}:{tag}")
+
+    # Clean up temporary platform tags
+    cleanup_platform_tags(tool_name, tag, ["amd64", "arm64"])
+
+    # Final cleanup
+    logger.info("Final cleanup...")
+    run_command("docker buildx prune -f", check=False)
+
+
+def build_single_platform(tool_name, tag, dockerfile):
+    """
+    Build and push single-platform (AMD64 only) images.
+
+    Args:
+        tool_name: Name of the tool (e.g., 'bwa')
+        tag: Version tag (e.g., '0.7.17')
+        dockerfile: Path to the Dockerfile
+    """
+    logger.info("Building single-platform image (linux/amd64)")
+    run_command(
+        f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} ."
+    )
+
+    # Push to DockerHub
+    run_command(f"docker push getwilds/{tool_name}:{tag}")
+
+    # Tag the image for GitHub Container Registry
+    run_command(
+        f"docker tag getwilds/{tool_name}:{tag} ghcr.io/getwilds/{tool_name}:{tag}"
+    )
+
+    # Push to GitHub Container Registry
+    run_command(f"docker push ghcr.io/getwilds/{tool_name}:{tag}")
+
+
+def generate_cve_report(tool_name, tag, container):
+    """
+    Generate CVE vulnerability report for a container image.
+
+    Args:
+        tool_name: Name of the tool (e.g., 'samtools')
+        tag: Version tag (e.g., '1.19')
+        container: Full container image name to scan
+
+    Returns:
+        Path to the generated CVE report file
+    """
+    cve_file = f"{tool_name}/CVEs_{tag}.md"
+
+    # Write report header
+    with open(cve_file, "w") as f:
+        pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
+        f.write(f"# Vulnerability Report for getwilds/{tool_name}:{tag}\n\n")
+        f.write(f"Report generated on {pst_now}\n\n")
+        f.write("## Platform Coverage\n\n")
+        f.write("This vulnerability scan covers the **linux/amd64** platform. ")
+        f.write(
+            "While this image also supports linux/arm64, the security analysis "
+        )
+        f.write(
+            "focuses on the AMD64 variant as it represents the majority of deployment targets. "
+        )
+        f.write(
+            "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
+        )
+
+    # Check image size before running Docker Scout
+    image_size = get_image_size(container)
+    if image_size is not None and image_size > DOCKER_SCOUT_SIZE_LIMIT:
+        logger.info(
+            f"Image {container} is {format_size(image_size)}, exceeding limit of {format_size(DOCKER_SCOUT_SIZE_LIMIT)}. Skipping Docker Scout scan."
+        )
+
+        # Write size limit message to CVE file
+        with open(cve_file, "a") as f:
+            f.write("## ⚠️ Scan Skipped - Image Too Large\n\n")
+            f.write(
+                "Docker Scout scan was skipped for this image because it exceeds the size limit.\n\n"
+            )
+            f.write(f"**Image size:** {format_size(image_size)}\n")
+            f.write(f"**Size limit:** {format_size(DOCKER_SCOUT_SIZE_LIMIT)}\n\n")
+            f.write(
+                "Large images can cause timeouts and resource exhaustion in CI/CD environments. "
+            )
+            f.write(
+                "If you need a vulnerability scan for this image, please run it manually:\n\n"
+            )
+            f.write("```bash\n")
+            f.write(f"docker scout quickview {container} --platform linux/amd64\n")
+            f.write("```\n")
+    else:
+        try:
+            result = run_command(
+                f"docker scout quickview {container} --platform linux/amd64",
+                capture_output=True,
+            )
+
+            # Parse the scout output into clean markdown
+            parsed_markdown = parse_scout_quickview(result)
+
+            with open(cve_file, "a") as f:
+                f.write(parsed_markdown)
+
+            logger.info(f"Successfully generated CVE report for {tool_name}:{tag}")
+        except Exception as e:
+            logger.warning(f"Docker Scout failed for {tool_name}:{tag}: {e}")
+            # Write a fallback message to the CVE file
+            with open(cve_file, "a") as f:
+                f.write("**Docker Scout scan failed for this image**\n\n")
+                f.write(f"Error: {str(e)}\n\n")
+
+    # Replace ghcr.io/getwilds with getwilds in the report
+    with open(cve_file, "r") as f:
+        content = f.read()
+
+    with open(cve_file, "w") as f:
+        f.write(content.replace("ghcr.io/getwilds/", "getwilds/"))
+
+    logger.info(
+        f"Successfully generated vulnerability report for getwilds/{tool_name}:{tag}"
+    )
+
+    return cve_file
+
+
 def build_and_push_images(docker_files):
     """
     Build, push Docker images, and generate vulnerability reports.
@@ -267,152 +444,20 @@ def build_and_push_images(docker_files):
         logger.info(f"Building image for {tool_name}:{tag}")
 
         # Check if this image should be AMD64-only
-        amd64_only = tool_name in ["bwa"]
+        amd64_only = tool_name in AMD64_ONLY_TOOLS
         if amd64_only:
             logger.info(f"Image {tool_name}:{tag} is configured for AMD64-only builds")
 
+        # Build and push images
         if buildx_available and not amd64_only:
-            # Build AMD64 with platform-specific tag (push to both registries - GHCR for CVE scanning)
-            logger.info("Building AMD64 image...")
-            run_command(
-                f"docker buildx build "
-                f"--platform linux/amd64 "
-                f"-t getwilds/{tool_name}:{tag}-amd64 "
-                f"-t ghcr.io/getwilds/{tool_name}:{tag}-amd64 "
-                f"-f {dockerfile} "
-                f"--provenance=false "
-                f"--push ."
-            )
-
-            # Clean up build cache to free disk space
-            logger.info("Cleaning build cache...")
-            run_command("docker buildx prune -f", check=False)
-
-            # Build ARM64 with platform-specific tag (DockerHub only)
-            logger.info("Building ARM64 image...")
-            run_command(
-                f"docker buildx build "
-                f"--platform linux/arm64 "
-                f"-t getwilds/{tool_name}:{tag}-arm64 "
-                f"-f {dockerfile} "
-                f"--provenance=false "
-                f"--push ."
-            )
-
-            # Clean up build cache after ARM64 build
-            logger.info("Cleaning build cache after ARM64...")
-            run_command("docker buildx prune -f", check=False)
-
-            # Create multi-platform manifest for DockerHub
-            logger.info("Creating multi-platform manifest...")
-            run_command(
-                f"docker manifest create getwilds/{tool_name}:{tag} "
-                f"getwilds/{tool_name}:{tag}-amd64 "
-                f"getwilds/{tool_name}:{tag}-arm64"
-            )
-            run_command(f"docker manifest push getwilds/{tool_name}:{tag}")
-
-            # Clean up temporary platform tags
-            cleanup_platform_tags(tool_name, tag, ["amd64", "arm64"])
-
-            # Final cleanup
-            logger.info("Final cleanup...")
-            run_command("docker buildx prune -f", check=False)
-
+            build_multiplatform(tool_name, tag, dockerfile)
         else:
-            # Fallback to single-platform build
-            logger.info("Building single-platform image (linux/amd64)")
-            run_command(
-                f"docker build --platform linux/amd64 -t getwilds/{tool_name}:{tag} -f {dockerfile} ."
-            )
+            build_single_platform(tool_name, tag, dockerfile)
 
-            # Push to DockerHub
-            run_command(f"docker push getwilds/{tool_name}:{tag}")
-
-            # Tag the image for GitHub Container Registry
-            run_command(
-                f"docker tag getwilds/{tool_name}:{tag} ghcr.io/getwilds/{tool_name}:{tag}"
-            )
-
-            # Push to GitHub Container Registry
-            run_command(f"docker push ghcr.io/getwilds/{tool_name}:{tag}")
-
-        # Update Docker Scout CVE markdown file
-        cve_file = f"{tool_name}/CVEs_{tag}.md"
-        # Use the AMD64-specific tag for scanning since Docker Scout scans the AMD64 platform
-        container = f"ghcr.io/getwilds/{tool_name}:{tag}-amd64" if buildx_available else f"ghcr.io/getwilds/{tool_name}:{tag}"
-
-        with open(cve_file, "w") as f:
-            pst_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S PST")
-            f.write(f"# Vulnerability Report for getwilds/{tool_name}:{tag}\n\n")
-            f.write(f"Report generated on {pst_now}\n\n")
-            f.write("## Platform Coverage\n\n")
-            f.write("This vulnerability scan covers the **linux/amd64** platform. ")
-            f.write(
-                "While this image also supports linux/arm64, the security analysis "
-            )
-            f.write(
-                "focuses on the AMD64 variant as it represents the majority of deployment targets. "
-            )
-            f.write(
-                "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
-            )
-
-        # Check image size before running Docker Scout
-        image_size = get_image_size(container)
-        if image_size is not None and image_size > DOCKER_SCOUT_SIZE_LIMIT:
-            logger.info(
-                f"Image {container} is {format_size(image_size)}, exceeding limit of {format_size(DOCKER_SCOUT_SIZE_LIMIT)}. Skipping Docker Scout scan."
-            )
-
-            # Write size limit message to CVE file
-            with open(cve_file, "a") as f:
-                f.write("## ⚠️ Scan Skipped - Image Too Large\n\n")
-                f.write(
-                    "Docker Scout scan was skipped for this image because it exceeds the size limit.\n\n"
-                )
-                f.write(f"**Image size:** {format_size(image_size)}\n")
-                f.write(f"**Size limit:** {format_size(DOCKER_SCOUT_SIZE_LIMIT)}\n\n")
-                f.write(
-                    "Large images can cause timeouts and resource exhaustion in CI/CD environments. "
-                )
-                f.write(
-                    "If you need a vulnerability scan for this image, please run it manually:\n\n"
-                )
-                f.write("```bash\n")
-                f.write(f"docker scout quickview {container} --platform linux/amd64\n")
-                f.write("```\n")
-        else:
-            try:
-                result = run_command(
-                    f"docker scout quickview {container} --platform linux/amd64",
-                    capture_output=True,
-                )
-
-                # Parse the scout output into clean markdown
-                parsed_markdown = parse_scout_quickview(result)
-
-                with open(cve_file, "a") as f:
-                    f.write(parsed_markdown)
-
-                logger.info(f"Successfully generated CVE report for {tool_name}:{tag}")
-            except Exception as e:
-                logger.warning(f"Docker Scout failed for {tool_name}:{tag}: {e}")
-                # Write a fallback message to the CVE file
-                with open(cve_file, "a") as f:
-                    f.write("**Docker Scout scan failed for this image**\n\n")
-                    f.write(f"Error: {str(e)}\n\n")
-
-        # Replace ghcr.io/getwilds with getwilds in the report
-        with open(cve_file, "r") as f:
-            content = f.read()
-
-        with open(cve_file, "w") as f:
-            f.write(content.replace("ghcr.io/getwilds/", "getwilds/"))
-
-        logger.info(
-            f"Successfully generated vulnerability report for getwilds/{tool_name}:{tag}"
-        )
+        # Generate CVE report
+        # Use the AMD64-specific tag for scanning if multi-platform build was used
+        container = f"ghcr.io/getwilds/{tool_name}:{tag}-amd64" if (buildx_available and not amd64_only) else f"ghcr.io/getwilds/{tool_name}:{tag}"
+        cve_file = generate_cve_report(tool_name, tag, container)
 
         # Add CVE file to manifest for later commit
         cve_files.append(cve_file)
