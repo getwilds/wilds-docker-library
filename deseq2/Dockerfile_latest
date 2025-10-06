@@ -29,12 +29,7 @@ RUN apt-get update \
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Configure R to use pre-compiled binary packages to avoid slow compilation
-# Use Posit Package Manager which provides pre-built binaries for Linux
-ENV BIOCONDUCTOR_USE_CONTAINER_REPOSITORY=TRUE
-RUN R -e "options(repos = c(CRAN = 'https://p3m.dev/cran/__linux__/jammy/latest', BiocManager::repositories())); write(paste0('options(repos=c(CRAN=\"https://p3m.dev/cran/__linux__/jammy/latest\"))'), file = '~/.Rprofile', append = TRUE)"
-
-# Install required R packages (will use pre-built binaries from Posit Package Manager when available)
+# Install required R packages
 RUN R -e "BiocManager::install(c('DESeq2', 'pasilla', 'ggplot2', 'pheatmap', 'optparse', 'RColorBrewer'), update=FALSE, ask=FALSE, dependencies=TRUE)"
 
 # Copy the DESeq2 analysis scripts to the container
