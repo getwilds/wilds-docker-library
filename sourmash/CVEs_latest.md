@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/sourmash:latest
 
-Report generated on 2025-09-12 22:27:55 PST
+Report generated on 2025-10-07 18:18:43 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -31,15 +35,15 @@ Report generated on 2025-09-12 22:27:55 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/sourmash:latest  │    0C     1H    18M     4L   
-    digest           │  927a7f73e76a                      │                              
-  Base image         │  ubuntu:20.04                      │    0C     0H     5M     0L   
-  Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L   
-                     │                                    │                  -5          
+Target             │  getwilds/sourmash:latest-amd64  │    0C     1H    18M     4L   
+    digest           │  f32de44c2625                            │                              
+  Base image         │  ubuntu:20.04                            │    0C     0H     5M     0L   
+  Updated base image │  ubuntu:25.10                            │    0C     0H     0M     0L   
+                     │                                          │                  -5          
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/sourmash:latest
-    View base image update recommendations → docker scout recommendations getwilds/sourmash:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/sourmash:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/sourmash:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/sourmash:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/sourmash:latest-amd64 --org <organization>
 ```
 </details>
