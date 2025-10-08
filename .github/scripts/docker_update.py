@@ -48,7 +48,7 @@ DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
 
 # Tools that should only be built for AMD64 (not ARM64)
 # Add tool names here if they have architecture-specific dependencies
-AMD64_ONLY_TOOLS = {"bwa", "deseq2", "python-dl"}
+AMD64_ONLY_TOOLS = {"bwa", "deseq2", "python-dl", "rtorch", "scvi-tools", "sra-tools"}
 
 
 def get_image_size(image_name):
