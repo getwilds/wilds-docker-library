@@ -31,7 +31,7 @@ WORKDIR /AnnotSV-3.4.4
 RUN make PREFIX=. install
 
 # Manually install human annotations without Exomiser to save disk space
-RUN wget -c -O Annotations_Human_3.4.4.tar.gz https://www.lbgi.fr/~geoffroy/Annotations/Annotations_Human_3.4.4.tar.gz \
+RUN wget -q -c -O Annotations_Human_3.4.4.tar.gz https://www.lbgi.fr/~geoffroy/Annotations/Annotations_Human_3.4.4.tar.gz \
   && tar -xf Annotations_Human_3.4.4.tar.gz -C ./share/AnnotSV/ \
   && rm -f Annotations_Human_3.4.4.tar.gz
 
