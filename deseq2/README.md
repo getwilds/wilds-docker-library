@@ -21,6 +21,10 @@ These Docker images are built from the Bioconductor base image and include:
 
 The images are designed to provide a comprehensive environment for RNA-seq differential expression analysis with DESeq2 methodology, including example data for testing and learning purposes.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. DESeq2 and its dependencies have compilation issues on ARM64 platforms.
+
 ## Usage
 
 ### Docker

@@ -16,6 +16,10 @@ These Docker images are built from Ubuntu 24.04 and include:
 
 The images are designed to be minimal and focused on a specific version of BWA with its dependencies.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. BWA contains x86-specific optimizations that are not compatible with ARM64 platforms.
+
 ## Usage
 
 ### Docker

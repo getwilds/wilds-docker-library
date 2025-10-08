@@ -16,6 +16,10 @@ These Docker images are built from Conda Forge Miniforge base image and include:
 
 The images are designed to be minimal and focused on a specific version of SRA Toolkit with its dependencies, optimized for efficient downloading and processing of sequencing data.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. SRA Tools has dependencies that are not fully compatible with ARM64 platforms.
+
 ## Usage
 
 ### Docker
