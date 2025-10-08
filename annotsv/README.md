@@ -119,7 +119,7 @@ The Dockerfile uses a multi-stage build with the following structure:
 
 **Builder Stage:**
 1. Uses Ubuntu 22.04 as the base image for stability and security
-2. Installs build-time dependencies (wget, make, gcc, curl, ca-certificates)
+2. Installs build-time dependencies (wget, make, gcc)
 3. Downloads and extracts AnnotSV v3.4.4 source code
 4. Compiles and installs AnnotSV with human annotations
 5. Removes Exomiser annotations to reduce image size
