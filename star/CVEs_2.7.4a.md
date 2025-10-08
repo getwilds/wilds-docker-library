@@ -1,38 +1,49 @@
 # Vulnerability Report for getwilds/star:2.7.4a
 
-Report generated on 2025-09-10 17:37:40 PST
+Report generated on 2025-10-07 23:30:49 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 28 |
-| 🟡 Medium | 1506 |
-| 🟢 Low | 24 |
+| 🟠 High | 2 |
+| 🟡 Medium | 1080 |
+| 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
-**Image:** `ubuntu:rolling`
+**Image:** `ubuntu:24.04`
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 9 |
-| 🟢 Low | 2 |
+| 🟠 High | 0 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 5 |
+
+## 🔄 Recommendations
+
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/star:2.7.4a  │    0C    28H   1506M    24L   
-    digest   │  0be6a7ef6ba0                  │                               
-  Base image │  ubuntu:rolling                │    0C     1H     9M     2L    
+Target             │  getwilds/star:2.7.4a-amd64  │    0C     2H   1080M    36L   
+    digest           │  54d459ec8c1a                        │                               
+  Base image         │  ubuntu:24.04                        │    0C     0H     3M     5L    
+  Updated base image │  ubuntu:25.10                        │    0C     0H     0M     0L    
+                     │                                      │                  -3     -5    
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/star:2.7.4a
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/star:2.7.4a --org <organization>
+    View vulnerabilities → docker scout cves getwilds/star:2.7.4a-amd64
+    View base image update recommendations → docker scout recommendations getwilds/star:2.7.4a-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/star:2.7.4a-amd64 --org <organization>
 ```
 </details>
