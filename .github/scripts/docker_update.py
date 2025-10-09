@@ -48,7 +48,15 @@ DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
 
 # Tools that should only be built for AMD64 (not ARM64)
 # Add tool names here if they have architecture-specific dependencies
-AMD64_ONLY_TOOLS = {"bwa", "deseq2", "hisat2", "python-dl", "rtorch", "scvi-tools", "sra-tools"}
+AMD64_ONLY_TOOLS = {
+    "bwa",
+    "deseq2",
+    "hisat2",
+    "python-dl",
+    "rtorch",
+    "scvi-tools",
+    "sra-tools",
+}
 
 
 def get_image_size(image_name):
@@ -124,7 +132,9 @@ def cleanup_platform_tags(tool_name, tag, platforms):
                 if response.status_code == 204:
                     logger.info(f"Successfully deleted DockerHub tag: {platform_tag}")
                 elif response.status_code == 404:
-                    logger.info(f"DockerHub tag {platform_tag} not found (may already be deleted)")
+                    logger.info(
+                        f"DockerHub tag {platform_tag} not found (may already be deleted)"
+                    )
                 else:
                     logger.warning(
                         f"Failed to delete DockerHub tag {platform_tag}: {response.status_code} - {response.text}"
@@ -135,7 +145,9 @@ def cleanup_platform_tags(tool_name, tag, platforms):
         # Note: GitHub Container Registry doesn't provide a simple API for tag deletion
         # The platform-specific tags will remain there, but they're less visible
         # and don't clutter the main interface since the manifest list is the primary reference
-        logger.info("Note: GitHub Container Registry platform tags are left for reference")
+        logger.info(
+            "Note: GitHub Container Registry platform tags are left for reference"
+        )
 
     except Exception as e:
         logger.warning(f"Failed to cleanup platform tags: {e}")
@@ -344,9 +356,7 @@ def generate_cve_report(tool_name, tag, container):
         f.write(f"Report generated on {pst_now}\n\n")
         f.write("## Platform Coverage\n\n")
         f.write("This vulnerability scan covers the **linux/amd64** platform. ")
-        f.write(
-            "While this image also supports linux/arm64, the security analysis "
-        )
+        f.write("While this image also supports linux/arm64, the security analysis ")
         f.write(
             "focuses on the AMD64 variant as it represents the majority of deployment targets. "
         )
@@ -456,7 +466,11 @@ def build_and_push_images(docker_files):
 
         # Generate CVE report
         # Use the AMD64-specific tag for scanning if multi-platform build was used
-        container = f"ghcr.io/getwilds/{tool_name}:{tag}-amd64" if (buildx_available and not amd64_only) else f"ghcr.io/getwilds/{tool_name}:{tag}"
+        container = (
+            f"ghcr.io/getwilds/{tool_name}:{tag}-amd64"
+            if (buildx_available and not amd64_only)
+            else f"ghcr.io/getwilds/{tool_name}:{tag}"
+        )
         cve_file = generate_cve_report(tool_name, tag, container)
 
         # Add CVE file to manifest for later commit
