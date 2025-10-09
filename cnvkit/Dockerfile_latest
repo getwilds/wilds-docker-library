@@ -54,11 +54,11 @@ WORKDIR /home/cnvkit
 # Install CNVkit with compatible dependencies
 # Use CPU-only PyTorch to reduce image size (CNVkit doesn't need GPU acceleration)
 RUN pip install --no-cache-dir \
-    cython==2.0.1 \
+    cython==0.29.37 \
     numpy==1.24.4 && \
     pip install --no-cache-dir \
     --index-url https://download.pytorch.org/whl/cpu \
-    torch==2.1.2 && \
+    torch==2.5.1 && \
     pip install --no-cache-dir \
     cnvkit==0.9.10
 
