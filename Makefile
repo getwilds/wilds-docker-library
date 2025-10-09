@@ -56,7 +56,7 @@ lint: check_for_hadolint check_image ## Run hadolint on all Dockerfiles or a spe
 
 build_amd64: check_for_docker check_image ## Build Docker image(s) for AMD64 architecture. Use IMAGE=name
 	@echo "Building Docker images for linux/amd64..."
-	@for dir in $(IMAGE)/; do \
+	@set -e; for dir in $(IMAGE)/; do \
 		if [ -d "$$dir" ]; then \
 			image_name=$$(basename "$$dir"); \
 			for dockerfile in $$dir/Dockerfile*; do \
@@ -82,7 +82,7 @@ build_amd64: check_for_docker check_image ## Build Docker image(s) for AMD64 arc
 
 build_arm64: check_for_docker check_image ## Build Docker image(s) for ARM64 architecture. Use IMAGE=name
 	@echo "Building Docker images for linux/arm64..."
-	@for dir in $(IMAGE)/; do \
+	@set -e; for dir in $(IMAGE)/; do \
 		if [ -d "$$dir" ]; then \
 			image_name=$$(basename "$$dir"); \
 			for dockerfile in $$dir/Dockerfile*; do \
