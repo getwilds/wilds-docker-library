@@ -29,6 +29,29 @@ The images are designed to be minimal and focused on [tool name] with its essent
 <!-- Example: -->
 <!-- The image includes a custom analysis script (`tool_analysis.R`) that provides a ready-to-use workflow for [specific use case]. -->
 
+## Citation
+
+<!-- IMPORTANT: Always credit the original tool authors! -->
+<!-- Include citation information for the tool you're packaging -->
+<!-- This ensures proper attribution and helps users cite the tool correctly -->
+
+If you use [Tool Name] in your research, please cite the original authors:
+
+<!-- Replace with actual citation in your preferred format (e.g., APA, BibTeX) -->
+```
+[Author names]. ([Year]). [Tool Name]: [Description]. [Journal/Source].
+[DOI or URL]
+```
+
+**Tool homepage:** [URL to official tool website/repository]
+
+<!-- Optional: If there's a specific publication, add it -->
+<!-- Example: -->
+<!-- **Publication:** https://doi.org/10.1234/example.citation -->
+
+<!-- Note: This Docker image is simply a containerized version of the tool. -->
+<!-- All credit for the tool's development goes to the original authors. -->
+
 ## Usage
 
 ### Docker
@@ -189,6 +212,7 @@ Follow these guidelines:
 5. MAINTAIN STANDARD SECTIONS (keep these even if minimal):
    - Available Versions
    - Image Details
+   - Citation (REQUIRED - always credit the original tool authors!)
    - Usage (Docker/Apptainer)
    - Example Commands
    - Dockerfile Structure

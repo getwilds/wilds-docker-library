@@ -4,6 +4,16 @@
 # This template provides a starting point for creating new WILDS Docker images.
 # Follow the commented sections below and customize for your specific tool.
 #
+# IMPORTANT: When you create your actual Dockerfile, name it:
+#   Dockerfile_X.Y.Z  (e.g., Dockerfile_1.19, Dockerfile_3.1.1)
+#   Dockerfile_latest (for the most current version)
+# Replace "_template" with the actual version tag!
+#
+# Why? The GitHub Actions workflows parse the filename to automatically tag
+# and push images to DockerHub and GHCR. For example:
+#   samtools/Dockerfile_1.19 → getwilds/samtools:1.19
+#   samtools/Dockerfile_latest → getwilds/samtools:latest
+#
 # Common patterns:
 # - Ubuntu-based: For system tools, compiled binaries (samtools, picard, etc.)
 # - Miniforge-based: For conda/mamba package management
