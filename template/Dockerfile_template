@@ -1,0 +1,200 @@
+#==============================================================================
+# WILDS Docker Image Template
+#==============================================================================
+# This template provides a starting point for creating new WILDS Docker images.
+# Follow the commented sections below and customize for your specific tool.
+#
+# Common patterns:
+# - Ubuntu-based: For system tools, compiled binaries (samtools, picard, etc.)
+# - Miniforge-based: For conda/mamba package management
+# - Bioconductor-based: For R/Bioconductor packages (DESeq2, etc.)
+# - Language-specific base: For Python, Java, etc. when needed
+#==============================================================================
+
+#------------------------------------------------------------------------------
+# 1. BASE IMAGE SELECTION
+#------------------------------------------------------------------------------
+# Choose the appropriate base image for your tool:
+
+# Option A: Ubuntu (most common for system tools and compiled software)
+FROM ubuntu:24.04
+
+# Option B: Miniforge (for conda/mamba-managed packages)
+# FROM condaforge/miniforge3:latest
+
+# Option C: Bioconductor (for R/Bioconductor packages)
+# FROM bioconductor/bioconductor_docker:RELEASE_3_17
+
+# Option D: Language-specific (uncommon, use only if necessary)
+# FROM python:3.11-slim
+# FROM openjdk:17-slim
+
+#------------------------------------------------------------------------------
+# 2. METADATA LABELS (REQUIRED)
+#------------------------------------------------------------------------------
+# These labels are used by GitHub Container Registry and provide important
+# metadata about the image. Update ALL fields for your tool.
+
+LABEL org.opencontainers.image.title="TOOL_NAME_HERE"
+LABEL org.opencontainers.image.description="Docker image for TOOL_NAME in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="VERSION_HERE"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+#------------------------------------------------------------------------------
+# 3. SHELL CONFIGURATION (RECOMMENDED)
+#------------------------------------------------------------------------------
+# Ensure pipelines fail if any command fails (prevents silent errors)
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+#------------------------------------------------------------------------------
+# 4. ENVIRONMENT VARIABLES (IF NEEDED)
+#------------------------------------------------------------------------------
+# Set environment variables for non-interactive installs, paths, etc.
+
+# Common for Ubuntu/Debian-based images:
+# ENV DEBIAN_FRONTEND=noninteractive
+
+# For Java applications:
+# ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+# RUN export JAVA_HOME
+
+# For R packages (to avoid host contamination in Apptainer):
+# ENV R_LIBS_USER=/usr/local/lib/R/site-library
+# ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+
+# For conda/mamba environments:
+# ENV PATH=/opt/conda/bin:$PATH
+
+#------------------------------------------------------------------------------
+# 5. SYSTEM DEPENDENCIES (IF NEEDED)
+#------------------------------------------------------------------------------
+# Install system-level dependencies with PINNED VERSIONS for reproducibility
+# and security. Use apt-cache policy to get the latest security-patched version.
+
+# Example pattern for Ubuntu:
+# RUN apt-get update \
+#   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+#   && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+#   && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+#   && apt-get install -y --no-install-recommends \
+#   wget="${WGET_VERSION}" \
+#   build-essential="${BUILD_ESSENTIAL_VERSION}" \
+#   zlib1g-dev="${ZLIB_VERSION}" \
+#   && rm -rf /var/lib/apt/lists/*
+
+#------------------------------------------------------------------------------
+# 6. TOOL INSTALLATION
+#------------------------------------------------------------------------------
+# Install your primary tool(s). Choose the appropriate method:
+
+#----- Method A: Download and compile from source -----
+# Common for tools like samtools, bwa, etc.
+#
+# RUN wget -q --no-check-certificate https://example.com/tool-VERSION.tar.gz \
+#   && tar -xzf tool-VERSION.tar.gz \
+#   && cd tool-VERSION \
+#   && ./configure \
+#   && make \
+#   && make install \
+#   && cd / \
+#   && rm -rf tool-VERSION tool-VERSION.tar.gz
+
+#----- Method B: Download pre-built binary -----
+# Common for Java applications (picard, gatk), or pre-compiled binaries
+#
+# RUN mkdir -p /usr/local/tool \
+#   && wget -q --no-check-certificate -P /usr/local/tool/ \
+#   https://example.com/releases/tool-VERSION.jar
+
+#----- Method C: Conda/Mamba installation -----
+# For tools available via conda
+#
+# RUN mamba install -y -c bioconda -c conda-forge \
+#   tool=VERSION \
+#   && mamba clean -afy
+
+#----- Method D: R/Bioconductor packages -----
+# For R packages and Bioconductor tools
+#
+# RUN R -e "BiocManager::install(c('PackageName'), update=FALSE, ask=FALSE, dependencies=TRUE)"
+
+#----- Method E: Python packages -----
+# For Python tools via pip
+#
+# RUN pip install --no-cache-dir \
+#   tool==VERSION \
+#   dependency1==VERSION \
+#   dependency2==VERSION
+
+#------------------------------------------------------------------------------
+# 7. ADDITIONAL TOOLS/DEPENDENCIES (IF NEEDED)
+#------------------------------------------------------------------------------
+# Install any companion tools or additional dependencies your primary tool needs
+
+# Example: Installing bedtools alongside samtools
+# RUN apt-get update \
+#   && BEDTOOLS_VERSION=$(apt-cache policy bedtools | grep Candidate | awk '{print $2}') \
+#   && apt-get install -y --no-install-recommends bedtools="${BEDTOOLS_VERSION}" \
+#   && rm -rf /var/lib/apt/lists/*
+
+#------------------------------------------------------------------------------
+# 8. COPY CUSTOM SCRIPTS (IF APPLICABLE)
+#------------------------------------------------------------------------------
+# If your image includes custom analysis scripts, copy them here
+# Make sure the scripts exist in your tool directory before building!
+
+# Example:
+# COPY toolname/analysis_script.R /usr/local/bin/analysis_script.R
+# RUN chmod +x /usr/local/bin/analysis_script.R
+
+#------------------------------------------------------------------------------
+# 9. WORKING DIRECTORY (OPTIONAL)
+#------------------------------------------------------------------------------
+# Set a default working directory for when the container runs
+# This is especially useful for analysis-focused containers
+
+# WORKDIR /data
+
+#------------------------------------------------------------------------------
+# 10. CLEANUP (IMPORTANT FOR IMAGE SIZE)
+#------------------------------------------------------------------------------
+# Remove temporary files, build artifacts, and caches to minimize image size
+# This should be done in the same RUN layer as the installation when possible
+
+# For apt-get installations, use: rm -rf /var/lib/apt/lists/*
+# For conda/mamba: mamba clean -afy
+# For source builds: rm -rf source-directory source-tarball
+# For pip: Use --no-cache-dir flag during installation
+
+#==============================================================================
+# DOCKERFILE BEST PRACTICES CHECKLIST
+#==============================================================================
+# [ ] Base image is appropriate for the tool
+# [ ] All LABELs are updated with correct tool information
+# [ ] SHELL pipefail is set for better error handling
+# [ ] System dependencies use pinned versions
+# [ ] Tool version is explicitly specified (not "latest" in downloads)
+# [ ] Cleanup commands remove unnecessary files
+# [ ] RUN commands are combined where possible to reduce layers
+# [ ] No secrets or sensitive data in the image
+# [ ] Custom scripts are executable (chmod +x)
+# [ ] Image builds successfully: docker build -t test .
+# [ ] Tool runs correctly: docker run --rm test <tool-command> --version
+#==============================================================================
+
+#==============================================================================
+# EXAMPLE VARIATIONS
+#==============================================================================
+# See the following existing Dockerfiles for reference:
+#
+# Simple compiled tool:  samtools/Dockerfile_latest
+# Java application:      picard/Dockerfile_latest
+# R/Bioconductor:        deseq2/Dockerfile_latest
+# Conda-based:           gatk/Dockerfile_latest (if using miniforge)
+# Multi-tool image:      samtools (includes bedtools)
+# Custom scripts:        deseq2 (includes analysis scripts)
+#==============================================================================
