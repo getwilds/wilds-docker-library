@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := help
 
 # default value if not provided
-VERBOSE ?= 0
 IMAGE ?= *
 PRUNE ?= $(if $(filter *,$(IMAGE)),1,0)
 
@@ -19,7 +18,7 @@ check_for_hadolint:
 		echo >&2 "Error: hadolint is not installed or not in PATH. Install hadolint (https://github.com/hadolint/hadolint)"; \
 		exit 1; \
 	else \
-	  echo "hadolint version $$(hadolint --version | grep -oP 'v\d+\.\d+\.\d+')"; \
+	  echo "hadolint version $$(hadolint --version | grep -o '[0-9]*\.[0-9]*\.[0-9]*')"; \
 	fi;
 
 check_for_docker:
@@ -44,11 +43,7 @@ lint: check_for_hadolint check_image ## Run hadolint on all Dockerfiles or a spe
 	@for dockerfile in $(IMAGE)/Dockerfile*; do \
 		if [ -f "$$dockerfile" ]; then \
 			echo "Linting $$dockerfile"; \
-			if [ "$(VERBOSE)" = "1" ]; then \
-				hadolint "$$dockerfile"; \
-			else \
-				hadolint "$$dockerfile" || true; \
-			fi; \
+			hadolint "$$dockerfile" || true; \
 		fi; \
 	done
 
@@ -72,8 +67,9 @@ build_amd64: check_for_docker check_image ## Build Docker image(s) for AMD64 arc
 						-f "$$dockerfile" \
 						"$$dir"; \
 					if [ "$(PRUNE)" = "1" ]; then \
-						echo "Cleaning up Docker build cache..."; \
+						echo "Cleaning up Docker build cache and removing built image..."; \
 						docker system prune -f; \
+						docker rmi -f getwilds/$$image_name:$$version-amd64 2>/dev/null || true; \
 					fi; \
 				fi; \
 			done; \
@@ -98,8 +94,9 @@ build_arm64: check_for_docker check_image ## Build Docker image(s) for ARM64 arc
 						-f "$$dockerfile" \
 						"$$dir"; \
 					if [ "$(PRUNE)" = "1" ]; then \
-						echo "Cleaning up Docker build cache..."; \
+						echo "Cleaning up Docker build cache and removing built image..."; \
 						docker system prune -f; \
+						docker rmi -f getwilds/$$image_name:$$version-arm64 2>/dev/null || true; \
 					fi; \
 				fi; \
 			done; \
@@ -111,3 +108,16 @@ build: build_amd64 build_arm64 ## Build Docker image(s) for both AMD64 and ARM64
 ##@ Testing
 
 test: lint build ## Run full test suite: lint and build for both architectures. Use IMAGE=name for specific image, or leave blank for all
+
+##@ Cleanup
+
+clean: ## Remove all locally built getwilds images. Use IMAGE=name to clean specific image, or leave blank for all
+	@echo "Removing getwilds Docker images..."
+	@if [ "$(IMAGE)" = "*" ]; then \
+		echo "Removing all getwilds/* images..."; \
+		docker images "getwilds/*" -q | xargs docker rmi -f 2>/dev/null || true; \
+	else \
+		echo "Removing getwilds/$(IMAGE):* images..."; \
+		docker images "getwilds/$(IMAGE)" -q | xargs docker rmi -f 2>/dev/null || true; \
+	fi
+	@echo "Cleanup complete!"
