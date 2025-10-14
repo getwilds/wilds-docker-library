@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/samtools:1.10
 
-Report generated on 2025-10-01 08:35:10 PST
+Report generated on 2025-10-14 03:11:55 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 1560 |
-| 🟢 Low | 42 |
+| 🟠 High | 1 |
+| 🟡 Medium | 1123 |
+| 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,12 +24,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 14 |
-| 🟢 Low | 6 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 5 |
 
 ## 🔄 Recommendations
-
-**Refreshed base image:** `ubuntu:24.04`
 
 **Updated base image:** `ubuntu:25.04`
 
@@ -37,13 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/samtools:1.10  │    0C     5H   1560M    42L   
-    digest             │  40119f1d2aed                    │                               
-  Base image           │  ubuntu:24.04                    │    0C     0H    14M     6L    
-  Refreshed base image │  ubuntu:24.04                    │    0C     0H     5M     6L    
-                       │                                  │                  -9           
-  Updated base image   │  ubuntu:25.04                    │    0C     0H     7M     6L    
-                       │                                  │                  -7           
+Target             │  getwilds/samtools:1.10  │    0C     1H   1123M    36L   
+    digest           │  fd6b0d9d21f4                    │                               
+  Base image         │  ubuntu:24.04                    │    0C     0H     2M     5L    
+  Updated base image │  ubuntu:25.04                    │    0C     0H     2M     4L    
+                     │                                  │                         -1    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/samtools:1.10
