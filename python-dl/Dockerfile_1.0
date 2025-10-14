@@ -27,3 +27,4 @@ RUN apt-get update \
 # Installing necessary Python modules - updated torch to 2.6.0+ to fix CVE-2025-32434
 RUN pip install --no-cache-dir numpy==1.26.4 seaborn==0.13.2 matplotlib==3.9.2 pandas==2.2.3 scikit-learn==1.5.2 \
     scipy==1.14.1 optuna==4.0.0 joblib==1.4.2 keras==3.6.0 tensorflow==2.17.0 torch==2.6.0
+
