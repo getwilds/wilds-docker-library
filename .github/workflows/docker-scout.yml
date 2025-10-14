@@ -38,6 +38,7 @@ jobs:
         run: |
           uv venv
           uv pip install pyyaml gitpython requests
+          uv pip freeze
 
       - name: Login to DockerHub Container Registry
         uses: docker/login-action@v3
