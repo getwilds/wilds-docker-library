@@ -13,10 +13,10 @@ These Docker images are built from Ubuntu 22.04 base image and include:
 
 - AnnotSV v3.4.4: A tool for annotating and ranking structural variants from VCF files
 - Pre-installed human annotation databases for immediate use
-- Essential system dependencies including bedtools, bcftools, and build tools
+- Essential runtime dependencies including bedtools, bcftools, tcl, and unzip
 - Properly configured environment with AnnotSV in PATH
 
-The images are designed to be minimal and focused on providing AnnotSV functionality for structural variant annotation workflows with all necessary dependencies included.
+The images use a multi-stage build process to minimize final image size by separating build-time dependencies (gcc, make, wget) from runtime dependencies. This results in smaller, more efficient images focused solely on providing AnnotSV functionality for structural variant annotation workflows.
 
 ## Usage
 
@@ -98,9 +98,10 @@ This container is designed for use in structural variant analysis workflows with
 
 The AnnotSV Docker images include:
 
-- Minimal Ubuntu base image with only essential dependencies
+- Multi-stage build to exclude build tools from final image
+- Minimal Ubuntu base image with only essential runtime dependencies
 - Version-pinned package installations for reproducibility
-- SSL certificate support for secure downloads
+- SSL certificate support for secure downloads (build stage only)
 - Cleaned package cache to minimize image size
 - Secure download practices with verified checksums
 
@@ -114,15 +115,24 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build with the following structure:
 
+**Builder Stage:**
 1. Uses Ubuntu 22.04 as the base image for stability and security
+2. Installs build-time dependencies (wget, make, gcc, ca-certificates)
+3. Downloads and extracts AnnotSV v3.4.4 source code
+4. Compiles and installs AnnotSV with human annotations
+5. Removes Exomiser annotations to reduce image size
+
+**Runtime Stage:**
+1. Starts fresh from Ubuntu 22.04 base image
 2. Adds metadata labels for documentation and attribution
 3. Sets shell options for robust error handling
-4. Installs minimal dependencies with version pinning including ca-certificates for SSL support
-5. Downloads and compiles AnnotSV v3.4.4 from source with human annotations
+4. Installs only runtime dependencies (tcl, bedtools, bcftools, unzip)
+5. Copies compiled AnnotSV from builder stage
 6. Configures environment variables for proper PATH and ANNOTSV location
-7. Cleans up build artifacts and package cache to minimize image size
+
+This multi-stage approach significantly reduces the final image size by excluding build tools and intermediate artifacts.
 
 ## Source Repository
 

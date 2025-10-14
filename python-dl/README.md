@@ -22,6 +22,10 @@ These Docker images are built from NVIDIA's CUDA 11.8.0 with cuDNN 8 base image 
 
 The images are designed to provide a comprehensive environment for deep learning and data science tasks with GPU acceleration.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. The combined size of TensorFlow and PyTorch exceeds build resource constraints for multi-platform builds in our CI/CD environment.
+
 ## Usage
 
 ### Docker

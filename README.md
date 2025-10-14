@@ -65,6 +65,24 @@ The repository includes Docker images for popular bioinformatics tools including
 
 For a full list of available tools and versions, browse the repository directories.
 
+## Platform Support
+
+Most images in this repository are built for both **linux/amd64** and **linux/arm64** platforms, providing broad compatibility across different system architectures. However, some tools have platform-specific limitations:
+
+### AMD64-Only Images
+
+The following images are only available for **linux/amd64** due to architecture-specific dependencies or compilation issues:
+
+- **BWA** - Contains x86-specific optimizations
+- **DESeq2** - R package compilation issues on ARM64
+- **HISAT2** - Hardcoded x86-specific compiler flags
+- **python-dl** - Build resource constraints for multi-platform builds
+- **RTorch** - Position-independent code (PIC) limitations with large binaries
+- **scvi-tools** - Deep learning dependency compilation issues on ARM64
+- **SRA-tools** - Dependencies not fully compatible with ARM64
+
+Each tool's README includes a "Platform Availability" section if it has platform restrictions. If you need ARM64 support for an AMD64-only tool, please open an [issue](https://github.com/getwilds/wilds-docker-library/issues) to discuss potential solutions.
+
 ## Usage
 
 ### Docker
@@ -155,6 +173,10 @@ Each tool should have its own directory with:
 - Keep images small (few hundred MB, 2GB max)
 - Focus on a single tool per image (1-2 tools max)
 - Document all installed components
+- Build for multi-platform (linux/amd64 and linux/arm64) by default
+  - Our CI/CD automatically attempts multi-platform builds
+  - If your tool has platform restrictions, document them in the tool's README with a "Platform Availability" section
+  - See existing AMD64-only images (BWA, DESeq2, HISAT2, etc.) for examples of platform documentation
 
 ### Required Labels
 

@@ -1,10 +1,6 @@
 # Vulnerability Report for getwilds/ichorcna:0.2.0
 
-Report generated on 2025-10-01 08:14:25 PST
-
-## Platform Coverage
-
-This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
+Report generated on 2025-09-10 17:07:37 PST
 
 ## 📊 Vulnerability Summary
 
@@ -12,7 +8,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
+| 🟡 Medium | 3 |
 | 🟢 Low | 0 |
 | ⚪ Unknown | 0 |
 
@@ -35,7 +31,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/ichorcna:0.2.0  │    0C     0H     2M     0L   
+Target             │  getwilds/ichorcna:0.2.0  │    0C     0H     3M     0L   
     digest           │  9c5754b7c55c                     │                              
   Base image         │  ubuntu:20.04                     │    0C     0H     1M     0L   
   Updated base image │  ubuntu:25.10                     │    0C     0H     0M     0L   

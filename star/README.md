@@ -10,7 +10,7 @@ This directory contains Docker images for STAR (Spliced Transcripts Alignment to
 
 ## Image Details
 
-These Docker images are built from Ubuntu Oracular and include:
+These Docker images are built from Ubuntu and include:
 
 - STAR: A fast RNA-seq read mapper with high accuracy and support for splice junctions
 - Samtools v1.11: A suite of programs for interacting with high-throughput sequencing data
@@ -62,7 +62,7 @@ apptainer run --bind /path/to/data:/data star_latest.sif STAR --runThreadN 4 --g
 
 The Dockerfile follows these main steps:
 
-1. Uses Ubuntu Oracular as the base image
+1. Uses Ubuntu 24.04 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs prerequisites with pinned versions
 4. Downloads and builds STAR from source

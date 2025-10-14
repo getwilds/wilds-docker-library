@@ -1,6 +1,6 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:oracular-20241009
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="rnaseqc"

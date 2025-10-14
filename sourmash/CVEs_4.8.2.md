@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sourmash:4.8.2
 
-Report generated on 2025-10-01 09:39:57 PST
+Report generated on 2025-10-07 17:55:26 PST
 
 ## Platform Coverage
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/sourmash:4.8.2  │    0C     1H    18M     4L   
-    digest           │  c84aed7b39ff                     │                              
-  Base image         │  ubuntu:20.04                     │    0C     0H     5M     0L   
-  Updated base image │  ubuntu:25.10                     │    0C     0H     0M     0L   
-                     │                                   │                  -5          
+Target             │  getwilds/sourmash:4.8.2-amd64  │    0C     1H    18M     4L   
+    digest           │  2df46f2ba809                           │                              
+  Base image         │  ubuntu:20.04                           │    0C     0H     5M     0L   
+  Updated base image │  ubuntu:25.10                           │    0C     0H     0M     0L   
+                     │                                         │                  -5          
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/sourmash:4.8.2
-    View base image update recommendations → docker scout recommendations getwilds/sourmash:4.8.2
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/sourmash:4.8.2 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/sourmash:4.8.2-amd64
+    View base image update recommendations → docker scout recommendations getwilds/sourmash:4.8.2-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/sourmash:4.8.2-amd64 --org <organization>
 ```
 </details>

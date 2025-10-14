@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/strelka:latest
 
-Report generated on 2025-10-01 09:49:28 PST
+Report generated on 2025-10-14 03:58:56 PST
 
 ## Platform Coverage
 
@@ -11,8 +11,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 1454 |
+| 🟠 High | 4 |
+| 🟡 Medium | 1360 |
 | 🟢 Low | 66 |
 | ⚪ Unknown | 0 |
 
@@ -31,19 +31,19 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 **Refreshed base image:** `ubuntu:22.04`
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:24.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/strelka:latest  │    0C     2H   1454M    66L   
+Target               │  getwilds/strelka:latest  │    0C     4H   1360M    66L   
     digest             │  786e8020208b                     │                               
   Base image           │  ubuntu:22.04                     │    0C     0H     4M    14L    
-  Refreshed base image │  ubuntu:22.04                     │    0C     0H     4M    13L    
-                       │                                   │                         -1    
-  Updated base image   │  ubuntu:25.10                     │    0C     0H     0M     0L    
-                       │                                   │                  -4    -14    
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L    
+                       │                                   │                  -2     -2    
+  Updated base image   │  ubuntu:24.04                     │    0C     0H     2M     5L    
+                       │                                   │                  -2     -9    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/strelka:latest
