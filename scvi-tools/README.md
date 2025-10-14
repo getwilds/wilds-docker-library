@@ -19,6 +19,10 @@ These Docker images are built from Python 3.12-slim and include:
 
 The images are designed to provide a comprehensive environment for single-cell analysis with deep learning capabilities and CUDA support.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. The combination of scvi-tools and its deep learning dependencies encounters compilation issues on ARM64 platforms.
+
 ## Usage
 
 ### Docker

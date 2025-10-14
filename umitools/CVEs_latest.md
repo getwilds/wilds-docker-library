@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/umitools:latest
 
-Report generated on 2025-10-01 08:12:08 PST
+Report generated on 2025-10-07 22:27:48 PST
 
 ## Platform Coverage
 
@@ -11,8 +11,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 4 |
+| 🟠 High | 3 |
+| 🟡 Medium | 5 |
 | 🟢 Low | 158 |
 | ⚪ Unknown | 4 |
 
@@ -23,7 +23,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 6 |
+| 🟠 High | 3 |
 | 🟡 Medium | 4 |
 | 🟢 Low | 158 |
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/umitools:latest  │    0C     7H     4M   158L     4?   
-    digest           │  06854ebcdc2e                      │                                     
-  Base image         │  python:3.12-bookworm              │    0C     6H     4M   158L     4?   
-  Updated base image │  python:3.13-bookworm              │    0C     6H     4M   158L     4?   
-                     │                                    │                                     
+Target             │  getwilds/umitools:latest-amd64  │    0C     3H     5M   158L     4?   
+    digest           │  7ddec4b23980                            │                                     
+  Base image         │  python:3.12-bookworm                    │    0C     3H     4M   158L     4?   
+  Updated base image │  python:3.13-bookworm                    │    0C     3H     4M   158L     4?   
+                     │                                          │                                     
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/umitools:latest
-    View base image update recommendations → docker scout recommendations getwilds/umitools:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/umitools:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/umitools:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/umitools:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/umitools:latest-amd64 --org <organization>
 ```
 </details>

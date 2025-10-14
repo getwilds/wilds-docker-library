@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:2.2.1
 
-Report generated on 2025-10-01 08:20:37 PST
+Report generated on 2025-10-08 16:23:37 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 1578 |
-| 🟢 Low | 42 |
+| 🟠 High | 2 |
+| 🟡 Medium | 1081 |
+| 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,26 +24,22 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 14 |
-| 🟢 Low | 6 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 5 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:24.04`
-
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/hisat2:2.2.1  │    0C     7H   1578M    42L   
-    digest             │  506451743480                   │                               
-  Base image           │  ubuntu:24.04                   │    0C     0H    14M     6L    
-  Refreshed base image │  ubuntu:24.04                   │    0C     0H     5M     6L    
-                       │                                 │                  -9           
-  Updated base image   │  ubuntu:25.04                   │    0C     0H     7M     6L    
-                       │                                 │                  -7           
+Target             │  getwilds/hisat2:2.2.1  │    0C     2H   1081M    36L   
+    digest           │  5673a0c80016                   │                               
+  Base image         │  ubuntu:24.04                   │    0C     0H     3M     5L    
+  Updated base image │  ubuntu:25.10                   │    0C     0H     0M     0L    
+                     │                                 │                  -3     -5    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/hisat2:2.2.1

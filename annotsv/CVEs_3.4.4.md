@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annotsv:3.4.4
 
-Report generated on 2025-10-01 09:02:04 PST
+Report generated on 2025-10-04 17:35:46 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 22 |
 | 🟠 High | 102 |
-| 🟡 Medium | 70 |
-| 🟢 Low | 29 |
+| 🟡 Medium | 62 |
+| 🟢 Low | 21 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,8 +24,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 4 |
-| 🟢 Low | 13 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 12 |
 
 ## 🔄 Recommendations
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/annotsv:3.4.4  │   22C   102H    70M    29L   
-    digest           │  0248570cf62f                    │                              
-  Base image         │  ubuntu:22.04                    │    0C     0H     4M    13L   
-  Updated base image │  ubuntu:25.10                    │    0C     0H     0M     0L   
-                     │                                  │                  -4    -13   
+Target             │  getwilds/annotsv:3.4.4-amd64  │   22C   102H    62M    21L   
+    digest           │  965b5d72afc8                          │                              
+  Base image         │  ubuntu:22.04                          │    0C     0H     2M    12L   
+  Updated base image │  ubuntu:25.10                          │    0C     0H     0M     0L   
+                     │                                        │                  -2    -12   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/annotsv:3.4.4
-    View base image update recommendations → docker scout recommendations getwilds/annotsv:3.4.4
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/annotsv:3.4.4 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/annotsv:3.4.4-amd64
+    View base image update recommendations → docker scout recommendations getwilds/annotsv:3.4.4-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/annotsv:3.4.4-amd64 --org <organization>
 ```
 </details>

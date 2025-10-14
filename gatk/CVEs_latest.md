@@ -1,19 +1,15 @@
 # Vulnerability Report for getwilds/gatk:latest
 
-Report generated on 2025-10-01 08:18:49 PST
-
-## Platform Coverage
-
-This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
+Report generated on 2025-09-10 17:04:40 PST
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 1 |
-| 🟠 High | 18 |
-| 🟡 Medium | 1303 |
-| 🟢 Low | 58 |
+| 🟠 High | 16 |
+| 🟡 Medium | 1108 |
+| 🟢 Low | 53 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,26 +20,26 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 6 |
-| 🟢 Low | 6 |
+| 🟡 Medium | 5 |
+| 🟢 Low | 5 |
 
 ## 🔄 Recommendations
 
 **Refreshed base image:** `ubuntu:24.04`
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/gatk:latest  │    1C    18H   1303M    58L   
+Target               │  getwilds/gatk:latest  │    1C    16H   1108M    53L   
     digest             │  074caf850874                  │                               
-  Base image           │  ubuntu:24.04                  │    0C     0H     6M     6L    
-  Refreshed base image │  ubuntu:24.04                  │    0C     0H     5M     6L    
+  Base image           │  ubuntu:24.04                  │    0C     0H     5M     5L    
+  Refreshed base image │  ubuntu:24.04                  │    0C     0H     4M     5L    
                        │                                │                  -1           
-  Updated base image   │  ubuntu:25.10                  │    0C     0H     0M     0L    
-                       │                                │                  -6     -6    
+  Updated base image   │  ubuntu:25.04                  │    0C     0H     5M     4L    
+                       │                                │                         -1    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/gatk:latest

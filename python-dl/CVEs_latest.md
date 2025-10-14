@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/python-dl:latest
 
-Report generated on 2025-09-22 05:46:26 PST
+Report generated on 2025-10-08 05:34:34 PST
 
 ## Platform Coverage
 

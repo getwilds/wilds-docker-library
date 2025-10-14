@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:latest
 
-Report generated on 2025-10-01 08:09:12 PST
+Report generated on 2025-10-08 01:05:10 PST
 
 ## Platform Coverage
 
@@ -11,32 +11,39 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 30 |
-| 🟡 Medium | 1503 |
-| 🟢 Low | 27 |
+| 🟠 High | 2 |
+| 🟡 Medium | 1080 |
+| 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
-**Image:** `ubuntu:rolling`
+**Image:** `ubuntu:24.04`
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 9 |
-| 🟢 Low | 2 |
+| 🟠 High | 0 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 5 |
+
+## 🔄 Recommendations
+
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/star:latest  │    0C    30H   1503M    27L   
-    digest   │  c7b3c6c7cabc                  │                               
-  Base image │  ubuntu:rolling                │    0C     1H     9M     2L    
+Target             │  getwilds/star:latest-amd64  │    0C     2H   1080M    36L   
+    digest           │  07151a90140f                        │                               
+  Base image         │  ubuntu:24.04                        │    0C     0H     3M     5L    
+  Updated base image │  ubuntu:25.10                        │    0C     0H     0M     0L    
+                     │                                      │                  -3     -5    
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/star:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/star:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/star:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/star:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/star:latest-amd64 --org <organization>
 ```
 </details>

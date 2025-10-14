@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/manta:latest
 
-Report generated on 2025-10-01 09:15:37 PST
+Report generated on 2025-10-06 19:44:04 PST
 
 ## Platform Coverage
 
@@ -13,7 +13,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 5 |
 | 🟡 Medium | 2 |
-| 🟢 Low | 4 |
+| 🟢 Low | 0 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/manta:latest  │    0C     5H     2M     4L   
-    digest           │  6d64e8b839b9                   │                              
-  Base image         │  python:2-slim                  │    0C     5H     2M     0L   
-  Updated base image │  python:3.9-slim                │    0C     4H     3M    22L   
-                     │                                 │           -1     +1    +22   
+Target             │  getwilds/manta:latest-amd64  │    0C     5H     2M     0L   
+    digest           │  1c398a92a401                         │                              
+  Base image         │  python:2-slim                        │    0C     5H     2M     0L   
+  Updated base image │  python:3.9-slim                      │    0C     4H     3M    22L   
+                     │                                       │           -1     +1    +22   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/manta:latest
-    View base image update recommendations → docker scout recommendations getwilds/manta:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/manta:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/manta:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/manta:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/manta:latest-amd64 --org <organization>
 ```
 </details>
