@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/strelka:2.9.10
 
-Report generated on 2025-10-07 21:04:09 PST
+Report generated on 2025-10-14 03:59:42 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 1309 |
-| 🟢 Low | 65 |
+| 🟠 High | 4 |
+| 🟡 Medium | 1360 |
+| 🟢 Low | 66 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,26 +24,30 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 12 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 14 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Refreshed base image:** `ubuntu:22.04`
+
+**Updated base image:** `ubuntu:24.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/strelka:2.9.10-amd64  │    0C     1H   1309M    65L   
-    digest           │  978adc961271                           │                               
-  Base image         │  ubuntu:22.04                           │    0C     0H     2M    12L    
-  Updated base image │  ubuntu:25.10                           │    0C     0H     0M     0L    
-                     │                                         │                  -2    -12    
+Target               │  getwilds/strelka:2.9.10  │    0C     4H   1360M    66L   
+    digest             │  0a8251054025                     │                               
+  Base image           │  ubuntu:22.04                     │    0C     0H     4M    14L    
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L    
+                       │                                   │                  -2     -2    
+  Updated base image   │  ubuntu:24.04                     │    0C     0H     2M     5L    
+                       │                                   │                  -2     -9    
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/strelka:2.9.10-amd64
-    View base image update recommendations → docker scout recommendations getwilds/strelka:2.9.10-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/strelka:2.9.10-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/strelka:2.9.10
+    View base image update recommendations → docker scout recommendations getwilds/strelka:2.9.10
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/strelka:2.9.10 --org <organization>
 ```
 </details>
