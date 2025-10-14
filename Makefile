@@ -63,6 +63,7 @@ build_amd64: check_for_docker check_image ## Build Docker image(s) for AMD64 arc
 					echo "Building $$image_name:$$version (amd64) from $$dockerfile"; \
 					docker build \
 						--platform linux/amd64 \
+						--label built-by=makefile \
 						-t getwilds/$$image_name:$$version-amd64 \
 						-f "$$dockerfile" \
 						"$$dir"; \
@@ -90,6 +91,7 @@ build_arm64: check_for_docker check_image ## Build Docker image(s) for ARM64 arc
 					echo "Building $$image_name:$$version (arm64) from $$dockerfile"; \
 					docker build \
 						--platform linux/arm64 \
+						--label built-by=makefile \
 						-t getwilds/$$image_name:$$version-arm64 \
 						-f "$$dockerfile" \
 						"$$dir"; \
@@ -105,19 +107,19 @@ build_arm64: check_for_docker check_image ## Build Docker image(s) for ARM64 arc
 
 build: build_amd64 build_arm64 ## Build Docker image(s) for both AMD64 and ARM64 architectures. Use IMAGE=name for specific image, or leave blank for all
 
-##@ Testing
+##@ Validation
 
-test: lint build ## Run full test suite: lint and build for both architectures. Use IMAGE=name for specific image, or leave blank for all
+validate: lint build ## Validate Dockerfiles: lint and build for both architectures. Use IMAGE=name for specific image, or leave blank for all
 
 ##@ Cleanup
 
 clean: ## Remove all locally built getwilds images. Use IMAGE=name to clean specific image, or leave blank for all
-	@echo "Removing getwilds Docker images..."
+	@echo "Removing getwilds Docker images built by Makefile..."
 	@if [ "$(IMAGE)" = "*" ]; then \
-		echo "Removing all getwilds/* images..."; \
-		docker images "getwilds/*" -q | xargs docker rmi -f 2>/dev/null || true; \
+		echo "Removing all Makefile-built getwilds/* images..."; \
+		docker images --filter "label=built-by=makefile" "getwilds/*" -q | xargs docker rmi -f 2>/dev/null || true; \
 	else \
-		echo "Removing getwilds/$(IMAGE):* images..."; \
-		docker images "getwilds/$(IMAGE)" -q | xargs docker rmi -f 2>/dev/null || true; \
+		echo "Removing Makefile-built getwilds/$(IMAGE):* images..."; \
+		docker images --filter "label=built-by=makefile" "getwilds/$(IMAGE)" -q | xargs docker rmi -f 2>/dev/null || true; \
 	fi
 	@echo "Cleanup complete!"
