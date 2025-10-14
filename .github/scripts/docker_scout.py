@@ -1,5 +1,9 @@
-#!/usr/bin/env python
-# -*-coding:utf-8 -*-
+#!/usr/bin/env -S uv run --script
+#
+# /// script
+# requires-python = "==3.13"
+# dependencies = ["pyyaml==6.0.3", "gitpython==3.1.45", "requests==2.32.5"]
+# ///
 """
 @File    :   docker_scout.py
 @Time    :   2025/04/17 12:54:33
