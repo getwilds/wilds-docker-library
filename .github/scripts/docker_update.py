@@ -1,8 +1,8 @@
 #!/usr/bin/env -S uv run --script
 #
 # /// script
-# requires-python = "3.13"
-# dependencies = ["gitpython=3.1.45", "requests=2.32.5"]
+# requires-python = "==3.13"
+# dependencies = ["gitpython==3.1.45", "requests==2.32.5"]
 # ///
 """
 @File    :   docker_update.py
