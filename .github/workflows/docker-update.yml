@@ -40,15 +40,6 @@ jobs:
         with:
           version: "0.6.16"
       
-      - name: Set up Python
-        run: uv python install 3.13
-      
-      - name: Install Python dependencies
-        run: |
-          uv venv
-          uv pip install gitpython requests
-          uv pip freeze
-      
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       
