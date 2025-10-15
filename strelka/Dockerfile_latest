@@ -105,3 +105,8 @@ ENV PATH="/usr/local/bin:${PATH}"
 RUN apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /tmp/*
+
+# Smoke test to verify Strelka binaries work on target architecture
+RUN configureStrelkaGermlineWorkflow.py --version && \
+    samtools --version && \
+    bcftools --version

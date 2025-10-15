@@ -52,3 +52,8 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
   && curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/${HELPER_ARCH}/Linux/aws_signing_helper \
   && chmod +x aws_signing_helper \
   && mv aws_signing_helper /usr/local/bin/
+
+# Smoke test to verify binaries work on target architecture
+RUN aws --version && \
+    aws_signing_helper --version && \
+    samtools --version
