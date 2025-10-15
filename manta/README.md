@@ -11,6 +11,8 @@ This directory contains Docker images for Manta, a structural variant caller des
 
 These Docker images are built from Python 2.7 Slim and include Manta v1.6.0. The images are designed to be minimal and focused on structural variant detection with only the necessary dependencies.
 
+**Platform Support**: This image is available for **linux/amd64 only**. ARM64 (Apple Silicon) is not supported because Manta only provides precompiled x86_64 binaries and building from source for ARM64 would require significant additional complexity.
+
 ## Usage
 
 ### Docker

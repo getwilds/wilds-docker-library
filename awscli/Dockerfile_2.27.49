@@ -14,6 +14,9 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# Set architecture-specific variables
+ARG TARGETARCH
+
 # Install AWS CLI
 RUN apt-get update \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
@@ -25,13 +28,32 @@ RUN apt-get update \
      unzip="${UNZIP_VERSION}" \
      ca-certificates="${CERT_VERSION}" \
      samtools="${SAMTOOLS_VERSION}" \
-  && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.27.49.zip" -o "awscliv2.zip" \
+  && if [ "$TARGETARCH" = "amd64" ]; then \
+       AWS_ARCH="x86_64"; \
+     elif [ "$TARGETARCH" = "arm64" ]; then \
+       AWS_ARCH="aarch64"; \
+     else \
+       echo "Unsupported architecture: $TARGETARCH"; exit 1; \
+     fi \
+  && curl "https://awscli.amazonaws.com/awscli-exe-linux-${AWS_ARCH}-2.27.49.zip" -o "awscliv2.zip" \
   && unzip awscliv2.zip \
   && ./aws/install \
   && rm -rf awscliv2.zip aws \
   && rm -rf /var/lib/apt/lists/*
 
 # Install AWS Signing Helper
-RUN curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/X86_64/Linux/aws_signing_helper \
+RUN if [ "$TARGETARCH" = "amd64" ]; then \
+      HELPER_ARCH="X86_64"; \
+    elif [ "$TARGETARCH" = "arm64" ]; then \
+      HELPER_ARCH="ARM64"; \
+    else \
+      echo "Unsupported architecture: $TARGETARCH"; exit 1; \
+    fi \
+  && curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/${HELPER_ARCH}/Linux/aws_signing_helper \
   && chmod +x aws_signing_helper \
   && mv aws_signing_helper /usr/local/bin/
+
+# Smoke test to verify binaries work on target architecture
+RUN aws --version && \
+    aws_signing_helper --version && \
+    samtools --version

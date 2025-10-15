@@ -60,4 +60,8 @@ RUN ./configure && make && make install
 WORKDIR /
 
 # Cleanup
-RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2 
+RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
+
+# Smoke test to verify STAR and samtools work on target architecture
+RUN STAR --version && samtools --version 
+
