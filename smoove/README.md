@@ -23,6 +23,8 @@ These Docker images are built from Ubuntu 22.04 and include:
 
 **Note**: The latest images do not include svtools due to Python 2/3 compatibility issues. svtools is optional and mainly needed for large cohorts (>100 samples). It can be added separately if required.
 
+**Platform Support**: This image is available for **linux/amd64 only**. ARM64 (Apple Silicon) is not supported because several dependencies (gsort, mosdepth, duphold, and smoove itself) only provide precompiled x86_64 binaries.
+
 smoove simplifies structural variant discovery by automatically handling:
 - Read preprocessing and filtering
 - LUMPY execution with optimal parameters

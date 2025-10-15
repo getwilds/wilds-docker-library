@@ -20,6 +20,8 @@ These Docker images are built from Ubuntu 22.04 and include:
 
 The images provide a complete environment for Strelka variant calling workflows with all necessary dependencies, built with version pinning and minimal package installation for security and reproducibility.
 
+**Platform Support**: This image is available for **linux/amd64 only**. ARM64 (Apple Silicon) is not supported because Strelka only provides precompiled x86_64 binaries and building from source for ARM64 would require significant additional complexity.
+
 ## Usage
 
 ### Docker
