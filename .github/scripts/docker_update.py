@@ -56,10 +56,13 @@ AMD64_ONLY_TOOLS = {
     "bwa",
     "deseq2",
     "hisat2",
+    "manta",
     "python-dl",
     "rtorch",
     "scvi-tools",
+    "smoove",
     "sra-tools",
+    "strelka",
 }
 
 

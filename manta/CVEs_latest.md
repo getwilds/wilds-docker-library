@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/manta:latest
 
-Report generated on 2025-10-06 19:44:04 PST
+Report generated on 2025-10-15 14:15:54 PST
 
 ## Platform Coverage
 
@@ -29,21 +29,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `python:3.9-slim`
+**Updated base image:** `python:3-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/manta:latest-amd64  │    0C     5H     2M     0L   
-    digest           │  1c398a92a401                         │                              
-  Base image         │  python:2-slim                        │    0C     5H     2M     0L   
-  Updated base image │  python:3.9-slim                      │    0C     4H     3M    22L   
-                     │                                       │           -1     +1    +22   
+Target             │  getwilds/manta:latest  │    0C     5H     2M     0L   
+    digest           │  b193b99656cc                   │                              
+  Base image         │  python:2-slim                  │    0C     5H     2M     0L   
+  Updated base image │  python:3-slim                  │    0C     0H     2M    20L   
+                     │                                 │           -5           +20   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/manta:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/manta:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/manta:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/manta:latest
+    View base image update recommendations → docker scout recommendations getwilds/manta:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/manta:latest --org <organization>
 ```
 </details>

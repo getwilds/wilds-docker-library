@@ -20,6 +20,8 @@ These Docker images are built from Ubuntu Noble (24.04 LTS) base image and inclu
 
 The images are designed to be minimal and focused on providing AWS CLI functionality for accessing **public cloud datasets**, with additional samtools support for BAM file processing. The inclusion of AWS Signing Helper enables certificate-based authentication for more secure access to private AWS resources when needed.
 
+**Platform Support**: This image supports both **linux/amd64** and **linux/arm64** (Apple Silicon). The Dockerfile uses Docker's `TARGETARCH` build argument to automatically download the correct architecture-specific binaries during the build process.
+
 ## Usage
 
 ### Docker
