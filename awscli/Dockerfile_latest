@@ -55,5 +55,5 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
 
 # Smoke test to verify binaries work on target architecture
 RUN aws --version && \
-    aws_signing_helper --version && \
+    aws_signing_helper --help && \
     samtools --version
