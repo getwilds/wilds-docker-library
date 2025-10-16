@@ -20,6 +20,10 @@ These Docker images are built from NVIDIA's CUDA 11.7.1 with cuDNN 8 base image 
 
 The images are designed to provide a comprehensive environment for deep learning in R with GPU acceleration.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. The R torch package encounters compilation errors on ARM64 platforms due to position-independent code (PIC) limitations with large binaries.
+
 ## Preinstalled R Packages:
 
 **Core/Build:**

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hmmcopy:latest
 
-Report generated on 2025-10-01 09:33:49 PST
+Report generated on 2025-10-06 17:05:06 PST
 
 ## Platform Coverage
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/hmmcopy:latest  │    0C     0H     2M     0L   
-    digest           │  d7bc42a9a04b                     │                              
-  Base image         │  ubuntu:20.04                     │    0C     0H     1M     0L   
-  Updated base image │  ubuntu:25.10                     │    0C     0H     0M     0L   
-                     │                                   │                  -1          
+Target             │  getwilds/hmmcopy:latest-amd64  │    0C     0H     2M     0L   
+    digest           │  ec4707662c0f                           │                              
+  Base image         │  ubuntu:20.04                           │    0C     0H     1M     0L   
+  Updated base image │  ubuntu:25.10                           │    0C     0H     0M     0L   
+                     │                                         │                  -1          
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/hmmcopy:latest
-    View base image update recommendations → docker scout recommendations getwilds/hmmcopy:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/hmmcopy:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/hmmcopy:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/hmmcopy:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/hmmcopy:latest-amd64 --org <organization>
 ```
 </details>

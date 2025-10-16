@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scanpy:1.10.2
 
-Report generated on 2025-10-01 08:49:42 PST
+Report generated on 2025-10-07 16:24:01 PST
 
 ## Platform Coverage
 
@@ -11,10 +11,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 4 |
-| 🟡 Medium | 12 |
-| 🟢 Low | 14 |
-| ⚪ Unknown | 1 |
+| 🟠 High | 1 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 22 |
+| ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
@@ -23,31 +23,27 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 4 |
-| 🟡 Medium | 12 |
-| 🟢 Low | 14 |
+| 🟠 High | 1 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 22 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `python:3.12-slim`
-
-**Updated base image:** `python:3.13.7-slim`
+**Updated base image:** `python:3.13-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/scanpy:1.10.2  │    0C     4H    12M    14L     1?   
-    digest             │  533ab8e4b699                    │                                     
-  Base image           │  python:3.12-slim                │    0C     4H    12M    14L     1?   
-  Refreshed base image │  python:3.12-slim                │    0C     1H     2M    22L          
-                       │                                  │           -3    -10     +8     -1   
-  Updated base image   │  python:3.13.7-slim              │    0C     1H     2M    22L          
-                       │                                  │           -3    -10     +8     -1   
+Target             │  getwilds/scanpy:1.10.2-amd64  │    0C     1H     2M    22L   
+    digest           │  d89283c32048                          │                              
+  Base image         │  python:3.12-slim                      │    0C     1H     2M    22L   
+  Updated base image │  python:3.13-slim                      │    0C     1H     2M    22L   
+                     │                                        │                              
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/scanpy:1.10.2
-    View base image update recommendations → docker scout recommendations getwilds/scanpy:1.10.2
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/scanpy:1.10.2 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/scanpy:1.10.2-amd64
+    View base image update recommendations → docker scout recommendations getwilds/scanpy:1.10.2-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/scanpy:1.10.2-amd64 --org <organization>
 ```
 </details>

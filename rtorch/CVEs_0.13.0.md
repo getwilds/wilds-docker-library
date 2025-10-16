@@ -1,19 +1,15 @@
 # Vulnerability Report for getwilds/rtorch:0.13.0
 
-Report generated on 2025-10-01 09:15:09 PST
-
-## Platform Coverage
-
-This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
+Report generated on 2025-09-15 18:05:41 PST
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 77 |
-| 🟡 Medium | 3581 |
-| 🟢 Low | 171 |
+| 🟠 High | 74 |
+| 🟡 Medium | 3177 |
+| 🟢 Low | 160 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,7 +21,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 43 |
-| 🟢 Low | 34 |
+| 🟢 Low | 33 |
 
 ## 🔄 Recommendations
 
@@ -37,12 +33,12 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/rtorch:0.13.0  │    0C    77H   3581M   171L   
-    digest             │  ced4966e6273                    │                               
-  Base image           │  ubuntu:22.04                    │    0C     0H    43M    34L    
-  Refreshed base image │  ubuntu:22.04                    │    0C     0H     4M    13L    
+Target               │  getwilds/rtorch:0.13.0  │    0C    74H   3177M   160L   
+    digest             │  860a3406a728                    │                               
+  Base image           │  ubuntu:22.04                    │    0C     0H    43M    33L    
+  Refreshed base image │  ubuntu:22.04                    │    0C     0H     4M    12L    
                        │                                  │                 -39    -21    
-  Updated base image   │  ubuntu:24.04                    │    0C     0H     5M     6L    
+  Updated base image   │  ubuntu:24.04                    │    0C     0H     5M     5L    
                        │                                  │                 -38    -28    
 
 What's next:

@@ -1,10 +1,6 @@
 # Vulnerability Report for getwilds/shapemapper:latest
 
-Report generated on 2025-10-01 08:52:57 PST
-
-## Platform Coverage
-
-This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
+Report generated on 2025-09-10 17:14:00 PST
 
 ## 📊 Vulnerability Summary
 
@@ -12,8 +8,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 1 |
 | 🟠 High | 17 |
-| 🟡 Medium | 49 |
-| 🟢 Low | 21 |
+| 🟡 Medium | 46 |
+| 🟢 Low | 20 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
@@ -24,8 +20,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 21 |
-| 🟢 Low | 18 |
+| 🟡 Medium | 20 |
+| 🟢 Low | 17 |
 
 ## 🔄 Recommendations
 
@@ -37,12 +33,12 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/shapemapper:latest  │    1C    17H    49M    21L     2?   
+Target               │  getwilds/shapemapper:latest  │    1C    17H    46M    20L     2?   
     digest             │  f0c93f75561d                         │                                     
-  Base image           │  ubuntu:22.04                         │    0C     0H    21M    18L          
-  Refreshed base image │  ubuntu:22.04                         │    0C     0H     4M    13L          
+  Base image           │  ubuntu:22.04                         │    0C     0H    20M    17L          
+  Refreshed base image │  ubuntu:22.04                         │    0C     0H     3M    12L          
                        │                                       │                 -17     -5          
-  Updated base image   │  ubuntu:24.04                         │    0C     0H     5M     6L          
+  Updated base image   │  ubuntu:24.04                         │    0C     0H     4M     5L          
                        │                                       │                 -16    -12          
 
 What's next:

@@ -1,6 +1,6 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:oracular-20241009
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="rnaseqc"
@@ -43,4 +43,3 @@ WORKDIR /usr/rnaseqc
 RUN gunzip rnaseqc.v2.4.2.linux.gz && chmod a+x rnaseqc.v2.4.2.linux && mv rnaseqc.v2.4.2.linux rnaseqc
 WORKDIR /
 ENV PATH="${PATH}:/usr/rnaseqc"
-

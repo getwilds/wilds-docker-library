@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gtf-smash:v8
 
-Report generated on 2025-10-01 08:33:34 PST
+Report generated on 2025-09-23 23:13:51 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 23 |
+| 🟠 High | 0 |
+| 🟡 Medium | 1 |
+| 🟢 Low | 21 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -23,22 +23,22 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 22 |
+| 🟠 High | 0 |
+| 🟡 Medium | 1 |
+| 🟢 Low | 20 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `python:3.13.7-slim`
+**Updated base image:** `python:3.13-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/gtf-smash:v8  │    0C     1H     2M    23L   
+Target             │  getwilds/gtf-smash:v8  │    0C     0H     1M    21L   
     digest           │  549708ec856f                   │                              
-  Base image         │  python:3.12-slim               │    0C     1H     2M    22L   
-  Updated base image │  python:3.13.7-slim             │    0C     1H     2M    22L   
+  Base image         │  python:3.12-slim               │    0C     0H     1M    20L   
+  Updated base image │  python:3.13-slim               │    0C     0H     1M    20L   
                      │                                 │                              
 
 What's next:

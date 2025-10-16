@@ -10,8 +10,10 @@
 """
 
 import logging
+import os
 import re
 import subprocess
+import requests
 
 # Set up logging
 logging.basicConfig(
@@ -58,6 +60,42 @@ def run_command(cmd, cwd=None, check=True, capture_output=False):
         if check:
             raise
         return False
+
+
+def get_dockerhub_token():
+    """
+    Authenticate with DockerHub API and return JWT token.
+
+    Returns:
+        JWT token string if successful, None if authentication fails
+    """
+    try:
+        auth_payload = {
+            "username": os.environ.get("DOCKERHUB_USER"),
+            "password": os.environ.get("DOCKERHUB_PW"),
+        }
+
+        if not auth_payload["username"] or not auth_payload["password"]:
+            logger.error("DockerHub credentials not found in environment variables")
+            return None
+
+        response = requests.post(
+            "https://hub.docker.com/v2/users/login/", json=auth_payload
+        )
+        response.raise_for_status()
+        token = response.json().get("token")
+
+        if not token:
+            logger.error("Failed to get DockerHub token from response")
+            logger.error(f"Response: {response.text}")
+            return None
+
+        logger.info("Successfully authenticated with DockerHub")
+        return token
+
+    except Exception as e:
+        logger.error(f"Failed to authenticate with DockerHub: {e}")
+        return None
 
 
 def parse_scout_quickview(scout_output):

@@ -30,6 +30,8 @@ RUN apt-get update && \
     GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') && \
     LIBBLAS_VERSION=$(apt-cache policy libblas-dev | grep Candidate | awk '{print $2}') && \
     LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') && \
+    LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') && \
+    LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') && \
     RBASE_VERSION=$(apt-cache policy r-base | grep Candidate | awk '{print $2}') && \
     RBASEDEV_VERSION=$(apt-cache policy r-base-dev | grep Candidate | awk '{print $2}') && \
     # Install packages with specific versions
@@ -40,6 +42,8 @@ RUN apt-get update && \
     gfortran="${GFORTRAN_VERSION}" \
     libblas-dev="${LIBBLAS_VERSION}" \
     liblapack-dev="${LIBLAPACK_VERSION}" \
+    libssl-dev="${LIBSSL_VERSION}" \
+    libcurl4-openssl-dev="${LIBCURL_VERSION}" \
     r-base="${RBASE_VERSION}" \
     r-base-dev="${RBASEDEV_VERSION}" \
     && rm -rf /var/lib/apt/lists/*
@@ -48,13 +52,18 @@ RUN apt-get update && \
 WORKDIR /home/cnvkit
 
 # Install CNVkit with compatible dependencies
+# Use CPU-only PyTorch to reduce image size (CNVkit doesn't need GPU acceleration)
 RUN pip install --no-cache-dir \
-    "cython<3.0" \
-    "numpy<1.25" \
+    cython==0.29.37 \
+    numpy==1.24.4 && \
+    pip install --no-cache-dir \
+    --index-url https://download.pytorch.org/whl/cpu \
+    torch==2.5.1 && \
+    pip install --no-cache-dir \
     cnvkit==0.9.10
 
 # Install R packages required by CNVkit
-RUN R -e "install.packages(c('BiocManager', 'ggplot2', 'gridExtra', 'RColorBrewer'))" && \
+RUN R -e "install.packages(c('BiocManager', 'httr', 'ggplot2', 'gridExtra', 'RColorBrewer'))" && \
     R -e "BiocManager::install(c('DNAcopy', 'PSCBS', 'GenomicRanges', 'IRanges'))"
 
 # Health check
@@ -63,3 +72,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 
 # Default command
 CMD ["cnvkit.py", "--help"]
+

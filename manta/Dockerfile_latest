@@ -14,13 +14,18 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# Update sources.list to use Debian archive (Buster is EOL)
+RUN sed -i 's|http://deb.debian.org|http://archive.debian.org|g' /etc/apt/sources.list \
+  && sed -i 's|http://security.debian.org|http://archive.debian.org|g' /etc/apt/sources.list \
+  && sed -i '/buster-updates/d' /etc/apt/sources.list
+
 # Installing prerequisites
 RUN apt-get update \
-  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && BZIP2_VERSION=$(apt-cache policy bzip2 | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
-  build-essential="${BE_VERSION}" \
   wget="${WGET_VERSION}" \
+  bzip2="${BZIP2_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting Manta source code
@@ -31,5 +36,7 @@ RUN wget -q --no-check-certificate https://github.com/Illumina/manta/releases/do
 WORKDIR /manta-1.6.0.centos6_x86_64
 ENV PATH="${PATH}:/manta-1.6.0.centos6_x86_64/bin"
 
-# Cleanup
-RUN rm -rf manta-1.6.0.centos6_x86_64.tar.bz2
+# Cleanup and smoke test to verify binaries work on target architecture
+RUN rm -rf manta-1.6.0.centos6_x86_64.tar.bz2 \
+  && configManta.py --version
+
