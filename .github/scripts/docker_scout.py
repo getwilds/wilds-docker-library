@@ -59,11 +59,11 @@ def discover_tools_and_tags(specific_tool=None):
         dirs = [specific_tool]
         logger.info(f"Processing single tool: {specific_tool}")
     else:
-        # Get all directories except .git and .github
+        # Get all directories except .git, .github, and template
         dirs = [
             d
             for d in glob.glob("*")
-            if os.path.isdir(d) and d not in [".git", ".github"]
+            if os.path.isdir(d) and d not in [".git", ".github", "template"]
         ]
         logger.info(f"Processing all tool directories: {dirs}")
 
