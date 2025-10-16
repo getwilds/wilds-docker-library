@@ -50,20 +50,29 @@ logger = logging.getLogger("docker-update")
 # Size limit for Docker Scout scanning (3GB in bytes)
 DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
 
+
+def load_amd64_only_tools():
+    """
+    Load the list of AMD64-only tools from amd64_only_tools.txt.
+
+    Returns:
+        set: Set of tool names that should only be built for AMD64
+    """
+    amd64_only_file = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
+        "amd64_only_tools.txt"
+    )
+    try:
+        with open(amd64_only_file, "r") as f:
+            return {line.strip() for line in f if line.strip()}
+    except FileNotFoundError:
+        logger.warning(f"amd64_only_tools.txt not found at {amd64_only_file}, using empty set")
+        return set()
+
+
 # Tools that should only be built for AMD64 (not ARM64)
-# Add tool names here if they have architecture-specific dependencies
-AMD64_ONLY_TOOLS = {
-    "bwa",
-    "deseq2",
-    "hisat2",
-    "manta",
-    "python-dl",
-    "rtorch",
-    "scvi-tools",
-    "smoove",
-    "sra-tools",
-    "strelka",
-}
+# Loaded from amd64_only_tools.txt
+AMD64_ONLY_TOOLS = load_amd64_only_tools()
 
 
 def get_image_size(image_name):
