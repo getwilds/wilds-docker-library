@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/awscli:2.27.49
 
-Report generated on 2025-10-01 22:57:57 PST
+Report generated on 2025-10-16 05:34:21 PST
 
 ## Platform Coverage
 
@@ -13,7 +13,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 3 |
 | 🟠 High | 7 |
 | 🟡 Medium | 21 |
-| 🟢 Low | 11 |
+| 🟢 Low | 12 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -31,19 +31,19 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 **Refreshed base image:** `ubuntu:24.04`
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/awscli:2.27.49-amd64  │    3C     7H    21M    11L   
-    digest             │  fd0b4578c667                           │                              
+Target               │  getwilds/awscli:2.27.49-amd64  │    3C     7H    21M    12L   
+    digest             │  6f83fedc377a                           │                              
   Base image           │  ubuntu:24.04                           │    0C     0H     5M     6L   
-  Refreshed base image │  ubuntu:24.04                           │    0C     0H     5M     6L   
-                       │                                         │                              
-  Updated base image   │  ubuntu:25.10                           │    0C     0H     0M     0L   
-                       │                                         │                  -5     -6   
+  Refreshed base image │  ubuntu:24.04                           │    0C     0H     2M     5L   
+                       │                                         │                  -3     -1   
+  Updated base image   │  ubuntu:25.04                           │    0C     0H     2M     4L   
+                       │                                         │                  -3     -2   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/awscli:2.27.49-amd64

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/picard:latest
 
-Report generated on 2025-10-06 19:59:06 PST
+Report generated on 2025-10-16 05:51:57 PST
 
 ## Platform Coverage
 
@@ -13,7 +13,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 2 |
 | 🟡 Medium | 9 |
-| 🟢 Low | 20 |
+| 🟢 Low | 21 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,22 +24,22 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 3 |
+| 🟡 Medium | 2 |
 | 🟢 Low | 5 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/picard:latest-amd64  │    0C     2H     9M    20L   
-    digest           │  5e541539736c                          │                              
-  Base image         │  ubuntu:24.04                          │    0C     0H     3M     5L   
-  Updated base image │  ubuntu:25.10                          │    0C     0H     0M     0L   
-                     │                                        │                  -3     -5   
+Target             │  getwilds/picard:latest-amd64  │    0C     2H     9M    21L   
+    digest           │  ff5a9864d8c1                          │                              
+  Base image         │  ubuntu:24.04                          │    0C     0H     2M     5L   
+  Updated base image │  ubuntu:25.04                          │    0C     0H     2M     4L   
+                     │                                        │                         -1   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/picard:latest-amd64
