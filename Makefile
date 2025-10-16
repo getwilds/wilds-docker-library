@@ -82,6 +82,10 @@ build_arm64: check_for_docker check_image ## Build Docker image(s) for ARM64 arc
 	@set -e; for dir in $(IMAGE)/; do \
 		if [ -d "$$dir" ]; then \
 			image_name=$$(basename "$$dir"); \
+			if grep -q "^$$image_name$$" amd64_only_tools.txt 2>/dev/null; then \
+				echo "Skipping $$image_name (AMD64 only)"; \
+				continue; \
+			fi; \
 			for dockerfile in $$dir/Dockerfile*; do \
 				if [ -f "$$dockerfile" ]; then \
 					version=$$(echo "$$dockerfile" | sed 's/.*Dockerfile_//'); \
