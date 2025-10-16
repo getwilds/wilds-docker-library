@@ -41,19 +41,17 @@ RUN apt-get update \
   && rm -rf awscliv2.zip aws \
   && rm -rf /var/lib/apt/lists/*
 
-# Install AWS Signing Helper
+# Install AWS Signing Helper (only available for amd64)
 RUN if [ "$TARGETARCH" = "amd64" ]; then \
-      HELPER_ARCH="X86_64"; \
-    elif [ "$TARGETARCH" = "arm64" ]; then \
-      HELPER_ARCH="ARM64"; \
+      curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/X86_64/Linux/aws_signing_helper && \
+      chmod +x aws_signing_helper && \
+      mv aws_signing_helper /usr/local/bin/; \
     else \
-      echo "Unsupported architecture: $TARGETARCH"; exit 1; \
-    fi \
-  && curl -o aws_signing_helper https://rolesanywhere.amazonaws.com/releases/1.2.0/${HELPER_ARCH}/Linux/aws_signing_helper \
-  && chmod +x aws_signing_helper \
-  && mv aws_signing_helper /usr/local/bin/
+      echo "Note: AWS Signing Helper not available for $TARGETARCH architecture"; \
+    fi
 
 # Smoke test to verify binaries work on target architecture
-RUN aws --version && \
-    aws_signing_helper --help && \
-    samtools --version
+RUN aws --version && samtools --version && \
+    if [ "$TARGETARCH" = "amd64" ]; then \
+      aws_signing_helper --help 2>&1 | grep -q "Usage:"; \
+    fi
