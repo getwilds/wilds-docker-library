@@ -170,7 +170,35 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # WORKDIR /data
 
 #------------------------------------------------------------------------------
-# 10. CLEANUP (IMPORTANT FOR IMAGE SIZE)
+# 10. SMOKE TEST (RECOMMENDED)
+#------------------------------------------------------------------------------
+# Add a simple test to verify the tool was installed correctly and is functional.
+# This catches issues during the build process rather than at runtime.
+# The build will FAIL if the smoke test fails, ensuring only working images are created.
+
+#----- Method A: Version check (most common) -----
+# RUN tool --version
+
+#----- Method B: Help/usage check -----
+# RUN tool --help || tool -h
+
+#----- Method C: Java JAR version check -----
+# RUN java -jar /usr/local/tool/tool.jar --version
+
+#----- Method D: Python package import check -----
+# RUN python -c "import tool; print(tool.__version__)"
+
+#----- Method E: R package check -----
+# RUN R -e "library(PackageName); packageVersion('PackageName')"
+
+#----- Method F: Multiple tools (if your image has several) -----
+# RUN tool1 --version && tool2 --version && tool3 --version
+
+# Choose the appropriate method based on your tool type and what command
+# reliably indicates successful installation. Prefer --version when available.
+
+#------------------------------------------------------------------------------
+# 11. CLEANUP (IMPORTANT FOR IMAGE SIZE)
 #------------------------------------------------------------------------------
 # Remove temporary files, build artifacts, and caches to minimize image size
 # This should be done in the same RUN layer as the installation when possible
@@ -188,6 +216,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # [ ] SHELL pipefail is set for better error handling
 # [ ] System dependencies use pinned versions
 # [ ] Tool version is explicitly specified (not "latest" in downloads)
+# [ ] Smoke test added to verify tool installation
 # [ ] Cleanup commands remove unnecessary files
 # [ ] RUN commands are combined where possible to reduce layers
 # [ ] No secrets or sensitive data in the image
