@@ -206,6 +206,11 @@ def find_changed_files(specified_dir=None):
     if specified_dir:
         logger.info(f"Processing specified directory: {specified_dir}")
 
+        # Skip template directory
+        if specified_dir == "template":
+            logger.info("Skipping template directory - not a real Docker image")
+            return [], [], []
+
         # Verify the directory exists
         if not os.path.isdir(specified_dir):
             logger.error(f"Error: Directory '{specified_dir}' does not exist.")
@@ -529,6 +534,11 @@ def update_dockerhub_descriptions(affected_dirs):
         # Skip if it's not a valid directory
         if not os.path.isdir(directory):
             logger.info(f"Skipping {directory}: not a valid directory")
+            continue
+
+        # Skip template directory
+        if directory == "template":
+            logger.info(f"Skipping {directory}: template directory")
             continue
 
         repo_name = os.path.basename(directory)
