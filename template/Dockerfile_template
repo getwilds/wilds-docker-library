@@ -176,6 +176,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # This catches issues during the build process rather than at runtime.
 # The build will FAIL if the smoke test fails, ensuring only working images are created.
 
+# Choose the appropriate method based on your tool type and what command
+# reliably indicates successful installation. Prefer --version when available.
+
 #----- Method A: Version check (most common) -----
 # RUN tool --version
 
@@ -193,9 +196,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 #----- Method F: Multiple tools (if your image has several) -----
 # RUN tool1 --version && tool2 --version && tool3 --version
-
-# Choose the appropriate method based on your tool type and what command
-# reliably indicates successful installation. Prefer --version when available.
 
 #------------------------------------------------------------------------------
 # 11. CLEANUP (IMPORTANT FOR IMAGE SIZE)
@@ -230,10 +230,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 #==============================================================================
 # See the following existing Dockerfiles for reference:
 #
-# Simple compiled tool:  samtools/Dockerfile_latest
+# Single compiled tool:  samtools/Dockerfile_latest
 # Java application:      picard/Dockerfile_latest
 # R/Bioconductor:        deseq2/Dockerfile_latest
-# Conda-based:           gatk/Dockerfile_latest (if using miniforge)
-# Multi-tool image:      samtools (includes bedtools)
-# Custom scripts:        deseq2 (includes analysis scripts)
+# Python:                scanpy/Dockerfile_latest
 #==============================================================================
