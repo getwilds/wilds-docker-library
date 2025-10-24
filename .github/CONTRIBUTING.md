@@ -21,8 +21,8 @@ Before contributing code changes, please:
 
 2. **Set up your development environment** with the required tools:
    - [Docker Desktop](https://www.docker.com/get-started/) for building and testing containers
+   - [Hadolint](https://github.com/hadolint/hadolint) for Dockerfile linting
    - (Optional) [Docker Scout](https://docs.docker.com/scout/) for local security scanning
-   - (Optional) [Apptainer/Singularity](https://apptainer.org/) for testing containerization compatibility
 
 3. **Make code changes** and push them to your fork
 
@@ -135,7 +135,6 @@ LABEL org.opencontainers.image.licenses=MIT
 - Target size: A few hundred MB (2GB maximum)
 - Combine `RUN` commands to reduce layers
 - Remove build dependencies after compilation
-- Use `.dockerignore` to exclude unnecessary files
 - Clean package manager caches (`rm -rf /var/lib/apt/lists/*`, `mamba clean -afy`, etc.)
 
 **Reproducibility:**
@@ -161,38 +160,6 @@ LABEL org.opencontainers.image.licenses=MIT
 - Include only necessary dependencies
 - If building a complex workflow, consider multiple separate images
 
-### Common Dockerfile Patterns
-
-**Pattern A: Compiled tools (samtools, bwa, etc.)**
-```dockerfile
-FROM ubuntu:24.04
-# Install build dependencies, compile from source, remove build tools
-```
-
-**Pattern B: Pre-built binaries (GATK, Picard)**
-```dockerfile
-FROM ubuntu:24.04
-# Download JAR or binary, verify integrity, install runtime dependencies only
-```
-
-**Pattern C: Conda/Mamba packages**
-```dockerfile
-FROM condaforge/miniforge3:latest
-# Use mamba to install from bioconda/conda-forge channels
-```
-
-**Pattern D: R/Bioconductor packages**
-```dockerfile
-FROM bioconductor/bioconductor_docker:RELEASE_X_YY
-# Use BiocManager::install() for packages
-```
-
-**Pattern E: Python packages**
-```dockerfile
-FROM python:3.11-slim
-# Use pip with pinned versions and --no-cache-dir flag
-```
-
 ### Naming Conventions
 
 **Dockerfile naming:**
@@ -213,6 +180,10 @@ FROM python:3.11-slim
 ## Testing Requirements
 
 ### Local Testing (Required Before PR)
+
+Before submitting a pull request, test your Docker images locally. You can test manually or use our automated Makefile (recommended).
+
+#### Option 1: Manual Testing
 
 **1. Build the image:**
 ```bash
@@ -246,11 +217,58 @@ docker scout cves test-toolname:VERSION
 docker buildx build --platform linux/amd64,linux/arm64 -t test-toolname:VERSION .
 ```
 
-**6. Test Apptainer/Singularity compatibility (optional):**
+#### Option 2: Automated Testing with Makefile (Recommended)
+
+The repository includes a Makefile that automates linting and building for standardized testing. You'll need [hadolint](https://github.com/hadolint/hadolint) installed for linting.
+
+**Quick start - see all available commands:**
 ```bash
-apptainer pull docker-daemon://test-toolname:VERSION
-apptainer run toolname_VERSION.sif toolname --version
+make help
 ```
+
+**Test a specific image:**
+```bash
+# Lint Dockerfiles in a specific tool directory
+make lint IMAGE=toolname
+
+# Build for AMD64 only
+make build_amd64 IMAGE=toolname
+
+# Build for ARM64 only
+make build_arm64 IMAGE=toolname
+
+# Build for both architectures
+make build IMAGE=toolname
+
+# Full validation: lint + build for both architectures
+make validate IMAGE=toolname
+
+# Clean up built images
+make clean IMAGE=toolname
+```
+
+**Test all images in the repository:**
+```bash
+# Lint all Dockerfiles
+make lint
+
+# Build all images for both architectures
+make build
+
+# Full validation of all images
+make validate
+
+# Clean up all built images
+make clean
+```
+
+**Notes about the Makefile:**
+- The Makefile automatically handles multi-platform builds (AMD64 and ARM64)
+- ARM64 builds skip tools listed in `amd64_only_tools.txt`
+- Images are tagged as `getwilds/toolname:version-amd64` or `getwilds/toolname:version-arm64`
+- The template directory is automatically skipped
+- When building all images (`IMAGE=*`), the Makefile automatically prunes build cache and removes images after building to save disk space
+- Built images are labeled with `built-by=makefile` for easy cleanup
 
 ### Automated Testing
 
