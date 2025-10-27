@@ -85,6 +85,12 @@ Each tool's README includes a "Platform Availability" section if it has platform
 
 ## Usage
 
+All images are available via DockerHub and can be used with either Docker or Apptainer/Singularity.
+
+**Choosing Between Docker and Apptainer:**
+- **Use Docker** when you have root/admin access and need full container features (networking, privileged operations)
+- **Use Apptainer** on HPC systems where you don't have root access (common in shared research computing environments like Fred Hutch's cluster systems)
+
 ### Docker
 
 ```bash
@@ -163,7 +169,7 @@ We welcome contributions to improve and expand the WILDS Docker Library!
 - Getting started with development setup
 - Repository structure and naming conventions
 - Docker image development best practices
-- Required Dockerfile labels and standards
+- Required Dockerfile labels and standards (see [Docker LABEL reference](https://docs.docker.com/reference/dockerfile/#label))
 - Testing requirements (manual and automated with Makefile)
 - Documentation standards
 - Pull request process and review criteria
