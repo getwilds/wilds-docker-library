@@ -183,41 +183,7 @@ LABEL org.opencontainers.image.licenses=MIT
 
 Before submitting a pull request, test your Docker images locally. You can test manually or use our automated Makefile (recommended).
 
-#### Option 1: Manual Testing
-
-**1. Build the image:**
-```bash
-cd toolname
-docker build -t test-toolname:VERSION -f Dockerfile_VERSION .
-```
-
-**2. Verify functionality:**
-```bash
-# Test basic functionality (adjust command for your tool)
-docker run --rm test-toolname:VERSION toolname --version
-
-# Test with real data (recommended)
-docker run --rm -v /path/to/test-data:/data test-toolname:VERSION \
-  toolname [appropriate-test-command]
-```
-
-**3. Check image size:**
-```bash
-docker images test-toolname:VERSION
-# Should be a few hundred MB, max 2GB
-```
-
-**4. Run security scan (if Docker Scout available):**
-```bash
-docker scout cves test-toolname:VERSION
-```
-
-**5. Test multi-platform build (optional but recommended):**
-```bash
-docker buildx build --platform linux/amd64,linux/arm64 -t test-toolname:VERSION .
-```
-
-#### Option 2: Automated Testing with Makefile (Recommended)
+#### Option 1: Automated Testing with Makefile (Recommended)
 
 The repository includes a Makefile that automates linting and building for standardized testing. You'll need [hadolint](https://github.com/hadolint/hadolint) installed for linting.
 
@@ -269,6 +235,40 @@ make clean
 - The template directory is automatically skipped
 - When building all images (`IMAGE=*`), the Makefile automatically prunes build cache and removes images after building to save disk space
 - Built images are labeled with `built-by=makefile` for easy cleanup
+
+#### Option 2: Manual Testing
+
+**1. Build the image:**
+```bash
+cd toolname
+docker build -t test-toolname:VERSION -f Dockerfile_VERSION .
+```
+
+**2. Verify functionality:**
+```bash
+# Test basic functionality (adjust command for your tool)
+docker run --rm test-toolname:VERSION toolname --version
+
+# Test with real data (recommended)
+docker run --rm -v /path/to/test-data:/data test-toolname:VERSION \
+  toolname [appropriate-test-command]
+```
+
+**3. Check image size:**
+```bash
+docker images test-toolname:VERSION
+# Should be a few hundred MB, max 2GB
+```
+
+**4. Run security scan (if Docker Scout available):**
+```bash
+docker scout cves test-toolname:VERSION
+```
+
+**5. Test multi-platform build (optional but recommended):**
+```bash
+docker buildx build --platform linux/amd64,linux/arm64 -t test-toolname:VERSION .
+```
 
 ### Automated Testing
 
