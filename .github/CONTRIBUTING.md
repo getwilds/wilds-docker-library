@@ -76,7 +76,7 @@ wilds-docker-library/
 
 ### 4. Version Updates
 
-- Add new versions of existing tools
+- Add new versions of existing images for updated tools
 - Update existing Dockerfiles to address security vulnerabilities
 - Ensure backward compatibility or document breaking changes
 
