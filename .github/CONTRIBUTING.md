@@ -70,7 +70,7 @@ wilds-docker-library/
 
 ### 3. New Docker Images
 
-- Add support for new bioinformatics tools
+- Add new images for bioinformatics tools
 - Follow our standardized Dockerfile structure and naming conventions
 - Include comprehensive testing and documentation
 
