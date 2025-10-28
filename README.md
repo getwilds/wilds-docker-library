@@ -88,8 +88,8 @@ Each tool's README includes a "Platform Availability" section if it has platform
 All images are available via DockerHub and can be used with either Docker or Apptainer/Singularity.
 
 **Choosing Between Docker and Apptainer:**
-- **Use Docker** when you have root/admin access and need full container features (networking, privileged operations)
-- **Use Apptainer** on HPC systems where you don't have root access (common in shared research computing environments like Fred Hutch's cluster systems)
+- **Use Docker** when you have root/admin access (common when working on your own computer) and need full container features (networking, privileged operations)
+- **Use Apptainer** when you don't have root access (common in shared research computing environments like Fred Hutch's cluster systems)
 
 ### Docker
 
