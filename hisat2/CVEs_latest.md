@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:latest
 
-Report generated on 2025-10-08 16:30:05 PST
+Report generated on 2025-11-01 08:19:57 PST
 
 ## Platform Coverage
 
@@ -11,8 +11,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 1081 |
+| 🟠 High | 3 |
+| 🟡 Medium | 1105 |
 | 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
@@ -29,17 +29,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Refreshed base image:** `ubuntu:24.04`
+
+**Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/hisat2:latest  │    0C     2H   1081M    36L   
-    digest           │  5e364ee61acf                    │                               
-  Base image         │  ubuntu:24.04                    │    0C     0H     3M     5L    
-  Updated base image │  ubuntu:25.10                    │    0C     0H     0M     0L    
-                     │                                  │                  -3     -5    
+Target               │  getwilds/hisat2:latest  │    0C     3H   1105M    36L   
+    digest             │  081b8ce18cc7                    │                               
+  Base image           │  ubuntu:24.04                    │    0C     0H     3M     5L    
+  Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L    
+                       │                                  │                  -1           
+  Updated base image   │  ubuntu:25.04                    │    0C     0H     2M     4L    
+                       │                                  │                  -1     -1    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/hisat2:latest

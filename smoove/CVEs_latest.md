@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/smoove:latest
 
-Report generated on 2025-10-15 16:28:21 PST
+Report generated on 2025-11-01 09:56:42 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 5 |
-| 🟠 High | 52 |
-| 🟡 Medium | 1236 |
-| 🟢 Low | 62 |
+| 🟠 High | 54 |
+| 🟡 Medium | 1271 |
+| 🟢 Low | 68 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/smoove:latest  │    5C    52H   1236M    62L   
-    digest           │  5a71328ce37b                    │                               
+Target             │  getwilds/smoove:latest  │    5C    54H   1271M    68L   
+    digest           │  484aa3af4be2                    │                               
   Base image         │  ubuntu:22.04                    │    0C     0H     2M    12L    
   Updated base image │  ubuntu:24.04                    │    0C     0H     2M     5L    
                      │                                  │                         -7    

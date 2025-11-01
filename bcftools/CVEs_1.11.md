@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bcftools:1.11
 
-Report generated on 2025-10-01 23:52:01 PST
+Report generated on 2025-11-01 08:13:33 PST
 
 ## Platform Coverage
 
@@ -11,8 +11,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 1082 |
+| 🟠 High | 3 |
+| 🟡 Medium | 1105 |
 | 🟢 Low | 36 |
 | ⚪ Unknown | 0 |
 
@@ -24,26 +24,26 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 5 |
-| 🟢 Low | 6 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 5 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bcftools:1.11-amd64  │    0C     2H   1082M    36L   
-    digest           │  08c62d54159c                          │                               
-  Base image         │  ubuntu:24.04                          │    0C     0H     5M     6L    
-  Updated base image │  ubuntu:25.10                          │    0C     0H     0M     0L    
-                     │                                        │                  -5     -6    
+Target             │  getwilds/bcftools:1.11  │    0C     3H   1105M    36L   
+    digest           │  dd64372e782a                    │                               
+  Base image         │  ubuntu:24.04                    │    0C     0H     2M     5L    
+  Updated base image │  ubuntu:25.04                    │    0C     0H     2M     4L    
+                     │                                  │                         -1    
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/bcftools:1.11-amd64
-    View base image update recommendations → docker scout recommendations getwilds/bcftools:1.11-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bcftools:1.11-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/bcftools:1.11
+    View base image update recommendations → docker scout recommendations getwilds/bcftools:1.11
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bcftools:1.11 --org <organization>
 ```
 </details>

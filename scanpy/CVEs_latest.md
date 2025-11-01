@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scanpy:latest
 
-Report generated on 2025-10-07 16:34:26 PST
+Report generated on 2025-11-01 08:49:52 PST
 
 ## Platform Coverage
 
@@ -11,10 +11,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 22 |
-| ⚪ Unknown | 0 |
+| 🟠 High | 5 |
+| 🟡 Medium | 12 |
+| 🟢 Low | 15 |
+| ⚪ Unknown | 1 |
 
 ## 🐳 Base Image
 
@@ -23,27 +23,31 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 22 |
+| 🟠 High | 5 |
+| 🟡 Medium | 12 |
+| 🟢 Low | 15 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `python:3.13-slim`
+**Refreshed base image:** `python:3.12-slim`
+
+**Updated base image:** `python:3.14-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/scanpy:latest-amd64  │    0C     1H     2M    22L   
-    digest           │  7f1fc1deecc3                          │                              
-  Base image         │  python:3.12-slim                      │    0C     1H     2M    22L   
-  Updated base image │  python:3.13-slim                      │    0C     1H     2M    22L   
-                     │                                        │                              
+Target               │  getwilds/scanpy:latest  │    0C     5H    12M    15L     1?   
+    digest             │  a74e1137ef5f                    │                                     
+  Base image           │  python:3.12-slim                │    0C     5H    12M    15L     1?   
+  Refreshed base image │  python:3.12-slim                │    0C     0H     2M    20L          
+                       │                                  │           -5    -10     +5     -1   
+  Updated base image   │  python:3.14-slim                │    0C     0H     2M    20L          
+                       │                                  │           -5    -10     +5     -1   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/scanpy:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/scanpy:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/scanpy:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/scanpy:latest
+    View base image update recommendations → docker scout recommendations getwilds/scanpy:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/scanpy:latest --org <organization>
 ```
 </details>

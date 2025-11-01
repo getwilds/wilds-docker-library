@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/delly:latest
 
-Report generated on 2025-10-04 01:29:02 PST
+Report generated on 2025-11-01 09:43:01 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 15 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 17 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,26 +24,30 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 12 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 13 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Refreshed base image:** `ubuntu:22.04`
+
+**Updated base image:** `ubuntu:24.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/delly:latest-amd64  │    0C     0H     2M    15L   
-    digest           │  e0c55ffcff49                         │                              
-  Base image         │  ubuntu:22.04                         │    0C     0H     2M    12L   
-  Updated base image │  ubuntu:25.10                         │    0C     0H     0M     0L   
-                     │                                       │                  -2    -12   
+Target               │  getwilds/delly:latest  │    0C     0H     4M    17L   
+    digest             │  ef8bc05c9915                   │                              
+  Base image           │  ubuntu:22.04                   │    0C     0H     4M    13L   
+  Refreshed base image │  ubuntu:22.04                   │    0C     0H     2M    12L   
+                       │                                 │                  -2     -1   
+  Updated base image   │  ubuntu:24.04                   │    0C     0H     2M     5L   
+                       │                                 │                  -2     -8   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/delly:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/delly:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/delly:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/delly:latest
+    View base image update recommendations → docker scout recommendations getwilds/delly:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/delly:latest --org <organization>
 ```
 </details>

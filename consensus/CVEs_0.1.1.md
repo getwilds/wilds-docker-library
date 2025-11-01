@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/consensus:0.1.1
 
-Report generated on 2025-10-04 00:23:47 PST
+Report generated on 2025-11-01 08:21:59 PST
 
 ## Platform Coverage
 
@@ -29,21 +29,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `debian:12-slim`
+**Updated base image:** `debian:stable-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/consensus:0.1.1-amd64  │    0C     3H     0M     0L   
-    digest           │  ed0a18918c0f                            │                              
-  Base image         │  debian:9                                │    0C     0H     0M     0L   
-  Updated base image │  debian:12-slim                          │    0C     0H     1M    24L   
-                     │                                          │                  +1    +24   
+Target             │  getwilds/consensus:0.1.1  │    0C     3H     0M     0L   
+    digest           │  f1de8d623928                      │                              
+  Base image         │  debian:9                          │    0C     0H     0M     0L   
+  Updated base image │  debian:stable-slim                │    0C     0H     1M    20L   
+                     │                                    │                  +1    +20   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/consensus:0.1.1-amd64
-    View base image update recommendations → docker scout recommendations getwilds/consensus:0.1.1-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/consensus:0.1.1-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/consensus:0.1.1
+    View base image update recommendations → docker scout recommendations getwilds/consensus:0.1.1
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/consensus:0.1.1 --org <organization>
 ```
 </details>

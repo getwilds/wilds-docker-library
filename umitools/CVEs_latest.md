@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/umitools:latest
 
-Report generated on 2025-10-07 22:27:48 PST
+Report generated on 2025-11-01 08:10:32 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 3 |
-| 🟡 Medium | 5 |
-| 🟢 Low | 158 |
+| 🟠 High | 7 |
+| 🟡 Medium | 4 |
+| 🟢 Low | 170 |
 | ⚪ Unknown | 4 |
 
 ## 🐳 Base Image
@@ -23,27 +23,31 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 3 |
+| 🟠 High | 7 |
 | 🟡 Medium | 4 |
-| 🟢 Low | 158 |
+| 🟢 Low | 170 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `python:3.13-bookworm`
+**Refreshed base image:** `python:3.12-bookworm`
+
+**Updated base image:** `python:3.14-bookworm`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/umitools:latest-amd64  │    0C     3H     5M   158L     4?   
-    digest           │  7ddec4b23980                            │                                     
-  Base image         │  python:3.12-bookworm                    │    0C     3H     4M   158L     4?   
-  Updated base image │  python:3.13-bookworm                    │    0C     3H     4M   158L     4?   
-                     │                                          │                                     
+Target               │  getwilds/umitools:latest  │    0C     7H     4M   170L     4?   
+    digest             │  06854ebcdc2e                      │                                     
+  Base image           │  python:3.12-bookworm              │    0C     7H     4M   170L     4?   
+  Refreshed base image │  python:3.12-bookworm              │    0C     1H     4M   165L     4?   
+                       │                                    │           -6            -5          
+  Updated base image   │  python:3.14-bookworm              │    0C     1H     4M   165L     4?   
+                       │                                    │           -6            -5          
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/umitools:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/umitools:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/umitools:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/umitools:latest
+    View base image update recommendations → docker scout recommendations getwilds/umitools:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/umitools:latest --org <organization>
 ```
 </details>

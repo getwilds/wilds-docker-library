@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sourmash:latest
 
-Report generated on 2025-10-07 18:18:43 PST
+Report generated on 2025-11-01 09:44:11 PST
 
 ## Platform Coverage
 
@@ -11,8 +11,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 18 |
+| 🟠 High | 2 |
+| 🟡 Medium | 19 |
 | 🟢 Low | 4 |
 | ⚪ Unknown | 0 |
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/sourmash:latest-amd64  │    0C     1H    18M     4L   
-    digest           │  f32de44c2625                            │                              
-  Base image         │  ubuntu:20.04                            │    0C     0H     5M     0L   
-  Updated base image │  ubuntu:25.10                            │    0C     0H     0M     0L   
-                     │                                          │                  -5          
+Target             │  getwilds/sourmash:latest  │    0C     2H    19M     4L   
+    digest           │  784069414473                      │                              
+  Base image         │  ubuntu:20.04                      │    0C     0H     5M     0L   
+  Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L   
+                     │                                    │                  -5          
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/sourmash:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/sourmash:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/sourmash:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/sourmash:latest
+    View base image update recommendations → docker scout recommendations getwilds/sourmash:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/sourmash:latest --org <organization>
 ```
 </details>

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/awscli:2.27.49
 
-Report generated on 2025-10-16 05:34:21 PST
+Report generated on 2025-11-01 09:41:03 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 3 |
-| 🟠 High | 7 |
-| 🟡 Medium | 21 |
-| 🟢 Low | 12 |
+| 🟠 High | 9 |
+| 🟡 Medium | 29 |
+| 🟢 Low | 13 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,17 +37,17 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/awscli:2.27.49-amd64  │    3C     7H    21M    12L   
-    digest             │  6f83fedc377a                           │                              
-  Base image           │  ubuntu:24.04                           │    0C     0H     5M     6L   
-  Refreshed base image │  ubuntu:24.04                           │    0C     0H     2M     5L   
-                       │                                         │                  -3     -1   
-  Updated base image   │  ubuntu:25.04                           │    0C     0H     2M     4L   
-                       │                                         │                  -3     -2   
+Target               │  getwilds/awscli:2.27.49  │    3C     9H    29M    13L   
+    digest             │  6758c65164d0                     │                              
+  Base image           │  ubuntu:24.04                     │    0C     0H     5M     6L   
+  Refreshed base image │  ubuntu:24.04                     │    0C     0H     2M     5L   
+                       │                                   │                  -3     -1   
+  Updated base image   │  ubuntu:25.04                     │    0C     0H     2M     4L   
+                       │                                   │                  -3     -2   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/awscli:2.27.49-amd64
-    View base image update recommendations → docker scout recommendations getwilds/awscli:2.27.49-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/awscli:2.27.49-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/awscli:2.27.49
+    View base image update recommendations → docker scout recommendations getwilds/awscli:2.27.49
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/awscli:2.27.49 --org <organization>
 ```
 </details>

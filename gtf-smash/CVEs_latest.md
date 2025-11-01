@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gtf-smash:latest
 
-Report generated on 2025-09-23 23:09:43 PST
+Report generated on 2025-11-01 08:33:37 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 1 |
+| 🟡 Medium | 2 |
 | 🟢 Low | 21 |
 | ⚪ Unknown | 0 |
 
@@ -24,10 +24,12 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 1 |
+| 🟡 Medium | 2 |
 | 🟢 Low | 20 |
 
 ## 🔄 Recommendations
+
+**Refreshed base image:** `python:3.12-slim`
 
 **Updated base image:** `python:3.13-slim`
 
@@ -35,11 +37,13 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/gtf-smash:latest  │    0C     0H     1M    21L   
-    digest           │  711c85b1ad54                       │                              
-  Base image         │  python:3.12-slim                   │    0C     0H     1M    20L   
-  Updated base image │  python:3.13-slim                   │    0C     0H     1M    20L   
-                     │                                     │                              
+Target               │  getwilds/gtf-smash:latest  │    0C     0H     2M    21L   
+    digest             │  91e5dc7f8138                       │                              
+  Base image           │  python:3.12-slim                   │    0C     0H     2M    20L   
+  Refreshed base image │  python:3.12-slim                   │    0C     0H     2M    20L   
+                       │                                     │                              
+  Updated base image   │  python:3.13-slim                   │    0C     0H     2M    20L   
+                       │                                     │                              
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/gtf-smash:latest

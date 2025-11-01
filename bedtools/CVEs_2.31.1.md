@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedtools:2.31.1
 
-Report generated on 2025-10-02 02:07:58 PST
+Report generated on 2025-11-01 09:42:39 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 1082 |
-| 🟢 Low | 36 |
+| 🟠 High | 14 |
+| 🟡 Medium | 1448 |
+| 🟢 Low | 42 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,26 +24,30 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 5 |
+| 🟡 Medium | 13 |
 | 🟢 Low | 6 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Refreshed base image:** `ubuntu:24.04`
+
+**Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bedtools:2.31.1-amd64  │    0C     2H   1082M    36L   
-    digest           │  2ece8c8a1aab                            │                               
-  Base image         │  ubuntu:24.04                            │    0C     0H     5M     6L    
-  Updated base image │  ubuntu:25.10                            │    0C     0H     0M     0L    
-                     │                                          │                  -5     -6    
+Target               │  getwilds/bedtools:2.31.1  │    0C    14H   1448M    42L   
+    digest             │  7ccc610a71d8                      │                               
+  Base image           │  ubuntu:24.04                      │    0C     0H    13M     6L    
+  Refreshed base image │  ubuntu:24.04                      │    0C     0H     2M     5L    
+                       │                                    │                 -11     -1    
+  Updated base image   │  ubuntu:25.04                      │    0C     0H     2M     4L    
+                       │                                    │                 -11     -2    
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/bedtools:2.31.1-amd64
-    View base image update recommendations → docker scout recommendations getwilds/bedtools:2.31.1-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedtools:2.31.1-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/bedtools:2.31.1
+    View base image update recommendations → docker scout recommendations getwilds/bedtools:2.31.1
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedtools:2.31.1 --org <organization>
 ```
 </details>

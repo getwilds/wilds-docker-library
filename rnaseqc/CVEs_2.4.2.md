@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/rnaseqc:2.4.2
 
-Report generated on 2025-10-06 21:19:38 PST
+Report generated on 2025-11-01 08:09:34 PST
 
 ## Platform Coverage
 
@@ -12,38 +12,31 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 6 |
-| 🟢 Low | 20 |
+| 🟡 Medium | 17 |
+| 🟢 Low | 0 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
-**Image:** `ubuntu:24.04`
+**Image:** `ubuntu:rolling`
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 5 |
-
-## 🔄 Recommendations
-
-**Updated base image:** `ubuntu:25.10`
+| 🟠 High | 1 |
+| 🟡 Medium | 9 |
+| 🟢 Low | 2 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/rnaseqc:2.4.2-amd64  │    0C     0H     6M    20L   
-    digest           │  fe0538c7dc90                          │                              
-  Base image         │  ubuntu:24.04                          │    0C     0H     3M     5L   
-  Updated base image │  ubuntu:25.10                          │    0C     0H     0M     0L   
-                     │                                        │                  -3     -5   
+Target     │  getwilds/rnaseqc:2.4.2  │    0C     0H    17M     0L   
+    digest   │  548c5ee86ef9                    │                              
+  Base image │  ubuntu:rolling                  │    0C     1H     9M     2L   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/rnaseqc:2.4.2-amd64
-    View base image update recommendations → docker scout recommendations getwilds/rnaseqc:2.4.2-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/rnaseqc:2.4.2-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/rnaseqc:2.4.2
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/rnaseqc:2.4.2 --org <organization>
 ```
 </details>

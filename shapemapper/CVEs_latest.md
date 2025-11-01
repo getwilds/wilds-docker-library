@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/shapemapper:latest
 
-Report generated on 2025-09-10 17:14:00 PST
+Report generated on 2025-11-01 08:54:10 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 17:14:00 PST
 |----------|-------|
 | 🔴 Critical | 1 |
 | 🟠 High | 17 |
-| 🟡 Medium | 46 |
-| 🟢 Low | 20 |
+| 🟡 Medium | 50 |
+| 🟢 Low | 21 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 17:14:00 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 20 |
-| 🟢 Low | 17 |
+| 🟡 Medium | 21 |
+| 🟢 Low | 18 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-10 17:14:00 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/shapemapper:latest  │    1C    17H    46M    20L     2?   
+Target               │  getwilds/shapemapper:latest  │    1C    17H    50M    21L     2?   
     digest             │  f0c93f75561d                         │                                     
-  Base image           │  ubuntu:22.04                         │    0C     0H    20M    17L          
-  Refreshed base image │  ubuntu:22.04                         │    0C     0H     3M    12L          
-                       │                                       │                 -17     -5          
-  Updated base image   │  ubuntu:24.04                         │    0C     0H     4M     5L          
-                       │                                       │                 -16    -12          
+  Base image           │  ubuntu:22.04                         │    0C     0H    21M    18L          
+  Refreshed base image │  ubuntu:22.04                         │    0C     0H     2M    12L          
+                       │                                       │                 -19     -6          
+  Updated base image   │  ubuntu:24.04                         │    0C     0H     2M     5L          
+                       │                                       │                 -19    -13          
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/shapemapper:latest

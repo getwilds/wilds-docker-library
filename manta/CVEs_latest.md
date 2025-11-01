@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/manta:latest
 
-Report generated on 2025-10-15 14:15:54 PST
+Report generated on 2025-11-01 09:18:56 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/manta:latest  │    0C     5H     2M     0L   
-    digest           │  b193b99656cc                   │                              
+    digest           │  7da792967bac                   │                              
   Base image         │  python:2-slim                  │    0C     5H     2M     0L   
   Updated base image │  python:3-slim                  │    0C     0H     2M    20L   
                      │                                 │           -5           +20   

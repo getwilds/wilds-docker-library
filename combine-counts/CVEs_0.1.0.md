@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/combine-counts:0.1.0
 
-Report generated on 2025-09-10 17:06:53 PST
+Report generated on 2025-11-01 09:26:10 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-10 17:06:53 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 4 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 12 |
+| 🟡 Medium | 12 |
+| 🟢 Low | 13 |
 | ⚪ Unknown | 1 |
 
 ## 🐳 Base Image
@@ -20,26 +24,26 @@ Report generated on 2025-09-10 17:06:53 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 4 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 12 |
+| 🟡 Medium | 12 |
+| 🟢 Low | 13 |
 
 ## 🔄 Recommendations
 
 **Refreshed base image:** `python:3.12-slim`
 
-**Updated base image:** `python:3.13-slim`
+**Updated base image:** `python:3.14-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/combine-counts:0.1.0  │    0C     4H    11M    12L     1?   
+Target               │  getwilds/combine-counts:0.1.0  │    0C     4H    12M    13L     1?   
     digest             │  c3e071a4da5b                           │                                     
-  Base image           │  python:3.12-slim                       │    0C     4H    11M    12L     1?   
-  Refreshed base image │  python:3.12-slim                       │    0C     0H     1M    20L          
-                       │                                         │           -4    -10     +8     -1   
-  Updated base image   │  python:3.13-slim                       │    0C     0H     1M    20L          
-                       │                                         │           -4    -10     +8     -1   
+  Base image           │  python:3.12-slim                       │    0C     4H    12M    13L     1?   
+  Refreshed base image │  python:3.12-slim                       │    0C     0H     2M    20L          
+                       │                                         │           -4    -10     +7     -1   
+  Updated base image   │  python:3.14-slim                       │    0C     0H     2M    20L          
+                       │                                         │           -4    -10     +7     -1   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/combine-counts:0.1.0

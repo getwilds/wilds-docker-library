@@ -1,6 +1,10 @@
 # Vulnerability Report for getwilds/fastqc:latest
 
-Report generated on 2025-09-17 21:18:13 PST
+Report generated on 2025-11-01 08:36:27 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
@@ -8,8 +12,8 @@ Report generated on 2025-09-17 21:18:13 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 12 |
-| 🟢 Low | 13 |
+| 🟡 Medium | 13 |
+| 🟢 Low | 14 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -21,9 +25,11 @@ Report generated on 2025-09-17 21:18:13 PST
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 5 |
-| 🟢 Low | 5 |
+| 🟢 Low | 6 |
 
 ## 🔄 Recommendations
+
+**Refreshed base image:** `ubuntu:24.04`
 
 **Updated base image:** `ubuntu:25.04`
 
@@ -31,11 +37,13 @@ Report generated on 2025-09-17 21:18:13 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/fastqc:latest  │    0C     0H    12M    13L   
-    digest           │  9c6ceb858fca                    │                              
-  Base image         │  ubuntu:24.04                    │    0C     0H     5M     5L   
-  Updated base image │  ubuntu:25.04                    │    0C     0H     5M     4L   
-                     │                                  │                         -1   
+Target               │  getwilds/fastqc:latest  │    0C     0H    13M    14L   
+    digest             │  003077da3ee1                    │                              
+  Base image           │  ubuntu:24.04                    │    0C     0H     5M     6L   
+  Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L   
+                       │                                  │                  -3     -1   
+  Updated base image   │  ubuntu:25.04                    │    0C     0H     2M     4L   
+                       │                                  │                  -3     -2   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/fastqc:latest

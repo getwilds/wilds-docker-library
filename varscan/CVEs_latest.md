@@ -1,15 +1,19 @@
 # Vulnerability Report for getwilds/varscan:latest
 
-Report generated on 2025-09-10 16:26:48 PST
+Report generated on 2025-11-01 09:59:31 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 1398 |
-| 🟢 Low | 79 |
+| 🟠 High | 8 |
+| 🟡 Medium | 1654 |
+| 🟢 Low | 88 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -20,8 +24,8 @@ Report generated on 2025-09-10 16:26:48 PST
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 10 |
-| 🟢 Low | 13 |
+| 🟡 Medium | 11 |
+| 🟢 Low | 14 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-10 16:26:48 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/varscan:latest  │    0C     2H   1398M    79L   
+Target               │  getwilds/varscan:latest  │    0C     8H   1654M    88L   
     digest             │  d81e80829d15                     │                               
-  Base image           │  ubuntu:22.04                     │    0C     0H    10M    13L    
-  Refreshed base image │  ubuntu:22.04                     │    0C     0H     3M    12L    
-                       │                                   │                  -7     -1    
-  Updated base image   │  ubuntu:24.04                     │    0C     0H     4M     5L    
-                       │                                   │                  -6     -8    
+  Base image           │  ubuntu:22.04                     │    0C     0H    11M    14L    
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L    
+                       │                                   │                  -9     -2    
+  Updated base image   │  ubuntu:24.04                     │    0C     0H     2M     5L    
+                       │                                   │                  -9     -9    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/varscan:latest

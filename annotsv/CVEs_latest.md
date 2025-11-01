@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annotsv:latest
 
-Report generated on 2025-10-04 18:57:06 PST
+Report generated on 2025-11-01 09:00:32 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 22 |
-| 🟠 High | 102 |
-| 🟡 Medium | 62 |
-| 🟢 Low | 21 |
+| 🟠 High | 103 |
+| 🟡 Medium | 83 |
+| 🟢 Low | 33 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,26 +24,30 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 12 |
+| 🟡 Medium | 11 |
+| 🟢 Low | 14 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Refreshed base image:** `ubuntu:22.04`
+
+**Updated base image:** `ubuntu:24.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/annotsv:latest-amd64  │   22C   102H    62M    21L   
-    digest           │  3c42460b2ab5                           │                              
-  Base image         │  ubuntu:22.04                           │    0C     0H     2M    12L   
-  Updated base image │  ubuntu:25.10                           │    0C     0H     0M     0L   
-                     │                                         │                  -2    -12   
+Target               │  getwilds/annotsv:latest  │   22C   103H    83M    33L   
+    digest             │  8c5f7fd63d55                     │                              
+  Base image           │  ubuntu:22.04                     │    0C     0H    11M    14L   
+  Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L   
+                       │                                   │                  -9     -2   
+  Updated base image   │  ubuntu:24.04                     │    0C     0H     2M     5L   
+                       │                                   │                  -9     -9   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/annotsv:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/annotsv:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/annotsv:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/annotsv:latest
+    View base image update recommendations → docker scout recommendations getwilds/annotsv:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/annotsv:latest --org <organization>
 ```
 </details>

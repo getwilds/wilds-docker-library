@@ -1,20 +1,53 @@
 # Vulnerability Report for getwilds/scvi-tools:latest
 
-Report generated on 2025-09-22 06:31:02 PST
+Report generated on 2025-11-01 09:32:02 PST
 
 ## Platform Coverage
 
 This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
-## ⚠️ Scan Skipped - Image Too Large
+## 📊 Vulnerability Summary
 
-Docker Scout scan was skipped for this image because it exceeds the size limit.
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 2 |
+| 🟠 High | 1 |
+| 🟡 Medium | 3 |
+| 🟢 Low | 23 |
+| ⚪ Unknown | 0 |
 
-**Image size:** 4.5 GB
-**Size limit:** 3.0 GB
+## 🐳 Base Image
 
-Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
+**Image:** `python:3.12-slim`
 
-```bash
-docker scout quickview getwilds/scvi-tools:latest --platform linux/amd64
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 0 |
+| 🟠 High | 1 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 22 |
+
+## 🔄 Recommendations
+
+**Refreshed base image:** `python:3.12-slim`
+
+**Updated base image:** `python:3.13-slim`
+
+<details>
+<summary>📋 Raw Docker Scout Output</summary>
+
+```text
+Target               │  getwilds/scvi-tools:latest  │    2C     1H     3M    23L   
+    digest             │  6a60922aa100                        │                              
+  Base image           │  python:3.12-slim                    │    0C     1H     2M    22L   
+  Refreshed base image │  python:3.12-slim                    │    0C     0H     2M    20L   
+                       │                                      │           -1            -2   
+  Updated base image   │  python:3.13-slim                    │    0C     0H     2M    20L   
+                       │                                      │           -1            -2   
+
+What's next:
+    View vulnerabilities → docker scout cves getwilds/scvi-tools:latest
+    View base image update recommendations → docker scout recommendations getwilds/scvi-tools:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/scvi-tools:latest --org <organization>
 ```
+</details>

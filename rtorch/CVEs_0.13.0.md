@@ -1,15 +1,19 @@
 # Vulnerability Report for getwilds/rtorch:0.13.0
 
-Report generated on 2025-09-15 18:05:41 PST
+Report generated on 2025-11-01 09:18:31 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
 ## 📊 Vulnerability Summary
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 74 |
-| 🟡 Medium | 3177 |
-| 🟢 Low | 160 |
+| 🟠 High | 90 |
+| 🟡 Medium | 3569 |
+| 🟢 Low | 177 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -21,7 +25,7 @@ Report generated on 2025-09-15 18:05:41 PST
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 43 |
-| 🟢 Low | 33 |
+| 🟢 Low | 34 |
 
 ## 🔄 Recommendations
 
@@ -33,13 +37,13 @@ Report generated on 2025-09-15 18:05:41 PST
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/rtorch:0.13.0  │    0C    74H   3177M   160L   
-    digest             │  860a3406a728                    │                               
-  Base image           │  ubuntu:22.04                    │    0C     0H    43M    33L    
-  Refreshed base image │  ubuntu:22.04                    │    0C     0H     4M    12L    
-                       │                                  │                 -39    -21    
-  Updated base image   │  ubuntu:24.04                    │    0C     0H     5M     5L    
-                       │                                  │                 -38    -28    
+Target               │  getwilds/rtorch:0.13.0  │    0C    90H   3569M   177L   
+    digest             │  ced4966e6273                    │                               
+  Base image           │  ubuntu:22.04                    │    0C     0H    43M    34L    
+  Refreshed base image │  ubuntu:22.04                    │    0C     0H     2M    12L    
+                       │                                  │                 -41    -22    
+  Updated base image   │  ubuntu:24.04                    │    0C     0H     2M     5L    
+                       │                                  │                 -41    -29    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/rtorch:0.13.0
