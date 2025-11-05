@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedops:latest
 
-Report generated on 2025-11-05 21:57:31 PST
+Report generated on 2025-11-05 23:14:58 PST
 
 ## Platform Coverage
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bedops:latest  │    0C     0H    10M     6L   
-    digest           │  ac6cd79dc046                    │                              
-  Base image         │  ubuntu:24.04                    │    0C     0H     2M     5L   
-  Updated base image │  ubuntu:25.04                    │    0C     0H     2M     4L   
-                     │                                  │                         -1   
+Target             │  getwilds/bedops:latest-amd64  │    0C     0H    10M     6L   
+    digest           │  4d6fac9ec057                          │                              
+  Base image         │  ubuntu:24.04                          │    0C     0H     2M     5L   
+  Updated base image │  ubuntu:25.04                          │    0C     0H     2M     4L   
+                     │                                        │                         -1   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/bedops:latest
-    View base image update recommendations → docker scout recommendations getwilds/bedops:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedops:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/bedops:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/bedops:latest-amd64
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedops:latest-amd64 --org <organization>
 ```
 </details>
