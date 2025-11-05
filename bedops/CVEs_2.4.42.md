@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedops:2.4.42
 
-Report generated on 2025-11-05 16:44:04 PST
+Report generated on 2025-11-05 21:53:07 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 5 |
+| 🟡 Medium | 10 |
+| 🟢 Low | 6 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bedops:2.4.42  │    0C     0H     3M     5L   
-    digest           │  ebf956a5a6e2                    │                              
+Target             │  getwilds/bedops:2.4.42  │    0C     0H    10M     6L   
+    digest           │  fe78ed3fe0ef                    │                              
   Base image         │  ubuntu:24.04                    │    0C     0H     2M     5L   
   Updated base image │  ubuntu:25.04                    │    0C     0H     2M     4L   
                      │                                  │                         -1   
