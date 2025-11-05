@@ -9,17 +9,13 @@ This directory contains Docker images for BEDOPS, a high-performance genomic int
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bedops/Dockerfile_latest) | Vulnerability Report )
 - `2.4.42` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bedops/Dockerfile_2.4.42) | Vulnerability Report )
 
-## Platform Availability
-
-**AMD64-only**: This image is only available for `linux/amd64` architecture. The BEDOPS pre-built binaries are compiled specifically for x86_64 systems and are not available for ARM64.
-
 ## Image Details
 
 These Docker images are built from Ubuntu 24.04 and include:
 
 - **BEDOPS v2.4.42**: Complete suite of 80+ tools for genomic interval operations
 
-BEDOPS is designed for fast operations on BED files and includes tools for file conversion, set operations, statistical analysis, and data manipulation.
+BEDOPS is built from source to ensure proper compilation for the container environment. The images are designed for fast operations on BED files and include tools for file conversion, set operations, statistical analysis, and data manipulation.
 
 ## About BEDOPS
 
