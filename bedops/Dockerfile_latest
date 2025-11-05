@@ -23,14 +23,19 @@ RUN apt-get update \
   wget="${WGET_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Download, build, and install BEDOPS from source
+# Download and extract BEDOPS source
 RUN wget -q --no-check-certificate https://github.com/bedops/bedops/archive/v2.4.42.tar.gz \
   && tar -xzf v2.4.42.tar.gz \
-  && cd bedops-2.4.42 \
-  && make -j "$(nproc)" \
-  && make install BINDIR=/usr/local/bin \
-  && cd / \
-  && rm -rf bedops-2.4.42 v2.4.42.tar.gz
+  && rm v2.4.42.tar.gz
+
+# Build and install BEDOPS
+WORKDIR /bedops-2.4.42
+RUN make -j "$(nproc)" \
+  && make install BINDIR=/usr/local/bin
+
+# Clean up build directory
+WORKDIR /
+RUN rm -rf /bedops-2.4.42
 
 # Remove build dependencies to reduce image size
 RUN apt-get purge -y build-essential \
