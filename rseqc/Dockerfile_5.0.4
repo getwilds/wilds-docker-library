@@ -1,0 +1,38 @@
+# Using Python base image
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="rseqc"
+LABEL org.opencontainers.image.description="Container image for RSeQC - RNA-seq Quality Control Package in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="5.0.4"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Ensure pipelines fail if any command fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies required for RSeQC and its Python dependencies
+RUN apt-get update \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  gcc="${GCC_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install RSeQC and its dependencies via pip, then verify installation
+RUN pip install --no-cache-dir \
+  RSeQC==5.0.4 \
+  pysam==0.22.1 \
+  bx-python==0.13.0 \
+  pyBigWig==0.3.23 \
+  && bam_stat.py --version
