@@ -14,16 +14,34 @@ LABEL org.opencontainers.image.licenses=MIT
 # Ensure pipelines fail if any command fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install wget for downloading BEDOPS
+# Install build dependencies
 RUN apt-get update \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
+  build-essential="${BUILD_ESSENTIAL_VERSION}" \
   wget="${WGET_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Install BEDOPS pre-built binaries and verify installation
-RUN wget -q --no-check-certificate https://github.com/bedops/bedops/releases/download/v2.4.42/bedops_linux_x86_64-v2.4.42.tar.bz2 \
-  && tar xf bedops_linux_x86_64-v2.4.42.tar.bz2 \
-  && cp bin/* /usr/local/bin/ \
-  && rm -rf bin bedops_linux_x86_64-v2.4.42.tar.bz2 \
-  && bedops --version
+# Download and extract BEDOPS source
+RUN wget -q --no-check-certificate https://github.com/bedops/bedops/archive/v2.4.42.tar.gz \
+  && tar -xzf v2.4.42.tar.gz \
+  && rm v2.4.42.tar.gz
+
+# Build and install BEDOPS
+WORKDIR /bedops-2.4.42
+RUN make -j "$(nproc)" \
+  && make install BINDIR=/usr/local/bin
+
+# Clean up build directory
+WORKDIR /
+RUN rm -rf /bedops-2.4.42
+
+# Remove build dependencies to reduce image size
+RUN apt-get purge -y build-essential \
+  && apt-get autoremove -y \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+# Verify installation
+RUN bedops --version
