@@ -1,3 +1,4 @@
+bedops
 bwa
 deseq2
 hisat2
