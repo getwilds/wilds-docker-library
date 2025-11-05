@@ -1,0 +1,29 @@
+# Using Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="bedops"
+LABEL org.opencontainers.image.description="Container image for BEDOPS - high-performance genomic interval operations toolkit in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Ensure pipelines fail if any command fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install wget for downloading BEDOPS
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install BEDOPS pre-built binaries and verify installation
+RUN wget -q --no-check-certificate https://github.com/bedops/bedops/releases/download/v2.4.42/bedops_linux_x86_64-v2.4.42.tar.bz2 \
+  && tar xf bedops_linux_x86_64-v2.4.42.tar.bz2 \
+  && cp bin/* /usr/local/bin/ \
+  && rm -rf bin bedops_linux_x86_64-v2.4.42.tar.bz2 \
+  && bedops --version
