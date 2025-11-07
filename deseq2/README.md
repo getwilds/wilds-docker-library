@@ -129,6 +129,8 @@ The analysis produces the following outputs:
 5. `*_volcano.pdf`: Volcano plot of differential expression results
 6. `*_heatmap.pdf`: Heatmap of top differentially expressed genes
 
+**Note on Low Coverage Data**: The analysis script automatically adapts to dataset size by using variance-stabilizing transformation (`vst()`) for datasets with 1000+ genes (faster) and regularized log transformation (`rlog()`) for smaller datasets (< 1000 genes, more robust). This ensures appropriate handling of both high and low coverage sequencing data.
+
 #### Test Data Generation Outputs
 
 The test data generation produces the following outputs:

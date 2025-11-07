@@ -124,7 +124,16 @@ write.csv(normalized_counts, file=paste0(opt$output_prefix, "_normalized_counts.
 
 # Create PCA plot
 cat("Creating PCA plot...\n")
-vsd <- vst(dds, blind=FALSE)
+# Use vst() for larger datasets (>1000 genes), rlog() for smaller datasets
+# vst() is faster but requires sufficient genes; rlog() is more robust for small datasets
+n_genes <- nrow(dds)
+if (n_genes >= 1000) {
+  cat("Using vst() transformation for", n_genes, "genes...\n")
+  vsd <- vst(dds, blind=FALSE)
+} else {
+  cat("Using rlog() transformation for", n_genes, "genes (< 1000)...\n")
+  vsd <- rlog(dds, blind=FALSE)
+}
 pcaData <- plotPCA(vsd, intgroup=opt$condition_column, returnData=TRUE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
 pca_plot <- ggplot(pcaData, aes(PC1, PC2, color=get(opt$condition_column), shape=get(opt$condition_column))) +
