@@ -1,0 +1,64 @@
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="salmon"
+LABEL org.opencontainers.image.description="Docker image for the use of Salmon in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing prerequisites for building Salmon
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && LIBBOOST_VERSION=$(apt-cache policy libboost-all-dev | grep Candidate | awk '{print $2}') \
+  && LIBTBB_VERSION=$(apt-cache policy libtbb-dev | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBZSTD_VERSION=$(apt-cache policy libzstd-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL4_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  curl="${CURL_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  git="${GIT_VERSION}" \
+  libboost-all-dev="${LIBBOOST_VERSION}" \
+  libtbb-dev="${LIBTBB_VERSION}" \
+  zlib1g-dev="${ZLIB1G_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libzstd-dev="${LIBZSTD_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL4_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Pulling and extracting Salmon source code
+RUN wget -q --no-check-certificate https://github.com/COMBINE-lab/salmon/archive/refs/tags/v1.10.3.tar.gz \
+  && tar -xzf v1.10.3.tar.gz
+
+# Building and installing Salmon
+RUN mkdir /salmon-1.10.3/build
+WORKDIR /salmon-1.10.3/build
+RUN cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. \
+  && make \
+  && make install
+
+# Return to root directory
+WORKDIR /
+
+# Cleanup and smoke test to verify salmon works on target architecture
+RUN rm -rf salmon-1.10.3 v1.10.3.tar.gz \
+  && salmon --version
