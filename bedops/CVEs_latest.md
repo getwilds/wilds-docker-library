@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedops:latest
 
-Report generated on 2025-11-05 23:14:58 PST
+Report generated on 2025-12-01 09:08:43 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 10 |
-| 🟢 Low | 6 |
+| 🟡 Medium | 6 |
+| 🟢 Low | 7 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -29,21 +29,25 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
+**Refreshed base image:** `ubuntu:24.04`
+
 **Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bedops:latest-amd64  │    0C     0H    10M     6L   
-    digest           │  4d6fac9ec057                          │                              
-  Base image         │  ubuntu:24.04                          │    0C     0H     2M     5L   
-  Updated base image │  ubuntu:25.04                          │    0C     0H     2M     4L   
-                     │                                        │                         -1   
+Target               │  getwilds/bedops:latest  │    0C     0H     6M     7L   
+    digest             │  23a2102ca800                    │                              
+  Base image           │  ubuntu:24.04                    │    0C     0H     2M     5L   
+  Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L   
+                       │                                  │                              
+  Updated base image   │  ubuntu:25.04                    │    0C     0H     2M     4L   
+                       │                                  │                         -1   
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/bedops:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/bedops:latest-amd64
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedops:latest-amd64 --org <organization>
+    View vulnerabilities → docker scout cves getwilds/bedops:latest
+    View base image update recommendations → docker scout recommendations getwilds/bedops:latest
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedops:latest --org <organization>
 ```
 </details>

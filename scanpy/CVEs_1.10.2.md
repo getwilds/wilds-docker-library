@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scanpy:1.10.2
 
-Report generated on 2025-11-01 08:50:34 PST
+Report generated on 2025-12-01 08:47:07 PST
 
 ## Platform Coverage
 

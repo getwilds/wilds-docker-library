@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/umitools:latest
 
-Report generated on 2025-11-01 08:10:32 PST
+Report generated on 2025-12-01 08:12:21 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 4 |
-| 🟢 Low | 170 |
+| 🟠 High | 8 |
+| 🟡 Medium | 6 |
+| 🟢 Low | 171 |
 | ⚪ Unknown | 4 |
 
 ## 🐳 Base Image
@@ -23,9 +23,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 4 |
-| 🟢 Low | 170 |
+| 🟠 High | 8 |
+| 🟡 Medium | 6 |
+| 🟢 Low | 171 |
 
 ## 🔄 Recommendations
 
@@ -37,12 +37,12 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/umitools:latest  │    0C     7H     4M   170L     4?   
+Target               │  getwilds/umitools:latest  │    0C     8H     6M   171L     4?   
     digest             │  06854ebcdc2e                      │                                     
-  Base image           │  python:3.12-bookworm              │    0C     7H     4M   170L     4?   
-  Refreshed base image │  python:3.12-bookworm              │    0C     1H     4M   165L     4?   
+  Base image           │  python:3.12-bookworm              │    0C     8H     6M   171L     4?   
+  Refreshed base image │  python:3.12-bookworm              │    0C     2H     6M   166L     4?   
                        │                                    │           -6            -5          
-  Updated base image   │  python:3.14-bookworm              │    0C     1H     4M   165L     4?   
+  Updated base image   │  python:3.14-bookworm              │    0C     2H     6M   166L     4?   
                        │                                    │           -6            -5          
 
 What's next:

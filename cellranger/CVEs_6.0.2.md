@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cellranger:6.0.2
 
-Report generated on 2025-11-01 09:47:19 PST
+Report generated on 2025-12-01 09:34:24 PST
 
 ## Platform Coverage
 
@@ -10,10 +10,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 8 |
-| 🟠 High | 87 |
-| 🟡 Medium | 3580 |
-| 🟢 Low | 89 |
+| 🔴 Critical | 9 |
+| 🟠 High | 95 |
+| 🟡 Medium | 3598 |
+| 🟢 Low | 96 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
@@ -31,18 +31,18 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 **Refreshed base image:** `ubuntu:24.04`
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/cellranger:6.0.2  │    8C    87H   3580M    89L     2?   
+Target               │  getwilds/cellranger:6.0.2  │    9C    95H   3598M    96L     2?   
     digest             │  0dec48219479                       │                                      
   Base image           │  ubuntu:24.04                       │    0C     0H    34M    17L           
   Refreshed base image │  ubuntu:24.04                       │    0C     0H     2M     5L           
                        │                                     │                 -32    -12           
-  Updated base image   │  ubuntu:25.10                       │    0C     0H     0M     0L           
+  Updated base image   │  ubuntu:26.04                       │    0C     0H     0M     0L           
                        │                                     │                 -34    -17           
 
 What's next:

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/combine-counts:latest
 
-Report generated on 2025-11-01 09:25:44 PST
+Report generated on 2025-12-01 09:15:17 PST
 
 ## Platform Coverage
 

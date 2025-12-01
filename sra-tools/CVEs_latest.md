@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/sra-tools:latest
 
-Report generated on 2025-11-01 08:56:43 PST
+Report generated on 2025-12-01 08:52:51 PST
 
 ## Platform Coverage
 
@@ -29,7 +29,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
@@ -38,7 +38,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 Target             │  getwilds/sra-tools:latest  │    0C     2H    18M     5L   
     digest           │  23751f1a94fa                       │                              
   Base image         │  ubuntu:20.04                       │    0C     0H     5M     0L   
-  Updated base image │  ubuntu:25.10                       │    0C     0H     0M     0L   
+  Updated base image │  ubuntu:26.04                       │    0C     0H     0M     0L   
                      │                                     │                  -5          
 
 What's next:

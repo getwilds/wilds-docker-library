@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/varscan:latest
 
-Report generated on 2025-11-01 09:59:31 PST
+Report generated on 2025-12-01 09:45:37 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 8 |
-| 🟡 Medium | 1654 |
-| 🟢 Low | 88 |
+| 🟠 High | 10 |
+| 🟡 Medium | 1696 |
+| 🟢 Low | 91 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/varscan:latest  │    0C     8H   1654M    88L   
+Target               │  getwilds/varscan:latest  │    0C    10H   1696M    91L   
     digest             │  d81e80829d15                     │                               
   Base image           │  ubuntu:22.04                     │    0C     0H    11M    14L    
   Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L    

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annotsv:3.4.4
 
-Report generated on 2025-11-01 09:04:22 PST
+Report generated on 2025-12-01 08:59:33 PST
 
 ## Platform Coverage
 
@@ -29,17 +29,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
+**Refreshed base image:** `ubuntu:22.04`
+
 **Updated base image:** `ubuntu:24.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/annotsv:3.4.4  │   22C   103H    63M    23L   
-    digest           │  af7c6ae4010b                    │                              
-  Base image         │  ubuntu:22.04                    │    0C     0H     2M    12L   
-  Updated base image │  ubuntu:24.04                    │    0C     0H     2M     5L   
-                     │                                  │                         -7   
+Target               │  getwilds/annotsv:3.4.4  │   22C   103H    63M    23L   
+    digest             │  af7c6ae4010b                    │                              
+  Base image           │  ubuntu:22.04                    │    0C     0H     2M    12L   
+  Refreshed base image │  ubuntu:22.04                    │    0C     0H     2M    12L   
+                       │                                  │                              
+  Updated base image   │  ubuntu:24.04                    │    0C     0H     2M     5L   
+                       │                                  │                         -7   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/annotsv:3.4.4

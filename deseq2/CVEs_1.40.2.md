@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/deseq2:1.40.2
 
-Report generated on 2025-11-07 23:36:09 PST
+Report generated on 2025-12-01 09:40:57 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 4 |
-| 🟠 High | 139 |
-| 🟡 Medium | 4056 |
-| 🟢 Low | 276 |
+| 🟠 High | 142 |
+| 🟡 Medium | 4119 |
+| 🟢 Low | 279 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -23,17 +23,17 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 4 |
-| 🟠 High | 133 |
-| 🟡 Medium | 4027 |
-| 🟢 Low | 239 |
+| 🟠 High | 136 |
+| 🟡 Medium | 4090 |
+| 🟢 Low | 242 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/deseq2:1.40.2         │    4C   139H   4056M   276L   
-    digest   │  6d28b924caf6                           │                               
-  Base image │  bioconductor/bioconductor_docker:3.17  │    4C   133H   4027M   239L   
+Target     │  getwilds/deseq2:1.40.2         │    4C   142H   4119M   279L   
+    digest   │  75e651f5da30                           │                               
+  Base image │  bioconductor/bioconductor_docker:3.17  │    4C   136H   4090M   242L   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/deseq2:1.40.2

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/fastqc:0.12.1
 
-Report generated on 2025-11-01 08:37:01 PST
+Report generated on 2025-12-01 08:34:45 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 13 |
+| 🟡 Medium | 16 |
 | 🟢 Low | 14 |
 | ⚪ Unknown | 0 |
 
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/fastqc:0.12.1  │    0C     0H    13M    14L   
+Target               │  getwilds/fastqc:0.12.1  │    0C     0H    16M    14L   
     digest             │  bed0f17633b7                    │                              
   Base image           │  ubuntu:24.04                    │    0C     0H     5M     6L   
   Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L   

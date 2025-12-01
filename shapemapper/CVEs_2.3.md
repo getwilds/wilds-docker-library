@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/shapemapper:2.3
 
-Report generated on 2025-11-01 08:52:20 PST
+Report generated on 2025-12-01 08:48:43 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 1 |
 | 🟠 High | 17 |
-| 🟡 Medium | 50 |
+| 🟡 Medium | 53 |
 | 🟢 Low | 21 |
 | ⚪ Unknown | 2 |
 
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/shapemapper:2.3  │    1C    17H    50M    21L     2?   
+Target               │  getwilds/shapemapper:2.3  │    1C    17H    53M    21L     2?   
     digest             │  d79b96365a32                      │                                     
   Base image           │  ubuntu:22.04                      │    0C     0H    21M    18L          
   Refreshed base image │  ubuntu:22.04                      │    0C     0H     2M    12L          

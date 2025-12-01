@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedtools:2.31.1
 
-Report generated on 2025-11-01 09:42:39 PST
+Report generated on 2025-12-01 09:30:24 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 14 |
-| 🟡 Medium | 1448 |
-| 🟢 Low | 42 |
+| 🟠 High | 18 |
+| 🟡 Medium | 1478 |
+| 🟢 Low | 43 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/bedtools:2.31.1  │    0C    14H   1448M    42L   
+Target               │  getwilds/bedtools:2.31.1  │    0C    18H   1478M    43L   
     digest             │  7ccc610a71d8                      │                               
   Base image           │  ubuntu:24.04                      │    0C     0H    13M     6L    
   Refreshed base image │  ubuntu:24.04                      │    0C     0H     2M     5L    

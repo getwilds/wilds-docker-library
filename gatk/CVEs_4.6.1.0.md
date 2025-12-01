@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gatk:4.6.1.0
 
-Report generated on 2025-11-01 08:18:44 PST
+Report generated on 2025-12-01 08:19:29 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 1 |
-| 🟠 High | 22 |
-| 🟡 Medium | 1333 |
-| 🟢 Low | 59 |
+| 🟠 High | 26 |
+| 🟡 Medium | 1368 |
+| 🟢 Low | 60 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/gatk:4.6.1.0  │    1C    22H   1333M    59L   
+Target               │  getwilds/gatk:4.6.1.0  │    1C    26H   1368M    60L   
     digest             │  08efdb45ecc3                   │                               
   Base image           │  ubuntu:24.04                   │    0C     0H     6M     6L    
   Refreshed base image │  ubuntu:24.04                   │    0C     0H     2M     5L    

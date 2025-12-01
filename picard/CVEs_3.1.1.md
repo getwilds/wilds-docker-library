@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/picard:3.1.1
 
-Report generated on 2025-11-01 09:39:52 PST
+Report generated on 2025-12-01 09:28:03 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 3 |
-| 🟡 Medium | 54 |
+| 🟡 Medium | 57 |
 | 🟢 Low | 25 |
 | ⚪ Unknown | 0 |
 
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/picard:3.1.1  │    0C     3H    54M    25L   
+Target               │  getwilds/picard:3.1.1  │    0C     3H    57M    25L   
     digest             │  ece227274221                   │                              
   Base image           │  ubuntu:24.04                   │    0C     0H    14M     6L   
   Refreshed base image │  ubuntu:24.04                   │    0C     0H     2M     5L   

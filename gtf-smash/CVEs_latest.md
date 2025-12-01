@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gtf-smash:latest
 
-Report generated on 2025-11-01 08:33:37 PST
+Report generated on 2025-12-01 08:31:56 PST
 
 ## Platform Coverage
 
@@ -13,7 +13,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 2 |
-| 🟢 Low | 21 |
+| 🟢 Low | 17 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,25 +25,25 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 2 |
-| 🟢 Low | 20 |
+| 🟢 Low | 16 |
 
 ## 🔄 Recommendations
 
 **Refreshed base image:** `python:3.12-slim`
 
-**Updated base image:** `python:3.13-slim`
+**Updated base image:** `python:3.14-slim`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/gtf-smash:latest  │    0C     0H     2M    21L   
+Target               │  getwilds/gtf-smash:latest  │    0C     0H     2M    17L   
     digest             │  91e5dc7f8138                       │                              
-  Base image           │  python:3.12-slim                   │    0C     0H     2M    20L   
+  Base image           │  python:3.12-slim                   │    0C     0H     2M    16L   
   Refreshed base image │  python:3.12-slim                   │    0C     0H     2M    20L   
-                       │                                     │                              
-  Updated base image   │  python:3.13-slim                   │    0C     0H     2M    20L   
-                       │                                     │                              
+                       │                                     │                         +4   
+  Updated base image   │  python:3.14-slim                   │    0C     0H     2M    20L   
+                       │                                     │                         +4   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/gtf-smash:latest

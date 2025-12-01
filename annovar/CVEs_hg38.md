@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annovar:hg38
 
-Report generated on 2025-11-01 09:21:21 PST
+Report generated on 2025-12-01 09:11:22 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 38 |
-| 🟡 Medium | 2124 |
-| 🟢 Low | 57 |
+| 🟠 High | 45 |
+| 🟡 Medium | 2149 |
+| 🟢 Low | 60 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/annovar:hg38  │    0C    38H   2124M    57L   
+Target               │  getwilds/annovar:hg38  │    0C    45H   2149M    60L   
     digest             │  847059de8031                   │                               
   Base image           │  ubuntu:24.04                   │    0C     0H    20M     8L    
   Refreshed base image │  ubuntu:24.04                   │    0C     0H     2M     5L    

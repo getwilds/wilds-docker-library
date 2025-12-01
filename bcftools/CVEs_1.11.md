@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bcftools:1.11
 
-Report generated on 2025-11-01 08:13:33 PST
+Report generated on 2025-12-01 08:14:59 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 3 |
-| 🟡 Medium | 1105 |
-| 🟢 Low | 36 |
+| 🟠 High | 7 |
+| 🟡 Medium | 1135 |
+| 🟢 Low | 37 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -29,17 +29,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
+**Refreshed base image:** `ubuntu:24.04`
+
 **Updated base image:** `ubuntu:25.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bcftools:1.11  │    0C     3H   1105M    36L   
-    digest           │  dd64372e782a                    │                               
-  Base image         │  ubuntu:24.04                    │    0C     0H     2M     5L    
-  Updated base image │  ubuntu:25.04                    │    0C     0H     2M     4L    
-                     │                                  │                         -1    
+Target               │  getwilds/bcftools:1.11  │    0C     7H   1135M    37L   
+    digest             │  dd64372e782a                    │                               
+  Base image           │  ubuntu:24.04                    │    0C     0H     2M     5L    
+  Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L    
+                       │                                  │                               
+  Updated base image   │  ubuntu:25.04                    │    0C     0H     2M     4L    
+                       │                                  │                         -1    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/bcftools:1.11

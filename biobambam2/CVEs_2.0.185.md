@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/biobambam2:2.0.185
 
-Report generated on 2025-11-01 08:54:33 PST
+Report generated on 2025-12-01 08:50:37 PST
 
 ## Platform Coverage
 

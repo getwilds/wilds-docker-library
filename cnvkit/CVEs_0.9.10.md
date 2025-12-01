@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cnvkit:0.9.10
 
-Report generated on 2025-11-01 08:49:09 PST
+Report generated on 2025-12-01 08:45:32 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 87 |
+| 🟠 High | 7 |
+| 🟡 Medium | 5 |
+| 🟢 Low | 79 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,7 +25,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 3 |
 | 🟡 Medium | 3 |
-| 🟢 Low | 22 |
+| 🟢 Low | 18 |
 
 ## 🔄 Recommendations
 
@@ -37,13 +37,13 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/cnvkit:0.9.10  │    0C     5H     3M    87L   
+Target               │  getwilds/cnvkit:0.9.10  │    0C     7H     5M    79L   
     digest             │  fd76854bd483                    │                              
-  Base image           │  python:3.10-slim                │    0C     3H     3M    22L   
+  Base image           │  python:3.10-slim                │    0C     3H     3M    18L   
   Refreshed base image │  python:3.10-slim                │    0C     0H     3M    20L   
-                       │                                  │           -3            -2   
+                       │                                  │           -3            +2   
   Updated base image   │  python:3.14-slim                │    0C     0H     2M    20L   
-                       │                                  │           -3     -1     -2   
+                       │                                  │           -3     -1     +2   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/cnvkit:0.9.10

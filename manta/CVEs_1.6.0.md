@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/manta:1.6.0
 
-Report generated on 2025-11-01 09:19:21 PST
+Report generated on 2025-12-01 09:08:17 PST
 
 ## Platform Coverage
 

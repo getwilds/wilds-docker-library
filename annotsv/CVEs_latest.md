@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annotsv:latest
 
-Report generated on 2025-11-01 09:00:32 PST
+Report generated on 2025-12-01 08:56:15 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 22 |
 | 🟠 High | 103 |
-| 🟡 Medium | 83 |
-| 🟢 Low | 33 |
+| 🟡 Medium | 89 |
+| 🟢 Low | 34 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/annotsv:latest  │   22C   103H    83M    33L   
+Target               │  getwilds/annotsv:latest  │   22C   103H    89M    34L   
     digest             │  8c5f7fd63d55                     │                              
   Base image           │  ubuntu:22.04                     │    0C     0H    11M    14L   
   Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L   

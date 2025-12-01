@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scvi-tools:1.1.6
 
-Report generated on 2025-11-01 09:38:00 PST
+Report generated on 2025-12-01 09:26:28 PST
 
 ## Platform Coverage
 
@@ -13,7 +13,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 2 |
 | 🟠 High | 1 |
 | 🟡 Medium | 3 |
-| 🟢 Low | 23 |
+| 🟢 Low | 19 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,7 +25,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 1 |
 | 🟡 Medium | 2 |
-| 🟢 Low | 22 |
+| 🟢 Low | 18 |
 
 ## 🔄 Recommendations
 
@@ -37,13 +37,13 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/scvi-tools:1.1.6  │    2C     1H     3M    23L   
+Target               │  getwilds/scvi-tools:1.1.6  │    2C     1H     3M    19L   
     digest             │  855e053a5265                       │                              
-  Base image           │  python:3.12-slim                   │    0C     1H     2M    22L   
+  Base image           │  python:3.12-slim                   │    0C     1H     2M    18L   
   Refreshed base image │  python:3.12-slim                   │    0C     0H     2M    20L   
-                       │                                     │           -1            -2   
+                       │                                     │           -1            +2   
   Updated base image   │  python:3.13-slim                   │    0C     0H     2M    20L   
-                       │                                     │           -1            -2   
+                       │                                     │           -1            +2   
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/scvi-tools:1.1.6

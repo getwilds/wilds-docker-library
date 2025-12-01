@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/awscli:2.27.49
 
-Report generated on 2025-11-01 09:41:03 PST
+Report generated on 2025-12-01 09:29:03 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 3 |
-| 🟠 High | 9 |
-| 🟡 Medium | 29 |
-| 🟢 Low | 13 |
+| 🟠 High | 12 |
+| 🟡 Medium | 30 |
+| 🟢 Low | 12 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/awscli:2.27.49  │    3C     9H    29M    13L   
+Target               │  getwilds/awscli:2.27.49  │    3C    12H    30M    12L   
     digest             │  6758c65164d0                     │                              
   Base image           │  ubuntu:24.04                     │    0C     0H     5M     6L   
   Refreshed base image │  ubuntu:24.04                     │    0C     0H     2M     5L   

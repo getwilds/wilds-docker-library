@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scanpy:latest
 
-Report generated on 2025-11-01 08:49:52 PST
+Report generated on 2025-12-01 08:46:30 PST
 
 ## Platform Coverage
 

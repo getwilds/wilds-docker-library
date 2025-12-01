@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/delly:latest
 
-Report generated on 2025-11-01 09:43:01 PST
+Report generated on 2025-12-01 09:30:42 PST
 
 ## Platform Coverage
 

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ichorcna:latest
 
-Report generated on 2025-11-01 08:12:14 PST
+Report generated on 2025-12-01 08:13:52 PST
 
 ## Platform Coverage
 
@@ -29,7 +29,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:25.10`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
@@ -38,7 +38,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 Target             │  getwilds/ichorcna:latest  │    0C     0H     2M     0L   
     digest           │  8427aaaa5137                      │                              
   Base image         │  ubuntu:20.04                      │    0C     0H     1M     0L   
-  Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L   
+  Updated base image │  ubuntu:26.04                      │    0C     0H     0M     0L   
                      │                                    │                  -1          
 
 What's next:

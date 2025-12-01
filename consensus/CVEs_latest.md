@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/consensus:latest
 
-Report generated on 2025-11-01 08:21:02 PST
+Report generated on 2025-12-01 08:21:28 PST
 
 ## Platform Coverage
 

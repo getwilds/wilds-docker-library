@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:2.7.4a
 
-Report generated on 2025-11-01 08:06:57 PST
+Report generated on 2025-12-01 08:09:18 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 44 |
-| 🟡 Medium | 1484 |
-| 🟢 Low | 30 |
+| 🟠 High | 48 |
+| 🟡 Medium | 1475 |
+| 🟢 Low | 35 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -31,7 +31,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/star:2.7.4a  │    0C    44H   1484M    30L   
+Target     │  getwilds/star:2.7.4a  │    0C    48H   1475M    35L   
     digest   │  0be6a7ef6ba0                  │                               
   Base image │  ubuntu:rolling                │    0C     1H     9M     2L    
 

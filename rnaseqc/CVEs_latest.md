@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/rnaseqc:latest
 
-Report generated on 2025-11-01 08:08:50 PST
+Report generated on 2025-12-01 08:10:52 PST
 
 ## Platform Coverage
 

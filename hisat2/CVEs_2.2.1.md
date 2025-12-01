@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:2.2.1
 
-Report generated on 2025-11-01 08:19:21 PST
+Report generated on 2025-12-01 08:19:59 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 3 |
-| 🟡 Medium | 1105 |
-| 🟢 Low | 36 |
+| 🟠 High | 7 |
+| 🟡 Medium | 1137 |
+| 🟢 Low | 37 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/hisat2:2.2.1  │    0C     3H   1105M    36L   
+Target               │  getwilds/hisat2:2.2.1  │    0C     7H   1137M    37L   
     digest             │  8f904869238e                   │                               
   Base image           │  ubuntu:24.04                   │    0C     0H     3M     5L    
   Refreshed base image │  ubuntu:24.04                   │    0C     0H     2M     5L    

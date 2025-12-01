@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bwa:latest
 
-Report generated on 2025-11-01 08:37:35 PST
+Report generated on 2025-12-01 08:35:12 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 17 |
-| 🟡 Medium | 1578 |
-| 🟢 Low | 44 |
+| 🟠 High | 22 |
+| 🟡 Medium | 1608 |
+| 🟢 Low | 45 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -37,7 +37,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/bwa:latest  │    0C    17H   1578M    44L   
+Target               │  getwilds/bwa:latest  │    0C    22H   1608M    45L   
     digest             │  c0e6812079e0                 │                               
   Base image           │  ubuntu:24.04                 │    0C     0H    14M     6L    
   Refreshed base image │  ubuntu:24.04                 │    0C     0H     2M     5L    
