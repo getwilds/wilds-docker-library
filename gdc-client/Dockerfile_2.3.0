@@ -1,0 +1,37 @@
+# Using Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="gdc-client"
+LABEL org.opencontainers.image.description="Docker image for TCGA GDC Data Transfer Tool in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="2.3.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set environment for non-interactive installs
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+     python3="${PYTHON3_VERSION}" \
+     python3-pip="${PIP_VERSION}" \
+     git="${GIT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install gdc-client from GitHub and run smoke test
+RUN pip3 install --no-cache-dir --break-system-packages \
+  git+https://github.com/NCI-GDC/gdc-client.git@2.3 \
+  && gdc-client --version
+
+# Set working directory
+WORKDIR /data
