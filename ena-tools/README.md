@@ -14,6 +14,7 @@ These Docker images are built from Python 3.12-slim and include:
 - **enaDataGet**: Downloads data for individual sequence, assembly, read, or analysis accessions, or WGS sets
 - **enaGroupGet**: Retrieves all data of a specific group (sequence, WGS, assembly, read, or analysis) for study/sample accessions or NCBI tax IDs
 - Python 3.12 runtime
+- Python requests library (v2.32.5) for HTTP operations
 - CA certificates for HTTPS connections
 
 The images are designed to be minimal and focused on the ENA Browser Tools with their essential dependencies.
@@ -143,11 +144,12 @@ The Dockerfile follows these main steps:
 
 1. Uses Python 3.12-slim as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs wget and CA certificates with pinned versions
-4. Downloads ENA Browser Tools v1.7.2 from GitHub
-5. Copies the Python scripts to `/usr/local/bin` and makes them executable
-6. Performs cleanup to minimize image size
-7. Verifies both tools are functional via help commands
+3. Installs Python dependencies (requests library with pinned version)
+4. Installs wget and CA certificates with pinned versions
+5. Downloads ENA Browser Tools v1.7.2 from GitHub
+6. Copies all Python scripts and modules to `/usr/local/bin` and makes the main scripts executable
+7. Performs cleanup to minimize image size
+8. Verifies both tools are functional via help commands
 
 ## Security Scanning and CVEs
 
