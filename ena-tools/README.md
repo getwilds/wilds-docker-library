@@ -83,18 +83,18 @@ echo "ERR000002" >> accessions.txt
 # Download FASTQ files for all accessions
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
   ena-downloader \
-  --accessions /data/accessions.txt \
-  --format READS_FASTQ \
-  --location /data \
-  --protocol FTP
+  --accessions=/data/accessions.txt \
+  --format=READS_FASTQ \
+  --location=/data \
+  --protocol=FTP
 
 # Using Apptainer
 apptainer run --bind $(pwd):/data docker://getwilds/ena-tools:latest \
   ena-downloader \
-  --accessions /data/accessions.txt \
-  --format READS_FASTQ \
-  --location /data \
-  --protocol FTP
+  --accessions=/data/accessions.txt \
+  --format=READS_FASTQ \
+  --location=/data \
+  --protocol=FTP
 ```
 
 #### Download with Search Query
@@ -103,10 +103,10 @@ apptainer run --bind $(pwd):/data docker://getwilds/ena-tools:latest \
 # Download using a query
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
   ena-downloader \
-  --query "study_accession=PRJNA123456" \
-  --format READS_FASTQ \
-  --location /data \
-  --protocol FTP
+  --query="study_accession=PRJNA123456" \
+  --format=READS_FASTQ \
+  --location=/data \
+  --protocol=FTP
 ```
 
 #### Download BAM Files
@@ -115,10 +115,10 @@ docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
 # Download BAM format
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
   ena-downloader \
-  --accessions /data/accessions.txt \
-  --format READS_BAM \
-  --location /data \
-  --protocol FTP
+  --accessions=/data/accessions.txt \
+  --format=READS_BAM \
+  --location=/data \
+  --protocol=FTP
 ```
 
 #### Using Aspera for Faster Downloads
@@ -127,11 +127,11 @@ docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
 # Download using Aspera protocol (requires Aspera configuration)
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
   ena-downloader \
-  --accessions /data/accessions.txt \
-  --format READS_FASTQ \
-  --location /data \
-  --protocol ASPERA \
-  --aspera-location /path/to/aspera
+  --accessions=/data/accessions.txt \
+  --format=READS_FASTQ \
+  --location=/data \
+  --protocol=ASPERA \
+  --asperaLocation=/path/to/aspera
 ```
 
 #### View Help
@@ -163,13 +163,13 @@ If you need to download restricted data, you can provide data hub credentials:
 ```bash
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
   ena-downloader \
-  --accessions /data/accessions.txt \
-  --format READS_FASTQ \
-  --location /data \
-  --protocol FTP \
-  --username your_username \
-  --password your_password \
-  --hub-name your_hub_name
+  --accessions=/data/accessions.txt \
+  --format=READS_FASTQ \
+  --location=/data \
+  --protocol=FTP \
+  --username=your_username \
+  --password=your_password \
+  --hubName=your_hub_name
 ```
 
 ### Resilient Downloads
