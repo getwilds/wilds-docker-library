@@ -182,11 +182,11 @@ The Dockerfile follows these main steps:
 
 1. Uses Eclipse Temurin JRE 21 Alpine as the base image for minimal size
 2. Adds metadata labels for documentation and attribution
-3. Installs wget and unzip with pinned versions
+3. Installs wget, unzip, and bash with pinned versions
 4. Downloads the ENA FTP Downloader ZIP from the official ENA FTP site
 5. Extracts and installs the JAR file to `/usr/local/bin`
 6. Creates a convenient wrapper script (`ena-downloader`) for easier execution
-7. Performs cleanup to minimize image size
+7. Performs cleanup to minimize image size (removes wget and unzip, keeps bash for WDL compatibility)
 8. Verifies the tool is functional via help command
 
 ## Security Scanning and CVEs
