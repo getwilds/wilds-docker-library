@@ -1,33 +1,33 @@
-# ENA Browser Tools
+# ENA FTP Downloader
 
-This directory contains Docker images for ENA Browser Tools, a set of command-line utilities for downloading sequence data from the European Nucleotide Archive (ENA).
+This directory contains Docker images for ENA FTP Downloader, a Java-based tool for bulk downloading sequencing data from the European Nucleotide Archive (ENA) via FTP or Aspera.
 
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_latest.md) )
-- `1.7.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_1.7.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_1.7.2.md) )
+- `2.1.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_2.1.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_2.1.1.md) )
 
 ## Image Details
 
-These Docker images are built from Python 3.12-slim and include:
+These Docker images are built from Eclipse Temurin JRE 21 (Alpine) and include:
 
-- **enaDataGet**: Downloads data for individual sequence, assembly, read, or analysis accessions, or WGS sets
-- **enaGroupGet**: Retrieves all data of a specific group (sequence, WGS, assembly, read, or analysis) for study/sample accessions or NCBI tax IDs
-- Python 3.12 runtime
-- Python requests library (v2.32.5) for HTTP operations
-- CA certificates for HTTPS connections
+- **ENA FTP Downloader**: Bulk download tool for ENA sequencing data
+- Support for multiple data formats: READS_FASTQ, READS_SUBMITTED, READS_BAM, ANALYSIS_SUBMITTED, ANALYSIS_GENERATED
+- FTP and Aspera protocol support
+- Resilient and idempotent file retrieval
+- Java 21 runtime environment
 
-The images are designed to be minimal and focused on the ENA Browser Tools with their essential dependencies.
+The images are designed to be minimal and focused on reliable FTP-based downloads from the European Nucleotide Archive.
 
 ## Citation
 
-If you use ENA Browser Tools in your research, please cite the European Nucleotide Archive:
+If you use ENA FTP Downloader in your research, please cite the European Nucleotide Archive:
 
 ```
 European Nucleotide Archive (ENA). EMBL-EBI. https://www.ebi.ac.uk/ena/browser/
 ```
 
-**Tool homepage:** https://github.com/enasequence/enaBrowserTools
+**Tool homepage:** https://github.com/enasequence/ena-ftp-downloader
 
 **ENA website:** https://www.ebi.ac.uk/ena/browser/
 
@@ -40,7 +40,7 @@ European Nucleotide Archive (ENA). EMBL-EBI. https://www.ebi.ac.uk/ena/browser/
 docker pull getwilds/ena-tools:latest
 
 # Or pull a specific version
-docker pull getwilds/ena-tools:1.7.2
+docker pull getwilds/ena-tools:2.1.1
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/ena-tools:latest
@@ -53,7 +53,7 @@ docker pull ghcr.io/getwilds/ena-tools:latest
 apptainer pull docker://getwilds/ena-tools:latest
 
 # Or pull a specific version
-apptainer pull docker://getwilds/ena-tools:1.7.2
+apptainer pull docker://getwilds/ena-tools:2.1.1
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/ena-tools:latest
@@ -61,95 +61,133 @@ apptainer pull docker://ghcr.io/getwilds/ena-tools:latest
 
 ### Example Commands
 
-#### Using enaDataGet
+#### Interactive Mode
+
+The tool can run in interactive mode, prompting you for parameters:
 
 ```bash
-# Download a read file in FASTQ format
-docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
-  enaDataGet -f fastq -d /data ERR000001
+# Run in interactive mode
+docker run --rm -it -v $(pwd):/data getwilds/ena-tools:latest ena-downloader
 
-# Download an assembly in FASTA format
-docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
-  enaDataGet -f fasta -d /data GCA_000001405.15
+# Using Apptainer
+apptainer run --bind $(pwd):/data docker://getwilds/ena-tools:latest ena-downloader
+```
 
-# Download sequence data in EMBL format
+#### Download with Accession List
+
+```bash
+# Create a file with accession numbers (one per line)
+echo "ERR000001" > accessions.txt
+echo "ERR000002" >> accessions.txt
+
+# Download FASTQ files for all accessions
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
-  enaDataGet -f embl -d /data AM270342
+  ena-downloader \
+  --accessions /data/accessions.txt \
+  --format READS_FASTQ \
+  --location /data \
+  --protocol FTP
 
 # Using Apptainer
 apptainer run --bind $(pwd):/data docker://getwilds/ena-tools:latest \
-  enaDataGet -f fastq -d /data SRR000001
+  ena-downloader \
+  --accessions /data/accessions.txt \
+  --format READS_FASTQ \
+  --location /data \
+  --protocol FTP
 ```
 
-#### Using enaGroupGet
+#### Download with Search Query
 
 ```bash
-# Download all read files for a study in FASTQ format
+# Download using a query
 docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
-  enaGroupGet -g read -f fastq -d /data PRJNA123456
-
-# Download all assemblies for a sample
-docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
-  enaGroupGet -g assembly -f fasta -d /data SAMN00000001
-
-# Download all sequences for a taxonomic ID
-docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
-  enaGroupGet -g sequence -f embl -d /data 9606
-
-# Using Apptainer
-apptainer run --bind $(pwd):/data docker://getwilds/ena-tools:latest \
-  enaGroupGet -g read -f fastq -d /data PRJEB12345
+  ena-downloader \
+  --query "study_accession=PRJNA123456" \
+  --format READS_FASTQ \
+  --location /data \
+  --protocol FTP
 ```
 
-#### Common Options
+#### Download BAM Files
 
 ```bash
-# View help for enaDataGet
-docker run --rm getwilds/ena-tools:latest enaDataGet --help
+# Download BAM format
+docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
+  ena-downloader \
+  --accessions /data/accessions.txt \
+  --format READS_BAM \
+  --location /data \
+  --protocol FTP
+```
 
-# View help for enaGroupGet
-docker run --rm getwilds/ena-tools:latest enaGroupGet --help
+#### Using Aspera for Faster Downloads
 
-# Download with Aspera (requires aspera_settings.ini configuration)
-docker run --rm -v $(pwd):/data \
-  -v /path/to/aspera_settings.ini:/aspera_settings.ini \
-  getwilds/ena-tools:latest \
-  enaDataGet -f fastq -as /aspera_settings.ini -d /data ERR000001
+```bash
+# Download using Aspera protocol (requires Aspera configuration)
+docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
+  ena-downloader \
+  --accessions /data/accessions.txt \
+  --format READS_FASTQ \
+  --location /data \
+  --protocol ASPERA \
+  --aspera-location /path/to/aspera
+```
+
+#### View Help
+
+```bash
+# View help information
+docker run --rm getwilds/ena-tools:latest ena-downloader --help
 ```
 
 ## Important Notes
 
-### Supported Data Types
+### Supported Data Formats
 
-- **Sequences**: Can be downloaded in EMBL or FASTA format
-- **Assemblies**: Can be downloaded in EMBL or FASTA format
-- **Reads**: Can be downloaded in submitted, FASTQ, or SRA format
-- **Analyses**: Can only be downloaded in submitted format
+- **READS_FASTQ**: Read files in FASTQ format
+- **READS_SUBMITTED**: Reads in originally submitted format
+- **READS_BAM**: Read files in BAM format
+- **ANALYSIS_SUBMITTED**: Analysis files in originally submitted format
+- **ANALYSIS_GENERATED**: Generated analysis files
 
-### Download Locations
+### Download Protocols
 
-By default, files are downloaded to the current directory. Use the `-d` flag to specify an output directory. When using Docker/Apptainer, make sure to mount your desired output location.
+- **FTP**: Standard FTP protocol (default, no additional setup required)
+- **ASPERA**: High-speed Aspera protocol (requires Aspera Connect installation and configuration)
 
-### Aspera Downloads
+### Authentication for Restricted Data
 
-For faster downloads using Aspera, you'll need to:
-1. Install Aspera Connect on your system
-2. Create an `aspera_settings.ini` file with your Aspera configuration
-3. Mount the configuration file into the container
-4. Use the `-as` flag to specify the path to the configuration file
+If you need to download restricted data, you can provide data hub credentials:
+
+```bash
+docker run --rm -v $(pwd):/data getwilds/ena-tools:latest \
+  ena-downloader \
+  --accessions /data/accessions.txt \
+  --format READS_FASTQ \
+  --location /data \
+  --protocol FTP \
+  --username your_username \
+  --password your_password \
+  --hub-name your_hub_name
+```
+
+### Resilient Downloads
+
+The tool is designed to be idempotent and resilient - it can be safely re-run and will skip already downloaded files, making it ideal for interrupted downloads or large batch operations.
 
 ## Dockerfile Structure
 
 The Dockerfile follows these main steps:
 
-1. Uses Python 3.12-slim as the base image
+1. Uses Eclipse Temurin JRE 21 Alpine as the base image for minimal size
 2. Adds metadata labels for documentation and attribution
-3. Installs Python dependencies (requests library with pinned version)
-4. Installs wget and CA certificates with pinned versions
-5. Downloads ENA Browser Tools v1.7.2 from GitHub
-6. Copies all Python scripts and modules to `/usr/local/bin` and makes the main scripts executable
+3. Installs wget and unzip with pinned versions
+4. Downloads the ENA FTP Downloader ZIP from the official ENA FTP site
+5. Extracts and installs the JAR file to `/usr/local/bin`
+6. Creates a convenient wrapper script (`ena-downloader`) for easier execution
 7. Performs cleanup to minimize image size
-8. Verifies both tools are functional via help commands
+8. Verifies the tool is functional via help command
 
 ## Security Scanning and CVEs
 
