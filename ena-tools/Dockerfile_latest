@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.licenses=MIT
 ENV ENA_DOWNLOADER_VERSION=2.1.1
 
 # Download and install ENA FTP Downloader
-RUN apk add --no-cache wget=1.25.0-r1 unzip=6.0-r15 \
+RUN apk add --no-cache wget=1.25.0-r1 unzip=6.0-r15 bash=5.2.37-r0 \
   && wget -q https://ftp.ebi.ac.uk/pub/databases/ena/tools/ena-file-downloader.zip \
   && unzip ena-file-downloader.zip \
   && mv ena-file-downloader.jar /usr/local/bin/ \
