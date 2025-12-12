@@ -1,0 +1,33 @@
+# Using the Eclipse Temurin JRE slim base image
+FROM eclipse-temurin:21-jre-alpine
+
+LABEL org.opencontainers.image.title="ena-tools"
+LABEL org.opencontainers.image.description="Docker image for ENA FTP Downloader in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="2.1.1"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Setting environment variables
+ENV ENA_DOWNLOADER_VERSION=2.1.1
+
+# Download and install ENA FTP Downloader
+RUN apk add --no-cache wget=1.25.0-r1 unzip=6.0-r15 \
+  && wget -q https://ftp.ebi.ac.uk/pub/databases/ena/tools/ena-file-downloader.zip \
+  && unzip ena-file-downloader.zip \
+  && mv ena-file-downloader.jar /usr/local/bin/ \
+  && chmod 644 /usr/local/bin/ena-file-downloader.jar \
+  && rm -f ena-file-downloader.zip \
+  && apk del wget unzip
+
+# Create wrapper script for easier execution
+RUN echo '#!/bin/sh' > /usr/local/bin/ena-downloader \
+  && echo 'exec java -jar /usr/local/bin/ena-file-downloader.jar "$@"' >> /usr/local/bin/ena-downloader \
+  && chmod +x /usr/local/bin/ena-downloader
+
+WORKDIR /data
+
+# Verify the tool is installed and functional
+RUN ena-downloader --help
