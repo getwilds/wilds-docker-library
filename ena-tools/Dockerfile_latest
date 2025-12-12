@@ -1,0 +1,46 @@
+# Using the Python slim base image
+FROM python:3.12-slim
+
+LABEL org.opencontainers.image.title="ena-tools"
+LABEL org.opencontainers.image.description="Docker image for ENA Browser Tools in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Setting environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ENA_TOOLS_VERSION=1.7.2
+
+# Install Python dependencies
+RUN pip install --no-cache-dir requests==2.32.5
+
+# Download the tools from GitHub and install to /usr/local/bin
+# The python3 scripts are extracted and made executable
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
+  && wget -q --no-check-certificate \
+  https://github.com/enasequence/enaBrowserTools/archive/refs/tags/v${ENA_TOOLS_VERSION}.tar.gz \
+  && tar -xzf v${ENA_TOOLS_VERSION}.tar.gz \
+  && cp enaBrowserTools-${ENA_TOOLS_VERSION}/python3/enaDataGet /usr/local/bin/ \
+  && cp enaBrowserTools-${ENA_TOOLS_VERSION}/python3/enaGroupGet /usr/local/bin/ \
+  && cp enaBrowserTools-${ENA_TOOLS_VERSION}/python3/*.py /usr/local/bin/ \
+  && chmod +x /usr/local/bin/enaDataGet \
+  && chmod +x /usr/local/bin/enaGroupGet \
+  && rm -rf v${ENA_TOOLS_VERSION}.tar.gz enaBrowserTools-${ENA_TOOLS_VERSION} \
+  && apt-get remove -y wget \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/*
+WORKDIR /data
+
+# Verify both tools are installed and functional
+RUN enaDataGet --help && enaGroupGet --help
