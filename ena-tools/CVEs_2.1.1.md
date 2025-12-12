@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ena-tools:2.1.1
 
-Report generated on 2025-12-12 17:16:54 PST
+Report generated on 2025-12-12 18:37:44 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/ena-tools:2.1.1-amd64  │    6C    40H    53M    11L   
-    digest           │  1c4f670ecb1e                            │                              
+    digest           │  eb58f4318db6                            │                              
   Base image         │  eclipse-temurin:21-jre-alpine           │    0C     3H     4M     3L   
   Updated base image │  eclipse-temurin:25-jre-alpine           │    0C     3H     3M     2L   
                      │                                          │                  -1     -1   
