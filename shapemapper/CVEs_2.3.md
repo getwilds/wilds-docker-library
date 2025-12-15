@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/shapemapper:2.3
 
-Report generated on 2025-12-01 08:48:43 PST
+Report generated on 2025-12-15 19:38:17 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 1 |
 | 🟠 High | 17 |
-| 🟡 Medium | 53 |
-| 🟢 Low | 21 |
+| 🟡 Medium | 23 |
+| 🟢 Low | 15 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
@@ -24,12 +24,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 21 |
-| 🟢 Low | 18 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 12 |
 
 ## 🔄 Recommendations
-
-**Refreshed base image:** `ubuntu:22.04`
 
 **Updated base image:** `ubuntu:24.04`
 
@@ -37,13 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/shapemapper:2.3  │    1C    17H    53M    21L     2?   
-    digest             │  d79b96365a32                      │                                     
-  Base image           │  ubuntu:22.04                      │    0C     0H    21M    18L          
-  Refreshed base image │  ubuntu:22.04                      │    0C     0H     2M    12L          
-                       │                                    │                 -19     -6          
-  Updated base image   │  ubuntu:24.04                      │    0C     0H     2M     5L          
-                       │                                    │                 -19    -13          
+Target             │  getwilds/shapemapper:2.3  │    1C    17H    23M    15L     2?   
+    digest           │  a773f9b63e61                      │                                     
+  Base image         │  ubuntu:22.04                      │    0C     0H     2M    12L          
+  Updated base image │  ubuntu:24.04                      │    0C     0H     2M     5L          
+                     │                                    │                         -7          
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/shapemapper:2.3
