@@ -44,7 +44,8 @@ ENV PATH="/opt/shapemapper:${PATH}"
 
 # Smoke test: Verify ShapeMapper can execute and run example
 RUN shapemapper --version || shapemapper --help
-RUN cd /opt/shapemapper && bash run_example.sh
+WORKDIR /opt/shapemapper
+RUN bash run_example.sh
 
 # Create working directory
 WORKDIR /data
