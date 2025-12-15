@@ -5,6 +5,7 @@ manta
 python-dl
 rtorch
 scvi-tools
+shapemapper
 smoove
 sra-tools
 strelka
