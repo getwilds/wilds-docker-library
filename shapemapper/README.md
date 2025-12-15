@@ -16,6 +16,15 @@ These Docker images are built from Ubuntu 22.04 and include:
 
 The images are designed to be minimal and focused on providing a functional ShapeMapper installation with its dependencies.
 
+### Platform Support
+
+**Note:** ShapeMapper is currently only compatible with **x86_64/AMD64** architecture due to limitations in its Java-based dependencies (BBMerge). ARM64/aarch64 (Apple Silicon Macs, ARM-based cloud instances) is not supported.
+
+For Apple Silicon Macs, you can run this image using Docker's built-in x86_64 emulation:
+```bash
+docker run --platform linux/amd64 --rm getwilds/shapemapper:latest shapemapper --help
+```
+
 ## Usage
 
 ### Docker
@@ -90,9 +99,18 @@ The Dockerfile follows these main steps:
 2. Adds metadata labels for documentation and attribution
 3. Sets environment variables for non-interactive installation
 4. Dynamically determines and pins the latest security-patched versions of dependencies
-5. Downloads ShapeMapper from the official GitHub release
+5. Downloads ShapeMapper release tarball from the official GitHub release
 6. Extracts and installs ShapeMapper to the /opt directory
-7. Sets up the working directory and PATH environment
+7. Runs smoke tests to verify ShapeMapper functionality:
+   - Executes `shapemapper --version` or `--help` to verify basic functionality
+   - Runs the bundled example script (`run_example.sh`) on test data to ensure end-to-end pipeline works
+8. Sets up the working directory and PATH environment
+
+The pre-compiled binaries included in the ShapeMapper release are optimized for x86_64/AMD64 architecture.
+
+### Build-time Testing
+
+Each Docker image includes automated smoke tests that run during the build process to verify ShapeMapper is fully functional. The tests include running the complete example pipeline on bundled test data, ensuring all components (bowtie2, BBMerge, Python scripts) work correctly before the image is finalized.
 
 ## Source Repository
 
