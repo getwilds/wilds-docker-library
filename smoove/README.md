@@ -12,16 +12,17 @@ This directory contains Docker images for smoove, a streamlined workflow for str
 These Docker images are built from Ubuntu 22.04 and include:
 
 - **smoove v0.2.8**: A streamlined workflow that wraps LUMPY, samtools, and other tools
-- **LUMPY-SV**: Core structural variant calling engine with lumpy and lumpy_filter
-- **samtools v1.19.2**: Suite of programs for interacting with SAM/BAM files
-- **bcftools v1.19**: Utilities for variant calling and manipulating VCFs/BCFs
-- **htslib v1.19.1**: High-throughput sequencing data processing library
-- **svtyper**: Genotyping tool for structural variants
-- **mosdepth v0.3.6**: Fast BAM/CRAM depth calculation
-- **duphold v0.2.3**: Annotates SVs with read-depth changes
-- **gsort v0.1.4**: Genomic interval sorting utility
+- **LUMPY-SV v0.3.1**: Core structural variant calling engine (installed via Ubuntu package)
+- **samtools v1.13**: Suite of programs for interacting with SAM/BAM files (from Ubuntu repositories)
+- **bcftools v1.13**: Utilities for variant calling and manipulating VCFs/BCFs (from Ubuntu repositories)
+- **tabix v1.13**: Tool for indexing TAB-delimited genome position files (from Ubuntu repositories)
+- **mosdepth v0.3.6**: Fast BAM/CRAM depth calculation (pre-built binary)
+- **duphold v0.2.3**: Annotates SVs with read-depth changes (pre-built binary)
+- **gsort v0.1.4**: Genomic interval sorting utility (pre-built binary)
 
-**Note**: The latest images do not include svtools due to Python 2/3 compatibility issues. svtools is optional and mainly needed for large cohorts (>100 samples). It can be added separately if required.
+The image uses a simplified installation approach, leveraging Ubuntu's package repository for LUMPY and related tools (samtools, bcftools, tabix) while downloading pre-built binaries for smoove and its helper tools (gsort, mosdepth, duphold).
+
+**Note**: This image does not include svtools or svtyper. These tools are optional and mainly needed for advanced genotyping workflows or large cohorts (>100 samples). smoove handles genotyping internally for most use cases.
 
 **Platform Support**: This image is available for **linux/amd64 only**. ARM64 (Apple Silicon) is not supported because several dependencies (gsort, mosdepth, duphold, and smoove itself) only provide precompiled x86_64 binaries.
 
@@ -199,10 +200,10 @@ The smoove Docker image includes these bioinformatics tools:
 
 - **smoove**: Main wrapper tool for structural variant calling
 - **lumpy**: Core structural variant detection algorithm
-- **lumpy_filter**: Preprocessing tool for extracting evidence reads
-- **svtyper**: Structural variant genotyping tool
+- **lumpy_filter**: Preprocessing tool for extracting evidence reads (part of lumpy-sv package)
 - **samtools**: BAM file manipulation and processing
-- **bcftools**: VCF file manipulation and processing  
+- **bcftools**: VCF file manipulation and processing
+- **tabix**: Indexing tool for TAB-delimited genome position files
 - **mosdepth**: Fast depth calculation for coverage analysis
 - **duphold**: Structural variant depth annotation
 - **gsort**: Genomic coordinate sorting utility
@@ -213,14 +214,13 @@ The Dockerfile follows these main steps:
 
 1. Uses Ubuntu 22.04 as the base image for stability
 2. Adds metadata labels for documentation and attribution following WILDS standards
-3. Installs system dependencies and build tools
-4. Builds and installs htslib, samtools, and bcftools from source
-5. Builds and installs LUMPY-SV from source (includes lumpy and lumpy_filter)
-6. Downloads and installs pre-compiled binaries for gsort, mosdepth, and duphold
-7. Installs Python dependencies and svtyper
-8. Downloads the smoove binary from GitHub releases
-9. Configures library paths and working directory
-10. Performs cleanup to minimize image size
+3. Sets shell options for pipefail error handling
+4. Installs LUMPY-SV, samtools, bcftools, and tabix from Ubuntu package repositories with version pinning
+5. Downloads and installs smoove binary (v0.2.8) from GitHub releases
+6. Downloads and installs pre-built binaries for helper tools: gsort (v0.1.4), mosdepth (v0.3.6), and duphold (v0.2.3)
+7. Performs smoke tests to verify all tools are properly installed and functional
+8. Sets working directory to /data
+9. Performs cleanup to minimize image size (removes apt lists)
 
 ## Performance Considerations
 
@@ -231,16 +231,18 @@ The Dockerfile follows these main steps:
 
 ## Limitations
 
-- **svtools not included**: Due to Python 2/3 compatibility issues, svtools is not included in the current image. This mainly affects large cohort analysis (>100 samples).
+- **svtools and svtyper not included**: These optional tools are not included in the current image. smoove handles genotyping internally for most use cases. For large cohort analysis (>100 samples) requiring svtools, it can be added separately if needed.
 - **Memory usage**: Can be memory-intensive for high-coverage samples
 - **Repetitive regions**: May produce false positives in highly repetitive genomic regions
+- **Tool versions**: Uses versions available in Ubuntu 22.04 repositories (LUMPY v0.3.1, samtools/bcftools v1.13), which may be older than the latest releases but are stable and well-tested
 
 ## Security Features
 
 The smoove Docker images include:
 
 - Minimal base image with only required dependencies
-- Specific version pinning for reproducibility
+- Version pinning for all apt-get installed packages for reproducibility
+- Use of Ubuntu's package repositories for security-patched versions of core tools
 - Regular security scanning and vulnerability reporting
 
 ### Security Scanning and CVEs
