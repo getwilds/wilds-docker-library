@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/smoove:0.2.8
 
-Report generated on 2025-12-01 09:44:02 PST
+Report generated on 2025-12-16 18:37:42 PST
 
 ## Platform Coverage
 
@@ -10,10 +10,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 5 |
-| 🟠 High | 58 |
-| 🟡 Medium | 1312 |
-| 🟢 Low | 69 |
+| 🔴 Critical | 10 |
+| 🟠 High | 106 |
+| 🟡 Medium | 80 |
+| 🟢 Low | 17 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -29,21 +29,17 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:22.04`
-
 **Updated base image:** `ubuntu:24.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/smoove:0.2.8  │    5C    58H   1312M    69L   
-    digest             │  ca3ca18cfb5f                   │                               
-  Base image           │  ubuntu:22.04                   │    0C     0H     2M    12L    
-  Refreshed base image │  ubuntu:22.04                   │    0C     0H     2M    12L    
-                       │                                 │                               
-  Updated base image   │  ubuntu:24.04                   │    0C     0H     2M     5L    
-                       │                                 │                         -7    
+Target             │  getwilds/smoove:0.2.8  │   10C   106H    80M    17L  
+   digest           │  eab8952968ee                   │                             
+ Base image         │  ubuntu:22.04                   │    0C     0H     2M    12L  
+ Updated base image │  ubuntu:24.04                   │    0C     0H     2M     5L  
+                    │                                 │                         -7  
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/smoove:0.2.8
