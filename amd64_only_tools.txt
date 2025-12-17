@@ -7,5 +7,6 @@ rtorch
 scvi-tools
 shapemapper
 smoove
+spades
 sra-tools
 strelka
