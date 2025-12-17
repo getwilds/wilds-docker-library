@@ -1,0 +1,47 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="spades"
+LABEL org.opencontainers.image.description="Docker image for the use of SPAdes in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="4.2.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing prerequisites
+RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && PIGZ_VERSION=$(apt-cache policy pigz | grep Candidate | awk '{print $2}') \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && LIBGOMP_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  wget="${WGET_VERSION}" \
+  pigz="${PIGZ_VERSION}" \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  libgomp1="${LIBGOMP_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
+# Download and install SPAdes pre-built binary
+RUN wget -q --no-check-certificate https://github.com/ablab/spades/releases/download/v4.2.0/SPAdes-4.2.0-Linux.tar.gz \
+  && tar -xzf SPAdes-4.2.0-Linux.tar.gz \
+  && rm -rf SPAdes-4.2.0-Linux.tar.gz
+
+# Set environment variables
+ENV LC_ALL=C.UTF-8
+ENV PATH="${PATH}:/SPAdes-4.2.0-Linux/bin"
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test to verify SPAdes works on target architecture
+RUN spades.py --version
