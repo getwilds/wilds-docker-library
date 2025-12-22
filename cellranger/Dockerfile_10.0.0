@@ -41,11 +41,10 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Download and install Cell Ranger pre-built binary
-# Note: Because the key for this link expires, these containers are
-# excluded from the automated build-and-push GitHub Action.
-# To make changes, provide an updated link and reupload manually.
+# Note: The download URL contains a signed key that expires.
+# A new download URL should be obtained from 10x Genomics each time this Dockerfile is updated.
 RUN wget -q --no-check-certificate -O cellranger-10.0.0.tar.gz \
-  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-10.0.0.tar.gz?Expires=1766145670&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=glFsXIGKiPhvX17igjC5Tc-hK-tz8Xv7WWDOtrPoPnCaRkO2LyWKDk1daxIYHnJHTgfKgX6-Em5AYsFBF-MdYLrMwUS91AwWtJowJuqw9EWaDi5CtniTSyILyq~i2urxkVJ9-~mbUX0KdwP4y447SX87BPV0ZNzrs1lC968dkhsL-Rw8pRjawgfjK9Pb~~S0l1O4esXrRiY8rHAJr5yXqp2rwmakIUVYXFRdCwJUuhMMkLK0rxFJhqNICSTb6fpOGNBwQOn8F1TUaeVOoXdpQ0QvhO5~6Cn2gL8St2JAZo9pGhQalLknuS0ymhUTZEWHcacsPea72WA9jwSDEJc8Tw__" \
+  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-10.0.0.tar.gz?Expires=1766424907&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=Se7y~SfN80~5Q61MkUOLIgsO40FlwMj6BuJjAmP6S74H7ZI6PSI8CCZgOHMoz3BUYZKhKwI~oC5sUqUqMbzw3wbmJcmrhPneNagGvnDwRmULTA6Smyn4K7A-k0t7qjVW5W8aiERueW5057JJk4LKPZJHKoV7tqMVA5beAU4Ari2Deu5K5hHKfNK0OWIYl9mxlAP8mg2Go6KzhOVFKAQy-VzoqpGFSOW3jSnHAMrOhHtpX4jdhshm-Kca2NeSAZome4j6uPfUyKYdQRWTwOI1EgXcyRFRBHEQe6TVsOt4IqxtCYKEgjLm3SDt5f5Nzds5plRJ~V2jpcG-ew5ABnUXNg__" \
   && tar -xzf cellranger-10.0.0.tar.gz \
   && rm -rf cellranger-10.0.0.tar.gz
 
