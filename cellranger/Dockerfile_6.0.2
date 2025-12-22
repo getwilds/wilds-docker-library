@@ -12,23 +12,47 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Installing prerequisites
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 wget=1.21.4-1ubuntu4 \
-  zlib1g-dev=1:1.3.dfsg-3.1ubuntu2 autoconf=2.71-3 automake=1:1.16.5-1.3ubuntu1 \
-  libncurses-dev=6.4+20240113-1ubuntu2 libbz2-dev=1.0.8-5.1 liblzma-dev=5.6.1+really5.4.5-1 \
-  libssl-dev=3.0.13-0ubuntu3.1 libcurl4-gnutls-dev=8.5.0-2ubuntu10.1 \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_DEV_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+  && LIBNCURSES_DEV_VERSION=$(apt-cache policy libncurses-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_DEV_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_DEV_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_DEV_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL4_GNUTLS_DEV_VERSION=$(apt-cache policy libcurl4-gnutls-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BUILD_ESSENTIAL_VERSION}" \
+  wget="${WGET_VERSION}" \
+  zlib1g-dev="${ZLIB1G_DEV_VERSION}" \
+  autoconf="${AUTOCONF_VERSION}" \
+  automake="${AUTOMAKE_VERSION}" \
+  libncurses-dev="${LIBNCURSES_DEV_VERSION}" \
+  libbz2-dev="${LIBBZ2_DEV_VERSION}" \
+  liblzma-dev="${LIBLZMA_DEV_VERSION}" \
+  libssl-dev="${LIBSSL_DEV_VERSION}" \
+  libcurl4-gnutls-dev="${LIBCURL4_GNUTLS_DEV_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Pulling and extracting Cell Ranger source code
+# Download and install Cell Ranger pre-built binary
+# Note: The download URL contains a signed key that expires.
+# A new download URL should be obtained from 10x Genomics each time this Dockerfile is updated.
 RUN wget -q --no-check-certificate -O cellranger-6.0.2.tar.gz \
-  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-6.0.2.tar.gz?Expires=1718037805&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=kkUm5ag6YEEohqvg6KHzR4RN4wWL3haRIVoPYmF0ZGG32mSScnfvwog-W2UH7i5gRW1joN8ZtYBTDvkNcY--8ULKaGE0CM6uMrF5bURZiqUVRFXEjf2e7OwFwR6RqXchC5GzNCrK4wPnVwoe9m2Qavem5twz2-U7jf8INPZp0OcgwAgwrzsEdkcdhbxkGaRCRoB629cCVmfJnbOaznErUbHzNk4gp2P2pbWlIPDgnrOQDg2jzC7FJPn9tTOH3QuIVYvBeBF~Vj2xCeWFYX1ajmvC~tLywAecUQ6wT0MpNyNVvkygynSJnXENby8DGZXfLLP0JclcoQqe8oKG1VmJhA__" && tar -zxvf cellranger-6.0.2.tar.gz
-# Note: Because the key for this link expires, these containers are 
-# excluded from the automated build-and-push GitHub Action. 
-# To make changes, provide an updated link and reupload manually.
+  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-6.0.2.tar.gz?Expires=1766424907&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=jLI49CMfXFI-E7Sd0sNNPNemtXGQuS4HqPt4rZOR6Hv9r0GSKgdILNv6zJWbtiaBuwZQ~X4AnGHccHCJeIRIE5WEhASaExvaKy6lD550oc9nSHBemUZo4SXEbaG~F25-G5ZKv~jY5y2yj0ljXN5iy42zRvLFmnZHHQeaBEHai-mEIBtzcqKomOIuT7QaHsmbWJQKKzRd~JvkyAhYaI2gQOfo-EAsAPTMRE-enDNoSO4ZPmDn~erbEEHHie60Yxg47D1nXu6wzoWuAKcARXOXACdaRRHx5KsMp05l2pGzmuYt6B6~iOVT~y1KHngXTmlhqM0ZmdLkFc0KbK65upcVFw__" \
+  && tar -zxvf cellranger-6.0.2.tar.gz \
+  && rm -rf cellranger-6.0.2.tar.gz
 
 # Installing Cell Ranger
 ENV PATH="${PATH}:/cellranger-6.0.2"
 
-# Cleanup
-RUN rm -rf cellranger-6.0.2.tar.gz 
+# Set working directory
+WORKDIR /data
+
+# Smoke test (NOTE: Cell Ranger only works on x86_64 Linux)
+RUN cellranger --version
