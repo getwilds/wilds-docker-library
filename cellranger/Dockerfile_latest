@@ -56,3 +56,4 @@ WORKDIR /data
 
 # Smoke test (NOTE: Cell Ranger only works on x86_64 Linux)
 RUN cellranger --version
+

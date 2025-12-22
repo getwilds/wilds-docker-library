@@ -1,4 +1,5 @@
 bwa
+cellranger
 deseq2
 hisat2
 manta
