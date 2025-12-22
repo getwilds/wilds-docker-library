@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cellranger:6.0.2
 
-Report generated on 2025-12-01 09:34:24 PST
+Report generated on 2025-12-22 14:45:56 PST
 
 ## Platform Coverage
 
@@ -10,10 +10,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 9 |
-| 🟠 High | 95 |
-| 🟡 Medium | 3598 |
-| 🟢 Low | 96 |
+| 🔴 Critical | 13 |
+| 🟠 High | 77 |
+| 🟡 Medium | 1028 |
+| 🟢 Low | 39 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
@@ -37,13 +37,13 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/cellranger:6.0.2  │    9C    95H   3598M    96L     2?   
-    digest             │  0dec48219479                       │                                      
-  Base image           │  ubuntu:24.04                       │    0C     0H    34M    17L           
-  Refreshed base image │  ubuntu:24.04                       │    0C     0H     2M     5L           
-                       │                                     │                 -32    -12           
-  Updated base image   │  ubuntu:26.04                       │    0C     0H     0M     0L           
-                       │                                     │                 -34    -17           
+Target               │  getwilds/cellranger:6.0.2  │   13C    77H   1028M    39L     2?  
+   digest             │  7de86d8f4762                       │                                     
+ Base image           │  ubuntu:24.04                       │    0C     0H    34M    17L          
+ Refreshed base image │  ubuntu:24.04                       │    0C     0H     2M     5L          
+                      │                                     │                 -32    -12          
+ Updated base image   │  ubuntu:26.04                       │    0C     0H     0M     0L          
+                      │                                     │                 -34    -17          
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/cellranger:6.0.2

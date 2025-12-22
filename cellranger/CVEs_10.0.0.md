@@ -1,6 +1,6 @@
-# Vulnerability Report for getwilds/cellranger:latest
+# Vulnerability Report for getwilds/cellranger:10.0.0
 
-Report generated on 2025-12-22 14:54:16 PST
+Report generated on 2025-12-22 14:36:15 PST
 
 ## Platform Coverage
 
@@ -35,15 +35,15 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/cellranger:latest  │    1C     8H   982M    36L     2?  
-   digest           │  851e2b1270e3                        │                                    
+Target             │  getwilds/cellranger:10.0.0  │    1C     8H   982M    36L     2?  
+   digest           │  e54b24326346                        │                                    
  Base image         │  ubuntu:24.04                        │    0C     0H     2M     5L         
  Updated base image │  ubuntu:26.04                        │    0C     0H     0M     0L         
                     │                                      │                  -2     -5         
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/cellranger:latest
-    View base image update recommendations → docker scout recommendations getwilds/cellranger:latest
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/cellranger:latest --org <organization>
+    View vulnerabilities → docker scout cves getwilds/cellranger:10.0.0
+    View base image update recommendations → docker scout recommendations getwilds/cellranger:10.0.0
+    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/cellranger:10.0.0 --org <organization>
 ```
 </details>
