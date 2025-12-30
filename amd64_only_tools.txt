@@ -1,6 +1,7 @@
 bwa
 cellranger
 deseq2
+diamond
 hisat2
 manta
 python-dl
