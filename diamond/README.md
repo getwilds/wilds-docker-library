@@ -1,6 +1,6 @@
 # DIAMOND
 
-This directory contains Docker images for DIAMOND, a  BLAST-compatible sequence aligner
+This directory contains Docker images for DIAMOND, a BLAST-compatible sequence aligner
 
 [Official Documentation](https://github.com/bbuchfink/diamond)
 
@@ -18,6 +18,12 @@ These Docker images are built from Ubuntu 24.04 and include:
 - NCBI BLAST+: Additional BLAST tools for sequence analysis
 
 DIAMOND is designed to be significantly faster than BLAST while maintaining high sensitivity. The images are optimized for alignment of sequencing reads and protein queries against large reference databases.
+
+## Architecture Support
+
+These images are built for **AMD64 (x86_64) only**. The official DIAMOND releases provide pre-built Linux binaries exclusively for AMD64 architecture. For users on ARM64 systems (e.g., Apple Silicon Macs), the AMD64 image can still be used via emulation (Docker Desktop handles this automatically), which is sufficient for local testing and development.
+
+If you'd like to contribute ARM64 support, the DIAMOND releases do include a macOS binary that could potentially be used for ARM64 builds. See the [DIAMOND releases page](https://github.com/bbuchfink/diamond/releases) for available binaries.
 
 ## Citation
 
@@ -72,7 +78,7 @@ The Dockerfile follows these main steps:
 3. Installs wget and NCBI BLAST+ with pinned versions
 4. Downloads and extracts DIAMOND pre-built binary
 5. Installs binary to `/usr/local/bin/`
-6. Includes smoke tests to verify installation (`diamond test` and sample alignment)
+6. Includes smoke test to verify installation (`diamond test`)
 
 ## Security Scanning and CVEs
 
