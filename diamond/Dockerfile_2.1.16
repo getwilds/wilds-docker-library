@@ -5,7 +5,7 @@ FROM ubuntu:24.04
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="diamond"
 LABEL org.opencontainers.image.description="Image for DIAMOND in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="2.1.16"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -19,13 +19,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && BLAST_VERSION=$(apt-cache policy ncbi-blast+ | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   wget="${WGET_VERSION}" \
   ncbi-blast+="${BLAST_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
   && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 # Download and install DIAMOND
-RUN wget --quiet --no-check-certificate https://github.com/bbuchfink/diamond/releases/download/v2.1.16/diamond-linux64.tar.gz \
+RUN wget --quiet https://github.com/bbuchfink/diamond/releases/download/v2.1.16/diamond-linux64.tar.gz \
   && tar -C /usr/local/bin -xvf diamond-linux64.tar.gz \
   && rm diamond-linux64.tar.gz
 
