@@ -1,0 +1,40 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="diamond"
+LABEL org.opencontainers.image.description="Image for DIAMOND in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="2.1.16"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install prerequisites
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && BLAST_VERSION=$(apt-cache policy ncbi-blast+ | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  ncbi-blast+="${BLAST_VERSION}" \
+  && apt-get autoclean && rm -rf /var/lib/apt/lists/*
+
+# Download and install DIAMOND
+RUN wget --quiet --no-check-certificate https://github.com/bbuchfink/diamond/releases/download/v2.1.16/diamond-linux64.tar.gz \
+  && tar -C /usr/local/bin -xvf diamond-linux64.tar.gz \
+  && rm diamond-linux64.tar.gz
+
+# Set environment variables
+ENV LC_ALL=C
+ENV PATH="/usr/local/bin:${PATH}"
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test to verify DIAMOND works on target architecture
+RUN diamond test
