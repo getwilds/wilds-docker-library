@@ -1,10 +1,3 @@
-#==============================================================================
-# WILDS Docker Image for MEGAHIT
-#==============================================================================
-# MEGAHIT is an ultra-fast and memory-efficient NGS assembler. It is optimized
-# for metagenomes, but also works well on generic single genome assembly (small
-# or mammalian size) and single-cell assembly.
-#==============================================================================
 
 # Using the Ubuntu base image
 FROM ubuntu:22.04
@@ -12,7 +5,7 @@ FROM ubuntu:22.04
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="megahit"
 LABEL org.opencontainers.image.description="Docker image for MEGAHIT in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="1.2.9"
+LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -51,7 +44,6 @@ RUN apt-get update \
 WORKDIR /tmp
 RUN wget -q https://github.com/voutcn/megahit/archive/refs/tags/v1.2.9.tar.gz \
   && tar -xzf v1.2.9.tar.gz
-
 WORKDIR /tmp/megahit-1.2.9/build
 RUN cmake -DCMAKE_BUILD_TYPE=Release .. \
   && make -j4 install \
