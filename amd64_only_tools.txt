@@ -4,6 +4,7 @@ deseq2
 diamond
 hisat2
 manta
+megahit
 python-dl
 rtorch
 scvi-tools

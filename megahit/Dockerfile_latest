@@ -1,0 +1,68 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="megahit"
+LABEL org.opencontainers.image.description="Docker image for MEGAHIT in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies with pinned versions
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && GXX_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBGOMP_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && GZIP_VERSION=$(apt-cache policy gzip | grep Candidate | awk '{print $2}') \
+  && BZIP2_VERSION=$(apt-cache policy bzip2 | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  g++="${GXX_VERSION}" \
+  make="${MAKE_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  libgomp1="${LIBGOMP_VERSION}" \
+  gzip="${GZIP_VERSION}" \
+  bzip2="${BZIP2_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download and compile MEGAHIT from source
+WORKDIR /tmp
+RUN wget -q https://github.com/voutcn/megahit/archive/refs/tags/v1.2.9.tar.gz \
+  && tar -xzf v1.2.9.tar.gz
+WORKDIR /tmp/megahit-1.2.9/build
+RUN cmake -DCMAKE_BUILD_TYPE=Release .. \
+  && make -j4 install \
+  && rm -rf /tmp/megahit-1.2.9 /tmp/v1.2.9.tar.gz
+
+# Remove build dependencies to reduce image size
+RUN apt-get autoremove --purge -y \
+  cmake \
+  g++ \
+  make \
+  wget \
+  zlib1g-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+# Create symlink for python -> python3 (MEGAHIT wrapper expects 'python')
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test to verify MEGAHIT works
+RUN megahit --version
