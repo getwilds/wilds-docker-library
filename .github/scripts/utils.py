@@ -66,18 +66,52 @@ def get_dockerhub_token():
     """
     Authenticate with DockerHub API and return JWT token.
 
+    Uses the new /v2/auth/token endpoint (the old /v2/users/login/ endpoint
+    was deprecated on September 16, 2024).
+
     Returns:
         JWT token string if successful, None if authentication fails
     """
+    username = os.environ.get("DOCKERHUB_USER")
+    password = os.environ.get("DOCKERHUB_PW")
+
+    if not username or not password:
+        logger.error("DockerHub credentials not found in environment variables")
+        return None
+
+    # Try the new /v2/auth/token endpoint first
     try:
         auth_payload = {
-            "username": os.environ.get("DOCKERHUB_USER"),
-            "password": os.environ.get("DOCKERHUB_PW"),
+            "identifier": username,
+            "secret": password,
         }
 
-        if not auth_payload["username"] or not auth_payload["password"]:
-            logger.error("DockerHub credentials not found in environment variables")
-            return None
+        response = requests.post(
+            "https://hub.docker.com/v2/auth/token", json=auth_payload
+        )
+        response.raise_for_status()
+
+        response_json = response.json()
+        # New endpoint returns 'access_token', not 'token'
+        token = response_json.get("access_token") or response_json.get("token")
+
+        if token:
+            logger.info("Successfully authenticated with DockerHub")
+            return token
+        else:
+            logger.warning("New endpoint returned no token, trying legacy endpoint")
+
+    except requests.exceptions.HTTPError as e:
+        logger.warning(f"New auth endpoint failed ({e}), trying legacy endpoint")
+    except Exception as e:
+        logger.warning(f"New auth endpoint failed ({type(e).__name__}), trying legacy endpoint")
+
+    # Fall back to legacy /v2/users/login/ endpoint
+    try:
+        auth_payload = {
+            "username": username,
+            "password": password,
+        }
 
         response = requests.post(
             "https://hub.docker.com/v2/users/login/", json=auth_payload
@@ -86,15 +120,17 @@ def get_dockerhub_token():
         token = response.json().get("token")
 
         if not token:
-            logger.error("Failed to get DockerHub token from response")
-            logger.error(f"Response: {response.text}")
+            logger.error("Legacy endpoint returned no token")
             return None
 
-        logger.info("Successfully authenticated with DockerHub")
+        logger.info("Successfully authenticated with DockerHub (legacy endpoint)")
         return token
 
-    except Exception as e:
+    except requests.exceptions.HTTPError as e:
         logger.error(f"Failed to authenticate with DockerHub: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"Failed to authenticate with DockerHub: {type(e).__name__}: {e}")
         return None
 
 
