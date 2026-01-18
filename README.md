@@ -42,6 +42,7 @@ The repository includes Docker images for popular bioinformatics tools including
 | DELLY | Structural variant discovery | 1.2.9, latest |
 | DESeq2 | Differential gene expression analysis | 1.40.2, latest |
 | GATK | Genome analysis toolkit | 4.6.1.0, 4.3.0.0, latest |
+| GLIMPSE2 | Low-coverage WGS imputation | 2.0.0, latest |
 | gtf-smash | GTF file manipulation | v8, latest |
 | HISAT2 | Graph-based alignment | 2.2.1, latest |
 | HMMcopy | Copy number analysis | 1.0.0, latest |
@@ -75,6 +76,7 @@ The following images are only available for **linux/amd64** due to architecture-
 
 - **BWA** - Contains x86-specific optimizations
 - **DESeq2** - R package compilation issues on ARM64
+- **GLIMPSE2** - Uses AVX2 SIMD instructions for performance optimization
 - **HISAT2** - Hardcoded x86-specific compiler flags
 - **python-dl** - Build resource constraints for multi-platform builds
 - **RTorch** - Position-independent code (PIC) limitations with large binaries

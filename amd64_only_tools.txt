@@ -2,6 +2,7 @@ bwa
 cellranger
 deseq2
 diamond
+glimpse2
 hisat2
 manta
 megahit
