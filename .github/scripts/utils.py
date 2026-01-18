@@ -66,18 +66,45 @@ def get_dockerhub_token():
     """
     Authenticate with DockerHub API and return JWT token.
 
+    Uses the new /v2/auth/token endpoint (the old /v2/users/login/ endpoint
+    was deprecated on September 16, 2024).
+
     Returns:
         JWT token string if successful, None if authentication fails
     """
+    username = os.environ.get("DOCKERHUB_USER")
+    password = os.environ.get("DOCKERHUB_PW")
+
+    if not username or not password:
+        logger.error("DockerHub credentials not found in environment variables")
+        return None
+
+    # Try the new /v2/auth/token endpoint first
     try:
         auth_payload = {
-            "username": os.environ.get("DOCKERHUB_USER"),
-            "password": os.environ.get("DOCKERHUB_PW"),
+            "identifier": username,
+            "secret": password,
         }
 
-        if not auth_payload["username"] or not auth_payload["password"]:
-            logger.error("DockerHub credentials not found in environment variables")
-            return None
+        response = requests.post(
+            "https://hub.docker.com/v2/auth/token", json=auth_payload
+        )
+        response.raise_for_status()
+        token = response.json().get("token")
+
+        if token:
+            logger.info("Successfully authenticated with DockerHub (new endpoint)")
+            return token
+
+    except Exception as e:
+        logger.warning(f"New auth endpoint failed, trying legacy endpoint: {e}")
+
+    # Fall back to legacy /v2/users/login/ endpoint
+    try:
+        auth_payload = {
+            "username": username,
+            "password": password,
+        }
 
         response = requests.post(
             "https://hub.docker.com/v2/users/login/", json=auth_payload
@@ -90,7 +117,7 @@ def get_dockerhub_token():
             logger.error(f"Response: {response.text}")
             return None
 
-        logger.info("Successfully authenticated with DockerHub")
+        logger.info("Successfully authenticated with DockerHub (legacy endpoint)")
         return token
 
     except Exception as e:
