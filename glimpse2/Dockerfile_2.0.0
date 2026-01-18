@@ -1,0 +1,98 @@
+# Using Ubuntu 22.04 as the base image
+FROM ubuntu:22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="glimpse2"
+LABEL org.opencontainers.image.description="Docker image for GLIMPSE2 in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="2.0.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set non-interactive frontend to avoid prompts during build
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies with pinned versions
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && AUTOMAKE_VERSION=$(apt-cache policy automake | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  build-essential="${BUILD_ESSENTIAL_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  autoconf="${AUTOCONF_VERSION}" \
+  automake="${AUTOMAKE_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  git="${GIT_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download and extract Boost 1.78.0 (required for GLIMPSE2)
+WORKDIR /tmp/build
+RUN wget -q https://archives.boost.io/release/1.78.0/source/boost_1_78_0.tar.gz \
+  && tar -xzf boost_1_78_0.tar.gz \
+  && rm boost_1_78_0.tar.gz
+
+# Build Boost and install to system paths expected by GLIMPSE2
+WORKDIR /tmp/build/boost_1_78_0
+RUN ./bootstrap.sh --with-libraries=iostreams,program_options,serialization --prefix=/tmp/build/boost \
+  && ./b2 install \
+  && mkdir -p /usr/lib/x86_64-linux-gnu \
+  && cp /tmp/build/boost/lib/libboost_iostreams.a /usr/lib/x86_64-linux-gnu/ \
+  && cp /tmp/build/boost/lib/libboost_program_options.a /usr/lib/x86_64-linux-gnu/ \
+  && cp /tmp/build/boost/lib/libboost_serialization.a /usr/lib/x86_64-linux-gnu/ \
+  && cp -r /tmp/build/boost/include/boost/ /usr/include/ \
+  && rm -rf /tmp/build/boost_1_78_0 /tmp/build/boost
+
+# Download and extract HTSlib 1.16 (required for GLIMPSE2)
+WORKDIR /tmp/build
+RUN wget -q https://github.com/samtools/htslib/releases/download/1.16/htslib-1.16.tar.bz2 \
+  && tar -xjf htslib-1.16.tar.bz2 \
+  && rm htslib-1.16.tar.bz2
+
+# Build HTSlib (minimal config to match GLIMPSE2 link flags)
+WORKDIR /tmp/build/htslib-1.16
+RUN autoreconf -i \
+  && ./configure --disable-libcurl --disable-gcs --disable-s3 --with-libdeflate=no \
+  && make -j"$(nproc)" \
+  && make install \
+  && rm -rf /tmp/build/htslib-1.16
+
+# Clone GLIMPSE2 v2.0.0
+WORKDIR /tmp/build
+RUN git clone --depth 1 --branch v2.0.0 https://github.com/odelaneau/GLIMPSE.git
+
+# Build GLIMPSE2 using system target
+WORKDIR /tmp/build/GLIMPSE
+RUN make clean \
+  && make COMPILATION_ENV=system -j"$(nproc)" \
+  && mv chunk/bin/GLIMPSE2_chunk /usr/local/bin/ \
+  && mv split_reference/bin/GLIMPSE2_split_reference /usr/local/bin/ \
+  && mv phase/bin/GLIMPSE2_phase /usr/local/bin/ \
+  && mv ligate/bin/GLIMPSE2_ligate /usr/local/bin/ \
+  && mv concordance/bin/GLIMPSE2_concordance /usr/local/bin/ \
+  && chmod +x /usr/local/bin/GLIMPSE2_* \
+  && rm -rf /tmp/build
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test to verify GLIMPSE2 tools are installed
+RUN GLIMPSE2_chunk --help && \
+    GLIMPSE2_split_reference --help && \
+    GLIMPSE2_phase --help && \
+    GLIMPSE2_ligate --help && \
+    GLIMPSE2_concordance --help
