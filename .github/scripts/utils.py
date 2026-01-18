@@ -94,13 +94,14 @@ def get_dockerhub_token():
         response.raise_for_status()
 
         response_json = response.json()
-        token = response_json.get("token")
+        # New endpoint returns 'access_token', not 'token'
+        token = response_json.get("access_token") or response_json.get("token")
 
         if token:
             logger.info("Successfully authenticated with DockerHub (new endpoint)")
             return token
         else:
-            logger.warning(f"New endpoint returned no token. Response: {response_json}")
+            logger.warning(f"New endpoint returned no token. Response keys: {list(response_json.keys())}")
 
     except requests.exceptions.HTTPError as e:
         logger.warning(f"New auth endpoint HTTP error: {e}")
