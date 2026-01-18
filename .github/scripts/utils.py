@@ -81,6 +81,7 @@ def get_dockerhub_token():
 
     # Try the new /v2/auth/token endpoint first
     try:
+        logger.info("Attempting authentication with new /v2/auth/token endpoint...")
         auth_payload = {
             "identifier": username,
             "secret": password,
@@ -89,18 +90,26 @@ def get_dockerhub_token():
         response = requests.post(
             "https://hub.docker.com/v2/auth/token", json=auth_payload
         )
+        logger.info(f"New endpoint response status: {response.status_code}")
         response.raise_for_status()
-        token = response.json().get("token")
+
+        response_json = response.json()
+        token = response_json.get("token")
 
         if token:
             logger.info("Successfully authenticated with DockerHub (new endpoint)")
             return token
+        else:
+            logger.warning(f"New endpoint returned no token. Response: {response_json}")
 
+    except requests.exceptions.HTTPError as e:
+        logger.warning(f"New auth endpoint HTTP error: {e}")
     except Exception as e:
-        logger.warning(f"New auth endpoint failed, trying legacy endpoint: {e}")
+        logger.warning(f"New auth endpoint failed: {type(e).__name__}: {e}")
 
     # Fall back to legacy /v2/users/login/ endpoint
     try:
+        logger.info("Attempting authentication with legacy /v2/users/login/ endpoint...")
         auth_payload = {
             "username": username,
             "password": password,
@@ -109,6 +118,7 @@ def get_dockerhub_token():
         response = requests.post(
             "https://hub.docker.com/v2/users/login/", json=auth_payload
         )
+        logger.info(f"Legacy endpoint response status: {response.status_code}")
         response.raise_for_status()
         token = response.json().get("token")
 
@@ -120,8 +130,11 @@ def get_dockerhub_token():
         logger.info("Successfully authenticated with DockerHub (legacy endpoint)")
         return token
 
+    except requests.exceptions.HTTPError as e:
+        logger.error(f"Failed to authenticate with DockerHub (HTTP error): {e}")
+        return None
     except Exception as e:
-        logger.error(f"Failed to authenticate with DockerHub: {e}")
+        logger.error(f"Failed to authenticate with DockerHub: {type(e).__name__}: {e}")
         return None
 
 
