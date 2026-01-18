@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/glimpse2:2.0.0
 
-Report generated on 2026-01-18 06:34:24 PST
+Report generated on 2026-01-18 07:08:04 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/glimpse2:2.0.0  │    0C     5H   1585M    70L  
-   digest           │  65f0c8d11c42                     │                              
+   digest           │  b92b3f990feb                     │                              
  Base image         │  ubuntu:22.04                     │    0C     0H     4M    12L   
  Updated base image │  ubuntu:24.04                     │    0C     0H     3M     4L   
                     │                                   │                  -1     -8   
