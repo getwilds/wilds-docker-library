@@ -71,6 +71,19 @@ RUN autoreconf -i \
   && make install \
   && rm -rf /tmp/build/htslib-1.16
 
+# Download and extract bcftools 1.16 (matching HTSlib version)
+WORKDIR /tmp/build
+RUN wget -q https://github.com/samtools/bcftools/releases/download/1.16/bcftools-1.16.tar.bz2 \
+  && tar -xjf bcftools-1.16.tar.bz2 \
+  && rm bcftools-1.16.tar.bz2
+
+# Build bcftools
+WORKDIR /tmp/build/bcftools-1.16
+RUN ./configure --prefix=/usr/local \
+  && make -j"$(nproc)" \
+  && make install \
+  && rm -rf /tmp/build/bcftools-1.16
+
 # Clone GLIMPSE2 v2.0.0
 WORKDIR /tmp/build
 RUN git clone --depth 1 --branch v2.0.0 https://github.com/odelaneau/GLIMPSE.git
@@ -90,9 +103,10 @@ RUN make clean \
 # Set working directory
 WORKDIR /data
 
-# Smoke test to verify GLIMPSE2 tools are installed
+# Smoke test to verify GLIMPSE2 tools and bcftools are installed
 RUN GLIMPSE2_chunk --help && \
     GLIMPSE2_split_reference --help && \
     GLIMPSE2_phase --help && \
     GLIMPSE2_ligate --help && \
-    GLIMPSE2_concordance --help
+    GLIMPSE2_concordance --help && \
+    bcftools --version

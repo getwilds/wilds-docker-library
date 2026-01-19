@@ -13,6 +13,7 @@ These Docker images are built from Ubuntu 22.04 and include:
 
 - GLIMPSE2 v2.0.0: Low-coverage whole genome sequencing imputation toolkit
 - HTSlib 1.16: High-throughput sequencing data library
+- bcftools 1.16: Utilities for variant calling and manipulating VCFs and BCFs
 - Boost 1.78.0: C++ libraries (iostreams, program_options, serialization)
 
 The images include five main GLIMPSE2 tools:
@@ -171,10 +172,11 @@ The Dockerfile follows these main steps:
 3. Installs system dependencies with pinned versions for reproducibility
 4. Downloads and compiles Boost 1.78.0 (iostreams, program_options, serialization)
 5. Downloads and compiles HTSlib 1.16 (minimal configuration)
-6. Clones and compiles GLIMPSE2 v2.0.0 from source
-7. Cleans up build artifacts
-8. Sets working directory to /data
-9. Performs a smoke test to verify all tools are functional
+6. Downloads and compiles bcftools 1.16
+7. Clones and compiles GLIMPSE2 v2.0.0 from source
+8. Cleans up build artifacts
+9. Sets working directory to /data
+10. Performs a smoke test to verify all tools are functional
 
 ## Security Scanning and CVEs
 
