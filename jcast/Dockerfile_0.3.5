@@ -23,6 +23,6 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   gcc="${GCC_VERSION}" \
   g++="${GPP_VERSION}" \
-  && pip install --no-cache-dir jcast==0.3.5 \
+  && pip install --no-cache-dir scikit-learn==1.6.1 jcast==0.3.5 \
   && apt-get purge -y --auto-remove gcc g++ \
   && rm -rf /var/lib/apt/lists/*

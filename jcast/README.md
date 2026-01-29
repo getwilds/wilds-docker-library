@@ -12,6 +12,7 @@ This directory contains Docker images for JCAST, a Python tool for generating al
 These Docker images are built from the Python 3.11 slim image and include:
 
 - JCAST v0.3.5: A tool for translating alternative splicing events (e.g., from rMATS output) into protein sequences for mass spectrometry-based proteomics
+- scikit-learn v1.6.1: Required dependency for JCAST's machine learning functionality
 
 The images are designed to be minimal and focused on JCAST with its dependencies.
 
@@ -70,7 +71,7 @@ The Dockerfile follows these main steps:
 1. Uses Python 3.11 slim as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs build dependencies (`gcc`, `g++`) needed to compile JCAST's `pomegranate` dependency
-4. Installs JCAST via pip with a pinned version and `--no-cache-dir`
+4. Installs scikit-learn and JCAST via pip with pinned versions and `--no-cache-dir`
 5. Removes build dependencies and cleans up apt lists to minimize image size
 
 ## Security Scanning and CVEs
