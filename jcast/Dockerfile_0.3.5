@@ -1,0 +1,28 @@
+
+# Using Python base image
+FROM python:3.11-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="jcast"
+LABEL org.opencontainers.image.description="Docker image for the use of JCAST for alternative splicing proteomics in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="0.3.5"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing build dependencies needed to compile pomegranate C extensions,
+# then installing jcast, then removing build dependencies to minimize image size
+RUN apt-get update \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  gcc="${GCC_VERSION}" \
+  g++="${GPP_VERSION}" \
+  && pip install --no-cache-dir jcast==0.3.5 \
+  && apt-get purge -y --auto-remove gcc g++ \
+  && rm -rf /var/lib/apt/lists/*
