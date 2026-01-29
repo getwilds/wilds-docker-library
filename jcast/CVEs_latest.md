@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/jcast:latest
 
-Report generated on 2026-01-29 08:14:02 PST
+Report generated on 2026-01-29 20:38:36 PST
 
 ## Platform Coverage
 
@@ -11,10 +11,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 4 |
+| 🟠 High | 3 |
+| 🟡 Medium | 6 |
 | 🟢 Low | 25 |
-| ⚪ Unknown | 5 |
+| ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
 
@@ -23,8 +23,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 2 |
-| 🟡 Medium | 3 |
+| 🟠 High | 3 |
+| 🟡 Medium | 5 |
 | 🟢 Low | 25 |
 
 ## 🔄 Recommendations
@@ -35,10 +35,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/jcast:latest-amd64  │    0C     2H     4M    25L     5?  
-   digest           │  bbec2ace8e08                         │                                    
- Base image         │  python:3.11-slim                     │    0C     2H     3M    25L     5?  
- Updated base image │  python:3.13-slim                     │    0C     1H     2M    25L     5?  
+Target             │  getwilds/jcast:latest-amd64  │    0C     3H     6M    25L     2?  
+   digest           │  9d97545168d6                         │                                    
+ Base image         │  python:3.11-slim                     │    0C     3H     5M    25L     2?  
+ Updated base image │  python:3.13-slim                     │    0C     2H     4M    25L     2?  
                     │                                       │           -1     -1                
 
 What's next:
