@@ -10,7 +10,7 @@ Initial release of the WILDS Docker Library.
 
 ### Added
 
-- **47 bioinformatics tool images** including AnnotSV, ANNOVAR, BCFtools, BEDtools, BWA, Cell Ranger, DELLY, DESeq2, GATK, GLIMPSE2, HISAT2, Manta, Picard, Samtools, Scanpy, STAR, Strelka, and many more (see [README](README.md) for the full list)
+- **48 bioinformatics tool images** including AnnotSV, ANNOVAR, BCFtools, BEDtools, BWA, Cell Ranger, DELLY, DESeq2, GATK, GLIMPSE2, HISAT2, JCAST, Manta, Picard, rMATS-turbo, Samtools, Scanpy, STAR, Strelka, and many more (see [README](README.md) for the full list)
 - **Multi-platform support** for both linux/amd64 and linux/arm64 on most images, with documented exceptions for AMD64-only tools
 - **Automated CI/CD workflows** via GitHub Actions:
   - Docker image building and publishing to DockerHub and GitHub Container Registry

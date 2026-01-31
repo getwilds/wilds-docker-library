@@ -52,10 +52,12 @@ The repository includes Docker images for popular bioinformatics tools including
 | HISAT2 | Graph-based alignment | 2.2.1, latest |
 | HMMcopy | Copy number analysis | 1.0.0, latest |
 | ichorCNA | Copy number alteration detection | 0.2.0, latest |
+| JCAST | Alternative splicing proteomics | 0.3.5, latest |
 | Manta | Structural variant discovery | 1.6.0, latest |
 | MEGAHIT | Ultra-fast metagenome assembler | 1.2.9, latest |
 | Picard | Sequence data manipulation | 3.1.1, latest |
 | python-dl | Python deep learning environment | 1.0, latest |
+| rMATS-turbo | Alternative splicing analysis | 4.3.0, latest |
 | RNA-SeQC | RNA-seq quality control | 2.4.2, latest |
 | RSeQC | RNA-seq quality control package | 5.0.4, latest |
 | RTorch | R interface to PyTorch | 0.13.0, latest |
@@ -92,6 +94,7 @@ The following images are only available for **linux/amd64** due to architecture-
 - **Manta** - x86-specific build requirements
 - **MEGAHIT** - x86-specific build optimizations
 - **python-dl** - Build resource constraints for multi-platform builds
+- **rMATS-turbo** - Build dependencies not compatible with ARM64
 - **RTorch** - Position-independent code (PIC) limitations with large binaries
 - **scvi-tools** - Deep learning dependency compilation issues on ARM64
 - **ShapeMapper** - x86-specific build requirements
