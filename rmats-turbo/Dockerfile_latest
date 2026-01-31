@@ -1,0 +1,91 @@
+
+# Using Debian as the base image (required for rMATS build dependencies)
+FROM debian:bullseye
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="rmats-turbo"
+LABEL org.opencontainers.image.description="Docker image for rMATS-turbo for alternative splicing analysis in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=BSD-3-Clause
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies with pinned versions
+RUN apt-get update \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && CYTHON3_VERSION=$(apt-cache policy cython3 | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && LIBBLAS_VERSION=$(apt-cache policy libblas-dev | grep Candidate | awk '{print $2}') \
+  && LIBGSL_VERSION=$(apt-cache policy libgsl-dev | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && PYTHON_IS_PYTHON3_VERSION=$(apt-cache policy python-is-python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_DEV_VERSION=$(apt-cache policy python3-dev | grep Candidate | awk '{print $2}') \
+  && R_BASE_VERSION=$(apt-cache policy r-base | grep Candidate | awk '{print $2}') \
+  && R_DOPARALLEL_VERSION=$(apt-cache policy r-cran-doparallel | grep Candidate | awk '{print $2}') \
+  && R_DOSNOW_VERSION=$(apt-cache policy r-cran-dosnow | grep Candidate | awk '{print $2}') \
+  && R_FOREACH_VERSION=$(apt-cache policy r-cran-foreach | grep Candidate | awk '{print $2}') \
+  && R_GETOPT_VERSION=$(apt-cache policy r-cran-getopt | grep Candidate | awk '{print $2}') \
+  && R_GGPLOT2_VERSION=$(apt-cache policy r-cran-ggplot2 | grep Candidate | awk '{print $2}') \
+  && R_ITERATORS_VERSION=$(apt-cache policy r-cran-iterators | grep Candidate | awk '{print $2}') \
+  && R_MIXTOOLS_VERSION=$(apt-cache policy r-cran-mixtools | grep Candidate | awk '{print $2}') \
+  && R_NLOPTR_VERSION=$(apt-cache policy r-cran-nloptr | grep Candidate | awk '{print $2}') \
+  && R_RCPP_VERSION=$(apt-cache policy r-cran-rcpp | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  cython3="${CYTHON3_VERSION}" \
+  g++="${GPP_VERSION}" \
+  gfortran="${GFORTRAN_VERSION}" \
+  git="${GIT_VERSION}" \
+  libblas-dev="${LIBBLAS_VERSION}" \
+  libgsl-dev="${LIBGSL_VERSION}" \
+  liblapack-dev="${LIBLAPACK_VERSION}" \
+  make="${MAKE_VERSION}" \
+  python-is-python3="${PYTHON_IS_PYTHON3_VERSION}" \
+  python3-dev="${PYTHON3_DEV_VERSION}" \
+  r-base="${R_BASE_VERSION}" \
+  r-cran-doparallel="${R_DOPARALLEL_VERSION}" \
+  r-cran-dosnow="${R_DOSNOW_VERSION}" \
+  r-cran-foreach="${R_FOREACH_VERSION}" \
+  r-cran-getopt="${R_GETOPT_VERSION}" \
+  r-cran-ggplot2="${R_GGPLOT2_VERSION}" \
+  r-cran-iterators="${R_ITERATORS_VERSION}" \
+  r-cran-mixtools="${R_MIXTOOLS_VERSION}" \
+  r-cran-nloptr="${R_NLOPTR_VERSION}" \
+  r-cran-rcpp="${R_RCPP_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Clone rMATS-turbo v4.3.0
+WORKDIR /rmats_build
+RUN git clone --depth 1 --branch v4.3.0 https://github.com/Xinglab/rmats-turbo.git
+
+# Build rMATS-turbo
+WORKDIR /rmats_build/rmats-turbo
+RUN echo '' > setup_environment.sh && ./build_rmats
+
+# Copy build artifacts to /rmats and clean up
+WORKDIR /rmats
+RUN cp /rmats_build/rmats-turbo/rmats.py ./ \
+  && cp /rmats_build/rmats-turbo/cp_with_prefix.py ./ \
+  && cp /rmats_build/rmats-turbo/*.so ./ \
+  && mkdir rMATS_C \
+  && cp /rmats_build/rmats-turbo/rMATS_C/rMATSexe ./rMATS_C \
+  && mkdir rMATS_P \
+  && cp /rmats_build/rmats-turbo/rMATS_P/*.py ./rMATS_P \
+  && mkdir rMATS_R \
+  && cp /rmats_build/rmats-turbo/rMATS_R/*.R ./rMATS_R \
+  && rm -rf /rmats_build
+
+# Smoke test to verify rMATS is installed
+RUN python rmats.py --help
