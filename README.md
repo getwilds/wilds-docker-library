@@ -1,6 +1,6 @@
 <table>
 <tr>
-  <td><img src="wdlib_logo_hex.png" width="400" alt="wilds docker library logo"></td>
+  <td><img src="WILDSDockerLogo.png" width="400" alt="wilds docker library logo"></td>
   <td>
     <h1>WILDS Docker Library</h1>
     <p>Curated collection of Docker images for reproducible bioinformatics workflows in the WILDS.</p>
