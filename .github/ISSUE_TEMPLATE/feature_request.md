@@ -18,10 +18,10 @@ about: Request a new Docker image or image update for the WILDS Docker Library
 <!-- Help us understand your use case and research needs -->
 
 **Requested version(s):**
-<!-- Are there specific versions you need? e.g., "latest (v2.1.0)" or "both v1.x and v2.x" -->
+<!-- Are you aware of specific versions you need or the version you're using now? e.g., "latest (v2.1.0)" or "both v1.x and v2.x" -->
 
-**Platform requirements:**
-<!-- Do you need this on a specific platform? e.g., linux/amd64 only, or both amd64 and arm64 -->
+**Processor requirements:**
+<!-- Do you know if you need this image for specific processors? For example Intel/AMD (amd64) or Apple Silicon (arm64)-->
 
 **Additional context:**
 <!-- Any other information that might be helpful -->
