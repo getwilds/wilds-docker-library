@@ -14,8 +14,6 @@ about: Request a new Docker image or image update for the WILDS Docker Library
 **What would you use this for?**
 <!-- Describe the biological question or analysis you want to perform -->
 
-**Why is this important for your work?**
-<!-- Help us understand your use case and research needs -->
 
 **Requested version(s):**
 <!-- Are you aware of specific versions you need or the version you're using now? e.g., "latest (v2.1.0)" or "both v1.x and v2.x" -->
