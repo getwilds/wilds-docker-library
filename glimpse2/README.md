@@ -5,13 +5,14 @@ This directory contains Docker images for GLIMPSE2, a set of tools for low-cover
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_latest.md) )
+- `2.0.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_2.0.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_2.0.1.md) )
 - `2.0.0` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_2.0.0) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_2.0.0.md) )
 
 ## Image Details
 
 These Docker images are built from Ubuntu 22.04 and include:
 
-- GLIMPSE2 v2.0.0: Low-coverage whole genome sequencing imputation toolkit
+- GLIMPSE2 v2.0.0/v2.0.1: Low-coverage whole genome sequencing imputation toolkit
 - HTSlib 1.16: High-throughput sequencing data library
 - bcftools 1.16: Utilities for variant calling and manipulating VCFs and BCFs
 - Boost 1.78.0: C++ libraries (iostreams, program_options, serialization)
@@ -52,7 +53,7 @@ https://doi.org/10.1038/s41588-020-00756-0
 docker pull getwilds/glimpse2:latest
 
 # Or pull a specific version
-docker pull getwilds/glimpse2:2.0.0
+docker pull getwilds/glimpse2:2.0.1
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/glimpse2:latest
@@ -65,7 +66,7 @@ docker pull ghcr.io/getwilds/glimpse2:latest
 apptainer pull docker://getwilds/glimpse2:latest
 
 # Or pull a specific version
-apptainer pull docker://getwilds/glimpse2:2.0.0
+apptainer pull docker://getwilds/glimpse2:2.0.1
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/glimpse2:latest
