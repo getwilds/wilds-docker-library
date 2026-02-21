@@ -1,0 +1,26 @@
+
+# Use Rocker tidyverse base image
+FROM rocker/tidyverse:4
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="r-utils"
+LABEL org.opencontainers.image.description="Docker image for general-purpose R utilities in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set R library paths to avoid host contamination in Apptainer
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+
+# Install required R packages
+RUN R -e "install.packages(c('optparse', 'lubridate'), repos = 'https://cloud.r-project.org', dependencies = TRUE)"
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test
+RUN R -e "library(optparse); library(lubridate)"
