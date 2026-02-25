@@ -4,6 +4,7 @@ deseq2
 diamond
 glimpse2
 hisat2
+jax
 manta
 megahit
 python-dl
