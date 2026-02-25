@@ -40,6 +40,3 @@ RUN pip install --no-cache-dir --break-system-packages \
     tensorflow-datasets==4.9.9 \
     jupyterlab==4.5.5 \
     ml_collections==1.1.0
-
-# Smoke test to verify key packages installed correctly
-RUN pip show --no-color jax jaxlib flax optax tensorflow

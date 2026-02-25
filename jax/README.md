@@ -123,7 +123,6 @@ The Dockerfile follows these main steps:
 3. Installs Python 3 and pip with pinned versions
 4. Installs JAX ecosystem and ML packages via pip with pinned versions
 5. Uses `--no-cache-dir` to minimize image size
-6. Runs a smoke test to verify key packages are installed
 
 ## Security Scanning and CVEs
 
