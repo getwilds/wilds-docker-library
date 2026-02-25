@@ -24,7 +24,7 @@ RUN apt-get update \
   python3-pip="${PYTHON3_PIP_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Installing necessary Python modules
+# Installing necessary Python modules and running smoke test
 RUN pip install --no-cache-dir --break-system-packages \
     jax==0.9.0.1 \
     jaxlib==0.9.0.1 \
@@ -39,5 +39,5 @@ RUN pip install --no-cache-dir --break-system-packages \
     tensorflow==2.20.0 \
     tensorflow-datasets==4.9.9 \
     jupyterlab==4.5.5 \
-    ml_collections==1.1.0
-
+    ml_collections==1.1.0 \
+  && python3 -c "import jax; import flax; import optax; import tensorflow; print('jax:', jax.__version__, 'flax:', flax.__version__)"

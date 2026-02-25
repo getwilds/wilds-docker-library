@@ -108,11 +108,15 @@ apptainer run --nv --bind /path/to/script:/script docker://getwilds/flax:latest 
 apptainer run --nv --bind /path/to/script:/script flax_latest.sif python3 /script/example.py
 ```
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. jaxlib requires AVX instructions and NVIDIA CUDA GPU support, neither of which are available on ARM64 platforms.
+
 ## Important Notes
 
 ### GPU Support
 
-This image requires NVIDIA GPU drivers and the NVIDIA Container Toolkit for GPU acceleration. Use `--gpus all` with Docker or `--nv` with Apptainer to enable GPU support. The image is built for **amd64 architecture only**.
+This image requires NVIDIA GPU drivers and the NVIDIA Container Toolkit for GPU acceleration. Use `--gpus all` with Docker or `--nv` with Apptainer to enable GPU support.
 
 ## Dockerfile Structure
 
@@ -122,7 +126,8 @@ The Dockerfile follows these main steps:
 2. Adds metadata labels for documentation and attribution
 3. Installs Python 3 and pip with pinned versions
 4. Installs Flax/JAX ecosystem and ML packages via pip with pinned versions
-5. Uses `--no-cache-dir` to minimize image size
+5. Runs a smoke test to verify key packages import successfully
+6. Uses `--no-cache-dir` to minimize image size
 
 ## Security Scanning and CVEs
 
