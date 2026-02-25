@@ -3,9 +3,9 @@
 FROM nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04
 
 # Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="jax"
-LABEL org.opencontainers.image.description="Docker image for the use of jax-related Python packages in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.title="flax"
+LABEL org.opencontainers.image.description="Docker image for the use of flax-related Python packages in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="0.1.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -40,4 +40,3 @@ RUN pip install --no-cache-dir --break-system-packages \
     tensorflow-datasets==4.9.9 \
     jupyterlab==4.5.5 \
     ml_collections==1.1.0
-

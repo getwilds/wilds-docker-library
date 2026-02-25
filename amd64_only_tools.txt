@@ -3,8 +3,8 @@ cellranger
 deseq2
 diamond
 glimpse2
+flax
 hisat2
-jax
 manta
 megahit
 python-dl
