@@ -21,8 +21,11 @@ These Docker images are built from `nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04` 
 - einops v0.8.2: Flexible tensor operations
 - JupyterLab v4.5.5: Interactive development environment
 - ml_collections v1.1.0: ML configuration management
+- [Scenic](https://github.com/google-research/scenic): A JAX library for computer vision research and beyond
 
 The images are designed to provide a comprehensive Flax/JAX-based machine learning environment with CUDA 12 GPU support. While named after Flax, this image includes a broad set of ML and data science packages and can be used for a wide range of deep learning and scientific computing use cases.
+
+**Note on Scenic:** Scenic is not available on PyPI and is installed directly from its [GitHub repository](https://github.com/google-research/scenic), pinned to a specific commit hash for reproducibility.
 
 ## Citation
 
@@ -124,7 +127,7 @@ The Dockerfile follows these main steps:
 
 1. Uses `nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04` as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs Python 3 and pip with pinned versions
+3. Installs Python 3, pip, and git with pinned versions
 4. Installs Flax/JAX ecosystem and ML packages via pip with pinned versions
 5. Runs a smoke test to verify key packages import successfully
 6. Uses `--no-cache-dir` to minimize image size

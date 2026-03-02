@@ -15,19 +15,23 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Installing Python
+# Installing Python and git
 RUN apt-get update \
   && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
   && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   python3="${PYTHON3_VERSION}" \
   python3-pip="${PYTHON3_PIP_VERSION}" \
+  git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 # Installing necessary Python modules and running smoke test
 RUN pip install --no-cache-dir --break-system-packages \
     jax==0.9.0.1 \
     jaxlib==0.9.0.1 \
+    jax-cuda12-pjrt==0.9.0.1 \
+    jax-cuda12-plugin==0.9.0.1 \
     flax==0.12.4 \
     optax==0.2.6 \
     pandas==3.0.1 \
@@ -40,4 +44,6 @@ RUN pip install --no-cache-dir --break-system-packages \
     tensorflow-datasets==4.9.9 \
     jupyterlab==4.5.5 \
     ml_collections==1.1.0 \
-  && python3 -c "import jax; import flax; import optax; import tensorflow; print('jax:', jax.__version__, 'flax:', flax.__version__)"
+  && pip install --no-cache-dir --no-deps --break-system-packages \
+    git+https://github.com/google-research/scenic.git@38b001e514eb550ebd4e953c3efdc3b02ad3fdf4 \
+  && python3 -c "import jax; import flax; import optax; import tensorflow; import scenic; print('jax:', jax.__version__, 'flax:', flax.__version__)"
