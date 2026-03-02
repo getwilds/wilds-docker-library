@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/flax:0.1.0
 
-Report generated on 2026-02-25 20:21:28 PST
+Report generated on 2026-03-02 22:34:03 PST
 
 ## Platform Coverage
 
@@ -10,7 +10,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-**Image size:** 5.4 GB
+**Image size:** 5.6 GB
 **Size limit:** 3.0 GB
 
 Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
