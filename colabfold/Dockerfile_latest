@@ -33,10 +33,15 @@ RUN apt-get update \
   && CONDA_OVERRIDE_CUDA=$(echo "${CUDA_VERSION}" | cut -d'.' -f1,2) \
   mamba create -y -n colabfold -c conda-forge -c bioconda \
   colabfold=${COLABFOLD_VERSION} \
-  "jax<=0.4.23" \
-  "jaxlib<=0.4.23=cuda*" \
+  "jax>=0.4.23,<0.4.26" \
+  "jaxlib>=0.4.23,<0.4.26=cuda*" \
   "numpy<2" \
-  && mamba clean -afy
+  && mamba clean -afy \
+  # Pin dm-haiku to 0.0.12 via pip after conda install.
+  # ColabFold's bioconda recipe allows dm-haiku>=0.0.12 with no upper bound,
+  # so conda resolves 0.0.16+ which requires JAX 0.6+ APIs (jax.extend.core.JaxprEqn).
+  # dm-haiku 0.0.12 is the last version compatible with JAX 0.4.x.
+  && /usr/local/envs/colabfold/bin/pip install --no-deps "dm-haiku==0.0.12"
 
 # Setting environment variables for conda and cache paths
 ENV PATH=/usr/local/envs/colabfold/bin:$PATH
