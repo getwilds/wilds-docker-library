@@ -51,4 +51,4 @@ WORKDIR /data
 
 # Smoke test
 RUN colabfold_batch --help > /dev/null 2>&1 \
-  && python -c "import colabfold; print(f'ColabFold {colabfold.__version__}')"
+  && python -c "import colabfold; print('ColabFold imported successfully')"
