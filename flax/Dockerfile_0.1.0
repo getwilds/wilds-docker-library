@@ -1,0 +1,49 @@
+
+# Using a CUDA 12 base image for JAX compatibility (requires CUDA >= 12.1)
+FROM nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="flax"
+LABEL org.opencontainers.image.description="Docker image for the use of flax-related Python packages in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing Python and git
+RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3_PIP_VERSION}" \
+  git="${GIT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Installing necessary Python modules and running smoke test
+RUN pip install --no-cache-dir --break-system-packages \
+    jax==0.9.0.1 \
+    jaxlib==0.9.0.1 \
+    jax-cuda12-pjrt==0.9.0.1 \
+    jax-cuda12-plugin==0.9.0.1 \
+    flax==0.12.4 \
+    optax==0.2.6 \
+    pandas==3.0.1 \
+    scipy==1.17.1 \
+    scikit-learn==1.8.0 \
+    matplotlib==3.10.8 \
+    opencv-python==4.13.0.92 \
+    einops==0.8.2 \
+    tensorflow==2.20.0 \
+    tensorflow-datasets==4.9.9 \
+    jupyterlab==4.5.5 \
+    ml_collections==1.1.0 \
+  && pip install --no-cache-dir --no-deps --break-system-packages \
+    git+https://github.com/google-research/scenic.git@38b001e514eb550ebd4e953c3efdc3b02ad3fdf4 \
+  && python3 -c "import jax; import flax; import optax; import tensorflow; import scenic; print('jax:', jax.__version__, 'flax:', flax.__version__)"
