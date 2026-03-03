@@ -34,6 +34,7 @@ RUN apt-get update \
   mamba create -y -n colabfold -c conda-forge -c bioconda \
   colabfold=${COLABFOLD_VERSION} \
   jaxlib==*=cuda* \
+  "jax<0.6" \
   "numpy<2" \
   && mamba clean -afy
 
