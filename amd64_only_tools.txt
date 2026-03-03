@@ -4,6 +4,7 @@ colabfold
 deseq2
 diamond
 glimpse2
+flax
 hisat2
 manta
 megahit

@@ -51,6 +51,7 @@ The repository includes Docker images for popular bioinformatics tools including
 | gtf-smash | GTF file manipulation | v8, latest |
 | HISAT2 | Graph-based alignment | 2.2.1, latest |
 | HMMcopy | Copy number analysis | 1.0.0, latest |
+| Flax | GPU-accelerated numerical computing and deep learning | 0.1.0, latest |
 | ichorCNA | Copy number alteration detection | 0.2.0, latest |
 | JCAST | Alternative splicing proteomics | 0.3.5, latest |
 | Manta | Structural variant discovery | 1.6.0, latest |
@@ -90,6 +91,7 @@ The following images are only available for **linux/amd64** due to architecture-
 - **DESeq2** - R package compilation issues on ARM64
 - **DIAMOND** - x86-specific build optimizations
 - **GLIMPSE2** - Uses AVX2 SIMD instructions for performance optimization
+- **Flax** - jaxlib requires AVX instructions and NVIDIA CUDA GPU support
 - **HISAT2** - Hardcoded x86-specific compiler flags
 - **Manta** - x86-specific build requirements
 - **MEGAHIT** - x86-specific build optimizations
