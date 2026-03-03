@@ -6,7 +6,7 @@ FROM nvidia/cuda:${CUDA_VERSION}-base-ubuntu22.04
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="colabfold"
 LABEL org.opencontainers.image.description="Docker image for ColabFold protein structure prediction in FH DaSL's WILDS"
-LABEL org.opencontainers.image.version="1.5.5"
+LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -33,8 +33,8 @@ RUN apt-get update \
   && CONDA_OVERRIDE_CUDA=$(echo "${CUDA_VERSION}" | cut -d'.' -f1,2) \
   mamba create -y -n colabfold -c conda-forge -c bioconda \
   colabfold=${COLABFOLD_VERSION} \
-  jaxlib==*=cuda* \
-  "jax<0.6" \
+  "jax<=0.4.23" \
+  "jaxlib<=0.4.23=cuda*" \
   "numpy<2" \
   && mamba clean -afy
 
