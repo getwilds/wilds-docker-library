@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/flax:latest
 
-Report generated on 2026-03-02 22:41:44 PST
+Report generated on 2026-03-03 03:04:18 PST
 
 ## Platform Coverage
 
