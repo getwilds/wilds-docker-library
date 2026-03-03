@@ -29,7 +29,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && wget -qnc https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh \
   && bash Miniforge3-Linux-x86_64.sh -bfp /usr/local \
-  && mamba config --set auto_update_conda false \
   && rm -f Miniforge3-Linux-x86_64.sh \
   && CONDA_OVERRIDE_CUDA=$(echo "${CUDA_VERSION}" | cut -d'.' -f1,2) \
   mamba create -y -n colabfold -c conda-forge -c bioconda \
