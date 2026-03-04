@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/colabfold:1.5.5
 
-Report generated on 2026-03-03 22:45:16 PST
+Report generated on 2026-03-04 02:55:20 PST
 
 ## Platform Coverage
 
