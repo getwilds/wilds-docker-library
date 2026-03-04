@@ -44,7 +44,7 @@ RUN apt-get update \
   && /usr/local/envs/colabfold/bin/pip install --no-deps "dm-haiku==0.0.12" \
   # pdbfixer imports pkg_resources which requires setuptools.
   # Ensure setuptools is present so AMBER relaxation works correctly.
-  && /usr/local/envs/colabfold/bin/pip install setuptools
+  && /usr/local/envs/colabfold/bin/pip install "setuptools<78"
 
 # Setting environment variables for conda and cache paths
 ENV PATH=/usr/local/envs/colabfold/bin:$PATH
