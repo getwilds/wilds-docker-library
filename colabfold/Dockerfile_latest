@@ -41,7 +41,10 @@ RUN apt-get update \
   # ColabFold's bioconda recipe allows dm-haiku>=0.0.12 with no upper bound,
   # so conda resolves 0.0.16+ which requires JAX 0.6+ APIs (jax.extend.core.JaxprEqn).
   # dm-haiku 0.0.12 is the last version compatible with JAX 0.4.x.
-  && /usr/local/envs/colabfold/bin/pip install --no-deps "dm-haiku==0.0.12"
+  && /usr/local/envs/colabfold/bin/pip install --no-deps "dm-haiku==0.0.12" \
+  # pdbfixer imports pkg_resources which requires setuptools.
+  # Ensure setuptools is present so AMBER relaxation works correctly.
+  && /usr/local/envs/colabfold/bin/pip install setuptools
 
 # Setting environment variables for conda and cache paths
 ENV PATH=/usr/local/envs/colabfold/bin:$PATH
