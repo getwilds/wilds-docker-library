@@ -1,0 +1,63 @@
+
+# Using NVIDIA CUDA base image for GPU-accelerated structure prediction
+ARG CUDA_VERSION=11.8.0
+FROM nvidia/cuda:${CUDA_VERSION}-base-ubuntu22.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="colabfold"
+LABEL org.opencontainers.image.description="Docker image for ColabFold protein structure prediction in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell to fail on pipe errors
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing system dependencies, Miniforge, and ColabFold via conda
+ARG COLABFOLD_VERSION=1.5.5
+
+# hadolint ignore=DL3008
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CUDA_SUFFIX=$(echo "${CUDA_VERSION}" | cut -d'.' -f1,2 | tr '.' '-') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  "cuda-nvcc-${CUDA_SUFFIX}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && wget -qnc https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh \
+  && bash Miniforge3-Linux-x86_64.sh -bfp /usr/local \
+  && rm -f Miniforge3-Linux-x86_64.sh \
+  && CONDA_OVERRIDE_CUDA=$(echo "${CUDA_VERSION}" | cut -d'.' -f1,2) \
+  mamba create -y -n colabfold -c conda-forge -c bioconda \
+  colabfold=${COLABFOLD_VERSION} \
+  "jax>=0.4.23,<0.4.26" \
+  "jaxlib>=0.4.23,<0.4.26=cuda*" \
+  "numpy<2" \
+  && mamba clean -afy \
+  # Pin dm-haiku to 0.0.12 via pip after conda install.
+  # ColabFold's bioconda recipe allows dm-haiku>=0.0.12 with no upper bound,
+  # so conda resolves 0.0.16+ which requires JAX 0.6+ APIs (jax.extend.core.JaxprEqn).
+  # dm-haiku 0.0.12 is the last version compatible with JAX 0.4.x.
+  && /usr/local/envs/colabfold/bin/pip install --no-deps "dm-haiku==0.0.12" \
+  # pdbfixer imports pkg_resources which requires setuptools.
+  # Ensure setuptools is present so AMBER relaxation works correctly.
+  && /usr/local/envs/colabfold/bin/pip install "setuptools<78"
+
+# Setting environment variables for conda and cache paths
+ENV PATH=/usr/local/envs/colabfold/bin:$PATH
+ENV MPLBACKEND=Agg
+ENV MPLCONFIGDIR=/cache
+ENV XDG_CACHE_HOME=/cache
+
+# Creating writable cache directory for WDL task compatibility
+RUN mkdir -p /cache && chmod 777 /cache
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test
+RUN colabfold_batch --help > /dev/null 2>&1 \
+  && python -c "import colabfold; print('ColabFold imported successfully')"

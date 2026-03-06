@@ -1,5 +1,6 @@
 bwa
 cellranger
+colabfold
 deseq2
 diamond
 glimpse2
