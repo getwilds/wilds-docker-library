@@ -30,11 +30,17 @@ RUN apt-get update \
   python3="${PYTHON3_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Download and extract Bowtie 2 source
+# Download and extract Bowtie 2 source with SIMDE submodule for ARM64 support
 RUN wget -q --no-check-certificate \
     https://github.com/BenLangmead/bowtie2/archive/refs/tags/v2.5.5.tar.gz \
   && tar -xzf v2.5.5.tar.gz \
-  && rm -f v2.5.5.tar.gz
+  && rm -f v2.5.5.tar.gz \
+  && wget -q --no-check-certificate \
+    https://github.com/simd-everywhere/simde-no-tests/archive/f6a0b3b2882226e98496be9147265e05c7127c1f.tar.gz \
+    -O simde.tar.gz \
+  && tar -xzf simde.tar.gz \
+  && rm -f simde.tar.gz \
+  && mv simde-no-tests-f6a0b3b2882226e98496be9147265e05c7127c1f bowtie2-2.5.5/third_party/simde
 
 # Compile and install Bowtie 2
 WORKDIR /bowtie2-2.5.5
