@@ -1,0 +1,45 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="bowtie"
+LABEL org.opencontainers.image.description="Docker image for Bowtie in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing prerequisites and downloading Bowtie pre-built binary
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && PERL_VERSION=$(apt-cache policy perl | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
+  perl="${PERL_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && ARCH=$(dpkg --print-architecture) \
+  && if [ "${ARCH}" = "amd64" ]; then \
+       BOWTIE_ARCH="x86_64"; \
+     elif [ "${ARCH}" = "arm64" ]; then \
+       BOWTIE_ARCH="aarch64"; \
+     else \
+       echo "Unsupported architecture: ${ARCH}" && exit 1; \
+     fi \
+  && wget -q --no-check-certificate \
+     https://github.com/BenLangmead/bowtie/releases/download/v1.3.1/bowtie-1.3.1-linux-${BOWTIE_ARCH}.zip \
+  && unzip bowtie-1.3.1-linux-${BOWTIE_ARCH}.zip \
+  && cp bowtie-1.3.1-linux-${BOWTIE_ARCH}/bowtie* /usr/local/bin/ \
+  && rm -rf bowtie-1.3.1-linux-${BOWTIE_ARCH} bowtie-1.3.1-linux-${BOWTIE_ARCH}.zip
+
+# Smoke test to verify bowtie works on target architecture
+RUN bowtie --version

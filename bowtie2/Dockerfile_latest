@@ -1,0 +1,46 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="bowtie2"
+LABEL org.opencontainers.image.description="Docker image for Bowtie 2 in FH DaSL's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing build dependencies and compiling Bowtie 2 from source
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && PERL_VERSION=$(apt-cache policy perl | grep Candidate | awk '{print $2}') \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  zlib1g-dev="${ZLIB1G_VERSION}" \
+  perl="${PERL_VERSION}" \
+  python3="${PYTHON3_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download and extract Bowtie 2 source
+RUN wget -q --no-check-certificate \
+    https://github.com/BenLangmead/bowtie2/archive/refs/tags/v2.5.5.tar.gz \
+  && tar -xzf v2.5.5.tar.gz \
+  && rm -f v2.5.5.tar.gz
+
+# Compile and install Bowtie 2
+WORKDIR /bowtie2-2.5.5
+RUN make -j"$(nproc)" && make install
+WORKDIR /
+
+# Cleanup and smoke test to verify bowtie2 works on target architecture
+RUN rm -rf bowtie2-2.5.5 \
+  && bowtie2 --version
