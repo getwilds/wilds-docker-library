@@ -5,13 +5,13 @@ This directory contains Docker images for Bowtie 2, a fast and sensitive gapped 
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bowtie2/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/bowtie2/CVEs_latest.md) )
-- `2.5.5` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bowtie2/Dockerfile_2.5.5) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/bowtie2/CVEs_2.5.5.md) )
+- `2.5.4` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/bowtie2/Dockerfile_2.5.4) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/bowtie2/CVEs_2.5.4.md) )
 
 ## Image Details
 
 These Docker images are built from Ubuntu 24.04 and include:
 
-- Bowtie 2 v2.5.5: A fast and sensitive gapped read aligner
+- Bowtie 2 v2.5.4: A fast and sensitive gapped read aligner
 - Perl: Required runtime dependency for the bowtie2 wrapper script
 - Python 3: Required runtime dependency for the bowtie2 wrapper script
 
@@ -39,7 +39,7 @@ Nature Methods. 2012;9(4):357-359.
 docker pull getwilds/bowtie2:latest
 
 # Or pull a specific version
-docker pull getwilds/bowtie2:2.5.5
+docker pull getwilds/bowtie2:2.5.4
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/bowtie2:latest
@@ -52,7 +52,7 @@ docker pull ghcr.io/getwilds/bowtie2:latest
 apptainer pull docker://getwilds/bowtie2:latest
 
 # Or pull a specific version
-apptainer pull docker://getwilds/bowtie2:2.5.5
+apptainer pull docker://getwilds/bowtie2:2.5.4
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/bowtie2:latest
@@ -93,8 +93,8 @@ The Dockerfile follows these main steps:
 
 1. Uses Ubuntu 24.04 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs build and runtime dependencies (build-essential, wget, zlib1g-dev, perl, python3) with pinned versions
-4. Downloads and compiles Bowtie 2 v2.5.5 from source
+3. Installs system dependencies (wget, unzip, perl, python3) with pinned versions
+4. Downloads and installs the pre-built Bowtie 2 binary for the target architecture
 5. Performs cleanup to minimize image size
 
 ## Security Scanning and CVEs
