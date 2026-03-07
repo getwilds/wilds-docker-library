@@ -12,10 +12,11 @@ This directory contains Docker images for Bowtie 2, a fast and sensitive gapped 
 These Docker images are built from Ubuntu 24.04 and include:
 
 - Bowtie 2 v2.5.4: A fast and sensitive gapped read aligner
+- Samtools v1.19: A suite of utilities for manipulating alignments in the SAM/BAM format
 - Perl: Required runtime dependency for the bowtie2 wrapper script
 - Python 3: Required runtime dependency for the bowtie2 wrapper script
 
-The images are designed to be minimal and focused on Bowtie 2 with its essential dependencies.
+The images include Samtools alongside Bowtie 2 for common alignment workflows (e.g., piping Bowtie 2 output directly to `samtools view` for BAM conversion).
 
 ## Citation
 
@@ -78,6 +79,11 @@ docker run --rm -v /path/to/data:/data getwilds/bowtie2:latest \
 docker run --rm -v /path/to/data:/data getwilds/bowtie2:latest \
   bowtie2 --local -p 4 -x /data/reference_index -U /data/reads.fastq -S /data/aligned.sam
 
+# Align and convert to sorted BAM in one step
+docker run --rm -v /path/to/data:/data getwilds/bowtie2:latest \
+  bash -c "bowtie2 -x /data/reference_index -U /data/reads.fastq | \
+  samtools sort -o /data/aligned.sorted.bam && samtools index /data/aligned.sorted.bam"
+
 # Alternatively using Apptainer
 apptainer run --bind /path/to/data:/data docker://getwilds/bowtie2:latest \
   bowtie2 -x /data/reference_index -U /data/reads.fastq -S /data/aligned.sam
@@ -93,9 +99,10 @@ The Dockerfile follows these main steps:
 
 1. Uses Ubuntu 24.04 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs system dependencies (wget, unzip, perl, python3) with pinned versions
+3. Installs system and build dependencies with pinned versions
 4. Downloads and installs the pre-built Bowtie 2 binary for the target architecture
-5. Performs cleanup to minimize image size
+5. Downloads and compiles Samtools v1.19 from source
+6. Performs cleanup to minimize image size
 
 ## Security Scanning and CVEs
 
