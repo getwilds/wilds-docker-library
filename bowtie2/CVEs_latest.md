@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bowtie2:latest
 
-Report generated on 2026-03-07 17:14:37 PST
+Report generated on 2026-03-10 07:01:55 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/bowtie2:latest-amd64  │    0C     0H   552M    33L  
-   digest           │  680c6238dfa0                           │                             
+   digest           │  d3f3d3d75ced                           │                             
  Base image         │  ubuntu:24.04                           │    0C     0H     4M     5L  
  Updated base image │  ubuntu:26.04                           │    0C     0H     0M     0L  
                     │                                         │                  -4     -5  
