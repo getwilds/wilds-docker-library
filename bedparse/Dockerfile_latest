@@ -3,7 +3,7 @@ FROM python:3.12-slim
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="bedparse"
-LABEL org.opencontainers.image.description="Container image for bedparse - Python module and CLI tool to perform operations on BED files in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Container image for bedparse - Python module and CLI tool to perform operations on BED files in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/

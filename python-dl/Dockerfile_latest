@@ -4,7 +4,7 @@ FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="python-dl"
-LABEL org.opencontainers.image.description="Docker image for the use of Deep Learning Python packages in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for the use of Deep Learning Python packages in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/

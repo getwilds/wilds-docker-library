@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="bedops"
-LABEL org.opencontainers.image.description="Container image for BEDOPS - high-performance genomic interval operations toolkit in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Container image for BEDOPS - high-performance genomic interval operations toolkit in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="2.4.42"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/

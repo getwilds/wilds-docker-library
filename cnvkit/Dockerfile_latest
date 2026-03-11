@@ -4,7 +4,7 @@ FROM python:3.10-slim
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="cnvkit" \
-      org.opencontainers.image.description="Container image for the use of CNVkit in FH DaSL's WILDS" \
+      org.opencontainers.image.description="Container image for the use of CNVkit in Fred Hutch OCDO's WILDS" \
       org.opencontainers.image.version="latest" \
       org.opencontainers.image.authors="wilds@fredhutch.org" \
       org.opencontainers.image.url="https://ocdo.fredhutch.org/" \

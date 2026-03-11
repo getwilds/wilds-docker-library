@@ -13,7 +13,7 @@
 
 ## Overview
 
-The WILDS Docker Library is a centralized repository of Docker images maintained by the Fred Hutch Data Science Lab (DaSL) for use in bioinformatics and computational workflows. This repository hosts Dockerfiles for a wide range of bioinformatics tools, ensuring consistent, reproducible, and secure environments for research workflows.
+The WILDS Docker Library is a centralized repository of Docker images maintained by the Fred Hutch Office of the Chief Data Officer (OCDO) for use in bioinformatics and computational workflows. This repository hosts Dockerfiles for a wide range of bioinformatics tools, ensuring consistent, reproducible, and secure environments for research workflows.
 
 Each tool has its own directory with:
 - Dockerfiles for specific versions
@@ -35,9 +35,12 @@ The repository includes Docker images for popular bioinformatics tools including
 | bedparse | Python module and CLI tool for BED file operations | 0.2.3, latest |
 | BEDtools | Genome arithmetic toolkit | 2.31.1, latest |
 | biobambam2 | Tools for SAM/BAM processing | 2.0.185, latest |
+| Bowtie | Short-read sequence aligner | 1.3.1, latest |
+| Bowtie 2 | Fast and sensitive read alignment | 2.5.4, latest |
 | BWA | Burrows-Wheeler Aligner | 0.7.17, latest |
 | Cell Ranger | 10x Genomics analysis | 6.0.2, 10.0.0, latest |
 | CNVkit | Copy number variation detection | 0.9.10, latest |
+| ColabFold | Protein structure prediction | 1.5.5, latest |
 | combine-counts | Tool for combining count matrices | 0.1.0, latest |
 | consensus | Consensus sequence generation | 0.1.1, latest |
 | DELLY | Structural variant discovery | 1.2.9, latest |
@@ -47,7 +50,7 @@ The repository includes Docker images for popular bioinformatics tools including
 | FastQC | Sequence quality control | 0.12.1, latest |
 | GATK | Genome analysis toolkit | 4.3.0.0, 4.6.1.0, latest |
 | GDC-client | TCGA GDC Data Transfer Tool | 2.3.0, latest |
-| GLIMPSE2 | Low-coverage WGS imputation | 2.0.0, latest |
+| GLIMPSE2 | Low-coverage WGS imputation | 2.0.0, 2.0.1, latest |
 | gtf-smash | GTF file manipulation | v8, latest |
 | HISAT2 | Graph-based alignment | 2.2.1, latest |
 | HMMcopy | Copy number analysis | 1.0.0, latest |
@@ -58,6 +61,7 @@ The repository includes Docker images for popular bioinformatics tools including
 | MEGAHIT | Ultra-fast metagenome assembler | 1.2.9, latest |
 | Picard | Sequence data manipulation | 3.1.1, latest |
 | python-dl | Python deep learning environment | 1.0, latest |
+| r-utils | General-purpose R utilities | 0.1.0, latest |
 | rMATS-turbo | Alternative splicing analysis | 4.3.0, latest |
 | RNA-SeQC | RNA-seq quality control | 2.4.2, latest |
 | RSeQC | RNA-seq quality control package | 5.0.4, latest |
@@ -88,6 +92,7 @@ The following images are only available for **linux/amd64** due to architecture-
 
 - **BWA** - Contains x86-specific optimizations
 - **Cell Ranger** - Proprietary binary only available for x86
+- **ColabFold** - Deep learning dependencies require x86 architecture
 - **DESeq2** - R package compilation issues on ARM64
 - **DIAMOND** - x86-specific build optimizations
 - **GLIMPSE2** - Uses AVX2 SIMD instructions for performance optimization
@@ -212,7 +217,7 @@ For questions or support, please open an [issue](https://github.com/getwilds/wil
 
 For questions, bug reports, or feature requests:
 - Open an [issue](https://github.com/getwilds/wilds-docker-library/issues)
-- Email the Fred Hutch Data Science Lab at wilds@fredhutch.org
+- Email the Fred Hutch Office of the Chief Data Officer at wilds@fredhutch.org
 
 ## License
 
