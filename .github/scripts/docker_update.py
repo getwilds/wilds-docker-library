@@ -188,6 +188,45 @@ def setup_buildx():
         return False
 
 
+def is_label_only_change(repo, diff_target, filepath):
+    """
+    Check if a Dockerfile's changes are limited to LABEL lines only.
+
+    This prevents unnecessary image rebuilds when only metadata labels
+    (e.g., org.opencontainers.image.description) are updated.
+
+    Args:
+        repo: GitPython Repo object
+        diff_target: Git diff target string (e.g., "abc123..def456")
+        filepath: Path to the Dockerfile
+
+    Returns:
+        True if all changed lines are LABEL metadata, False otherwise
+    """
+    try:
+        diff_output = repo.git.diff(diff_target, "--", filepath)
+        changed_lines = [
+            line[1:].strip()
+            for line in diff_output.split("\n")
+            if line.startswith("+") or line.startswith("-")
+        ]
+        # Exclude diff headers (--- a/file, +++ b/file)
+        changed_lines = [
+            line for line in changed_lines
+            if not line.startswith("++ ") and not line.startswith("-- ")
+            and line  # skip empty lines
+        ]
+        if not changed_lines:
+            return True
+        return all(
+            line.startswith("LABEL ") or line.startswith("org.opencontainers.image.")
+            for line in changed_lines
+        )
+    except Exception as e:
+        logger.warning(f"Could not check diff for {filepath}: {e}")
+        return False
+
+
 def find_changed_files(specified_dir=None):
     """
     Find Dockerfiles and README files that have changed.
@@ -253,6 +292,16 @@ def find_changed_files(specified_dir=None):
             logger.info("No Dockerfile changes detected.")
         else:
             logger.info(f"Changed Dockerfiles: {docker_files}")
+
+            # Filter out Dockerfiles with label-only changes to avoid unnecessary rebuilds
+            label_only = [f for f in docker_files if is_label_only_change(repo, diff_target, f)]
+            if label_only:
+                logger.info(f"Skipping label-only changes (no rebuild needed): {label_only}")
+                docker_files = [f for f in docker_files if f not in label_only]
+                if docker_files:
+                    logger.info(f"Dockerfiles requiring rebuild: {docker_files}")
+                else:
+                    logger.info("No Dockerfiles require rebuild after filtering label-only changes.")
 
         # Filter for README files
         readme_files = [f for f in changed_files if f.endswith("README.md")]

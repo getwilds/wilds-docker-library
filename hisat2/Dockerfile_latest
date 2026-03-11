@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="hisat2"
-LABEL org.opencontainers.image.description="Docker image for HISAT2 alignment tool in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for HISAT2 alignment tool in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/

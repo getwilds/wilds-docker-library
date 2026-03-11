@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="star"
-LABEL org.opencontainers.image.description="Container image for the use of STAR in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Container image for the use of STAR in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="2.7.4a"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/

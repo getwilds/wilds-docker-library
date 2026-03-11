@@ -4,7 +4,7 @@ FROM python:3.11-slim
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="jcast"
-LABEL org.opencontainers.image.description="Docker image for the use of JCAST for alternative splicing proteomics in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for the use of JCAST for alternative splicing proteomics in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/

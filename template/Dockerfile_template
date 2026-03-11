@@ -46,7 +46,7 @@ FROM ubuntu:24.04
 # metadata about the image. Update ALL fields for your tool.
 
 LABEL org.opencontainers.image.title="TOOL_NAME_HERE"
-LABEL org.opencontainers.image.description="Docker image for TOOL_NAME in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for TOOL_NAME in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="VERSION_HERE"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/

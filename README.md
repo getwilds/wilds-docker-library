@@ -13,7 +13,7 @@
 
 ## Overview
 
-The WILDS Docker Library is a centralized repository of Docker images maintained by the Fred Hutch Data Science Lab (DaSL) for use in bioinformatics and computational workflows. This repository hosts Dockerfiles for a wide range of bioinformatics tools, ensuring consistent, reproducible, and secure environments for research workflows.
+The WILDS Docker Library is a centralized repository of Docker images maintained by the Fred Hutch Office of the Chief Data Officer (OCDO) for use in bioinformatics and computational workflows. This repository hosts Dockerfiles for a wide range of bioinformatics tools, ensuring consistent, reproducible, and secure environments for research workflows.
 
 Each tool has its own directory with:
 - Dockerfiles for specific versions
@@ -212,7 +212,7 @@ For questions or support, please open an [issue](https://github.com/getwilds/wil
 
 For questions, bug reports, or feature requests:
 - Open an [issue](https://github.com/getwilds/wilds-docker-library/issues)
-- Email the Fred Hutch Data Science Lab at wilds@fredhutch.org
+- Email the Fred Hutch Office of the Chief Data Officer at wilds@fredhutch.org
 
 ## License
 

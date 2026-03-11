@@ -4,7 +4,7 @@ FROM debian:bullseye
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="rmats-turbo"
-LABEL org.opencontainers.image.description="Docker image for rMATS-turbo for alternative splicing analysis in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for rMATS-turbo for alternative splicing analysis in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="4.3.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
