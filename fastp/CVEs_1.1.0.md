@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/fastp:1.1.0
 
-Report generated on 2026-03-17 04:01:52 PST
+Report generated on 2026-03-17 23:25:59 PST
 
 ## Platform Coverage
 
@@ -29,16 +29,16 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:26.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
 Target             │  getwilds/fastp:1.1.0-amd64  │    0C     7H    18M     6L  
-   digest           │  940c511b5f56                        │                             
+   digest           │  321816348d1e                        │                             
  Base image         │  ubuntu:20.04                        │    0C     0H     5M     0L  
- Updated base image │  ubuntu:26.04                        │    0C     0H     0M     0L  
+ Updated base image │  ubuntu:25.10                        │    0C     0H     0M     0L  
                     │                                      │                  -5         
 
 What's next:

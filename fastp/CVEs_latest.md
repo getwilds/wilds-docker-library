@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/fastp:latest
 
-Report generated on 2026-03-17 04:05:52 PST
+Report generated on 2026-03-17 23:29:50 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/fastp:latest-amd64  │    0C     7H    18M     6L  
-   digest           │  5169023ac665                         │                             
+   digest           │  728f20036e2f                         │                             
  Base image         │  ubuntu:20.04                         │    0C     0H     5M     0L  
  Updated base image │  ubuntu:25.10                         │    0C     0H     0M     0L  
                     │                                       │                  -5         
