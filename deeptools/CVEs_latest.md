@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/deeptools:latest
 
-Report generated on 2026-03-18 16:19:48 PST
+Report generated on 2026-03-20 16:41:40 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/deeptools:latest-amd64  │    0C     8H    18M     6L  
-   digest           │  47f223ff1916                             │                             
+   digest           │  c2e64f6528bf                             │                             
  Base image         │  ubuntu:20.04                             │    0C     0H     5M     0L  
  Updated base image │  ubuntu:25.10                             │    0C     0H     0M     0L  
                     │                                           │                  -5         
