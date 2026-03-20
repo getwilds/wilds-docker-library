@@ -20,7 +20,7 @@ RUN apk add --no-cache wget=1.25.0-r1 unzip=6.0-r15 bash=5.2.37-r0 \
   && mv ena-file-downloader.jar /usr/local/bin/ \
   && chmod 644 /usr/local/bin/ena-file-downloader.jar \
   && rm -f ena-file-downloader.zip \
-  && apk del wget unzip
+  && apk del unzip
 
 # Create wrapper script for easier execution
 RUN echo '#!/bin/sh' > /usr/local/bin/ena-downloader \
