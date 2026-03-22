@@ -1,0 +1,37 @@
+# starling Dockerfile for WILDS Docker Library
+# STARLING: Predicting coarse-grained ensembles of intrinsically disordered proteins
+FROM python:3.11-slim
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="starling"
+LABEL org.opencontainers.image.description="Docker image for STARLING in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="2.0.0a3"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install build dependencies needed for Cython compilation, then install
+# STARLING via pip, and clean up build deps to minimize image size
+RUN apt-get update \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  gcc="${GCC_VERSION}" \
+  g++="${GPP_VERSION}" \
+  make="${MAKE_VERSION}" \
+  && pip install --no-cache-dir idptools-starling==2.0.0a3 \
+  && apt-get purge -y gcc g++ make \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/*
+
+# Smoke test to verify starling is installed correctly
+RUN starling --help
+
+# Set working directory
+WORKDIR /data
