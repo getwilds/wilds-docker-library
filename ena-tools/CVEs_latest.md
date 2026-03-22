@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ena-tools:latest
 
-Report generated on 2025-12-12 18:38:55 PST
+Report generated on 2026-03-22 05:11:26 PST
 
 ## Platform Coverage
 
@@ -10,40 +10,33 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 6 |
-| 🟠 High | 40 |
-| 🟡 Medium | 53 |
-| 🟢 Low | 11 |
-| ⚪ Unknown | 0 |
+| 🔴 Critical | 7 |
+| 🟠 High | 45 |
+| 🟡 Medium | 58 |
+| 🟢 Low | 14 |
+| ⚪ Unknown | 3 |
 
 ## 🐳 Base Image
 
-**Image:** `eclipse-temurin:21-jre-alpine`
+**Image:** `oisupport/staging-amd64:21-jre-alpine`
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 3 |
-| 🟡 Medium | 4 |
+| 🔴 Critical | 1 |
+| 🟠 High | 1 |
+| 🟡 Medium | 7 |
 | 🟢 Low | 3 |
-
-## 🔄 Recommendations
-
-**Updated base image:** `eclipse-temurin:25-jre-alpine`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/ena-tools:latest-amd64  │    6C    40H    53M    11L   
-    digest           │  67ce4ad7b96f                             │                              
-  Base image         │  eclipse-temurin:21-jre-alpine            │    0C     3H     4M     3L   
-  Updated base image │  eclipse-temurin:25-jre-alpine            │    0C     3H     3M     2L   
-                     │                                           │                  -1     -1   
+Target     │  getwilds/ena-tools:latest-amd64  │    7C    45H    58M    14L     3?  
+   digest   │  ff210d7a821d                             │                                    
+ Base image │  oisupport/staging-amd64:21-jre-alpine    │    1C     1H     7M     3L     1?  
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/ena-tools:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/ena-tools:latest-amd64
     Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/ena-tools:latest-amd64 --org <organization>
 ```
 </details>
