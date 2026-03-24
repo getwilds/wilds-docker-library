@@ -9,14 +9,14 @@ This directory contains Docker images for [STARLING](https://github.com/idptools
 
 ## Image Details
 
-These Docker images are built from `python:3.11-slim` and include:
+These Docker images are built from `nvidia/cuda:12.1.1-runtime-ubuntu22.04` with GPU support and include:
 
 - STARLING v2.0.0a3: Coarse-grained ensemble prediction for intrinsically disordered proteins
-- PyTorch: Deep learning framework used by STARLING's diffusion model
+- PyTorch 2.6.0 (CUDA 12.1): Deep learning framework used by STARLING's diffusion model
 - MDTraj: Molecular dynamics trajectory analysis
 - metapredict: Disorder prediction used internally by STARLING
 
-The images are designed to be minimal and focused on STARLING with its essential dependencies.
+The images include NVIDIA CUDA runtime support for GPU-accelerated inference. To use GPU acceleration, run with `--gpus all` (Docker) or `--nv` (Apptainer).
 
 ## Citation
 
@@ -64,13 +64,17 @@ apptainer pull docker://ghcr.io/getwilds/starling:latest
 ### Example Commands
 
 ```bash
-# Generate an ensemble for a disordered protein sequence
-docker run --rm -v /path/to/data:/data getwilds/starling:latest \
+# Generate an ensemble with GPU acceleration
+docker run --rm --gpus all -v /path/to/data:/data getwilds/starling:latest \
   starling --sequence MKVIFLAVLGLGIVVTTVLY --output /data/ensemble.starling
 
-# Generate an ensemble from a FASTA file
-docker run --rm -v /path/to/data:/data getwilds/starling:latest \
+# Generate an ensemble from a FASTA file (GPU)
+docker run --rm --gpus all -v /path/to/data:/data getwilds/starling:latest \
   starling --fasta /data/sequences.fasta --output /data/ensemble.starling
+
+# CPU-only mode (omit --gpus flag)
+docker run --rm -v /path/to/data:/data getwilds/starling:latest \
+  starling --sequence MKVIFLAVLGLGIVVTTVLY --output /data/ensemble.starling
 
 # Convert a STARLING output file to PDB + XTC trajectory
 docker run --rm -v /path/to/data:/data getwilds/starling:latest \
@@ -80,8 +84,8 @@ docker run --rm -v /path/to/data:/data getwilds/starling:latest \
 docker run --rm -v /path/to/data:/data getwilds/starling:latest \
   starling2info --input /data/ensemble.starling
 
-# Using Apptainer to generate an ensemble
-apptainer run --bind /path/to/data:/data docker://getwilds/starling:latest \
+# Using Apptainer with GPU support
+apptainer run --nv --bind /path/to/data:/data docker://getwilds/starling:latest \
   starling --sequence MKVIFLAVLGLGIVVTTVLY --output /data/ensemble.starling
 ```
 
@@ -89,13 +93,14 @@ apptainer run --bind /path/to/data:/data docker://getwilds/starling:latest \
 
 The Dockerfile follows these main steps:
 
-1. Uses `python:3.11-slim` as the base image
+1. Uses `nvidia/cuda:12.1.1-runtime-ubuntu22.04` as the base image for GPU support
 2. Adds metadata labels for documentation and attribution
-3. Installs build dependencies (gcc, g++, make) needed for Cython compilation
-4. Installs STARLING v2.0.0a3 and all Python dependencies via pip
-5. Removes build dependencies to minimize image size
-6. Performs a smoke test to verify the installation
-7. Cleans up apt caches to minimize image size
+3. Installs Python 3 and build dependencies (gcc, g++, make) needed for Cython compilation
+4. Installs PyTorch 2.6.0 with CUDA 12.1 support
+5. Installs STARLING v2.0.0a3 and remaining Python dependencies via pip
+6. Removes build dependencies to minimize image size
+7. Performs a smoke test to verify the installation
+8. Cleans up apt caches to minimize image size
 
 ## Security Scanning and CVEs
 

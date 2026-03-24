@@ -1,6 +1,6 @@
 # starling Dockerfile for WILDS Docker Library
 # STARLING: Predicting coarse-grained ensembles of intrinsically disordered proteins
-FROM python:3.11-slim
+FROM nvidia/cuda:12.1.1-runtime-ubuntu22.04
 
 # Adding labels for the GitHub Container Registry following WILDS standards
 LABEL org.opencontainers.image.title="starling"
@@ -15,16 +15,21 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install build dependencies needed for Cython compilation, then install
-# STARLING via pip, and clean up build deps to minimize image size
+# Install Python 3.11 and build dependencies needed for Cython compilation
 RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
   && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
   && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3_PIP_VERSION}" \
   gcc="${GCC_VERSION}" \
   g++="${GPP_VERSION}" \
   make="${MAKE_VERSION}" \
+  && pip install --no-cache-dir \
+  torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cu121 \
   && pip install --no-cache-dir idptools-starling==2.0.0a3 \
   && apt-get purge -y gcc g++ make \
   && apt-get autoremove -y \
