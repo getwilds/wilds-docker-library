@@ -9,10 +9,10 @@ This directory contains Docker images for [STARLING](https://github.com/idptools
 
 ## Image Details
 
-These Docker images are built from `nvidia/cuda:12.1.1-runtime-ubuntu22.04` with GPU support and include:
+These Docker images are built from `nvidia/cuda:12.6.3-runtime-ubuntu24.04` with GPU support and include:
 
 - STARLING v2.0.0a3: Coarse-grained ensemble prediction for intrinsically disordered proteins
-- PyTorch 2.6.0 (CUDA 12.1): Deep learning framework used by STARLING's diffusion model
+- PyTorch 2.6.0 (CUDA 12.6): Deep learning framework used by STARLING's diffusion model
 - MDTraj: Molecular dynamics trajectory analysis
 - metapredict: Disorder prediction used internally by STARLING
 
@@ -93,10 +93,10 @@ apptainer run --nv --bind /path/to/data:/data docker://getwilds/starling:latest 
 
 The Dockerfile follows these main steps:
 
-1. Uses `nvidia/cuda:12.1.1-runtime-ubuntu22.04` as the base image for GPU support
+1. Uses `nvidia/cuda:12.6.3-runtime-ubuntu24.04` as the base image for GPU support
 2. Adds metadata labels for documentation and attribution
-3. Installs Python 3 and build dependencies (gcc, g++, make) needed for Cython compilation
-4. Installs PyTorch 2.6.0 with CUDA 12.1 support
+3. Installs Python 3, python3-dev, and build dependencies (gcc, g++, make) needed for Cython compilation
+4. Installs PyTorch 2.6.0 with CUDA 12.6 support
 5. Installs STARLING v2.0.0a3 and remaining Python dependencies via pip
 6. Removes build dependencies to minimize image size
 7. Performs a smoke test to verify the installation
