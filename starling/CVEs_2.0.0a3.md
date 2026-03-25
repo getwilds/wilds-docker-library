@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/starling:2.0.0a3
 
-Report generated on 2026-03-25 05:21:13 PST
+Report generated on 2026-03-25 21:21:06 PST
 
 ## Platform Coverage
 
