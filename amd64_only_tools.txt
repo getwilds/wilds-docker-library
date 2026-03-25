@@ -16,4 +16,5 @@ shapemapper
 smoove
 spades
 sra-tools
+starling
 strelka
