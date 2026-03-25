@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/starling:2.0.0a3
 
-Report generated on 2026-03-25 02:10:01 PST
+Report generated on 2026-03-25 05:21:13 PST
 
 ## Platform Coverage
 
@@ -16,5 +16,5 @@ Docker Scout scan was skipped for this image because it exceeds the size limit.
 Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
 
 ```bash
-docker scout quickview getwilds/starling:2.0.0a3-amd64 --platform linux/amd64
+docker scout quickview getwilds/starling:2.0.0a3 --platform linux/amd64
 ```
