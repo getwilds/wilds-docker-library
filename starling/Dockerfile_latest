@@ -1,0 +1,44 @@
+# starling Dockerfile for WILDS Docker Library
+# STARLING: Predicting coarse-grained ensembles of intrinsically disordered proteins
+FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="starling"
+LABEL org.opencontainers.image.description="Docker image for STARLING in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install Python and build dependencies needed for Cython compilation
+RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && PYTHON3_DEV_VERSION=$(apt-cache policy python3-dev | grep Candidate | awk '{print $2}') \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3_PIP_VERSION}" \
+  python3-dev="${PYTHON3_DEV_VERSION}" \
+  gcc="${GCC_VERSION}" \
+  g++="${GPP_VERSION}" \
+  make="${MAKE_VERSION}" \
+  && pip install --no-cache-dir --break-system-packages \
+  torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cu126 \
+  && pip install --no-cache-dir --break-system-packages idptools-starling==2.0.0a3 \
+  && apt-get purge -y gcc g++ make python3-dev \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/*
+
+# Smoke test to verify starling is installed correctly
+RUN starling --help
+
+# Set working directory
+WORKDIR /data
