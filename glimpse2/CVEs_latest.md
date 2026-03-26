@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/glimpse2:latest
 
-Report generated on 2026-02-18 22:11:07 PST
+Report generated on 2026-03-26 04:54:04 PST
 
 ## Platform Coverage
 
@@ -10,10 +10,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 0 |
+| 🔴 Critical | 1 |
 | 🟠 High | 5 |
-| 🟡 Medium | 1511 |
-| 🟢 Low | 69 |
+| 🟡 Medium | 1488 |
+| 🟢 Low | 64 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,7 +25,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 4 |
-| 🟢 Low | 12 |
+| 🟢 Low | 11 |
 
 ## 🔄 Recommendations
 
@@ -35,10 +35,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/glimpse2:latest  │    0C     5H   1511M    69L  
-   digest           │  01cec60880e0                      │                              
- Base image         │  ubuntu:22.04                      │    0C     0H     4M    12L   
- Updated base image │  ubuntu:24.04                      │    0C     0H     4M     5L   
+Target             │  getwilds/glimpse2:latest  │    1C     5H   1488M    64L  
+   digest           │  87f40879a7f3                      │                              
+ Base image         │  ubuntu:22.04                      │    0C     0H     4M    11L   
+ Updated base image │  ubuntu:24.04                      │    0C     0H     4M     4L   
                     │                                    │                         -7   
 
 What's next:
