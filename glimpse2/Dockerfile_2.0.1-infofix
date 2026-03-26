@@ -87,12 +87,12 @@ RUN ./configure --prefix=/usr/local \
 
 # Clone GLIMPSE2 at commit that includes INFO score fix (PR #175)
 WORKDIR /tmp/build
-RUN git clone https://github.com/odelaneau/GLIMPSE.git \
-  && cd GLIMPSE \
-  && git checkout 5fda8c09
+RUN git clone https://github.com/odelaneau/GLIMPSE.git
+
+WORKDIR /tmp/build/GLIMPSE
+RUN git checkout 5fda8c09
 
 # Build GLIMPSE2 using system target
-WORKDIR /tmp/build/GLIMPSE
 RUN make clean \
   && make COMPILATION_ENV=docker -j"$(nproc)" \
   && mv chunk/bin/GLIMPSE2_chunk /usr/local/bin/ \

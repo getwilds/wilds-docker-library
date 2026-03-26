@@ -46,10 +46,10 @@ RUN apt-get update \
        echo "Unsupported architecture: ${ARCH}" && exit 1; \
      fi \
   && wget -q --no-check-certificate \
-     https://github.com/BenLangmead/bowtie2/releases/download/v2.5.4/bowtie2-2.5.4-linux-${BOWTIE2_ARCH}.zip \
-  && unzip bowtie2-2.5.4-linux-${BOWTIE2_ARCH}.zip \
-  && cp bowtie2-2.5.4-linux-${BOWTIE2_ARCH}/bowtie2* /usr/local/bin/ \
-  && rm -rf bowtie2-2.5.4-linux-${BOWTIE2_ARCH} bowtie2-2.5.4-linux-${BOWTIE2_ARCH}.zip
+     "https://github.com/BenLangmead/bowtie2/releases/download/v2.5.4/bowtie2-2.5.4-linux-${BOWTIE2_ARCH}.zip" \
+  && unzip "bowtie2-2.5.4-linux-${BOWTIE2_ARCH}.zip" \
+  && cp "bowtie2-2.5.4-linux-${BOWTIE2_ARCH}"/bowtie2* /usr/local/bin/ \
+  && rm -rf "bowtie2-2.5.4-linux-${BOWTIE2_ARCH}" "bowtie2-2.5.4-linux-${BOWTIE2_ARCH}.zip"
 
 # Download, compile, and install Samtools
 RUN wget -q --no-check-certificate \
