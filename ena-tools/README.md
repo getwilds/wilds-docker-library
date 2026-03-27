@@ -9,7 +9,7 @@ This directory contains Docker images for ENA FTP Downloader, a Java-based tool 
 
 ## Image Details
 
-These Docker images are built from Eclipse Temurin JRE 21 (Alpine for `2.1.1` and Ubuntu for `2.1.1_ubuntu`) and include:
+These Docker images are built from Eclipse Temurin JRE 21 and include:
 
 - **ENA FTP Downloader**: Bulk download tool for ENA sequencing data
 - Support for multiple data formats: READS_FASTQ, READS_SUBMITTED, READS_BAM, ANALYSIS_SUBMITTED, ANALYSIS_GENERATED
