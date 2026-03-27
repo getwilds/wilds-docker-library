@@ -1,5 +1,5 @@
-# Using the Eclipse Temurin JRE slim base image
-FROM eclipse-temurin:21-jre-alpine
+# Using the Eclipse Temurin JRE Ubuntu base image
+FROM eclipse-temurin:21-jre-jammy
 
 LABEL org.opencontainers.image.title="ena-tools"
 LABEL org.opencontainers.image.description="Docker image for ENA FTP Downloader in Fred Hutch OCDO's WILDS"
@@ -10,17 +10,27 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Setting environment variables
 ENV ENA_DOWNLOADER_VERSION=2.1.1
 
 # Download and install ENA FTP Downloader
-RUN apk add --no-cache wget=1.25.0-r2 unzip=6.0-r16 bash=5.3.3-r1 \
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && UNZIP_VERSION=$(apt-cache policy unzip | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  unzip="${UNZIP_VERSION}" \
   && wget -q https://ftp.ebi.ac.uk/pub/databases/ena/tools/ena-file-downloader.zip \
   && unzip ena-file-downloader.zip \
   && mv ena-file-downloader.jar /usr/local/bin/ \
   && chmod 644 /usr/local/bin/ena-file-downloader.jar \
   && rm -f ena-file-downloader.zip \
-  && apk del unzip
+  && apt-get remove -y unzip \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/*
 
 # Create wrapper script for easier execution
 RUN echo '#!/bin/sh' > /usr/local/bin/ena-downloader \
