@@ -5,7 +5,6 @@ This directory contains Docker images for ENA FTP Downloader, a Java-based tool 
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_latest.md) )
-- `2.1.1_ubuntu` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_2.1.1-ubuntu) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_2.1.1_ubuntu.md) )
 - `2.1.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_2.1.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_2.1.1.md) )
 
 ## Image Details
