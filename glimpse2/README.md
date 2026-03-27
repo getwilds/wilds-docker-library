@@ -5,6 +5,7 @@ This directory contains Docker images for GLIMPSE2, a set of tools for low-cover
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_latest.md) )
+- `2.0.1-infofix` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_2.0.1-infofix) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_2.0.1-infofix.md) )
 - `2.0.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_2.0.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_2.0.1.md) )
 - `2.0.0` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/Dockerfile_2.0.0) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/glimpse2/CVEs_2.0.0.md) )
 
@@ -12,7 +13,7 @@ This directory contains Docker images for GLIMPSE2, a set of tools for low-cover
 
 These Docker images are built from Ubuntu 22.04 and include:
 
-- GLIMPSE2 v2.0.0/v2.0.1: Low-coverage whole genome sequencing imputation toolkit
+- GLIMPSE2 v2.0.0/v2.0.1/v2.0.1-infofix: Low-coverage whole genome sequencing imputation toolkit
 - HTSlib 1.16: High-throughput sequencing data library
 - bcftools 1.16: Utilities for variant calling and manipulating VCFs and BCFs
 - Boost 1.78.0: C++ libraries (iostreams, program_options, serialization)
@@ -26,6 +27,8 @@ The images include five main GLIMPSE2 tools:
 | `GLIMPSE2_phase` | Performs imputation and phasing |
 | `GLIMPSE2_ligate` | Ligates multiple phased chunks into chromosomes |
 | `GLIMPSE2_concordance` | Computes imputation accuracy metrics |
+
+The `2.0.1-infofix` variant is built from a post-release commit ([`5fda8c0`](https://github.com/odelaneau/GLIMPSE/commit/5fda8c09)) that includes the INFO score fix from [PR #175](https://github.com/odelaneau/GLIMPSE/pull/175).
 
 The images are designed to be minimal and focused on GLIMPSE2 with its essential runtime dependencies. Build-time dependencies are removed after compilation to reduce the final image size.
 
