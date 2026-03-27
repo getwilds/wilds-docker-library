@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bowtie:latest
 
-Report generated on 2026-03-10 06:20:54 PST
+Report generated on 2026-03-27 05:39:16 PST
 
 ## Platform Coverage
 
@@ -10,10 +10,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 552 |
-| 🟢 Low | 33 |
+| 🔴 Critical | 1 |
+| 🟠 High | 2 |
+| 🟡 Medium | 670 |
+| 🟢 Low | 32 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -25,21 +25,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 4 |
-| 🟢 Low | 5 |
+| 🟢 Low | 4 |
 
 ## 🔄 Recommendations
 
-**Updated base image:** `ubuntu:26.04`
+**Updated base image:** `ubuntu:25.10`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bowtie:latest-amd64  │    0C     0H   552M    33L  
-   digest           │  1b5559335e2a                          │                             
- Base image         │  ubuntu:24.04                          │    0C     0H     4M     5L  
- Updated base image │  ubuntu:26.04                          │    0C     0H     0M     0L  
-                    │                                        │                  -4     -5  
+Target             │  getwilds/bowtie:latest-amd64  │    1C     2H   670M    32L  
+   digest           │  8099168ba6d5                          │                             
+ Base image         │  ubuntu:24.04                          │    0C     0H     4M     4L  
+ Updated base image │  ubuntu:25.10                          │    0C     0H     0M     0L  
+                    │                                        │                  -4     -4  
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/bowtie:latest-amd64

@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/glimpse2:2.0.1-infofix
 
-Report generated on 2026-03-26 04:46:00 PST
+Report generated on 2026-03-27 06:26:46 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 1 |
 | 🟠 High | 5 |
-| 🟡 Medium | 1488 |
+| 🟡 Medium | 1549 |
 | 🟢 Low | 64 |
 | ⚪ Unknown | 0 |
 
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/glimpse2:2.0.1-infofix  │    1C     5H   1488M    64L  
-   digest           │  20fc42bc2e93                             │                              
+Target             │  getwilds/glimpse2:2.0.1-infofix  │    1C     5H   1549M    64L  
+   digest           │  e3343622a180                             │                              
  Base image         │  ubuntu:22.04                             │    0C     0H     4M    11L   
  Updated base image │  ubuntu:24.04                             │    0C     0H     4M     4L   
                     │                                           │                         -7   
