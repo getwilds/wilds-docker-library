@@ -5,15 +5,16 @@ This directory contains Docker images for ENA FTP Downloader, a Java-based tool 
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_latest.md) )
+- `2.1.1_ubunut` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_2.1.1_ubuntu) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_2.1.1_ubuntu.md) )
 - `2.1.1` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/Dockerfile_2.1.1) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ena-tools/CVEs_2.1.1.md) )
 
 ## Image Details
 
-These Docker images are built from Eclipse Temurin JRE 21 (Alpine) and include:
+These Docker images are built from Eclipse Temurin JRE 21 (Alpine for `2.1.1` and Ubuntu for `2.1.1_ubuntu`) and include:
 
 - **ENA FTP Downloader**: Bulk download tool for ENA sequencing data
 - Support for multiple data formats: READS_FASTQ, READS_SUBMITTED, READS_BAM, ANALYSIS_SUBMITTED, ANALYSIS_GENERATED
-- FTP and Aspera protocol support
+- FTP and Aspera protocol support, as well as wget for downloading using an HTTP URL
 - Resilient and idempotent file retrieval
 - Java 21 runtime environment
 
@@ -186,7 +187,7 @@ The Dockerfile follows these main steps:
 4. Downloads the ENA FTP Downloader ZIP from the official ENA FTP site
 5. Extracts and installs the JAR file to `/usr/local/bin`
 6. Creates a convenient wrapper script (`ena-downloader`) for easier execution
-7. Performs cleanup to minimize image size (removes wget and unzip, keeps bash for WDL compatibility)
+7. Performs cleanup to minimize image size (removes unzip, keeps bash for WDL compatibility)
 8. Verifies the tool is functional via help command
 
 ## Security Scanning and CVEs
