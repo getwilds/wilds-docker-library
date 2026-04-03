@@ -90,8 +90,9 @@ RUN g++ -std=c++14 -O1 -shared -fPIC -o realigner ssw_cpp.cpp ssw.c realigner.cp
 
 # Install PyPy 3.11 for preprocessing acceleration
 RUN wget -q "https://downloads.python.org/pypy/pypy3.11-v${PYPY_VERSION}-linux64.tar.bz2" \
-  && tar -xjf "pypy3.11-v${PYPY_VERSION}-linux64.tar.bz2" \
-  && rm "pypy3.11-v${PYPY_VERSION}-linux64.tar.bz2" \
+      -O /tmp/pypy.tar.bz2 \
+  && tar -xjf /tmp/pypy.tar.bz2 -C /opt/bin \
+  && rm /tmp/pypy.tar.bz2 \
   && ln -sf "/opt/bin/pypy3.11-v${PYPY_VERSION}-linux64/bin/pypy3" "${CONDA_PREFIX}/bin/pypy3" \
   && ln -sf "/opt/bin/pypy3.11-v${PYPY_VERSION}-linux64/bin/pypy3" "${CONDA_PREFIX}/bin/pypy" \
   && pypy3 -m ensurepip \
