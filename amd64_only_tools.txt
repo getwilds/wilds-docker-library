@@ -1,4 +1,5 @@
 bwa
+clair3
 cellranger
 colabfold
 deseq2
