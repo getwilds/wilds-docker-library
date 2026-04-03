@@ -18,7 +18,7 @@ These Docker images are built from `nvidia/cuda:12.6.3-runtime-ubuntu24.04` with
 - PyPy 3.11 v7.3.20: Preprocessing acceleration
 - longphase v1.7.3: Long-read phasing
 
-The images support both CPU and GPU execution — GPU mode is opt-in via the `--use_gpu` flag, so the image works in CPU-only environments without any changes. Pre-trained sequencing models are not bundled in the image; see Example Commands below for how to download and mount them at runtime.
+The images support both CPU and GPU execution — GPU mode is opt-in via the `--use_gpu` flag, so the image works in CPU-only environments without any changes. All 14 pre-trained sequencing models are bundled in the image at `/opt/models/`.
 
 ## Citation
 
@@ -63,74 +63,61 @@ apptainer pull docker://ghcr.io/getwilds/clair3:latest
 
 ### Example Commands
 
-Clair3 requires pre-trained models to call variants. Models are downloaded separately from https://github.com/HKU-BAL/Clair3#pre-trained-models and mounted into the container at runtime.
+All 14 pre-trained models are bundled in the image at `/opt/models/`. Pass the appropriate model path for your sequencing platform via `--model_path`.
 
 ```bash
-# Download a pre-trained model (e.g., for ONT R10.4.1 Q20+ data)
-wget -q https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch/r1041_e82_400bps_sup_v500/pileup.pt \
-  -P /path/to/models/r1041_e82_400bps_sup_v500/
-wget -q https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch/r1041_e82_400bps_sup_v500/full_alignment.pt \
-  -P /path/to/models/r1041_e82_400bps_sup_v500/
-
-# Run Clair3 on ONT data (CPU mode)
+# Run Clair3 on ONT R10.4.1 data (CPU mode)
 docker run --rm \
   -v /path/to/data:/data \
-  -v /path/to/models:/models \
   getwilds/clair3:latest \
   run_clair3.sh \
   --bam_fn=/data/sample.bam \
   --ref_fn=/data/reference.fa \
   --threads=4 \
   --platform=ont \
-  --model_path=/models/r1041_e82_400bps_sup_v500 \
+  --model_path=/opt/models/r1041_e82_400bps_sup_v500 \
   --output=/data/clair3_output
 
-# Run Clair3 on ONT data with GPU acceleration (requires NVIDIA Container Toolkit)
+# Run Clair3 on ONT R10.4.1 data with GPU acceleration (requires NVIDIA Container Toolkit)
 docker run --rm --gpus all \
   -v /path/to/data:/data \
-  -v /path/to/models:/models \
   getwilds/clair3:latest \
   run_clair3.sh \
   --bam_fn=/data/sample.bam \
   --ref_fn=/data/reference.fa \
   --threads=4 \
   --platform=ont \
-  --model_path=/models/r1041_e82_400bps_sup_v500 \
+  --model_path=/opt/models/r1041_e82_400bps_sup_v500 \
   --output=/data/clair3_output \
   --use_gpu
 
 # Run Clair3 on PacBio HiFi data (CPU mode)
 docker run --rm \
   -v /path/to/data:/data \
-  -v /path/to/models:/models \
   getwilds/clair3:latest \
   run_clair3.sh \
   --bam_fn=/data/sample.hifi.bam \
   --ref_fn=/data/reference.fa \
   --threads=8 \
   --platform=hifi \
-  --model_path=/models/hifi_revio \
+  --model_path=/opt/models/hifi_revio \
   --output=/data/clair3_hifi_output
 
 # Run using Apptainer with GPU
 apptainer run --nv \
-  --bind /path/to/data:/data,/path/to/models:/models \
+  --bind /path/to/data:/data \
   docker://getwilds/clair3:latest \
   run_clair3.sh \
   --bam_fn=/data/sample.bam \
   --ref_fn=/data/reference.fa \
   --threads=4 \
   --platform=ont \
-  --model_path=/models/r1041_e82_400bps_sup_v500 \
+  --model_path=/opt/models/r1041_e82_400bps_sup_v500 \
   --output=/data/clair3_output \
   --use_gpu
 ```
 
 ## Important Notes
-
-### Pre-trained Models
-
-Clair3 requires sequencing-platform-specific pre-trained models to call variants. These models are not included in the Docker image (each model pair is ~19 MB; the full set of 14+ models is ~265 MB). Download only the model(s) matching your sequencing data from the [Clair3 model repository](https://github.com/HKU-BAL/Clair3#pre-trained-models) and mount them at runtime as shown in the examples above.
 
 ### GPU Execution
 
@@ -150,7 +137,8 @@ The Dockerfile follows these main steps:
 4. Installs PyTorch with CUDA 12.6 support and Python dependencies (numpy, h5py, torchmetrics, etc.) via uv
 5. Downloads Clair3 v2.0.0 source and builds native C extensions (`libclair3.so`) and C++ realignment modules
 6. Installs PyPy 3.11 v7.3.20 for preprocessing acceleration
-7. Runs `run_clair3.sh --version` and a PyTorch import check as smoke tests
+7. Downloads all 14 pre-trained PyTorch models to `/opt/models/`
+8. Runs `run_clair3.sh --version` and a PyTorch import check as smoke tests
 
 ## Security Scanning and CVEs
 

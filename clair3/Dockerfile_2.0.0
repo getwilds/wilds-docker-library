@@ -98,6 +98,30 @@ RUN wget -q "https://downloads.python.org/pypy/pypy3.11-v${PYPY_VERSION}-linux64
   && pypy3 -m ensurepip \
   && pypy3 -m pip install --no-cache-dir mpmath==1.2.1
 
+# Download all pre-trained PyTorch models
+RUN base_url="https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch" \
+  && mkdir -p /opt/models \
+  && for model in \
+      hifi \
+      hifi_revio \
+      hifi_sequel2 \
+      ilmn \
+      ont \
+      ont_guppy5 \
+      r941_prom_hac_g360+g422 \
+      r941_prom_sup_g5014 \
+      r1041_e82_400bps_hac_v410 \
+      r1041_e82_400bps_hac_v500 \
+      r1041_e82_400bps_hac_with_mv \
+      r1041_e82_400bps_sup_v410 \
+      r1041_e82_400bps_sup_v430_bacteria_finetuned \
+      r1041_e82_400bps_sup_v500 \
+  ; do \
+      mkdir -p "/opt/models/${model}" \
+      && wget -q "${base_url}/${model}/pileup.pt" -P "/opt/models/${model}/" \
+      && wget -q "${base_url}/${model}/full_alignment.pt" -P "/opt/models/${model}/" \
+  ; done
+
 # Smoke test: verify Clair3 and GPU libraries are accessible
 RUN run_clair3.sh --version \
   && python3 -c "import torch; print('PyTorch', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
