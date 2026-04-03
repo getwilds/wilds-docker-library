@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/clair3:2.0.0
 
-Report generated on 2026-04-03 01:16:14 PST
+Report generated on 2026-04-03 03:00:45 PST
 
 ## Platform Coverage
 
@@ -10,7 +10,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-**Image size:** 5.5 GB
+**Image size:** 5.8 GB
 **Size limit:** 3.0 GB
 
 Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
