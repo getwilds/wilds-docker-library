@@ -1,0 +1,53 @@
+
+# Using Python base image with PyTorch CUDA support for GPU-accelerated protein structure prediction
+FROM python:3.11-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="esmfold"
+LABEL org.opencontainers.image.description="Docker image for ESMFold protein structure prediction in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell to fail on pipe errors
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies with pinned versions
+# hadolint ignore=DL3008
+RUN apt-get update \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  gcc="${GCC_VERSION}" \
+  g++="${GPP_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install PyTorch with CUDA 11.8 support, then ESMFold via HuggingFace Transformers
+# Using transformers approach (simpler than fair-esm[esmfold] which requires OpenFold compilation)
+# Updated PyTorch to 2.6.0+ to fix critical CVEs: CVE-2025-32434, CVE-2024-48063
+RUN pip install --no-cache-dir \
+  torch==2.6.0 \
+  --index-url https://download.pytorch.org/whl/cu118 \
+  && pip install --no-cache-dir \
+  transformers==4.46.3 \
+  accelerate==1.1.1 \
+  biopython==1.84 \
+  scipy==1.14.1
+
+# Set HuggingFace cache directory and pre-download model weights (~6-7GB)
+# Baking weights into the image avoids runtime downloads in WDL/Cromwell workflows
+ENV HF_HOME=/opt/esmfold/model
+RUN python -c "from transformers import EsmForProteinFolding, AutoTokenizer; EsmForProteinFolding.from_pretrained('facebook/esmfold_v1'); AutoTokenizer.from_pretrained('facebook/esmfold_v1'); print('ESMFold model and tokenizer cached successfully')"
+
+# Enable offline mode so the container never attempts network downloads at runtime
+ENV TRANSFORMERS_OFFLINE=1
+ENV HF_HUB_OFFLINE=1
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test: verify ESMFold loads from local cache in offline mode
+RUN python -c "from transformers import EsmForProteinFolding, AutoTokenizer; EsmForProteinFolding.from_pretrained('facebook/esmfold_v1'); AutoTokenizer.from_pretrained('facebook/esmfold_v1'); print('ESMFold loaded from cache successfully')"
