@@ -1,6 +1,73 @@
 
-# Using Python base image with PyTorch CUDA support for GPU-accelerated protein structure prediction
-FROM python:3.11-slim
+# Multi-stage build: compile OpenFold with CUDA, then copy conda env to final image
+# Approach modeled after nf-core/proteinfold ESMFold Dockerfile
+ARG CUDA_VERSION=11.7.1
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn8-devel-ubuntu22.04 AS builder
+ARG CUDA_VERSION
+
+# Set the shell to fail on pipe errors
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/conda/bin:$PATH"
+
+# Install system build dependencies
+# hadolint ignore=DL3008
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  build-essential \
+  wget \
+  git \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install Miniforge for Python 3.9 (required by OpenFold v1.0.0)
+RUN wget -q -P /tmp "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" \
+  && bash /tmp/Miniforge3-Linux-x86_64.sh -b -p /conda \
+  && rm -f /tmp/Miniforge3-Linux-x86_64.sh \
+  && /conda/bin/conda install --quiet -y python=3.9 \
+  && conda clean --all --force-pkgs-dirs --yes
+
+# Install ESM from GitHub (includes scripts/fold.py needed for esm-fold CLI)
+# Then install fair-esm[esmfold] extras for additional dependencies
+RUN /conda/bin/pip install --no-cache-dir git+https://github.com/facebookresearch/esm.git@v2.0.0 \
+  && /conda/bin/pip install --no-cache-dir "fair-esm[esmfold]"
+
+# Install PyTorch 2.0.0 with CUDA 11.8 (force-reinstall to override ESM's torch dep)
+RUN /conda/bin/pip install --no-cache-dir --force-reinstall \
+  torch==2.0.0 torchvision==0.15.0 \
+  --index-url https://download.pytorch.org/whl/cu118
+
+# Pin dependency versions for compatibility with OpenFold v1.0.0
+RUN /conda/bin/pip install --no-cache-dir \
+  pytorch_lightning==1.9.5 \
+  biopython==1.85 \
+  deepspeed==0.10.3 \
+  dm-tree==0.1.8 \
+  ml-collections==0.1.0 \
+  numpy==1.23.5 \
+  scipy==1.13.1
+
+# Install dllogger (NVIDIA logging utility required by OpenFold)
+RUN /conda/bin/pip install --no-cache-dir "dllogger @ git+https://github.com/NVIDIA/dllogger.git"
+
+# Clone, patch, and install OpenFold at the exact commit specified by ESM repo
+# Patch fixes deepspeed API change: utils.is_initialized -> comm.comm.is_initialized
+# hadolint ignore=DL3003
+RUN git clone https://github.com/aqlaboratory/openfold.git \
+  && cd openfold \
+  && git checkout 4b41059694619831a7db195b7e0988fc4ff3a307 \
+  && sed -i 's|deepspeed.utils.is_initialized|deepspeed.comm.comm.is_initialized|g' openfold/model/primitives.py \
+  && /conda/bin/pip install --no-cache-dir . \
+  && cd .. && rm -rf openfold
+
+# Install esm-fold CLI script (not included in the pip package)
+# Source: https://github.com/facebookresearch/esm/blob/main/scripts/fold.py
+COPY esm-fold /conda/bin/esm-fold
+RUN chmod +x /conda/bin/esm-fold
+
+# ---------- Final stage: copy conda env into clean CUDA image ----------
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn8-devel-ubuntu22.04
+ARG CUDA_VERSION
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="esmfold"
@@ -12,42 +79,16 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-# Set the shell to fail on pipe errors
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install system dependencies with pinned versions
-# hadolint ignore=DL3008
-RUN apt-get update \
-  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
-  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
-  && apt-get install -y --no-install-recommends \
-  gcc="${GCC_VERSION}" \
-  g++="${GPP_VERSION}" \
-  && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /conda /conda
 
-# Install PyTorch with CUDA 11.8 support, then ESMFold via HuggingFace Transformers
-# Using transformers approach (simpler than fair-esm[esmfold] which requires OpenFold compilation)
-# Updated PyTorch to 2.6.0+ to fix critical CVEs: CVE-2025-32434, CVE-2024-48063
-RUN pip install --no-cache-dir \
-  torch==2.6.0 \
-  --index-url https://download.pytorch.org/whl/cu118 \
-  && pip install --no-cache-dir \
-  transformers==4.46.3 \
-  accelerate==1.1.1 \
-  biopython==1.84 \
-  scipy==1.14.1
-
-# Set HuggingFace cache directory and pre-download model weights (~6-7GB)
-# Baking weights into the image avoids runtime downloads in WDL/Cromwell workflows
-ENV HF_HOME=/opt/esmfold/model
-RUN python -c "from transformers import EsmForProteinFolding, AutoTokenizer; EsmForProteinFolding.from_pretrained('facebook/esmfold_v1'); AutoTokenizer.from_pretrained('facebook/esmfold_v1'); print('ESMFold model and tokenizer cached successfully')"
-
-# Enable offline mode so the container never attempts network downloads at runtime
-ENV TRANSFORMERS_OFFLINE=1
-ENV HF_HUB_OFFLINE=1
+ENV PATH="/conda/bin:$PATH" \
+  LD_LIBRARY_PATH="/conda/lib:/usr/local/cuda-11.7/lib64:/conda/lib/python3.9/site-packages/nvidia/cusparse/lib:$LD_LIBRARY_PATH"
 
 # Set working directory
 WORKDIR /data
 
-# Smoke test: verify ESMFold loads from local cache in offline mode
-RUN python -c "from transformers import EsmForProteinFolding, AutoTokenizer; EsmForProteinFolding.from_pretrained('facebook/esmfold_v1'); AutoTokenizer.from_pretrained('facebook/esmfold_v1'); print('ESMFold loaded from cache successfully')"
+# Smoke test: verify esm-fold CLI and OpenFold imports work
+RUN esm-fold --help \
+  && python -c "from esm.esmfold.v1.esmfold import ESMFold; print('ESMFold ready')"

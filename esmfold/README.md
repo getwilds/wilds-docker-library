@@ -13,14 +13,16 @@ ESMFold images are available for **AMD64 (x86_64) only** due to CUDA/GPU depende
 
 ## Image Details
 
-These Docker images are built from `python:3.11-slim` and include:
+These Docker images use a multi-stage build from `nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04` and include:
 
-- ESMFold v2.0.0 via HuggingFace Transformers: End-to-end protein structure prediction from sequence
-- PyTorch 2.6.0 (CUDA 11.8): Deep learning framework with GPU acceleration
-- Biopython 1.84: Biological sequence and structure manipulation
-- SciPy 1.14.1: Scientific computing utilities
+- ESMFold v2.0.0 (`fair-esm[esmfold]`): End-to-end protein structure prediction with the official `esm-fold` CLI
+- OpenFold v1.0.0: Structure module dependencies compiled from source with CUDA support
+- PyTorch 2.0.0 (CUDA 11.8): Deep learning framework with GPU acceleration
+- Python 3.9 via Miniforge: Required by OpenFold v1.0.0
 
-The images use the HuggingFace Transformers implementation of ESMFold, which provides a simpler installation path compared to the original `fair-esm[esmfold]` package that requires OpenFold compilation. Model weights (~6-7GB) from `facebook/esmfold_v1` are baked into the image for offline-ready execution in WDL/Cromwell workflows.
+The images include the official `esm-fold` CLI from Meta's `fair-esm` package, with OpenFold compiled from source at the exact commit specified by the ESM repository. The build approach follows the proven nf-core/proteinfold pattern. Model weights (~5.5GB) are downloaded at runtime on first use and can be cached via a mounted volume.
+
+**Note on `esm-fold` script:** The `esm-fold` CLI script included in this directory is copied verbatim from [Meta's ESM repository](https://github.com/facebookresearch/esm/blob/main/scripts/fold.py) (MIT license). It is not written or maintained by WILDS/Fred Hutch OCDO. We include it here because the `fair-esm` pip package does not ship the `scripts/` directory, so the CLI entry point is otherwise unavailable. The ESM repository was archived in August 2024.
 
 ## Important Notes
 
@@ -30,7 +32,21 @@ ESMFold requires an NVIDIA GPU with CUDA support for practical use. The model ha
 
 ### Model Weights
 
-Model weights (~6-7GB) from `facebook/esmfold_v1` are pre-downloaded and baked into the image at `/opt/esmfold/model`. The container runs in offline mode (`TRANSFORMERS_OFFLINE=1`) so it never attempts network downloads at runtime, making it suitable for air-gapped or ephemeral compute environments like WDL/Cromwell workflows.
+Model weights (~5.5GB) are downloaded automatically on first use via the `esm-fold` CLI's `-m` flag. To avoid repeated downloads, mount a persistent directory for the model cache:
+
+```bash
+docker run --gpus all --rm \
+  -v /path/to/model_cache:/models \
+  -v /path/to/data:/data \
+  getwilds/esmfold:latest \
+  esm-fold -i /data/sequences.fasta -o /data/output/ -m /models
+```
+
+For WDL/Cromwell workflows, download the weights as a separate task and pass the directory to `esm-fold -m`.
+
+### PyTorch Version
+
+These images use PyTorch 2.0.0, which is the latest version compatible with the OpenFold v1.0.0 dependency stack. While newer PyTorch versions exist, they are incompatible with the pinned OpenFold commit required by ESMFold.
 
 ## Citation
 
@@ -78,27 +94,13 @@ apptainer pull docker://ghcr.io/getwilds/esmfold:latest
 ### Example Commands
 
 ```bash
-# Predict a protein structure from sequence using a Python script
+# Predict structure from a FASTA file using the esm-fold CLI
 docker run --gpus all --rm -v /path/to/data:/data getwilds/esmfold:latest \
-  python -c "
-from transformers import AutoTokenizer, EsmForProteinFolding
-import torch
+  esm-fold -i /data/sequences.fasta -o /data/predictions/ -m esmfold_v1
 
-tokenizer = AutoTokenizer.from_pretrained('facebook/esmfold_v1')
-model = EsmForProteinFolding.from_pretrained('facebook/esmfold_v1').cuda()
-sequence = 'MKTVRQERLKSIVRILERSKEPVSGAQLAEELSVSRQVIVQDIAYLRSLGYNIVATPRGYVLAGG'
-inputs = tokenizer([sequence], return_tensors='pt', add_special_tokens=False).to('cuda')
-with torch.no_grad():
-    output = model(**inputs)
-print('Structure predicted successfully')
-"
-
-# Run with persistent model cache to avoid re-downloading weights
-docker run --gpus all --rm \
-  -v /path/to/cache:/root/.cache/huggingface \
-  -v /path/to/data:/data \
-  getwilds/esmfold:latest \
-  python /data/predict_structure.py
+# Predict structure for a single sequence (write FASTA first)
+docker run --gpus all --rm -v /path/to/data:/data getwilds/esmfold:latest \
+  bash -c 'echo -e ">protein1\nMKTVRQERLKSIVRILERSKEPVSGAQLAEELSVSRQVIVQDIAYLRSLGYNIVATPRGYVLAGG" > /tmp/input.fasta && esm-fold -i /tmp/input.fasta -o /data/output/ -m esmfold_v1'
 
 # Run interactively for exploratory analysis
 docker run --gpus all --rm -it \
@@ -108,20 +110,23 @@ docker run --gpus all --rm -it \
 
 # Using Apptainer with GPU support
 apptainer run --nv --bind /path/to/data:/data docker://getwilds/esmfold:latest \
-  python /data/predict_structure.py
+  esm-fold -i /data/sequences.fasta -o /data/predictions/ -m esmfold_v1
 ```
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build:
 
-1. Uses `python:3.11-slim` as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs system dependencies (gcc, g++) with pinned versions for compilation support
-4. Installs PyTorch 2.6.0 with CUDA 11.8 support
-5. Installs HuggingFace Transformers, accelerate, biopython, and scipy
-6. Runs a smoke test to verify ESMFold model classes can be imported
-7. Performs cleanup via `--no-cache-dir` on all pip installs
+**Builder stage** (`nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04`):
+1. Installs Miniforge with Python 3.9
+2. Installs ESM from GitHub and `fair-esm[esmfold]` extras
+3. Installs PyTorch 2.0.0 with CUDA 11.8 support
+4. Pins all dependency versions for OpenFold compatibility
+5. Clones, patches, and compiles OpenFold from source at the pinned commit
+
+**Final stage** (same CUDA base, clean):
+1. Copies the `/conda` environment from the builder
+2. Runs smoke tests to verify the `esm-fold` CLI and OpenFold imports
 
 ## Security Scanning and CVEs
 
