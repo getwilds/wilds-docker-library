@@ -60,10 +60,13 @@ RUN git clone https://github.com/aqlaboratory/openfold.git \
   && /conda/bin/pip install --no-cache-dir . \
   && cd .. && rm -rf openfold
 
-# Install esm-fold CLI script (not included in the pip package)
+# Download esm-fold CLI script (not included in the pip package)
 # Source: https://github.com/facebookresearch/esm/blob/main/scripts/fold.py
-COPY esm-fold /conda/bin/esm-fold
-RUN chmod +x /conda/bin/esm-fold
+# Pinned to commit 2b36991 (repo is archived, main will not change)
+RUN wget -q -O /conda/bin/esm-fold \
+  "https://raw.githubusercontent.com/facebookresearch/esm/2b369911bb5b4b0dda914521b9475cad1656b2ac/scripts/fold.py" \
+  && sed -i '1i#!/usr/bin/env python' /conda/bin/esm-fold \
+  && chmod +x /conda/bin/esm-fold
 
 # ---------- Final stage: copy conda env into clean CUDA image ----------
 FROM nvidia/cuda:${CUDA_VERSION}-cudnn8-devel-ubuntu22.04
