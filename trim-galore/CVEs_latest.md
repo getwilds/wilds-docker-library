@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/trim-galore:latest
 
-Report generated on 2026-03-27 17:46:06 PST
+Report generated on 2026-04-07 22:53:10 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/trim-galore:latest-amd64  │    0C     7H    21M     6L  
-   digest           │  da0be0fad485                               │                             
+   digest           │  580f73d8f500                               │                             
  Base image         │  ubuntu:20.04                               │    0C     0H     5M     0L  
  Updated base image │  ubuntu:25.10                               │    0C     0H     0M     0L  
                     │                                             │                  -5         
