@@ -1,0 +1,129 @@
+# clair3 Dockerfile for WILDS Docker Library
+# Clair3: germline small variant caller for long-read sequencing data
+FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="clair3"
+LABEL org.opencontainers.image.description="Docker image for Clair3 in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    CLAIR3_VERSION=2.0.0 \
+    CONDA_PREFIX=/opt/conda/envs/clair3 \
+    CONDA_DEFAULT_ENV=clair3 \
+    PYPY_VERSION=7.3.20
+
+# Install miniforge and system dependencies
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && wget -q https://github.com/conda-forge/miniforge/releases/download/25.3.0-2/Miniforge3-25.3.0-2-Linux-x86_64.sh \
+     -O /tmp/miniforge.sh \
+  && bash /tmp/miniforge.sh -b -p /opt/conda \
+  && rm /tmp/miniforge.sh \
+  && /opt/conda/bin/conda clean -afy
+
+ENV PATH=/opt/conda/bin:$PATH
+
+# Create conda environment with build tools and bioinformatics dependencies
+RUN mamba create -n clair3 \
+      -c conda-forge \
+      -c bioconda \
+      python=3.11 \
+      samtools=1.23.1 \
+      whatshap=2.8 \
+      parallel=20260122 \
+      zstd=1.5.7 \
+      xz=5.8.2 \
+      zlib=1.3.2 \
+      bzip2=1.0.8 \
+      automake=1.17 \
+      make=4.4.1 \
+      gcc=15.2.0 \
+      gxx=15.2.0 \
+      binutils=2.45.1 \
+      curl=8.19.0 \
+      pigz=2.8 \
+      boost-cpp=1.85.0 \
+      -y \
+  && mamba clean -afy
+
+ENV PATH=${CONDA_PREFIX}/bin:/opt/bin:/opt/conda/bin:${PATH}
+
+# Install PyTorch with CUDA 12.6 support and Python dependencies
+RUN pip install --no-cache-dir uv==0.11.3 \
+  && uv pip install --python "${CONDA_PREFIX}/bin/python" \
+      torch==2.11.0 torchvision==0.26.0 \
+      --index-url https://download.pytorch.org/whl/cu126 \
+  && uv pip install --python "${CONDA_PREFIX}/bin/python" \
+      numpy==2.4.4 \
+      h5py==3.16.0 \
+      hdf5plugin==6.0.0 \
+      numexpr==2.10.2 \
+      tqdm==4.67.3 \
+      cffi==1.17.1 \
+      torchmetrics==1.9.0
+
+# Download Clair3 source and build native components
+WORKDIR /opt/bin
+RUN wget -q "https://github.com/HKU-BAL/Clair3/archive/refs/tags/v${CLAIR3_VERSION}.tar.gz" \
+      -O clair3.tar.gz \
+  && tar -xzf clair3.tar.gz --strip-components=1 \
+  && rm clair3.tar.gz \
+  && make PREFIX="${CONDA_PREFIX}" PYTHON="${CONDA_PREFIX}/bin/python"
+
+WORKDIR /opt/bin/preprocess/realign
+RUN g++ -std=c++14 -O1 -shared -fPIC -o realigner ssw_cpp.cpp ssw.c realigner.cpp \
+  && g++ -std=c++11 -shared -fPIC -o debruijn_graph -O3 debruijn_graph.cpp \
+  && rm -rf /opt/bin/samtools-* /opt/bin/longphase-*
+
+# Install PyPy 3.11 for preprocessing acceleration
+RUN wget -q "https://downloads.python.org/pypy/pypy3.11-v${PYPY_VERSION}-linux64.tar.bz2" \
+      -O /tmp/pypy.tar.bz2 \
+  && tar -xjf /tmp/pypy.tar.bz2 -C /opt/bin \
+  && rm /tmp/pypy.tar.bz2 \
+  && ln -sf "/opt/bin/pypy3.11-v${PYPY_VERSION}-linux64/bin/pypy3" "${CONDA_PREFIX}/bin/pypy3" \
+  && ln -sf "/opt/bin/pypy3.11-v${PYPY_VERSION}-linux64/bin/pypy3" "${CONDA_PREFIX}/bin/pypy" \
+  && pypy3 -m ensurepip \
+  && pypy3 -m pip install --no-cache-dir mpmath==1.2.1
+
+# Download all pre-trained PyTorch models
+RUN base_url="https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch" \
+  && mkdir -p /opt/models \
+  && for model in \
+      hifi \
+      hifi_revio \
+      hifi_sequel2 \
+      ilmn \
+      ont \
+      ont_guppy5 \
+      r941_prom_hac_g360+g422 \
+      r941_prom_sup_g5014 \
+      r1041_e82_400bps_hac_v410 \
+      r1041_e82_400bps_hac_v500 \
+      r1041_e82_400bps_hac_with_mv \
+      r1041_e82_400bps_sup_v410 \
+      r1041_e82_400bps_sup_v430_bacteria_finetuned \
+      r1041_e82_400bps_sup_v500 \
+  ; do \
+      mkdir -p "/opt/models/${model}" \
+      && wget -q "${base_url}/${model}/pileup.pt" -P "/opt/models/${model}/" \
+      && wget -q "${base_url}/${model}/full_alignment.pt" -P "/opt/models/${model}/" \
+  ; done
+
+# Smoke test: verify Clair3 and GPU libraries are accessible
+RUN run_clair3.sh --version \
+  && python3 -c "import torch; print('PyTorch', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
+
+WORKDIR /data
