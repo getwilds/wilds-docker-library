@@ -135,7 +135,7 @@ The Dockerfile follows these main steps:
 2. Adds metadata labels for documentation and attribution
 3. Installs Miniforge and creates a conda environment with build tools and bioinformatics dependencies (samtools, whatshap, parallel, etc.)
 4. Installs PyTorch with CUDA 12.6 support and Python dependencies (numpy, h5py, torchmetrics, etc.) via uv
-5. Downloads Clair3 v2.0.0 source and builds native C extensions (`libclair3.so`) and C++ realignment modules
+5. Installs Clair3 from source
 6. Installs PyPy 3.11 v7.3.20 for preprocessing acceleration
 7. Downloads all 14 pre-trained PyTorch models to `/opt/models/`
 8. Runs `run_clair3.sh --version` and a PyTorch import check as smoke tests
