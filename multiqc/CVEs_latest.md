@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/multiqc:latest
 
-Report generated on 2026-03-27 23:15:20 PST
+Report generated on 2026-04-08 02:44:27 PST
 
 ## Platform Coverage
 
@@ -14,7 +14,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🟠 High | 0 |
 | 🟡 Medium | 2 |
 | 🟢 Low | 24 |
-| ⚪ Unknown | 0 |
+| ⚪ Unknown | 6 |
 
 ## 🐳 Base Image
 
@@ -25,7 +25,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
 | 🟡 Medium | 2 |
-| 🟢 Low | 23 |
+| 🟢 Low | 24 |
 
 ## 🔄 Recommendations
 
@@ -35,11 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/multiqc:latest-amd64  │    0C     0H     2M    24L  
-   digest           │  ea91772e0c77                           │                             
- Base image         │  python:3.13-slim                       │    0C     0H     2M    23L  
- Updated base image │  python:3.14-slim                       │    0C     0H     2M    23L  
-                    │                                         │                             
+Target             │  getwilds/multiqc:latest-amd64  │    0C     0H     2M    24L     6?  
+   digest           │  0fc698f513cb                           │                                    
+ Base image         │  python:3.13-slim                       │    0C     0H     2M    24L     6?  
+ Updated base image │  python:3.14-slim                       │    0C     0H     2M    24L     6?  
+                    │                                         │                                    
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/multiqc:latest-amd64
