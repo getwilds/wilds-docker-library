@@ -13,6 +13,7 @@ These Docker images are built from `python:3.11-slim` and include:
 
 - PopV v0.6.1: Consensus cell-type annotation using multiple classification algorithms
 - Bundled classification methods: KNN (with BBKNN, Scanorama, scVI, Harmony integration), SVM, Random Forest, CellTypist, scANVI, and OnClass
+- JupyterLab v4.5.6: Interactive notebook environment for running PopV analyses
 
 The images are designed to be minimal and focused on PopV with its essential dependencies.
 
@@ -66,6 +67,10 @@ docker run --rm -v /path/to/data:/data getwilds/popv:latest \
 # Start an interactive Python session with PopV available
 docker run --rm -it -v /path/to/data:/data getwilds/popv:latest python
 
+# Launch a JupyterLab notebook server
+docker run --rm -it -p 8888:8888 -v /path/to/data:/data getwilds/popv:latest \
+  jupyter lab --ip=0.0.0.0 --allow-root --no-browser --notebook-dir=/data
+
 # Run a one-liner to verify the installation
 docker run --rm getwilds/popv:latest \
   python -c "import popv; print(popv.__version__)"
@@ -73,6 +78,15 @@ docker run --rm getwilds/popv:latest \
 # Using Apptainer
 apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
   python /data/annotate_cells.py
+
+# Launch JupyterLab via Apptainer, then open the URL printed in the terminal
+apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
+  jupyter lab --ip=0.0.0.0 --allow-root --no-browser --notebook-dir=/data
+
+# Launch JupyterLab on an HPC cluster (e.g., Fred Hutch)
+export PORT=$(fhfreeport)
+apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
+  jupyter lab --ip=$(hostname) --port=$PORT --no-browser --notebook-dir=/data
 ```
 
 ## Dockerfile Structure
@@ -82,7 +96,7 @@ The Dockerfile follows these main steps:
 1. Uses `python:3.11-slim` as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs system build dependencies (gcc, g++) with pinned versions
-4. Installs PopV and all Python dependencies via pip
+4. Installs PopV, JupyterLab, and all Python dependencies via pip
 5. Runs a smoke test to verify the installation
 6. Cleans up apt lists to minimize image size
 

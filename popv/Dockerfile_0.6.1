@@ -4,7 +4,7 @@ FROM python:3.11-slim
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="popv"
-LABEL org.opencontainers.image.description="Container image for PopV (Popular Vote) consensus cell-type annotation in Python"
+LABEL org.opencontainers.image.description="Docker image for PopV in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="0.6.1"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
@@ -24,7 +24,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Install popv and its dependencies via pip
-RUN pip install --no-cache-dir popv==0.6.1
+RUN pip install --no-cache-dir popv==0.6.1 jupyterlab==4.5.6
 
 # Smoke test
 RUN python -c "import popv; print(popv.__version__)"
