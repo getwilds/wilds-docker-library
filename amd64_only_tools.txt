@@ -9,6 +9,7 @@ flax
 hisat2
 manta
 megahit
+popv
 python-dl
 rmats-turbo
 rtorch
