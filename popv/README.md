@@ -84,6 +84,9 @@ apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
   jupyter lab --ip=0.0.0.0 --allow-root --no-browser --notebook-dir=/data
 
 # Launch JupyterLab on an HPC cluster (e.g., Fred Hutch)
+# First, grab a compute node rather than running on the head/login node:
+#   grabnode  (see https://sciwiki.fredhutch.org/compdemos/grabnode/)
+# Then, from the compute node:
 export PORT=$(fhfreeport)
 apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
   jupyter lab --ip=$(hostname) --port=$PORT --no-browser --notebook-dir=/data
