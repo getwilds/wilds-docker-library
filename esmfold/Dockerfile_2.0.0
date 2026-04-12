@@ -91,7 +91,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 COPY --from=builder /conda /conda
 
 ENV PATH="/conda/bin:$PATH" \
-  LD_LIBRARY_PATH="/conda/lib:/usr/local/cuda-11.7/lib64:/conda/lib/python3.9/site-packages/nvidia/cusparse/lib:$LD_LIBRARY_PATH"
+  LD_LIBRARY_PATH="/conda/lib:/usr/local/cuda-11.7/lib64:/conda/lib/python3.9/site-packages/nvidia/cusparse/lib:$LD_LIBRARY_PATH" \
+  PYTHONNOUSERSITE=1
 
 # Set working directory
 WORKDIR /data
