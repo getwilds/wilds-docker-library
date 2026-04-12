@@ -119,10 +119,11 @@ The Dockerfile uses a multi-stage build:
 
 **Builder stage** (`nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04`):
 1. Installs Miniforge with Python 3.9
-2. Installs ESM from GitHub and `fair-esm[esmfold]` extras
-3. Installs PyTorch 2.0.0 with CUDA 11.8 support
-4. Pins all dependency versions for OpenFold compatibility
-5. Clones, patches, and compiles OpenFold from source at the pinned commit
+2. Sets a global pip constraint pinning numpy to 1.23.5 (prevents transitive upgrades to numpy 2.x, which is incompatible with the OpenFold dependency stack)
+3. Installs ESM from GitHub and `fair-esm[esmfold]` extras
+4. Installs PyTorch 2.0.0 with CUDA 11.8 support
+5. Pins all dependency versions for OpenFold compatibility
+6. Clones, patches, and compiles OpenFold from source at the pinned commit
 
 **Final stage** (same CUDA base, clean):
 1. Copies the `/conda` environment from the builder

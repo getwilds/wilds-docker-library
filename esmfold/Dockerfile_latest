@@ -27,6 +27,10 @@ RUN wget -q -P /tmp "https://github.com/conda-forge/miniforge/releases/latest/do
   && /conda/bin/conda install --quiet -y python=3.9 \
   && conda clean --all --force-pkgs-dirs --yes
 
+# Prevent any pip install from upgrading numpy past 1.x
+RUN echo 'numpy==1.23.5' > /tmp/constraints.txt
+ENV PIP_CONSTRAINT=/tmp/constraints.txt
+
 # Install ESM from GitHub (includes scripts/fold.py needed for esm-fold CLI)
 # Then install fair-esm[esmfold] extras for additional dependencies
 RUN /conda/bin/pip install --no-cache-dir git+https://github.com/facebookresearch/esm.git@v2.0.0 \
