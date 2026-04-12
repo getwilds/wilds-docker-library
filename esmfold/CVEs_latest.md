@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/esmfold:latest
 
-Report generated on 2026-04-04 20:42:35 PST
+Report generated on 2026-04-06 18:23:52 PST
 
 ## Platform Coverage
 
@@ -10,7 +10,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-**Image size:** 10.2 GB
+**Image size:** 9.1 GB
 **Size limit:** 3.0 GB
 
 Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
