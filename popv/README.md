@@ -11,8 +11,7 @@ This directory contains Docker images for PopV (Popular Vote), a tool for automa
 
 These Docker images are built from `python:3.11-slim` and include:
 
-- PopV v0.6.1: Consensus cell-type annotation using multiple classification algorithms
-- Bundled classification methods: KNN (with BBKNN, Scanorama, scVI, Harmony integration), SVM, Random Forest, CellTypist, scANVI, and OnClass
+- PopV v0.6.1: Consensus cell-type annotation using multiple classification algorithms and bundled models
 - JupyterLab v4.5.6: Interactive notebook environment for running PopV analyses
 
 The images are designed to be minimal and focused on PopV with its essential dependencies.
