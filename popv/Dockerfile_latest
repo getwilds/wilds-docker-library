@@ -14,6 +14,9 @@ LABEL org.opencontainers.image.licenses=MIT
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# Prevent host user site-packages from leaking into the container's Python env
+ENV PYTHONNOUSERSITE=1
+
 # Install system dependencies needed for building Python packages
 RUN apt-get update \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
