@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/viennarna:latest
 
-Report generated on 2026-04-14 07:06:36 PST
+Report generated on 2026-04-14 18:06:22 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/viennarna:latest-amd64  │    0C     0H     1M     2L  
-   digest           │  3037acc467f0                             │                             
+   digest           │  3698b9e6fa2f                             │                             
  Base image         │  ubuntu:24.04                             │    0C     0H     2M     7L  
  Updated base image │  ubuntu:25.10                             │    0C     0H     0M     0L  
                     │                                           │                  -2     -7  
