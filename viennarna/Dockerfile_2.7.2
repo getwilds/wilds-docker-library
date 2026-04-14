@@ -1,6 +1,6 @@
 # ViennaRNA Dockerfile for WILDS Docker Library
 # ViennaRNA: RNA secondary structure prediction and comparison
-FROM condaforge/miniforge3:24.7.1-2
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry following WILDS standards
 LABEL org.opencontainers.image.title="viennarna"
@@ -15,10 +15,62 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Install ViennaRNA via bioconda with pinned version
-RUN mamba install -y -c bioconda -c conda-forge \
-  viennarna=2.7.2 \
-  && mamba clean -afy
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Build ViennaRNA from upstream source. Bindings (Python/Perl/R/Swig) are
+# disabled to keep the image slim and avoid pulling in extra toolchains;
+# the CLI programs (RNAfold, RNAalifold, RNAeval, ...) are what we need.
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CA_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && PKGCONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && LIBGSL_VERSION=$(apt-cache policy libgsl-dev | grep Candidate | awk '{print $2}') \
+  && LIBMPFR_VERSION=$(apt-cache policy libmpfr-dev | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') \
+  && LIBLAPACKE_VERSION=$(apt-cache policy liblapacke-dev | grep Candidate | awk '{print $2}') \
+  && LIBGOMP1_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && LIBGSL27_VERSION=$(apt-cache policy libgsl27 | grep Candidate | awk '{print $2}') \
+  && LIBMPFR6_VERSION=$(apt-cache policy libmpfr6 | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK3_VERSION=$(apt-cache policy liblapack3 | grep Candidate | awk '{print $2}') \
+  && LIBLAPACKE_RT_VERSION=$(apt-cache policy liblapacke | grep Candidate | awk '{print $2}') \
+  && LIBSTDCPP6_VERSION=$(apt-cache policy libstdc++6 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  ca-certificates="${CA_VERSION}" \
+  pkg-config="${PKGCONFIG_VERSION}" \
+  libgsl-dev="${LIBGSL_VERSION}" \
+  libmpfr-dev="${LIBMPFR_VERSION}" \
+  liblapack-dev="${LIBLAPACK_VERSION}" \
+  liblapacke-dev="${LIBLAPACKE_VERSION}" \
+  libgomp1="${LIBGOMP1_VERSION}" \
+  libgsl27="${LIBGSL27_VERSION}" \
+  libmpfr6="${LIBMPFR6_VERSION}" \
+  liblapack3="${LIBLAPACK3_VERSION}" \
+  liblapacke="${LIBLAPACKE_RT_VERSION}" \
+  libstdc++6="${LIBSTDCPP6_VERSION}" \
+  && wget -q --no-check-certificate \
+  https://www.tbi.univie.ac.at/RNA/download/sourcecode/2_7_x/ViennaRNA-2.7.2.tar.gz \
+  && tar -xzf ViennaRNA-2.7.2.tar.gz \
+  && cd ViennaRNA-2.7.2 \
+  && ./configure \
+  --disable-lto \
+  --without-swig \
+  --without-perl \
+  --without-python \
+  --without-doc \
+  --without-forester \
+  --without-kinfold \
+  --without-rnalocmin \
+  && make -j"$(nproc)" \
+  && make install \
+  && cd / \
+  && rm -rf ViennaRNA-2.7.2 ViennaRNA-2.7.2.tar.gz \
+  && apt-get purge -y --auto-remove \
+  build-essential wget ca-certificates pkg-config \
+  libgsl-dev libmpfr-dev liblapack-dev liblapacke-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 # Smoke test to verify ViennaRNA is installed correctly
 RUN RNAfold --version && RNAalifold --version && RNAeval --version

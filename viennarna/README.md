@@ -9,12 +9,11 @@ This directory contains Docker images for [ViennaRNA](https://www.tbi.univie.ac.
 
 ## Image Details
 
-These Docker images are built from `condaforge/miniforge3:24.7.1-2` and include:
+These Docker images are built from `ubuntu:24.04` and include:
 
 - ViennaRNA v2.7.2: A comprehensive suite of tools for RNA secondary structure prediction, partition function calculations, suboptimal structure enumeration, RNA-RNA interaction prediction, and sequence design
-- Python and Perl bindings for programmatic access to the ViennaRNA library
 
-The images are designed to be minimal and focused on ViennaRNA with its essential dependencies.
+ViennaRNA is compiled from upstream source with the Python, Perl, and SWIG bindings disabled to keep the image focused on the command-line tools (`RNAfold`, `RNAalifold`, `RNAeval`, `RNAsubopt`, `RNAinverse`, etc.) and minimize image size. If you need the language bindings, please file an issue.
 
 ## Citation
 
@@ -88,11 +87,13 @@ echo "GGGAAAUCC" | apptainer run docker://getwilds/viennarna:latest RNAfold
 
 The Dockerfile follows these main steps:
 
-1. Uses `condaforge/miniforge3:24.7.1-2` as the base image
+1. Uses `ubuntu:24.04` as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs ViennaRNA v2.7.2 via mamba from the bioconda channel
-4. Runs smoke tests to verify RNAfold, RNAalifold, and RNAeval are functional
-5. Performs cleanup with `mamba clean -afy` to minimize image size
+3. Installs pinned build and runtime dependencies (`build-essential`, `libgsl-dev`, `libmpfr-dev`, `liblapack-dev`, `liblapacke-dev`, and their runtime counterparts) via `apt-get`
+4. Downloads the ViennaRNA v2.7.2 source tarball from the official TBI Vienna download site
+5. Configures the build with `--disable-lto` and `--without-{swig,perl,python,doc,forester,kinfold,rnalocmin}`, then compiles and installs via `make && make install`
+6. Runs smoke tests to verify RNAfold, RNAalifold, and RNAeval are functional
+7. Purges the build-only packages and removes source artifacts and apt lists to minimize image size
 
 ## Security Scanning and CVEs
 
