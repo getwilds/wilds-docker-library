@@ -17,9 +17,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Build ViennaRNA from upstream source. Bindings (Python/Perl/R/Swig) are
-# disabled to keep the image slim and avoid pulling in extra toolchains;
-# the CLI programs (RNAfold, RNAalifold, RNAeval, ...) are what we need.
+# Install pinned build and runtime dependencies, then fetch the ViennaRNA
+# source tarball. Build deps are purged in a later layer once the CLI tools
+# have been compiled and installed.
 RUN apt-get update \
   && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
@@ -50,11 +50,19 @@ RUN apt-get update \
   liblapack3="${LIBLAPACK3_VERSION}" \
   liblapacke="${LIBLAPACKE_RT_VERSION}" \
   libstdc++6="${LIBSTDCPP6_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
   && wget -q --no-check-certificate \
   https://www.tbi.univie.ac.at/RNA/download/sourcecode/2_7_x/ViennaRNA-2.7.2.tar.gz \
   && tar -xzf ViennaRNA-2.7.2.tar.gz \
-  && cd ViennaRNA-2.7.2 \
-  && ./configure \
+  && rm -f ViennaRNA-2.7.2.tar.gz
+
+# Configure and build ViennaRNA. Language bindings (Python/Perl/R/Swig) are
+# disabled to keep the image slim and avoid pulling in extra toolchains;
+# the CLI programs (RNAfold, RNAalifold, RNAeval, ...) are what we need.
+# --disable-lto avoids an internal compiler error seen when cross-building
+# under QEMU emulation; the runtime cost is negligible for RNA folding.
+WORKDIR /ViennaRNA-2.7.2
+RUN ./configure \
   --disable-lto \
   --without-swig \
   --without-perl \
@@ -64,9 +72,11 @@ RUN apt-get update \
   --without-kinfold \
   --without-rnalocmin \
   && make -j"$(nproc)" \
-  && make install \
-  && cd / \
-  && rm -rf ViennaRNA-2.7.2 ViennaRNA-2.7.2.tar.gz \
+  && make install
+
+# Remove source tree and purge build-only packages to minimize image size
+WORKDIR /
+RUN rm -rf /ViennaRNA-2.7.2 \
   && apt-get purge -y --auto-remove \
   build-essential wget ca-certificates pkg-config \
   libgsl-dev libmpfr-dev liblapack-dev liblapacke-dev \
