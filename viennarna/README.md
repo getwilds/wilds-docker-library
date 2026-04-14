@@ -62,14 +62,14 @@ apptainer pull docker://ghcr.io/getwilds/viennarna:latest
 
 ```bash
 # Predict minimum free energy (MFE) structure of an RNA sequence
-echo "GGGAAAUCC" | docker run --rm -i getwilds/viennarna:latest RNAfold
+echo "GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA" | docker run --rm -i getwilds/viennarna:latest RNAfold
 
 # Predict MFE structure from a FASTA file
 docker run --rm -v /path/to/data:/data getwilds/viennarna:latest \
   RNAfold --infile=/data/sequences.fa --outfile=/data/structures.txt
 
 # Compute suboptimal structures within 5 kcal/mol of MFE
-echo "GGGAAAUCC" | docker run --rm -i getwilds/viennarna:latest \
+echo "GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA" | docker run --rm -i getwilds/viennarna:latest \
   RNAsubopt -e 5
 
 # Predict consensus structure from a multiple sequence alignment
@@ -80,7 +80,7 @@ docker run --rm -v /path/to/data:/data getwilds/viennarna:latest \
 echo "(((...)))" | docker run --rm -i getwilds/viennarna:latest RNAinverse
 
 # Alternatively using Apptainer
-echo "GGGAAAUCC" | apptainer run docker://getwilds/viennarna:latest RNAfold
+echo "GAGUAGUGGAACCAGGCUAUGUUUGUGACUCGCAGACUAACA" | apptainer run docker://getwilds/viennarna:latest RNAfold
 ```
 
 ## Dockerfile Structure
