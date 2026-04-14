@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gffread:latest
 
-Report generated on 2026-04-10 23:27:52 PST
+Report generated on 2026-04-14 18:42:58 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/gffread:latest-amd64  │    0C     0H     2M     7L  
-   digest           │  abcd055e8e08                           │                             
+   digest           │  52adf6046d81                           │                             
  Base image         │  ubuntu:24.04                           │    0C     0H     2M     7L  
  Updated base image │  ubuntu:25.10                           │    0C     0H     0M     0L  
                     │                                         │                  -2     -7  
