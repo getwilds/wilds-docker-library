@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/viennarna:2.7.2
 
-Report generated on 2026-04-07 17:17:17 PST
+Report generated on 2026-04-14 06:23:02 PST
 
 ## Platform Coverage
 
@@ -11,21 +11,21 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 19 |
-| 🟢 Low | 6 |
+| 🟠 High | 0 |
+| 🟡 Medium | 1 |
+| 🟢 Low | 2 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
-**Image:** `ubuntu:20.04`
+**Image:** `ubuntu:24.04`
 
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 5 |
-| 🟢 Low | 0 |
+| 🟡 Medium | 2 |
+| 🟢 Low | 7 |
 
 ## 🔄 Recommendations
 
@@ -35,11 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/viennarna:2.7.2-amd64  │    0C     7H    19M     6L  
-   digest           │  9cde5535d634                            │                             
- Base image         │  ubuntu:20.04                            │    0C     0H     5M     0L  
+Target             │  getwilds/viennarna:2.7.2-amd64  │    0C     0H     1M     2L  
+   digest           │  2a7115df7d7e                            │                             
+ Base image         │  ubuntu:24.04                            │    0C     0H     2M     7L  
  Updated base image │  ubuntu:25.10                            │    0C     0H     0M     0L  
-                    │                                          │                  -5         
+                    │                                          │                  -2     -7  
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/viennarna:2.7.2-amd64
