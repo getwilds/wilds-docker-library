@@ -9,12 +9,13 @@ This directory contains Docker images for PopV (Popular Vote), a tool for automa
 
 ## Image Details
 
-These Docker images are built from `python:3.11-slim` and include:
+These Docker images are built from `nvidia/cuda:12.6.3-runtime-ubuntu24.04` (for GPU support via PyTorch/scvi-tools) and include:
 
 - PopV v0.6.1: Consensus cell-type annotation using multiple classification algorithms and bundled models
+- PyTorch v2.6.0 with CUDA 12.6 wheels
 - JupyterLab v4.5.6: Interactive notebook environment for running PopV analyses
 
-The images are designed to be minimal and focused on PopV with its essential dependencies.
+The images are designed to be minimal and focused on PopV with its essential dependencies. GPU acceleration requires an NVIDIA GPU on the host and the NVIDIA Container Toolkit; pass `--gpus all` to `docker run` (or `--nv` to `apptainer run`) to expose the GPU inside the container. The images still run on CPU-only hosts if no GPU is available.
 
 ## Citation
 
@@ -59,35 +60,35 @@ apptainer pull docker://ghcr.io/getwilds/popv:latest
 ### Example Commands
 
 ```bash
-# Run a Python script that uses PopV for cell-type annotation
-docker run --rm -v /path/to/data:/data getwilds/popv:latest \
-  python /data/annotate_cells.py
+# Run a Python script that uses PopV for cell-type annotation (GPU-enabled)
+docker run --rm --gpus all -v /path/to/data:/data getwilds/popv:latest \
+  python3 /data/annotate_cells.py
 
 # Start an interactive Python session with PopV available
-docker run --rm -it -v /path/to/data:/data getwilds/popv:latest python
+docker run --rm -it --gpus all -v /path/to/data:/data getwilds/popv:latest python3
 
 # Launch a JupyterLab notebook server
-docker run --rm -it -p 8888:8888 -v /path/to/data:/data getwilds/popv:latest \
+docker run --rm -it --gpus all -p 8888:8888 -v /path/to/data:/data getwilds/popv:latest \
   jupyter lab --ip=0.0.0.0 --allow-root --no-browser --notebook-dir=/data
 
 # Run a one-liner to verify the installation
 docker run --rm getwilds/popv:latest \
-  python -c "import popv; print(popv.__version__)"
+  python3 -c "import popv; print(popv.__version__)"
 
-# Using Apptainer
-apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
-  python /data/annotate_cells.py
+# Using Apptainer (use --nv to expose the host GPU)
+apptainer run --nv --bind /path/to/data:/data docker://getwilds/popv:latest \
+  python3 /data/annotate_cells.py
 
 # Launch JupyterLab via Apptainer, then open the URL printed in the terminal
-apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
+apptainer run --nv --bind /path/to/data:/data docker://getwilds/popv:latest \
   jupyter lab --ip=0.0.0.0 --allow-root --no-browser --notebook-dir=/data
 
 # Launch JupyterLab on an HPC cluster (e.g., Fred Hutch)
-# First, grab a compute node rather than running on the head/login node:
+# First, grab a GPU compute node rather than running on the head/login node:
 #   grabnode  (see https://sciwiki.fredhutch.org/compdemos/grabnode/)
 # Then, from the compute node:
 export PORT=$(fhfreeport)
-apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
+apptainer run --nv --bind /path/to/data:/data docker://getwilds/popv:latest \
   jupyter lab --ip=$(hostname) --port=$PORT --no-browser --notebook-dir=/data
 ```
 
@@ -95,12 +96,12 @@ apptainer run --bind /path/to/data:/data docker://getwilds/popv:latest \
 
 The Dockerfile follows these main steps:
 
-1. Uses `python:3.11-slim` as the base image
+1. Uses `nvidia/cuda:12.6.3-runtime-ubuntu24.04` as the base image for GPU support
 2. Adds metadata labels for documentation and attribution
-3. Installs system build dependencies (gcc, g++) with pinned versions
-4. Installs PopV, JupyterLab, and all Python dependencies via pip
-5. Runs a smoke test to verify the installation
-6. Cleans up apt lists to minimize image size
+3. Installs Python 3 and system build dependencies (gcc, g++) with pinned versions
+4. Installs PyTorch (CUDA 12.6 wheels), PopV, JupyterLab, and all Python dependencies via pip
+5. Purges build toolchain and cleans up apt lists to minimize image size
+6. Runs a smoke test to verify the installation
 
 ## Security Scanning and CVEs
 
