@@ -1,0 +1,89 @@
+# ViennaRNA Dockerfile for WILDS Docker Library
+# ViennaRNA: RNA secondary structure prediction and comparison
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry following WILDS standards
+LABEL org.opencontainers.image.title="viennarna"
+LABEL org.opencontainers.image.description="Docker image for ViennaRNA in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install pinned build and runtime dependencies, then fetch the ViennaRNA
+# source tarball. Build deps are purged in a later layer once the CLI tools
+# have been compiled and installed.
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CA_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && PKGCONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && LIBGSL_VERSION=$(apt-cache policy libgsl-dev | grep Candidate | awk '{print $2}') \
+  && LIBMPFR_VERSION=$(apt-cache policy libmpfr-dev | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK_VERSION=$(apt-cache policy liblapack-dev | grep Candidate | awk '{print $2}') \
+  && LIBLAPACKE_VERSION=$(apt-cache policy liblapacke-dev | grep Candidate | awk '{print $2}') \
+  && LIBGOMP1_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && LIBGSL27_VERSION=$(apt-cache policy libgsl27 | grep Candidate | awk '{print $2}') \
+  && LIBMPFR6_VERSION=$(apt-cache policy libmpfr6 | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK3_VERSION=$(apt-cache policy liblapack3 | grep Candidate | awk '{print $2}') \
+  && LIBLAPACKE_RT_VERSION=$(apt-cache policy liblapacke | grep Candidate | awk '{print $2}') \
+  && LIBSTDCPP6_VERSION=$(apt-cache policy libstdc++6 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  ca-certificates="${CA_VERSION}" \
+  pkg-config="${PKGCONFIG_VERSION}" \
+  libgsl-dev="${LIBGSL_VERSION}" \
+  libmpfr-dev="${LIBMPFR_VERSION}" \
+  liblapack-dev="${LIBLAPACK_VERSION}" \
+  liblapacke-dev="${LIBLAPACKE_VERSION}" \
+  libgomp1="${LIBGOMP1_VERSION}" \
+  libgsl27="${LIBGSL27_VERSION}" \
+  libmpfr6="${LIBMPFR6_VERSION}" \
+  liblapack3="${LIBLAPACK3_VERSION}" \
+  liblapacke="${LIBLAPACKE_RT_VERSION}" \
+  libstdc++6="${LIBSTDCPP6_VERSION}" \
+  && rm -rf /var/lib/apt/lists/* \
+  && wget -q --no-check-certificate \
+  https://www.tbi.univie.ac.at/RNA/download/sourcecode/2_7_x/ViennaRNA-2.7.2.tar.gz \
+  && tar -xzf ViennaRNA-2.7.2.tar.gz \
+  && rm -f ViennaRNA-2.7.2.tar.gz
+
+# Configure and build ViennaRNA. Language bindings (Python/Perl/R/Swig) are
+# disabled to keep the image slim and avoid pulling in extra toolchains;
+# the CLI programs (RNAfold, RNAalifold, RNAeval, ...) are what we need.
+# --disable-lto avoids an internal compiler error seen when cross-building
+# under QEMU emulation; the runtime cost is negligible for RNA folding.
+WORKDIR /ViennaRNA-2.7.2
+RUN ./configure \
+  --disable-lto \
+  --without-swig \
+  --without-perl \
+  --without-python \
+  --without-doc \
+  --without-forester \
+  --without-kinfold \
+  --without-rnalocmin \
+  && make -j"$(nproc)" \
+  && make install
+
+# Remove source tree and purge build-only packages to minimize image size
+WORKDIR /
+RUN rm -rf /ViennaRNA-2.7.2 \
+  && apt-get purge -y --auto-remove \
+  build-essential wget ca-certificates pkg-config \
+  libgsl-dev libmpfr-dev liblapack-dev liblapacke-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+# Smoke test to verify ViennaRNA is installed correctly
+RUN RNAfold --version && RNAalifold --version && RNAeval --version
+
+# Set working directory
+WORKDIR /data

@@ -1,0 +1,35 @@
+
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="gffread"
+LABEL org.opencontainers.image.description="Docker image for the use of gffread in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install build dependencies, compile gffread, and clean up in a single layer
+RUN apt-get update \
+  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BE_VERSION}" \
+  wget="${WGET_VERSION}" \
+  && wget -q --no-check-certificate https://github.com/gpertea/gffread/releases/download/v0.12.7/gffread-0.12.7.tar.gz \
+  && tar -xzf gffread-0.12.7.tar.gz \
+  && make -C gffread-0.12.7 release \
+  && cp gffread-0.12.7/gffread /usr/local/bin/ \
+  && rm -rf gffread-0.12.7 gffread-0.12.7.tar.gz \
+  && apt-get purge -y build-essential wget \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/*
+
+# Smoke test to verify gffread works on target architecture
+RUN gffread --version
