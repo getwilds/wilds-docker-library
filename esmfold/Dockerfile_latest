@@ -42,6 +42,7 @@ RUN /conda/bin/pip install --no-cache-dir --force-reinstall \
   --index-url https://download.pytorch.org/whl/cu118
 
 # Pin dependency versions for compatibility with OpenFold v1.0.0
+# hadolint ignore=DL3059
 RUN /conda/bin/pip install --no-cache-dir \
   pytorch_lightning==1.9.5 \
   biopython==1.85 \
@@ -52,6 +53,7 @@ RUN /conda/bin/pip install --no-cache-dir \
   scipy==1.13.1
 
 # Install dllogger (NVIDIA logging utility required by OpenFold)
+# hadolint ignore=DL3059
 RUN /conda/bin/pip install --no-cache-dir "dllogger @ git+https://github.com/NVIDIA/dllogger.git"
 
 # Clone, patch, and install OpenFold at the exact commit specified by ESM repo

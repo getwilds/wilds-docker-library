@@ -20,7 +20,9 @@ These Docker images use a multi-stage build from `nvidia/cuda:11.7.1-cudnn8-deve
 - PyTorch 2.0.0 (CUDA 11.8): Deep learning framework with GPU acceleration
 - Python 3.9 via Miniforge: Required by OpenFold v1.0.0
 
-The images include the official `esm-fold` CLI from Meta's `fair-esm` package, with OpenFold compiled from source at the exact commit specified by the ESM repository. The build approach follows the proven nf-core/proteinfold pattern. Model weights (~5.5GB) are downloaded at runtime on first use and can be cached via a mounted volume.
+The images include the official `esm-fold` CLI from Meta's `fair-esm` package, with OpenFold compiled from source at the exact commit specified by the ESM repository. Model weights (~5.5GB) are downloaded at runtime on first use and can be cached via a mounted volume.
+
+The build approach (base image, Miniforge/Python 3.9, PyTorch 2.0.0, pinned OpenFold commit, deepspeed patch, and dependency version matrix) was adapted from the [nf-core/proteinfold](https://github.com/nf-core/proteinfold) pipeline's [ESMFold Dockerfile](https://github.com/nf-core/proteinfold/blob/master/modules/local/run_esmfold/Dockerfile).
 
 **Note on `esm-fold` script:** The `esm-fold` CLI script is downloaded during the Docker build directly from [Meta's ESM repository](https://github.com/facebookresearch/esm/blob/main/scripts/fold.py) (MIT license), pinned to a specific commit. It is not written or maintained by WILDS/Fred Hutch OCDO. We download it because the `fair-esm` pip package does not ship the `scripts/` directory, so the CLI entry point is otherwise unavailable. The ESM repository was archived in August 2024, so the pinned commit will not change.
 
