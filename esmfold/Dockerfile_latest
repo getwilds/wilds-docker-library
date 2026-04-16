@@ -1,0 +1,104 @@
+
+# Multi-stage build: compile OpenFold with CUDA, then copy conda env to final image
+# Approach modeled after nf-core/proteinfold ESMFold Dockerfile
+ARG CUDA_VERSION=11.7.1
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn8-devel-ubuntu22.04 AS builder
+ARG CUDA_VERSION
+
+# Set the shell to fail on pipe errors
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/conda/bin:$PATH"
+
+# Install system build dependencies
+# hadolint ignore=DL3008
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  build-essential \
+  wget \
+  git \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install Miniforge for Python 3.9 (required by OpenFold v1.0.0)
+RUN wget -q -P /tmp "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" \
+  && bash /tmp/Miniforge3-Linux-x86_64.sh -b -p /conda \
+  && rm -f /tmp/Miniforge3-Linux-x86_64.sh \
+  && /conda/bin/conda install --quiet -y python=3.9 \
+  && conda clean --all --force-pkgs-dirs --yes
+
+# Prevent any pip install from upgrading numpy past 1.x
+RUN echo 'numpy==1.23.5' > /tmp/constraints.txt
+ENV PIP_CONSTRAINT=/tmp/constraints.txt
+
+# Install ESM from GitHub (includes scripts/fold.py needed for esm-fold CLI)
+# Then install fair-esm[esmfold] extras for additional dependencies
+RUN /conda/bin/pip install --no-cache-dir git+https://github.com/facebookresearch/esm.git@v2.0.0 \
+  && /conda/bin/pip install --no-cache-dir "fair-esm[esmfold]"
+
+# Install PyTorch 2.0.0 with CUDA 11.8 (force-reinstall to override ESM's torch dep)
+RUN /conda/bin/pip install --no-cache-dir --force-reinstall \
+  torch==2.0.0 torchvision==0.15.0 \
+  --index-url https://download.pytorch.org/whl/cu118
+
+# Pin dependency versions for compatibility with OpenFold v1.0.0
+# hadolint ignore=DL3059
+RUN /conda/bin/pip install --no-cache-dir \
+  pytorch_lightning==1.9.5 \
+  biopython==1.85 \
+  deepspeed==0.10.3 \
+  dm-tree==0.1.8 \
+  ml-collections==0.1.0 \
+  numpy==1.23.5 \
+  scipy==1.13.1
+
+# Install dllogger (NVIDIA logging utility required by OpenFold)
+# hadolint ignore=DL3059
+RUN /conda/bin/pip install --no-cache-dir "dllogger @ git+https://github.com/NVIDIA/dllogger.git"
+
+# Clone, patch, and install OpenFold at the exact commit specified by ESM repo
+# Patch fixes deepspeed API change: utils.is_initialized -> comm.comm.is_initialized
+# hadolint ignore=DL3003
+RUN git clone https://github.com/aqlaboratory/openfold.git \
+  && cd openfold \
+  && git checkout 4b41059694619831a7db195b7e0988fc4ff3a307 \
+  && sed -i 's|deepspeed.utils.is_initialized|deepspeed.comm.comm.is_initialized|g' openfold/model/primitives.py \
+  && /conda/bin/pip install --no-cache-dir . \
+  && cd .. && rm -rf openfold
+
+# Download esm-fold CLI script (not included in the pip package)
+# Source: https://github.com/facebookresearch/esm/blob/main/scripts/fold.py
+# Pinned to commit 2b36991 (repo is archived, main will not change)
+RUN wget -q -O /conda/bin/esm-fold \
+  "https://raw.githubusercontent.com/facebookresearch/esm/2b369911bb5b4b0dda914521b9475cad1656b2ac/scripts/fold.py" \
+  && sed -i '1i#!/usr/bin/env python' /conda/bin/esm-fold \
+  && chmod +x /conda/bin/esm-fold
+
+# ---------- Final stage: copy conda env into clean CUDA image ----------
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn8-devel-ubuntu22.04
+ARG CUDA_VERSION
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="esmfold"
+LABEL org.opencontainers.image.description="Docker image for ESMFold protein structure prediction in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+COPY --from=builder /conda /conda
+
+ENV PATH="/conda/bin:$PATH" \
+  LD_LIBRARY_PATH="/conda/lib:/usr/local/cuda-11.7/lib64:/conda/lib/python3.9/site-packages/nvidia/cusparse/lib:$LD_LIBRARY_PATH" \
+  PYTHONNOUSERSITE=1
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test: verify esm-fold CLI and OpenFold imports work
+RUN esm-fold --help \
+  && python -c "from esm.esmfold.v1.esmfold import ESMFold; print('ESMFold ready')"

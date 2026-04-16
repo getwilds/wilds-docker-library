@@ -4,6 +4,7 @@ cellranger
 colabfold
 deseq2
 diamond
+esmfold
 glimpse2
 flax
 hisat2
