@@ -47,10 +47,6 @@ docker run --gpus all --rm \
 
 For WDL/Cromwell workflows, download the weights as a separate task and pass the directory to `esm-fold -m`.
 
-### PyTorch Version
-
-These images use PyTorch 2.0.0, which is the latest version compatible with the OpenFold v1.0.0 dependency stack. While newer PyTorch versions exist, they are incompatible with the pinned OpenFold commit required by ESMFold.
-
 ## Citation
 
 If you use ESMFold in your research, please cite the original authors:
