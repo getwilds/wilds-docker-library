@@ -56,9 +56,9 @@ sprocket lint /tmp/output.wdl
 
 ## Installed Components
 
-- Ollama: v0.5.4 (LLM inference server)
+- Ollama: v0.21.0 (LLM inference server)
 - Sprocket: v0.23.0 (WDL script validator, compiled from source via cargo)
-- Python ollama SDK: v0.4.4
+- Python ollama SDK: v0.6.1
 - Python 3 (system version from base image)
 
 Note: Sprocket is compiled from source during the Docker build using Rust's `cargo install`. The Rust toolchain is removed after compilation to minimize image size.
