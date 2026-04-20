@@ -19,6 +19,7 @@ These Docker images use a multi-stage build from `nvidia/cuda:11.7.1-cudnn8-deve
 - OpenFold v1.0.0: Structure module dependencies compiled from source with CUDA support
 - PyTorch 2.0.0 (CUDA 11.8): Deep learning framework with GPU acceleration
 - Python 3.9 via Miniforge: Required by OpenFold v1.0.0
+- Other supporting packages (biopython, deepspeed, scipy, etc.)
 
 The images include the official `esm-fold` CLI from Meta's `fair-esm` package, with OpenFold compiled from source at the exact commit specified by the ESM repository. Model weights (~5.5GB) are downloaded at runtime on first use and can be cached via a mounted volume.
 
