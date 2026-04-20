@@ -1,0 +1,46 @@
+FROM ollama/ollama:0.5.4
+
+LABEL org.opencontainers.image.title="ollama"
+LABEL org.opencontainers.image.description="Docker image for Ollama in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="0.5.4"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && CA_CERTIFICATES_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && LIBSSL_DEV_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+    python3="${PYTHON3_VERSION}" \
+    python3-pip="${PYTHON3_PIP_VERSION}" \
+    curl="${CURL_VERSION}" \
+    ca-certificates="${CA_CERTIFICATES_VERSION}" \
+    build-essential="${BUILD_ESSENTIAL_VERSION}" \
+    pkg-config="${PKG_CONFIG_VERSION}" \
+    libssl-dev="${LIBSSL_DEV_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --no-cache-dir \
+  ollama==0.4.4
+
+ARG SPROCKET_VERSION=0.23.0
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+  && export PATH="/root/.cargo/bin:$PATH" \
+  && cargo install --version "${SPROCKET_VERSION}" sprocket \
+  && cp /root/.cargo/bin/sprocket /usr/local/bin/sprocket \
+  && rustup self uninstall -y \
+  && rm -rf /root/.cargo
+
+RUN ollama --version && python3 -c "import ollama" && sprocket --version
+
+ENTRYPOINT []
+CMD ["/bin/bash"]
