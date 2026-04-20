@@ -123,7 +123,7 @@ The Dockerfile uses a multi-stage build:
 4. Installs PyTorch 2.0.0 with CUDA 11.8 support
 5. Pins all dependency versions for OpenFold compatibility
 6. Install supporting packages (e.g. biopython)
-7. Clones, patches, and compiles OpenFold from source at the pinned commit```
+7. Clones, patches, and compiles OpenFold from source at the pinned commit
 
 **Final stage** (same CUDA base, clean):
 1. Copies the `/conda` environment from the builder
