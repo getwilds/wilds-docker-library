@@ -29,7 +29,7 @@ RUN apt-get update \
     libssl-dev="${LIBSSL_DEV_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir \
+RUN pip3 install --no-cache-dir --break-system-packages \
   ollama==0.6.1
 
 ARG SPROCKET_VERSION=0.23.0
