@@ -12,7 +12,9 @@ Docker image bundling [Ollama](https://ollama.com/) with the [Sprocket](https://
 
 ## Platform Availability
 
-Available for: linux/amd64, linux/arm64
+Available for: linux/amd64 only
+
+Sprocket is compiled from source during the Docker build, which causes arm64 builds to exceed CI timeout limits.
 
 ## Usage
 
