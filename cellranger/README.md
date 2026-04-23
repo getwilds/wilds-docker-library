@@ -1,98 +1,152 @@
 # Cell Ranger
 
-This directory contains Docker images for Cell Ranger, 10x Genomics' analysis pipeline for single-cell RNA-seq data.
+This directory contains a Dockerfile for Cell Ranger, 10x Genomics' analysis pipeline for single-cell RNA-seq data.
 
-## Available Versions
+## Licensing Notice
 
-- `latest` (currently v10.0.0) ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/CVEs_latest.md) )
-- `10.0.0` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/Dockerfile_10.0.0) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/CVEs_10.0.0.md) )
-- `6.0.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/Dockerfile_6.0.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/CVEs_6.0.2.md) )
+**Cell Ranger is proprietary software distributed by 10x Genomics.** Users must accept the [10x Genomics End User License Agreement](https://www.10xgenomics.com/support/software/cell-ranger/downloads) before downloading Cell Ranger. Because of this licensing restriction, **pre-built images are not publicly available** on DockerHub. Instead, we provide a Dockerfile that you can build yourself after obtaining your own download URL from 10x Genomics.
+
+## Dockerfile
+
+- [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellranger/Dockerfile_latest)
 
 ## Image Details
 
-These Docker images are built from Ubuntu Noble and include:
+The Docker image is built from Ubuntu Noble and includes:
 
 - Cell Ranger: A set of analysis pipelines that process Chromium single-cell RNA-seq output to align reads, generate feature-barcode matrices, perform clustering and other secondary analysis
 
-The images are designed to be minimal and focused on Cell Ranger with its dependencies.
+The image is designed to be minimal and focused on Cell Ranger with its dependencies.
 
 ## Platform Availability
 
 **AMD64 only**: Cell Ranger only supports x86_64 (AMD64) Linux systems. These images will not run natively on ARM-based systems (e.g., Apple Silicon Macs). Docker Desktop on Apple Silicon can run these images through emulation, though with reduced performance.
 
-## Important Note
+## Building the Image
 
-**Special Handling Required**: The Cell Ranger download URL contains a signed key that expires. A new download URL should be obtained from 10x Genomics each time the Dockerfiles are updated.
+Since Cell Ranger requires accepting the 10x Genomics license agreement, you must obtain your own download URL before building.
+
+### Step 1: Get a Download URL
+
+1. Visit the [Cell Ranger Downloads page](https://www.10xgenomics.com/support/software/cell-ranger/downloads)
+2. Accept the license agreement
+3. Copy the download URL for your desired version (e.g., `cellranger-10.0.0.tar.gz`)
+
+> **Note:** Download URLs contain a signed key that expires. You will need to obtain a fresh URL each time you build.
+
+### Step 2: Build the Image
+
+The Dockerfile accepts two build arguments:
+
+| Argument | Required | Default | Description |
+|---|---|---|---|
+| `CELLRANGER_URL` | Yes | — | The signed download URL from 10x Genomics |
+| `CELLRANGER_VERSION` | No | `10.0.0` | The Cell Ranger version being installed |
+
+```bash
+# Build the default version (10.0.0)
+docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_URL="<your-download-url>" \
+  -t cellranger:10.0.0 \
+  -f cellranger/Dockerfile_latest .
+
+# Build an older version
+docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_URL="<your-download-url>" \
+  --build-arg CELLRANGER_VERSION=6.0.2 \
+  -t cellranger:6.0.2 \
+  -f cellranger/Dockerfile_latest .
+```
+
+The build will fail with an informative error if `CELLRANGER_URL` is not provided.
 
 ## Usage
 
 ### Docker
 
 ```bash
-docker pull getwilds/cellranger:latest
-# or
-docker pull getwilds/cellranger:10.0.0
-
-# Alternatively, pull from GitHub Container Registry
-docker pull ghcr.io/getwilds/cellranger:latest
+docker run --rm -v /path/to/data:/data cellranger:10.0.0 cellranger count \
+  --id=sample_run \
+  --fastqs=/data/fastqs \
+  --transcriptome=/data/reference \
+  --sample=sample1
 ```
 
 ### Singularity/Apptainer
 
-```bash
-apptainer pull docker://getwilds/cellranger:latest
-# or
-apptainer pull docker://getwilds/cellranger:10.0.0
-
-# Alternatively, pull from GitHub Container Registry
-apptainer pull docker://ghcr.io/getwilds/cellranger:latest
-```
-
-### Example Commands
+After building the Docker image locally, you can convert it to a SIF file:
 
 ```bash
-# Docker
-docker run --rm -v /path/to/data:/data getwilds/cellranger:latest cellranger count \
-  --id=sample_run \
-  --fastqs=/data/fastqs \
-  --transcriptome=/data/reference \
-  --sample=sample1
+# Save Docker image to a tar archive and convert
+docker save cellranger:10.0.0 -o cellranger_10.0.0.tar
+apptainer build cellranger_10.0.0.sif docker-archive://cellranger_10.0.0.tar
 
-# Apptainer
-apptainer run --bind /path/to/data:/data docker://getwilds/cellranger:latest cellranger count \
-  --id=sample_run \
-  --fastqs=/data/fastqs \
-  --transcriptome=/data/reference \
-  --sample=sample1
-
-# Apptainer (local SIF file)
-apptainer run --bind /path/to/data:/data cellranger_latest.sif cellranger count \
+# Run with Apptainer
+apptainer run --bind /path/to/data:/data cellranger_10.0.0.sif cellranger count \
   --id=sample_run \
   --fastqs=/data/fastqs \
   --transcriptome=/data/reference \
   --sample=sample1
 ```
+
+## Hosting a Private Image
+
+If you or your organization would like to avoid rebuilding the image every time, you can push it to a **private** container registry for reuse. This keeps you in compliance with 10x Genomics' licensing while providing convenient access for your team.
+
+### Push to GitHub Container Registry (GHCR)
+
+```bash
+# Build the image (see "Building the Image" above)
+docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_URL="<your-download-url>" \
+  -t ghcr.io/<your-org>/cellranger:10.0.0 \
+  -f cellranger/Dockerfile_latest .
+
+# Authenticate with GHCR (requires a GitHub PAT with write:packages scope)
+echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
+
+# Push the image
+docker push ghcr.io/<your-org>/cellranger:10.0.0
+
+# Pull from another machine
+docker pull ghcr.io/<your-org>/cellranger:10.0.0
+
+# Or with Apptainer
+apptainer pull --docker-login docker://ghcr.io/<your-org>/cellranger:10.0.0
+```
+
+### Push to DockerHub (Private Repository)
+
+```bash
+# Build the image
+docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_URL="<your-download-url>" \
+  -t <your-username>/cellranger:10.0.0 \
+  -f cellranger/Dockerfile_latest .
+
+# Log in to DockerHub
+docker login -u <your-username>
+
+# Push the image (make sure the repo is set to private on DockerHub)
+docker push <your-username>/cellranger:10.0.0
+```
+
+> **Important:** Ensure your registry repository is set to **private** to comply with 10x Genomics' licensing terms. Do not distribute Cell Ranger images publicly.
 
 ## Dockerfile Structure
 
 The Dockerfile follows these main steps:
 
 1. Uses Ubuntu Noble as the base image
-2. Adds metadata labels for documentation and attribution
-3. Sets shell options for better error handling in pipelines
-4. Installs prerequisites with pinned versions
-5. Downloads and extracts Cell Ranger pre-built binary using a temporary download link
-6. Adds Cell Ranger to the PATH and sets working directory
-7. Runs a smoke test to verify the installation
-
-## Security Scanning and CVEs
-
-These images are regularly scanned for vulnerabilities using Docker Scout. However, due to the nature of bioinformatics software and their dependencies, some Docker images may contain components with known vulnerabilities (CVEs).
-
-**Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
-
-For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/tree/main/cellranger), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+2. Declares build arguments for the Cell Ranger version and download URL
+3. Adds metadata labels for documentation and attribution
+4. Sets shell options for better error handling in pipelines
+5. Validates that the required download URL was provided
+6. Installs prerequisites with pinned versions
+7. Downloads and extracts Cell Ranger pre-built binary using the provided URL
+8. Adds Cell Ranger to the PATH and sets working directory
+9. Runs a smoke test to verify the installation
 
 ## Source Repository
 
-These Dockerfiles are maintained in the [WILDS Docker Library](https://github.com/getwilds/wilds-docker-library) repository.
+This Dockerfile is maintained in the [WILDS Docker Library](https://github.com/getwilds/wilds-docker-library) repository.

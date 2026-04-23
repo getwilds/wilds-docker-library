@@ -75,6 +75,34 @@ def load_amd64_only_tools():
 AMD64_ONLY_TOOLS = load_amd64_only_tools()
 
 
+def load_ci_skip_tools():
+    """
+    Load the list of tools to skip in CI from ci_skip_tools.txt.
+
+    These tools are excluded from the automated build-and-push pipeline,
+    typically due to licensing restrictions that prevent automated downloads.
+    Their images are maintained manually outside of CI.
+
+    Returns:
+        set: Set of tool names that should be skipped in CI
+    """
+    ci_skip_file = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
+        "ci_skip_tools.txt"
+    )
+    try:
+        with open(ci_skip_file, "r") as f:
+            return {line.strip() for line in f if line.strip()}
+    except FileNotFoundError:
+        logger.warning(f"ci_skip_tools.txt not found at {ci_skip_file}, using empty set")
+        return set()
+
+
+# Tools to skip entirely in CI (e.g., due to licensing restrictions)
+# Loaded from ci_skip_tools.txt
+CI_SKIP_TOOLS = load_ci_skip_tools()
+
+
 def get_image_size(image_name):
     """
     Get the size of a Docker image in bytes using docker manifest inspect.
@@ -521,6 +549,11 @@ def build_and_push_images(docker_files):
         tool_name = os.path.dirname(dockerfile)
         tag = os.path.basename(dockerfile).split("_")[-1]
 
+        # Skip tools that are excluded from CI (e.g., due to licensing restrictions)
+        if tool_name in CI_SKIP_TOOLS:
+            logger.info(f"Skipping {tool_name}:{tag} (listed in ci_skip_tools.txt)")
+            continue
+
         logger.info(f"Building image for {tool_name}:{tag}")
 
         # Check if this image should be AMD64-only
@@ -591,6 +624,12 @@ def update_dockerhub_descriptions(affected_dirs):
             continue
 
         repo_name = os.path.basename(directory)
+
+        # Skip tools excluded from CI (no DockerHub repo to update)
+        if repo_name in CI_SKIP_TOOLS:
+            logger.info(f"Skipping {repo_name}: excluded from CI (ci_skip_tools.txt)")
+            continue
+
         logger.info(f"Processing repository: getwilds/{repo_name}")
 
         # Check for README.md
