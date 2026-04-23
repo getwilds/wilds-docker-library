@@ -102,8 +102,9 @@ docker build --platform linux/amd64 \
   -t ghcr.io/<your-org>/cellranger:10.0.0 \
   -f cellranger/Dockerfile_latest .
 
-# Authenticate with GHCR (requires a GitHub PAT with write:packages scope)
-echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
+# Authenticate with GHCR using the GitHub CLI (recommended)
+gh auth refresh --scopes write:packages
+gh auth token | docker login ghcr.io -u USERNAME --password-stdin
 
 # Push the image
 docker push ghcr.io/<your-org>/cellranger:10.0.0
@@ -111,8 +112,11 @@ docker push ghcr.io/<your-org>/cellranger:10.0.0
 # Pull from another machine
 docker pull ghcr.io/<your-org>/cellranger:10.0.0
 
-# Or with Apptainer
-apptainer pull --docker-login docker://ghcr.io/<your-org>/cellranger:10.0.0
+# Or with Apptainer (requires Apptainer v1.1.0+)
+gh auth refresh --scopes read:packages
+export APPTAINER_DOCKER_USERNAME=<your-github-username>
+export APPTAINER_DOCKER_PASSWORD=$(gh auth token)
+apptainer pull docker://ghcr.io/<your-org>/cellranger:10.0.0
 ```
 
 ### Push to DockerHub (Private Repository)
@@ -132,6 +136,23 @@ docker push <your-username>/cellranger:10.0.0
 ```
 
 > **Important:** Ensure your registry repository is set to **private** to comply with 10x Genomics' licensing terms. Do not distribute Cell Ranger images publicly.
+
+### Using with WDL Workflows (Sprocket/Cromwell)
+
+If you're running WDL workflows that reference a private GHCR image, environment variables like `APPTAINER_DOCKER_PASSWORD` won't persist into the workflow engine's execution environment. Instead, store your GHCR credentials on the machine so Apptainer can authenticate automatically:
+
+```bash
+# Store GHCR credentials persistently (one-time setup per machine)
+gh auth refresh --scopes read:packages
+apptainer remote login --username <your-github-username> docker://ghcr.io
+# When prompted for a password, paste the output of: gh auth token
+```
+
+Alternatively, you can pre-pull the image before running the workflow so Apptainer uses the cached SIF file instead of pulling at runtime:
+
+```bash
+apptainer pull cellranger_10.0.0.sif docker://ghcr.io/<your-org>/cellranger:10.0.0
+```
 
 ## Dockerfile Structure
 
