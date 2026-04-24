@@ -10,7 +10,6 @@ flax
 hisat2
 manta
 megahit
-ollama
 popv
 python-dl
 rmats-turbo

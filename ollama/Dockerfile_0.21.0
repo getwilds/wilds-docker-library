@@ -16,29 +16,25 @@ RUN apt-get update \
   && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
   && CA_CERTIFICATES_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
-  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
-  && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
-  && LIBSSL_DEV_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
     python3="${PYTHON3_VERSION}" \
     python3-pip="${PYTHON3_PIP_VERSION}" \
     curl="${CURL_VERSION}" \
     ca-certificates="${CA_CERTIFICATES_VERSION}" \
-    build-essential="${BUILD_ESSENTIAL_VERSION}" \
-    pkg-config="${PKG_CONFIG_VERSION}" \
-    libssl-dev="${LIBSSL_DEV_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --no-cache-dir --break-system-packages \
   ollama==0.6.1
 
+ARG TARGETARCH
 ARG SPROCKET_VERSION=0.23.0
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
-  && export PATH="/root/.cargo/bin:$PATH" \
-  && cargo install --version "${SPROCKET_VERSION}" sprocket \
-  && cp /root/.cargo/bin/sprocket /usr/local/bin/sprocket \
-  && rustup self uninstall -y \
-  && rm -rf /root/.cargo
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+      ARCH="aarch64-unknown-linux-gnu"; \
+    else \
+      ARCH="x86_64-unknown-linux-gnu"; \
+    fi \
+  && curl -fsSL "https://github.com/stjude-rust-labs/sprocket/releases/download/v${SPROCKET_VERSION}/sprocket-v${SPROCKET_VERSION}-${ARCH}.tar.gz" \
+    | tar -xz -C /usr/local/bin sprocket
 
 RUN ollama --version && python3 -c "import ollama" && sprocket --version
 

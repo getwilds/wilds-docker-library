@@ -12,17 +12,15 @@ This directory contains Docker images for [Ollama](https://ollama.com/), an LLM 
 These Docker images are built from `ollama/ollama:0.21.0` and include:
 
 - Ollama v0.21.0: LLM inference server for running models locally
-- Sprocket v0.23.0: WDL script validator (compiled from source via cargo)
+- Sprocket v0.23.0: WDL script validator
 - Python ollama SDK v0.6.1: Python client library for interacting with Ollama
 - Python 3 (system version from base image)
 
-Note: Sprocket is compiled from source during the Docker build using Rust's `cargo install`. The Rust toolchain is removed after compilation to minimize image size.
+Sprocket is installed from prebuilt binaries published on the [Sprocket GitHub releases page](https://github.com/stjude-rust-labs/sprocket/releases).
 
 ## Platform Availability
 
-Available for: linux/amd64 only
-
-Sprocket is compiled from source during the Docker build, which causes arm64 builds to exceed CI timeout limits.
+Available for: linux/amd64, linux/arm64
 
 A GPU is not required to run this image, but is highly encouraged — CPU-only execution of LLMs is significantly slower.
 
@@ -97,7 +95,7 @@ The Dockerfile follows these main steps:
 2. Adds metadata labels for documentation and attribution
 3. Installs system dependencies with pinned versions (Python, curl, build tools)
 4. Installs the Python ollama SDK via pip
-5. Installs Rust via rustup, compiles Sprocket from source, then removes the Rust toolchain
+5. Downloads the prebuilt Sprocket binary for the target architecture
 6. Runs smoke tests to verify all tools are installed correctly
 
 ## Security Scanning and CVEs
