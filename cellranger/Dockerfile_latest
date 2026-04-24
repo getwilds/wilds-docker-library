@@ -2,10 +2,16 @@
 # Using the Ubuntu base image
 FROM ubuntu:24.04
 
+# Build arguments for Cell Ranger version and download URL
+# Users must obtain their own download URL from 10x Genomics after accepting
+# their license agreement: https://www.10xgenomics.com/support/software/cell-ranger/downloads
+ARG CELLRANGER_VERSION
+ARG CELLRANGER_URL
+
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="cellranger"
 LABEL org.opencontainers.image.description="Container image for the use of Cell Ranger in Fred Hutch OCDO's WILDS"
-LABEL org.opencontainers.image.version="10.0.0"
+LABEL org.opencontainers.image.version="${CELLRANGER_VERSION}"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://hutchdatascience.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
@@ -14,6 +20,19 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Validate that required build arguments were provided
+RUN if [ -z "${CELLRANGER_VERSION}" ]; then \
+  echo "ERROR: CELLRANGER_VERSION build argument is required." && \
+  echo "Example: --build-arg CELLRANGER_VERSION=10.0.0" && \
+  exit 1; \
+  fi
+RUN if [ -z "${CELLRANGER_URL}" ]; then \
+  echo "ERROR: CELLRANGER_URL build argument is required." && \
+  echo "Please obtain a download URL from 10x Genomics:" && \
+  echo "https://www.10xgenomics.com/support/software/cell-ranger/downloads" && \
+  exit 1; \
+  fi
 
 # Installing prerequisites
 RUN apt-get update \
@@ -41,19 +60,18 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Download and install Cell Ranger pre-built binary
-# Note: The download URL contains a signed key that expires.
-# A new download URL should be obtained from 10x Genomics each time this Dockerfile is updated.
-RUN wget -q --no-check-certificate -O cellranger-10.0.0.tar.gz \
-  "https://cf.10xgenomics.com/releases/cell-exp/cellranger-10.0.0.tar.gz?Expires=1766424907&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=Se7y~SfN80~5Q61MkUOLIgsO40FlwMj6BuJjAmP6S74H7ZI6PSI8CCZgOHMoz3BUYZKhKwI~oC5sUqUqMbzw3wbmJcmrhPneNagGvnDwRmULTA6Smyn4K7A-k0t7qjVW5W8aiERueW5057JJk4LKPZJHKoV7tqMVA5beAU4Ari2Deu5K5hHKfNK0OWIYl9mxlAP8mg2Go6KzhOVFKAQy-VzoqpGFSOW3jSnHAMrOhHtpX4jdhshm-Kca2NeSAZome4j6uPfUyKYdQRWTwOI1EgXcyRFRBHEQe6TVsOt4IqxtCYKEgjLm3SDt5f5Nzds5plRJ~V2jpcG-ew5ABnUXNg__" \
-  && tar -xzf cellranger-10.0.0.tar.gz \
-  && rm -rf cellranger-10.0.0.tar.gz
+# The download URL must be obtained from 10x Genomics after accepting their license agreement.
+# URLs contain a signed key that expires, so a fresh URL is needed for each build.
+RUN wget -q --no-check-certificate -O "cellranger-${CELLRANGER_VERSION}.tar.gz" \
+  "${CELLRANGER_URL}" \
+  && tar -xzf "cellranger-${CELLRANGER_VERSION}.tar.gz" \
+  && rm -rf "cellranger-${CELLRANGER_VERSION}.tar.gz"
 
 # Set environment variables
-ENV PATH="${PATH}:/cellranger-10.0.0"
+ENV PATH="${PATH}:/cellranger-${CELLRANGER_VERSION}"
 
 # Set working directory
 WORKDIR /data
 
 # Smoke test (NOTE: Cell Ranger only works on x86_64 Linux)
 RUN cellranger --version
-
