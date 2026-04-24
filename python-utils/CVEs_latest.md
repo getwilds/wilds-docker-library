@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/python-utils:latest
 
-Report generated on 2026-04-24 21:03:26 PST
+Report generated on 2026-04-24 22:38:17 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/python-utils:latest-amd64  │    0C     1H     3M    39L  
-   digest           │  464e24382564                                │                             
+   digest           │  3ebdf9d25975                                │                             
  Base image         │  python:3.12-slim                            │    0C     0H     3M    23L  
  Updated base image │  python:3.13-slim                            │    0C     0H     2M    22L  
                     │                                              │                  -1     -1  
