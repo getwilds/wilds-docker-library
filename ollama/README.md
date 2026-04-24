@@ -1,13 +1,22 @@
 # Ollama
 
-Docker image bundling [Ollama](https://ollama.com/) with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, designed for benchmarking LLM-generated WDL scripts.
+This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator and the [Python ollama SDK](https://pypi.org/project/ollama/). Designed for benchmarking LLM-generated WDL scripts.
 
 ## Available Versions
 
-| Tag | Ollama Version | Sprocket Version | Python ollama SDK |
-|-----|---------------|-----------------|-------------------|
-| latest | 0.21.0 | 0.23.0 | 0.6.1 |
-| 0.21.0 | 0.21.0 | 0.23.0 | 0.6.1 |
+- `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/CVEs_latest.md) )
+- `0.21.0` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/Dockerfile_0.21.0) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/CVEs_0.21.0.md) )
+
+## Image Details
+
+These Docker images are built from `ollama/ollama:0.21.0` and include:
+
+- Ollama v0.21.0: LLM inference server for running models locally
+- Sprocket v0.23.0: WDL script validator (compiled from source via cargo)
+- Python ollama SDK v0.6.1: Python client library for interacting with Ollama
+- Python 3 (system version from base image)
+
+Note: Sprocket is compiled from source during the Docker build using Rust's `cargo install`. The Rust toolchain is removed after compilation to minimize image size.
 
 ## Platform Availability
 
@@ -17,25 +26,48 @@ Sprocket is compiled from source during the Docker build, which causes arm64 bui
 
 A GPU is not required to run this image, but is highly encouraged — CPU-only execution of LLMs is significantly slower.
 
+## Citation
+
+This image bundles two independent tools. If you use them in your research, please cite the original authors:
+
+- **Ollama** (LLM inference server): https://ollama.com/
+- **Sprocket** (WDL execution engine): https://github.com/stjude-rust-labs/sprocket
+
 ## Usage
 
 ### Docker
 
 ```bash
+# Pull the latest version
 docker pull getwilds/ollama:latest
-docker run --rm getwilds/ollama:latest ollama --version
+
+# Or pull a specific version
+docker pull getwilds/ollama:0.21.0
+
+# Alternatively, pull from GitHub Container Registry
+docker pull ghcr.io/getwilds/ollama:latest
 ```
 
-### Apptainer/Singularity
+### Singularity/Apptainer
 
 ```bash
+# Pull the latest version
 apptainer pull docker://getwilds/ollama:latest
-apptainer run ollama_latest.sif ollama --version
+
+# Or pull a specific version
+apptainer pull docker://getwilds/ollama:0.21.0
+
+# Alternatively, pull from GitHub Container Registry
+apptainer pull docker://ghcr.io/getwilds/ollama:latest
 ```
 
-### Example: Run a Model and Validate WDL Output
+### Example Commands
 
 ```bash
+# Check installed versions
+docker run --rm getwilds/ollama:latest ollama --version
+docker run --rm getwilds/ollama:latest sprocket --version
+
 # Start the container with GPU access
 docker run --rm --gpus all -it getwilds/ollama:latest
 
@@ -57,20 +89,25 @@ with open('/tmp/output.wdl', 'w') as f:
 sprocket lint /tmp/output.wdl
 ```
 
-## Installed Components
+## Dockerfile Structure
 
-- Ollama: v0.21.0 (LLM inference server)
-- Sprocket: v0.23.0 (WDL script validator, compiled from source via cargo)
-- Python ollama SDK: v0.6.1
-- Python 3 (system version from base image)
+The Dockerfile follows these main steps:
 
-Note: Sprocket is compiled from source during the Docker build using Rust's `cargo install`. The Rust toolchain is removed after compilation to minimize image size.
+1. Uses `ollama/ollama:0.21.0` as the base image
+2. Adds metadata labels for documentation and attribution
+3. Installs system dependencies with pinned versions (Python, curl, build tools)
+4. Installs the Python ollama SDK via pip
+5. Installs Rust via rustup, compiles Sprocket from source, then removes the Rust toolchain
+6. Runs smoke tests to verify all tools are installed correctly
 
-## Security
+## Security Scanning and CVEs
 
-Vulnerability reports are available in this directory as `CVEs_*.md` files.
-Images are scanned monthly and on each build.
+These images are regularly scanned for vulnerabilities using Docker Scout. However, due to the nature of bioinformatics software and their dependencies, some Docker images may contain components with known vulnerabilities (CVEs).
 
-## Contributing
+**Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
-See the [CONTRIBUTING.md](../.github/CONTRIBUTING.md) for guidelines.
+For the latest security information about this image, please check the `CVEs_*.md` files in [this directory](https://github.com/getwilds/wilds-docker-library/blob/main/ollama), which are automatically updated through our GitHub Actions workflow. If a particular vulnerability is of concern, please file an [issue](https://github.com/getwilds/wilds-docker-library/issues) in the GitHub repo citing which CVE you would like to be addressed.
+
+## Source Repository
+
+These Dockerfiles are maintained in the [WILDS Docker Library](https://github.com/getwilds/wilds-docker-library) repository.
