@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/python-utils:latest
 
-Report generated on 2026-04-24 20:39:52 PST
+Report generated on 2026-04-24 21:03:26 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
+| 🟠 High | 1 |
 | 🟡 Medium | 3 |
-| 🟢 Low | 23 |
+| 🟢 Low | 39 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/python-utils:latest-amd64  │    0C     0H     3M    23L  
-   digest           │  7cd9372ef632                                │                             
+Target             │  getwilds/python-utils:latest-amd64  │    0C     1H     3M    39L  
+   digest           │  464e24382564                                │                             
  Base image         │  python:3.12-slim                            │    0C     0H     3M    23L  
  Updated base image │  python:3.13-slim                            │    0C     0H     2M    22L  
                     │                                              │                  -1     -1  
