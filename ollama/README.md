@@ -15,6 +15,8 @@ Available for: linux/amd64 only
 
 Sprocket is compiled from source during the Docker build, which causes arm64 builds to exceed CI timeout limits.
 
+A GPU is not required to run this image, but is highly encouraged — CPU-only execution of LLMs is significantly slower.
+
 ## Usage
 
 ### Docker
