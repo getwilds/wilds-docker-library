@@ -32,33 +32,34 @@ Since Cell Ranger requires accepting the 10x Genomics license agreement, you mus
 2. Accept the license agreement
 3. Copy the download URL for your desired version (e.g., `cellranger-10.0.0.tar.gz`)
 
-> **Note:** Download URLs contain a signed key that expires. You will need to obtain a fresh URL each time you build.
+> **Note:** Each version has its own unique download URL with a signed key that expires. If you are building multiple versions, you will need a separate URL for each. You will also need to obtain a fresh URL each time the signed key expires.
 
 ### Step 2: Build the Image
 
 The Dockerfile accepts two build arguments:
 
-| Argument | Required | Default | Description |
-|---|---|---|---|
-| `CELLRANGER_URL` | Yes | — | The signed download URL from 10x Genomics |
-| `CELLRANGER_VERSION` | No | `10.0.0` | The Cell Ranger version being installed |
+| Argument | Required | Description |
+|---|---|---|
+| `CELLRANGER_VERSION` | Yes | The Cell Ranger version to install (e.g., `10.0.0`, `6.0.2`) |
+| `CELLRANGER_URL` | Yes | The signed download URL from 10x Genomics |
 
 ```bash
-# Build the default version (10.0.0)
+# Example: build Cell Ranger 10.0.0
 docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_VERSION=10.0.0 \
   --build-arg CELLRANGER_URL="<your-download-url>" \
   -t cellranger:10.0.0 \
   -f cellranger/Dockerfile_latest .
 
-# Build an older version
+# Example: build Cell Ranger 6.0.2
 docker build --platform linux/amd64 \
-  --build-arg CELLRANGER_URL="<your-download-url>" \
   --build-arg CELLRANGER_VERSION=6.0.2 \
+  --build-arg CELLRANGER_URL="<your-download-url>" \
   -t cellranger:6.0.2 \
   -f cellranger/Dockerfile_latest .
 ```
 
-The build will fail with an informative error if `CELLRANGER_URL` is not provided.
+The build will fail with an informative error if either argument is not provided.
 
 ## Usage
 
@@ -98,8 +99,9 @@ If you or your organization would like to avoid rebuilding the image every time,
 ```bash
 # Build the image (see "Building the Image" above)
 docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_VERSION=<your-version> \
   --build-arg CELLRANGER_URL="<your-download-url>" \
-  -t ghcr.io/<your-org>/cellranger:10.0.0 \
+  -t ghcr.io/<your-org>/cellranger:<your-version> \
   -f cellranger/Dockerfile_latest .
 
 # Authenticate with GHCR using the GitHub CLI (recommended)
@@ -107,16 +109,16 @@ gh auth refresh --scopes write:packages
 gh auth token | docker login ghcr.io -u USERNAME --password-stdin
 
 # Push the image
-docker push ghcr.io/<your-org>/cellranger:10.0.0
+docker push ghcr.io/<your-org>/cellranger:<your-version>
 
 # Pull from another machine
-docker pull ghcr.io/<your-org>/cellranger:10.0.0
+docker pull ghcr.io/<your-org>/cellranger:<your-version>
 
 # Or with Apptainer (requires Apptainer v1.1.0+)
 gh auth refresh --scopes read:packages
 export APPTAINER_DOCKER_USERNAME=<your-github-username>
 export APPTAINER_DOCKER_PASSWORD=$(gh auth token)
-apptainer pull docker://ghcr.io/<your-org>/cellranger:10.0.0
+apptainer pull docker://ghcr.io/<your-org>/cellranger:<your-version>
 ```
 
 ### Push to DockerHub (Private Repository)
@@ -124,15 +126,16 @@ apptainer pull docker://ghcr.io/<your-org>/cellranger:10.0.0
 ```bash
 # Build the image
 docker build --platform linux/amd64 \
+  --build-arg CELLRANGER_VERSION=<your-version> \
   --build-arg CELLRANGER_URL="<your-download-url>" \
-  -t <your-username>/cellranger:10.0.0 \
+  -t <your-username>/cellranger:<your-version> \
   -f cellranger/Dockerfile_latest .
 
 # Log in to DockerHub
 docker login -u <your-username>
 
 # Push the image (make sure the repo is set to private on DockerHub)
-docker push <your-username>/cellranger:10.0.0
+docker push <your-username>/cellranger:<your-version>
 ```
 
 > **Important:** Ensure your registry repository is set to **private** to comply with 10x Genomics' licensing terms. Do not distribute Cell Ranger images publicly.
@@ -151,7 +154,7 @@ apptainer remote login --username <your-github-username> docker://ghcr.io
 Alternatively, you can pre-pull the image before running the workflow so Apptainer uses the cached SIF file instead of pulling at runtime:
 
 ```bash
-apptainer pull cellranger_10.0.0.sif docker://ghcr.io/<your-org>/cellranger:10.0.0
+apptainer pull cellranger_<your-version>.sif docker://ghcr.io/<your-org>/cellranger:<your-version>
 ```
 
 ## Dockerfile Structure
