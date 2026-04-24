@@ -8,7 +8,6 @@ Docker image bundling [Ollama](https://ollama.com/) with the [Sprocket](https://
 |-----|---------------|-----------------|-------------------|
 | latest | 0.21.0 | 0.23.0 | 0.6.1 |
 | 0.21.0 | 0.21.0 | 0.23.0 | 0.6.1 |
-| 0.5.4 | 0.5.4 | 0.23.0 | 0.4.4 |
 
 ## Platform Availability
 
