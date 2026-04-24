@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ollama:latest
 
-Report generated on 2026-04-22 13:37:42 PST
+Report generated on 2026-04-24 17:30:36 PST
 
 ## Platform Coverage
 
@@ -10,11 +10,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-**Image size:** 3.6 GB
+**Image size:** 3.5 GB
 **Size limit:** 3.0 GB
 
 Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
 
 ```bash
-docker scout quickview getwilds/ollama:latest --platform linux/amd64
+docker scout quickview getwilds/ollama:latest-amd64 --platform linux/amd64
 ```
