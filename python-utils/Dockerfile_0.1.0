@@ -15,6 +15,13 @@ LABEL org.opencontainers.image.licenses=MIT
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# Installing git (needed by downstream WDL workflows that clone repos at runtime)
+RUN apt-get update \
+    && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+    && apt-get install -y --no-install-recommends \
+        git="${GIT_VERSION}" \
+    && rm -rf /var/lib/apt/lists/*
+
 # Installing core scientific and bioinformatics Python packages with pinned versions
 RUN pip install --no-cache-dir \
     pysam==0.23.3 \

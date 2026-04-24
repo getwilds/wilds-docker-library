@@ -11,6 +11,7 @@ This directory contains Docker images for python-utils, a lean general-purpose P
 
 These Docker images are built from the `python:3.12-slim` base image and include:
 
+- git: version control client, included to support WDL workflows that clone repositories at runtime
 - pysam 0.23.3: Python interface to htslib for reading/writing SAM/BAM/VCF/BCF files
 - numpy 2.4.4: Core N-dimensional array library for numerical computing
 - scipy 1.17.1: Scientific computing library (optimization, stats, signal processing, etc.)
@@ -85,9 +86,10 @@ The Dockerfile follows these main steps:
 1. Uses `python:3.12-slim` as the base image for a minimal Python environment
 2. Adds metadata labels for documentation and attribution
 3. Sets the shell pipefail option for safer pipelines
-4. Installs the scientific/bioinformatics Python packages via pip with pinned versions and `--no-cache-dir`
-5. Sets `/data` as the working directory for analysis
-6. Runs a smoke test that imports each package and prints its version
+4. Installs git via apt with the candidate version captured from `apt-cache policy`, then cleans up `/var/lib/apt/lists`
+5. Installs the scientific/bioinformatics Python packages via pip with pinned versions and `--no-cache-dir`
+6. Sets `/data` as the working directory for analysis
+7. Runs a smoke test that imports each package and prints its version
 
 ## Security Scanning and CVEs
 
