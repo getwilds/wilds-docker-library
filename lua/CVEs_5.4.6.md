@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/lua:5.4.6
 
-Report generated on 2026-05-05 02:24:20 PST
+Report generated on 2026-05-05 15:46:44 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/lua:5.4.6-amd64  │    0C     1H   748M    26L  
-   digest           │  4264f289ef2b                      │                             
+   digest           │  a87ff0ac5103                      │                             
  Base image         │  ubuntu:24.04                      │    0C     0H     9M     2L  
  Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L  
                     │                                    │                  -9     -2  
