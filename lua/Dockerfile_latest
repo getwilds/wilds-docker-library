@@ -16,22 +16,22 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Installing Lua 5.4 along with the Lua libraries Lmod expects at runtime
+# Installing Lua 5.3 along with the Lua libraries Lmod expects at runtime
 # (luaposix and luafilesystem). Lmod itself is provided by the host HPC.
 RUN apt-get update \
-  && LUA_VERSION=$(apt-cache policy lua5.4 | grep Candidate | awk '{print $2}') \
-  && LIBLUA_VERSION=$(apt-cache policy liblua5.4-dev | grep Candidate | awk '{print $2}') \
+  && LUA_VERSION=$(apt-cache policy lua5.3 | grep Candidate | awk '{print $2}') \
+  && LIBLUA_VERSION=$(apt-cache policy liblua5.3-dev | grep Candidate | awk '{print $2}') \
   && LUAPOSIX_VERSION=$(apt-cache policy lua-posix | grep Candidate | awk '{print $2}') \
   && LUAFS_VERSION=$(apt-cache policy lua-filesystem | grep Candidate | awk '{print $2}') \
   && CA_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
-  lua5.4="${LUA_VERSION}" \
-  liblua5.4-dev="${LIBLUA_VERSION}" \
+  lua5.3="${LUA_VERSION}" \
+  liblua5.3-dev="${LIBLUA_VERSION}" \
   lua-posix="${LUAPOSIX_VERSION}" \
   lua-filesystem="${LUAFS_VERSION}" \
   ca-certificates="${CA_VERSION}" \
-  && ln -sf /usr/bin/lua5.4 /usr/bin/lua \
-  && ln -sf /usr/bin/luac5.4 /usr/bin/luac \
+  && ln -sf /usr/bin/lua5.3 /usr/bin/lua \
+  && ln -sf /usr/bin/luac5.3 /usr/bin/luac \
   && rm -rf /var/lib/apt/lists/*
 
 # Smoke test to verify Lua and the Lmod-required libraries work

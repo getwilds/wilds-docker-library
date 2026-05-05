@@ -5,13 +5,13 @@ This directory contains Docker images for Lua, a powerful, efficient, lightweigh
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/lua/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/lua/CVEs_latest.md) )
-- `5.4.6` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/lua/Dockerfile_5.4.6) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/lua/CVEs_5.4.6.md) )
+- `5.3.6` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/lua/Dockerfile_5.3.6) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/lua/CVEs_5.3.6.md) )
 
 ## Image Details
 
 These Docker images are built from Ubuntu 24.04 and include:
 
-- Lua 5.4.6: A lightweight, embeddable scripting language used by Lmod for module file evaluation
+- Lua 5.3.6: A lightweight, embeddable scripting language used by Lmod for module file evaluation
 - luaposix: POSIX bindings for Lua, required by Lmod at runtime
 - luafilesystem (lfs): Filesystem manipulation library for Lua, required by Lmod at runtime
 
@@ -39,7 +39,7 @@ extension language. Software: Practice and Experience, 26(6), 635-652.
 docker pull getwilds/lua:latest
 
 # Or pull a specific version
-docker pull getwilds/lua:5.4.6
+docker pull getwilds/lua:5.3.6
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/lua:latest
@@ -52,7 +52,7 @@ docker pull ghcr.io/getwilds/lua:latest
 apptainer pull docker://getwilds/lua:latest
 
 # Or pull a specific version
-apptainer pull docker://getwilds/lua:5.4.6
+apptainer pull docker://getwilds/lua:5.3.6
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/lua:latest
@@ -101,9 +101,9 @@ The Dockerfile follows these main steps:
 
 1. Uses Ubuntu 24.04 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Dynamically determines and pins the latest security-patched versions of Lua 5.4 and its companion libraries
-4. Installs `lua5.4`, `liblua5.4-dev`, `lua-posix`, and `lua-filesystem` from the Ubuntu archive
-5. Adds `lua` and `luac` symlinks under `/usr/local/bin` so generic `lua` invocations resolve correctly
+3. Dynamically determines and pins the latest security-patched versions of Lua 5.3 and its companion libraries
+4. Installs `lua5.3`, `liblua5.3-dev`, `lua-posix`, and `lua-filesystem` from the Ubuntu archive
+5. Adds `lua` and `luac` symlinks under `/usr/bin` so generic `lua` invocations resolve correctly
 6. Performs cleanup to minimize image size
 7. Runs a smoke test that loads `posix` and `lfs` to verify the runtime is ready for Lmod
 
