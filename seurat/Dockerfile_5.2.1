@@ -1,0 +1,41 @@
+# Use Bioconductor base image
+FROM bioconductor/bioconductor_docker:RELEASE_3_21
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="seurat"
+LABEL org.opencontainers.image.description="Docker image for Seurat single-cell RNA-seq analysis in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="5.2.1"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies
+RUN apt-get update \
+  && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
+  && LIBFFTW3_VERSION=$(apt-cache policy libfftw3-dev | grep Candidate | awk '{print $2}') \
+  && LIBGSL_VERSION=$(apt-cache policy libgsl-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  libhdf5-dev="${LIBHDF5_VERSION}" \
+  libfftw3-dev="${LIBFFTW3_VERSION}" \
+  libgsl-dev="${LIBGSL_VERSION}" \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set R library paths to avoid host contamination in Apptainer
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+
+# Install required R packages
+RUN R -e "BiocManager::install(c('Seurat', 'ggplot2', 'dplyr', 'patchwork', 'optparse', 'glmGamPoi'), update=FALSE, ask=FALSE, dependencies=TRUE)"
+
+# Copy the Seurat analysis script to the container
+COPY seurat/seurat_analysis.R /usr/local/bin/seurat_analysis.R
+RUN chmod +x /usr/local/bin/seurat_analysis.R
+
+# Set working directory
+WORKDIR /data
