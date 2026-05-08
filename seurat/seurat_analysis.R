@@ -70,7 +70,7 @@ message("Cells loaded: ", ncol(seurat_obj))
 ##################
 
 # Get percent mitochondria (assume mitochondiral gene names start with "MT-")
-seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^EN")
+seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^MT-")
 
 # Violin plot of QC metric
 qc_plot <- VlnPlot(seurat_obj,
