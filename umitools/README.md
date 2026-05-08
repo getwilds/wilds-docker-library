@@ -9,9 +9,10 @@ This directory contains Docker images for UMI-tools, a collection of tools for h
 
 ## Image Details
 
-These Docker images are built from Python 3.12-bookworm and include:
+These Docker images are built from Python 3.11-bookworm and include:
 
 - UMI-tools v1.1.6: Tools for dealing with Unique Molecular Identifiers in NGS data
+- Samtools v1.20: Utilities for manipulating SAM/BAM/CRAM alignment files, commonly used alongside UMI-tools for sorting, indexing, and inspecting BAMs before deduplication
 
 The images are designed to be minimal and focused on a specific version of UMI-tools with its dependencies, optimized for handling UMIs in next-generation sequencing data analysis pipelines.
 
@@ -48,9 +49,13 @@ docker run --rm -v /path/to/data:/data getwilds/umitools:latest umi_tools extrac
   --stdin=/data/reads.fastq.gz \
   --stdout=/data/reads.extracted.fastq.gz
 
+# Sort and index a BAM file with samtools before deduplication
+docker run --rm -v /path/to/data:/data getwilds/umitools:latest \
+  bash -c "samtools sort -o /data/mapped.sorted.bam /data/mapped.bam && samtools index /data/mapped.sorted.bam"
+
 # Deduplicate BAM files based on UMIs
 docker run --rm -v /path/to/data:/data getwilds/umitools:latest umi_tools dedup \
-  --stdin=/data/mapped.bam \
+  --stdin=/data/mapped.sorted.bam \
   --stdout=/data/deduplicated.bam
 
 # Group reads by UMI
@@ -76,7 +81,7 @@ apptainer run --bind /path/to/data:/data umitools_latest.sif umi_tools dedup \
 
 The UMI-tools Docker images include:
 
-- Python 3.12 from Debian Bookworm for a secure base
+- Python 3.11 from Debian Bookworm for a secure base
 - Installation via pip with no-cache-dir to minimize image size
 - Pinned versions for reproducibility
 
@@ -92,10 +97,11 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 The Dockerfile follows these main steps:
 
-1. Uses Python 3.12-bookworm as the base image
+1. Uses Python 3.11-bookworm as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs UMI-tools with a specific version via pip
-4. Uses no-cache-dir to keep the image size minimal
+3. Installs build prerequisites and compiles Samtools v1.20 from source
+4. Installs UMI-tools with a specific version via pip (no-cache-dir to keep the image size minimal)
+5. Runs a smoke test verifying both `umi_tools` and `samtools` are functional
 
 ## Source Repository
 
