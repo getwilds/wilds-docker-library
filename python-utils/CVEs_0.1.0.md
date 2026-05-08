@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/python-utils:0.1.0
 
-Report generated on 2026-04-24 22:29:46 PST
+Report generated on 2026-05-08 23:09:44 PST
 
 ## Platform Coverage
 
@@ -11,10 +11,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 3 |
-| 🟢 Low | 39 |
-| ⚪ Unknown | 0 |
+| 🟠 High | 5 |
+| 🟡 Medium | 7 |
+| 🟢 Low | 40 |
+| ⚪ Unknown | 7 |
 
 ## 🐳 Base Image
 
@@ -24,10 +24,12 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 3 |
+| 🟡 Medium | 4 |
 | 🟢 Low | 23 |
 
 ## 🔄 Recommendations
+
+**Refreshed base image:** `python:3.12-slim`
 
 **Updated base image:** `python:3.13-slim`
 
@@ -35,11 +37,13 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/python-utils:0.1.0-amd64  │    0C     1H     3M    39L  
-   digest           │  4b0b46e54e29                               │                             
- Base image         │  python:3.12-slim                           │    0C     0H     3M    23L  
- Updated base image │  python:3.13-slim                           │    0C     0H     2M    22L  
-                    │                                             │                  -1     -1  
+Target               │  getwilds/python-utils:0.1.0-amd64  │    0C     5H     7M    40L     7?  
+   digest             │  4fe8468da418                               │                                    
+ Base image           │  python:3.12-slim                           │    0C     0H     4M    23L         
+ Refreshed base image │  python:3.12-slim                           │    0C     0H     4M    23L         
+                      │                                             │                                    
+ Updated base image   │  python:3.13-slim                           │    0C     0H     3M    22L         
+                      │                                             │                  -1     -1         
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/python-utils:0.1.0-amd64
