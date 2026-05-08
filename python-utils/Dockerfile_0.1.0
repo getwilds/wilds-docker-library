@@ -1,0 +1,46 @@
+
+# Using Python slim base image for a lean footprint
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="python-utils"
+LABEL org.opencontainers.image.description="Docker image for general-purpose Python utilities in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing git and curl (needed by downstream WDL workflows that clone repos and fetch files at runtime)
+RUN apt-get update \
+    && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+    && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+    && apt-get install -y --no-install-recommends \
+        git="${GIT_VERSION}" \
+        curl="${CURL_VERSION}" \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installing core scientific and bioinformatics Python packages with pinned versions
+RUN pip install --no-cache-dir \
+    pysam==0.23.3 \
+    numpy==2.4.4 \
+    scipy==1.17.1 \
+    pandas==3.0.2 \
+    matplotlib==3.10.9 \
+    seaborn==0.13.2
+
+# Set working directory for data analysis
+WORKDIR /data
+
+# Smoke test: verify each package imports and report versions
+RUN python -c "import pysam, numpy, scipy, pandas, matplotlib, seaborn; \
+    print('pysam', pysam.__version__); \
+    print('numpy', numpy.__version__); \
+    print('scipy', scipy.__version__); \
+    print('pandas', pandas.__version__); \
+    print('matplotlib', matplotlib.__version__); \
+    print('seaborn', seaborn.__version__)"
