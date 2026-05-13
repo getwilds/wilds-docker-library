@@ -1,7 +1,7 @@
 FROM ollama/ollama:0.21.0
 
 LABEL org.opencontainers.image.title="ollama"
-LABEL org.opencontainers.image.description="Docker image for Ollama in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.description="Docker image for Ollama in Fred Hutch OCDO's WILDS, with OpenCode for LLM-driven coding workflows"
 LABEL org.opencontainers.image.version="0.21.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
@@ -36,7 +36,18 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
   && curl -fsSL "https://github.com/stjude-rust-labs/sprocket/releases/download/v${SPROCKET_VERSION}/sprocket-v${SPROCKET_VERSION}-${ARCH}.tar.gz" \
     | tar -xz -C /usr/local/bin sprocket
 
-RUN ollama --version && python3 -c "import ollama" && sprocket --version
+ARG OPENCODE_VERSION=1.14.39
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+      ARCH="arm64"; \
+    else \
+      ARCH="x64"; \
+    fi \
+  && curl -fsSL -o /tmp/opencode.tar.gz \
+    "https://github.com/sst/opencode/releases/download/v${OPENCODE_VERSION}/opencode-linux-${ARCH}.tar.gz" \
+  && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin opencode \
+  && rm /tmp/opencode.tar.gz
+
+RUN ollama --version && python3 -c "import ollama" && sprocket --version && opencode --version
 
 ENTRYPOINT []
 CMD ["/bin/bash"]

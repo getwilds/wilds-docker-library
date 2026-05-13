@@ -1,6 +1,6 @@
 # Ollama
 
-This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator and the [Python ollama SDK](https://pypi.org/project/ollama/). Designed for benchmarking LLM-generated WDL scripts.
+This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), and [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent. Designed for benchmarking LLM-generated WDL scripts.
 
 ## Available Versions
 
@@ -13,10 +13,11 @@ These Docker images are built from `ollama/ollama:0.21.0` and include:
 
 - Ollama v0.21.0: LLM inference server for running models locally
 - Sprocket v0.23.0: WDL script validator
+- OpenCode v1.14.39: open-source AI coding agent
 - Python ollama SDK v0.6.1: Python client library for interacting with Ollama
 - Python 3 (system version from base image)
 
-Sprocket is installed from prebuilt binaries published on the [Sprocket GitHub releases page](https://github.com/stjude-rust-labs/sprocket/releases).
+Sprocket is installed from prebuilt binaries published on the [Sprocket GitHub releases page](https://github.com/stjude-rust-labs/sprocket/releases). OpenCode is installed from prebuilt binaries published on the [OpenCode GitHub releases page](https://github.com/sst/opencode/releases).
 
 ## Platform Availability
 
@@ -26,10 +27,11 @@ A GPU is not required to run this image, but is highly encouraged — CPU-only e
 
 ## Citation
 
-This image bundles two independent tools. If you use them in your research, please cite the original authors:
+This image bundles three independent tools. If you use them in your research, please cite the original authors:
 
 - **Ollama** (LLM inference server): https://ollama.com/
 - **Sprocket** (WDL execution engine): https://github.com/stjude-rust-labs/sprocket
+- **OpenCode** (AI coding agent): https://github.com/sst/opencode
 
 ## Usage
 
@@ -65,6 +67,7 @@ apptainer pull docker://ghcr.io/getwilds/ollama:latest
 # Check installed versions
 docker run --rm getwilds/ollama:latest ollama --version
 docker run --rm getwilds/ollama:latest sprocket --version
+docker run --rm getwilds/ollama:latest opencode --version
 
 # Start the container with GPU access
 docker run --rm --gpus all -it getwilds/ollama:latest
@@ -96,7 +99,8 @@ The Dockerfile follows these main steps:
 3. Installs system dependencies with pinned versions (Python, curl, build tools)
 4. Installs the Python ollama SDK via pip
 5. Downloads the prebuilt Sprocket binary for the target architecture
-6. Runs smoke tests to verify all tools are installed correctly
+6. Downloads the prebuilt OpenCode binary for the target architecture
+7. Runs smoke tests to verify all tools are installed correctly
 
 ## Security Scanning and CVEs
 
