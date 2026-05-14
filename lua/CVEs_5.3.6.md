@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/lua:5.3.6
 
-Report generated on 2026-05-05 17:16:58 PST
+Report generated on 2026-05-14 00:53:49 PST
 
 ## Platform Coverage
 
@@ -11,8 +11,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 748 |
+| 🟠 High | 0 |
+| 🟡 Medium | 899 |
 | 🟢 Low | 26 |
 | ⚪ Unknown | 0 |
 
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/lua:5.3.6-amd64  │    0C     1H   748M    26L  
-   digest           │  6c3c28817dd5                      │                             
+Target             │  getwilds/lua:5.3.6-amd64  │    0C     0H   899M    26L  
+   digest           │  2cee6e21d644                      │                             
  Base image         │  ubuntu:24.04                      │    0C     0H     9M     2L  
  Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L  
                     │                                    │                  -9     -2  
