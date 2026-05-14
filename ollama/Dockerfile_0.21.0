@@ -24,7 +24,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --no-cache-dir --break-system-packages \
-  ollama==0.6.1
+  ollama==0.6.1 \
+  chromadb==1.5.9
 
 ARG TARGETARCH
 ARG SPROCKET_VERSION=0.23.0
@@ -47,7 +48,7 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
   && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin opencode \
   && rm /tmp/opencode.tar.gz
 
-RUN ollama --version && python3 -c "import ollama" && sprocket --version && opencode --version
+RUN ollama --version && python3 -c "import ollama" && python3 -c "import chromadb" && sprocket --version && opencode --version
 
 ENTRYPOINT []
 CMD ["/bin/bash"]
