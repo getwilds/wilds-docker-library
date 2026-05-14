@@ -1,6 +1,6 @@
 # Lua
 
-This directory contains Docker images for Lua, a powerful, efficient, lightweight, embeddable scripting language. The image is configured for use in HPC environments where [Lmod](https://lmod.readthedocs.io/) (the Lua-based environment modules system) is provided by the host and invoked from within the container.
+This directory contains Docker images for Lua, a powerful, efficient, lightweight, embeddable scripting language. The image provides a standalone Lua interpreter suitable for running Lua scripts in any containerized workflow. It also bundles the Lua libraries (`luaposix` and `luafilesystem`) needed to run [Lmod](https://lmod.readthedocs.io/) — the Lua-based environment modules system commonly found on HPC clusters — when an Lmod install is provided by the host and bind-mounted into the container.
 
 ## Available Versions
 
@@ -11,11 +11,11 @@ This directory contains Docker images for Lua, a powerful, efficient, lightweigh
 
 These Docker images are built from Ubuntu 24.04 and include:
 
-- Lua 5.3.6: A lightweight, embeddable scripting language used by Lmod for module file evaluation
-- luaposix: POSIX bindings for Lua, required by Lmod at runtime
-- luafilesystem (lfs): Filesystem manipulation library for Lua, required by Lmod at runtime
+- Lua 5.3.6: A lightweight, embeddable scripting language
+- luaposix: POSIX bindings for Lua (also a runtime dependency of Lmod)
+- luafilesystem (lfs): Filesystem manipulation library for Lua (also a runtime dependency of Lmod)
 
-The images are intentionally minimal — Lmod itself is **not** installed, since it is expected to be provided by the host HPC environment (e.g., bind-mounted into the container or available on a shared filesystem). The images exist to provide a Lua interpreter compatible with Lmod's runtime requirements when no system Lua is available inside the container.
+The images are intentionally minimal and contain only the Lua interpreter and a couple of widely-used libraries. Lmod itself is **not** installed; if you want to use Lmod with this image, the expectation is that Lmod is provided by the host (e.g., bind-mounted from a shared HPC filesystem) and executed using the Lua interpreter inside the container. If you are not using Lmod, the image works as a plain Lua 5.3 runtime.
 
 ## Citation
 
@@ -68,19 +68,19 @@ docker run --rm getwilds/lua:latest lua -v
 docker run --rm -v /path/to/scripts:/scripts getwilds/lua:latest \
   lua /scripts/myscript.lua
 
-# Verify the Lmod-required Lua libraries are present
+# Verify the bundled Lua libraries are present (useful when pairing with Lmod)
 docker run --rm getwilds/lua:latest \
-  lua -e "require('posix'); require('lfs'); print('ready for lmod')"
+  lua -e "require('posix'); require('lfs'); print('libraries loaded')"
 
-# Apptainer: bind the host's Lmod install (e.g. /app/lmod) and invoke it
-# using the Lua provided by this container
+# Optional: if you want to use a host-provided Lmod install (e.g. /app/lmod),
+# bind-mount it and invoke it using the Lua provided by this container
 apptainer exec --bind /app/lmod:/app/lmod docker://getwilds/lua:latest \
   lua /app/lmod/libexec/lmod bash list
 ```
 
-## Using with Lmod on an HPC
+## Optional: Using with Lmod on an HPC
 
-This image is designed to be paired with a host-provided Lmod installation. A typical pattern with Apptainer is to bind-mount the cluster's Lmod tree (and its module file paths) into the container, then invoke `lmod` using the Lua interpreter inside the image:
+If your workflow needs Lmod, this image can be paired with a host-provided Lmod installation — Lmod is **not** required to use the image otherwise. A typical pattern with Apptainer is to bind-mount the cluster's Lmod tree (and its module file paths) into the container, then invoke `lmod` using the Lua interpreter inside the image:
 
 ```bash
 # Bind the Lmod install and module tree from the host into the container
@@ -105,7 +105,7 @@ The Dockerfile follows these main steps:
 4. Installs `lua5.3`, `liblua5.3-dev`, `lua-posix`, and `lua-filesystem` from the Ubuntu archive
 5. Adds `lua` and `luac` symlinks under `/usr/bin` so generic `lua` invocations resolve correctly
 6. Performs cleanup to minimize image size
-7. Runs a smoke test that loads `posix` and `lfs` to verify the runtime is ready for Lmod
+7. Runs a smoke test that loads `posix` and `lfs` to verify the runtime and its bundled libraries (which Lmod also requires) are working
 
 ## Security Scanning and CVEs
 
