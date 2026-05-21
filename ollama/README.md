@@ -1,6 +1,6 @@
 # Ollama
 
-This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent, and [Chroma](https://www.trychroma.com/), an open-source vector database for retrieval-augmented generation (RAG) workflows. Designed for benchmarking LLM-generated WDL scripts.
+This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent, and [ChromaDB](https://www.trychroma.com/), an open-source vector database tool. Designed for benchmarking LLM-generated WDL scripts.
 
 ## Available Versions
 
