@@ -1,0 +1,46 @@
+# Using the Ubuntu base image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="mosdepth"
+LABEL org.opencontainers.image.description="Docker image for mosdepth, fast BAM/CRAM depth calculation, in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set environment for non-interactive installs
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install runtime dependencies for mosdepth (htslib transitive deps) and download utilities
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-1.0 | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma5 | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4t64 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  ca-certificates="${CA_CERTS_VERSION}" \
+  zlib1g="${ZLIB1G_VERSION}" \
+  libbz2-1.0="${LIBBZ2_VERSION}" \
+  liblzma5="${LIBLZMA_VERSION}" \
+  libcurl4t64="${LIBCURL_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download the pre-built mosdepth binary (linux x86_64) from the official release
+RUN wget -q --no-check-certificate -O /usr/local/bin/mosdepth \
+  https://github.com/brentp/mosdepth/releases/download/v0.3.14/mosdepth \
+  && chmod +x /usr/local/bin/mosdepth
+
+# Set default working directory
+WORKDIR /data
+
+# Smoke test to verify mosdepth was installed correctly
+RUN mosdepth --version
