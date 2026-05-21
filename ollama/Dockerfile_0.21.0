@@ -16,15 +16,22 @@ RUN apt-get update \
   && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
   && CA_CERTIFICATES_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && OPENSSH_CLIENT_VERSION=$(apt-cache policy openssh-client | grep Candidate | awk '{print $2}') \
+  && RIPGREP_VERSION=$(apt-cache policy ripgrep | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
     python3="${PYTHON3_VERSION}" \
     python3-pip="${PYTHON3_PIP_VERSION}" \
     curl="${CURL_VERSION}" \
     ca-certificates="${CA_CERTIFICATES_VERSION}" \
+    git="${GIT_VERSION}" \
+    openssh-client="${OPENSSH_CLIENT_VERSION}" \
+    ripgrep="${RIPGREP_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --no-cache-dir --break-system-packages \
-  ollama==0.6.1
+  ollama==0.6.1 \
+  chromadb==1.5.9
 
 ARG TARGETARCH
 ARG SPROCKET_VERSION=0.23.0
@@ -47,7 +54,7 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
   && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin opencode \
   && rm /tmp/opencode.tar.gz
 
-RUN ollama --version && python3 -c "import ollama" && sprocket --version && opencode --version
+RUN ollama --version && python3 -c "import ollama" && python3 -c "import chromadb" && sprocket --version && opencode --version && git --version && ssh -V && rg --version
 
 ENTRYPOINT []
 CMD ["/bin/bash"]

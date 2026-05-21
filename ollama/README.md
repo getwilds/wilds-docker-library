@@ -1,6 +1,6 @@
 # Ollama
 
-This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), and [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent. Designed for benchmarking LLM-generated WDL scripts.
+This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent, and [ChromaDB](https://www.trychroma.com/), an open-source vector database tool. Designed for benchmarking LLM-generated WDL scripts.
 
 ## Available Versions
 
@@ -15,9 +15,13 @@ These Docker images are built from `ollama/ollama:0.21.0` and include:
 - Sprocket v0.23.0: WDL script validator
 - OpenCode v1.14.39: open-source AI coding agent
 - Python ollama SDK v0.6.1: Python client library for interacting with Ollama
+- chromadb v1.5.9: open-source vector database for embeddings and RAG workflows
 - Python 3 (system version from base image)
+- git, openssh-client, and ripgrep (system versions from base image) — supporting tools for repository workflows and fast code search used by OpenCode
 
 Sprocket is installed from prebuilt binaries published on the [Sprocket GitHub releases page](https://github.com/stjude-rust-labs/sprocket/releases). OpenCode is installed from prebuilt binaries published on the [OpenCode GitHub releases page](https://github.com/sst/opencode/releases).
+
+**Note on Sprocket usage:** When this image is run via Apptainer (e.g., on an HPC cluster), Sprocket is intended for static analysis only — `sprocket lint`, `sprocket check`, and `sprocket format` all work inside the container and are useful for validating LLM-generated WDL on the fly. Executing workflows with `sprocket run` is not supported from within the container, since WDL tasks typically declare their own runtime containers that cannot be launched from inside an Apptainer image. Run workflows on the host (or via Cromwell/miniwdl on the cluster) instead.
 
 ## Platform Availability
 
@@ -27,11 +31,12 @@ A GPU is not required to run this image, but is highly encouraged — CPU-only e
 
 ## Citation
 
-This image bundles three independent tools. If you use them in your research, please cite the original authors:
+This image bundles four independent tools. If you use them in your research, please cite the original authors:
 
 - **Ollama** (LLM inference server): https://ollama.com/
 - **Sprocket** (WDL execution engine): https://github.com/stjude-rust-labs/sprocket
 - **OpenCode** (AI coding agent): https://github.com/sst/opencode
+- **Chroma** (vector database): https://www.trychroma.com/
 
 ## Usage
 
@@ -96,8 +101,8 @@ The Dockerfile follows these main steps:
 
 1. Uses `ollama/ollama:0.21.0` as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs system dependencies with pinned versions (Python, curl, build tools)
-4. Installs the Python ollama SDK via pip
+3. Installs system dependencies with pinned versions (Python, curl, git, openssh-client, ripgrep)
+4. Installs the Python ollama SDK and chromadb via pip
 5. Downloads the prebuilt Sprocket binary for the target architecture
 6. Downloads the prebuilt OpenCode binary for the target architecture
 7. Runs smoke tests to verify all tools are installed correctly
