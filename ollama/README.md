@@ -17,8 +17,11 @@ These Docker images are built from `ollama/ollama:0.21.0` and include:
 - Python ollama SDK v0.6.1: Python client library for interacting with Ollama
 - chromadb v1.5.9: open-source vector database for embeddings and RAG workflows
 - Python 3 (system version from base image)
+- git, openssh-client, and ripgrep (system versions from base image) — supporting tools for repository workflows and fast code search used by OpenCode
 
 Sprocket is installed from prebuilt binaries published on the [Sprocket GitHub releases page](https://github.com/stjude-rust-labs/sprocket/releases). OpenCode is installed from prebuilt binaries published on the [OpenCode GitHub releases page](https://github.com/sst/opencode/releases).
+
+**Note on Sprocket usage:** When this image is run via Apptainer (e.g., on an HPC cluster), Sprocket is intended for static analysis only — `sprocket lint`, `sprocket check`, and `sprocket format` all work inside the container and are useful for validating LLM-generated WDL on the fly. Executing workflows with `sprocket run` is not supported from within the container, since WDL tasks typically declare their own runtime containers that cannot be launched from inside an Apptainer image. Run workflows on the host (or via Cromwell/miniwdl on the cluster) instead.
 
 ## Platform Availability
 
@@ -98,7 +101,7 @@ The Dockerfile follows these main steps:
 
 1. Uses `ollama/ollama:0.21.0` as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs system dependencies with pinned versions (Python, curl, build tools)
+3. Installs system dependencies with pinned versions (Python, curl, git, openssh-client, ripgrep)
 4. Installs the Python ollama SDK and chromadb via pip
 5. Downloads the prebuilt Sprocket binary for the target architecture
 6. Downloads the prebuilt OpenCode binary for the target architecture
