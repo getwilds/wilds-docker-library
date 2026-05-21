@@ -54,7 +54,7 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
   && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin opencode \
   && rm /tmp/opencode.tar.gz
 
-RUN ollama --version && python3 -c "import ollama" && python3 -c "import chromadb" && sprocket --version && opencode --version && git --version && ssh -V && rg --version
+RUN ollama --version && python3 -c "import ollama" && python3 -c "import chromadb" && sprocket --version && opencode --version && git --version && which ssh && rg --version
 
 ENTRYPOINT []
 CMD ["/bin/bash"]
