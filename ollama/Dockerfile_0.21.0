@@ -39,7 +39,9 @@ RUN pip3 install --no-cache-dir --break-system-packages \
     sentence-transformers==5.5.1 \
     llama-index-embeddings-huggingface==0.7.0
 
-RUN python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+ENV HF_HOME=/opt/hf_cache
+RUN python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')" \
+  && chmod -R a+rX /opt/hf_cache
 
 ARG TARGETARCH
 ARG SPROCKET_VERSION=0.23.0

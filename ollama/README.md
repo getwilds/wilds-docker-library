@@ -20,7 +20,7 @@ These Docker images are built from `ollama/ollama:0.21.0` and include:
 - sentence-transformers v5.5.1: sentence/text embedding models for semantic similarity
 - PyTorch v2.12.0 (CPU build): tensor library underlying sentence-transformers — installed from the PyTorch CPU wheel index so CUDA wheels are not pulled in (Ollama owns the GPU; the embedding model runs on CPU)
 - llama-index-embeddings-huggingface v0.7.0: LlamaIndex adapter for HuggingFace embedding models
-- `sentence-transformers/all-MiniLM-L6-v2` model (~91MB) pre-cached under `/root/.cache/huggingface` so the image is self-contained and the embedding model can be loaded offline (`HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1`)
+- `sentence-transformers/all-MiniLM-L6-v2` model (~91MB) pre-cached under `/opt/hf_cache` (world-readable, so it works under Apptainer's non-root execution model) — `HF_HOME` is set to that path in the image, so the embedding model can be loaded offline (`HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1`); point `HF_HOME=/opt/hf_cache` explicitly if your runtime overrides it
 - Python 3 (system version from base image)
 - git, openssh-client, and ripgrep (system versions from base image) — supporting tools for repository workflows and fast code search used by OpenCode
 
