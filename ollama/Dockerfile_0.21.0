@@ -39,6 +39,8 @@ RUN pip3 install --no-cache-dir --break-system-packages \
     sentence-transformers==5.5.1 \
     llama-index-embeddings-huggingface==0.7.0
 
+RUN python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+
 ARG TARGETARCH
 ARG SPROCKET_VERSION=0.23.0
 RUN if [ "$TARGETARCH" = "arm64" ]; then \
@@ -67,6 +69,7 @@ RUN ollama --version \
   && python3 -c "import torch; assert not torch.cuda.is_available()" \
   && python3 -c "import sentence_transformers" \
   && python3 -c "from llama_index.embeddings.huggingface import HuggingFaceEmbedding" \
+  && HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2').encode(['ok'])" \
   && sprocket --version \
   && opencode --version \
   && git --version \
