@@ -30,8 +30,17 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --no-cache-dir --break-system-packages \
-  ollama==0.6.1 \
-  chromadb==1.5.9
+    --index-url https://download.pytorch.org/whl/cpu \
+    torch==2.12.0+cpu \
+  && pip3 install --no-cache-dir --break-system-packages \
+    ollama==0.6.1 \
+    chromadb==1.5.9 \
+    rapidfuzz==3.14.5 \
+    sentence-transformers==5.5.1
+
+ENV HF_HOME=/opt/hf_cache
+RUN python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')" \
+  && chmod -R a+rX /opt/hf_cache
 
 ARG TARGETARCH
 ARG SPROCKET_VERSION=0.23.0
@@ -54,7 +63,18 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
   && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin opencode \
   && rm /tmp/opencode.tar.gz
 
-RUN ollama --version && python3 -c "import ollama" && python3 -c "import chromadb" && sprocket --version && opencode --version && git --version && which ssh && rg --version
+RUN ollama --version \
+  && python3 -c "import ollama" \
+  && python3 -c "import chromadb" \
+  && python3 -c "import rapidfuzz" \
+  && python3 -c "import torch; assert not torch.cuda.is_available()" \
+  && python3 -c "import sentence_transformers" \
+  && HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2').encode(['ok'])" \
+  && sprocket --version \
+  && opencode --version \
+  && git --version \
+  && which ssh \
+  && rg --version
 
 ENTRYPOINT []
 CMD ["/bin/bash"]
