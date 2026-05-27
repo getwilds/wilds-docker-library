@@ -1,6 +1,6 @@
 # Ollama
 
-This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent, and [ChromaDB](https://www.trychroma.com/), an open-source vector database tool. Also includes lexical/semantic similarity evaluation support via [RapidFuzz](https://github.com/rapidfuzz/RapidFuzz), [sentence-transformers](https://www.sbert.net/), and a CPU-only build of [PyTorch](https://pytorch.org/) (with [llama-index-embeddings-huggingface](https://pypi.org/project/llama-index-embeddings-huggingface/) for embedding-model loading). Designed for benchmarking LLM-generated WDL scripts.
+This directory contains Docker images for [Ollama](https://ollama.com/), an LLM inference server, bundled with the [Sprocket](https://github.com/stjude-rust-labs/sprocket) WDL validator, the [Python ollama SDK](https://pypi.org/project/ollama/), [OpenCode](https://github.com/sst/opencode), an open-source AI coding agent, and [ChromaDB](https://www.trychroma.com/), an open-source vector database tool. Also includes lexical/semantic similarity evaluation support via [RapidFuzz](https://github.com/rapidfuzz/RapidFuzz), [sentence-transformers](https://www.sbert.net/), and a CPU-only build of [PyTorch](https://pytorch.org/). Designed for benchmarking LLM-generated WDL scripts.
 
 ## Available Versions
 
@@ -19,7 +19,6 @@ These Docker images are built from `ollama/ollama:0.21.0` and include:
 - RapidFuzz v3.14.5: fast string similarity scoring for lexical evaluation
 - sentence-transformers v5.5.1: sentence/text embedding models for semantic similarity
 - PyTorch v2.12.0 (CPU build): tensor library underlying sentence-transformers — installed from the PyTorch CPU wheel index so CUDA wheels are not pulled in (Ollama owns the GPU; the embedding model runs on CPU)
-- llama-index-embeddings-huggingface v0.7.0: LlamaIndex adapter for HuggingFace embedding models
 - `sentence-transformers/all-MiniLM-L6-v2` model (~91MB) pre-cached under `/opt/hf_cache` (world-readable, so it works under Apptainer's non-root execution model) — `HF_HOME` is set to that path in the image, so the embedding model can be loaded offline (`HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1`); point `HF_HOME=/opt/hf_cache` explicitly if your runtime overrides it
 - Python 3 (system version from base image)
 - git, openssh-client, and ripgrep (system versions from base image) — supporting tools for repository workflows and fast code search used by OpenCode
@@ -109,7 +108,7 @@ The Dockerfile follows these main steps:
 1. Uses `ollama/ollama:0.21.0` as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs system dependencies with pinned versions (Python, curl, git, openssh-client, ripgrep)
-4. Installs CPU-only PyTorch from the PyTorch CPU wheel index, then the Python ollama SDK, chromadb, RapidFuzz, sentence-transformers, and llama-index-embeddings-huggingface via pip
+4. Installs CPU-only PyTorch from the PyTorch CPU wheel index, then the Python ollama SDK, chromadb, RapidFuzz, and sentence-transformers via pip
 5. Downloads the prebuilt Sprocket binary for the target architecture
 6. Downloads the prebuilt OpenCode binary for the target architecture
 7. Runs smoke tests to verify all tools are installed correctly
