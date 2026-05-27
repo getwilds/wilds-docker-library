@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/ollama:0.21.0
 
-Report generated on 2026-05-27 16:48:59 PST
+Report generated on 2026-05-27 18:49:55 PST
 
 ## Platform Coverage
 
