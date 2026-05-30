@@ -18,6 +18,10 @@ These Docker images are built from the Bioconductor base image and include:
 - optparse: For command-line interface
 - A script that performs standard gene expression scRNA-seq processing (see below)
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. The Bioconductor base image does not provide ARM64 binaries, so Seurat and its dependencies must be compiled from source under emulation, which causes ARM64 builds to exceed the 6-hour GitHub Actions timeout.
+
 ## Usage
 
 ### Docker

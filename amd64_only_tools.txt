@@ -15,6 +15,7 @@ python-dl
 rmats-turbo
 rtorch
 scvi-tools
+seurat
 shapemapper
 smoove
 spades
