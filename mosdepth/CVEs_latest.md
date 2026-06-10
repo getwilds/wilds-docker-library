@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/mosdepth:latest
 
-Report generated on 2026-05-21 22:59:49 PST
+Report generated on 2026-06-10 17:33:08 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 23 |
-| 🟢 Low | 2 |
+| 🟡 Medium | 25 |
+| 🟢 Low | 3 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -23,9 +23,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 22 |
-| 🟢 Low | 2 |
+| 🟠 High | 1 |
+| 🟡 Medium | 26 |
+| 🟢 Low | 11 |
 
 ## 🔄 Recommendations
 
@@ -35,11 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/mosdepth:latest  │    0C     0H    23M     2L  
-   digest           │  cdc5331c5d96                      │                             
- Base image         │  ubuntu:24.04                      │    0C     0H    22M     2L  
+Target             │  getwilds/mosdepth:latest  │    0C     0H    25M     3L  
+   digest           │  c7004dcdb4e9                      │                             
+ Base image         │  ubuntu:24.04                      │    0C     1H    26M    11L  
  Updated base image │  ubuntu:25.10                      │    0C     0H     0M     0L  
-                    │                                    │                 -22     -2  
+                    │                                    │           -1    -26    -11  
 
 What's next:
     View vulnerabilities → docker scout cves getwilds/mosdepth:latest
