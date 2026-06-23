@@ -189,6 +189,19 @@ Defined in `.github/workflows/dockerfile-linting.yml`, this workflow:
 - Automatically lints Dockerfiles for best practices and security issues
 - Ensures consistent formatting and optimization across all images
 
+## AI Disclosure
+
+We occasionally use large language models to assist with creating and updating Docker images, and contributors are welcome to do the same. All AI-generated code must go through the same linting, building, and human review process as any other contribution.
+
+To make AI assistance more consistent with project conventions, the repository ships an [`AGENTS.md`](AGENTS.md) project-context file (following the vendor-neutral [agents.md](https://agents.md/) convention) and a set of reusable task recipes under [`.agents/skills/`](.agents/skills/):
+
+- `new-image` — create a new Docker image for a bioinformatics tool
+- `update-image` — update an existing image to a new version
+- `fix-cves` — identify and remediate CVEs in an existing image
+- `pr-description` — draft a PR description from the current branch
+
+Tools that follow the AGENTS.md convention (OpenCode, Claude Code, and others) discover these files automatically. Use of these tools is optional and does not replace the testing and review requirements described in the [Contributing Guidelines](.github/CONTRIBUTING.md).
+
 ## Contributing
 
 We welcome contributions to improve and expand the WILDS Docker Library!

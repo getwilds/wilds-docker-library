@@ -4,5 +4,6 @@
 .RData
 .Ruserdata
 notes/
+.DS_Store
 CLAUDE.md
 .claude/
