@@ -9,7 +9,7 @@ This directory contains Docker images for CellBender, a tool for removing techni
 
 ## Image Details
 
-These Docker images are built from Python 3.12 slim and include:
+These Docker images are built from Python 3.11 slim and include:
 
 - CellBender v0.3.2: Removes ambient RNA and barcode swapping artifacts from scRNA-seq/snRNA-seq count matrices using a deep generative model
 - PyTorch (CUDA-enabled): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
@@ -105,7 +105,7 @@ CellBender produces an `.h5` output file containing corrected counts and latent 
 
 The Dockerfile follows these main steps:
 
-1. Uses Python 3.12 slim as the base image
+1. Uses Python 3.11 slim as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
 4. Installs CellBender v0.3.2 via pip, which pulls in PyTorch (CUDA-enabled) and all other dependencies
