@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cellbender:0.3.2
 
-Report generated on 2026-06-24 21:46:20 PST
+Report generated on 2026-06-24 23:11:58 PST
 
 ## Platform Coverage
 
@@ -10,11 +10,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 3 |
-| 🟠 High | 15 |
-| 🟡 Medium | 23 |
-| 🟢 Low | 147 |
-| ⚪ Unknown | 12 |
+| 🔴 Critical | 1 |
+| 🟠 High | 3 |
+| 🟡 Medium | 8 |
+| 🟢 Low | 145 |
+| ⚪ Unknown | 24 |
 
 ## 🐳 Base Image
 
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/cellbender:0.3.2-amd64  │    3C    15H    23M   147L    12?  
-   digest           │  90a9e7944275                             │                                    
+Target             │  getwilds/cellbender:0.3.2-amd64  │    1C     3H     8M   145L    24?  
+   digest           │  b64dfb169352                             │                                    
  Base image         │  python:3.11-slim                         │    1C     3H     7M    26L     2?  
  Updated base image │  python:3.14-slim                         │    1C     2H     3M    25L     2?  
                     │                                           │           -1     -4     -1         
