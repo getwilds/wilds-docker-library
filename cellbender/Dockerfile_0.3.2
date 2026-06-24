@@ -26,5 +26,5 @@ RUN apt-get update \
   git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir git+https://github.com/broadinstitute/CellBender.git@master \
+RUN pip install --no-cache-dir git+https://github.com/broadinstitute/CellBender.git@main \
   && cellbender --version

@@ -17,7 +17,7 @@ These Docker images are built from Python 3.11 slim and include:
 
 The images are designed to be minimal and focused on CellBender with its essential dependencies.
 
-> **Note:** As an exception to this repository's standard practice of pinning to a specific release version, CellBender is currently installed from the upstream master branch. This is necessary because the v0.3.2 PyPI release contains a checkpoint serialization bug that prevents normal use. The master branch includes the upstream fix (broadinstitute/CellBender#444). This image will be updated to pin a specific version once v0.3.3 is released.
+> **Note:** As an exception to this repository's standard practice of pinning to a specific release version, CellBender is currently installed from the upstream main branch. This is necessary because the v0.3.2 PyPI release contains a checkpoint serialization bug that prevents normal use. The master branch includes the upstream fix (broadinstitute/CellBender#444). This image will be updated to pin a specific version once v0.3.3 is released.
 
 ## Citation
 
