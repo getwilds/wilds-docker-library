@@ -18,11 +18,13 @@ RUN apt-get update \
   && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
   && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   libhdf5-dev="${LIBHDF5_VERSION}" \
   pkg-config="${PKG_CONFIG_VERSION}" \
   gcc="${GCC_VERSION}" \
+  git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir torch==2.0.1 "numpy<2.0" cellbender==0.3.2 \
+RUN pip install --no-cache-dir git+https://github.com/broadinstitute/CellBender.git@master \
   && cellbender --version

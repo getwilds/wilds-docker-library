@@ -12,11 +12,12 @@ This directory contains Docker images for CellBender, a tool for removing techni
 These Docker images are built from Python 3.11 slim and include:
 
 - CellBender v0.3.2: Removes ambient RNA and barcode swapping artifacts from scRNA-seq/snRNA-seq count matrices using a deep generative model
-- PyTorch v2.0.1 (CUDA-enabled): Pinned to 2.0.1 to avoid a `torch.save` weakref serialization bug present in later PyTorch versions that causes CellBender checkpointing to fail; provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
-- NumPy <2.0: Pinned to the 1.x series to match the ABI that PyTorch 2.0.1 was compiled against; NumPy 2.x breaks torch tensor-to-array conversion at runtime
+- PyTorch (CUDA-enabled): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
 - PyTables/HDF5: Required for reading and writing `.h5` count matrix files
 
 The images are designed to be minimal and focused on CellBender with its essential dependencies.
+
+> **Note:** As an exception to this repository's standard practice of pinning to a specific release version, CellBender is currently installed from the upstream master branch. This is necessary because the v0.3.2 PyPI release contains a checkpoint serialization bug that prevents normal use. The master branch includes the upstream fix (broadinstitute/CellBender#444). This image will be updated to pin a specific version once v0.3.3 is released.
 
 ## Citation
 
@@ -109,7 +110,7 @@ The Dockerfile follows these main steps:
 1. Uses Python 3.11 slim as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
-4. Installs PyTorch v2.0.1 and CellBender v0.3.2 via pip with pinned torch version to avoid a checkpoint serialization bug in later PyTorch releases
+4. Installs CellBender directly from the master branch on GitHub, incorporating upstream fixes for checkpoint serialization that are not yet in the v0.3.2 PyPI release; will be updated to pin a specific version once v0.3.3 is released
 5. Runs `cellbender --version` as a smoke test to verify the install
 6. Uses `--no-cache-dir` and apt list cleanup to minimize image size
 
