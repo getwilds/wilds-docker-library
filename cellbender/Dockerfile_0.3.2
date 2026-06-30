@@ -1,0 +1,30 @@
+FROM python:3.11-slim
+
+LABEL org.opencontainers.image.title="cellbender"
+LABEL org.opencontainers.image.description="Docker image for CellBender in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="0.3.2"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# HDF5 libraries required by the PyTables dependency (tables)
+RUN apt-get update \
+  && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
+  && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  libhdf5-dev="${LIBHDF5_VERSION}" \
+  pkg-config="${PKG_CONFIG_VERSION}" \
+  gcc="${GCC_VERSION}" \
+  git="${GIT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir git+https://github.com/broadinstitute/CellBender.git@main \
+  && cellbender --version
