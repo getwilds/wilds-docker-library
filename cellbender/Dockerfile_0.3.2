@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
 
 LABEL org.opencontainers.image.title="cellbender"
 LABEL org.opencontainers.image.description="Docker image for CellBender in Fred Hutch OCDO's WILDS"
@@ -13,18 +13,26 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# HDF5 libraries required by the PyTables dependency (tables)
 RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
   && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
   && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
-  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3_PIP_VERSION}" \
   libhdf5-dev="${LIBHDF5_VERSION}" \
   pkg-config="${PKG_CONFIG_VERSION}" \
   gcc="${GCC_VERSION}" \
-  git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir git+https://github.com/broadinstitute/CellBender.git@main \
+# Install PyTorch with pinned CUDA 12.6 wheels before CellBender so GPU behavior
+# is consistent regardless of what CUDA version the host has installed.
+RUN pip install --no-cache-dir --break-system-packages \
+  torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cu126 \
+  && pip install --no-cache-dir --break-system-packages \
+  cellbender==0.3.2 \
   && cellbender --version
+
+WORKDIR /data

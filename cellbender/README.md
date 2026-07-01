@@ -7,17 +7,19 @@ This directory contains Docker images for CellBender, a tool for removing techni
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/CVEs_latest.md) )
 - `0.3.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/Dockerfile_0.3.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/CVEs_0.3.2.md) )
 
+> **Platform note:** These images are AMD64-only. PyTorch CUDA wheels are not available for ARM64, so `linux/arm64` builds are not supported.
+
 ## Image Details
 
-These Docker images are built from Python 3.11 slim and include:
+These Docker images are built from the NVIDIA CUDA 12.6 runtime base image (`nvidia/cuda:12.6.3-runtime-ubuntu24.04`) and include:
 
 - CellBender v0.3.2: Removes ambient RNA and barcode swapping artifacts from scRNA-seq/snRNA-seq count matrices using a deep generative model
-- PyTorch (CUDA-enabled): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
+- PyTorch 2.6.0 (CUDA 12.6): Provides consistent GPU acceleration across different host environments when run with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is detected
 - PyTables/HDF5: Required for reading and writing `.h5` count matrix files
 
-The images are designed to be minimal and focused on CellBender with its essential dependencies.
+The images are designed to be minimal and focused on CellBender with its essential dependencies. Using the NVIDIA base image ensures the CUDA runtime is bundled inside the image, so GPU behavior is consistent regardless of what CUDA version is installed on the host.
 
-> **Note:** As an exception to this repository's standard practice of pinning to a specific release version, CellBender is currently installed from the upstream main branch. This is necessary because the v0.3.2 PyPI release contains a checkpoint serialization bug that prevents normal use. The master branch includes the upstream fix (broadinstitute/CellBender#444). This image will be updated to pin a specific version once v0.3.3 is released.
+> **Note:** As an exception to this repository's standard practice of pinning to a specific release version, the `latest` image installs CellBender from the upstream main branch. This is necessary because the v0.3.2 PyPI release contains a checkpoint serialization bug that prevents normal use. The main branch includes the upstream fix (broadinstitute/CellBender#444). This image will be updated to pin a specific version once v0.3.3 is released.
 
 ## Citation
 
@@ -97,7 +99,7 @@ apptainer run --bind /path/to/data:/data cellbender_latest.sif \
 
 ### GPU support
 
-The PyTorch included in this image is built with CUDA support. On machines with an NVIDIA GPU and compatible drivers, pass `--gpus all` to Docker (or `--nv` to Apptainer) and add the `--cuda` flag to the `cellbender` command. CellBender will automatically fall back to CPU if no GPU is detected.
+These images bundle PyTorch 2.6.0 with CUDA 12.6, so GPU behavior is consistent regardless of what CUDA version is installed on the host. On machines with an NVIDIA GPU and compatible drivers, pass `--gpus all` to Docker (or `--nv` to Apptainer) and add the `--cuda` flag to the `cellbender` command. CellBender will automatically fall back to CPU if no GPU is detected.
 
 ### Output files
 
@@ -107,12 +109,13 @@ CellBender produces an `.h5` output file containing corrected counts and latent 
 
 The Dockerfile follows these main steps:
 
-1. Uses Python 3.11 slim as the base image
+1. Uses `nvidia/cuda:12.6.3-runtime-ubuntu24.04` as the base image to bundle the CUDA runtime
 2. Adds metadata labels for documentation and attribution
-3. Installs HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
-4. Installs CellBender directly from the master branch on GitHub, incorporating upstream fixes for checkpoint serialization that are not yet in the v0.3.2 PyPI release; will be updated to pin a specific version once v0.3.3 is released
-5. Runs `cellbender --version` as a smoke test to verify the install
-6. Uses `--no-cache-dir` and apt list cleanup to minimize image size
+3. Installs Python 3, pip, and HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
+4. Installs PyTorch 2.6.0 with CUDA 12.6 wheels to ensure consistent GPU behavior across hosts
+5. Installs CellBender directly from the main branch on GitHub (for `latest`), incorporating upstream fixes for checkpoint serialization that are not yet in the v0.3.2 PyPI release
+6. Runs `cellbender --version` as a smoke test to verify the install
+7. Uses `--no-cache-dir` and apt list cleanup to minimize image size
 
 ## Security Scanning and CVEs
 
