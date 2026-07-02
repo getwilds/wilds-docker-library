@@ -14,7 +14,8 @@ This directory contains Docker images for CellBender, a tool for removing techni
 These Docker images are built from the `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` base image and include:
 
 - CellBender (installed from the upstream main branch): Removes ambient RNA and barcode swapping artifacts from scRNA-seq/snRNA-seq count matrices using a deep generative model
-- PyTorch (CUDA-enabled): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
+- PyTorch 2.0.1 (CUDA 11.8): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
+- NumPy 1.26.4: Pinned to the 1.x series for compatibility with PyTorch 2.0.x, which predates the NumPy 2.0 ABI change
 - PyTables/HDF5: Required for reading and writing `.h5` count matrix files
 
 The images are designed to be minimal and focused on CellBender with its essential dependencies.
@@ -112,7 +113,7 @@ The Dockerfile follows these main steps:
 1. Uses `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` as the base image, providing CUDA 11.8 libraries that support GPUs with Compute Capability >= 3.5 (including older hardware like the GTX 1080 Ti)
 2. Adds metadata labels for documentation and attribution
 3. Installs Python 3, pip, and HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
-4. Pins PyTorch to a CUDA 11.8 wheel before installing CellBender to prevent pip from pulling in a CUDA 12.x build as a transitive dependency
+4. Pins PyTorch to a CUDA 11.8 wheel and NumPy to 1.26.4 before installing CellBender; PyTorch 2.0.x predates the NumPy 2.0 ABI change and breaks at runtime if NumPy 2.x is resolved
 5. Installs CellBender directly from the master branch on GitHub, incorporating upstream fixes for checkpoint serialization that are not yet in the v0.3.2 PyPI release; will be updated to pin a specific version once v0.3.3 is released
 6. Runs `cellbender --version` as a smoke test to verify the install
 7. Uses `--no-cache-dir` and apt list cleanup to minimize image size
