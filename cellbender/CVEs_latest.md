@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/cellbender:latest
 
-Report generated on 2026-07-01 19:08:50 PST
+Report generated on 2026-07-02 05:47:36 PST
 
 ## Platform Coverage
 
