@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 
 LABEL org.opencontainers.image.title="cellbender"
 LABEL org.opencontainers.image.description="Docker image for CellBender in Fred Hutch OCDO's WILDS"
@@ -12,19 +12,36 @@ LABEL org.opencontainers.image.licenses=MIT
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/usr/local/bin:${PATH}"
 
-# HDF5 libraries required by the PyTables dependency (tables)
 RUN apt-get update \
+  && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
+  && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
   && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
   && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
   && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
+  python3="${PYTHON3_VERSION}" \
+  python3-pip="${PYTHON3_PIP_VERSION}" \
   libhdf5-dev="${LIBHDF5_VERSION}" \
   pkg-config="${PKG_CONFIG_VERSION}" \
   gcc="${GCC_VERSION}" \
   git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir git+https://github.com/broadinstitute/CellBender.git@main \
+# Pin PyTorch to a CUDA 11.8 wheel (supports Compute Capability >= 3.5, including
+# older GPUs like GTX 1080 Ti at CC 6.1) before installing CellBender to prevent
+# pip from pulling in a CUDA 12.x build as a transitive dependency.
+# pip must be upgraded before installing CellBender: Ubuntu 22.04 ships pip 22.0.2,
+# which fails to register entry points when the package name resolves to "UNKNOWN"
+# (caused by pip's shallow git clone omitting tags used by setuptools-git-versioning).
+RUN pip3 install --no-cache-dir \
+  torch==2.2.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 \
+  && pip3 install --no-cache-dir "pip==26.1.2" \
+  && pip3 install --no-cache-dir "numpy==1.26.4" "pyro-ppl==1.9.1" \
+  && pip3 install --no-cache-dir \
+  git+https://github.com/broadinstitute/CellBender.git@main \
   && cellbender --version
+
+WORKDIR /data

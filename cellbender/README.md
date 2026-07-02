@@ -7,12 +7,16 @@ This directory contains Docker images for CellBender, a tool for removing techni
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/CVEs_latest.md) )
 - `0.3.2` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/Dockerfile_0.3.2) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/cellbender/CVEs_0.3.2.md) )
 
+> **Note:** Both tags currently install from the upstream `main` branch rather than a pinned release. See [Image Details](#image-details) for the reason.
+
 ## Image Details
 
-These Docker images are built from Python 3.11 slim and include:
+These Docker images are built from the `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` base image and include:
 
-- CellBender v0.3.2: Removes ambient RNA and barcode swapping artifacts from scRNA-seq/snRNA-seq count matrices using a deep generative model
-- PyTorch (CUDA-enabled): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
+- CellBender (installed from the upstream main branch): Removes ambient RNA and barcode swapping artifacts from scRNA-seq/snRNA-seq count matrices using a deep generative model
+- PyTorch 2.2.2 (CUDA 11.8): Provides GPU acceleration when run on a machine with compatible NVIDIA drivers and the `--cuda` flag; falls back to CPU automatically when no GPU is available
+- NumPy 1.26.4: Pinned to the 1.x series for compatibility with PyTorch 2.2.x, which does not declare a NumPy upper bound but breaks at runtime with NumPy 2.x
+- pyro-ppl 1.9.1: Pinned for PyTorch 2.x compatibility
 - PyTables/HDF5: Required for reading and writing `.h5` count matrix files
 
 The images are designed to be minimal and focused on CellBender with its essential dependencies.
@@ -97,7 +101,7 @@ apptainer run --bind /path/to/data:/data cellbender_latest.sif \
 
 ### GPU support
 
-The PyTorch included in this image is built with CUDA support. On machines with an NVIDIA GPU and compatible drivers, pass `--gpus all` to Docker (or `--nv` to Apptainer) and add the `--cuda` flag to the `cellbender` command. CellBender will automatically fall back to CPU if no GPU is detected.
+The PyTorch included in this image is built with CUDA 11.8 support, targeting GPUs with Compute Capability >= 3.5 (including older hardware like GTX 1080 Ti). The CUDA version is pinned in the image itself rather than inherited from the host, so behavior is consistent regardless of the driver version on the host machine. On machines with an NVIDIA GPU and compatible drivers, pass `--gpus all` to Docker (or `--nv` to Apptainer) and add the `--cuda` flag to the `cellbender` command. CellBender will automatically fall back to CPU if no GPU is detected.
 
 ### Output files
 
@@ -107,12 +111,13 @@ CellBender produces an `.h5` output file containing corrected counts and latent 
 
 The Dockerfile follows these main steps:
 
-1. Uses Python 3.11 slim as the base image
+1. Uses `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` as the base image, providing CUDA 11.8 libraries that support GPUs with Compute Capability >= 3.5 (including older hardware like the GTX 1080 Ti)
 2. Adds metadata labels for documentation and attribution
-3. Installs HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
-4. Installs CellBender directly from the master branch on GitHub, incorporating upstream fixes for checkpoint serialization that are not yet in the v0.3.2 PyPI release; will be updated to pin a specific version once v0.3.3 is released
-5. Runs `cellbender --version` as a smoke test to verify the install
-6. Uses `--no-cache-dir` and apt list cleanup to minimize image size
+3. Installs Python 3, pip, and HDF5 system libraries (`libhdf5-dev`) required by the PyTables dependency
+4. Pins PyTorch to `2.2.2+cu118`, NumPy to 1.26.4, and pyro-ppl to 1.9.1 before installing CellBender; PyTorch 2.2 is the minimum version where LR scheduler state dicts are safely picklable (fixing checkpoint save failures), and the NumPy pin avoids a runtime ABI break
+5. Installs CellBender directly from the master branch on GitHub, incorporating upstream fixes for checkpoint serialization that are not yet in the v0.3.2 PyPI release; will be updated to pin a specific version once v0.3.3 is released
+6. Runs `cellbender --version` as a smoke test to verify the install
+7. Uses `--no-cache-dir` and apt list cleanup to minimize image size
 
 ## Security Scanning and CVEs
 
