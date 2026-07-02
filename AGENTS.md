@@ -29,7 +29,7 @@ Every Dockerfile **must** include:
 4. **Smoke test** — a `RUN` command verifying the install (e.g., `tool --version`)
 5. **Cleanup** — `rm -rf /var/lib/apt/lists/*`, `mamba clean -afy`, remove tarballs, etc.
 
-Common base images: `ubuntu:24.04`, `condaforge/miniforge3`, `bioconductor/bioconductor_docker:RELEASE_3_*`, `python:3.x-slim`.
+Common base images: `ubuntu:24.04`, `condaforge/miniforge3`, `bioconductor/bioconductor_docker:RELEASE_3_*`, `python:3.x-slim`. GPU-centric tools that require CUDA should use `nvidia/cuda:X.Y.Z-runtime-ubuntuXX.XX`; if they use PyTorch CUDA wheels, also add them to `amd64_only_tools.txt` (those wheels are not available for ARM64).
 
 Target image size: a few hundred MB, max 2GB. One primary tool per image (one or two closely related companion tools are acceptable when commonly used together in workflows).
 

@@ -109,7 +109,7 @@ wilds-docker-library/
 
 **Your Dockerfile must include:**
 
-- **Appropriate base image**: Choose the minimal base that supports your tool (Ubuntu, Miniforge, Bioconductor, etc.)
+- **Appropriate base image**: Choose the minimal base that supports your tool (Ubuntu, Miniforge, Bioconductor, etc.). GPU-centric tools that require CUDA should use `nvidia/cuda:X.Y.Z-runtime-ubuntuXX.XX`.
 - **Complete metadata labels**: All required OCI labels with accurate information
 - **Shell configuration**: `SHELL ["/bin/bash", "-o", "pipefail", "-c"]` for better error handling
 - **Pinned versions**: All dependencies should use explicit versions for reproducibility
@@ -154,6 +154,7 @@ LABEL org.opencontainers.image.licenses=MIT
 - Our CI/CD automatically attempts multi-platform builds
 - If your tool has platform restrictions, document them clearly in the README
 - See existing AMD64-only images (BWA, DESeq2, HISAT2, etc.) for examples
+- Tools that use PyTorch CUDA wheels must be added to `amd64_only_tools.txt` — those wheels are not available for ARM64
 
 **Tool Focus:**
 - One primary tool per image (maximum 1-2 closely related tools)

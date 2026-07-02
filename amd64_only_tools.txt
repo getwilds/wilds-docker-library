@@ -1,5 +1,6 @@
 bwa
 clair3
+cellbender
 cellranger
 colabfold
 deseq2
