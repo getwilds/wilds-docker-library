@@ -37,7 +37,7 @@ RUN apt-get update \
 # which fails to register entry points when the package name resolves to "UNKNOWN"
 # (caused by pip's shallow git clone omitting tags used by setuptools-git-versioning).
 RUN pip3 install --no-cache-dir \
-  torch==2.0.1+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 \
+  torch==2.2.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 \
   && pip3 install --no-cache-dir "pip==26.1.2" \
   && pip3 install --no-cache-dir "numpy==1.26.4" "pyro-ppl==1.9.1" \
   && pip3 install --no-cache-dir \
