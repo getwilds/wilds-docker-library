@@ -120,7 +120,7 @@ wilds-docker-library/
 
 ```dockerfile
 LABEL org.opencontainers.image.title="toolname"
-LABEL org.opencontainers.image.description="Docker image for TOOLNAME in FH DaSL's WILDS"
+LABEL org.opencontainers.image.description="Docker image for TOOLNAME in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="X.Y.Z"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
