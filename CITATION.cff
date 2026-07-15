@@ -6,6 +6,7 @@ abstract: "A curated collection of Docker images for bioinformatics tools, provi
 version: 0.2.0
 date-released: "2026-07-15"
 license: MIT
+doi: 10.5281/zenodo.21383372
 repository-code: "https://github.com/getwilds/wilds-docker-library"
 url: "https://getwilds.org/"
 contact:

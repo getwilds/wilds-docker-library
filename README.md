@@ -10,6 +10,7 @@
 
 [![Project Status: Prototype – Useable, some support, open to feedback, unstable API.](https://getwilds.github.io/badges/badges/prototype.svg)](https://getwilds.org/badges/#prototype)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21383372-blue)](https://doi.org/10.5281/zenodo.21383372)
 
 ## Overview
 
@@ -257,9 +258,9 @@ For questions, bug reports, or feature requests:
 
 ## Citation
 
-If you use the WILDS Docker Library in your research, please cite it. A Zenodo DOI is forthcoming; this section will be updated once the repository is registered.
+If you use the WILDS Docker Library in your research, please cite it. The DOI below always resolves to the latest release; see the [Zenodo record](https://doi.org/10.5281/zenodo.21383372) for version-specific DOIs.
 
-> Firman, T., Bishop, E., et al. (2026). WILDS Docker Library [Computer software]. GitHub. https://github.com/getwilds/wilds-docker-library
+> Firman, T., Bishop, E., et al. (2026). WILDS Docker Library [Computer software]. GitHub. https://doi.org/10.5281/zenodo.21383372
 
 BibTeX:
 
@@ -268,8 +269,9 @@ BibTeX:
   author    = {Firman, Taylor and Bishop, Emma and others},
   title     = {WILDS Docker Library},
   year      = {2026},
-  publisher = {GitHub},
-  url       = {https://github.com/getwilds/wilds-docker-library}
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.21383372},
+  url       = {https://doi.org/10.5281/zenodo.21383372}
 }
 ```
 
