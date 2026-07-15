@@ -38,29 +38,41 @@ The repository includes Docker images for popular bioinformatics tools including
 | Bowtie | Short-read sequence aligner | 1.3.1, latest |
 | Bowtie 2 | Fast and sensitive read alignment | 2.5.4, latest |
 | BWA | Burrows-Wheeler Aligner | 0.7.17, latest |
-| Cell Ranger | 10x Genomics analysis | 6.0.2, 10.0.0, latest |
+| CellBender | Ambient RNA removal from single-cell data | 0.3.2, latest |
+| Cell Ranger | 10x Genomics analysis | latest |
+| Clair3 | Long-read germline small variant caller | 2.0.0, latest |
 | CNVkit | Copy number variation detection | 0.9.10, latest |
 | ColabFold | Protein structure prediction | 1.5.5, latest |
 | combine-counts | Tool for combining count matrices | 0.1.0, latest |
 | consensus | Consensus sequence generation | 0.1.1, latest |
+| deepTools | High-throughput sequencing data analysis suite | 3.5.6, latest |
 | DELLY | Structural variant discovery | 1.2.9, latest |
 | DESeq2 | Differential gene expression analysis | 1.40.2, latest |
 | DIAMOND | Accelerated BLAST-compatible sequence aligner | 2.1.16, latest |
 | ENA-tools | ENA FTP downloader | 2.1.1, latest |
+| ESMFold | End-to-end protein structure prediction | 2.0.0, latest |
+| fastp | Ultra-fast FASTQ preprocessor and QC tool | 1.1.0, latest |
 | FastQC | Sequence quality control | 0.12.1, latest |
+| Flax | GPU-accelerated numerical computing and deep learning | 0.1.0, latest |
 | GATK | Genome analysis toolkit | 4.3.0.0, 4.6.1.0, latest |
 | GDC-client | TCGA GDC Data Transfer Tool | 2.3.0, latest |
-| GLIMPSE2 | Low-coverage WGS imputation | 2.0.0, 2.0.1, latest |
+| gffread | GFF/GTF utility for parsing and format conversion | 0.12.7, latest |
+| GLIMPSE2 | Low-coverage WGS imputation | 2.0.0, 2.0.1, 2.0.1-infofix, latest |
 | gtf-smash | GTF file manipulation | v8, latest |
 | HISAT2 | Graph-based alignment | 2.2.1, latest |
 | HMMcopy | Copy number analysis | 1.0.0, latest |
-| Flax | GPU-accelerated numerical computing and deep learning | 0.1.0, latest |
 | ichorCNA | Copy number alteration detection | 0.2.0, latest |
 | JCAST | Alternative splicing proteomics | 0.3.5, latest |
+| Lua | Lightweight embeddable scripting language | 5.3.6, latest |
 | Manta | Structural variant discovery | 1.6.0, latest |
 | MEGAHIT | Ultra-fast metagenome assembler | 1.2.9, latest |
+| mosdepth | Fast sequencing coverage depth calculator | 0.3.14, latest |
+| MultiQC | Multi-sample QC report aggregator | 1.33, latest |
+| Ollama | LLM inference server with WDL tooling | 0.21.0, latest |
 | Picard | Sequence data manipulation | 3.1.1, latest |
+| PopV | Consensus cell-type annotation for scRNA-seq | 0.6.1, latest |
 | python-dl | Python deep learning environment | 1.0, latest |
+| python-utils | General-purpose Python scientific computing environment | 0.1.0, latest |
 | r-utils | General-purpose R utilities | 0.1.0, latest |
 | rMATS-turbo | Alternative splicing analysis | 4.3.0, latest |
 | RNA-SeQC | RNA-seq quality control | 2.4.2, latest |
@@ -70,15 +82,19 @@ The repository includes Docker images for popular bioinformatics tools including
 | Samtools | SAM/BAM manipulation | 1.10, 1.11, 1.19, latest |
 | Scanpy | Single-cell analysis | 1.10.2, latest |
 | scvi-tools | Deep learning for single-cell | 1.1.6, latest |
+| Seurat | R package for single-cell RNA-seq analysis | 5.2.1, latest |
 | ShapeMapper | RNA structure mapping | 2.3, latest |
 | Smoove | SV calling and genotyping | 0.2.8, latest |
 | sourmash | k-mer analysis for genomic data | 4.8.2, latest |
 | SPAdes | Genome assembler | 4.2.0, latest |
 | SRA-tools | NCBI Sequence Read Archive toolkit | 3.1.1, latest |
 | STAR | RNA-seq aligner | 2.7.4a, 2.7.6a, latest |
+| STARLING | Disordered protein ensemble prediction | 2.0.0a3, latest |
 | Strelka | Small variant calling | 2.9.10, latest |
+| Trim Galore | Adapter and quality trimming for FASTQ files | 0.6.11, latest |
 | UMI-tools | UMI handling for NGS data | 1.1.6, latest |
 | VarScan | Variant detection in massively parallel sequencing | 2.4.6, latest |
+| ViennaRNA | RNA secondary structure prediction and analysis | 2.7.2, latest |
 
 For a full list of available tools and versions, browse the repository directories.
 
@@ -91,23 +107,30 @@ Most images in this repository are built for both **linux/amd64** and **linux/ar
 The following images are only available for **linux/amd64** due to architecture-specific dependencies or compilation issues:
 
 - **BWA** - Contains x86-specific optimizations
+- **CellBender** - Deep learning dependencies require x86 architecture
 - **Cell Ranger** - Proprietary binary only available for x86
+- **Clair3** - PyTorch CUDA wheels not available for ARM64
 - **ColabFold** - Deep learning dependencies require x86 architecture
 - **DESeq2** - R package compilation issues on ARM64
 - **DIAMOND** - x86-specific build optimizations
-- **GLIMPSE2** - Uses AVX2 SIMD instructions for performance optimization
+- **ESMFold** - Deep learning dependencies require x86 architecture
 - **Flax** - jaxlib requires AVX instructions and NVIDIA CUDA GPU support
+- **GLIMPSE2** - Uses AVX2 SIMD instructions for performance optimization
 - **HISAT2** - Hardcoded x86-specific compiler flags
 - **Manta** - x86-specific build requirements
 - **MEGAHIT** - x86-specific build optimizations
+- **mosdepth** - x86-specific build optimizations
+- **PopV** - Deep learning dependency compilation issues on ARM64
 - **python-dl** - Build resource constraints for multi-platform builds
 - **rMATS-turbo** - Build dependencies not compatible with ARM64
 - **RTorch** - Position-independent code (PIC) limitations with large binaries
 - **scvi-tools** - Deep learning dependency compilation issues on ARM64
+- **Seurat** - R package compilation issues on ARM64
 - **ShapeMapper** - x86-specific build requirements
 - **Smoove** - x86-specific dependencies
 - **SPAdes** - x86-specific build optimizations
 - **SRA-tools** - Dependencies not fully compatible with ARM64
+- **STARLING** - Deep learning dependencies require x86 architecture
 - **Strelka** - x86-specific build requirements
 
 Each tool's README includes a "Platform Availability" section if it has platform restrictions. If you need ARM64 support for an AMD64-only tool, please open an [issue](https://github.com/getwilds/wilds-docker-library/issues) to discuss potential solutions.
