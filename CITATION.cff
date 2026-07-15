@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "WILDS Docker Library"
+abstract: "A curated collection of Docker images for bioinformatics tools, providing reproducible, well-tested containers for use in WILDS genomics workflows and beyond."
+version: 0.1.0
+date-released: "2026-02-08"
+license: MIT
+repository-code: "https://github.com/getwilds/wilds-docker-library"
+url: "https://getwilds.org/"
+contact:
+  - email: wilds@fredhutch.org
+    name: "Fred Hutch OCDO WILDS"
+keywords:
+  - bioinformatics
+  - docker
+  - genomics
+  - containers
+  - workflows
+authors:
+  - family-names: Firman
+    given-names: Taylor
+    affiliation: "Fred Hutch Cancer Center"
+    orcid: "https://orcid.org/0009-0002-2052-1084"
+  - family-names: Bishop
+    given-names: Emma
+    affiliation: "Fred Hutch Cancer Center"
+    orcid: "https://orcid.org/0000-0003-4484-3336"
+  - family-names: Salerno
+    given-names: Stephen
+    affiliation: "Fred Hutch Cancer Center"
+    orcid: "https://orcid.org/0000-0003-2763-0494"
+  - family-names: Agarwal
+    given-names: Sanaz
+    affiliation: "Fred Hutch Cancer Center"
+    orcid: "https://orcid.org/0000-0002-1808-7568"

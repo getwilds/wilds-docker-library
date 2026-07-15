@@ -232,6 +232,26 @@ For questions, bug reports, or feature requests:
 - Open an [issue](https://github.com/getwilds/wilds-docker-library/issues)
 - Email the Fred Hutch Office of the Chief Data Officer at wilds@fredhutch.org
 
+## Citation
+
+If you use the WILDS Docker Library in your research, please cite it. A Zenodo DOI is forthcoming; this section will be updated once the repository is registered.
+
+> Firman, T., Bishop, E., et al. (2026). WILDS Docker Library [Computer software]. GitHub. https://github.com/getwilds/wilds-docker-library
+
+BibTeX:
+
+```bibtex
+@software{wilds_docker_library,
+  author    = {Firman, Taylor and Bishop, Emma and others},
+  title     = {WILDS Docker Library},
+  year      = {2026},
+  publisher = {GitHub},
+  url       = {https://github.com/getwilds/wilds-docker-library}
+}
+```
+
+A machine-readable citation is also available in [CITATION.cff](CITATION.cff), which GitHub uses to power the "Cite this repository" button in the sidebar.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for details.
