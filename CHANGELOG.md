@@ -4,6 +4,20 @@ All notable changes to the WILDS Docker Library will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] - 2026-07-15
+
+### Added
+
+- **16 new tool images:** CellBender, Clair3, deepTools, ESMFold, fastp, gffread, Lua, mosdepth, MultiQC, Ollama, PopV, python-utils, Seurat, STARLING, Trim Galore, and ViennaRNA
+- **`CITATION.cff`** machine-readable citation file (powers GitHub's "Cite this repository" button)
+- **Agentic framework** (`AGENTS.md`, `.agents/skills/`, `opencode.json`) with reusable task recipes for AI-assisted image creation, updates, and CVE fixes; AI disclosure added to README and CONTRIBUTING
+
+### Changed
+
+- **DaSL references updated to OCDO** across all Dockerfiles, READMEs, and CI scripts
+- **Docker build-and-push workflow** now scoped to functional Dockerfile changes only (via `.github/scripts/docker_update.py`) to avoid redundant builds on doc-only PRs
+- **Cell Ranger** scaled back to a template; versioned images removed from public distribution due to proprietary binary licensing
+
 ## [0.1.0] - 2026-01-28
 
 Initial release of the WILDS Docker Library.

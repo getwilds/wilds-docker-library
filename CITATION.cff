@@ -3,8 +3,8 @@ message: "If you use this software, please cite it as below."
 type: software
 title: "WILDS Docker Library"
 abstract: "A curated collection of Docker images for bioinformatics tools, providing reproducible, well-tested containers for use in WILDS genomics workflows and beyond."
-version: 0.1.0
-date-released: "2026-02-08"
+version: 0.2.0
+date-released: "2026-07-15"
 license: MIT
 repository-code: "https://github.com/getwilds/wilds-docker-library"
 url: "https://getwilds.org/"
