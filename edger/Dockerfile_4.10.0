@@ -3,7 +3,7 @@ FROM bioconductor/bioconductor_docker:RELEASE_3_23
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="edger"
-LABEL org.opencontainers.image.description="Docker image for edgeR differential expression analysis of digital gene expression data in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.description="Docker image for edgeR differential expression analysis of RNA-seq data in Fred Hutch OCDO's WILDS"
 LABEL org.opencontainers.image.version="4.10.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
