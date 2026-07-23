@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/edger:latest
 
-Report generated on 2026-07-23 03:05:07 PST
+Report generated on 2026-07-23 05:03:27 PST
 
 ## Platform Coverage
 
@@ -32,7 +32,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target     │  getwilds/edger:latest   │   16C   215H   1891M   311L     2?  
-   digest   │  b89464d771fe                    │                                     
+   digest   │  0571ec6244db                    │                                     
  Base image │  bioconductor/bioconductor:3.23  │   16C   215H   1891M   309L     2?  
 
 Policy status  FAILED  (3/7 policies met)
