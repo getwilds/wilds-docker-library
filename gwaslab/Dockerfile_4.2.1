@@ -1,0 +1,19 @@
+# Using Python base image
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="gwaslab"
+LABEL org.opencontainers.image.description="Docker image for GWASLab, a Python toolkit for processing and visualizing GWAS summary statistics, in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="4.2.1"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Ensure pipelines fail if any command fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing GWASLab via pip and verifying the installation
+RUN pip install --no-cache-dir gwaslab==4.2.1 \
+  && python -c "import gwaslab as gl; print(gl.__version__)"
