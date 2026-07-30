@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gwaslab:latest
 
-Report generated on 2026-07-30 18:02:10 PST
+Report generated on 2026-07-30 19:31:47 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/gwaslab:latest-amd64  │    1C     2H     7M    29L     7?  
-   digest           │  766000715c0d                           │                                    
+   digest           │  594f0a578554                           │                                    
  Base image         │  python:3.12-slim                       │    1C     2H     7M    29L     7?  
  Updated base image │  python:3.13-slim                       │    1C     2H     3M    28L     7?  
                     │                                         │                  -4     -1         
