@@ -3,7 +3,7 @@ FROM python:3.12-slim
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="gwaslab"
-LABEL org.opencontainers.image.description="Docker image for GWASLab, a Python toolkit for processing and visualizing GWAS summary statistics, in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.description="Docker image for GWASLab, a Python toolkit for GWAS summary statistics"
 LABEL org.opencontainers.image.version="latest"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
