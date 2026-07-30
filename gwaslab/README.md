@@ -96,9 +96,10 @@ The Dockerfile follows these main steps:
 
 1. Uses Python 3.12 slim as the base image
 2. Adds metadata labels for documentation and attribution
-3. Installs GWASLab and its dependencies via pip with a pinned version
-4. Verifies the installation by importing the package and printing its version
-5. Uses `--no-cache-dir` to minimize image size
+3. Temporarily installs `build-essential` so pip can compile dependencies without prebuilt wheels for the target platform (e.g. scikit-allel on arm64)
+4. Installs GWASLab and its dependencies via pip with a pinned version
+5. Verifies the installation by importing the package and printing its version
+6. Removes `build-essential` and apt caches to keep the image minimal
 
 ## Security Scanning and CVEs
 
