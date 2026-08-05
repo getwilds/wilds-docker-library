@@ -18,6 +18,10 @@ These Docker images are built from the Bioconductor 3.23 base image and include:
 
 The images are designed to be minimal and focused on DropletUtils with its essential dependencies for droplet-based single-cell RNA-seq preprocessing workflows.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. ARM64 builds are not currently available; support may be revisited in a future update.
+
 ## Citation
 
 If you use DropletUtils in your research, please cite the original authors:

@@ -5,6 +5,7 @@ cellranger
 colabfold
 deseq2
 diamond
+dropletutils
 esmfold
 glimpse2
 flax
