@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/edger:latest
 
-Report generated on 2026-07-23 05:03:27 PST
+Report generated on 2026-08-05 05:06:35 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 16 |
-| 🟠 High | 215 |
-| 🟡 Medium | 1891 |
-| 🟢 Low | 311 |
+| 🟠 High | 214 |
+| 🟡 Medium | 2140 |
+| 🟢 Low | 310 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
@@ -23,19 +23,20 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 16 |
-| 🟠 High | 215 |
-| 🟡 Medium | 1891 |
-| 🟢 Low | 309 |
+| 🟠 High | 214 |
+| 🟡 Medium | 2140 |
+| 🟢 Low | 308 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/edger:latest   │   16C   215H   1891M   311L     2?  
-   digest   │  0571ec6244db                    │                                     
- Base image │  bioconductor/bioconductor:3.23  │   16C   215H   1891M   309L     2?  
+Target     │  getwilds/edger:latest   │   16C   214H   2140M   310L     2?  
+   digest   │  c69c851f797c                    │                                     
+ Base image │  bioconductor/bioconductor:3.23  │   16C   214H   2140M   308L     2?  
 
 Policy status  FAILED  (3/7 policies met)
+Health score  D  (50%)
 
  Status │                     Policy                     │           Results           
 ────────┼────────────────────────────────────────────────┼─────────────────────────────
