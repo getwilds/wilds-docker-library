@@ -4,6 +4,7 @@ cellbender
 cellranger
 colabfold
 deseq2
+edger
 diamond
 esmfold
 glimpse2
