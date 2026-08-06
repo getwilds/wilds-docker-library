@@ -17,6 +17,7 @@ popv
 python-dl
 rmats-turbo
 rtorch
+scater
 scvi-tools
 seurat
 shapemapper
