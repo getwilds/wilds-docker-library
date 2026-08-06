@@ -12,11 +12,10 @@ This directory contains Docker images for scran, a Bioconductor package providin
 These Docker images are built from the Bioconductor base image (RELEASE_3_23) and include:
 
 - scran v1.40.0: Deconvolution-based normalization, highly variable gene (HVG) detection, quick clustering, marker gene identification, and doublet detection for single-cell RNA-seq data
-- scater: Quality control and visualization for single-cell data, commonly used alongside scran
-- scuttle: Utility functions for single-cell data handling (a hard dependency of scran)
-- SingleCellExperiment: The core data container class used throughout the Bioconductor single-cell ecosystem
 
-The images are designed to provide a focused environment for single-cell RNA-seq preprocessing and normalization with scran and its most common companion tools. Note that Bioconductor documents scran as being in a transitional state, with much of its functionality being superseded by the newer `scrapper` package, though scran remains fully installable and functional.
+The images are designed to provide a minimal, focused environment for single-cell RNA-seq preprocessing and normalization with scran itself. Note that Bioconductor documents scran as being in a transitional state, with much of its functionality being superseded by the newer `scrapper` package, though scran remains fully installable and functional.
+
+For quality control and visualization of single-cell data (commonly used alongside scran), see the separate [scater image](https://github.com/getwilds/wilds-docker-library/tree/main/scater).
 
 ## Platform Availability
 
@@ -75,7 +74,6 @@ docker run --rm -v /path/to/data:/data getwilds/scran:latest \
 # Run a quick inline scran workflow on a saved SingleCellExperiment object
 docker run --rm -v /path/to/data:/data getwilds/scran:latest R -e "
   library(scran)
-  library(scuttle)
   sce <- readRDS('/data/sce.rds')
   clusters <- quickCluster(sce)
   sce <- computeSumFactors(sce, clusters = clusters)
@@ -102,7 +100,7 @@ The Dockerfile follows these main steps:
 1. Uses Bioconductor RELEASE_3_23 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Sets R library paths to prevent host library contamination in Apptainer
-4. Installs scran, scater, scuttle, and SingleCellExperiment via BiocManager
+4. Installs scran via BiocManager
 5. Runs a smoke test to confirm scran loads and reports its version
 6. Sets `/data` as the default working directory
 
