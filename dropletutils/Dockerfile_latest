@@ -19,8 +19,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Install DropletUtils and commonly paired analysis packages, then verify the install
-RUN R -e "BiocManager::install(c('DropletUtils', 'SingleCellExperiment', 'ggplot2', 'optparse'), update=FALSE, ask=FALSE, dependencies=TRUE)" \
+# Install DropletUtils, then verify the install
+RUN R -e "BiocManager::install('DropletUtils', update=FALSE, ask=FALSE, dependencies=TRUE)" \
   && R -e "library(DropletUtils); packageVersion('DropletUtils')"
 
 # Set working directory

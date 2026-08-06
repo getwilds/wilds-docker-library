@@ -12,11 +12,8 @@ This directory contains Docker images for DropletUtils, a Bioconductor package f
 These Docker images are built from the Bioconductor 3.23 base image and include:
 
 - DropletUtils v1.32.0: Loads raw droplet-based count data, distinguishes real cells from empty droplets (via the `emptyDrops` algorithm), removes barcode-swapped pseudo-cells, and downsamples reads
-- SingleCellExperiment: Core data structure for storing and manipulating single-cell experiment data
-- ggplot2: For visualization of QC metrics and diagnostic plots
-- optparse: For command-line interface support in analysis scripts
 
-The images are designed to be minimal and focused on DropletUtils with its essential dependencies for droplet-based single-cell RNA-seq preprocessing workflows.
+The images are designed to be minimal and focused on DropletUtils itself for droplet-based single-cell RNA-seq preprocessing workflows.
 
 ## Platform Availability
 
@@ -98,7 +95,7 @@ The Dockerfile follows these main steps:
 1. Uses the `bioconductor/bioconductor_docker:RELEASE_3_23` base image
 2. Adds metadata labels for documentation and attribution
 3. Sets R library paths to avoid host contamination in Apptainer
-4. Installs DropletUtils and companion packages via `BiocManager::install`
+4. Installs DropletUtils via `BiocManager::install`
 5. Runs a smoke test to confirm the package loads correctly
 6. Sets a default working directory for data analysis
 
