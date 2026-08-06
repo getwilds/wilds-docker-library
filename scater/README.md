@@ -12,10 +12,8 @@ This directory contains Docker images for scater, a Bioconductor package for qua
 These Docker images are built from the Bioconductor base image (RELEASE_3_23) and include:
 
 - scater v1.40.2: Quality control metrics, dimensionality reduction (PCA, t-SNE, UMAP), and a wide range of diagnostic plots for single-cell RNA-seq data
-- scuttle: Utility functions for single-cell data handling (a hard dependency of scater)
-- SingleCellExperiment: The core data container class used throughout the Bioconductor single-cell ecosystem
 
-The images are designed to provide a focused environment for single-cell RNA-seq quality control and visualization with scater and its most common companion tools.
+The images are designed to provide a minimal, focused environment for single-cell RNA-seq quality control and visualization with scater itself.
 
 ## Platform Availability
 
@@ -100,7 +98,7 @@ The Dockerfile follows these main steps:
 1. Uses Bioconductor RELEASE_3_23 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Sets R library paths to prevent host library contamination in Apptainer
-4. Installs scater, scuttle, and SingleCellExperiment via BiocManager
+4. Installs scater via BiocManager
 5. Runs a smoke test to confirm scater loads and reports its version
 6. Sets `/data` as the default working directory
 

@@ -19,8 +19,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Install scater and its core companion packages, then smoke test
-RUN R -e "BiocManager::install(c('scater', 'scuttle', 'SingleCellExperiment'), update=FALSE, ask=FALSE, dependencies=TRUE)" \
+# Install scater, then smoke test
+RUN R -e "BiocManager::install('scater', update=FALSE, ask=FALSE, dependencies=TRUE)" \
   && R -e "library(scater); packageVersion('scater')"
 
 # Set working directory
