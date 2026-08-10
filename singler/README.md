@@ -12,8 +12,10 @@ This directory contains Docker images for SingleR, a Bioconductor package for au
 These Docker images are built from the Bioconductor base image (RELEASE_3_23) and include:
 
 - SingleR v2.14.1: Unbiased cell type recognition for single-cell RNA-seq data, leveraging reference transcriptomic datasets of pure cell types to infer the cell of origin of each single cell independently
+- scran: Clustering and marker gene identification, commonly used to prepare data for SingleR annotation
+- celldex: Curated collection of reference transcriptomic datasets used as SingleR annotation references
 
-The images are designed to provide a minimal, focused environment for single-cell RNA-seq cell type annotation with SingleR itself.
+The images are designed to provide a focused environment for single-cell RNA-seq cell type annotation with SingleR and its most common companion tools.
 
 ## Platform Availability
 
@@ -70,12 +72,13 @@ docker run --rm -it -v /path/to/data:/data getwilds/singler:latest R
 docker run --rm -v /path/to/data:/data getwilds/singler:latest \
   Rscript /data/singler_analysis.R
 
-# Run a quick inline SingleR annotation on a saved SingleCellExperiment object
+# Run a quick inline SingleR annotation using a celldex reference dataset
 docker run --rm -v /path/to/data:/data getwilds/singler:latest R -e "
   library(SingleR)
+  library(celldex)
   sce <- readRDS('/data/sce.rds')
-  ref <- readRDS('/data/reference_sce.rds')
-  pred <- SingleR(test = sce, ref = ref, labels = ref\$label)
+  ref <- celldex::HumanPrimaryCellAtlasData()
+  pred <- SingleR(test = sce, ref = ref, labels = ref\$label.main)
   saveRDS(pred, '/data/singler_predictions.rds')
   write.csv(as.data.frame(pred[, 1:4]), '/data/singler_predictions.csv')
 "
@@ -96,7 +99,7 @@ The Dockerfile follows these main steps:
 1. Uses Bioconductor RELEASE_3_23 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Sets R library paths to prevent host library contamination in Apptainer
-4. Installs SingleR via BiocManager
+4. Installs SingleR, scran, and celldex via BiocManager
 5. Runs a smoke test to confirm SingleR loads and reports its version
 6. Sets `/data` as the default working directory
 

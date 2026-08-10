@@ -18,9 +18,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Install SingleR, then smoke test
-RUN R -e "BiocManager::install('SingleR', update=FALSE, ask=FALSE, dependencies=TRUE)" \
-  && R -e "library(SingleR); packageVersion('SingleR')"
+# Install SingleR, scran (clustering + marker gene ID), and celldex
+# (reference datasets for annotation), then smoke test
+RUN R -e "BiocManager::install(c('SingleR', 'scran', 'celldex'), update=FALSE, ask=FALSE, dependencies=TRUE)" \
+  && R -e "library(SingleR); library(scran); library(celldex); \
+      packageVersion('SingleR'); packageVersion('scran'); packageVersion('celldex')"
 
 # Set working directory
 WORKDIR /data
