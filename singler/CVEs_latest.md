@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/singler:latest
 
-Report generated on 2026-08-10 05:43:18 PST
+Report generated on 2026-08-10 15:40:26 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 16 |
 | 🟠 High | 214 |
-| 🟡 Medium | 2160 |
+| 🟡 Medium | 2176 |
 | 🟢 Low | 310 |
 | ⚪ Unknown | 2 |
 
@@ -24,16 +24,16 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 16 |
 | 🟠 High | 214 |
-| 🟡 Medium | 2160 |
+| 🟡 Medium | 2176 |
 | 🟢 Low | 308 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/singler:latest  │   16C   214H   2160M   310L     2?  
-   digest   │  2cbbff1ace11                     │                                     
- Base image │  bioconductor/bioconductor:3.23   │   16C   214H   2160M   308L     2?  
+Target     │  getwilds/singler:latest  │   16C   214H   2176M   310L     2?  
+   digest   │  3cf562e0307b                     │                                     
+ Base image │  bioconductor/bioconductor:3.23   │   16C   214H   2176M   308L     2?  
 
 Policy status  FAILED  (3/7 policies met)
 Health score  D  (50%)
@@ -41,7 +41,7 @@ Health score  D  (50%)
  Status │                     Policy                     │           Results           
 ────────┼────────────────────────────────────────────────┼─────────────────────────────
  !      │ Image runs as the root user                    │                             
- !      │ Copyleft licensed packages found               │    3043 packages            
+ !      │ Copyleft licensed packages found               │    3070 packages            
  !      │ Fixable critical or high vulnerabilities found │   16C   174H     0M     0L  
  ✓      │ No high-profile vulnerabilities                │    0C     0H     0M     0L  
  ✓      │ No outdated base images                        │                             
