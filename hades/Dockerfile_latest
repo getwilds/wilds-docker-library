@@ -1,0 +1,127 @@
+#==============================================================================
+# OHDSI HADES 2026Q1 (lightweight)
+#
+# A pared-down build of the HADES 2026Q1 release: same pinned package set as
+# Dockerfile_full (renv.lock), but on a standard R base image instead of the
+# Databricks cluster runtime, and without the from-source R build, the
+# Databricks Posit Package Manager mirror, or the notebook/Rserve glue those
+# require. Use this image for local HADES analyses; use Dockerfile_full when
+# you need parity with a specific Databricks cluster.
+#
+# Build:
+#
+#   docker buildx build \
+#     --platform linux/amd64 \
+#     -t getwilds/hades:latest \
+#     .
+#
+# The lockfile pulls 16 packages from github.com/ohdsi. Anonymous GitHub API
+# access is capped at 60 requests/hour; renv needs it to resolve each
+# remote's dependencies, but 16 lookups comfortably fits that limit.
+#==============================================================================
+
+FROM rocker/r-ver:4.4.1
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="hades"
+LABEL org.opencontainers.image.description="Docker image for OHDSI HADES 2026Q1 in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set R library paths to avoid host contamination in Apptainer
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+
+#------------------------------------------------------------------------------
+# 1. Install runtime dependencies for the HADES package stack
+#
+# Java (rJava/DatabaseConnector), ODBC drivers, BLAS/LAPACK, libxml2/libcurl/
+# libssl for HTTP + XML packages, and libnode-dev (provides the V8 engine
+# libv8-dev is a virtual alias for) for V8/CirceR. No X11/Cairo/font
+# libraries: this image is not built for R graphics devices.
+#------------------------------------------------------------------------------
+
+RUN apt-get update \
+  && DEFAULT_JDK_VERSION=$(apt-cache policy default-jdk | grep Candidate | awk '{print $2}') \
+  && UNIXODBC_VERSION=$(apt-cache policy unixodbc-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBXML2_VERSION=$(apt-cache policy libxml2-dev | grep Candidate | awk '{print $2}') \
+  && LIBGIT2_VERSION=$(apt-cache policy libgit2-dev | grep Candidate | awk '{print $2}') \
+  && LIBNODE_VERSION=$(apt-cache policy libnode-dev | grep Candidate | awk '{print $2}') \
+  && LIBSODIUM_VERSION=$(apt-cache policy libsodium-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  default-jdk="${DEFAULT_JDK_VERSION}" \
+  unixodbc-dev="${UNIXODBC_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libxml2-dev="${LIBXML2_VERSION}" \
+  libgit2-dev="${LIBGIT2_VERSION}" \
+  libnode-dev="${LIBNODE_VERSION}" \
+  libsodium-dev="${LIBSODIUM_VERSION}" \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN R CMD javareconf
+
+#------------------------------------------------------------------------------
+# 2. Configure R package defaults
+#
+# RENV_INSTALL_TIMEOUT is the deadline renv applies to the *entire* install
+# phase, not to individual packages. renv defaults to 3600 seconds, which
+# this lockfile overruns once anything compiles from source.
+#------------------------------------------------------------------------------
+
+ARG CRAN_REPO=https://cloud.r-project.org
+ARG RENV_INSTALL_JOBS=4
+ARG RENV_INSTALL_TIMEOUT=21600
+
+ENV RENV_INSTALL_TIMEOUT=${RENV_INSTALL_TIMEOUT}
+
+#------------------------------------------------------------------------------
+# 3. Install renv
+#------------------------------------------------------------------------------
+
+RUN R -e "install.packages(c('renv', 'jsonlite'), repos = '${CRAN_REPO}')" && \
+    R -e "stopifnot( \
+        requireNamespace('renv', quietly = TRUE), \
+        requireNamespace('jsonlite', quietly = TRUE) \
+    )"
+
+#------------------------------------------------------------------------------
+# 4. Restore the pinned HADES 2026Q1 lockfile
+#
+# Same two-pass strategy as Dockerfile_full: CRAN packages first, so the
+# ohdsi/* GitHub remotes have their dependencies present regardless of what
+# renv managed to resolve over the GitHub API.
+#------------------------------------------------------------------------------
+
+WORKDIR /opt/ohdsi/hades
+
+COPY renv.lock /opt/ohdsi/hades/renv.lock
+COPY install-hades.R /opt/ohdsi/hades/install-hades.R
+
+RUN --mount=type=cache,target=/opt/renv,sharing=locked \
+    RENV_PATHS_ROOT=/opt/renv \
+    RENV_CONFIG_CACHE_SYMLINKS=FALSE \
+    RENV_CONFIG_REPOS_OVERRIDE="CRAN=${CRAN_REPO}" \
+    RENV_CONFIG_INSTALL_JOBS="${RENV_INSTALL_JOBS}" \
+    Rscript /opt/ohdsi/hades/install-hades.R
+
+#------------------------------------------------------------------------------
+# 5. Validate the HADES environment (smoke test)
+#------------------------------------------------------------------------------
+
+COPY validate-ohdsi.R /opt/ohdsi/hades/validate-ohdsi.R
+
+RUN Rscript /opt/ohdsi/hades/validate-ohdsi.R
+
+WORKDIR /data
