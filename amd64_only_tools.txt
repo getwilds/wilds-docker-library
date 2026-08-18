@@ -9,6 +9,7 @@ diamond
 esmfold
 glimpse2
 flax
+hades
 hisat2
 manta
 megahit
