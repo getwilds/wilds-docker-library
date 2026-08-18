@@ -2,14 +2,14 @@
 
 This directory contains Docker images for [HADES](https://ohdsi.github.io/Hades/) (Health Analytics Data-to-Evidence Suite), the OHDSI collection of R packages for large-scale observational health data analysis on the OMOP Common Data Model.
 
-Two variants are provided, both built from the same pinned HADES 2026Q1 lockfile (`renv.lock`, 294 packages including 16 pulled from `github.com/ohdsi`):
+Two tags are provided, both built from the same pinned HADES 2026Q1 lockfile (`renv.lock`, 294 packages including 16 pulled from `github.com/ohdsi`):
 
-- **`latest`**: A lightweight build on a standard R base image, without Databricks-specific components. Recommended for local development and general HADES analyses.
 - **`full`**: A full-parity build on the same Databricks Runtime 17.3 LTS and Posit Package Manager mirror used in production Databricks clusters. Use this variant when you need the container's environment to match a specific Databricks cluster.
+- **`latest`**: Currently identical to `full`. A lighter, non-Databricks-specific build is planned (see [Known Limitations](#known-limitations)), but every leaner base tried so far has hit missing runtime libraries pulled in by transitive CRAN dependencies, so `latest` temporarily mirrors `full` to keep both tags publishing successfully.
 
 ## Available Versions
 
-- `latest`: Lightweight HADES 2026Q1 build (R 4.4.1, `rocker/r-ver` base)
+- `latest`: HADES 2026Q1 build (R 4.4.1, `databricksruntime/standard:17.3-LTS` base) — currently identical to `full`
 - `full`: Databricks-parity HADES 2026Q1 build (R 4.4.1, `databricksruntime/standard:17.3-LTS` base)
 
 ## Platform Availability
@@ -21,16 +21,14 @@ Two variants are provided, both built from the same pinned HADES 2026Q1 lockfile
 Run from the repository root, since each Dockerfile's `COPY` sources (`renv.lock`, `install-hades.R`, `validate-ohdsi.R`, `Rprofile.site`) are rooted there, matching how `docker_update.py` builds and publishes these images in CI:
 
 ```bash
-# Lightweight build
 docker buildx build --platform linux/amd64 -t getwilds/hades:latest \
   -f hades/Dockerfile_latest .
 
-# Databricks-parity build
 docker buildx build --platform linux/amd64 -t getwilds/hades:full \
   -f hades/Dockerfile_full .
 ```
 
-**Note:** `make build_amd64 IMAGE=hades` (and `make build`/`make validate`) will *not* work for this tool, since the Makefile builds every tool with that tool's own subdirectory as context (`docker build ... hades/`), while these Dockerfiles expect repo-root context to resolve their `COPY` paths. Use the `docker buildx build` commands above for local builds instead.
+See [Known Limitations](#known-limitations) below for a note on `make build_amd64`.
 
 ## Usage
 
@@ -69,18 +67,23 @@ apptainer run --bind /path/to/data:/data docker://getwilds/hades:latest R
 
 ## Installed Components
 
-Both images restore the full HADES 2026Q1 lockfile, including:
+Both tags restore the full HADES 2026Q1 lockfile, including:
 
 - **Foundations**: DatabaseConnector, SqlRender, ParallelLogger, Andromeda, Cyclops, duckdb, V8, CirceR, Eunomia
 - **Analytics**: Achilles, DataQualityDashboard, CohortGenerator, CohortDiagnostics, FeatureExtraction, PatientLevelPrediction, CohortMethod, SelfControlledCaseSeries, Characterization, ResultModelManager
 - **GitHub-only OHDSI packages**: Capr, Strategus, Hades, CohortExplorer, CohortIncidence, DeepPatientLevelPrediction, EnsemblePatientLevelPrediction, Keeper, MethodEvaluation, OhdsiSharing, OhdsiShinyModules, PhenotypeLibrary, PheValuator, ROhdsiWebApi, SelfControlledCohort
 
-The `full` variant additionally includes Databricks notebook integration (Rserve, hwriterPlus) and compiles R 4.4.1 from source to match the Databricks Runtime environment exactly.
+Both tags currently also include Databricks notebook integration (Rserve, hwriterPlus) and compile R 4.4.1 from source to match the Databricks Runtime environment exactly, since `latest` mirrors `full` for now (see [Known Limitations](#known-limitations)).
+
+## Known Limitations
+
+- **`latest` does not yet have a lightweight build.** It is currently identical to `full`, including the Databricks base image, from-source R compile, and notebook glue that a "lightweight" tag should not need. Earlier attempts at a leaner `rocker/r-ver`-based build repeatedly failed on missing runtime `.so` libraries (e.g. `libsecret-1.so.0` for `keyring`, `libwebpmux.so.3` for `ragg`) pulled in by transitive CRAN dependencies in the lockfile, not by HADES itself. Pare this back incrementally with the working `full` dependency list as a reference, verifying each trimmed-down build against the full `renv.lock` restore before removing more.
+- **`make build_amd64 IMAGE=hades`** (and `make build`/`make validate`) will not work for this tool: the Makefile builds every tool with that tool's own subdirectory as context (`docker build ... hades/`), while these Dockerfiles expect repo-root context to resolve their `COPY` paths. Use the `docker buildx build` commands in [Building](#building) instead.
 
 ## Security Features
 
 - Pinned R version (4.4.1) and pinned package versions via `renv.lock` for reproducibility
-- Dynamic versioning for system dependencies (`latest` variant) to ensure the latest security patches
+- Pinned versions for system dependencies via `apt-cache policy` to ensure reproducible, security-patched builds
 
 ### Security Scanning and CVEs
 
