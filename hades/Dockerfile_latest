@@ -2,22 +2,27 @@
 # OHDSI HADES 2026Q1 (lightweight)
 #
 # A pared-down build of the HADES 2026Q1 release: same pinned package set as
-# Dockerfile_full (renv.lock), but on a standard R base image instead of the
-# Databricks cluster runtime, and without the from-source R build, the
-# Databricks Posit Package Manager mirror, or the notebook/Rserve glue those
-# require. Use this image for local HADES analyses; use Dockerfile_full when
-# you need parity with a specific Databricks cluster.
+# Dockerfile_full (renv.lock), installed as binaries from the public Posit
+# Package Manager mirror rather than the Databricks-hosted one. Runs on a
+# standard R base image instead of the Databricks cluster runtime, and skips
+# the from-source R build and the notebook/Rserve glue Dockerfile_full needs
+# for Databricks parity. Use this image for local HADES analyses; use
+# Dockerfile_full when you need parity with a specific Databricks cluster.
 #
-# Build:
+# Build (from the repository root, since COPY sources are rooted there):
 #
 #   docker buildx build \
 #     --platform linux/amd64 \
 #     -t getwilds/hades:latest \
+#     -f hades/Dockerfile_latest \
 #     .
 #
 # The lockfile pulls 16 packages from github.com/ohdsi. Anonymous GitHub API
 # access is capped at 60 requests/hour; renv needs it to resolve each
 # remote's dependencies, but 16 lookups comfortably fits that limit.
+#
+# Build args: PPM_HOST, PPM_DISTRO, PPM_SNAPSHOT, CRAN_REPO,
+#             RENV_INSTALL_JOBS, RENV_INSTALL_TIMEOUT.
 #==============================================================================
 
 FROM rocker/r-ver:4.4.1
@@ -47,6 +52,11 @@ ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/libr
 # libssl for HTTP + XML packages, and libnode-dev (provides the V8 engine
 # libv8-dev is a virtual alias for) for V8/CirceR. No X11/Cairo/font
 # libraries: this image is not built for R graphics devices.
+#
+# The runtime (non-dev) libraries below are needed because CRAN_REPO serves
+# prebuilt PPM binaries, which dynamically link against these .so files
+# directly rather than compiling against the -dev packages above
+# (e.g. keyring.so needs libsecret-1.so.0, Matrix.so needs liblapack.so.3).
 #------------------------------------------------------------------------------
 
 RUN apt-get update \
@@ -58,6 +68,14 @@ RUN apt-get update \
   && LIBGIT2_VERSION=$(apt-cache policy libgit2-dev | grep Candidate | awk '{print $2}') \
   && LIBNODE_VERSION=$(apt-cache policy libnode-dev | grep Candidate | awk '{print $2}') \
   && LIBSODIUM_VERSION=$(apt-cache policy libsodium-dev | grep Candidate | awk '{print $2}') \
+  && LIBBLAS_VERSION=$(apt-cache policy libblas3 | grep Candidate | awk '{print $2}') \
+  && LIBLAPACK_VERSION=$(apt-cache policy liblapack3 | grep Candidate | awk '{print $2}') \
+  && LIBOPENBLAS_VERSION=$(apt-cache policy libopenblas0 | grep Candidate | awk '{print $2}') \
+  && LIBGOMP_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && LIBGFORTRAN_VERSION=$(apt-cache policy libgfortran5 | grep Candidate | awk '{print $2}') \
+  && LIBSQLITE3_VERSION=$(apt-cache policy libsqlite3-0 | grep Candidate | awk '{print $2}') \
+  && LIBSECRET_VERSION=$(apt-cache policy libsecret-1-0 | grep Candidate | awk '{print $2}') \
+  && LIBNLOPT_VERSION=$(apt-cache policy libnlopt0 | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   default-jdk="${DEFAULT_JDK_VERSION}" \
   unixodbc-dev="${UNIXODBC_VERSION}" \
@@ -67,6 +85,14 @@ RUN apt-get update \
   libgit2-dev="${LIBGIT2_VERSION}" \
   libnode-dev="${LIBNODE_VERSION}" \
   libsodium-dev="${LIBSODIUM_VERSION}" \
+  libblas3="${LIBBLAS_VERSION}" \
+  liblapack3="${LIBLAPACK_VERSION}" \
+  libopenblas0="${LIBOPENBLAS_VERSION}" \
+  libgomp1="${LIBGOMP_VERSION}" \
+  libgfortran5="${LIBGFORTRAN_VERSION}" \
+  libsqlite3-0="${LIBSQLITE3_VERSION}" \
+  libsecret-1-0="${LIBSECRET_VERSION}" \
+  libnlopt0="${LIBNLOPT_VERSION}" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -75,12 +101,20 @@ RUN R CMD javareconf
 #------------------------------------------------------------------------------
 # 2. Configure R package defaults
 #
+# CRAN_REPO points at the public Posit Package Manager binary URL for Ubuntu
+# jammy (this image's base OS) so the restore installs prebuilt binaries
+# instead of compiling ~278 CRAN packages from source, the way plain
+# cloud.r-project.org would on Linux.
+#
 # RENV_INSTALL_TIMEOUT is the deadline renv applies to the *entire* install
 # phase, not to individual packages. renv defaults to 3600 seconds, which
-# this lockfile overruns once anything compiles from source.
+# this lockfile can overrun even with binaries available.
 #------------------------------------------------------------------------------
 
-ARG CRAN_REPO=https://cloud.r-project.org
+ARG PPM_HOST=https://packagemanager.posit.co
+ARG PPM_DISTRO=jammy
+ARG PPM_SNAPSHOT=latest
+ARG CRAN_REPO=${PPM_HOST}/cran/__linux__/${PPM_DISTRO}/${PPM_SNAPSHOT}
 ARG RENV_INSTALL_JOBS=4
 ARG RENV_INSTALL_TIMEOUT=21600
 
@@ -106,13 +140,13 @@ RUN R -e "install.packages(c('renv', 'jsonlite'), repos = '${CRAN_REPO}')" && \
 
 WORKDIR /opt/ohdsi/hades
 
-COPY renv.lock /opt/ohdsi/hades/renv.lock
-COPY install-hades.R /opt/ohdsi/hades/install-hades.R
+COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
+COPY hades/install-hades.R /opt/ohdsi/hades/install-hades.R
 
 RUN --mount=type=cache,target=/opt/renv,sharing=locked \
     RENV_PATHS_ROOT=/opt/renv \
     RENV_CONFIG_CACHE_SYMLINKS=FALSE \
-    RENV_CONFIG_REPOS_OVERRIDE="CRAN=${CRAN_REPO}" \
+    RENV_CONFIG_REPOS_OVERRIDE="CRAN=${CRAN_REPO};FALLBACK=https://cloud.r-project.org" \
     RENV_CONFIG_INSTALL_JOBS="${RENV_INSTALL_JOBS}" \
     Rscript /opt/ohdsi/hades/install-hades.R
 
@@ -120,7 +154,7 @@ RUN --mount=type=cache,target=/opt/renv,sharing=locked \
 # 5. Validate the HADES environment (smoke test)
 #------------------------------------------------------------------------------
 
-COPY validate-ohdsi.R /opt/ohdsi/hades/validate-ohdsi.R
+COPY hades/validate-ohdsi.R /opt/ohdsi/hades/validate-ohdsi.R
 
 RUN Rscript /opt/ohdsi/hades/validate-ohdsi.R
 

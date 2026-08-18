@@ -6,11 +6,13 @@
 # Databricks cluster runtime and package mirror used in production. For a
 # lighter, non-Databricks-specific HADES image, see Dockerfile_latest.
 #
-# Apple Silicon build:
+# Apple Silicon build (from the repository root, since COPY sources are
+# rooted there):
 #
 #   docker buildx build \
 #     --platform linux/amd64 \
 #     -t getwilds/hades:full \
+#     -f hades/Dockerfile_full \
 #     --load \
 #     .
 #
@@ -210,7 +212,7 @@ ARG RENV_INSTALL_TIMEOUT=21600
 ENV CRAN_REPO=${CRAN_REPO} \
     RENV_INSTALL_TIMEOUT=${RENV_INSTALL_TIMEOUT}
 
-COPY Rprofile.site /usr/local/lib/R/etc/Rprofile.site
+COPY hades/Rprofile.site /usr/local/lib/R/etc/Rprofile.site
 
 #------------------------------------------------------------------------------
 # 7. Install renv
@@ -232,7 +234,7 @@ WORKDIR /opt/ohdsi/hades
 # 9. Copy the pinned HADES-wide release lockfile
 #------------------------------------------------------------------------------
 
-COPY renv.lock /opt/ohdsi/hades/renv.lock
+COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
 
 #------------------------------------------------------------------------------
 # 10. Verify the lockfile and R version
@@ -255,7 +257,7 @@ RUN R -e " \
 # mount existing.
 #------------------------------------------------------------------------------
 
-COPY install-hades.R /opt/ohdsi/hades/install-hades.R
+COPY hades/install-hades.R /opt/ohdsi/hades/install-hades.R
 
 RUN --mount=type=cache,target=/opt/renv,sharing=locked \
     RENV_PATHS_ROOT=/opt/renv \
@@ -281,7 +283,7 @@ RUN R -e "install.packages(c('hwriter', 'TeachingDemos'))" && \
 # 13. Copy validation script
 #------------------------------------------------------------------------------
 
-COPY validate-ohdsi.R /opt/ohdsi/hades/validate-ohdsi.R
+COPY hades/validate-ohdsi.R /opt/ohdsi/hades/validate-ohdsi.R
 
 #------------------------------------------------------------------------------
 # 14. Validate the OHDSI/HADES environment (smoke test)

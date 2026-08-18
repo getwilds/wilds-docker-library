@@ -18,15 +18,19 @@ Two variants are provided, both built from the same pinned HADES 2026Q1 lockfile
 
 ## Building
 
+Run from the repository root, since each Dockerfile's `COPY` sources (`renv.lock`, `install-hades.R`, `validate-ohdsi.R`, `Rprofile.site`) are rooted there, matching how `docker_update.py` builds and publishes these images in CI:
+
 ```bash
 # Lightweight build
 docker buildx build --platform linux/amd64 -t getwilds/hades:latest \
-  hades/ -f hades/Dockerfile_latest
+  -f hades/Dockerfile_latest .
 
 # Databricks-parity build
 docker buildx build --platform linux/amd64 -t getwilds/hades:full \
-  hades/ -f hades/Dockerfile_full
+  -f hades/Dockerfile_full .
 ```
+
+**Note:** `make build_amd64 IMAGE=hades` (and `make build`/`make validate`) will *not* work for this tool, since the Makefile builds every tool with that tool's own subdirectory as context (`docker build ... hades/`), while these Dockerfiles expect repo-root context to resolve their `COPY` paths. Use the `docker buildx build` commands above for local builds instead.
 
 ## Usage
 
