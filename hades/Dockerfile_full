@@ -1,0 +1,306 @@
+# syntax=docker/dockerfile:1
+#==============================================================================
+# Databricks Runtime 17.3 LTS + OHDSI HADES 2026Q1
+#
+# Full-parity build of the HADES 2026Q1 release on top of the same
+# Databricks cluster runtime and package mirror used in production. For a
+# lighter, non-Databricks-specific HADES image, see Dockerfile_latest.
+#
+# Apple Silicon build (from the repository root, since COPY sources are
+# rooted there):
+#
+#   docker buildx build \
+#     --platform linux/amd64 \
+#     -t getwilds/hades:full \
+#     -f hades/Dockerfile_full \
+#     --load \
+#     .
+#
+# Prefer an amd64 builder where one is available. Under QEMU every package
+# that is not available as a binary is compiled through emulation, which is
+# what pushes the restore past renv's install deadline.
+#
+# The lockfile pulls 16 packages from github.com/ohdsi. Anonymous GitHub API
+# access is capped at 60 requests/hour; renv needs it to resolve each
+# remote's dependencies, but 16 lookups comfortably fits that limit.
+#
+# Packages come from the Databricks Posit Package Manager mirror (same host
+# DBR uses for cluster installs). DBR 17.3 LTS freezes CRAN at 2025-03-20;
+# this image defaults to 2026-03-23 so the HADES 2026Q1 lockfile can install
+# as binaries instead of compiling.
+#
+#   # Match DBR 17.3 LTS freeze (many HADES pins will build from source):
+#   --build-arg PPM_SNAPSHOT=2025-03-20
+#
+#   # Public Posit fallback if the Databricks host is unreachable:
+#   --build-arg PPM_HOST=https://p3m.dev
+#
+# Build args: PPM_HOST, PPM_DISTRO, PPM_SNAPSHOT, CRAN_REPO,
+#             RENV_INSTALL_JOBS, RENV_INSTALL_TIMEOUT.
+#==============================================================================
+
+FROM databricksruntime/standard:17.3-LTS
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="hades"
+LABEL org.opencontainers.image.description="Databricks-parity image for OHDSI HADES 2026Q1 in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="full"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+USER root
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+#------------------------------------------------------------------------------
+# 1. Install build/runtime dependencies
+#------------------------------------------------------------------------------
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        wget \
+        git \
+        build-essential \
+        gcc \
+        g++ \
+        gfortran \
+        make \
+        cmake \
+        perl \
+        xz-utils \
+        bzip2 \
+        pkg-config \
+        unixodbc \
+        unixodbc-dev \
+        odbcinst \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        libxml2-dev \
+        libgit2-dev \
+        libicu-dev \
+        libbz2-dev \
+        liblzma-dev \
+        zlib1g-dev \
+        libreadline-dev \
+        libncurses-dev \
+        libncurses5-dev \
+        libncursesw5-dev \
+        libtinfo-dev \
+        libpcre2-dev \
+        libx11-dev \
+        libxt-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libtiff-dev \
+        libcairo2-dev \
+        libfontconfig1-dev \
+        libfreetype6-dev \
+        libharfbuzz-dev \
+        libfribidi-dev \
+        # Runtime BLAS/LAPACK for PPM binaries (e.g. Matrix.so needs liblapack.so.3)
+        libblas3 \
+        liblapack3 \
+        libopenblas0 \
+        libgomp1 \
+        # Common PPM binary runtime deps for HADES stack
+        libgfortran5 \
+        libnode109 \
+        libsqlite3-0 \
+        libsecret-1-0 \
+        libnlopt0 \
+        libgit2-1.7 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Validate ODBC:
+RUN odbcinst -j && \
+    test -f /usr/include/sql.h
+
+# Validate BLAS/LAPACK (required by PPM binaries such as Matrix):
+RUN ldconfig -p | grep -E 'lib(lapack|blas|openblas)\.so' && \
+    test -e /usr/lib/"$(dpkg-architecture -qDEB_HOST_MULTIARCH)"/liblapack.so.3
+
+# Validate full Java JDK:
+RUN java -version && \
+    javac -version
+
+#------------------------------------------------------------------------------
+# 2. Configure CRAN repository for Ubuntu 24.04
+#------------------------------------------------------------------------------
+
+RUN mkdir -p /etc/apt/keyrings && \
+    gpg --keyserver hkp://keyserver.ubuntu.com:80 \
+        --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
+    gpg --export E298A3A825C0D65DFD57CBB651716619E084DAB9 \
+        > /etc/apt/keyrings/cran.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" \
+        > /etc/apt/sources.list.d/cran-r.list
+
+#------------------------------------------------------------------------------
+# 3. Install R 4.4.1
+#
+# Match OHDSI HADES recommended R version.
+#------------------------------------------------------------------------------
+
+ARG R_VERSION=4.4.1
+
+WORKDIR /tmp
+
+RUN curl -fsSL \
+    https://cran.r-project.org/src/base/R-4/R-${R_VERSION}.tar.gz \
+    -o R-${R_VERSION}.tar.gz && \
+    tar -xzf R-${R_VERSION}.tar.gz && \
+    cd R-${R_VERSION} && \
+    ./configure \
+        --prefix=/usr/local \
+        --enable-R-shlib \
+        --with-x \
+        --with-blas \
+        --with-lapack && \
+    make -j"$(nproc)" && \
+    make install && \
+    cd / && \
+    rm -rf \
+        /tmp/R-${R_VERSION} \
+        /tmp/R-${R_VERSION}.tar.gz
+
+#------------------------------------------------------------------------------
+# 4. Validate R and Java
+#------------------------------------------------------------------------------
+
+RUN echo "===== R VERSION =====" && \
+    R --version && \
+    R -e 'stopifnot(getRversion() == "4.4.1")'
+
+RUN echo "===== JAVA VERSION =====" && \
+    java -version
+
+#------------------------------------------------------------------------------
+# 5. Configure R <-> Java
+#------------------------------------------------------------------------------
+
+RUN _JAVA_OPTIONS="-Xmx4g" R CMD javareconf
+
+#------------------------------------------------------------------------------
+# 6. Configure R package defaults
+#
+# CRAN_REPO points at Databricks' Posit Package Manager binary URL for
+# Ubuntu noble. Pins missing from that snapshot fall through to
+# cloud.r-project.org (see RENV_CONFIG_REPOS_OVERRIDE below).
+#
+# RENV_INSTALL_TIMEOUT is the deadline renv applies to the *entire* install
+# phase, not to individual packages. renv defaults to 3600 seconds, which
+# this lockfile overruns under QEMU/source builds.
+#------------------------------------------------------------------------------
+
+ARG PPM_HOST=https://databricks.packagemanager.posit.co
+ARG PPM_DISTRO=noble
+# DBR 17.3 LTS freezes at 2025-03-20. Default is later so HADES 2026Q1
+# pins install as binaries from the same Databricks PPM host.
+ARG PPM_SNAPSHOT=2026-03-23
+ARG CRAN_REPO=${PPM_HOST}/cran/__linux__/${PPM_DISTRO}/${PPM_SNAPSHOT}
+ARG RENV_INSTALL_JOBS=4
+ARG RENV_INSTALL_TIMEOUT=21600
+
+ENV CRAN_REPO=${CRAN_REPO} \
+    RENV_INSTALL_TIMEOUT=${RENV_INSTALL_TIMEOUT}
+
+COPY hades/Rprofile.site /usr/local/lib/R/etc/Rprofile.site
+
+#------------------------------------------------------------------------------
+# 7. Install renv
+#------------------------------------------------------------------------------
+
+RUN R -e "install.packages(c('renv', 'jsonlite'))" && \
+    R -e "stopifnot( \
+        requireNamespace('renv', quietly = TRUE), \
+        requireNamespace('jsonlite', quietly = TRUE) \
+    )"
+
+#------------------------------------------------------------------------------
+# 8. Create HADES environment
+#------------------------------------------------------------------------------
+
+WORKDIR /opt/ohdsi/hades
+
+#------------------------------------------------------------------------------
+# 9. Copy the pinned HADES-wide release lockfile
+#------------------------------------------------------------------------------
+
+COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
+
+#------------------------------------------------------------------------------
+# 10. Verify the lockfile and R version
+#------------------------------------------------------------------------------
+
+RUN R -e " \
+    lock <- jsonlite::read_json('/opt/ohdsi/hades/renv.lock'); \
+    cat('HADES lockfile R version:', lock\$R\$Version, '\n'); \
+    cat('Container R version:', as.character(getRversion()), '\n'); \
+    stopifnot(lock\$R\$Version == '4.4.1'); \
+    stopifnot(as.character(getRversion()) == '4.4.1') \
+    "
+
+#------------------------------------------------------------------------------
+# 11. Restore HADES-wide dependency snapshot
+#
+# renv's cache and downloaded sources live in a build cache mount so a retry
+# does not start from an empty cache. Cache symlinks are off so restored
+# packages are copied into the library and the image does not depend on that
+# mount existing.
+#------------------------------------------------------------------------------
+
+COPY hades/install-hades.R /opt/ohdsi/hades/install-hades.R
+
+RUN --mount=type=cache,target=/opt/renv,sharing=locked \
+    RENV_PATHS_ROOT=/opt/renv \
+    RENV_CONFIG_CACHE_SYMLINKS=FALSE \
+    RENV_CONFIG_REPOS_OVERRIDE="CRAN=${CRAN_REPO};FALLBACK=https://cloud.r-project.org" \
+    RENV_CONFIG_INSTALL_JOBS="${RENV_INSTALL_JOBS}" \
+    Rscript /opt/ohdsi/hades/install-hades.R
+
+#------------------------------------------------------------------------------
+# 12. Reconfigure Java after package restore
+#------------------------------------------------------------------------------
+
+RUN R CMD javareconf
+
+# Packages Databricks requires to start an R REPL in notebooks.
+# Rserve backs the driver's R connection; hwriterPlus renders cell output.
+RUN R -e "install.packages(c('hwriter', 'TeachingDemos'))" && \
+    R -e "install.packages('https://cran.r-project.org/src/contrib/Archive/hwriterPlus/hwriterPlus_1.0-3.tar.gz', repos = NULL, type = 'source')" && \
+    R -e "install.packages('Rserve', repos = 'http://rforge.net/')" && \
+    R -e "stopifnot(nzchar(system.file(package = 'Rserve')), nzchar(system.file(package = 'hwriterPlus')))"
+
+#------------------------------------------------------------------------------
+# 13. Copy validation script
+#------------------------------------------------------------------------------
+
+COPY hades/validate-ohdsi.R /opt/ohdsi/hades/validate-ohdsi.R
+
+#------------------------------------------------------------------------------
+# 14. Validate the OHDSI/HADES environment (smoke test)
+#------------------------------------------------------------------------------
+
+RUN _JAVA_OPTIONS="-Xmx4g" Rscript /opt/ohdsi/hades/validate-ohdsi.R
+
+#------------------------------------------------------------------------------
+# 15. Final environment info
+#------------------------------------------------------------------------------
+
+RUN echo "===================================" && \
+    echo "Final OHDSI / Databricks environment" && \
+    echo "===================================" && \
+    R --version && \
+    java -version
+
+WORKDIR /
+
+RUN echo 'options(bitmapType = "cairo")' >> /usr/local/lib/R/etc/Rprofile.site
