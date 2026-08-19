@@ -18,6 +18,7 @@ popv
 python-dl
 rmats-turbo
 rtorch
+scater
 scran
 scvi-tools
 seurat
