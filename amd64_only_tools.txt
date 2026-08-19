@@ -6,6 +6,7 @@ colabfold
 deseq2
 edger
 diamond
+dropletutils
 esmfold
 glimpse2
 flax
@@ -18,6 +19,7 @@ python-dl
 rmats-turbo
 rtorch
 scater
+scran
 scvi-tools
 seurat
 shapemapper
