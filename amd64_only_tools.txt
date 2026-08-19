@@ -6,6 +6,7 @@ colabfold
 deseq2
 edger
 diamond
+dropletutils
 esmfold
 glimpse2
 flax
