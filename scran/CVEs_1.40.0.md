@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/scran:1.40.0
 
-Report generated on 2026-08-06 22:27:59 PST
+Report generated on 2026-08-19 19:34:58 PST
 
 ## Platform Coverage
 
@@ -10,43 +10,43 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 16 |
-| 🟠 High | 214 |
-| 🟡 Medium | 2160 |
-| 🟢 Low | 310 |
+| 🔴 Critical | 10 |
+| 🟠 High | 201 |
+| 🟡 Medium | 2821 |
+| 🟢 Low | 263 |
 | ⚪ Unknown | 2 |
 
 ## 🐳 Base Image
 
-**Image:** `bioconductor/bioconductor:3.23`
+**Image:** `bioconductor/bioconductor_docker:3.23`
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 16 |
-| 🟠 High | 214 |
-| 🟡 Medium | 2160 |
-| 🟢 Low | 308 |
+| 🔴 Critical | 10 |
+| 🟠 High | 201 |
+| 🟡 Medium | 2821 |
+| 🟢 Low | 261 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/scran:1.40.0   │   16C   214H   2160M   310L     2?  
-   digest   │  1eae6236dc56                    │                                     
- Base image │  bioconductor/bioconductor:3.23  │   16C   214H   2160M   308L     2?  
+Target     │  getwilds/scran:1.40.0          │   10C   201H   2821M   263L     2?  
+   digest   │  c5d11a377c52                           │                                     
+ Base image │  bioconductor/bioconductor_docker:3.23  │   10C   201H   2821M   261L     2?  
 
-Policy status  FAILED  (2/7 policies met, 3 missing data)
-Health score  E  (28%)
+Policy status  FAILED  (3/7 policies met)
+Health score  D  (50%)
 
- Status │                   Policy                   │     Results     
-────────┼────────────────────────────────────────────┼─────────────────
- !      │ Image runs as the root user                │                 
- ?      │ No data                                    │    No data      
- ?      │ No data                                    │    No data      
- ?      │ No data                                    │    No data      
- ✓      │ No outdated base images                    │                 
- ✓      │ No unapproved base images                  │    0 deviations 
- !      │ Required supply chain attestations missing │    2 deviations 
+ Status │                     Policy                     │           Results           
+────────┼────────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                    │                             
+ !      │ Copyleft licensed packages found               │    3067 packages            
+ !      │ Fixable critical or high vulnerabilities found │    7C   153H     0M     0L  
+ ✓      │ No high-profile vulnerabilities                │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                        │                             
+ ✓      │ No unapproved base images                      │    0 deviations             
+ !      │ Required supply chain attestations missing     │    2 deviations             
 
 What's next:
     View policy violations → docker scout policy getwilds/scran:1.40.0
