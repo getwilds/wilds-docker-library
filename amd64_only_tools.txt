@@ -23,6 +23,7 @@ scran
 scvi-tools
 seurat
 shapemapper
+singler
 smoove
 spades
 sra-tools
