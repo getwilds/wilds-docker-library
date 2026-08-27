@@ -18,13 +18,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Pin the ExperimentHub and AnnotationHub caches to a fixed, world-readable
-# path so the baked reference data is found at runtime regardless of $HOME
-ENV EXPERIMENT_HUB_CACHE=/opt/hubcache \
-    ANNOTATION_HUB_CACHE=/opt/hubcache
-RUN mkdir -p /opt/hubcache \
+# Pin every cache celldex might touch to a fixed, world-readable path so the
+# baked reference data is found at runtime regardless of $HOME
+ENV GYPSUM_CACHE_DIR=/opt/hubcache/gypsum \
+    EXPERIMENT_HUB_CACHE=/opt/hubcache/experimenthub \
+    ANNOTATION_HUB_CACHE=/opt/hubcache/annotationhub
+RUN mkdir -p /opt/hubcache/gypsum /opt/hubcache/experimenthub /opt/hubcache/annotationhub \
   && printf '%s\n' \
-      'Sys.setenv(EXPERIMENT_HUB_CACHE = "/opt/hubcache", ANNOTATION_HUB_CACHE = "/opt/hubcache")' \
+      'Sys.setenv(GYPSUM_CACHE_DIR = "/opt/hubcache/gypsum", EXPERIMENT_HUB_CACHE = "/opt/hubcache/experimenthub", ANNOTATION_HUB_CACHE = "/opt/hubcache/annotationhub")' \
       >> "$(R RHOME)/etc/Rprofile.site"
 
 # Install SingleR, scran (clustering + marker gene ID), and celldex
@@ -34,12 +35,12 @@ RUN R -e "BiocManager::install(c('SingleR', 'scran', 'celldex'), update=FALSE, a
       packageVersion('SingleR'); packageVersion('scran'); packageVersion('celldex')"
 
 # Pre-fetch the default celldex reference (HumanPrimaryCellAtlasData) into the
-# Hub cache at build time, both the gene-symbol and Ensembl-ID variants
-RUN R -e "stopifnot(startsWith(normalizePath(ExperimentHub::getExperimentHubOption('CACHE')), '/opt/hubcache')); \
+# gypsum cache at build time, both the gene-symbol and Ensembl-ID variants
+RUN R -e "stopifnot(startsWith(normalizePath(gypsum::cacheDirectory()), '/opt/hubcache/gypsum')); \
       celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
       celldex::HumanPrimaryCellAtlasData(ensembl = TRUE)" \
-  && R -e "options(ExperimentHub.localHub = TRUE); \
-      sym <- celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
+  && test -n "$(find /opt/hubcache/gypsum -path '*celldex/hpca*' -name '*.h5' -print -quit)" \
+  && R -e "sym <- celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
       ens <- celldex::HumanPrimaryCellAtlasData(ensembl = TRUE); \
       stopifnot(ncol(sym) > 0, length(sym\$label.main) > 0, \
                 ncol(ens) > 0, any(startsWith(rownames(ens), 'ENSG'))); \
