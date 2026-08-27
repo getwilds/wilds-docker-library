@@ -15,6 +15,12 @@ These Docker images are built from the Bioconductor base image (RELEASE_3_23) an
 - scran: Clustering and marker gene identification, commonly used to prepare data for SingleR annotation
 - celldex: Curated collection of reference transcriptomic datasets used as SingleR annotation references
 
+### Bundled Reference Data
+
+The `celldex` `HumanPrimaryCellAtlasData` reference (both the gene-symbol and Ensembl-ID variants) is downloaded at build time and baked into the image's ExperimentHub/AnnotationHub cache. Calling `celldex::HumanPrimaryCellAtlasData()` inside the container returns the cached data with no network access required, which makes the image usable on air-gapped HPC nodes.
+
+The cache lives at `/opt/celldex-cache` (and `/opt/annotationhub-cache`), pinned via the `EXPERIMENT_HUB_CACHE` and `ANNOTATION_HUB_CACHE` environment variables so it is found regardless of `$HOME`. This matters under Apptainer, which remaps `$HOME` to the host user's home directory. Other celldex references (for example `MonacoImmuneData` or `BlueprintEncodeData`) are not bundled and will be downloaded on first use, which requires network access.
+
 The images are designed to provide a focused environment for single-cell RNA-seq cell type annotation with SingleR and its most common companion tools.
 
 ## Platform Availability
@@ -72,7 +78,9 @@ docker run --rm -it -v /path/to/data:/data getwilds/singler:latest R
 docker run --rm -v /path/to/data:/data getwilds/singler:latest \
   Rscript /data/singler_analysis.R
 
-# Run a quick inline SingleR annotation using a celldex reference dataset
+# Run a quick inline SingleR annotation using the bundled celldex reference.
+# HumanPrimaryCellAtlasData() loads from the in-image cache, so this works
+# with no network access (for example on an air-gapped HPC node).
 docker run --rm -v /path/to/data:/data getwilds/singler:latest R -e "
   library(SingleR)
   library(celldex)
@@ -99,9 +107,11 @@ The Dockerfile follows these main steps:
 1. Uses Bioconductor RELEASE_3_23 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Sets R library paths to prevent host library contamination in Apptainer
-4. Installs SingleR, scran, and celldex via BiocManager
-5. Runs a smoke test to confirm SingleR loads and reports its version
-6. Sets `/data` as the default working directory
+4. Pins the ExperimentHub/AnnotationHub cache to `/opt/celldex-cache` so bundled data is found regardless of `$HOME`
+5. Installs SingleR, scran, and celldex via BiocManager
+6. Runs a smoke test to confirm SingleR loads and reports its version
+7. Pre-fetches the `HumanPrimaryCellAtlasData` celldex reference into the image cache, verifies it loads offline, and makes the cache world-readable
+8. Sets `/data` as the default working directory
 
 ## Security Scanning and CVEs
 

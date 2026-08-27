@@ -18,11 +18,25 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
+# Pin the ExperimentHub/AnnotationHub caches to a fixed, world-readable path
+ENV EXPERIMENT_HUB_CACHE=/opt/celldex-cache
+ENV ANNOTATION_HUB_CACHE=/opt/annotationhub-cache
+
 # Install SingleR, scran (clustering + marker gene ID), and celldex
 # (reference datasets for annotation), then smoke test
 RUN R -e "BiocManager::install(c('SingleR', 'scran', 'celldex'), update=FALSE, ask=FALSE, dependencies=TRUE)" \
   && R -e "library(SingleR); library(scran); library(celldex); \
       packageVersion('SingleR'); packageVersion('scran'); packageVersion('celldex')"
+
+# Pre-fetch the default celldex reference (HumanPrimaryCellAtlasData, both
+# gene-symbol and Ensembl-ID variants) at build time
+RUN R -e "celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
+      celldex::HumanPrimaryCellAtlasData(ensembl = TRUE)" \
+  && R -e "options(timeout = 5); \
+      ref <- celldex::HumanPrimaryCellAtlasData(); \
+      stopifnot(ncol(ref) > 0, length(ref\$label.main) > 0); \
+      cat('celldex cache OK:', ncol(ref), 'samples\n')" \
+  && chmod -R a+rX /opt/celldex-cache /opt/annotationhub-cache
 
 # Set working directory
 WORKDIR /data
