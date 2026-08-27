@@ -34,6 +34,7 @@ import sys
 import glob
 import json
 import logging
+import subprocess
 import requests
 from datetime import datetime
 import git
@@ -49,6 +50,12 @@ logger = logging.getLogger("docker-update")
 
 # Size limit for Docker Scout scanning (3GB in bytes)
 DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
+
+# Wall-clock limit for a single `docker scout quickview` call. Scout has been
+# seen to hang on registry/backend calls in CI and get killed by the runner,
+# which takes down the whole job. Bounding it here turns that into a caught
+# TimeoutExpired and a fallback CVE report instead.
+DOCKER_SCOUT_TIMEOUT_SECONDS = 300
 
 
 def load_amd64_only_tools():
@@ -491,6 +498,7 @@ def generate_cve_report(tool_name, tag, container):
             result = run_command(
                 f"docker scout quickview {container} --platform linux/amd64",
                 capture_output=True,
+                timeout=DOCKER_SCOUT_TIMEOUT_SECONDS,
             )
 
             # Parse the scout output into clean markdown
@@ -500,6 +508,22 @@ def generate_cve_report(tool_name, tag, container):
                 f.write(parsed_markdown)
 
             logger.info(f"Successfully generated CVE report for {tool_name}:{tag}")
+        except subprocess.TimeoutExpired:
+            logger.warning(
+                f"Docker Scout timed out after {DOCKER_SCOUT_TIMEOUT_SECONDS}s for "
+                f"{tool_name}:{tag}; writing fallback CVE report and continuing"
+            )
+            with open(cve_file, "a") as f:
+                f.write("**Docker Scout scan timed out for this image**\n\n")
+                f.write(
+                    f"The scan did not finish within {DOCKER_SCOUT_TIMEOUT_SECONDS} "
+                    "seconds and was skipped. Run it manually to inspect this image:\n\n"
+                )
+                f.write("```bash\n")
+                f.write(
+                    f"docker scout quickview {container} --platform linux/amd64\n"
+                )
+                f.write("```\n")
         except Exception as e:
             logger.warning(f"Docker Scout failed for {tool_name}:{tag}: {e}")
             # Write a fallback message to the CVE file
