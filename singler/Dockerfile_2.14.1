@@ -18,9 +18,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Pin the ExperimentHub/AnnotationHub caches to a fixed, world-readable path
-ENV EXPERIMENT_HUB_CACHE=/opt/celldex-cache
-ENV ANNOTATION_HUB_CACHE=/opt/annotationhub-cache
+# Pin the ExperimentHub and AnnotationHub caches to a fixed, world-readable
+# path so the baked reference data is found at runtime regardless of $HOME
+ENV EXPERIMENT_HUB_CACHE=/opt/hubcache \
+    ANNOTATION_HUB_CACHE=/opt/hubcache
+RUN mkdir -p /opt/hubcache \
+  && printf '%s\n' \
+      'Sys.setenv(EXPERIMENT_HUB_CACHE = "/opt/hubcache", ANNOTATION_HUB_CACHE = "/opt/hubcache")' \
+      >> "$(R RHOME)/etc/Rprofile.site"
 
 # Install SingleR, scran (clustering + marker gene ID), and celldex
 # (reference datasets for annotation), then smoke test
@@ -28,15 +33,19 @@ RUN R -e "BiocManager::install(c('SingleR', 'scran', 'celldex'), update=FALSE, a
   && R -e "library(SingleR); library(scran); library(celldex); \
       packageVersion('SingleR'); packageVersion('scran'); packageVersion('celldex')"
 
-# Pre-fetch the default celldex reference (HumanPrimaryCellAtlasData, both
-# gene-symbol and Ensembl-ID variants) at build time
-RUN R -e "celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
+# Pre-fetch the default celldex reference (HumanPrimaryCellAtlasData) into the
+# Hub cache at build time, both the gene-symbol and Ensembl-ID variants
+RUN R -e "stopifnot(startsWith(normalizePath(ExperimentHub::getExperimentHubOption('CACHE')), '/opt/hubcache')); \
+      celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
       celldex::HumanPrimaryCellAtlasData(ensembl = TRUE)" \
-  && R -e "options(timeout = 5); \
-      ref <- celldex::HumanPrimaryCellAtlasData(); \
-      stopifnot(ncol(ref) > 0, length(ref\$label.main) > 0); \
-      cat('celldex cache OK:', ncol(ref), 'samples\n')" \
-  && chmod -R a+rX /opt/celldex-cache /opt/annotationhub-cache
+  && R -e "options(ExperimentHub.localHub = TRUE); \
+      sym <- celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
+      ens <- celldex::HumanPrimaryCellAtlasData(ensembl = TRUE); \
+      stopifnot(ncol(sym) > 0, length(sym\$label.main) > 0, \
+                ncol(ens) > 0, any(startsWith(rownames(ens), 'ENSG'))); \
+      cat('celldex cache OK:', ncol(sym), 'samples (symbol),', \
+          ncol(ens), 'samples (ensembl)\n')" \
+  && chmod -R a+rX /opt/hubcache
 
 # Set working directory
 WORKDIR /data
