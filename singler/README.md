@@ -19,9 +19,17 @@ These Docker images are built from the Bioconductor base image (RELEASE_3_23) an
 
 The `celldex` `HumanPrimaryCellAtlasData` reference is downloaded at build time and baked into the image's cache, both the gene-symbol variant and the Ensembl-ID variant (`ensembl = TRUE`, which also bundles the matching EnsDb annotation package). Calling `celldex::HumanPrimaryCellAtlasData()` or `celldex::HumanPrimaryCellAtlasData(ensembl = TRUE)` inside the container returns the cached data with no network access required, which makes the image usable on air-gapped HPC nodes.
 
-`celldex` 2.x fetches references through the `gypsum` backend, so the cache location is pinned with `GYPSUM_CACHE_DIR=/opt/hubcache/gypsum` (the Ensembl variant's EnsDb package uses AnnotationHub, pinned alongside it with `ANNOTATION_HUB_CACHE`). These are set both as image environment variables and via a `Sys.setenv` line in `Rprofile.site`, so the cache is found regardless of `$HOME`. This matters under Apptainer, which remaps `$HOME` to the host user's home directory.
+`celldex` 2.x fetches references through the `gypsum` backend, so the cache location is pinned with `GYPSUM_CACHE_DIR=/opt/hubcache/gypsum` (the Ensembl variant's EnsDb package uses AnnotationHub, pinned alongside it with `ANNOTATION_HUB_CACHE`). These are set as image environment variables and, as a fallback for runtimes that remap `$HOME`, backfilled by a snippet in `Rprofile.site` that only sets each variable if the caller has not already set it.
 
-If your runtime starts R with `--vanilla` or `--no-init-file`, `Rprofile.site` is skipped; the image environment variables still apply, so the cache is still found. If you additionally override `$HOME` or the cache environment variables in your job, point `GYPSUM_CACHE_DIR` back at `/opt/hubcache/gypsum`.
+**Read-only filesystems:** `gypsum` acquires a write lock inside its cache directory on every fetch, even when the requested data is already cached. If you run this image with a read-only root filesystem (Apptainer, many HPC batch systems), pointing `GYPSUM_CACHE_DIR` at the baked-in `/opt/hubcache/gypsum` will fail with `Cannot open lock file: Read-only file system`. Copy the cache to a writable location first and point `GYPSUM_CACHE_DIR` there:
+
+```bash
+mkdir -p "$PWD/gypsum-cache"
+cp -r /opt/hubcache/gypsum/. "$PWD/gypsum-cache/"
+export GYPSUM_CACHE_DIR="$PWD/gypsum-cache"
+```
+
+The [`ww-singler`](https://github.com/getwilds/wilds-wdl-library/tree/main/modules/ww-singler) WDL module does this automatically.
 
 Other celldex references (for example `MonacoImmuneData` or `BlueprintEncodeData`) are not bundled and will be downloaded on first use, which requires network access.
 

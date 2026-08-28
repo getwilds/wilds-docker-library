@@ -19,13 +19,23 @@ ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
 # Pin every cache celldex might touch to a fixed, world-readable path so the
-# baked reference data is found at runtime regardless of $HOME
+# baked reference data is found at runtime regardless of $HOME. The
+# Rprofile.site fallback only fills in values the caller has not already set:
+# gypsum takes a write lock in its cache dir even for a cache hit, so a
+# read-only runtime (Apptainer, most HPC batch) must be able to redirect
+# GYPSUM_CACHE_DIR to a writable copy without this clobbering it.
 ENV GYPSUM_CACHE_DIR=/opt/hubcache/gypsum \
     EXPERIMENT_HUB_CACHE=/opt/hubcache/experimenthub \
     ANNOTATION_HUB_CACHE=/opt/hubcache/annotationhub
 RUN mkdir -p /opt/hubcache/gypsum /opt/hubcache/experimenthub /opt/hubcache/annotationhub \
   && printf '%s\n' \
-      'Sys.setenv(GYPSUM_CACHE_DIR = "/opt/hubcache/gypsum", EXPERIMENT_HUB_CACHE = "/opt/hubcache/experimenthub", ANNOTATION_HUB_CACHE = "/opt/hubcache/annotationhub")' \
+      'local({' \
+      '  defaults <- c(GYPSUM_CACHE_DIR = "/opt/hubcache/gypsum",' \
+      '                EXPERIMENT_HUB_CACHE = "/opt/hubcache/experimenthub",' \
+      '                ANNOTATION_HUB_CACHE = "/opt/hubcache/annotationhub")' \
+      '  unset <- defaults[!nzchar(Sys.getenv(names(defaults)))]' \
+      '  if (length(unset)) do.call(Sys.setenv, as.list(unset))' \
+      '})' \
       >> "$(R RHOME)/etc/Rprofile.site"
 
 # Install SingleR, scran (clustering + marker gene ID), and celldex
