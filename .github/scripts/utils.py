@@ -24,7 +24,7 @@ logging.basicConfig(
 logger = logging.getLogger("docker-utils")
 
 
-def run_command(cmd, cwd=None, check=True, capture_output=False):
+def run_command(cmd, cwd=None, check=True, capture_output=False, timeout=None):
     """Run a shell command and return its output.
 
     Args:
@@ -32,6 +32,10 @@ def run_command(cmd, cwd=None, check=True, capture_output=False):
         cwd: Current working directory for the command
         check: Whether to raise an exception if the command fails
         capture_output: Whether to capture and return command output
+        timeout: Optional timeout in seconds. If the command does not finish in
+            time it is killed and subprocess.TimeoutExpired is raised (so callers
+            can catch it like any other command failure) rather than leaving the
+            process to be terminated by the CI runner.
 
     Returns:
         If capture_output is True, returns the command output as string.
@@ -46,10 +50,20 @@ def run_command(cmd, cwd=None, check=True, capture_output=False):
             shell=True,
             text=True,
             capture_output=capture_output,
+            timeout=timeout,
         )
         if capture_output:
             return result.stdout.strip()
         return True
+    except subprocess.TimeoutExpired as e:
+        logger.error(f"Command timed out after {timeout}s: {cmd}")
+        if e.stdout:
+            logger.error(f"STDOUT: {e.stdout}")
+        if e.stderr:
+            logger.error(f"STDERR: {e.stderr}")
+        if check:
+            raise
+        return False
     except subprocess.CalledProcessError as e:
         logger.error(f"Command failed: {e}")
         logger.error(f"Return code: {e.returncode}")

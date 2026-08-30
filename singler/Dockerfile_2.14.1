@@ -18,11 +18,45 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
+# Pin every cache celldex might touch to a fixed, world-readable path so the
+# baked reference data is found at runtime regardless of $HOME. The
+# Rprofile.site fallback only fills in values the caller has not already set:
+# gypsum takes a write lock in its cache dir even for a cache hit, so a
+# read-only runtime (Apptainer, most HPC batch) must be able to redirect
+# GYPSUM_CACHE_DIR to a writable copy without this clobbering it.
+ENV GYPSUM_CACHE_DIR=/opt/hubcache/gypsum \
+    EXPERIMENT_HUB_CACHE=/opt/hubcache/experimenthub \
+    ANNOTATION_HUB_CACHE=/opt/hubcache/annotationhub
+RUN mkdir -p /opt/hubcache/gypsum /opt/hubcache/experimenthub /opt/hubcache/annotationhub \
+  && printf '%s\n' \
+      'local({' \
+      '  defaults <- c(GYPSUM_CACHE_DIR = "/opt/hubcache/gypsum",' \
+      '                EXPERIMENT_HUB_CACHE = "/opt/hubcache/experimenthub",' \
+      '                ANNOTATION_HUB_CACHE = "/opt/hubcache/annotationhub")' \
+      '  unset <- defaults[!nzchar(Sys.getenv(names(defaults)))]' \
+      '  if (length(unset)) do.call(Sys.setenv, as.list(unset))' \
+      '})' \
+      >> "$(R RHOME)/etc/Rprofile.site"
+
 # Install SingleR, scran (clustering + marker gene ID), and celldex
 # (reference datasets for annotation), then smoke test
 RUN R -e "BiocManager::install(c('SingleR', 'scran', 'celldex'), update=FALSE, ask=FALSE, dependencies=TRUE)" \
   && R -e "library(SingleR); library(scran); library(celldex); \
       packageVersion('SingleR'); packageVersion('scran'); packageVersion('celldex')"
+
+# Pre-fetch the default celldex reference (HumanPrimaryCellAtlasData) into the
+# gypsum cache at build time, both the gene-symbol and Ensembl-ID variants
+RUN R -e "stopifnot(startsWith(normalizePath(gypsum::cacheDirectory()), '/opt/hubcache/gypsum')); \
+      celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
+      celldex::HumanPrimaryCellAtlasData(ensembl = TRUE)" \
+  && test -n "$(find /opt/hubcache/gypsum -path '*celldex/hpca*' -name '*.h5' -print -quit)" \
+  && R -e "sym <- celldex::HumanPrimaryCellAtlasData(ensembl = FALSE); \
+      ens <- celldex::HumanPrimaryCellAtlasData(ensembl = TRUE); \
+      stopifnot(ncol(sym) > 0, length(sym\$label.main) > 0, \
+                ncol(ens) > 0, any(startsWith(rownames(ens), 'ENSG'))); \
+      cat('celldex cache OK:', ncol(sym), 'samples (symbol),', \
+          ncol(ens), 'samples (ensembl)\n')" \
+  && chmod -R a+rX /opt/hubcache
 
 # Set working directory
 WORKDIR /data

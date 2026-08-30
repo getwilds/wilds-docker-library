@@ -15,6 +15,29 @@ These Docker images are built from the Bioconductor base image (RELEASE_3_23) an
 - scran: Clustering and marker gene identification, commonly used to prepare data for SingleR annotation
 - celldex: Curated collection of reference transcriptomic datasets used as SingleR annotation references
 
+### Bundled Reference Data
+
+The `celldex` `HumanPrimaryCellAtlasData` reference is downloaded at build time and baked into the image's cache, both the gene-symbol variant and the Ensembl-ID variant (`ensembl = TRUE`, which also bundles the matching EnsDb annotation package). Calling `celldex::HumanPrimaryCellAtlasData()` or `celldex::HumanPrimaryCellAtlasData(ensembl = TRUE)` inside the container returns the cached data with no network access required, which makes the image usable on air-gapped HPC nodes.
+
+`celldex` 2.x fetches references through the `gypsum` backend, so the cache location is pinned with `GYPSUM_CACHE_DIR=/opt/hubcache/gypsum` (the Ensembl variant's EnsDb package uses AnnotationHub, pinned alongside it with `ANNOTATION_HUB_CACHE`). These are set as image environment variables and, as a fallback for runtimes that remap `$HOME`, backfilled by a snippet in `Rprofile.site` that only sets each variable if the caller has not already set it.
+
+**Read-only filesystems:** `gypsum` and AnnotationHub both acquire a write lock inside their cache directory on every fetch, even when the requested data is already cached (AnnotationHub also locks its metadata SQLite DB). If you run this image with a read-only root filesystem (Apptainer, many HPC batch systems), pointing the cache variables at the baked-in `/opt/hubcache` paths will fail with `Cannot open lock file: Read-only file system`. Copy the caches to a writable location first and repoint the variables:
+
+```bash
+for c in gypsum annotationhub experimenthub; do
+  mkdir -p "$PWD/$c-cache"
+  cp -r "/opt/hubcache/$c/." "$PWD/$c-cache/"
+done
+export GYPSUM_CACHE_DIR="$PWD/gypsum-cache"
+export ANNOTATION_HUB_CACHE="$PWD/annotationhub-cache"
+export EXPERIMENT_HUB_CACHE="$PWD/experimenthub-cache"
+export ANNOTATION_HUB_LOCAL=TRUE  # work from the local cache, skip the online metadata refresh
+```
+
+The [`ww-singler`](https://github.com/getwilds/wilds-wdl-library/tree/main/modules/ww-singler) WDL module does this automatically.
+
+Other celldex references (for example `MonacoImmuneData` or `BlueprintEncodeData`) are not bundled and will be downloaded on first use, which requires network access.
+
 The images are designed to provide a focused environment for single-cell RNA-seq cell type annotation with SingleR and its most common companion tools.
 
 ## Platform Availability
@@ -72,7 +95,9 @@ docker run --rm -it -v /path/to/data:/data getwilds/singler:latest R
 docker run --rm -v /path/to/data:/data getwilds/singler:latest \
   Rscript /data/singler_analysis.R
 
-# Run a quick inline SingleR annotation using a celldex reference dataset
+# Run a quick inline SingleR annotation using the bundled celldex reference.
+# HumanPrimaryCellAtlasData() loads from the in-image cache, so this works
+# with no network access (for example on an air-gapped HPC node).
 docker run --rm -v /path/to/data:/data getwilds/singler:latest R -e "
   library(SingleR)
   library(celldex)
@@ -99,9 +124,11 @@ The Dockerfile follows these main steps:
 1. Uses Bioconductor RELEASE_3_23 as the base image
 2. Adds metadata labels for documentation and attribution
 3. Sets R library paths to prevent host library contamination in Apptainer
-4. Installs SingleR, scran, and celldex via BiocManager
-5. Runs a smoke test to confirm SingleR loads and reports its version
-6. Sets `/data` as the default working directory
+4. Pins the gypsum and AnnotationHub caches under `/opt/hubcache` so bundled data is found regardless of `$HOME`
+5. Installs SingleR, scran, and celldex via BiocManager
+6. Runs a smoke test to confirm SingleR loads and reports its version
+7. Pre-fetches the `HumanPrimaryCellAtlasData` celldex reference (gene-symbol and Ensembl-ID variants) into the image cache, asserts the cache resolved to the pinned path and the assay files landed on disk, and makes the cache world-readable
+8. Sets `/data` as the default working directory
 
 ## Security Scanning and CVEs
 
