@@ -21,12 +21,17 @@ The `celldex` `HumanPrimaryCellAtlasData` reference is downloaded at build time 
 
 `celldex` 2.x fetches references through the `gypsum` backend, so the cache location is pinned with `GYPSUM_CACHE_DIR=/opt/hubcache/gypsum` (the Ensembl variant's EnsDb package uses AnnotationHub, pinned alongside it with `ANNOTATION_HUB_CACHE`). These are set as image environment variables and, as a fallback for runtimes that remap `$HOME`, backfilled by a snippet in `Rprofile.site` that only sets each variable if the caller has not already set it.
 
-**Read-only filesystems:** `gypsum` acquires a write lock inside its cache directory on every fetch, even when the requested data is already cached. If you run this image with a read-only root filesystem (Apptainer, many HPC batch systems), pointing `GYPSUM_CACHE_DIR` at the baked-in `/opt/hubcache/gypsum` will fail with `Cannot open lock file: Read-only file system`. Copy the cache to a writable location first and point `GYPSUM_CACHE_DIR` there:
+**Read-only filesystems:** `gypsum` and AnnotationHub both acquire a write lock inside their cache directory on every fetch, even when the requested data is already cached (AnnotationHub also locks its metadata SQLite DB). If you run this image with a read-only root filesystem (Apptainer, many HPC batch systems), pointing the cache variables at the baked-in `/opt/hubcache` paths will fail with `Cannot open lock file: Read-only file system`. Copy the caches to a writable location first and repoint the variables:
 
 ```bash
-mkdir -p "$PWD/gypsum-cache"
-cp -r /opt/hubcache/gypsum/. "$PWD/gypsum-cache/"
+for c in gypsum annotationhub experimenthub; do
+  mkdir -p "$PWD/$c-cache"
+  cp -r "/opt/hubcache/$c/." "$PWD/$c-cache/"
+done
 export GYPSUM_CACHE_DIR="$PWD/gypsum-cache"
+export ANNOTATION_HUB_CACHE="$PWD/annotationhub-cache"
+export EXPERIMENT_HUB_CACHE="$PWD/experimenthub-cache"
+export ANNOTATION_HUB_LOCAL=TRUE  # work from the local cache, skip the online metadata refresh
 ```
 
 The [`ww-singler`](https://github.com/getwilds/wilds-wdl-library/tree/main/modules/ww-singler) WDL module does this automatically.
