@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/singler:2.14.1
 
-Report generated on 2026-08-28 13:26:55 PST
+Report generated on 2026-08-31 16:24:23 PST
 
 ## Platform Coverage
 
