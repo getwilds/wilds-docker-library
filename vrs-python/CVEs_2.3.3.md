@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/vrs-python:2.3.3
 
-Report generated on 2026-09-09 19:00:55 PST
+Report generated on 2026-09-09 21:51:30 PST
 
 ## Platform Coverage
 
@@ -32,7 +32,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target     │  getwilds/vrs-python:2.3.3-amd64  │    7C    24H    18M   101L    27?  
-   digest   │  1fc1c30abaae                             │                                    
+   digest   │  59f7b80cd9a2                             │                                    
  Base image │  python:3.12-slim                         │    0C     1H     6M    25L         
 
 Policy status  FAILED  (4/7 policies met)

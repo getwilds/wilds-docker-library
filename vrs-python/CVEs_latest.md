@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/vrs-python:latest
 
-Report generated on 2026-09-09 19:08:19 PST
+Report generated on 2026-09-09 22:00:53 PST
 
 ## Platform Coverage
 
@@ -32,7 +32,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target     │  getwilds/vrs-python:latest-amd64  │    7C    24H    18M   101L    27?  
-   digest   │  732c045f1008                              │                                    
+   digest   │  efe30c127589                              │                                    
  Base image │  python:3.12-slim                          │    0C     1H     6M    25L         
 
 Policy status  FAILED  (4/7 policies met)
