@@ -14,6 +14,7 @@ These Docker images are built from `python:3.12-slim` and include:
 - VRS-Python (`ga4gh.vrs`) v2.3.3: GA4GH VRS models, computed identifiers, allele normalization, and the `vrs-annotate` command-line tool
 - `[extras]` dependency group: `biocommons.seqrepo`, `hgvs`, `pysam`, `psycopg2-binary`, and `dill`, enabling the `ga4gh.vrs.extras` translator and VCF annotator
 - `seqrepo` command-line tool: bundled via `biocommons.seqrepo`, used to download and manage the SeqRepo reference data that VRS-Python needs for normalization and translation
+- `rsync`: required by the `seqrepo` CLI to pull reference data from the biocommons mirror
 - System libraries (`libpq`, `zlib`, `bzip2`, `lzma`, `libcurl`): required to build and run `psycopg2` and `pysam`
 
 The images are designed to be minimal and focused on VRS-Python with its essential dependencies.
@@ -145,10 +146,10 @@ The Dockerfile follows these main steps:
 1. Uses `python:3.12-slim` as the base image
 2. Adds metadata labels for documentation and attribution
 3. Configures the shell with `pipefail` for better error handling
-4. Installs system build/runtime libraries with pinned versions (`libpq-dev`, `zlib1g-dev`, `libbz2-dev`, `liblzma-dev`, `libcurl4-openssl-dev`, `gcc`)
+4. Installs system build/runtime libraries with pinned versions (`libpq-dev`, `zlib1g-dev`, `libbz2-dev`, `liblzma-dev`, `libcurl4-openssl-dev`, `gcc`, `rsync`)
 5. Installs `ga4gh.vrs[extras]` at the pinned version via pip with `--no-cache-dir`
 6. Sets `SEQREPO_ROOT_DIR` to a default in-container path for the `seqrepo` CLI and the VRS data proxy
-7. Runs a smoke test that imports the core modules and invokes `vrs-annotate --help` and `seqrepo --version`
+7. Runs a smoke test that imports the core modules and invokes `vrs-annotate --help`, `seqrepo --version`, and `rsync --version`
 
 ## Security Scanning and CVEs
 
