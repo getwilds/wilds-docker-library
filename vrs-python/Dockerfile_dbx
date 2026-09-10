@@ -1,0 +1,78 @@
+# Databricks Runtime base image so the container can be used as a Databricks
+# Container Services cluster image. Pinned to a specific DBR version; this is
+# NOT the general-purpose vrs-python image (see Dockerfile_latest for that).
+# Databricks clusters are x86_64 only, so this variant is amd64-only.
+FROM databricksruntime/standard:17.3-LTS
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="vrs-python"
+LABEL org.opencontainers.image.description="Databricks Runtime image for GA4GH VRS-Python in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="dbx"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Configuring shell for better error handling
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# The Databricks notebook/Spark interpreter is the virtualenv at
+# /databricks/python3. Activate it by putting it first on PATH and setting
+# VIRTUAL_ENV so `python`/`pip` in the RUN steps below resolve to that env and
+# packages are visible to notebooks at runtime.
+ENV VIRTUAL_ENV=/databricks/python3
+ENV PATH=/databricks/python3/bin:$PATH
+
+# Default SeqRepo location for the seqrepo CLI and the VRS data proxy. Reference
+# data is not bundled (it is multiple GB and versioned by date); mount a volume
+# or DBFS path here and run `seqrepo pull` to populate it, then reuse it.
+ENV SEQREPO_ROOT_DIR=/usr/local/share/seqrepo
+
+# Installing system dependencies with pinned versions (the 17.3-LTS base is
+# Ubuntu 24.04 / noble; versions are resolved dynamically via apt-cache policy).
+# The prebuilt pysam and psycopg2-binary wheels bundle their own OpenSSL, which
+# fails the FIPS self-test against the Databricks Runtime OpenSSL config and
+# aborts the process. We rebuild both from source so they link the DBR system
+# libssl/libpq instead. gcc/make/autoconf + the compression and ssl -dev
+# packages are the build toolchain for pysam's bundled htslib; libpq-dev is for
+# psycopg2; rsync is required by the seqrepo CLI to pull reference data.
+RUN apt-get update \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && AUTOCONF_VERSION=$(apt-cache policy autoconf | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBPQ_VERSION=$(apt-cache policy libpq-dev | grep Candidate | awk '{print $2}') \
+  && RSYNC_VERSION=$(apt-cache policy rsync | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  gcc="${GCC_VERSION}" \
+  make="${MAKE_VERSION}" \
+  autoconf="${AUTOCONF_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libpq-dev="${LIBPQ_VERSION}" \
+  rsync="${RSYNC_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Installing VRS-Python with the extras dependency group into the Databricks
+# notebook interpreter, forcing source builds of pysam and psycopg2 so neither
+# ships a bundled OpenSSL that trips the Databricks Runtime FIPS self-test.
+# HTSLIB_CONFIGURE_OPTIONS points pysam's bundled htslib at the system libs.
+ENV HTSLIB_CONFIGURE_OPTIONS=--enable-libcurl
+RUN python -m pip install --no-cache-dir --no-binary pysam,psycopg2,psycopg2-binary \
+  "ga4gh.vrs[extras]==2.3.3" \
+  && ln -sf /databricks/python3/bin/seqrepo /usr/local/bin/seqrepo
+
+# Smoke test
+RUN python -c "import ga4gh.vrs; import ga4gh.core; from ga4gh.vrs.extras.translator import AlleleTranslator; print(ga4gh.vrs.__version__)" \
+  && python -c "import psycopg2; print(psycopg2.__version__)" \
+  && python -m ga4gh.vrs.extras.annotator.cli --help \
+  && seqrepo --version \
+  && rsync --version

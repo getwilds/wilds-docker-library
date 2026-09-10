@@ -6,10 +6,17 @@ This directory contains Docker images for VRS-Python, the GA4GH reference implem
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_latest.md) )
 - `2.3.3` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_2.3.3) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_2.3.3.md) )
+- `dbx` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_dbx) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_dbx.md) )
+
+## Platform Availability
+
+The `latest` and `2.3.3` images build for both `linux/amd64` and `linux/arm64`.
+
+The `dbx` image is built from a Databricks Runtime base and is `linux/amd64` only (Databricks clusters are x86_64), so `vrs-python` is listed in `amd64_only_tools.txt` and ARM64 builds of the whole directory are skipped.
 
 ## Image Details
 
-These Docker images are built from `python:3.12-slim` and include:
+The `latest` and `2.3.3` images are built from `python:3.12-slim` and include:
 
 - VRS-Python (`ga4gh.vrs`) v2.3.3: GA4GH VRS models, computed identifiers, allele normalization, and the `vrs-annotate` command-line tool
 - `[extras]` dependency group: `biocommons.seqrepo`, `hgvs`, `pysam`, `psycopg2-binary`, and `dill`, enabling the `ga4gh.vrs.extras` translator and VCF annotator
@@ -48,6 +55,17 @@ docker run --rm -v /path/to/seqrepo:/usr/local/share/seqrepo \
 ```
 
 Mount the same directory read-only when running `vrs-annotate` or the translator (see the examples below).
+
+### Databricks (`dbx` tag)
+
+The `dbx` image is built from `databricksruntime/standard:17.3-LTS` so it can be used as a [Databricks Container Services](https://docs.databricks.com/aws/en/compute/custom-containers) cluster image. It installs `ga4gh.vrs[extras]` into the Databricks notebook interpreter at `/databricks/python3`, so the library and the `vrs-annotate` / `seqrepo` CLIs are available directly in notebooks attached to a cluster launched from this image.
+
+Notes:
+
+- The tag is pinned to a specific Databricks Runtime version. Match it to your cluster's DBR version; a mismatch between the container's Python/library stack and the runtime host is unsupported by Databricks.
+- This image only applies to **classic compute** with Container Services enabled. Serverless compute cannot use custom container images; on serverless, install VRS-Python with `%pip install "ga4gh.vrs[extras]==2.3.3"` and point the data proxy at a SeqRepo REST service (`SEQREPO_REST_SERVICE_URL`).
+- `pysam` and `psycopg2` are built from source (rather than installed as prebuilt wheels) so they link the Databricks Runtime system OpenSSL. The prebuilt wheels bundle their own OpenSSL, which fails the FIPS self-test against the Databricks Runtime configuration and aborts the process.
+- Provide SeqRepo reference data from a mounted volume or DBFS path via `SEQREPO_ROOT_DIR`, or use a SeqRepo REST service, exactly as for the other tags.
 
 ## Citation
 
@@ -141,7 +159,7 @@ apptainer run --bind /path/to/data:/data vrs-python_latest.sif \
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The `latest` / `2.3.3` Dockerfiles follow these main steps:
 
 1. Uses `python:3.12-slim` as the base image
 2. Adds metadata labels for documentation and attribution
@@ -150,6 +168,8 @@ The Dockerfile follows these main steps:
 5. Installs `ga4gh.vrs[extras]` at the pinned version via pip with `--no-cache-dir`
 6. Sets `SEQREPO_ROOT_DIR` to a default in-container path for the `seqrepo` CLI and the VRS data proxy
 7. Runs a smoke test that imports the core modules and invokes `vrs-annotate --help`, `seqrepo --version`, and `rsync --version`
+
+`Dockerfile_dbx` differs in that it uses `databricksruntime/standard:17.3-LTS` as the base, installs into the `/databricks/python3` notebook interpreter, and forces source builds of `pysam` and `psycopg2` (with `make`, `autoconf`, and `libssl-dev` added to the build toolchain). The rest of the flow (extras install, SeqRepo env var, smoke test) is the same.
 
 ## Security Scanning and CVEs
 
