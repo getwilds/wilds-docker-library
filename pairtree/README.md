@@ -18,7 +18,7 @@ These Docker images are built from the Conda Forge Miniforge base image and incl
 
 The images are designed to be minimal and focused on Pairtree with its essential dependencies. Pairtree is distributed only as a git repository (no PyPI or conda package exists), so `bin/pairtree` and `bin/plottree` are added directly to `PATH`.
 
-Pairtree's Python dependencies are installed into a dedicated `pairtree` conda environment pinned to Python 3.10, rather than the base image's default environment. This is because Pairtree's numba code depends on an internal, version-specific scipy Cython C-API (`scipy.special.cython_special`), which requires scipy 1.11.x. That scipy version has no `linux-aarch64` build for Python 3.12, so Python 3.10 is used to keep the same scipy version working on both amd64 and arm64.
+Pairtree's Python dependencies are installed into a dedicated `pairtree` conda environment pinned to Python 3.10, rather than the base image's default environment. This is because Pairtree's numba code depends on an internal, version-specific scipy Cython C-API (`scipy.special.cython_special`), which requires scipy 1.11.x. That scipy version has no `linux-aarch64` build for Python 3.12, so Python 3.10 is used to keep the same scipy version working on both amd64 and arm64. numpy is also pinned below 1.24, since Pairtree's own source calls the `np.int`/`np.float` aliases that numpy removed in that release.
 
 ## Citation
 
@@ -101,7 +101,7 @@ The Dockerfile follows these main steps:
 5. Clones the Pairtree v1.0.1 tag and the projectppm repository (pinned to a specific commit) into `/opt/pairtree`
 6. Compiles the projectppm C library that Pairtree uses for subclone frequency fitting
 7. Adds `/opt/pairtree/bin` and the `pairtree` conda environment's `bin/` to `PATH` so `pairtree` and `plottree` are directly callable and resolve to the correct Python environment
-8. Runs a smoke test (`pairtree --help`) to confirm the install
+8. Runs a smoke test: `pairtree --help`, plus a real end-to-end run on Pairtree's bundled example data, to confirm the install actually works (not just that the CLI starts)
 9. Cleans up conda caches, apt lists, and git metadata to minimize image size
 
 ## Security Scanning and CVEs

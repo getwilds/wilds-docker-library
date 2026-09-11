@@ -33,9 +33,12 @@ RUN apt-get update \
 # Cython C-API (scipy.special.cython_special), which is not stable across scipy minor
 # versions. scipy 1.11.4 has no linux-aarch64 build, and neither 1.11.x nor 1.12.x+ has
 # a py312 build for aarch64, so Python is pinned to 3.10 to match the available builds.
+# numpy is pinned below 1.24 because Pairtree's own source (lib/inputparser.py,
+# lib/clustermaker.py, lib/tree_sampler.py) calls the np.int/np.float aliases that
+# numpy removed in 1.24.
 RUN mamba create -y -n pairtree -c conda-forge \
   python=3.10 \
-  numpy=1.26.4 \
+  numpy=1.23.5 \
   scipy=1.11.3 \
   scikit-learn \
   tqdm \
@@ -58,8 +61,14 @@ RUN git checkout "${PROJECTPPM_COMMIT}" \
 # python3 (with the pinned scipy/numba) is what the bin/pairtree shebang resolves to
 ENV PATH=/opt/pairtree/bin:/opt/conda/envs/pairtree/bin:$PATH
 
-# Smoke test to verify Pairtree is installed correctly
-RUN pairtree --help
+# Smoke test to verify Pairtree is installed correctly. --help alone isn't enough,
+# since it exits before reaching the numpy-dependent inputparser/clustermaker/tree_sampler
+# code, so run a minimal end-to-end sample using Pairtree's own bundled example data.
+RUN pairtree --help \
+  && pairtree --trees-per-chain 1 --tree-chains 1 --parallel 1 \
+  --params /opt/pairtree/example/example.params.json \
+  /opt/pairtree/example/example.ssm /tmp/smoketest.results.npz \
+  && rm -f /tmp/smoketest.results.npz
 
 # Set working directory
 WORKDIR /data
