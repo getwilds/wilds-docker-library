@@ -27,11 +27,16 @@ RUN apt-get update \
   git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Install pinned Python dependencies via mamba, plus the plotting extras
-# Pairtree needs (colorlover, plotly) that ship separately from the core requirements
-RUN mamba install -y -c conda-forge \
+# Install pinned Python dependencies into a dedicated environment, plus the plotting extras
+# Pairtree needs (colorlover, plotly) that ship separately from the core requirements.
+# scipy is pinned to 1.11.x because Pairtree's numba code reaches into scipy's internal
+# Cython C-API (scipy.special.cython_special), which is not stable across scipy minor
+# versions. scipy 1.11.4 has no linux-aarch64 build, and neither 1.11.x nor 1.12.x+ has
+# a py312 build for aarch64, so Python is pinned to 3.10 to match the available builds.
+RUN mamba create -y -n pairtree -c conda-forge \
+  python=3.10 \
   numpy=1.26.4 \
-  scipy=1.11.4 \
+  scipy=1.11.3 \
   scikit-learn \
   tqdm \
   numba=0.59 \
@@ -49,8 +54,9 @@ RUN git checkout "${PROJECTPPM_COMMIT}" \
   && bash make.sh \
   && rm -rf /opt/pairtree/.git /opt/pairtree/lib/projectppm/.git
 
-# Add Pairtree's executables to PATH
-ENV PATH=/opt/pairtree/bin:$PATH
+# Add Pairtree's executables and the pairtree conda env to PATH, env first so its
+# python3 (with the pinned scipy/numba) is what the bin/pairtree shebang resolves to
+ENV PATH=/opt/pairtree/bin:/opt/conda/envs/pairtree/bin:$PATH
 
 # Smoke test to verify Pairtree is installed correctly
 RUN pairtree --help
