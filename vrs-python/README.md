@@ -10,9 +10,7 @@ This directory contains Docker images for VRS-Python, the GA4GH reference implem
 
 ## Platform Availability
 
-The `latest` and `2.3.3` images build for both `linux/amd64` and `linux/arm64`.
-
-The `dbx` image is built from a Databricks Runtime base and is `linux/amd64` only (Databricks clusters are x86_64), so `vrs-python` is listed in `amd64_only_tools.txt` and ARM64 builds of the whole directory are skipped.
+The `latest` and `2.3.3` Dockerfiles are capable of building for both `linux/amd64` and `linux/arm64`. However, the `dbx` image is built from a Databricks Runtime base and is `linux/amd64` only (Databricks clusters are x86_64), and `amd64_only_tools.txt` applies per directory rather than per Dockerfile. So with `vrs-python` listed there, CI currently builds and publishes **all three** tags, `latest`, `2.3.3`, and `dbx`, as `linux/amd64` only; ARM64 images are not published for this tool even though `latest`/`2.3.3` could support it.
 
 ## Image Details
 
