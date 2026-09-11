@@ -269,7 +269,7 @@ smoove works well with other structural variant callers in the WILDS ecosystem:
 
 If you use smoove in your research, please cite:
 
-> Pedersen, Brent S., et al. "smoove: structural-variant calling and genotyping with existing tools." Bioinformatics 35.24 (2019): 4778-4780.
+> Pedersen, Brent S., Ryan Layer, and Aaron R. Quinlan. "smoove: structural-variant calling and genotyping with existing tools." Software, v0.2.8 (2020). https://github.com/brentp/smoove
 
 Also cite the underlying LUMPY algorithm:
 

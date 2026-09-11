@@ -32,7 +32,7 @@ The images are designed to provide a comprehensive Flax/JAX-based machine learni
 If you use Flax in your research, please cite the original authors:
 
 ```
-Heek, J., Levskaya, A., Oliver, A., Rber, M., Rondepierre, B., Steiner, A., & van Zee, M. (2024).
+Heek, J., Levskaya, A., Oliver, A., Ritter, M., Rondepierre, B., Steiner, A., & van Zee, M. (2024).
 Flax: A neural network library and ecosystem for JAX.
 http://github.com/google/flax
 ```
