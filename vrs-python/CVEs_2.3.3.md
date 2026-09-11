@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/vrs-python:2.3.3
 
-Report generated on 2026-09-09 21:51:30 PST
+Report generated on 2026-09-11 18:34:09 PST
 
 ## Platform Coverage
 
@@ -10,9 +10,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 7 |
-| 🟠 High | 24 |
-| 🟡 Medium | 18 |
+| 🔴 Critical | 5 |
+| 🟠 High | 20 |
+| 🟡 Medium | 17 |
 | 🟢 Low | 101 |
 | ⚪ Unknown | 27 |
 
@@ -24,16 +24,16 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 1 |
-| 🟡 Medium | 6 |
+| 🟡 Medium | 7 |
 | 🟢 Low | 25 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target     │  getwilds/vrs-python:2.3.3-amd64  │    7C    24H    18M   101L    27?  
-   digest   │  59f7b80cd9a2                             │                                    
- Base image │  python:3.12-slim                         │    0C     1H     6M    25L         
+Target     │  getwilds/vrs-python:2.3.3-amd64  │    5C    20H    17M   101L    27?  
+   digest   │  45eac67136fb                             │                                    
+ Base image │  python:3.12-slim                         │    0C     1H     7M    25L         
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
