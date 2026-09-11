@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/pairtree:latest
 
-Report generated on 2026-09-11 22:16:31 PST
+Report generated on 2026-09-11 22:50:20 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target               │  getwilds/pairtree:latest-amd64  │    5C   132H   2017M   214L  
-   digest             │  9d83a234bc79                            │                              
+   digest             │  dd1e186a0769                            │                              
  Base image           │  ubuntu:24.04                            │    0C     2H    83M    34L   
  Refreshed base image │  ubuntu:24.04                            │    0C     0H    13M     2L   
                       │                                          │           -2    -70    -32   
