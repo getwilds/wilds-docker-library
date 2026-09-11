@@ -64,10 +64,25 @@ RUN apt-get update \
 # Installing VRS-Python with the extras dependency group into the Databricks
 # notebook interpreter, forcing source builds of pysam and psycopg2 so neither
 # ships a bundled OpenSSL that trips the Databricks Runtime FIPS self-test.
-# HTSLIB_CONFIGURE_OPTIONS points pysam's bundled htslib at the system libs.
+# psycopg2-binary has no sdist on PyPI, so --no-binary on it is a silent no-op;
+# instead we skip installing it at all and let hgvs's psycopg2 (sdist) pin
+# satisfy the dependency once built from source. HTSLIB_CONFIGURE_OPTIONS
+# points pysam's bundled htslib at the system libs.
+#
+# pysam==0.23.0 (pinned exactly by ga4gh.vrs[extras], see
+# https://github.com/ga4gh/vrs-python/issues/560) predates pysam's own fix for
+# a Cython 3.1.0 behaviour change that drops pysam.CMATCH and friends
+# (fixed upstream in pysam 0.23.1, see pysam release notes). Building it from
+# source against a Cython >=3.1 toolchain reproduces that breakage, so we pin
+# the build-time Cython to the last pre-3.1 release (3.0.11), which is within
+# pysam's own "Cython>=0.29.12,<4" build requirement.
 ENV HTSLIB_CONFIGURE_OPTIONS=--enable-libcurl
-RUN python -m pip install --no-cache-dir --no-binary pysam,psycopg2,psycopg2-binary \
+RUN python -m pip install --no-cache-dir "Cython==3.0.11" \
+  && python -m pip install --no-cache-dir --no-binary pysam,psycopg2 \
+  "psycopg2==2.9.9" \
   "ga4gh.vrs[extras]==2.3.3" \
+  && python -m pip uninstall -y --no-cache-dir psycopg2-binary \
+  && python -c "import psycopg2, pysam; print(pysam.CMATCH)" \
   && ln -sf /databricks/python3/bin/seqrepo /usr/local/bin/seqrepo
 
 # Smoke test

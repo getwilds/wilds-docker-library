@@ -64,7 +64,7 @@ Notes:
 
 - The tag is pinned to a specific Databricks Runtime version. Match it to your cluster's DBR version; a mismatch between the container's Python/library stack and the runtime host is unsupported by Databricks.
 - This image only applies to **classic compute** with Container Services enabled. Serverless compute cannot use custom container images; on serverless, install VRS-Python with `%pip install "ga4gh.vrs[extras]==2.3.3"` and point the data proxy at a SeqRepo REST service (`SEQREPO_REST_SERVICE_URL`).
-- `pysam` and `psycopg2` are built from source (rather than installed as prebuilt wheels) so they link the Databricks Runtime system OpenSSL. The prebuilt wheels bundle their own OpenSSL, which fails the FIPS self-test against the Databricks Runtime configuration and aborts the process.
+- `pysam` and `psycopg2` are built from source (rather than installed as prebuilt wheels) so they link the Databricks Runtime system OpenSSL. The prebuilt wheels bundle their own OpenSSL, which fails the FIPS self-test against the Databricks Runtime configuration and aborts the process. Building `pysam==0.23.0` from source requires pinning the build-time Cython to `3.0.11`; newer Cython (3.1+) breaks that pysam version's `CMATCH`-style constants (fixed upstream only in pysam 0.23.1+), so this pin should be revisited whenever `ga4gh.vrs[extras]` bumps its `pysam` pin.
 - Provide SeqRepo reference data from a mounted volume or DBFS path via `SEQREPO_ROOT_DIR`, or use a SeqRepo REST service, exactly as for the other tags.
 
 ## Citation
