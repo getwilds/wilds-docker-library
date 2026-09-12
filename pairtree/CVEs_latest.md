@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/pairtree:latest
 
-Report generated on 2026-09-11 22:50:20 PST
+Report generated on 2026-09-12 00:39:10 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 5 |
 | 🟠 High | 132 |
-| 🟡 Medium | 2017 |
+| 🟡 Medium | 2018 |
 | 🟢 Low | 214 |
 | ⚪ Unknown | 0 |
 
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/pairtree:latest-amd64  │    5C   132H   2017M   214L  
-   digest             │  dd1e186a0769                            │                              
+Target               │  getwilds/pairtree:latest-amd64  │    5C   132H   2018M   214L  
+   digest             │  257664607dfb                            │                              
  Base image           │  ubuntu:24.04                            │    0C     2H    83M    34L   
  Refreshed base image │  ubuntu:24.04                            │    0C     0H    13M     2L   
                       │                                          │           -2    -70    -32   
