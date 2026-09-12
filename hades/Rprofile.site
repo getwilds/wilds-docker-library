@@ -1,0 +1,39 @@
+# Site-wide R defaults for the OHDSI/HADES image.
+#
+# Installed as /usr/local/lib/R/etc/Rprofile.site so the build steps, the
+# validation script, and any R session started on the cluster all agree on
+# where packages come from and how long renv may spend installing them.
+
+local({
+
+  # CRAN_REPO is set as an image environment variable. Default is the
+  # Databricks Posit Package Manager binary URL for Ubuntu noble -- the
+  # same mirror DBR uses for cluster package installs. Posit serves Linux
+  # binaries only when the User-Agent reports an R version.
+  repo <- Sys.getenv(
+    "CRAN_REPO",
+    unset = "https://databricks.packagemanager.posit.co/cran/__linux__/noble/2026-03-23"
+  )
+
+  options(
+    repos = c(CRAN = repo),
+    HTTPUserAgent = sprintf(
+      "R/%s R (%s)",
+      getRversion(),
+      paste(
+        getRversion(),
+        R.version$platform,
+        R.version$arch,
+        R.version$os
+      )
+    )
+  )
+
+  # renv's default 3600 second deadline covers the whole install phase, which
+  # is not enough for a lockfile this size once anything compiles from source.
+  timeout <- suppressWarnings(as.integer(Sys.getenv("RENV_INSTALL_TIMEOUT")))
+  if (!is.na(timeout) && timeout > 0L) {
+    options(renv.install.timeout = timeout)
+  }
+
+})
