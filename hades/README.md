@@ -82,6 +82,13 @@ This image is regularly scanned for vulnerabilities using Docker Scout. However,
 
 For the latest security information about this image, please check the `CVEs_*.md` files in this directory, which are automatically updated through our GitHub Actions workflow. Critical or high-severity vulnerabilities will also be reported as GitHub issues in the repository.
 
+## Design Notes
+
+- **Base image**: `databricksruntime/rbase`, not `databricksruntime/standard` (the latter is Python/Spark-only and has no R installed at all).
+- **Pinned lockfile instead of a live install**: HADES pulls in 18 packages from `github.com/ohdsi`. Resolving their dependency graph live (`remotes::install_github()`) means recursively querying the GitHub API for every dependency-of-a-dependency, which burns through the unauthenticated 60-requests/hour limit before the install finishes. `renv::restore()` against a pre-resolved `renv.lock` only needs one API call per GitHub package (18 total), comfortably within that limit.
+- **Raised `renv.install.timeout`**: `renv::restore()` applies one deadline to the whole restore (3600 seconds by default). Compiling ~210 packages from source (no binary package mirror is used here) comfortably overruns that default, so the build raises it to 21600 seconds (6 hours).
+- **`transactional = FALSE`**: `renv`'s default transactional install stages every package in a temporary library and only migrates them into the real project library once the whole restore succeeds. A package installed mid-restore that runs its own dependency check (e.g. `OhdsiSharing` checking for `rJava`/`ParallelLogger`) looks at the not-yet-populated project library and fails even though its dependency already installed successfully. `transactional = FALSE` installs packages directly into the project library as they finish instead.
+
 ## Source Repository
 
 These Dockerfiles are maintained in the [WILDS Docker Library](https://github.com/getwilds/wilds-docker-library) repository. See [CONTRIBUTING.md](https://github.com/getwilds/wilds-docker-library/blob/main/CONTRIBUTING.md) for details on contributing new images or updates.

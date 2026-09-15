@@ -1,46 +1,4 @@
-# syntax=docker/dockerfile:1
-#==============================================================================
-# Databricks Runtime 17.3 LTS (R flavor) + OHDSI HADES 1.20.0
-#
-# Installs HADES on top of the Databricks R cluster runtime so the image runs
-# as Databricks cluster compute. Uses the base image's own R installation
-# (databricksruntime/rbase, not /standard, which is Python/Spark-only and
-# has no R at all).
-#
-# HADES is restored from a pinned renv.lock (generated against
-# databricksruntime/rbase's R 4.6.1) rather than a live
-# remotes::install_github() call. HADES pulls in 18 packages from
-# github.com/ohdsi; resolving their dependency graph live means renv/remotes
-# recursively querying the GitHub API for every dependency-of-a-dependency,
-# which burns through the unauthenticated 60-requests/hour limit before the
-# install finishes. Restoring a pre-resolved lockfile only needs one API call
-# per GitHub package (18 total), comfortably within that limit.
-#
-# renv's install phase has one deadline for the whole restore
-# (RENV_INSTALL_TIMEOUT / options(renv.install.timeout), 3600s by default).
-# ~210 packages compiled from source (no binary package mirror is used here)
-# comfortably overruns that, so the timeout below is raised well past a full
-# from-source restore.
-#
-# renv's default transactional install stages every package in a temporary
-# library and only migrates them into the real project library once the
-# whole restore succeeds. A package installed mid-restore that runs its own
-# dependency check (e.g. OhdsiSharing checking for rJava/ParallelLogger)
-# looks at the not-yet-populated project library and fails even though its
-# dependency already installed successfully. transactional = FALSE installs
-# packages directly into the project library as they finish instead.
-#
-# Apple Silicon build (from the repository root, since the LABEL/tag scheme
-# matches every other tool in this repo):
-#
-#   docker buildx build \
-#     --platform linux/amd64 \
-#     -t getwilds/hades:1.20.0 \
-#     -f hades/Dockerfile_1.20.0 \
-#     --load \
-#     .
-#==============================================================================
-
+# Using the Databricks R cluster runtime base image
 FROM databricksruntime/rbase:17.3-LTS
 
 # Adding labels for the GitHub Container Registry
@@ -53,29 +11,77 @@ LABEL org.opencontainers.image.documentation=https://getwilds.org/
 LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
 LABEL org.opencontainers.image.licenses=MIT
 
-USER root
-
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-#------------------------------------------------------------------------------
-# System dependencies for compiling HADES's CRAN and OHDSI packages from
-# source. Compiling this many R packages (rather than installing from a
-# binary package mirror) needs a broad set of -dev headers; this list is
-# proven against the full HADES 1.20.0 dependency tree.
-#------------------------------------------------------------------------------
-
+# Install system dependencies for compiling HADES's CRAN and OHDSI packages
+# from source (no binary package mirror is used here)
 RUN apt-get update \
-  && PKGS="ca-certificates curl wget git build-essential gcc g++ gfortran \
-  make cmake perl xz-utils bzip2 pkg-config unixodbc unixodbc-dev odbcinst \
-  libcurl4-openssl-dev libssl-dev libxml2-dev libgit2-dev libicu-dev \
-  libbz2-dev liblzma-dev zlib1g-dev libreadline-dev libncurses-dev \
-  libncurses5-dev libncursesw5-dev libtinfo-dev libpcre2-dev libx11-dev \
-  libxt-dev libpng-dev libjpeg-dev libtiff-dev libcairo2-dev \
-  libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev \
-  libzstd-dev libuv1-dev" \
-  && apt-get install -y --no-install-recommends ${PKGS} \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && PERL_VERSION=$(apt-cache policy perl | grep Candidate | awk '{print $2}') \
+  && PKGCONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && UNIXODBC_VERSION=$(apt-cache policy unixodbc | grep Candidate | awk '{print $2}') \
+  && UNIXODBCDEV_VERSION=$(apt-cache policy unixodbc-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBXML2_VERSION=$(apt-cache policy libxml2-dev | grep Candidate | awk '{print $2}') \
+  && LIBGIT2_VERSION=$(apt-cache policy libgit2-dev | grep Candidate | awk '{print $2}') \
+  && LIBICU_VERSION=$(apt-cache policy libicu-dev | grep Candidate | awk '{print $2}') \
+  && LIBREADLINE_VERSION=$(apt-cache policy libreadline-dev | grep Candidate | awk '{print $2}') \
+  && LIBPCRE2_VERSION=$(apt-cache policy libpcre2-dev | grep Candidate | awk '{print $2}') \
+  && LIBX11_VERSION=$(apt-cache policy libx11-dev | grep Candidate | awk '{print $2}') \
+  && LIBXT_VERSION=$(apt-cache policy libxt-dev | grep Candidate | awk '{print $2}') \
+  && LIBPNG_VERSION=$(apt-cache policy libpng-dev | grep Candidate | awk '{print $2}') \
+  && LIBJPEG_VERSION=$(apt-cache policy libjpeg-dev | grep Candidate | awk '{print $2}') \
+  && LIBTIFF_VERSION=$(apt-cache policy libtiff-dev | grep Candidate | awk '{print $2}') \
+  && LIBCAIRO_VERSION=$(apt-cache policy libcairo2-dev | grep Candidate | awk '{print $2}') \
+  && LIBFONTCONFIG_VERSION=$(apt-cache policy libfontconfig1-dev | grep Candidate | awk '{print $2}') \
+  && LIBFREETYPE_VERSION=$(apt-cache policy libfreetype-dev | grep Candidate | awk '{print $2}') \
+  && LIBHARFBUZZ_VERSION=$(apt-cache policy libharfbuzz-dev | grep Candidate | awk '{print $2}') \
+  && LIBFRIBIDI_VERSION=$(apt-cache policy libfribidi-dev | grep Candidate | awk '{print $2}') \
+  && LIBZSTD_VERSION=$(apt-cache policy libzstd-dev | grep Candidate | awk '{print $2}') \
+  && LIBUV_VERSION=$(apt-cache policy libuv1-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  curl="${CURL_VERSION}" \
+  wget="${WGET_VERSION}" \
+  git="${GIT_VERSION}" \
+  gcc="${GCC_VERSION}" \
+  g++="${GPP_VERSION}" \
+  gfortran="${GFORTRAN_VERSION}" \
+  make="${MAKE_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  perl="${PERL_VERSION}" \
+  pkg-config="${PKGCONFIG_VERSION}" \
+  unixodbc="${UNIXODBC_VERSION}" \
+  unixodbc-dev="${UNIXODBCDEV_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libxml2-dev="${LIBXML2_VERSION}" \
+  libgit2-dev="${LIBGIT2_VERSION}" \
+  libicu-dev="${LIBICU_VERSION}" \
+  libreadline-dev="${LIBREADLINE_VERSION}" \
+  libpcre2-dev="${LIBPCRE2_VERSION}" \
+  libx11-dev="${LIBX11_VERSION}" \
+  libxt-dev="${LIBXT_VERSION}" \
+  libpng-dev="${LIBPNG_VERSION}" \
+  libjpeg-dev="${LIBJPEG_VERSION}" \
+  libtiff-dev="${LIBTIFF_VERSION}" \
+  libcairo2-dev="${LIBCAIRO_VERSION}" \
+  libfontconfig1-dev="${LIBFONTCONFIG_VERSION}" \
+  libfreetype-dev="${LIBFREETYPE_VERSION}" \
+  libharfbuzz-dev="${LIBHARFBUZZ_VERSION}" \
+  libfribidi-dev="${LIBFRIBIDI_VERSION}" \
+  libzstd-dev="${LIBZSTD_VERSION}" \
+  libuv1-dev="${LIBUV_VERSION}" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -83,25 +89,17 @@ RUN apt-get update \
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-#------------------------------------------------------------------------------
 # Point R at the base image's Java (rJava's configure otherwise looks for
-# /usr/lib/jvm/default-java, which this image does not symlink).
-#------------------------------------------------------------------------------
-
+# /usr/lib/jvm/default-java, which this image does not symlink)
 ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-amd64
-
 RUN R CMD javareconf
-
-#------------------------------------------------------------------------------
-# Restore HADES from the pinned lockfile (see header comment for why this
-# isn't a plain remotes::install_github() call).
-#------------------------------------------------------------------------------
 
 ARG CRAN_REPO=https://cloud.r-project.org
 ARG RENV_INSTALL_TIMEOUT=21600
 
 COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
 
+# Restore HADES from the pinned lockfile (see README Design Notes)
 RUN R -e "install.packages('renv', repos = '${CRAN_REPO}')" \
   && R -e "\
     options(renv.install.timeout = ${RENV_INSTALL_TIMEOUT}); \
