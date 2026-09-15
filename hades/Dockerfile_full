@@ -3,8 +3,15 @@
 # Databricks Runtime 17.3 LTS + OHDSI HADES 2026Q1
 #
 # Full-parity build of the HADES 2026Q1 release on top of the same
-# Databricks cluster runtime and package mirror used in production. For a
-# lighter, non-Databricks-specific HADES image, see Dockerfile_latest.
+# Databricks cluster runtime and package mirror used in production.
+#
+# Retained (published as getwilds/hades:full) alongside a much simpler
+# build, Dockerfile_latest / Dockerfile_1.20.0, which installs HADES on
+# databricksruntime/rbase with no Databricks-parity package mirror, no
+# from-source R compile, and no notebook-REPL glue. Keep this Dockerfile
+# available for workflows that need exact Databricks cluster parity while
+# the simplified build is evaluated; uses its own lockfile
+# (renv-full.lock) distinct from the simplified build's renv.lock.
 #
 # Apple Silicon build (from the repository root, since COPY sources are
 # rooted there):
@@ -234,7 +241,7 @@ WORKDIR /opt/ohdsi/hades
 # 9. Copy the pinned HADES-wide release lockfile
 #------------------------------------------------------------------------------
 
-COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
+COPY hades/renv-full.lock /opt/ohdsi/hades/renv.lock
 
 #------------------------------------------------------------------------------
 # 10. Verify the lockfile and R version
