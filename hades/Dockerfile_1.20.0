@@ -19,11 +19,13 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install system dependencies for compiling HADES's CRAN and OHDSI packages
 # from source (no binary package mirror is used here), plus a JDK for rJava
-# (this base image, unlike the Databricks runtime, does not ship one)
+# and xz-utils for duckdb (this base image, unlike the Databricks runtime,
+# does not ship either preinstalled)
 RUN apt-get update \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && XZUTILS_VERSION=$(apt-cache policy xz-utils | grep Candidate | awk '{print $2}') \
   && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
   && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
   && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
@@ -57,6 +59,7 @@ RUN apt-get update \
   curl="${CURL_VERSION}" \
   wget="${WGET_VERSION}" \
   git="${GIT_VERSION}" \
+  xz-utils="${XZUTILS_VERSION}" \
   gcc="${GCC_VERSION}" \
   g++="${GPP_VERSION}" \
   gfortran="${GFORTRAN_VERSION}" \
