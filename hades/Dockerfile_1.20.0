@@ -4,7 +4,7 @@ FROM databricksruntime/rbase:17.3-LTS
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="hades"
 LABEL org.opencontainers.image.description="Docker image for OHDSI HADES in Fred Hutch OCDO's WILDS"
-LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.version="1.20.0"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/

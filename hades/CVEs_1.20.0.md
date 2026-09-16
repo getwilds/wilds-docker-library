@@ -1,6 +1,6 @@
-# Vulnerability Report for getwilds/hades:latest
+# Vulnerability Report for getwilds/hades:1.20.0
 
-Report generated on 2026-09-16 03:56:52 PST
+Report generated on 2026-09-16 02:02:19 PST
 
 ## Platform Coverage
 
@@ -35,8 +35,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/hades:latest  │    5C   146H   1950M   184L  
-   digest             │  3bc7b7018319                   │                              
+Target               │  getwilds/hades:1.20.0  │    5C   146H   1950M   184L  
+   digest             │  b06ca311c051                   │                              
  Base image           │  ubuntu:24.04                   │    0C     0H    34M    11L   
  Refreshed base image │  ubuntu:24.04                   │    0C     0H    13M     2L   
                       │                                 │                 -21     -9   
@@ -55,9 +55,9 @@ Health score  E  (28%)
  !      │ Required supply chain attestations missing     │    2 deviations             
 
 What's next:
-    View policy violations → docker scout policy getwilds/hades:latest
-    View vulnerabilities → docker scout cves getwilds/hades:latest
-    View base image update recommendations → docker scout recommendations getwilds/hades:latest
-    Compare with the latest in the registry → docker scout compare --to-latest getwilds/hades:latest
+    View policy violations → docker scout policy getwilds/hades:1.20.0
+    View vulnerabilities → docker scout cves getwilds/hades:1.20.0
+    View base image update recommendations → docker scout recommendations getwilds/hades:1.20.0
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/hades:1.20.0
 ```
 </details>
