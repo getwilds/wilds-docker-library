@@ -4,13 +4,10 @@ This directory contains a Docker image for [HADES](https://ohdsi.github.io/Hades
 
 The image is built on top of the Databricks R cluster runtime (`databricksruntime/rbase`) so it can run as Databricks cluster compute, with HADES installed on top of the base image's own R installation. HADES is restored from a pinned `renv.lock` rather than installed live, so its dependency versions are reproducible and the build doesn't depend on GitHub API rate limits at build time.
 
-A separate `full` tag is also published, built from `Dockerfile_full`: a Databricks-parity image that matches the exact Posit Package Manager mirror and from-source R build used in production Databricks clusters. It is kept available (with its own `renv-full.lock`) while the simplified `latest`/`1.20.0` build above is evaluated as a lighter-weight replacement.
-
 ## Available Versions
 
 - `latest`: HADES 1.20.0 on `databricksruntime/rbase:17.3-LTS`
 - `1.20.0`: HADES 1.20.0 on `databricksruntime/rbase:17.3-LTS`
-- `full`: Databricks-parity HADES 2026Q1 build (see [Dockerfile_full](Dockerfile_full))
 
 ## Image Size
 
