@@ -99,9 +99,12 @@ ARG RENV_INSTALL_TIMEOUT=21600
 
 COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
 
-# Restore HADES from the pinned lockfile (see README Design Notes)
+# Restore HADES from the pinned lockfile (see README Design Notes). Installs
+# are forced serial (RENV_CONFIG_INSTALL_JOBS=1): renv's parallel installer
+# can attempt a package before its own dependencies have finished installing,
+# which surfaces as a spurious "dependencies not available" failure.
 RUN R -e "install.packages('renv', repos = '${CRAN_REPO}')" \
-  && R -e "\
+  && RENV_CONFIG_INSTALL_JOBS=1 R -e "\
     options(renv.install.timeout = ${RENV_INSTALL_TIMEOUT}); \
     renv::restore(lockfile = '/opt/ohdsi/hades/renv.lock', repos = c(CRAN = '${CRAN_REPO}'), transactional = FALSE, prompt = FALSE)"
 
