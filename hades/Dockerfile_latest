@@ -1,5 +1,6 @@
-# Using the Databricks R cluster runtime base image
-FROM databricksruntime/rbase:17.3-LTS
+# Using the Rocker R base image (general-purpose, not Databricks-specific;
+# see Dockerfile_1.20.0dbx for the Databricks Container Services variant)
+FROM rocker/r-ver:4.6.1
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="hades"
@@ -17,7 +18,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install system dependencies for compiling HADES's CRAN and OHDSI packages
-# from source (no binary package mirror is used here)
+# from source (no binary package mirror is used here), plus a JDK for rJava
+# (this base image, unlike the Databricks runtime, does not ship one)
 RUN apt-get update \
   && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
@@ -50,6 +52,7 @@ RUN apt-get update \
   && LIBFRIBIDI_VERSION=$(apt-cache policy libfribidi-dev | grep Candidate | awk '{print $2}') \
   && LIBZSTD_VERSION=$(apt-cache policy libzstd-dev | grep Candidate | awk '{print $2}') \
   && LIBUV_VERSION=$(apt-cache policy libuv1-dev | grep Candidate | awk '{print $2}') \
+  && JDK_VERSION=$(apt-cache policy default-jdk-headless | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   curl="${CURL_VERSION}" \
   wget="${WGET_VERSION}" \
@@ -82,6 +85,7 @@ RUN apt-get update \
   libfribidi-dev="${LIBFRIBIDI_VERSION}" \
   libzstd-dev="${LIBZSTD_VERSION}" \
   libuv1-dev="${LIBUV_VERSION}" \
+  default-jdk-headless="${JDK_VERSION}" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -89,15 +93,15 @@ RUN apt-get update \
 ENV R_LIBS_USER=/usr/local/lib/R/site-library
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
-# Point R at the base image's Java (rJava's configure otherwise looks for
-# /usr/lib/jvm/default-java, which this image does not symlink)
-ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-amd64
+# Point R at the JDK just installed (rJava's configure otherwise looks for
+# /usr/lib/jvm/default-java, which this image does not symlink by default)
+ENV JAVA_HOME=/usr/lib/jvm/default-java
 RUN R CMD javareconf
 
 ARG CRAN_REPO=https://cloud.r-project.org
 ARG RENV_INSTALL_TIMEOUT=21600
 
-COPY hades/renv.lock /opt/ohdsi/hades/renv.lock
+COPY hades/renv_1.20.0.lock /opt/ohdsi/hades/renv.lock
 
 # Restore HADES from the pinned lockfile (see README Design Notes). Installs
 # are forced serial (RENV_CONFIG_INSTALL_JOBS=1): renv's parallel installer
