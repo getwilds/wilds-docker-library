@@ -105,11 +105,21 @@ COPY hades/renv_1.20.0.lock /opt/ohdsi/hades/renv.lock
 # Restore HADES from the pinned lockfile (see README Design Notes). Installs
 # are forced serial (RENV_CONFIG_INSTALL_JOBS=1): renv's parallel installer
 # can attempt a package before its own dependencies have finished installing,
-# which surfaces as a spurious "dependencies not available" failure.
+# which surfaces as a spurious "dependencies not available" failure. Serial
+# installs reduce but do not eliminate this: renv's install order isn't fully
+# dependency-sorted, so a package can still be scheduled before its own
+# dependency even one-at-a-time (e.g. OhdsiSharing before rJava/ParallelLogger).
+# Retrying re-resolves only the packages still missing, so a retry succeeds
+# once the first pass's dependencies are already in place.
 RUN R -e "install.packages('renv', repos = '${CRAN_REPO}')" \
-  && RENV_CONFIG_INSTALL_JOBS=1 R -e "\
-    options(renv.install.timeout = ${RENV_INSTALL_TIMEOUT}); \
-    renv::restore(lockfile = '/opt/ohdsi/hades/renv.lock', repos = c(CRAN = '${CRAN_REPO}'), transactional = FALSE, prompt = FALSE)"
+  && for attempt in 1 2 3; do \
+    RENV_CONFIG_INSTALL_JOBS=1 R -e "\
+      options(renv.install.timeout = ${RENV_INSTALL_TIMEOUT}); \
+      renv::restore(lockfile = '/opt/ohdsi/hades/renv.lock', repos = c(CRAN = '${CRAN_REPO}'), transactional = FALSE, prompt = FALSE)" \
+    && break; \
+    echo "renv::restore attempt ${attempt} failed, retrying..."; \
+    [ "${attempt}" -eq 3 ] && exit 1; \
+  done
 
 # Smoke test: confirm HADES loads
 RUN R -e "library(Hades); packageVersion('Hades')"
