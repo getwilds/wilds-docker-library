@@ -1,0 +1,51 @@
+# Using Python slim base image
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="vrs-python"
+LABEL org.opencontainers.image.description="Docker image for GA4GH VRS-Python in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Configuring shell for better error handling
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing system dependencies with pinned versions
+# gcc/zlib/bzip2/lzma/curl are needed to build pysam; libpq-dev for psycopg2;
+# rsync is required by the seqrepo CLI to pull reference data
+RUN apt-get update \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && ZLIB_VERSION=$(apt-cache policy zlib1g-dev | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-dev | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBPQ_VERSION=$(apt-cache policy libpq-dev | grep Candidate | awk '{print $2}') \
+  && RSYNC_VERSION=$(apt-cache policy rsync | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  gcc="${GCC_VERSION}" \
+  zlib1g-dev="${ZLIB_VERSION}" \
+  libbz2-dev="${LIBBZ2_VERSION}" \
+  liblzma-dev="${LIBLZMA_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libpq-dev="${LIBPQ_VERSION}" \
+  rsync="${RSYNC_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Installing VRS-Python with the extras dependency group (provides the
+# vrs-annotate CLI plus the seqrepo CLI, HGVS, and pysam support)
+RUN pip install --no-cache-dir "ga4gh.vrs[extras]==2.3.3"
+
+# Default SeqRepo location for the seqrepo CLI and the VRS data proxy. Reference
+# data is not bundled (it is multiple GB and versioned by date); mount a volume
+# here and run `seqrepo pull` to populate it, then reuse it read-only.
+ENV SEQREPO_ROOT_DIR=/usr/local/share/seqrepo
+
+# Smoke test
+RUN python -c "import ga4gh.vrs; import ga4gh.core; from ga4gh.vrs.extras.translator import AlleleTranslator; print(ga4gh.vrs.__version__)" \
+  && vrs-annotate --help \
+  && seqrepo --version \
+  && rsync --version
