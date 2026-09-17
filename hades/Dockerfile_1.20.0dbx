@@ -1,0 +1,127 @@
+# Using the Databricks R cluster runtime base image so the container can be
+# used as a Databricks Container Services cluster image. This is NOT the
+# general-purpose HADES image (see Dockerfile_latest/Dockerfile_1.20.0 for
+# that); Databricks clusters are x86_64 only, so this variant is amd64-only.
+FROM databricksruntime/rbase:17.3-LTS
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="hades"
+LABEL org.opencontainers.image.description="Databricks Runtime image for OHDSI HADES in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="1.20.0dbx"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install system dependencies for compiling HADES's CRAN and OHDSI packages
+# from source (no binary package mirror is used here)
+RUN apt-get update \
+  && CURL_VERSION=$(apt-cache policy curl | grep Candidate | awk '{print $2}') \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
+  && GPP_VERSION=$(apt-cache policy g++ | grep Candidate | awk '{print $2}') \
+  && GFORTRAN_VERSION=$(apt-cache policy gfortran | grep Candidate | awk '{print $2}') \
+  && MAKE_VERSION=$(apt-cache policy make | grep Candidate | awk '{print $2}') \
+  && CMAKE_VERSION=$(apt-cache policy cmake | grep Candidate | awk '{print $2}') \
+  && PERL_VERSION=$(apt-cache policy perl | grep Candidate | awk '{print $2}') \
+  && PKGCONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
+  && UNIXODBC_VERSION=$(apt-cache policy unixodbc | grep Candidate | awk '{print $2}') \
+  && UNIXODBCDEV_VERSION=$(apt-cache policy unixodbc-dev | grep Candidate | awk '{print $2}') \
+  && LIBCURL_VERSION=$(apt-cache policy libcurl4-openssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl-dev | grep Candidate | awk '{print $2}') \
+  && LIBXML2_VERSION=$(apt-cache policy libxml2-dev | grep Candidate | awk '{print $2}') \
+  && LIBGIT2_VERSION=$(apt-cache policy libgit2-dev | grep Candidate | awk '{print $2}') \
+  && LIBICU_VERSION=$(apt-cache policy libicu-dev | grep Candidate | awk '{print $2}') \
+  && LIBREADLINE_VERSION=$(apt-cache policy libreadline-dev | grep Candidate | awk '{print $2}') \
+  && LIBPCRE2_VERSION=$(apt-cache policy libpcre2-dev | grep Candidate | awk '{print $2}') \
+  && LIBX11_VERSION=$(apt-cache policy libx11-dev | grep Candidate | awk '{print $2}') \
+  && LIBXT_VERSION=$(apt-cache policy libxt-dev | grep Candidate | awk '{print $2}') \
+  && LIBPNG_VERSION=$(apt-cache policy libpng-dev | grep Candidate | awk '{print $2}') \
+  && LIBJPEG_VERSION=$(apt-cache policy libjpeg-dev | grep Candidate | awk '{print $2}') \
+  && LIBTIFF_VERSION=$(apt-cache policy libtiff-dev | grep Candidate | awk '{print $2}') \
+  && LIBCAIRO_VERSION=$(apt-cache policy libcairo2-dev | grep Candidate | awk '{print $2}') \
+  && LIBFONTCONFIG_VERSION=$(apt-cache policy libfontconfig1-dev | grep Candidate | awk '{print $2}') \
+  && LIBFREETYPE_VERSION=$(apt-cache policy libfreetype-dev | grep Candidate | awk '{print $2}') \
+  && LIBHARFBUZZ_VERSION=$(apt-cache policy libharfbuzz-dev | grep Candidate | awk '{print $2}') \
+  && LIBFRIBIDI_VERSION=$(apt-cache policy libfribidi-dev | grep Candidate | awk '{print $2}') \
+  && LIBZSTD_VERSION=$(apt-cache policy libzstd-dev | grep Candidate | awk '{print $2}') \
+  && LIBUV_VERSION=$(apt-cache policy libuv1-dev | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  curl="${CURL_VERSION}" \
+  wget="${WGET_VERSION}" \
+  git="${GIT_VERSION}" \
+  gcc="${GCC_VERSION}" \
+  g++="${GPP_VERSION}" \
+  gfortran="${GFORTRAN_VERSION}" \
+  make="${MAKE_VERSION}" \
+  cmake="${CMAKE_VERSION}" \
+  perl="${PERL_VERSION}" \
+  pkg-config="${PKGCONFIG_VERSION}" \
+  unixodbc="${UNIXODBC_VERSION}" \
+  unixodbc-dev="${UNIXODBCDEV_VERSION}" \
+  libcurl4-openssl-dev="${LIBCURL_VERSION}" \
+  libssl-dev="${LIBSSL_VERSION}" \
+  libxml2-dev="${LIBXML2_VERSION}" \
+  libgit2-dev="${LIBGIT2_VERSION}" \
+  libicu-dev="${LIBICU_VERSION}" \
+  libreadline-dev="${LIBREADLINE_VERSION}" \
+  libpcre2-dev="${LIBPCRE2_VERSION}" \
+  libx11-dev="${LIBX11_VERSION}" \
+  libxt-dev="${LIBXT_VERSION}" \
+  libpng-dev="${LIBPNG_VERSION}" \
+  libjpeg-dev="${LIBJPEG_VERSION}" \
+  libtiff-dev="${LIBTIFF_VERSION}" \
+  libcairo2-dev="${LIBCAIRO_VERSION}" \
+  libfontconfig1-dev="${LIBFONTCONFIG_VERSION}" \
+  libfreetype-dev="${LIBFREETYPE_VERSION}" \
+  libharfbuzz-dev="${LIBHARFBUZZ_VERSION}" \
+  libfribidi-dev="${LIBFRIBIDI_VERSION}" \
+  libzstd-dev="${LIBZSTD_VERSION}" \
+  libuv1-dev="${LIBUV_VERSION}" \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+# Set R library paths to avoid host contamination in Apptainer
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+
+# Point R at the base image's Java (rJava's configure otherwise looks for
+# /usr/lib/jvm/default-java, which this image does not symlink)
+ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-amd64
+RUN R CMD javareconf
+
+ARG CRAN_REPO=https://cloud.r-project.org
+ARG RENV_INSTALL_TIMEOUT=21600
+
+COPY hades/renv_1.20.0.lock /opt/ohdsi/hades/renv.lock
+
+# Restore HADES from the pinned lockfile (see README Design Notes). Installs
+# are forced serial (RENV_CONFIG_INSTALL_JOBS=1): renv's parallel installer
+# can attempt a package before its own dependencies have finished installing,
+# which surfaces as a spurious "dependencies not available" failure. Serial
+# installs reduce but do not eliminate this: renv's install order isn't fully
+# dependency-sorted, so a package can still be scheduled before its own
+# dependency even one-at-a-time (e.g. OhdsiSharing before rJava/ParallelLogger).
+# Retrying re-resolves only the packages still missing, so a retry succeeds
+# once the first pass's dependencies are already in place.
+RUN R -e "install.packages('renv', repos = '${CRAN_REPO}')" \
+  && for attempt in 1 2 3; do \
+    RENV_CONFIG_INSTALL_JOBS=1 R -e "\
+      options(renv.install.timeout = ${RENV_INSTALL_TIMEOUT}); \
+      renv::restore(lockfile = '/opt/ohdsi/hades/renv.lock', repos = c(CRAN = '${CRAN_REPO}'), transactional = FALSE, prompt = FALSE)" \
+    && break; \
+    echo "renv::restore attempt ${attempt} failed, retrying..."; \
+    [ "${attempt}" -eq 3 ] && exit 1; \
+  done
+
+# Smoke test: confirm HADES loads
+RUN R -e "library(Hades); packageVersion('Hades')"
+
+WORKDIR /
