@@ -6,11 +6,11 @@ This directory contains Docker images for VRS-Python, the GA4GH reference implem
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_latest.md) )
 - `2.3.3` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_2.3.3) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_2.3.3.md) )
-- `dbx` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_dbx) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_dbx.md) )
+- `2.3.3dbx` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/Dockerfile_2.3.3dbx) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/vrs-python/CVEs_2.3.3dbx.md) )
 
 ## Platform Availability
 
-The `latest` and `2.3.3` Dockerfiles are capable of building for both `linux/amd64` and `linux/arm64`. However, the `dbx` image is built from a Databricks Runtime base and is `linux/amd64` only (Databricks clusters are x86_64), and `amd64_only_tools.txt` applies per directory rather than per Dockerfile. So with `vrs-python` listed there, CI currently builds and publishes **all three** tags, `latest`, `2.3.3`, and `dbx`, as `linux/amd64` only; ARM64 images are not published for this tool even though `latest`/`2.3.3` could support it.
+The `latest` and `2.3.3` Dockerfiles are capable of building for both `linux/amd64` and `linux/arm64`. However, the `2.3.3dbx` image is built from a Databricks Runtime base and is `linux/amd64` only (Databricks clusters are x86_64), and `amd64_only_tools.txt` applies per directory rather than per Dockerfile. So with `vrs-python` listed there, CI currently builds and publishes **all three** tags, `latest`, `2.3.3`, and `2.3.3dbx`, as `linux/amd64` only; ARM64 images are not published for this tool even though `latest`/`2.3.3` could support it.
 
 ## Image Details
 
@@ -54,13 +54,13 @@ docker run --rm -v /path/to/seqrepo:/usr/local/share/seqrepo \
 
 Mount the same directory read-only when running `vrs-annotate` or the translator (see the examples below).
 
-### Databricks (`dbx` tag)
+### Databricks (`2.3.3dbx` tag)
 
-The `dbx` image is built from `databricksruntime/standard:17.3-LTS` so it can be used as a [Databricks Container Services](https://docs.databricks.com/aws/en/compute/custom-containers) cluster image. It installs `ga4gh.vrs[extras]` into the Databricks notebook interpreter at `/databricks/python3`, so the library and the `vrs-annotate` / `seqrepo` CLIs are available directly in notebooks attached to a cluster launched from this image.
+The `2.3.3dbx` image is built from `databricksruntime/standard:17.3-LTS` so it can be used as a [Databricks Container Services](https://docs.databricks.com/aws/en/compute/custom-containers) cluster image. It installs `ga4gh.vrs[extras]` into the Databricks notebook interpreter at `/databricks/python3`, so the library and the `vrs-annotate` / `seqrepo` CLIs are available directly in notebooks attached to a cluster launched from this image.
 
 Notes:
 
-- The tag is pinned to a specific Databricks Runtime version. Match it to your cluster's DBR version; a mismatch between the container's Python/library stack and the runtime host is unsupported by Databricks.
+- The tag is pinned to both a VRS-Python version and a specific Databricks Runtime version (`Dockerfile_<vrs-python-version>dbx`). Match it to your cluster's DBR version; a mismatch between the container's Python/library stack and the runtime host is unsupported by Databricks.
 - This image only applies to **classic compute** with Container Services enabled. Serverless compute cannot use custom container images; on serverless, install VRS-Python with `%pip install "ga4gh.vrs[extras]==2.3.3"` and point the data proxy at a SeqRepo REST service (`SEQREPO_REST_SERVICE_URL`).
 - `pysam` and `psycopg2` are built from source (rather than installed as prebuilt wheels) so they link the Databricks Runtime system OpenSSL. The prebuilt wheels bundle their own OpenSSL, which fails the FIPS self-test against the Databricks Runtime configuration and aborts the process. Building `pysam==0.23.0` from source requires pinning the build-time Cython to `3.0.11`; newer Cython (3.1+) breaks that pysam version's `CMATCH`-style constants (fixed upstream only in pysam 0.23.1+), so this pin should be revisited whenever `ga4gh.vrs[extras]` bumps its `pysam` pin.
 - Provide SeqRepo reference data from a mounted volume or DBFS path via `SEQREPO_ROOT_DIR`, or use a SeqRepo REST service, exactly as for the other tags.
@@ -167,7 +167,7 @@ The `latest` / `2.3.3` Dockerfiles follow these main steps:
 6. Sets `SEQREPO_ROOT_DIR` to a default in-container path for the `seqrepo` CLI and the VRS data proxy
 7. Runs a smoke test that imports the core modules and invokes `vrs-annotate --help`, `seqrepo --version`, and `rsync --version`
 
-`Dockerfile_dbx` differs in that it uses `databricksruntime/standard:17.3-LTS` as the base, installs into the `/databricks/python3` notebook interpreter, and forces source builds of `pysam` and `psycopg2` (with `make`, `autoconf`, and `libssl-dev` added to the build toolchain). The rest of the flow (extras install, SeqRepo env var, smoke test) is the same.
+`Dockerfile_2.3.3dbx` differs in that it uses `databricksruntime/standard:17.3-LTS` as the base, installs into the `/databricks/python3` notebook interpreter, and forces source builds of `pysam` and `psycopg2` (with `make`, `autoconf`, and `libssl-dev` added to the build toolchain). The rest of the flow (extras install, SeqRepo env var, smoke test) is the same.
 
 ## Security Scanning and CVEs
 

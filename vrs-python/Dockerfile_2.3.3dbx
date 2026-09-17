@@ -7,7 +7,7 @@ FROM databricksruntime/standard:17.3-LTS
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="vrs-python"
 LABEL org.opencontainers.image.description="Databricks Runtime image for GA4GH VRS-Python in Fred Hutch OCDO's WILDS"
-LABEL org.opencontainers.image.version="dbx"
+LABEL org.opencontainers.image.version="2.3.3dbx"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/
