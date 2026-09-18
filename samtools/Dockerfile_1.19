@@ -57,6 +57,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Installing runtime dependencies only
 RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && LIBNCURSES_VERSION=$(apt-cache policy libncursesw6 | grep Candidate | awk '{print $2}') \
   && LIBBZ2_VERSION=$(apt-cache policy libbz2-1.0 | grep Candidate | awk '{print $2}') \
   && LIBLZMA_VERSION=$(apt-cache policy liblzma5 | grep Candidate | awk '{print $2}') \
@@ -64,6 +65,7 @@ RUN apt-get update \
   && LIBCURL4_VERSION=$(apt-cache policy libcurl3t64-gnutls | grep Candidate | awk '{print $2}') \
   && BEDTOOLS_VERSION=$(apt-cache policy bedtools | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
   libncursesw6="${LIBNCURSES_VERSION}" \
   libbz2-1.0="${LIBBZ2_VERSION}" \
   liblzma5="${LIBLZMA_VERSION}" \
