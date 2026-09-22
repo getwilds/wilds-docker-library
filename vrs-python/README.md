@@ -1,6 +1,6 @@
 # VRS-Python
 
-This directory contains Docker images for VRS-Python, the GA4GH reference implementation of the Variation Representation Specification (VRS). It provides Python models, computed identifier generation, allele normalization, format translation (HGVS, SPDI, gnomAD-style), and VCF annotation for representing genetic variation in a standardized, machine-readable way.
+This directory contains Docker images for VRS-Python, the GA4GH reference implementation of the Variation Representation Specification (VRS). It provides Python models, computed identifier generation, allele normalization, format translation (HGVS, SPDI, gnomAD-style), and VCF annotation for representing genetic variation in a standardized, machine-readable way. Note that these images do not bundle the SeqRepo reference data VRS-Python needs for normalization and translation; see [Reference data](#reference-data) below.
 
 ## Available Versions
 
