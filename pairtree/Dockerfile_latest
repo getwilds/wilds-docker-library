@@ -27,17 +27,6 @@ RUN apt-get update \
   git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
-# Install pinned Python dependencies into a dedicated environment, plus the plotting extras
-# Pairtree needs (colorlover, plotly) that ship separately from the core requirements.
-# scipy is pinned to 1.11.x because Pairtree's numba code reaches into scipy's internal
-# Cython C-API (scipy.special.cython_special), which is not stable across scipy minor
-# versions. scipy 1.11.4 has no linux-aarch64 build, and neither 1.11.x nor 1.12.x+ has
-# a py312 build for aarch64, so Python is pinned to 3.10 to match the available builds.
-# numpy is pinned below 1.24 because Pairtree's own source (lib/inputparser.py,
-# lib/clustermaker.py, lib/tree_sampler.py) calls the np.int/np.float aliases that
-# numpy removed in 1.24. scikit-learn is pinned below 1.2 because lib/common.py calls
-# AgglomerativeClustering with the affinity= kwarg, which sklearn renamed to metric=
-# in 1.2 and removed outright in 1.4.
 RUN mamba create -y -n pairtree -c conda-forge \
   python=3.10 \
   numpy=1.23.5 \
