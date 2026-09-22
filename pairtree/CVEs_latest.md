@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/pairtree:latest
 
-Report generated on 2026-09-12 00:39:10 PST
+Report generated on 2026-09-22 16:29:51 PST
 
 ## Platform Coverage
 
@@ -10,10 +10,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 5 |
-| 🟠 High | 132 |
-| 🟡 Medium | 2018 |
-| 🟢 Low | 214 |
+| 🔴 Critical | 1 |
+| 🟠 High | 85 |
+| 🟡 Medium | 2293 |
+| 🟢 Low | 158 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -31,25 +31,29 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 **Refreshed base image:** `ubuntu:24.04`
 
+**Updated base image:** `ubuntu:26.04`
+
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/pairtree:latest-amd64  │    5C   132H   2018M   214L  
-   digest             │  257664607dfb                            │                              
+Target               │  getwilds/pairtree:latest-amd64  │    1C    85H   2293M   158L  
+   digest             │  59842546eaa0                            │                              
  Base image           │  ubuntu:24.04                            │    0C     2H    83M    34L   
- Refreshed base image │  ubuntu:24.04                            │    0C     0H    13M     2L   
-                      │                                          │           -2    -70    -32   
+ Refreshed base image │  ubuntu:24.04                            │    0C     0H     7M     2L   
+                      │                                          │           -2    -76    -32   
+ Updated base image   │  ubuntu:26.04                            │    0C     0H     0M     0L   
+                      │                                          │           -2    -83    -34   
 
-Policy status  FAILED  (2/7 policies met)
-Health score  E  (28%)
+Policy status  FAILED  (3/7 policies met)
+Health score  D  (50%)
 
  Status │                     Policy                     │           Results           
 ────────┼────────────────────────────────────────────────┼─────────────────────────────
  !      │ Image runs as the root user                    │                             
  !      │ Copyleft licensed packages found               │    538 packages             
  !      │ Fixable critical or high vulnerabilities found │    0C    12H     0M     0L  
- !      │ High-profile vulnerabilities found             │    0C     1H     0M     0L  
+ ✓      │ No high-profile vulnerabilities                │    0C     0H     0M     0L  
  ✓      │ No outdated base images                        │                             
  ✓      │ No unapproved base images                      │    0 deviations             
  !      │ Required supply chain attestations missing     │    2 deviations             
