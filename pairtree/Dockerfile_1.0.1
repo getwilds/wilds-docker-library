@@ -1,0 +1,68 @@
+# Using the miniforge base image for conda/mamba package management
+FROM condaforge/miniforge3:25.3.0-3
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="pairtree"
+LABEL org.opencontainers.image.description="Docker image for Pairtree in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="1.0.1"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url="https://ocdo.fredhutch.org/"
+LABEL org.opencontainers.image.documentation="https://getwilds.org/"
+LABEL org.opencontainers.image.source="https://github.com/getwilds/wilds-docker-library"
+LABEL org.opencontainers.image.licenses="MIT"
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set version variables
+ENV PAIRTREE_VERSION=1.0.1 \
+    PROJECTPPM_COMMIT=8f2882a41ba34642aadbfc473d9ae5d61e517ef3
+
+# Install build tools needed to compile projectppm
+RUN apt-get update \
+  && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
+  && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  build-essential="${BUILD_ESSENTIAL_VERSION}" \
+  git="${GIT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN mamba create -y -n pairtree -c conda-forge \
+  python=3.10 \
+  numpy=1.23.5 \
+  scipy=1.11.3 \
+  scikit-learn=1.1.3 \
+  tqdm \
+  numba=0.59 \
+  colorlover \
+  plotly \
+  && mamba clean -afy
+
+# Clone Pairtree and build its projectppm C library for subclone frequency fitting
+RUN git clone --branch v${PAIRTREE_VERSION} --depth 1 \
+  https://github.com/morrislab/pairtree /opt/pairtree \
+  && git clone https://github.com/ethanumn/projectppm /opt/pairtree/lib/projectppm
+
+WORKDIR /opt/pairtree/lib/projectppm
+RUN git checkout "${PROJECTPPM_COMMIT}" \
+  && bash make.sh \
+  && rm -rf /opt/pairtree/.git /opt/pairtree/lib/projectppm/.git
+
+# Add Pairtree's executables and the pairtree conda env to PATH, env first so its
+# python3 (with the pinned scipy/numba) is what the bin/pairtree shebang resolves to
+ENV PATH=/opt/pairtree/bin:/opt/conda/envs/pairtree/bin:$PATH
+
+# Smoke test to verify Pairtree is installed correctly. --help alone isn't enough,
+# since it exits before reaching the numpy/scikit-learn-dependent code paths, so run
+# both pairtree and plottree end-to-end using Pairtree's own bundled example data.
+RUN pairtree --help && plottree --help \
+  && pairtree --trees-per-chain 1 --tree-chains 1 --parallel 1 \
+  --params /opt/pairtree/example/example.params.json \
+  /opt/pairtree/example/example.ssm /tmp/smoketest.results.npz \
+  && plottree --runid smoketest \
+  /opt/pairtree/example/example.ssm /opt/pairtree/example/example.params.json \
+  /tmp/smoketest.results.npz /tmp/smoketest.results.html \
+  && rm -f /tmp/smoketest.results.npz /tmp/smoketest.results.html
+
+# Set working directory
+WORKDIR /data
