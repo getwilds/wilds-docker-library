@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gwaslab:4.2.1
 
-Report generated on 2026-07-30 19:00:07 PST
+Report generated on 2026-09-23 01:57:36 PST
 
 ## Platform Coverage
 
@@ -10,11 +10,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 1 |
+| 🔴 Critical | 0 |
 | 🟠 High | 2 |
-| 🟡 Medium | 7 |
-| 🟢 Low | 29 |
-| ⚪ Unknown | 7 |
+| 🟡 Medium | 6 |
+| 🟢 Low | 25 |
+| ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
 
@@ -22,24 +22,18 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 | Severity | Count |
 |----------|-------|
-| 🔴 Critical | 1 |
+| 🔴 Critical | 0 |
 | 🟠 High | 2 |
-| 🟡 Medium | 7 |
-| 🟢 Low | 29 |
-
-## 🔄 Recommendations
-
-**Updated base image:** `python:3.13-slim`
+| 🟡 Medium | 6 |
+| 🟢 Low | 25 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/gwaslab:4.2.1-amd64  │    1C     2H     7M    29L     7?  
-   digest           │  95db968f9e9d                          │                                    
- Base image         │  python:3.12-slim                      │    1C     2H     7M    29L     7?  
- Updated base image │  python:3.13-slim                      │    1C     2H     3M    28L     7?  
-                    │                                        │                  -4     -1         
+Target     │  getwilds/gwaslab:4.2.1-amd64  │    0C     2H     6M    25L  
+   digest   │  e7e3cef49fc0                          │                             
+ Base image │  python:3.12-slim                      │    0C     2H     6M    25L  
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
@@ -47,7 +41,7 @@ Health score  B  (72%)
  Status │                   Policy                    │           Results           
 ────────┼─────────────────────────────────────────────┼─────────────────────────────
  !      │ Image runs as the root user                 │                             
- !      │ Copyleft licensed packages found            │    368 packages             
+ !      │ Copyleft licensed packages found            │    369 packages             
  ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
  ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
  ✓      │ No outdated base images                     │                             
@@ -57,7 +51,6 @@ Health score  B  (72%)
 What's next:
     View policy violations → docker scout policy getwilds/gwaslab:4.2.1-amd64
     View vulnerabilities → docker scout cves getwilds/gwaslab:4.2.1-amd64
-    View base image update recommendations → docker scout recommendations getwilds/gwaslab:4.2.1-amd64
     Compare with the latest in the registry → docker scout compare --to-latest getwilds/gwaslab:4.2.1-amd64
 ```
 </details>
