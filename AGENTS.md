@@ -23,7 +23,7 @@ Makefile                # local dev commands
 
 Every Dockerfile **must** include:
 
-1. **OCI metadata labels** — title, description, version, authors (`wilds@fredhutch.org`), source URL, MIT license
+1. **OCI metadata labels** — title, description, version, authors (`wilds@fredhutch.org`), source URL, MIT license. The `description` label must be 100 bytes or less (the overview upload rejects longer values)
 2. **Shell config** — `SHELL ["/bin/bash", "-o", "pipefail", "-c"]`
 3. **Pinned versions** — use `apt-cache policy` for system packages; never use `latest` in downloads
 4. **Smoke test** — a `RUN` command verifying the install (e.g., `tool --version`)

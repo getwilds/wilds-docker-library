@@ -27,7 +27,7 @@ Before writing any files, research the tool to understand:
 - Create a new directory named after the tool (lowercase, hyphens for multi-word names)
 - Read `template/Dockerfile_template` first as the formatting reference
 - Create `Dockerfile_latest` following ALL Dockerfile requirements from `AGENTS.md`:
-  - OCI metadata labels (title, description, version, authors, source URL, MIT license)
+  - OCI metadata labels (title, description, version, authors, source URL, MIT license). Keep `description` to 100 bytes or less, since the overview upload rejects longer values (check with `printf '%s' "$desc" | wc -c`)
   - `SHELL ["/bin/bash", "-o", "pipefail", "-c"]`
   - Pinned versions for system packages using `apt-cache policy`
   - A smoke test `RUN` command verifying the install (e.g., `tool --version`)
