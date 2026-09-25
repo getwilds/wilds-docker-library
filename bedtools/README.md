@@ -87,9 +87,10 @@ apptainer run --bind /path/to/data:/data bedtools_latest.sif bedtools intersect 
 
 The BEDTools Docker images include:
 
-- Dynamic versioning for build-essential to ensure the latest security patches
+- Multi-stage build that keeps compilers and development headers out of the final image
+- Dynamic versioning for dependencies to ensure the latest security patches in both stages
 - Installation through Ubuntu package repositories for properly vetted binaries
-- Minimal installation with only required dependencies
+- Minimal installation with only required runtime dependencies
 
 ### Security Scanning and CVEs
 
@@ -101,13 +102,17 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Dynamically determines and pins the latest security-patched version of build-essential
-4. Installs BEDTools directly from the Ubuntu package repository
-5. Cleans up package caches to minimize image size
+1. **Build stage**: Uses Ubuntu 24.04 with build tools and dev headers to compile Samtools v1.20 from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime libraries needed to run the compiled binary
+3. Adds metadata labels for documentation and attribution
+4. Dynamically determines and pins the latest security-patched versions of dependencies in both stages
+5. Installs BEDTools directly from the Ubuntu package repository in the final stage
+6. Copies the compiled Samtools binary from the build stage
+7. Cleans up package caches to minimize image size
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Source Repository
 
