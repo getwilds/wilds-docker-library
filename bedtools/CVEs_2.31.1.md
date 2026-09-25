@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bedtools:2.31.1
 
-Report generated on 2025-12-01 09:30:24 PST
+Report generated on 2026-09-25 17:04:55 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 18 |
-| 🟡 Medium | 1478 |
-| 🟢 Low | 43 |
+| 🟠 High | 0 |
+| 🟡 Medium | 14 |
+| 🟢 Low | 2 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,30 +24,40 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 13 |
-| 🟢 Low | 6 |
+| 🟡 Medium | 9 |
+| 🟢 Low | 2 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:24.04`
-
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/bedtools:2.31.1  │    0C    18H   1478M    43L   
-    digest             │  7ccc610a71d8                      │                               
-  Base image           │  ubuntu:24.04                      │    0C     0H    13M     6L    
-  Refreshed base image │  ubuntu:24.04                      │    0C     0H     2M     5L    
-                       │                                    │                 -11     -1    
-  Updated base image   │  ubuntu:25.04                      │    0C     0H     2M     4L    
-                       │                                    │                 -11     -2    
+Target             │  getwilds/bedtools:2.31.1-amd64  │    0C     0H    14M     2L  
+   digest           │  274c2b76db02                            │                             
+ Base image         │  ubuntu:24.04                            │    0C     0H     9M     2L  
+ Updated base image │  ubuntu:26.04                            │    0C     0H     0M     0L  
+                    │                                          │                  -9     -2  
+
+Policy status  FAILED  (4/7 policies met)
+Health score  B  (72%)
+
+ Status │                   Policy                    │           Results           
+────────┼─────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                 │                             
+ !      │ Copyleft licensed packages found            │    444 packages             
+ ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
+ ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                     │                             
+ ✓      │ No unapproved base images                   │    0 deviations             
+ !      │ Required supply chain attestations missing  │    2 deviations             
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/bedtools:2.31.1
-    View base image update recommendations → docker scout recommendations getwilds/bedtools:2.31.1
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bedtools:2.31.1 --org <organization>
+    View policy violations → docker scout policy getwilds/bedtools:2.31.1-amd64
+    View vulnerabilities → docker scout cves getwilds/bedtools:2.31.1-amd64
+    View base image update recommendations → docker scout recommendations getwilds/bedtools:2.31.1-amd64
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/bedtools:2.31.1-amd64
 ```
 </details>
