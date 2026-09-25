@@ -96,9 +96,10 @@ apptainer run --bind /path/to/data:/data docker://getwilds/gatk:latest gatk Hapl
 
 The GATK Docker images include:
 
+- **Multi-stage build**: Keeps compilers and development headers out of the final image
 - **Source compilation**: Built from source for optimal performance and security
-- **Pinned versions**: Specific versions for reproducibility
-- **Minimal installation**: Only required dependencies included
+- **Pinned versions**: Specific versions for reproducibility in both stages
+- **Minimal installation**: Only required runtime dependencies included
 - **Regular updates**: Images updated with latest security patches
 
 ### Security Scanning and CVEs
@@ -111,16 +112,16 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs build dependencies and core packages via `apt-get`
-4. Downloads and installs GATK 4.6.1.0 from official releases
-5. Builds and installs htslib 1.20 from source (includes bgzip and tabix)
-6. Builds and installs samtools 1.20 from source
-7. Updates library cache and verifies all installations
-8. Cleans up build artifacts to minimize image size
+1. **Build stage**: Uses Ubuntu 24.04 with build tools and dev headers to download GATK 4.6.1.0 and compile htslib 1.20 (bgzip, tabix) and samtools 1.20 from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime libraries needed to run GATK and the compiled binaries
+3. Adds metadata labels for documentation and attribution
+4. Dynamically determines and pins the latest security-patched versions of dependencies in both stages
+5. Copies GATK and the compiled samtools/htslib binaries from the build stage
+6. Verifies all installations with a smoke test
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Source Repository
 
