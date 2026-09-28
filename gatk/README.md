@@ -21,6 +21,10 @@ These Docker images are built from Ubuntu 24.04 and include:
 
 The images are designed to be comprehensive yet minimal, providing all essential tools for genomics analysis workflows.
 
+## Platform Availability
+
+**Note:** This image is only built for **linux/amd64** architecture. GATK's official release bundles the GenomicsDB (`libtiledbgenomicsdb.so`) and Intel GKL native libraries as x86_64-only binaries, with no ARM64 variant provided upstream. Tools that depend on GenomicsDB, such as `GenomicsDBImport` and `CreateSomaticPanelOfNormals`, fail at runtime on ARM64 hosts even when the image itself builds successfully, so ARM64 images are not published for this tool.
+
 ## Usage
 
 ### Docker
