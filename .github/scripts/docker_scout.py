@@ -28,7 +28,7 @@ import glob
 import logging
 import time
 from datetime import datetime
-from utils import run_command, parse_scout_quickview
+from utils import run_command, parse_scout_quickview, load_amd64_only_tools
 
 # Set up logging
 logging.basicConfig(
@@ -37,6 +37,10 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 logger = logging.getLogger("docker-scout")
+
+# Tools that should only be built for AMD64 (not ARM64)
+# Loaded from amd64_only_tools.txt
+AMD64_ONLY_TOOLS = load_amd64_only_tools()
 
 
 def discover_tools_and_tags(specific_tool=None):
@@ -130,16 +134,22 @@ def scan_image(tool, tag):
             f.write(f"# Vulnerability Report for {container}\n\n")
             f.write(f"Report generated on {pst_now}\n\n")
             f.write("## Platform Coverage\n\n")
-            f.write("This vulnerability scan covers the **linux/amd64** platform. ")
-            f.write(
-                "While this image also supports linux/arm64, the security analysis "
-            )
-            f.write(
-                "focuses on the AMD64 variant as it represents the majority of deployment targets. "
-            )
-            f.write(
-                "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
-            )
+            if tool in AMD64_ONLY_TOOLS:
+                f.write(
+                    "This vulnerability scan covers the **linux/amd64** platform. "
+                    "This image is built for linux/amd64 only.\n\n"
+                )
+            else:
+                f.write("This vulnerability scan covers the **linux/amd64** platform. ")
+                f.write(
+                    "While this image also supports linux/arm64, the security analysis "
+                )
+                f.write(
+                    "focuses on the AMD64 variant as it represents the majority of deployment targets. "
+                )
+                f.write(
+                    "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
+                )
             f.write(parsed_markdown)
 
         # Replace ghcr.io/getwilds with getwilds in the report

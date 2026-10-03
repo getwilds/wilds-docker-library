@@ -148,6 +148,25 @@ def get_dockerhub_token():
         return None
 
 
+def load_amd64_only_tools():
+    """
+    Load the list of AMD64-only tools from amd64_only_tools.txt.
+
+    Returns:
+        set: Set of tool names that should only be built for AMD64
+    """
+    amd64_only_file = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+        "amd64_only_tools.txt",
+    )
+    try:
+        with open(amd64_only_file, "r") as f:
+            return {line.strip() for line in f if line.strip()}
+    except FileNotFoundError:
+        logger.warning(f"amd64_only_tools.txt not found at {amd64_only_file}, using empty set")
+        return set()
+
+
 def parse_scout_quickview(scout_output):
     """
     Parse Docker Scout quickview output into a clean markdown format.

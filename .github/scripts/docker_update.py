@@ -38,7 +38,12 @@ import subprocess
 import requests
 from datetime import datetime
 import git
-from utils import run_command, parse_scout_quickview, get_dockerhub_token
+from utils import (
+    run_command,
+    parse_scout_quickview,
+    get_dockerhub_token,
+    load_amd64_only_tools,
+)
 
 # Set up logging
 logging.basicConfig(
@@ -56,25 +61,6 @@ DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
 # which takes down the whole job. Bounding it here turns that into a caught
 # TimeoutExpired and a fallback CVE report instead.
 DOCKER_SCOUT_TIMEOUT_SECONDS = 300
-
-
-def load_amd64_only_tools():
-    """
-    Load the list of AMD64-only tools from amd64_only_tools.txt.
-
-    Returns:
-        set: Set of tool names that should only be built for AMD64
-    """
-    amd64_only_file = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-        "amd64_only_tools.txt"
-    )
-    try:
-        with open(amd64_only_file, "r") as f:
-            return {line.strip() for line in f if line.strip()}
-    except FileNotFoundError:
-        logger.warning(f"amd64_only_tools.txt not found at {amd64_only_file}, using empty set")
-        return set()
 
 
 # Tools that should only be built for AMD64 (not ARM64)
@@ -460,14 +446,20 @@ def generate_cve_report(tool_name, tag, container):
         f.write(f"# Vulnerability Report for getwilds/{tool_name}:{tag}\n\n")
         f.write(f"Report generated on {pst_now}\n\n")
         f.write("## Platform Coverage\n\n")
-        f.write("This vulnerability scan covers the **linux/amd64** platform. ")
-        f.write("While this image also supports linux/arm64, the security analysis ")
-        f.write(
-            "focuses on the AMD64 variant as it represents the majority of deployment targets. "
-        )
-        f.write(
-            "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
-        )
+        if tool_name in AMD64_ONLY_TOOLS:
+            f.write(
+                "This vulnerability scan covers the **linux/amd64** platform. "
+                "This image is built for linux/amd64 only.\n\n"
+            )
+        else:
+            f.write("This vulnerability scan covers the **linux/amd64** platform. ")
+            f.write("While this image also supports linux/arm64, the security analysis ")
+            f.write(
+                "focuses on the AMD64 variant as it represents the majority of deployment targets. "
+            )
+            f.write(
+                "Vulnerabilities between architectures are typically similar for most bioinformatics applications.\n\n"
+            )
 
     # Check image size before running Docker Scout
     image_size = get_image_size(container)
