@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gatk:4.3.0.0
 
-Report generated on 2025-12-01 08:17:01 PST
+Report generated on 2026-10-03 15:13:12 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 16 |
-| 🟠 High | 71 |
-| 🟡 Medium | 1388 |
-| 🟢 Low | 64 |
+| 🟠 High | 70 |
+| 🟡 Medium | 79 |
+| 🟢 Low | 21 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -23,31 +23,41 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
-| 🟡 Medium | 6 |
-| 🟢 Low | 6 |
+| 🟠 High | 1 |
+| 🟡 Medium | 8 |
+| 🟢 Low | 7 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:24.04`
-
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/gatk:4.3.0.0  │   16C    71H   1388M    64L   
-    digest             │  72b9b124d12f                   │                               
-  Base image           │  ubuntu:24.04                   │    0C     0H     6M     6L    
-  Refreshed base image │  ubuntu:24.04                   │    0C     0H     2M     5L    
-                       │                                 │                  -4     -1    
-  Updated base image   │  ubuntu:25.04                   │    0C     0H     2M     4L    
-                       │                                 │                  -4     -2    
+Target             │  getwilds/gatk:4.3.0.0  │   16C    70H    79M    21L  
+   digest           │  8305b3e4136e                   │                             
+ Base image         │  ubuntu:24.04                   │    0C     1H     8M     7L  
+ Updated base image │  ubuntu:26.04                   │    0C     0H     0M     0L  
+                    │                                 │           -1     -8     -7  
+
+Policy status  FAILED  (3/7 policies met)
+Health score  D  (50%)
+
+ Status │                     Policy                     │           Results           
+────────┼────────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                    │                             
+ !      │ Copyleft licensed packages found               │    688 packages             
+ !      │ Fixable critical or high vulnerabilities found │   11C    64H     0M     0L  
+ ✓      │ No high-profile vulnerabilities                │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                        │                             
+ ✓      │ No unapproved base images                      │    0 deviations             
+ !      │ Required supply chain attestations missing     │    2 deviations             
 
 What's next:
+    View policy violations → docker scout policy getwilds/gatk:4.3.0.0
     View vulnerabilities → docker scout cves getwilds/gatk:4.3.0.0
     View base image update recommendations → docker scout recommendations getwilds/gatk:4.3.0.0
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/gatk:4.3.0.0 --org <organization>
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/gatk:4.3.0.0
 ```
 </details>
