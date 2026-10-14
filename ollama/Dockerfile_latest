@@ -1,8 +1,8 @@
-FROM ollama/ollama:0.21.0
+FROM ollama/ollama:0.40.4
 
 LABEL org.opencontainers.image.title="ollama"
 LABEL org.opencontainers.image.description="Docker image for Ollama in Fred Hutch OCDO's WILDS, with OpenCode for LLM-driven coding workflows"
-LABEL org.opencontainers.image.version="0.21.0"
+LABEL org.opencontainers.image.version="0.40.4"
 LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
 LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
 LABEL org.opencontainers.image.documentation=https://getwilds.org/

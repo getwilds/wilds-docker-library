@@ -5,13 +5,14 @@ This directory contains Docker images for [Ollama](https://ollama.com/), an LLM 
 ## Available Versions
 
 - `latest` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/Dockerfile_latest) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/CVEs_latest.md) )
+- `0.40.4` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/Dockerfile_0.40.4) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/CVEs_0.40.4.md) )
 - `0.21.0` ( [Dockerfile](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/Dockerfile_0.21.0) | [Vulnerability Report](https://github.com/getwilds/wilds-docker-library/blob/main/ollama/CVEs_0.21.0.md) )
 
 ## Image Details
 
-These Docker images are built from `ollama/ollama:0.21.0` and include:
+These Docker images are built from `ollama/ollama:0.40.4` and include:
 
-- Ollama v0.21.0: LLM inference server for running models locally
+- Ollama v0.40.4: LLM inference server for running models locally
 - Sprocket v0.23.0: WDL script validator
 - OpenCode v1.14.39: open-source AI coding agent
 - Python ollama SDK v0.6.1: Python client library for interacting with Ollama
@@ -53,7 +54,7 @@ This image bundles several independent tools. If you use them in your research, 
 docker pull getwilds/ollama:latest
 
 # Or pull a specific version
-docker pull getwilds/ollama:0.21.0
+docker pull getwilds/ollama:0.40.4
 
 # Alternatively, pull from GitHub Container Registry
 docker pull ghcr.io/getwilds/ollama:latest
@@ -66,7 +67,7 @@ docker pull ghcr.io/getwilds/ollama:latest
 apptainer pull docker://getwilds/ollama:latest
 
 # Or pull a specific version
-apptainer pull docker://getwilds/ollama:0.21.0
+apptainer pull docker://getwilds/ollama:0.40.4
 
 # Alternatively, pull from GitHub Container Registry
 apptainer pull docker://ghcr.io/getwilds/ollama:latest
@@ -105,7 +106,7 @@ sprocket lint /tmp/output.wdl
 
 The Dockerfile follows these main steps:
 
-1. Uses `ollama/ollama:0.21.0` as the base image
+1. Uses `ollama/ollama:0.40.4` as the base image
 2. Adds metadata labels for documentation and attribution
 3. Installs system dependencies with pinned versions (Python, curl, git, openssh-client, ripgrep)
 4. Installs CPU-only PyTorch from the PyTorch CPU wheel index, then the Python ollama SDK, chromadb, RapidFuzz, and sentence-transformers via pip
