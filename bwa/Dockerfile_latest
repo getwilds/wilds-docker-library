@@ -1,15 +1,6 @@
-# Using more recent Ubuntu version
-FROM ubuntu:24.04
 
-# Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="bwa" \
-      org.opencontainers.image.description="Docker image for the use of bwa in Fred Hutch OCDO's WILDS" \
-      org.opencontainers.image.version="latest" \
-      org.opencontainers.image.authors="wilds@fredhutch.org" \
-      org.opencontainers.image.url=https://ocdo.fredhutch.org/ \
-      org.opencontainers.image.documentation=https://getwilds.org/ \
-      org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library \
-      org.opencontainers.image.licenses=MIT
+# Build stage: compile BWA and Samtools from source
+FROM ubuntu:24.04 AS builder
 
 # Set environment variables for versions
 ENV BWA_VERSION=0.7.17 \
@@ -18,7 +9,7 @@ ENV BWA_VERSION=0.7.17 \
 # Set shell options
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Update system and install security patches
+# Installing build prerequisites
 RUN apt-get update && \
     apt-get upgrade -y && \
     # Store current versions in variables
@@ -73,6 +64,47 @@ RUN ./configure && \
     make && \
     make install && \
     rm -rf /tmp/samtools-${SAMTOOLS_VERSION}
+
+# Final stage: minimal runtime image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="bwa" \
+      org.opencontainers.image.description="Docker image for the use of bwa in Fred Hutch OCDO's WILDS" \
+      org.opencontainers.image.version="latest" \
+      org.opencontainers.image.authors="wilds@fredhutch.org" \
+      org.opencontainers.image.url=https://ocdo.fredhutch.org/ \
+      org.opencontainers.image.documentation=https://getwilds.org/ \
+      org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library \
+      org.opencontainers.image.licenses=MIT
+
+# Set shell options
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing runtime dependencies only
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    ZLIB_VERSION=$(apt-cache policy zlib1g | grep Candidate | awk '{print $2}') && \
+    LIBNCURSES_VERSION=$(apt-cache policy libncursesw6 | grep Candidate | awk '{print $2}') && \
+    LIBBZ2_VERSION=$(apt-cache policy libbz2-1.0 | grep Candidate | awk '{print $2}') && \
+    LIBLZMA_VERSION=$(apt-cache policy liblzma5 | grep Candidate | awk '{print $2}') && \
+    LIBSSL_VERSION=$(apt-cache policy libssl3t64 | grep Candidate | awk '{print $2}') && \
+    LIBCURL_VERSION=$(apt-cache policy libcurl3t64-gnutls | grep Candidate | awk '{print $2}') && \
+    CA_CERTS_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') && \
+    apt-get install -y --no-install-recommends \
+    zlib1g="${ZLIB_VERSION}" \
+    libncursesw6="${LIBNCURSES_VERSION}" \
+    libbz2-1.0="${LIBBZ2_VERSION}" \
+    liblzma5="${LIBLZMA_VERSION}" \
+    libssl3t64="${LIBSSL_VERSION}" \
+    libcurl3t64-gnutls="${LIBCURL_VERSION}" \
+    ca-certificates="${CA_CERTS_VERSION}" \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the compiled BWA and Samtools binaries from the build stage
+COPY --from=builder /usr/local/bin/bwa /usr/local/bin/bwa
+COPY --from=builder /usr/local/bin/samtools /usr/local/bin/samtools
 
 # Set working directory to a more appropriate location for workflow execution
 WORKDIR /data
