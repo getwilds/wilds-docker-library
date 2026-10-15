@@ -1,21 +1,10 @@
-
-# Using the Ubuntu base image
-FROM ubuntu:24.04
-
-# Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="star"
-LABEL org.opencontainers.image.description="Container image for the use of STAR in Fred Hutch OCDO's WILDS"
-LABEL org.opencontainers.image.version="latest"
-LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://hutchdatascience.org/
-LABEL org.opencontainers.image.documentation=https://getwilds.org/
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
-LABEL org.opencontainers.image.licenses=MIT
+# Build stage: compile STAR and Samtools from source
+FROM ubuntu:24.04 AS builder
 
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Installing prerequisites
+# Installing build prerequisites
 RUN apt-get update \
   && BUILD_ESSENTIAL_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
@@ -47,9 +36,9 @@ RUN wget -q --no-check-certificate https://github.com/alexdobin/STAR/archive/2.7
 
 # Installing STAR
 WORKDIR /STAR-2.7.6a/source
-RUN make STAR
+RUN make STAR \
+  && cp STAR /usr/local/bin/STAR
 WORKDIR /
-ENV PATH="${PATH}:/STAR-2.7.6a/source"
 
 # Pulling and extracting Samtools source code
 RUN wget -q --no-check-certificate https://github.com/samtools/samtools/releases/download/1.11/samtools-1.11.tar.bz2 && tar -jxf samtools-1.11.tar.bz2
@@ -60,8 +49,46 @@ RUN ./configure && make && make install
 WORKDIR /
 
 # Cleanup
-RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2
+RUN rm -rf samtools-1.11 samtools-1.11.tar.bz2 STAR-2.7.6a 2.7.6a.tar.gz
+
+# Final stage: minimal runtime image
+FROM ubuntu:24.04
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="star"
+LABEL org.opencontainers.image.description="Container image for the use of STAR in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://hutchdatascience.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing runtime dependencies only
+RUN apt-get update \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g | grep Candidate | awk '{print $2}') \
+  && LIBNCURSESW6_VERSION=$(apt-cache policy libncursesw6 | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-1.0 | grep Candidate | awk '{print $2}') \
+  && LIBLZMA5_VERSION=$(apt-cache policy liblzma5 | grep Candidate | awk '{print $2}') \
+  && LIBSSL3_VERSION=$(apt-cache policy libssl3t64 | grep Candidate | awk '{print $2}') \
+  && LIBCURL3_GNUTLS_VERSION=$(apt-cache policy libcurl3t64-gnutls | grep Candidate | awk '{print $2}') \
+  && LIBGOMP1_VERSION=$(apt-cache policy libgomp1 | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  zlib1g="${ZLIB1G_VERSION}" \
+  libncursesw6="${LIBNCURSESW6_VERSION}" \
+  libbz2-1.0="${LIBBZ2_VERSION}" \
+  liblzma5="${LIBLZMA5_VERSION}" \
+  libssl3t64="${LIBSSL3_VERSION}" \
+  libcurl3t64-gnutls="${LIBCURL3_GNUTLS_VERSION}" \
+  libgomp1="${LIBGOMP1_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Copying the compiled STAR and Samtools binaries from the build stage
+COPY --from=builder /usr/local/bin/STAR /usr/local/bin/STAR
+COPY --from=builder /usr/local/bin/samtools /usr/local/bin/samtools
 
 # Smoke test to verify STAR and samtools work on target architecture
-RUN STAR --version && samtools --version 
-
+RUN STAR --version && samtools --version

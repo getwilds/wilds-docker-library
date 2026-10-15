@@ -58,16 +58,26 @@ apptainer run --bind /path/to/data:/data docker://getwilds/star:latest STAR --ru
 apptainer run --bind /path/to/data:/data star_latest.sif STAR --runThreadN 4 --genomeDir /data/genome --readFilesIn /data/reads_1.fq /data/reads_2.fq --outFileNamePrefix /data/output/
 ```
 
+## Security Features
+
+The STAR Docker images include:
+
+- Pinned versions for all installed system packages
+- A multi-stage build that keeps compilers and development headers out of the final image
+- Smoke test during the build to verify the STAR and Samtools installations
+
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs prerequisites with pinned versions
-4. Downloads and builds STAR from source
-5. Includes Samtools v1.11 built from source
-6. Performs cleanup to minimize image size
+1. **Build stage**: Uses Ubuntu 24.04 with build tools and dev headers to compile STAR and Samtools v1.11 from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime libraries needed to run the compiled binaries
+3. Adds metadata labels for documentation and attribution
+4. Installs prerequisites with pinned versions in both stages
+5. Copies the compiled STAR and Samtools binaries from the build stage
+6. Performs a smoke test to verify the installation
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Security Scanning and CVEs
 
