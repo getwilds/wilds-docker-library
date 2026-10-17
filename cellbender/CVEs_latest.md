@@ -1,19 +1,14 @@
 # Vulnerability Report for getwilds/cellbender:latest
 
-Report generated on 2026-10-15 19:08:50 PST
+Report generated on 2026-10-17 23:06:02 PST
 
 ## Platform Coverage
 
 This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
 
-## ⚠️ Scan Skipped - Image Too Large
+**Docker Scout scan timed out for this image**
 
-Docker Scout scan was skipped for this image because it exceeds the size limit.
-
-**Image size:** 5.0 GB
-**Size limit:** 3.0 GB
-
-Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
+The scan did not finish within 300 seconds and was skipped. Run it manually to inspect this image:
 
 ```bash
 docker scout quickview getwilds/cellbender:latest --platform linux/amd64
