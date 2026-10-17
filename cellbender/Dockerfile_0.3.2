@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+FROM ubuntu:22.04
 
 LABEL org.opencontainers.image.title="cellbender"
 LABEL org.opencontainers.image.description="Docker image for CellBender in Fred Hutch OCDO's WILDS"
@@ -14,19 +14,18 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PATH="/usr/local/bin:${PATH}"
 
+# CUDA 11.8 userspace libraries ship inside the PyTorch cu118 wheels and the host
+# driver is injected at runtime, so only the NVIDIA runtime hints are needed here.
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
 RUN apt-get update \
   && PYTHON3_VERSION=$(apt-cache policy python3 | grep Candidate | awk '{print $2}') \
   && PYTHON3_PIP_VERSION=$(apt-cache policy python3-pip | grep Candidate | awk '{print $2}') \
-  && LIBHDF5_VERSION=$(apt-cache policy libhdf5-dev | grep Candidate | awk '{print $2}') \
-  && PKG_CONFIG_VERSION=$(apt-cache policy pkg-config | grep Candidate | awk '{print $2}') \
-  && GCC_VERSION=$(apt-cache policy gcc | grep Candidate | awk '{print $2}') \
   && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
   python3="${PYTHON3_VERSION}" \
   python3-pip="${PYTHON3_PIP_VERSION}" \
-  libhdf5-dev="${LIBHDF5_VERSION}" \
-  pkg-config="${PKG_CONFIG_VERSION}" \
-  gcc="${GCC_VERSION}" \
   git="${GIT_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
 
