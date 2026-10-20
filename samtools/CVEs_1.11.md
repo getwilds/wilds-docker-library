@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/samtools:1.11
 
-Report generated on 2025-12-01 08:32:23 PST
+Report generated on 2026-09-18 18:09:14 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 1135 |
-| 🟢 Low | 37 |
+| 🟠 High | 0 |
+| 🟡 Medium | 13 |
+| 🟢 Low | 2 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,30 +24,40 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 5 |
+| 🟡 Medium | 7 |
+| 🟢 Low | 2 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:24.04`
-
-**Updated base image:** `ubuntu:25.04`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/samtools:1.11  │    0C     7H   1135M    37L   
-    digest             │  4c1e44818702                    │                               
-  Base image           │  ubuntu:24.04                    │    0C     0H     2M     5L    
-  Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L    
-                       │                                  │                               
-  Updated base image   │  ubuntu:25.04                    │    0C     0H     2M     4L    
-                       │                                  │                         -1    
+Target             │  getwilds/samtools:1.11-amd64  │    0C     0H    13M     2L  
+   digest           │  b0bd4150b1ad                          │                             
+ Base image         │  ubuntu:24.04                          │    0C     0H     7M     2L  
+ Updated base image │  ubuntu:26.04                          │    0C     0H     0M     0L  
+                    │                                        │                  -7     -2  
+
+Policy status  FAILED  (4/7 policies met)
+Health score  B  (72%)
+
+ Status │                   Policy                    │           Results           
+────────┼─────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                 │                             
+ !      │ Copyleft licensed packages found            │    442 packages             
+ ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
+ ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                     │                             
+ ✓      │ No unapproved base images                   │    0 deviations             
+ !      │ Required supply chain attestations missing  │    2 deviations             
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/samtools:1.11
-    View base image update recommendations → docker scout recommendations getwilds/samtools:1.11
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/samtools:1.11 --org <organization>
+    View policy violations → docker scout policy getwilds/samtools:1.11-amd64
+    View vulnerabilities → docker scout cves getwilds/samtools:1.11-amd64
+    View base image update recommendations → docker scout recommendations getwilds/samtools:1.11-amd64
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/samtools:1.11-amd64
 ```
 </details>
