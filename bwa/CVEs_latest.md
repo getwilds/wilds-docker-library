@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bwa:latest
 
-Report generated on 2026-09-25 04:35:21 PST
+Report generated on 2026-10-20 05:09:49 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 2 |
+| 🟡 Medium | 21 |
+| 🟢 Low | 11 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,22 +24,16 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 8 |
+| 🟡 Medium | 20 |
 | 🟢 Low | 2 |
-
-## 🔄 Recommendations
-
-**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/bwa:latest  │    0C     0H    11M     2L  
-   digest           │  4c0f17365529                 │                             
- Base image         │  ubuntu:24.04                 │    0C     0H     8M     2L  
- Updated base image │  ubuntu:26.04                 │    0C     0H     0M     0L  
-                    │                               │                  -8     -2  
+Target     │  getwilds/bwa:latest  │    0C     0H    21M    11L  
+   digest   │  3ebd281e90f5                 │                             
+ Base image │  ubuntu:24.04                 │    0C     0H    20M     2L  
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
@@ -47,7 +41,7 @@ Health score  B  (72%)
  Status │                   Policy                    │           Results           
 ────────┼─────────────────────────────────────────────┼─────────────────────────────
  !      │ Image runs as the root user                 │                             
- !      │ Copyleft licensed packages found            │    441 packages             
+ !      │ Copyleft licensed packages found            │    415 packages             
  ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
  ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
  ✓      │ No outdated base images                     │                             
@@ -57,7 +51,6 @@ Health score  B  (72%)
 What's next:
     View policy violations → docker scout policy getwilds/bwa:latest
     View vulnerabilities → docker scout cves getwilds/bwa:latest
-    View base image update recommendations → docker scout recommendations getwilds/bwa:latest
     Compare with the latest in the registry → docker scout compare --to-latest getwilds/bwa:latest
 ```
 </details>
