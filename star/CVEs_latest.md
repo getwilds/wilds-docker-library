@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/star:latest
 
-Report generated on 2026-10-05 05:59:53 PST
+Report generated on 2026-10-20 18:08:41 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 8 |
-| 🟢 Low | 2 |
+| 🟡 Medium | 21 |
+| 🟢 Low | 11 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -23,23 +23,17 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 8 |
-| 🟢 Low | 7 |
-
-## 🔄 Recommendations
-
-**Updated base image:** `ubuntu:26.04`
+| 🟠 High | 0 |
+| 🟡 Medium | 20 |
+| 🟢 Low | 2 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/star:latest-amd64  │    0C     0H     8M     2L  
-   digest           │  7bf3e115bfef                        │                             
- Base image         │  ubuntu:24.04                        │    0C     1H     8M     7L  
- Updated base image │  ubuntu:26.04                        │    0C     0H     0M     0L  
-                    │                                      │           -1     -8     -7  
+Target     │  getwilds/star:latest-amd64  │    0C     0H    21M    11L  
+   digest   │  75ec77e314ce                        │                             
+ Base image │  ubuntu:24.04                        │    0C     0H    20M     2L  
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
@@ -57,7 +51,6 @@ Health score  B  (72%)
 What's next:
     View policy violations → docker scout policy getwilds/star:latest-amd64
     View vulnerabilities → docker scout cves getwilds/star:latest-amd64
-    View base image update recommendations → docker scout recommendations getwilds/star:latest-amd64
     Compare with the latest in the registry → docker scout compare --to-latest getwilds/star:latest-amd64
 ```
 </details>
