@@ -76,15 +76,17 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Dynamically determines and pins the latest security-patched versions of dependencies
-4. Downloads and builds BWA v0.7.17 from source
-5. Includes Samtools v1.11 built from source
+1. **Build stage**: Uses Ubuntu 24.04 with build tools and dev headers to compile BWA v0.7.17 and Samtools v1.11 from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime libraries needed to run the compiled binaries
+3. Adds metadata labels for documentation and attribution
+4. Dynamically determines and pins the latest security-patched versions of dependencies in both stages
+5. Copies the compiled BWA and Samtools binaries from the build stage
 6. Sets up a working directory at `/data` for workflow execution
 7. Implements a health check to verify the BWA installation
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Source Repository
 
