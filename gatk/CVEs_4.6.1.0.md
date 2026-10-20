@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/gatk:4.6.1.0
 
-Report generated on 2026-10-03 15:19:31 PST
+Report generated on 2026-10-20 16:41:11 PST
 
 ## Platform Coverage
 
@@ -12,8 +12,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 2 |
 | 🟠 High | 53 |
-| 🟡 Medium | 88 |
-| 🟢 Low | 23 |
+| 🟡 Medium | 105 |
+| 🟢 Low | 32 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -23,23 +23,17 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 1 |
-| 🟡 Medium | 8 |
-| 🟢 Low | 7 |
-
-## 🔄 Recommendations
-
-**Updated base image:** `ubuntu:26.04`
+| 🟠 High | 0 |
+| 🟡 Medium | 20 |
+| 🟢 Low | 2 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/gatk:4.6.1.0  │    2C    53H    88M    23L  
-   digest           │  605597b3ff92                   │                             
- Base image         │  ubuntu:24.04                   │    0C     1H     8M     7L  
- Updated base image │  ubuntu:26.04                   │    0C     0H     0M     0L  
-                    │                                 │           -1     -8     -7  
+Target     │  getwilds/gatk:4.6.1.0  │    2C    53H   105M    32L  
+   digest   │  7c0bb6e93ce6                   │                             
+ Base image │  ubuntu:24.04                   │    0C     0H    20M     2L  
 
 Policy status  FAILED  (3/7 policies met)
 Health score  D  (50%)
@@ -57,7 +51,6 @@ Health score  D  (50%)
 What's next:
     View policy violations → docker scout policy getwilds/gatk:4.6.1.0
     View vulnerabilities → docker scout cves getwilds/gatk:4.6.1.0
-    View base image update recommendations → docker scout recommendations getwilds/gatk:4.6.1.0
     Compare with the latest in the registry → docker scout compare --to-latest getwilds/gatk:4.6.1.0
 ```
 </details>
