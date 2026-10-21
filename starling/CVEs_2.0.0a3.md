@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/starling:2.0.0a3
 
-Report generated on 2026-03-25 21:21:06 PST
+Report generated on 2026-10-21 15:58:09 PST
 
 ## Platform Coverage
 
@@ -10,7 +10,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 Docker Scout scan was skipped for this image because it exceeds the size limit.
 
-**Image size:** 4.5 GB
+**Image size:** 4.6 GB
 **Size limit:** 3.0 GB
 
 Large images can cause timeouts and resource exhaustion in CI/CD environments. If you need a vulnerability scan for this image, please run it manually:
