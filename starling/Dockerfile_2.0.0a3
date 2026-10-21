@@ -1,6 +1,6 @@
 # starling Dockerfile for WILDS Docker Library
 # STARLING: Predicting coarse-grained ensembles of intrinsically disordered proteins
-FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
+FROM ubuntu:24.04
 
 # Adding labels for the GitHub Container Registry following WILDS standards
 LABEL org.opencontainers.image.title="starling"
@@ -14,6 +14,11 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# CUDA 12.6 userspace libraries ship inside the PyTorch cu126 wheels and the host
+# driver is injected at runtime, so only the NVIDIA runtime hints are needed here.
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
 # Install Python and build dependencies needed for Cython compilation
 RUN apt-get update \
