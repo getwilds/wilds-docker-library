@@ -153,17 +153,27 @@ VarScan provides several modules for different types of variant calling:
 - `--output-vcf 1`: Output variants in VCF format
 - `--vcf-sample-list`: File containing sample names for VCF header
 
+## Security Features
+
+The VarScan Docker images include:
+
+- A multi-stage build that keeps compilers and dev headers out of the final image
+- Dynamic versioning for all dependencies to ensure the latest security patches
+- Pinned versions for reproducibility
+- Minimal installation with only required runtime dependencies
+
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 22.04 as the base image for broad compatibility
-2. Adds metadata labels for documentation and attribution
-3. Configures shell with pipefail for better error handling
-4. Installs system dependencies with version pinning and minimal recommendations
-5. Builds and installs htslib v1.19, samtools v1.19, and bcftools v1.19 from source
-6. Downloads VarScan v2.4.6 JAR file
-7. Performs cleanup to minimize image size and reduce attack surface
+1. **Build stage**: Uses Ubuntu 22.04 with build tools and dev headers to compile htslib v1.19, samtools v1.19, and bcftools v1.19 from source and to download the VarScan v2.4.6 JAR file
+2. **Final stage**: Uses a fresh Ubuntu 22.04 base with only the runtime libraries, a headless Java 8 runtime, and vcftools
+3. Adds metadata labels for documentation and attribution
+4. Dynamically determines and pins the latest security-patched versions of dependencies in both stages
+5. Copies the compiled htslib libraries, samtools, bcftools, and the VarScan JAR from the build stage
+6. Runs a smoke test to verify the samtools, bcftools, and Java installations
+
+This reduces image size and attack surface by keeping compilers and dev headers out of the final image.
 
 ## Security Scanning and CVEs
 
