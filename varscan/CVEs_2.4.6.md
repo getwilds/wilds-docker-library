@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/varscan:2.4.6
 
-Report generated on 2025-12-01 09:44:50 PST
+Report generated on 2026-10-22 22:20:49 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 10 |
-| 🟡 Medium | 1696 |
-| 🟢 Low | 91 |
+| 🟠 High | 0 |
+| 🟡 Medium | 23 |
+| 🟢 Low | 10 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,12 +24,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 11 |
-| 🟢 Low | 14 |
+| 🟡 Medium | 18 |
+| 🟢 Low | 7 |
 
 ## 🔄 Recommendations
-
-**Refreshed base image:** `ubuntu:22.04`
 
 **Updated base image:** `ubuntu:24.04`
 
@@ -37,17 +35,29 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/varscan:2.4.6  │    0C    10H   1696M    91L   
-    digest             │  54e79f4cc36a                    │                               
-  Base image           │  ubuntu:22.04                    │    0C     0H    11M    14L    
-  Refreshed base image │  ubuntu:22.04                    │    0C     0H     2M    12L    
-                       │                                  │                  -9     -2    
-  Updated base image   │  ubuntu:24.04                    │    0C     0H     2M     5L    
-                       │                                  │                  -9     -9    
+Target             │  getwilds/varscan:2.4.6-amd64  │    0C     0H    23M    10L  
+   digest           │  57f3273760bd                          │                             
+ Base image         │  ubuntu:22.04                          │    0C     0H    18M     7L  
+ Updated base image │  ubuntu:24.04                          │    0C     0H    20M     2L  
+                    │                                        │                  +2     -5  
+
+Policy status  FAILED  (4/7 policies met)
+Health score  B  (72%)
+
+ Status │                   Policy                    │           Results           
+────────┼─────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                 │                             
+ !      │ Copyleft licensed packages found            │    315 packages             
+ ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
+ ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                     │                             
+ ✓      │ No unapproved base images                   │    0 deviations             
+ !      │ Required supply chain attestations missing  │    2 deviations             
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/varscan:2.4.6
-    View base image update recommendations → docker scout recommendations getwilds/varscan:2.4.6
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/varscan:2.4.6 --org <organization>
+    View policy violations → docker scout policy getwilds/varscan:2.4.6-amd64
+    View vulnerabilities → docker scout cves getwilds/varscan:2.4.6-amd64
+    View base image update recommendations → docker scout recommendations getwilds/varscan:2.4.6-amd64
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/varscan:2.4.6-amd64
 ```
 </details>
