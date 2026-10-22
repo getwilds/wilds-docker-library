@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bcftools:1.19
 
-Report generated on 2025-12-01 08:15:54 PST
+Report generated on 2026-10-22 07:37:31 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 7 |
-| 🟡 Medium | 1135 |
-| 🟢 Low | 37 |
+| 🟠 High | 0 |
+| 🟡 Medium | 22 |
+| 🟢 Low | 2 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,30 +24,33 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 5 |
-
-## 🔄 Recommendations
-
-**Refreshed base image:** `ubuntu:24.04`
-
-**Updated base image:** `ubuntu:25.04`
+| 🟡 Medium | 20 |
+| 🟢 Low | 2 |
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/bcftools:1.19  │    0C     7H   1135M    37L   
-    digest             │  6d0756fe0ac9                    │                               
-  Base image           │  ubuntu:24.04                    │    0C     0H     2M     5L    
-  Refreshed base image │  ubuntu:24.04                    │    0C     0H     2M     5L    
-                       │                                  │                               
-  Updated base image   │  ubuntu:25.04                    │    0C     0H     2M     4L    
-                       │                                  │                         -1    
+Target     │  getwilds/bcftools:1.19-amd64  │    0C     0H    22M     2L  
+   digest   │  b19623c4a8ed                          │                             
+ Base image │  ubuntu:24.04                          │    0C     0H    20M     2L  
+
+Policy status  FAILED  (4/7 policies met)
+Health score  B  (72%)
+
+ Status │                   Policy                    │           Results           
+────────┼─────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                 │                             
+ !      │ Copyleft licensed packages found            │    415 packages             
+ ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
+ ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                     │                             
+ ✓      │ No unapproved base images                   │    0 deviations             
+ !      │ Required supply chain attestations missing  │    2 deviations             
 
 What's next:
-    View vulnerabilities → docker scout cves getwilds/bcftools:1.19
-    View base image update recommendations → docker scout recommendations getwilds/bcftools:1.19
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/bcftools:1.19 --org <organization>
+    View policy violations → docker scout policy getwilds/bcftools:1.19-amd64
+    View vulnerabilities → docker scout cves getwilds/bcftools:1.19-amd64
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/bcftools:1.19-amd64
 ```
 </details>

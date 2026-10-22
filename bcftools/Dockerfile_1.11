@@ -1,21 +1,11 @@
 
-# Using the Ubuntu base image
-FROM ubuntu:24.04
-
-# Adding labels for the GitHub Container Registry
-LABEL org.opencontainers.image.title="bcftools"
-LABEL org.opencontainers.image.description="Docker image for the use of bcftools in Fred Hutch OCDO's WILDS"
-LABEL org.opencontainers.image.version="1.11"
-LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
-LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
-LABEL org.opencontainers.image.documentation=https://getwilds.org/
-LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
-LABEL org.opencontainers.image.licenses=MIT
+# Build stage: compile BCFtools from source
+FROM ubuntu:24.04 AS builder
 
 # Set the shell option to fail if any command in a pipe fails
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Installing prerequisites
+# Installing build prerequisites
 RUN apt-get update \
   && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
@@ -43,11 +33,52 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Pulling and extracting bcftools source code
-RUN wget -q --no-check-certificate https://github.com/samtools/bcftools/releases/download/1.11/bcftools-1.11.tar.bz2 && tar -xvf bcftools-1.11.tar.bz2
+RUN wget -q --no-check-certificate https://github.com/samtools/bcftools/releases/download/1.11/bcftools-1.11.tar.bz2 && tar -xf bcftools-1.11.tar.bz2
+
+# Installing bcftools
 WORKDIR /bcftools-1.11
-RUN make
+RUN make && make install
 WORKDIR /
-ENV PATH="${PATH}:/bcftools-1.11"
-RUN rm -rf bcftools-1.11.tar.bz2
+RUN rm -rf bcftools-1.11 bcftools-1.11.tar.bz2
 
+# Final stage: minimal runtime image
+FROM ubuntu:24.04
 
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="bcftools"
+LABEL org.opencontainers.image.description="Docker image for the use of bcftools in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="1.11"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Installing runtime dependencies only (wget is kept because WDL tasks download data with it)
+RUN apt-get update \
+  && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
+  && ZLIB1G_VERSION=$(apt-cache policy zlib1g | grep Candidate | awk '{print $2}') \
+  && LIBBZ2_VERSION=$(apt-cache policy libbz2-1.0 | grep Candidate | awk '{print $2}') \
+  && LIBLZMA_VERSION=$(apt-cache policy liblzma5 | grep Candidate | awk '{print $2}') \
+  && LIBSSL_VERSION=$(apt-cache policy libssl3t64 | grep Candidate | awk '{print $2}') \
+  && LIBCURL4_VERSION=$(apt-cache policy libcurl3t64-gnutls | grep Candidate | awk '{print $2}') \
+  && CERT_VERSION=$(apt-cache policy ca-certificates | grep Candidate | awk '{print $2}') \
+  && apt-get install -y --no-install-recommends \
+  wget="${WGET_VERSION}" \
+  zlib1g="${ZLIB1G_VERSION}" \
+  libbz2-1.0="${LIBBZ2_VERSION}" \
+  liblzma5="${LIBLZMA_VERSION}" \
+  libssl3t64="${LIBSSL_VERSION}" \
+  libcurl3t64-gnutls="${LIBCURL4_VERSION}" \
+  ca-certificates="${CERT_VERSION}" \
+  && rm -rf /var/lib/apt/lists/*
+
+# Copy the compiled bcftools binary (and plugins, if built) from the build stage
+COPY --from=builder /usr/local/bin/bcftools /usr/local/bin/bcftools
+COPY --from=builder /usr/local/libexec/bcftools /usr/local/libexec/bcftools
+
+# Smoke test to verify bcftools works on target architecture
+RUN bcftools --version

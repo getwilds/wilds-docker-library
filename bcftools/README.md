@@ -63,15 +63,27 @@ apptainer run --bind /path/to/data:/data docker://getwilds/bcftools:latest bcfto
 apptainer run --bind /path/to/data:/data bcftools_latest.sif bcftools mpileup -f /data/reference.fa /data/aligned.bam | bcftools call -mv -Ob -o /data/calls.bcf
 ```
 
+## Security Features
+
+The BCFtools Docker images include:
+
+- Multi-stage build that keeps compilers and development headers out of the final image
+- Dynamic versioning for all dependencies to ensure the latest security patches
+- Minimal installation with only the runtime libraries required by BCFtools
+- Smoke test to verify the BCFtools installation
+
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Dynamically determines and pins the latest security-patched versions of dependencies
-4. Downloads and builds BCFtools from source
-5. Performs cleanup to minimize image size
+1. **Build stage**: Uses Ubuntu 24.04 with build tools and dev headers to compile BCFtools from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime libraries needed to run the compiled binary
+3. Adds metadata labels for documentation and attribution
+4. Dynamically determines and pins the latest security-patched versions of dependencies in both stages
+5. Copies the compiled BCFtools binary (and plugins) from the build stage
+6. Runs a smoke test to verify the BCFtools installation
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Security Scanning and CVEs
 
