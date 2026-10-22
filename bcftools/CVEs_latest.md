@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bcftools:latest
 
-Report generated on 2026-10-22 08:03:51 PST
+Report generated on 2026-10-22 16:24:59 PST
 
 ## Platform Coverage
 
@@ -32,7 +32,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target     │  getwilds/bcftools:latest-amd64  │    0C     0H    22M     2L  
-   digest   │  578ec18a4003                            │                             
+   digest   │  7e9b3c48373a                            │                             
  Base image │  ubuntu:24.04                            │    0C     0H    20M     2L  
 
 Policy status  FAILED  (4/7 policies met)
