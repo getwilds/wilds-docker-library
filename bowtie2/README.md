@@ -95,14 +95,23 @@ apptainer run --bind /path/to/data:/data bowtie2_latest.sif \
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs system and build dependencies with pinned versions
-4. Downloads and installs the pre-built Bowtie 2 binary for the target architecture
-5. Downloads and compiles Samtools v1.19 from source
-6. Performs cleanup to minimize image size
+1. **Build stage**: Uses Ubuntu 24.04 with build tools and dev headers (with pinned versions) to download the pre-built Bowtie 2 binary for the target architecture and compile Samtools v1.19 from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime dependencies (Perl, Python 3, and shared libraries) needed to run the tools
+3. Adds metadata labels for documentation and attribution
+4. Copies the Bowtie 2 and Samtools binaries from the build stage
+5. Runs a smoke test to verify both tools work on the target architecture
+
+This reduces image size and attack surface by keeping compilers and dev headers out of the final image.
+
+## Security Features
+
+The Bowtie 2 Docker images include:
+
+- Multi-stage build that keeps compilers and dev headers out of the final image
+- Pinned versions for reproducibility
+- Minimal installation with only runtime dependencies
 
 ## Security Scanning and CVEs
 
