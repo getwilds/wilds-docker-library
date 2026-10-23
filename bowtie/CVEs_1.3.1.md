@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bowtie:1.3.1
 
-Report generated on 2026-10-22 17:46:33 PST
+Report generated on 2026-10-23 04:15:04 PST
 
 ## Platform Coverage
 
@@ -24,7 +24,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 20 |
+| 🟡 Medium | 21 |
 | 🟢 Low | 2 |
 
 <details>
@@ -32,8 +32,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target     │  getwilds/bowtie:1.3.1-amd64  │    0C     0H    22M     2L  
-   digest   │  8c3b600b1a0a                         │                             
- Base image │  ubuntu:24.04                         │    0C     0H    20M     2L  
+   digest   │  13af142b3bea                         │                             
+ Base image │  ubuntu:24.04                         │    0C     0H    21M     2L  
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
