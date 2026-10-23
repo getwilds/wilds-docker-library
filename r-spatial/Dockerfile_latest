@@ -1,0 +1,32 @@
+# Use Rocker geospatial base image (includes sf, terra, raster, stars, and system dependencies)
+FROM rocker/geospatial:4.6.1
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="r-spatial"
+LABEL org.opencontainers.image.description="Docker image for geospatial R packages in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="latest"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Set R library paths to avoid host contamination in Apptainer
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+
+# Install additional R packages from a dated Posit Package Manager snapshot so versions are
+# reproducible (the base image's default repo tracks "latest"). sf, terra, stars, gstat, spdep,
+# data.table, and lubridate are already in rocker/geospatial. Suggests are not installed.
+# Fail the build if any package did not install.
+ENV CRAN_SNAPSHOT=https://p3m.dev/cran/__linux__/noble/2026-10-23
+RUN Rscript -e 'pkgs <- c("optparse", "exactextractr", "ggspatial", "rnaturalearth", "tigris"); install.packages(pkgs, repos = Sys.getenv("CRAN_SNAPSHOT"), dependencies = c("Depends", "Imports", "LinkingTo")); missing <- setdiff(pkgs, rownames(installed.packages())); if (length(missing) > 0) stop("Failed to install: ", paste(missing, collapse = ", "))' && \
+    rm -rf /tmp/downloaded_packages /tmp/Rtmp* /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /data
+
+# Smoke test
+RUN Rscript -e 'pkgs <- c("sf", "terra", "stars", "exactextractr", "gstat", "spdep", "ggspatial", "rnaturalearth", "tigris", "optparse", "data.table", "lubridate"); for (p in pkgs) { library(p, character.only = TRUE); cat(p, as.character(packageVersion(p)), "\n") }; print(sf::sf_extSoftVersion())'
