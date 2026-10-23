@@ -91,18 +91,28 @@ apptainer run --bind /path/to/data:/data bowtie_latest.sif \
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build:
 
+**Build stage:**
 1. Uses Ubuntu 24.04 as the base image
+2. Installs build dependencies (compilers, `-dev` headers) with pinned versions
+3. Downloads the pre-built Bowtie binary for the target architecture
+4. Downloads and compiles Samtools v1.19 from source
+
+**Final stage:**
+1. Starts from a fresh Ubuntu 24.04 base image
 2. Adds metadata labels for documentation and attribution
-3. Installs system and build dependencies with pinned versions
-4. Downloads and installs the pre-built Bowtie binary for the target architecture
-5. Downloads and compiles Samtools v1.19 from source
-6. Performs cleanup to minimize image size
+3. Installs only runtime dependencies (Perl, Python 3, and shared libraries) with pinned versions
+4. Copies the Bowtie and Samtools binaries from the build stage
+5. Runs a smoke test to verify both tools
+
+This approach reduces image size and attack surface by keeping compilers and development headers out of the final image.
 
 ## Security Scanning and CVEs
 
 These images are regularly scanned for vulnerabilities using Docker Scout. However, due to the nature of bioinformatics software and their dependencies, some Docker images may contain components with known vulnerabilities (CVEs).
+
+**Security Features**: The multi-stage build keeps compilers and development headers out of the final image, which removes most vulnerabilities that would otherwise come from build-only tooling.
 
 **Use at your own risk**: While we strive to minimize security issues, these images are primarily designed for research and analytical workflows in controlled environments.
 
