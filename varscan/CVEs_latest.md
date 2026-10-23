@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/varscan:latest
 
-Report generated on 2026-10-22 23:09:06 PST
+Report generated on 2026-10-23 16:57:55 PST
 
 ## Platform Coverage
 
@@ -12,7 +12,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 23 |
+| 🟡 Medium | 24 |
 | 🟢 Low | 10 |
 | ⚪ Unknown | 0 |
 
@@ -24,7 +24,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 18 |
+| 🟡 Medium | 19 |
 | 🟢 Low | 7 |
 
 ## 🔄 Recommendations
@@ -35,10 +35,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/varscan:latest-amd64  │    0C     0H    23M    10L  
-   digest           │  9bca53c21804                           │                             
- Base image         │  ubuntu:22.04                           │    0C     0H    18M     7L  
- Updated base image │  ubuntu:24.04                           │    0C     0H    20M     2L  
+Target             │  getwilds/varscan:latest-amd64  │    0C     0H    24M    10L  
+   digest           │  d485aa005bfd                           │                             
+ Base image         │  ubuntu:22.04                           │    0C     0H    19M     7L  
+ Updated base image │  ubuntu:24.04                           │    0C     0H    21M     2L  
                     │                                         │                  +2     -5  
 
 Policy status  FAILED  (4/7 policies met)
