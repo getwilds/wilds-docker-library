@@ -81,7 +81,8 @@ apptainer run --bind /path/to/data:/data umitools_latest.sif umi_tools dedup \
 
 The UMI-tools Docker images include:
 
-- Python 3.11 from Debian Bookworm for a secure base
+- Multi-stage build that keeps compilers and dev headers out of the final image
+- Python 3.11 slim from Debian Bookworm for a minimal base
 - Installation via pip with no-cache-dir to minimize image size
 - Pinned versions for reproducibility
 
@@ -95,13 +96,16 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Python 3.11-bookworm as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs build prerequisites and compiles Samtools v1.20 from source
-4. Installs UMI-tools with a specific version via pip (no-cache-dir to keep the image size minimal)
-5. Runs a smoke test verifying both `umi_tools` and `samtools` are functional
+1. **Build stage**: Uses Python 3.11-bookworm with build tools and dev headers to compile Samtools v1.20 from source and install UMI-tools with a specific version via pip
+2. **Final stage**: Uses a fresh Python 3.11-slim-bookworm base with only the runtime libraries needed by Samtools
+3. Adds metadata labels for documentation and attribution
+4. Dynamically determines and pins the latest security-patched versions of dependencies in both stages
+5. Copies the compiled Samtools binary and the installed UMI-tools packages from the build stage
+6. Runs a smoke test verifying both `umi_tools` and `samtools` are functional
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Source Repository
 
