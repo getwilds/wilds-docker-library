@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/bowtie2:latest
 
-Report generated on 2026-10-22 18:48:07 PST
+Report generated on 2026-10-23 05:41:32 PST
 
 ## Platform Coverage
 
@@ -24,7 +24,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 20 |
+| 🟡 Medium | 21 |
 | 🟢 Low | 2 |
 
 <details>
@@ -32,8 +32,8 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target     │  getwilds/bowtie2:latest-amd64  │    0C     0H    21M     2L  
-   digest   │  46f9edadbbd6                           │                             
- Base image │  ubuntu:24.04                           │    0C     0H    20M     2L  
+   digest   │  220cba1d8a58                           │                             
+ Base image │  ubuntu:24.04                           │    0C     0H    21M     2L  
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
