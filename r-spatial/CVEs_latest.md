@@ -1,0 +1,63 @@
+# Vulnerability Report for getwilds/r-spatial:latest
+
+Report generated on 2026-10-23 19:18:16 PST
+
+## Platform Coverage
+
+This vulnerability scan covers the **linux/amd64** platform. While this image also supports linux/arm64, the security analysis focuses on the AMD64 variant as it represents the majority of deployment targets. Vulnerabilities between architectures are typically similar for most bioinformatics applications.
+
+## 📊 Vulnerability Summary
+
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 5 |
+| 🟠 High | 181 |
+| 🟡 Medium | 401 |
+| 🟢 Low | 377 |
+| ⚪ Unknown | 0 |
+
+## 🐳 Base Image
+
+**Image:** `ubuntu:24.04`
+
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 0 |
+| 🟠 High | 1 |
+| 🟡 Medium | 21 |
+| 🟢 Low | 7 |
+
+## 🔄 Recommendations
+
+**Refreshed base image:** `ubuntu:24.04`
+
+<details>
+<summary>📋 Raw Docker Scout Output</summary>
+
+```text
+Target               │  getwilds/r-spatial:latest-amd64  │    5C   181H   401M   377L  
+   digest             │  0da919e270b3                             │                             
+ Base image           │  ubuntu:24.04                             │    0C     1H    21M     7L  
+ Refreshed base image │  ubuntu:24.04                             │    0C     0H    21M     2L  
+                      │                                           │           -1            -5  
+
+Policy status  FAILED  (3/7 policies met)
+Health score  D  (50%)
+
+ Status │                     Policy                     │           Results           
+────────┼────────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                    │                             
+ !      │ Copyleft licensed packages found               │    1434 packages            
+ !      │ Fixable critical or high vulnerabilities found │    0C     2H     0M     0L  
+ ✓      │ No high-profile vulnerabilities                │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                        │                             
+ ✓      │ No unapproved base images                      │    0 deviations             
+ !      │ Required supply chain attestations missing     │    2 deviations             
+
+What's next:
+    View policy violations → docker scout policy getwilds/r-spatial:latest-amd64
+    View vulnerabilities → docker scout cves getwilds/r-spatial:latest-amd64
+    View base image update recommendations → docker scout recommendations getwilds/r-spatial:latest-amd64
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/r-spatial:latest-amd64
+```
+</details>
