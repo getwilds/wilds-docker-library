@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/umitools:latest
 
-Report generated on 2026-10-23 19:03:06 PST
+Report generated on 2026-10-25 00:07:40 PST
 
 ## Platform Coverage
 
@@ -25,7 +25,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | 🔴 Critical | 0 |
 | 🟠 High | 11 |
 | 🟡 Medium | 15 |
-| 🟢 Low | 51 |
+| 🟢 Low | 52 |
 
 ## 🔄 Recommendations
 
@@ -36,10 +36,10 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/umitools:latest-amd64  │    0C    12H    15M    65L    11?  
-   digest           │  5c096a993cf3                            │                                    
- Base image         │  python:3.11-slim-bookworm               │    0C    11H    15M    51L         
+   digest           │  53422772fb18                            │                                    
+ Base image         │  python:3.11-slim-bookworm               │    0C    11H    15M    52L         
  Updated base image │  python:3.12-slim-bookworm               │    0C     9H    14M    51L         
-                    │                                          │           -2     -1                
+                    │                                          │           -2     -1     -1         
 
 Policy status  FAILED  (3/7 policies met)
 Health score  D  (50%)
