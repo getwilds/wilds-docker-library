@@ -13,7 +13,8 @@ These Docker images are built from Ubuntu 24.04 and include:
 
 - HISAT2 v2.2.1: A graph-based alignment tool for next-generation sequencing reads
 - Python 3: Required for HISAT2 indexing and some analysis scripts
-- Build tools: For compiling HISAT2 from source
+
+HISAT2 is compiled in a separate build stage, so compilers and development headers are not present in the final images.
 
 The images are designed to be minimal and focused on a specific version of HISAT2 with its dependencies.
 
@@ -69,6 +70,7 @@ The HISAT2 Docker images include:
 - Pinned versions for reproducibility
 - Git-based source code checkout with specific version tagging
 - Minimal installation with only required dependencies
+- Multi-stage build that keeps compilers and dev headers out of the final image
 
 ### Security Scanning and CVEs
 
@@ -80,15 +82,21 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build:
 
+**Build stage:**
 1. Uses Ubuntu 24.04 as the base image
+2. Installs build tools and development headers (with pinned versions)
+3. Clones the HISAT2 repository from GitHub at a specific version and builds it from source
+
+**Final stage:**
+1. Starts from a fresh Ubuntu 24.04 base image
 2. Adds metadata labels for documentation and attribution
-3. Dynamically determines and pins the latest security-patched versions of dependencies
-4. Sets a consistent shell option to fail if any command in a pipe fails
-5. Clones the HISAT2 repository from GitHub at a specific version
-6. Builds HISAT2 from source
-7. Adds HISAT2 to system PATH
+3. Installs only the runtime dependencies (Python 3 and zlib)
+4. Copies the compiled HISAT2 from the build stage and adds it to the system PATH
+5. Runs a smoke test to verify the install
+
+This approach reduces image size and attack surface by excluding build tools from the final image.
 
 ## Source Repository
 
