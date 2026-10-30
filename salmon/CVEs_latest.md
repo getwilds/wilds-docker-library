@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/salmon:latest
 
-Report generated on 2026-10-30 09:11:37 PST
+Report generated on 2026-10-30 19:36:15 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/salmon:latest-amd64  │    0C     0H    20M     2L  
-   digest           │  08019bac27ad                          │                             
+   digest           │  3a3ce6ffe48d                          │                             
  Base image         │  ubuntu:24.04                          │    0C     0H    20M     2L  
  Updated base image │  ubuntu:26.10                          │    0C     0H     0M     0L  
                     │                                        │                 -20     -2  
