@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:latest
 
-Report generated on 2026-10-29 16:56:43 PST
+Report generated on 2026-10-30 04:14:17 PST
 
 ## Platform Coverage
 
@@ -36,7 +36,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 
 ```text
 Target             │  getwilds/hisat2:latest  │    0C     0H    21M     2L  
-   digest           │  db79dd5102f0                    │                             
+   digest           │  33cf07de5fdb                    │                             
  Base image         │  ubuntu:24.04                    │    0C     0H    20M     2L  
  Updated base image │  ubuntu:26.10                    │    0C     0H     0M     0L  
                     │                                  │                 -20     -2  
