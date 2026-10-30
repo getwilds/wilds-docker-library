@@ -105,17 +105,23 @@ Starting with version 1.0.0, Salmon uses selective alignment by default, which p
 
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 24.04 as the base image
-2. Adds metadata labels for documentation and attribution
-3. Installs system dependencies with pinned versions (build tools, Boost, TBB, compression libraries)
-4. Downloads Salmon v1.10.3 source code from GitHub
-5. Builds Salmon from source using CMake
-6. Performs cleanup to minimize image size
-7. Runs a smoke test to verify the installation
+1. **Build stage**: Uses Ubuntu 24.04 with build tools, CMake, Boost, and other dev headers (pinned versions) to compile Salmon v1.10.3 from source
+2. **Final stage**: Uses a fresh Ubuntu 24.04 base with only the runtime library needed to run the compiled binary (Intel TBB)
+3. Adds metadata labels for documentation and attribution
+4. Copies the compiled Salmon binary from the build stage
+5. Runs a smoke test to verify the installation
 
-Building from source ensures compatibility across both AMD64 and ARM64 architectures.
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface. Building from source ensures compatibility across both AMD64 and ARM64 architectures.
+
+## Security Features
+
+The Salmon Docker images include:
+
+- Multi-stage build that keeps compilers and dev headers out of the final image
+- Pinned package versions for reproducibility
+- Minimal installation with only required runtime dependencies
 
 ## Security Scanning and CVEs
 
