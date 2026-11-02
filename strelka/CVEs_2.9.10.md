@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/strelka:2.9.10
 
-Report generated on 2025-12-01 09:42:22 PST
+Report generated on 2026-10-30 19:43:31 PST
 
 ## Platform Coverage
 
@@ -11,9 +11,9 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 5 |
-| 🟡 Medium | 1284 |
-| 🟢 Low | 72 |
+| 🟠 High | 0 |
+| 🟡 Medium | 38 |
+| 🟢 Low | 10 |
 | ⚪ Unknown | 0 |
 
 ## 🐳 Base Image
@@ -24,30 +24,40 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 |----------|-------|
 | 🔴 Critical | 0 |
 | 🟠 High | 0 |
-| 🟡 Medium | 2 |
-| 🟢 Low | 12 |
+| 🟡 Medium | 19 |
+| 🟢 Low | 7 |
 
 ## 🔄 Recommendations
 
-**Refreshed base image:** `ubuntu:22.04`
-
-**Updated base image:** `ubuntu:24.04`
+**Updated base image:** `ubuntu:26.04`
 
 <details>
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target               │  getwilds/strelka:2.9.10  │    0C     5H   1284M    72L   
-    digest             │  b6ca51d96c99                     │                               
-  Base image           │  ubuntu:22.04                     │    0C     0H     2M    12L    
-  Refreshed base image │  ubuntu:22.04                     │    0C     0H     2M    12L    
-                       │                                   │                               
-  Updated base image   │  ubuntu:24.04                     │    0C     0H     2M     5L    
-                       │                                   │                         -7    
+Target             │  getwilds/strelka:2.9.10  │    0C     0H    38M    10L  
+   digest           │  a10b45393fc2                     │                             
+ Base image         │  ubuntu:22.04                     │    0C     0H    19M     7L  
+ Updated base image │  ubuntu:26.04                     │    0C     0H     0M     0L  
+                    │                                   │                 -19     -7  
+
+Policy status  FAILED  (4/7 policies met)
+Health score  B  (72%)
+
+ Status │                   Policy                    │           Results           
+────────┼─────────────────────────────────────────────┼─────────────────────────────
+ !      │ Image runs as the root user                 │                             
+ !      │ Copyleft licensed packages found            │    259 packages             
+ ✓      │ No fixable critical or high vulnerabilities │    0C     0H     0M     0L  
+ ✓      │ No high-profile vulnerabilities             │    0C     0H     0M     0L  
+ ✓      │ No outdated base images                     │                             
+ ✓      │ No unapproved base images                   │    0 deviations             
+ !      │ Required supply chain attestations missing  │    2 deviations             
 
 What's next:
+    View policy violations → docker scout policy getwilds/strelka:2.9.10
     View vulnerabilities → docker scout cves getwilds/strelka:2.9.10
     View base image update recommendations → docker scout recommendations getwilds/strelka:2.9.10
-    Include policy results in your quickview by supplying an organization → docker scout quickview getwilds/strelka:2.9.10 --org <organization>
+    Compare with the latest in the registry → docker scout compare --to-latest getwilds/strelka:2.9.10
 ```
 </details>

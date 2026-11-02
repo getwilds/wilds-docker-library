@@ -152,18 +152,26 @@ Strelka generates several output files in the specified run directory:
 - CPU scaling is effective up to ~8-16 cores for most datasets
 - For large cohorts, consider using workflow managers like Nextflow or Snakemake
 
+## Security Features
+
+The Strelka Docker images include:
+
+- Multi-stage build that keeps compilers (`build-essential`) and `-dev` headers out of the final image
+- Pinned versions of all system packages for reproducibility
+- Minimal installation with only runtime dependencies (shared libraries, Python 2, and Python 3)
+
 ## Dockerfile Structure
 
-The Dockerfile follows these main steps:
+The Dockerfile uses a multi-stage build to keep the final image minimal:
 
-1. Uses Ubuntu 22.04 as the base image for broad compatibility
-2. Adds metadata labels for documentation and attribution
-3. Configures shell with pipefail for better error handling
-4. Installs system dependencies with version pinning and minimal recommendations
-5. Builds and installs htslib v1.19.1, samtools v1.19.2, and bcftools v1.19 from source
-6. Downloads and installs Strelka v2.9.10 pre-compiled binaries
-7. Installs both Python 2 (required for Strelka) and Python 3 (for additional functionality)
-8. Performs cleanup to minimize image size and reduce attack surface
+1. **Build stage**: Uses Ubuntu 22.04 with build tools and dev headers to compile htslib v1.19.1, samtools v1.19.2, and bcftools v1.19 from source, and to download the Strelka v2.9.10 pre-compiled binaries
+2. **Final stage**: Uses a fresh Ubuntu 22.04 base with only the runtime libraries, Python 2 (required for Strelka), and Python 3
+3. Adds metadata labels for documentation and attribution
+4. Pins the versions of system dependencies in both stages
+5. Copies the compiled tools and Strelka from the build stage and refreshes the shared library cache
+6. Runs a smoke test to verify the Strelka, samtools, and bcftools binaries
+
+This approach keeps compilers and development headers out of the final image, reducing its size and attack surface.
 
 ## Security Scanning and CVEs
 
