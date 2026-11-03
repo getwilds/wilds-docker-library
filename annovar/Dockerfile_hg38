@@ -1,6 +1,6 @@
 
 # Using the Ubuntu base image
-FROM ubuntu:24.04
+FROM ubuntu:26.10
 
 # Adding labels for the GitHub Container Registry
 LABEL org.opencontainers.image.title="annovar"
@@ -17,11 +17,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Installing prerequisites
 RUN apt-get update \
-  && BE_VERSION=$(apt-cache policy build-essential | grep Candidate | awk '{print $2}') \
   && WGET_VERSION=$(apt-cache policy wget | grep Candidate | awk '{print $2}') \
   && PERL_VERSION=$(apt-cache policy perl | grep Candidate | awk '{print $2}') \
   && apt-get install -y --no-install-recommends \
-  build-essential="${BE_VERSION}" \
   wget="${WGET_VERSION}" \
   perl="${PERL_VERSION}" \
   && rm -rf /var/lib/apt/lists/*
