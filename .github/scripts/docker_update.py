@@ -48,8 +48,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger("docker-update")
 
-# Size limit for Docker Scout scanning (3GB in bytes)
-DOCKER_SCOUT_SIZE_LIMIT = 3 * 1024 * 1024 * 1024
+# Size limit for Docker Scout scanning (1GB in bytes)
+DOCKER_SCOUT_SIZE_LIMIT = 1 * 1024 * 1024 * 1024
 
 # Wall-clock limit for a single `docker scout quickview` call. Scout has been
 # seen to hang on registry/backend calls in CI and get killed by the runner,
