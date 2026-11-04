@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/hisat2:2.2.1
 
-Report generated on 2026-10-30 04:10:16 PST
+Report generated on 2026-11-04 19:58:48 PST
 
 ## Platform Coverage
 
@@ -11,7 +11,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
+| 🟠 High | 1 |
 | 🟡 Medium | 21 |
 | 🟢 Low | 2 |
 | ⚪ Unknown | 0 |
@@ -23,7 +23,7 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 | Severity | Count |
 |----------|-------|
 | 🔴 Critical | 0 |
-| 🟠 High | 0 |
+| 🟠 High | 1 |
 | 🟡 Medium | 20 |
 | 🟢 Low | 2 |
 
@@ -35,11 +35,11 @@ This vulnerability scan covers the **linux/amd64** platform. While this image al
 <summary>📋 Raw Docker Scout Output</summary>
 
 ```text
-Target             │  getwilds/hisat2:2.2.1  │    0C     0H    21M     2L  
-   digest           │  57aa0309fd98                   │                             
- Base image         │  ubuntu:24.04                   │    0C     0H    20M     2L  
+Target             │  getwilds/hisat2:2.2.1  │    0C     1H    21M     2L  
+   digest           │  b0dd9538dbe0                   │                             
+ Base image         │  ubuntu:24.04                   │    0C     1H    20M     2L  
  Updated base image │  ubuntu:26.10                   │    0C     0H     0M     0L  
-                    │                                 │                 -20     -2  
+                    │                                 │           -1    -20     -2  
 
 Policy status  FAILED  (4/7 policies met)
 Health score  B  (72%)
