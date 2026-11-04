@@ -10,7 +10,7 @@ This directory contains Docker images for ANNOVAR, a software tool for functiona
 
 ## Image Details
 
-These Docker images are built from Ubuntu 24.04 and include:
+These Docker images are built from Ubuntu 26.10 and include:
 
 - ANNOVAR: A software tool for functionally annotating genetic variants
 - Pre-installed annotation databases:
@@ -84,9 +84,9 @@ For the latest security information about this image, please check the `CVEs_*.m
 
 The Dockerfile follows these main steps:
 
-1. Uses Ubuntu 24.04 as the base image
+1. Uses Ubuntu 26.10 as the base image
 2. Adds metadata labels for documentation and attribution
-3. Dynamically determines and pins the latest security-patched versions of dependencies
+3. Dynamically determines and pins the latest security-patched versions of dependencies (only `wget` and `perl`; no compiler toolchain, since ANNOVAR is a set of Perl scripts)
 4. Downloads and extracts ANNOVAR
 5. Downloads reference-specific annotation databases
 6. Cleans up installation artifacts to minimize image size
