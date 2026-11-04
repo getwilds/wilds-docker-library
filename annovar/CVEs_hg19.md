@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annovar:hg19
 
-Report generated on 2026-11-04 21:15:40 PST
+Report generated on 2026-11-04 22:09:16 PST
 
 ## Platform Coverage
 

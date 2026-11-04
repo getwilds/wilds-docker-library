@@ -1,6 +1,6 @@
 # Vulnerability Report for getwilds/annovar:latest
 
-Report generated on 2026-11-04 21:40:18 PST
+Report generated on 2026-11-04 22:37:05 PST
 
 ## Platform Coverage
 
