@@ -1,0 +1,53 @@
+# Using Python slim base image for a lean footprint
+FROM python:3.12-slim
+
+# Adding labels for the GitHub Container Registry
+LABEL org.opencontainers.image.title="prscsx"
+LABEL org.opencontainers.image.description="Docker image for PRS-CSx in Fred Hutch OCDO's WILDS"
+LABEL org.opencontainers.image.version="1.1.0"
+LABEL org.opencontainers.image.authors="wilds@fredhutch.org"
+LABEL org.opencontainers.image.url=https://ocdo.fredhutch.org/
+LABEL org.opencontainers.image.documentation=https://getwilds.org/
+LABEL org.opencontainers.image.source=https://github.com/getwilds/wilds-docker-library
+LABEL org.opencontainers.image.licenses=MIT
+
+# Set the shell option to fail if any command in a pipe fails
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# PRS-CSx is pinned to a master commit rather than the v1.1.0 tag because the tag predates
+# the May 2024 scipy-compatibility fix and the Nov 2024 posterior-sample output feature.
+ENV PRSCSX_COMMIT=bdf5f30e5e5e9aa9f357ec31b4d0eca7d155e9a8
+
+# Installing git (only needed to fetch PRS-CSx at build time)
+RUN apt-get update \
+    && GIT_VERSION=$(apt-cache policy git | grep Candidate | awk '{print $2}') \
+    && apt-get install -y --no-install-recommends git="${GIT_VERSION}" \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installing Python dependencies, pinned to the versions recommended by the PRS-CSx authors
+# (NumPy 1.x, SciPy 1.11, h5py 3.10+ on Python 3.12); h5py 3.12 is used because earlier releases lack aarch64 wheels
+RUN pip install --no-cache-dir \
+    numpy==1.26.4 \
+    scipy==1.11.4 \
+    h5py==3.12.1
+
+# Cloning PRS-CSx at the pinned commit and removing git metadata
+RUN git clone https://github.com/getian107/PRScsx.git /opt/PRScsx \
+    && git -C /opt/PRScsx checkout "${PRSCSX_COMMIT}" \
+    && rm -rf /opt/PRScsx/.git /opt/PRScsx/test_data \
+    && chmod +x /opt/PRScsx/PRScsx.py \
+    && ln -s /opt/PRScsx/PRScsx.py /usr/local/bin/PRScsx.py
+
+# Removing git now that the clone is done
+RUN apt-get purge -y --auto-remove git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory for data analysis
+WORKDIR /data
+
+# Smoke test: verify dependencies import and PRScsx runs
+RUN python -c "import numpy, scipy, h5py; \
+    print('numpy', numpy.__version__); \
+    print('scipy', scipy.__version__); \
+    print('h5py', h5py.__version__)" \
+    && PRScsx.py --help > /dev/null
